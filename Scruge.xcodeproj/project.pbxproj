@@ -1,0 +1,879 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		512EE954BDA3136818C75BF7 /* Pods_Scruge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */; };
+		71971C812158E056004D28E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C802158E056004D28E7 /* AppDelegate.swift */; };
+		71971C832158E056004D28E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C822158E056004D28E7 /* ViewController.swift */; };
+		71971C862158E056004D28E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71971C842158E056004D28E7 /* Main.storyboard */; };
+		71971C882158E058004D28E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71971C872158E058004D28E7 /* Assets.xcassets */; };
+		71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71971C892158E058004D28E7 /* LaunchScreen.storyboard */; };
+		71971C962158E059004D28E7 /* ScrugeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C952158E059004D28E7 /* ScrugeTests.swift */; };
+		71971CA12158E059004D28E7 /* ScrugeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CA02158E059004D28E7 /* ScrugeUITests.swift */; };
+		71971CB92158E445004D28E7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CB82158E445004D28E7 /* R.generated.swift */; };
+		71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CBE2158E8AA004D28E7 /* Presenter.swift */; };
+		71971CC12158F076004D28E7 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CC02158F076004D28E7 /* RoundedView.swift */; };
+		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
+		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
+		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
+		71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8ED215910500078BD36 /* CampaignVM.swift */; };
+		71C8E8F1215912690078BD36 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8F0215912690078BD36 /* Api.swift */; };
+		71C8E8F3215912A10078BD36 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8F2215912A10078BD36 /* Settings.swift */; };
+		8C8CD5C46C0D9A389DDD6F7B /* Pods_ScrugeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */; };
+		EB5D555ED85FD38C8FDBC1E0 /* Pods_ScrugeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F72C8E9414CF0808510DF3D /* Pods_ScrugeUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		71971C922158E059004D28E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71971C752158E056004D28E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71971C7C2158E056004D28E7;
+			remoteInfo = Scruge;
+		};
+		71971C9D2158E059004D28E7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71971C752158E056004D28E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71971C7C2158E056004D28E7;
+			remoteInfo = Scruge;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		38208ECDA13EC24E9D2BEB36 /* Pods-ScrugeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeTests/Pods-ScrugeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71971C7D2158E056004D28E7 /* Scruge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scruge.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		71971C802158E056004D28E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		71971C822158E056004D28E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		71971C852158E056004D28E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		71971C872158E058004D28E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		71971C8A2158E058004D28E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		71971C8C2158E058004D28E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71971C912158E059004D28E7 /* ScrugeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrugeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71971C952158E059004D28E7 /* ScrugeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrugeTests.swift; sourceTree = "<group>"; };
+		71971C972158E059004D28E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71971C9C2158E059004D28E7 /* ScrugeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrugeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71971CA02158E059004D28E7 /* ScrugeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrugeUITests.swift; sourceTree = "<group>"; };
+		71971CA22158E059004D28E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71971CB82158E445004D28E7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
+		71971CBE2158E8AA004D28E7 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
+		71971CC02158F076004D28E7 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
+		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
+		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
+		71C8E8ED215910500078BD36 /* CampaignVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignVM.swift; sourceTree = "<group>"; };
+		71C8E8F0215912690078BD36 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
+		71C8E8F2215912A10078BD36 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scruge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AEF28830A2E790AC6CB0B01 /* Pods-ScrugeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeTests/Pods-ScrugeTests.release.xcconfig"; sourceTree = "<group>"; };
+		91B9FC9C0CACF2FAFAA009DB /* Pods-ScrugeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeUITests/Pods-ScrugeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		9F72C8E9414CF0808510DF3D /* Pods_ScrugeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrugeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A017E097DEA406DB35999946 /* Pods-Scruge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scruge.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scruge/Pods-Scruge.release.xcconfig"; sourceTree = "<group>"; };
+		CF18F8B8236AF2DDD504351B /* Pods-Scruge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scruge.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scruge/Pods-Scruge.debug.xcconfig"; sourceTree = "<group>"; };
+		E8B5E6BDB93E01D5E3313BF5 /* Pods-ScrugeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeUITests/Pods-ScrugeUITests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		71971C7A2158E056004D28E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				512EE954BDA3136818C75BF7 /* Pods_Scruge.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71971C8E2158E059004D28E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8C8CD5C46C0D9A389DDD6F7B /* Pods_ScrugeTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71971C992158E059004D28E7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EB5D555ED85FD38C8FDBC1E0 /* Pods_ScrugeUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5ED3CA62F48657A058B07B71 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF18F8B8236AF2DDD504351B /* Pods-Scruge.debug.xcconfig */,
+				A017E097DEA406DB35999946 /* Pods-Scruge.release.xcconfig */,
+				38208ECDA13EC24E9D2BEB36 /* Pods-ScrugeTests.debug.xcconfig */,
+				8AEF28830A2E790AC6CB0B01 /* Pods-ScrugeTests.release.xcconfig */,
+				91B9FC9C0CACF2FAFAA009DB /* Pods-ScrugeUITests.debug.xcconfig */,
+				E8B5E6BDB93E01D5E3313BF5 /* Pods-ScrugeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		71971C742158E056004D28E7 = {
+			isa = PBXGroup;
+			children = (
+				71971C7F2158E056004D28E7 /* Scruge */,
+				71971C942158E059004D28E7 /* ScrugeTests */,
+				71971C9F2158E059004D28E7 /* ScrugeUITests */,
+				71971C7E2158E056004D28E7 /* Products */,
+				5ED3CA62F48657A058B07B71 /* Pods */,
+				9E01F0AF29DD0E979EC82684 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		71971C7E2158E056004D28E7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				71971C7D2158E056004D28E7 /* Scruge.app */,
+				71971C912158E059004D28E7 /* ScrugeTests.xctest */,
+				71971C9C2158E059004D28E7 /* ScrugeUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		71971C7F2158E056004D28E7 /* Scruge */ = {
+			isa = PBXGroup;
+			children = (
+				71971CB12158E3E6004D28E7 /* Services */,
+				71971CB42158E3FE004D28E7 /* Model */,
+				71971CB32158E3F6004D28E7 /* ViewModel */,
+				71971CB22158E3F0004D28E7 /* View */,
+				71971CB52158E402004D28E7 /* Extensions */,
+				71971CB72158E427004D28E7 /* Support */,
+			);
+			path = Scruge;
+			sourceTree = "<group>";
+		};
+		71971C942158E059004D28E7 /* ScrugeTests */ = {
+			isa = PBXGroup;
+			children = (
+				71971C952158E059004D28E7 /* ScrugeTests.swift */,
+				71971C972158E059004D28E7 /* Info.plist */,
+			);
+			path = ScrugeTests;
+			sourceTree = "<group>";
+		};
+		71971C9F2158E059004D28E7 /* ScrugeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				71971CA02158E059004D28E7 /* ScrugeUITests.swift */,
+				71971CA22158E059004D28E7 /* Info.plist */,
+			);
+			path = ScrugeUITests;
+			sourceTree = "<group>";
+		};
+		71971CB12158E3E6004D28E7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				71C8E8E621590F1E0078BD36 /* Blockchain */,
+				71C8E8F0215912690078BD36 /* Api.swift */,
+				71C8E8F2215912A10078BD36 /* Settings.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		71971CB22158E3F0004D28E7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				71971CBE2158E8AA004D28E7 /* Presenter.swift */,
+				71971CBD2158E48D004D28E7 /* Storyboard */,
+				71971CBA2158E44E004D28E7 /* Controllers */,
+				71971CBB2158E454004D28E7 /* Cells */,
+				71971CBC2158E45B004D28E7 /* Views */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		71971CB32158E3F6004D28E7 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				71C8E8EF215910DD0078BD36 /* Campaign */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		71971CB42158E3FE004D28E7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				71C8E8EB2159101B0078BD36 /* Campaign.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		71971CB52158E402004D28E7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				71971CC02158F076004D28E7 /* RoundedView.swift */,
+				71C8E8E4215907580078BD36 /* DismissSegue.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		71971CB72158E427004D28E7 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				71971CB82158E445004D28E7 /* R.generated.swift */,
+				71971C802158E056004D28E7 /* AppDelegate.swift */,
+				71971C872158E058004D28E7 /* Assets.xcassets */,
+				71971C8C2158E058004D28E7 /* Info.plist */,
+			);
+			name = Support;
+			sourceTree = "<group>";
+		};
+		71971CBA2158E44E004D28E7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				71971C822158E056004D28E7 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		71971CBB2158E454004D28E7 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		71971CBC2158E45B004D28E7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		71971CBD2158E48D004D28E7 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				71971C892158E058004D28E7 /* LaunchScreen.storyboard */,
+				71971C842158E056004D28E7 /* Main.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		71C8E8E621590F1E0078BD36 /* Blockchain */ = {
+			isa = PBXGroup;
+			children = (
+				71C8E8E721590F2A0078BD36 /* Blockchain.swift */,
+			);
+			path = Blockchain;
+			sourceTree = "<group>";
+		};
+		71C8E8EF215910DD0078BD36 /* Campaign */ = {
+			isa = PBXGroup;
+			children = (
+				71C8E8ED215910500078BD36 /* CampaignVM.swift */,
+			);
+			path = Campaign;
+			sourceTree = "<group>";
+		};
+		9E01F0AF29DD0E979EC82684 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */,
+				5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */,
+				9F72C8E9414CF0808510DF3D /* Pods_ScrugeUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		71971C7C2158E056004D28E7 /* Scruge */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71971CA52158E059004D28E7 /* Build configuration list for PBXNativeTarget "Scruge" */;
+			buildPhases = (
+				16947475C64A98912E348D53 /* [CP] Check Pods Manifest.lock */,
+				71971CAE2158E340004D28E7 /* R.Swift */,
+				71971C792158E056004D28E7 /* Sources */,
+				71971C7A2158E056004D28E7 /* Frameworks */,
+				71971C7B2158E056004D28E7 /* Resources */,
+				5FEA90AA5D755A6BF0F171E8 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Scruge;
+			productName = Scruge;
+			productReference = 71971C7D2158E056004D28E7 /* Scruge.app */;
+			productType = "com.apple.product-type.application";
+		};
+		71971C902158E059004D28E7 /* ScrugeTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71971CA82158E059004D28E7 /* Build configuration list for PBXNativeTarget "ScrugeTests" */;
+			buildPhases = (
+				2F183837487CA3F5D6A72422 /* [CP] Check Pods Manifest.lock */,
+				71971C8D2158E059004D28E7 /* Sources */,
+				71971C8E2158E059004D28E7 /* Frameworks */,
+				71971C8F2158E059004D28E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71971C932158E059004D28E7 /* PBXTargetDependency */,
+			);
+			name = ScrugeTests;
+			productName = ScrugeTests;
+			productReference = 71971C912158E059004D28E7 /* ScrugeTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		71971C9B2158E059004D28E7 /* ScrugeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71971CAB2158E059004D28E7 /* Build configuration list for PBXNativeTarget "ScrugeUITests" */;
+			buildPhases = (
+				77EA98F98EB616843581B9F4 /* [CP] Check Pods Manifest.lock */,
+				71971C982158E059004D28E7 /* Sources */,
+				71971C992158E059004D28E7 /* Frameworks */,
+				71971C9A2158E059004D28E7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71971C9E2158E059004D28E7 /* PBXTargetDependency */,
+			);
+			name = ScrugeUITests;
+			productName = ScrugeUITests;
+			productReference = 71971C9C2158E059004D28E7 /* ScrugeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		71971C752158E056004D28E7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1000;
+				LastUpgradeCheck = 1000;
+				ORGANIZATIONNAME = Ysoftware;
+				TargetAttributes = {
+					71971C7C2158E056004D28E7 = {
+						CreatedOnToolsVersion = 10.0;
+					};
+					71971C902158E059004D28E7 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 71971C7C2158E056004D28E7;
+					};
+					71971C9B2158E059004D28E7 = {
+						CreatedOnToolsVersion = 10.0;
+						TestTargetID = 71971C7C2158E056004D28E7;
+					};
+				};
+			};
+			buildConfigurationList = 71971C782158E056004D28E7 /* Build configuration list for PBXProject "Scruge" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 71971C742158E056004D28E7;
+			productRefGroup = 71971C7E2158E056004D28E7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				71971C7C2158E056004D28E7 /* Scruge */,
+				71971C902158E059004D28E7 /* ScrugeTests */,
+				71971C9B2158E059004D28E7 /* ScrugeUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		71971C7B2158E056004D28E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */,
+				71971C882158E058004D28E7 /* Assets.xcassets in Resources */,
+				71971C862158E056004D28E7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71971C8F2158E059004D28E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71971C9A2158E059004D28E7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		16947475C64A98912E348D53 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Scruge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2F183837487CA3F5D6A72422 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScrugeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5FEA90AA5D755A6BF0F171E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Scruge/Pods-Scruge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AuthController/AuthController.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MVVM/MVVM.framework",
+				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftHTTP/SwiftHTTP.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AuthController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MVVM.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHTTP.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scruge/Pods-Scruge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71971CAE2158E340004D28E7 /* R.Swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = R.Swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+		};
+		77EA98F98EB616843581B9F4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ScrugeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		71971C792158E056004D28E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71C8E8F1215912690078BD36 /* Api.swift in Sources */,
+				71971C832158E056004D28E7 /* ViewController.swift in Sources */,
+				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,
+				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,
+				71971CC12158F076004D28E7 /* RoundedView.swift in Sources */,
+				71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */,
+				71C8E8F3215912A10078BD36 /* Settings.swift in Sources */,
+				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
+				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,
+				71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */,
+				71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71971C8D2158E059004D28E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71971C962158E059004D28E7 /* ScrugeTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		71971C982158E059004D28E7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71971CA12158E059004D28E7 /* ScrugeUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		71971C932158E059004D28E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71971C7C2158E056004D28E7 /* Scruge */;
+			targetProxy = 71971C922158E059004D28E7 /* PBXContainerItemProxy */;
+		};
+		71971C9E2158E059004D28E7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71971C7C2158E056004D28E7 /* Scruge */;
+			targetProxy = 71971C9D2158E059004D28E7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		71971C842158E056004D28E7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71971C852158E056004D28E7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		71971C892158E058004D28E7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				71971C8A2158E058004D28E7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		71971CA32158E059004D28E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		71971CA42158E059004D28E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		71971CA62158E059004D28E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF18F8B8236AF2DDD504351B /* Pods-Scruge.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S422Q897FZ;
+				INFOPLIST_FILE = "$(SRCROOT)/Scruge/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.Scruge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENABLE_BATCH_MODE = NO;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		71971CA72158E059004D28E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A017E097DEA406DB35999946 /* Pods-Scruge.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = S422Q897FZ;
+				INFOPLIST_FILE = "$(SRCROOT)/Scruge/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.Scruge;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ENABLE_BATCH_MODE = NO;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		71971CA92158E059004D28E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 38208ECDA13EC24E9D2BEB36 /* Pods-ScrugeTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S422Q897FZ;
+				INFOPLIST_FILE = ScrugeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.ScrugeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scruge.app/Scruge";
+			};
+			name = Debug;
+		};
+		71971CAA2158E059004D28E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8AEF28830A2E790AC6CB0B01 /* Pods-ScrugeTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S422Q897FZ;
+				INFOPLIST_FILE = ScrugeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.ScrugeTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Scruge.app/Scruge";
+			};
+			name = Release;
+		};
+		71971CAC2158E059004D28E7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 91B9FC9C0CACF2FAFAA009DB /* Pods-ScrugeUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S422Q897FZ;
+				INFOPLIST_FILE = ScrugeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.ScrugeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Scruge;
+			};
+			name = Debug;
+		};
+		71971CAD2158E059004D28E7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8B5E6BDB93E01D5E3313BF5 /* Pods-ScrugeUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S422Q897FZ;
+				INFOPLIST_FILE = ScrugeUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.ScrugeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Scruge;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		71971C782158E056004D28E7 /* Build configuration list for PBXProject "Scruge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71971CA32158E059004D28E7 /* Debug */,
+				71971CA42158E059004D28E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71971CA52158E059004D28E7 /* Build configuration list for PBXNativeTarget "Scruge" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71971CA62158E059004D28E7 /* Debug */,
+				71971CA72158E059004D28E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71971CA82158E059004D28E7 /* Build configuration list for PBXNativeTarget "ScrugeTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71971CA92158E059004D28E7 /* Debug */,
+				71971CAA2158E059004D28E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		71971CAB2158E059004D28E7 /* Build configuration list for PBXNativeTarget "ScrugeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71971CAC2158E059004D28E7 /* Debug */,
+				71971CAD2158E059004D28E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 71971C752158E056004D28E7 /* Project object */;
+}
