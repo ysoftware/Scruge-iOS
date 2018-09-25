@@ -27,12 +27,17 @@ struct Api {
 
 	func getCampaignList(for query:CampaignQuery?,
 						 completion: @escaping (Result<CampaignListResponse, NetworkingError>)->Void) {
+		var params:[String:Any] = [:]
 		// create params from query
-		let params:[String:Any] = [:]
 		service.get("campaigns", params, completion)
 	}
 
-	// MARK: - Comments
+	// MARK: - Updates
 
-
+	func getUpdateList(forCampaignId id:String,
+					   completion: @escaping (Result<UpdateListResponse, NetworkingError>)->Void) {
+		var params:[String:Any] = [:]
+		params["id"] = id
+		service.get("updates", params, completion)
+	}
 }

@@ -9,7 +9,7 @@
 import MVVM
 import Result
 
-final class CampaignLisVM: ArrayViewModel<Campaign, CampaignVM, CampaignQuery> {
+final class CampaignAVM: ArrayViewModel<Campaign, CampaignVM, CampaignQuery> {
 
 	override func fetchData(_ query: CampaignQuery?,
 							_ block: @escaping (Result<[Campaign], AnyError>) -> Void) {

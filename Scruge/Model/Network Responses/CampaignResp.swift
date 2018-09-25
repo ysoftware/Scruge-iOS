@@ -8,14 +8,12 @@
 
 import Foundation
 
-// These types should reflect json tree of backend response.
-
 struct CampaignResponse: Codable {
 
-	var campaign:Campaign
+	let campaign:Campaign
 }
 
 struct CampaignListResponse: Codable {
 
-	var campaigns:[Campaign]
+	let campaigns:[Campaign]
 }

@@ -21,8 +21,12 @@
 		71971CC12158F076004D28E7 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CC02158F076004D28E7 /* RoundedView.swift */; };
 		71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF2215A9DF700929CC3 /* Codable.swift */; };
 		71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF4215A9E1000929CC3 /* JSONAny.swift */; };
-		71B38CF9215AA16400929CC3 /* CampaignResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF8215AA10900929CC3 /* CampaignResponse.swift */; };
-		71BE1043215A1EBD004753EC /* CampaignQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1042215A1EBD004753EC /* CampaignQuery.swift */; };
+		71B38CF9215AA16400929CC3 /* CampaignResp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF8215AA10900929CC3 /* CampaignResp.swift */; };
+		71B38CFB215ABDE400929CC3 /* Update.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CFA215ABDE400929CC3 /* Update.swift */; };
+		71B38CFD215ABDF000929CC3 /* UpdateResp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CFC215ABDF000929CC3 /* UpdateResp.swift */; };
+		71B38D00215ABE3400929CC3 /* UpdateVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CFF215ABE3400929CC3 /* UpdateVM.swift */; };
+		71B38D02215ABE6E00929CC3 /* UpdateAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38D01215ABE6E00929CC3 /* UpdateAVM.swift */; };
+		71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1042215A1EBD004753EC /* CampaignQ.swift */; };
 		71BE1046215A2020004753EC /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1045215A2020004753EC /* Networking.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
@@ -73,8 +77,12 @@
 		71971CC02158F076004D28E7 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		71B38CF2215A9DF700929CC3 /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		71B38CF4215A9E1000929CC3 /* JSONAny.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAny.swift; sourceTree = "<group>"; };
-		71B38CF8215AA10900929CC3 /* CampaignResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResponse.swift; sourceTree = "<group>"; };
-		71BE1042215A1EBD004753EC /* CampaignQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignQuery.swift; sourceTree = "<group>"; };
+		71B38CF8215AA10900929CC3 /* CampaignResp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignResp.swift; sourceTree = "<group>"; };
+		71B38CFA215ABDE400929CC3 /* Update.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Update.swift; sourceTree = "<group>"; };
+		71B38CFC215ABDF000929CC3 /* UpdateResp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateResp.swift; sourceTree = "<group>"; };
+		71B38CFF215ABE3400929CC3 /* UpdateVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateVM.swift; sourceTree = "<group>"; };
+		71B38D01215ABE6E00929CC3 /* UpdateAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateAVM.swift; sourceTree = "<group>"; };
+		71BE1042215A1EBD004753EC /* CampaignQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignQ.swift; sourceTree = "<group>"; };
 		71BE1045215A2020004753EC /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
@@ -211,6 +219,7 @@
 		71971CB32158E3F6004D28E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				71B38CFE215ABE2700929CC3 /* Update */,
 				71C8E8EF215910DD0078BD36 /* Campaign */,
 			);
 			path = ViewModel;
@@ -219,8 +228,9 @@
 		71971CB42158E3FE004D28E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				71B38CF7215AA0FB00929CC3 /* Network */,
+				71B38CF7215AA0FB00929CC3 /* Network Responses */,
 				71C8E8EB2159101B0078BD36 /* Campaign.swift */,
+				71B38CFA215ABDE400929CC3 /* Update.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -286,12 +296,22 @@
 			path = Codable;
 			sourceTree = "<group>";
 		};
-		71B38CF7215AA0FB00929CC3 /* Network */ = {
+		71B38CF7215AA0FB00929CC3 /* Network Responses */ = {
 			isa = PBXGroup;
 			children = (
-				71B38CF8215AA10900929CC3 /* CampaignResponse.swift */,
+				71B38CF8215AA10900929CC3 /* CampaignResp.swift */,
+				71B38CFC215ABDF000929CC3 /* UpdateResp.swift */,
 			);
-			path = Network;
+			path = "Network Responses";
+			sourceTree = "<group>";
+		};
+		71B38CFE215ABE2700929CC3 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				71B38CFF215ABE3400929CC3 /* UpdateVM.swift */,
+				71B38D01215ABE6E00929CC3 /* UpdateAVM.swift */,
+			);
+			path = Update;
 			sourceTree = "<group>";
 		};
 		71BE1044215A2016004753EC /* Networking */ = {
@@ -315,7 +335,7 @@
 			children = (
 				71C8E8ED215910500078BD36 /* CampaignVM.swift */,
 				716AE1CB215977470098882F /* CampaignAVM.swift */,
-				71BE1042215A1EBD004753EC /* CampaignQuery.swift */,
+				71BE1042215A1EBD004753EC /* CampaignQ.swift */,
 			);
 			path = Campaign;
 			sourceTree = "<group>";
@@ -571,23 +591,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71B38CF9215AA16400929CC3 /* CampaignResponse.swift in Sources */,
+				71B38CF9215AA16400929CC3 /* CampaignResp.swift in Sources */,
 				716AE1CC215977470098882F /* CampaignAVM.swift in Sources */,
 				71C8E8F1215912690078BD36 /* Api.swift in Sources */,
 				71971C832158E056004D28E7 /* ViewController.swift in Sources */,
 				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,
 				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,
+				71B38CFD215ABDF000929CC3 /* UpdateResp.swift in Sources */,
+				71B38D02215ABE6E00929CC3 /* UpdateAVM.swift in Sources */,
 				71971CC12158F076004D28E7 /* RoundedView.swift in Sources */,
 				71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */,
-				71BE1043215A1EBD004753EC /* CampaignQuery.swift in Sources */,
+				71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */,
 				71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */,
 				71C8E8F3215912A10078BD36 /* Settings.swift in Sources */,
 				71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */,
+				71B38CFB215ABDE400929CC3 /* Update.swift in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
 				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,
 				71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */,
 				71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */,
 				71BE1046215A2020004753EC /* Networking.swift in Sources */,
+				71B38D00215ABE3400929CC3 /* UpdateVM.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
