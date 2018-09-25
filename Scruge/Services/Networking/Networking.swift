@@ -10,9 +10,14 @@ import SwiftHTTP
 import Result
 
 protocol Networking {
-	func get(_ request:String,
+
+	func get<T:Codable>(_ request:String,
 			 _ params:HTTPParameterProtocol?,
-			 _ completion:(Result<[String:Any], AnyError>)->Void)
+			 _ completion: @escaping (Result<T, NetworkingError>)->Void)
+
+	func post<T:Codable>(_ request:String,
+			  _ params:HTTPParameterProtocol?,
+			  _ completion: @escaping (Result<T, NetworkingError>)->Void)
 }
 
 struct Network:Networking {
@@ -23,14 +28,44 @@ struct Network:Networking {
 		self.baseUrl = baseUrl
 	}
 
-	func get(_ request:String,
+	func get<T:Codable>(_ request:String,
 			 _ params:HTTPParameterProtocol?,
-			 _ completion:(Result<[String:Any], AnyError>)->Void) {
+			 _ completion: @escaping (Result<T, NetworkingError>)->Void) {
 
 		HTTP.GET(baseUrl + request,
 				 parameters: params,
 				 requestSerializer: JSONParameterSerializer()) { response in
-
+					self.handleResponse(response, completion)
 		}
 	}
+
+	func post<T:Codable>(_ request:String,
+			  _ params:HTTPParameterProtocol?,
+			  _ completion: @escaping (Result<T, NetworkingError>)->Void) {
+
+		HTTP.POST(baseUrl + request,
+				 parameters: params,
+				 requestSerializer: JSONParameterSerializer()) { response in
+					self.handleResponse(response, completion)
+		}
+	}
+
+	func handleResponse<T:Codable>(_ response: (Response?),
+								   _ completion: (Result<T, NetworkingError>)->Void) {
+		guard let response = response,
+			let result = T.init(response.data)
+			else {
+				return completion(Result<T, NetworkingError>.failure(.connectionError))
+		}
+		completion(.success(result))
+	}
+}
+
+enum NetworkingError:Error {
+
+	case connectionError
+
+	case incorrectRequest
+
+	case unknown
 }

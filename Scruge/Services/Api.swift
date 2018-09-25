@@ -21,30 +21,18 @@ struct Api {
 	// MARK: - Campaigns
 
 	func getCampaign(with id:String,
-					 _ completion: @escaping (Result<Campaign, AnyError>)->Void) {
-		service.get("campaign", ["id":id]) { response in
-			switch response {
-			case .success(let json):
-				// parse json
-				completion(.success(Campaign(name: "")))
-			case .failure(let error):
-				completion(.failure(error))
-			}
-		}
+					 _ completion: @escaping (Result<CampaignResponse, NetworkingError>)->Void) {
+		service.get("campaign", ["id":id], completion)
 	}
 
 	func getCampaignList(for query:CampaignQuery?,
-						 completion: @escaping (Result<[Campaign], AnyError>)->Void) {
+						 completion: @escaping (Result<CampaignListResponse, NetworkingError>)->Void) {
 		// create params from query
 		let params:[String:Any] = [:]
-		service.get("campaigns", params) { response in
-			switch response {
-			case .success(let json):
-				// parse json
-				completion(.success([]))
-			case .failure(let error):
-				completion(.failure(error))
-			}
-		}
+		service.get("campaigns", params, completion)
 	}
+
+	// MARK: - Comments
+
+
 }

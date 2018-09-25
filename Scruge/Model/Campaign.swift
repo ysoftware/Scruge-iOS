@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Campaign: Equatable {
+struct Campaign: Equatable, Codable {
 
 	var name:String
 }

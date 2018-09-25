@@ -14,8 +14,8 @@ final class CampaignVM: ViewModel<Campaign> {
 	public func load(id:String) {
 		Api().getCampaign(with: id) { result in
 			switch result {
-			case .success(let campaign):
-				self.model = campaign
+			case .success(let response):
+				self.model = response.campaign
 				self.notifyUpdated()
 			case .failure(_):
 				self.model = nil
