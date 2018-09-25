@@ -12,9 +12,16 @@ import MVVM
 final class CampaignVM: ViewModel<Campaign> {
 
 	public func load(id:String) {
-		Api.getCampaign { campaign in
-			self.model = campaign
-			self.notifyUpdated()
+		Api().getCampaign { result in
+			switch result {
+			case .success(let campaign):
+				self.model = campaign
+				self.notifyUpdated()
+			case .failure(_):
+				self.model = nil
+				self.notifyUpdated()
+				// TO-DO: display error maybe
+			}
 		}
 	}
 }

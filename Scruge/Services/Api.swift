@@ -6,11 +6,25 @@
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
-import Foundation
+import Result
 
 struct Api {
 
-	static func getCampaign(completion: @escaping (Campaign?)->Void) {
+	// MARK: - Initialization
 
+	let service:Networking
+
+	init(service:Networking = Network()) {
+		self.service = service
+	}
+
+	// MARK: - Campaigns
+
+	func getCampaign(completion: @escaping (Result<Campaign, AnyError>)->Void) {
+
+	}
+
+	func getCampaignList(completion: @escaping (Result<[Campaign], AnyError>)->Void) {
+		
 	}
 }

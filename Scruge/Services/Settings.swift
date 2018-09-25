@@ -20,5 +20,5 @@ struct Settings {
 		defaults.synchronize()
 	}
 
-	static let defaults:UserDefaults = .standard
+	private static let defaults:UserDefaults = .standard
 }
