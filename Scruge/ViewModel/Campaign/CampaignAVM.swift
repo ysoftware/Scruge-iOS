@@ -13,6 +13,6 @@ final class CampaignLisVM: ArrayViewModel<Campaign, CampaignVM, CampaignQuery> {
 
 	override func fetchData(_ query: CampaignQuery?,
 							_ block: @escaping (Result<[Campaign], AnyError>) -> Void) {
-		Api().getCampaignList(completion: block)
+		Api().getCampaignList(for: query, completion: block)
 	}
 }

@@ -6,12 +6,31 @@
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
-import Foundation
+import SwiftHTTP
+import Result
 
 protocol Networking {
-	
+	func get(_ request:String,
+			 _ params:HTTPParameterProtocol?,
+			 _ completion:(Result<[String:Any], AnyError>)->Void)
 }
 
 struct Network:Networking {
 
+	var baseUrl:String
+
+	init(baseUrl:String) {
+		self.baseUrl = baseUrl
+	}
+
+	func get(_ request:String,
+			 _ params:HTTPParameterProtocol?,
+			 _ completion:(Result<[String:Any], AnyError>)->Void) {
+
+		HTTP.GET(baseUrl + request,
+				 parameters: params,
+				 requestSerializer: JSONParameterSerializer()) { response in
+
+		}
+	}
 }

@@ -12,7 +12,7 @@ import MVVM
 final class CampaignVM: ViewModel<Campaign> {
 
 	public func load(id:String) {
-		Api().getCampaign { result in
+		Api().getCampaign(with: id) { result in
 			switch result {
 			case .success(let campaign):
 				self.model = campaign

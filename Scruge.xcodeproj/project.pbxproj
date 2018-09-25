@@ -155,7 +155,7 @@
 				71971CB42158E3FE004D28E7 /* Model */,
 				71971CB32158E3F6004D28E7 /* ViewModel */,
 				71971CB22158E3F0004D28E7 /* View */,
-				71971CB52158E402004D28E7 /* Extensions */,
+				71971CB52158E402004D28E7 /* Utility */,
 				71971CB72158E427004D28E7 /* Support */,
 			);
 			path = Scruge;
@@ -218,13 +218,13 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		71971CB52158E402004D28E7 /* Extensions */ = {
+		71971CB52158E402004D28E7 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				71971CC02158F076004D28E7 /* RoundedView.swift */,
 				71C8E8E4215907580078BD36 /* DismissSegue.swift */,
 			);
-			path = Extensions;
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		71971CB72158E427004D28E7 /* Support */ = {

@@ -14,17 +14,37 @@ struct Api {
 
 	let service:Networking
 
-	init(service:Networking = Network()) {
+	init(service:Networking = Network(baseUrl: "http://api.scruge.com/v1/")) {
 		self.service = service
 	}
 
 	// MARK: - Campaigns
 
-	func getCampaign(completion: @escaping (Result<Campaign, AnyError>)->Void) {
-
+	func getCampaign(with id:String,
+					 _ completion: @escaping (Result<Campaign, AnyError>)->Void) {
+		service.get("campaign", ["id":id]) { response in
+			switch response {
+			case .success(let json):
+				// parse json
+				completion(.success(Campaign(name: "")))
+			case .failure(let error):
+				completion(.failure(error))
+			}
+		}
 	}
 
-	func getCampaignList(completion: @escaping (Result<[Campaign], AnyError>)->Void) {
-		
+	func getCampaignList(for query:CampaignQuery?,
+						 completion: @escaping (Result<[Campaign], AnyError>)->Void) {
+		// create params from query
+		let params:[String:Any] = [:]
+		service.get("campaigns", params) { response in
+			switch response {
+			case .success(let json):
+				// parse json
+				completion(.success([]))
+			case .failure(let error):
+				completion(.failure(error))
+			}
+		}
 	}
 }
