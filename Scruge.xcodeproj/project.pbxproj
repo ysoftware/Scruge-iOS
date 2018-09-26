@@ -37,6 +37,9 @@
 		71B38D16215B9A9B00929CC3 /* MilestoneResp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38D15215B9A9B00929CC3 /* MilestoneResp.swift */; };
 		71B38D19215B9B0300929CC3 /* MilestoneAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38D18215B9B0300929CC3 /* MilestoneAVM.swift */; };
 		71B38D1B215BA3E600929CC3 /* HTMLResp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38D1A215BA3E600929CC3 /* HTMLResp.swift */; };
+		71B38D1D215BBBAA00929CC3 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38D1C215BBBAA00929CC3 /* Reward.swift */; };
+		71B38D20215BBE8200929CC3 /* RewardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38D1F215BBE8200929CC3 /* RewardVM.swift */; };
+		71B38D22215BBEC400929CC3 /* RewardAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38D21215BBEC400929CC3 /* RewardAVM.swift */; };
 		71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1042215A1EBD004753EC /* CampaignQ.swift */; };
 		71BE1046215A2020004753EC /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1045215A2020004753EC /* Networking.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
@@ -104,6 +107,9 @@
 		71B38D15215B9A9B00929CC3 /* MilestoneResp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneResp.swift; sourceTree = "<group>"; };
 		71B38D18215B9B0300929CC3 /* MilestoneAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneAVM.swift; sourceTree = "<group>"; };
 		71B38D1A215BA3E600929CC3 /* HTMLResp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTMLResp.swift; sourceTree = "<group>"; };
+		71B38D1C215BBBAA00929CC3 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
+		71B38D1F215BBE8200929CC3 /* RewardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardVM.swift; sourceTree = "<group>"; };
+		71B38D21215BBEC400929CC3 /* RewardAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAVM.swift; sourceTree = "<group>"; };
 		71BE1042215A1EBD004753EC /* CampaignQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignQ.swift; sourceTree = "<group>"; };
 		71BE1045215A2020004753EC /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
@@ -242,8 +248,9 @@
 			isa = PBXGroup;
 			children = (
 				71C8E8EF215910DD0078BD36 /* Campaign */,
-				71B38CFE215ABE2700929CC3 /* Update */,
 				71B38D10215B998300929CC3 /* Milestone */,
+				71B38CFE215ABE2700929CC3 /* Update */,
+				71B38D1E215BBE1E00929CC3 /* Reward */,
 				71B38D09215B879100929CC3 /* Comments */,
 			);
 			path = ViewModel;
@@ -366,9 +373,19 @@
 				71C8E8EB2159101B0078BD36 /* Campaign.swift */,
 				71B38D13215B999400929CC3 /* Milestone.swift */,
 				71B38CFA215ABDE400929CC3 /* Update.swift */,
+				71B38D1C215BBBAA00929CC3 /* Reward.swift */,
 				71B38D05215B871E00929CC3 /* Comment.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		71B38D1E215BBE1E00929CC3 /* Reward */ = {
+			isa = PBXGroup;
+			children = (
+				71B38D1F215BBE8200929CC3 /* RewardVM.swift */,
+				71B38D21215BBEC400929CC3 /* RewardAVM.swift */,
+			);
+			path = Reward;
 			sourceTree = "<group>";
 		};
 		71C8E8E621590F1E0078BD36 /* Blockchain */ = {
@@ -642,6 +659,7 @@
 				71B38D08215B875900929CC3 /* CommentResp.swift in Sources */,
 				71B38D19215B9B0300929CC3 /* MilestoneAVM.swift in Sources */,
 				71B38D06215B871E00929CC3 /* Comment.swift in Sources */,
+				71B38D1D215BBBAA00929CC3 /* Reward.swift in Sources */,
 				71B38D14215B999400929CC3 /* Milestone.swift in Sources */,
 				716AE1CC215977470098882F /* CampaignAVM.swift in Sources */,
 				71C8E8F1215912690078BD36 /* Api.swift in Sources */,
@@ -664,8 +682,10 @@
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
 				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,
 				71B38D0B215B879D00929CC3 /* CommentVM.swift in Sources */,
+				71B38D20215BBE8200929CC3 /* RewardVM.swift in Sources */,
 				71B38D16215B9A9B00929CC3 /* MilestoneResp.swift in Sources */,
 				71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */,
+				71B38D22215BBEC400929CC3 /* RewardAVM.swift in Sources */,
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,
 				71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */,
 				71BE1046215A2020004753EC /* Networking.swift in Sources */,

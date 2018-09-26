@@ -11,14 +11,21 @@ import Result
 
 final class CommentAVM: ArrayViewModel<Comment, CommentVM, CommentQuery> {
 
-	let source:CommentSource
+	let source:CommentSource?
 
 	init(source:CommentSource) {
 		self.source = source
 	}
 
+	init(_ comments:[Comment]) {
+		source = nil
+		super.init()
+		manageItems(comments)
+	}
+
 	override func fetchData(_ query: CommentQuery?,
 							_ block: @escaping (Result<[Comment], AnyError>) -> Void) {
+		guard let source = source else { return }
 		let api = Api()
 		switch source {
 		case .campaign(let campaign):

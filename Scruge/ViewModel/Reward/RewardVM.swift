@@ -1,5 +1,5 @@
 //
-//  MilestoneVM.swift
+//  RewardVM.swift
 //  Scruge
 //
 //  Created by ysoftware on 26/09/2018.
@@ -8,6 +8,6 @@
 
 import MVVM
 
-final class MilestoneVM: ViewModel<Milestone> {
-
+final class RewardVM: ViewModel<Reward> {
+	
 }

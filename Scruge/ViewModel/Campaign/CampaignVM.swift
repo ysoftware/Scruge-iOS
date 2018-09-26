@@ -8,7 +8,11 @@
 
 import MVVM
 
-final class CampaignVM: ViewModel<Campaign> {
+protocol PartialCampaignVMProtocol {
+
+}
+
+final class CampaignVM: ViewModel<Campaign>, PartialCampaignVMProtocol {
 
 	let id:String
 
@@ -19,7 +23,11 @@ final class CampaignVM: ViewModel<Campaign> {
 	}
 
 	required init(_ model: Campaign, arrayDelegate: ViewModelDelegate?) {
-		fatalError("init(_:arrayDelegate:) has not been implemented")
+		id = model.id
+		super.init()
+		self.arrayDelegate = arrayDelegate
+		self.model = model
+		notifyUpdated()
 	}
 
 	public func load() {
@@ -37,6 +45,6 @@ final class CampaignVM: ViewModel<Campaign> {
 	}
 }
 
-final class PartialCampaignVM: ViewModel<PartialCampaign> {
+final class PartialCampaignVM: ViewModel<PartialCampaign>, PartialCampaignVMProtocol {
 
 }

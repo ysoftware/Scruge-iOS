@@ -1,5 +1,5 @@
 //
-//  Milestone.swift
+//  Reward.swift
 //  Scruge
 //
 //  Created by ysoftware on 26/09/2018.
@@ -8,15 +8,17 @@
 
 import Foundation
 
-struct Milestone: Equatable, Codable {
+struct Reward: Equatable, Codable {
 
 	let id:String
 
-	let title:String
+	let amount:Int
 
-	let endTimestamp:Int
+	let title:String
 
 	let description:String
 
-	let campaignId:String
+	let available:Int?
+
+	let totalAvailable:Int?
 }

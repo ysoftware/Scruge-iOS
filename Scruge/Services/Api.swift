@@ -22,7 +22,7 @@ struct Api {
 
 	func getCampaign(with id:String,
 					 _ completion: @escaping (Result<CampaignResponse, NetworkingError>)->Void) {
-		service.get("campaign", ["id":id], completion)
+		service.get("campaign/\(id)", nil, completion)
 	}
 
 	func getCampaignList(for query:CampaignQuery?,
@@ -36,14 +36,19 @@ struct Api {
 
 	func getUpdateList(for campaign:Campaign,
 					   _ completion: @escaping (Result<UpdateListResponse, NetworkingError>)->Void) {
-		var params:[String:Any] = [:]
-		params["id"] = campaign.id
-		service.get("updates", params, completion)
+		service.get("campaign/\(campaign.id)/updates", nil, completion)
 	}
+
+	// MARK: - HTML Description
 
 	func getUpdateDescription(for update:Update,
 							  _ completion: @escaping (Result<HTMLResponse, NetworkingError>)->Void) {
-		service.get("update/\(update.id)/description", nil, completion)
+		service.get("campaign/\(update.campaignId)/update/\(update.id)/description", nil, completion)
+	}
+
+	func getCampaignDescription(for campaign:Campaign,
+							  	_ completion: @escaping (Result<HTMLResponse, NetworkingError>)->Void) {
+		service.get("campaign/\(campaign.id)/description", nil, completion)
 	}
 
 	// MARK: - Milestones
@@ -62,6 +67,6 @@ struct Api {
 
 	func getComments(for update:Update,
 					 _ completion: @escaping (Result<CommentListResponse, NetworkingError>)->Void) {
-		service.get("update/\(update.id)/comments", nil, completion)
+		service.get("campaign/\(update.campaignId)/update/\(update.id)/comments", nil, completion)
 	}
 }
