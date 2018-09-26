@@ -46,6 +46,13 @@ struct Api {
 		service.get("update/\(update.id)/description", nil, completion)
 	}
 
+	// MARK: - Milestones
+
+	func getMilestones(for campaign:Campaign,
+					   _ completion: @escaping (Result<MilestoneListResponse, NetworkingError>)->Void) {
+		service.get("campaign/\(campaign.id)/milestones", nil, completion)
+	}
+
 	// MARK: - Comments
 
 	func getComments(for campaign:Campaign,
@@ -56,12 +63,5 @@ struct Api {
 	func getComments(for update:Update,
 					 _ completion: @escaping (Result<CommentListResponse, NetworkingError>)->Void) {
 		service.get("update/\(update.id)/comments", nil, completion)
-	}
-
-	// MARK: - Milestones
-
-	func getMilestones(for campaign:Campaign,
-					   _ completion: @escaping (Result<MilestoneListResponse, NetworkingError>)->Void) {
-		service.get("campaign/\(campaign.id)/milestones", nil, completion)
 	}
 }

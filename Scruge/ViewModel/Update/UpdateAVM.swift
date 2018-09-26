@@ -11,7 +11,27 @@ import Result
 
 final class UpdateAVM: SimpleArrayViewModel<Update, UpdateVM> {
 
+	let campaign:Campaign?
+
+	init(_ campaign:Campaign) {
+		self.campaign = campaign
+	}
+
+	init(_ updates:[Update]) {
+		campaign = nil
+		super.init()
+		manageItems(updates)
+	}
+
 	override func fetchData(_ block: @escaping (Result<[Update], AnyError>) -> Void) {
-		
+		guard let campaign = campaign else { return }
+		Api().getUpdateList(for: campaign) { result in
+			switch result {
+			case .success(let response):
+				block(.success(response.updates))
+			case .failure(let error):
+				block(.failure(AnyError(error)))
+			}
+		}
 	}
 }

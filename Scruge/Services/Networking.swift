@@ -9,6 +9,17 @@
 import SwiftHTTP
 import Result
 
+enum NetworkingError:Error {
+
+	case connectionError
+
+	case incorrectRequest
+
+	case serverError
+
+	case unknown(Int)
+}
+
 protocol Networking {
 
 	func get<T:Codable>(_ request:String,
@@ -59,13 +70,4 @@ struct Network:Networking {
 		}
 		completion(.success(result))
 	}
-}
-
-enum NetworkingError:Error {
-
-	case connectionError
-
-	case incorrectRequest
-
-	case unknown
 }

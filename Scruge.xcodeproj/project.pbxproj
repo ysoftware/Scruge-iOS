@@ -239,9 +239,9 @@
 		71971CB32158E3F6004D28E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				71B38D10215B998300929CC3 /* Milestone */,
-				71B38CFE215ABE2700929CC3 /* Update */,
 				71C8E8EF215910DD0078BD36 /* Campaign */,
+				71B38CFE215ABE2700929CC3 /* Update */,
+				71B38D10215B998300929CC3 /* Milestone */,
 				71B38D09215B879100929CC3 /* Comments */,
 			);
 			path = ViewModel;
@@ -322,9 +322,9 @@
 			isa = PBXGroup;
 			children = (
 				71B38CF8215AA10900929CC3 /* CampaignResp.swift */,
-				71B38D07215B875900929CC3 /* CommentResp.swift */,
 				71B38CFC215ABDF000929CC3 /* UpdateResp.swift */,
 				71B38D15215B9A9B00929CC3 /* MilestoneResp.swift */,
+				71B38D07215B875900929CC3 /* CommentResp.swift */,
 			);
 			path = "Network Responses";
 			sourceTree = "<group>";

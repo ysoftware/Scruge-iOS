@@ -23,7 +23,7 @@ struct CommentQuery: Query {
 		currentPosition += 1
 	}
 
-	func resetPosition() {
-
+	mutating func resetPosition() {
+		currentPosition = 0
 	}
 }
