@@ -9,10 +9,10 @@
 import MVVM
 import Result
 
-final class CampaignAVM: ArrayViewModel<Campaign, CampaignVM, CampaignQuery> {
+final class CampaignAVM: ArrayViewModel<PartialCampaign, PartialCampaignVM, CampaignQuery> {
 
 	override func fetchData(_ query: CampaignQuery?,
-							_ block: @escaping (Result<[Campaign], AnyError>) -> Void) {
+							_ block: @escaping (Result<[PartialCampaign], AnyError>) -> Void) {
 		Api().getCampaignList(for: query) { result in
 			switch result {
 			case .success(let response):

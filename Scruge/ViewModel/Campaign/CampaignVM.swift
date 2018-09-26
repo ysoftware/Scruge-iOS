@@ -6,12 +6,23 @@
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
-import Foundation
 import MVVM
 
 final class CampaignVM: ViewModel<Campaign> {
 
-	public func load(id:String) {
+	let id:String
+
+	init(_ id:String) {
+		self.id = id
+		super.init()
+		load()
+	}
+
+	required init(_ model: Campaign, arrayDelegate: ViewModelDelegate?) {
+		fatalError("init(_:arrayDelegate:) has not been implemented")
+	}
+
+	public func load() {
 		Api().getCampaign(with: id) { result in
 			switch result {
 			case .success(let response):
@@ -24,4 +35,8 @@ final class CampaignVM: ViewModel<Campaign> {
 			}
 		}
 	}
+}
+
+final class PartialCampaignVM: ViewModel<PartialCampaign> {
+
 }

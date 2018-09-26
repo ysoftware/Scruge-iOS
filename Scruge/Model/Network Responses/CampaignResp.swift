@@ -1,5 +1,5 @@
 //
-//  Campaign.swift
+//  CampaignResp.swift
 //  Scruge
 //
 //  Created by ysoftware on 24.09.2018.
@@ -15,5 +15,5 @@ struct CampaignResponse: Codable {
 
 struct CampaignListResponse: Codable {
 
-	let campaigns:[Campaign]
+	let campaigns:[PartialCampaign]
 }

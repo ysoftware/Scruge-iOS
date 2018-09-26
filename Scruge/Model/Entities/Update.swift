@@ -12,5 +12,7 @@ struct Update: Equatable, Codable {
 
 	let id:String
 
-	var name:String
+	let title:String
+
+	let timestamp:Int
 }

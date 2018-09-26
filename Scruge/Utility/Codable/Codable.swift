@@ -21,7 +21,7 @@ public extension Decodable {
 	}
 
 	/// Инициализовать объект Decodable с помощью Dictionary.
-	public init?(_ dict:Any?) {
+	public init?(_ dict:[String:Any]?) {
 		guard let dict = dict else { return nil }
 
 		do {
@@ -31,6 +31,16 @@ public extension Decodable {
 		catch {
 			print("decodable init: \(error)")
 			return nil
+		}
+	}
+
+	var jsonString:String {
+		do {
+			let data = try JSONSerialization.data(withJSONObject: self,
+												  options: .prettyPrinted)
+			return String(data: data, encoding: .utf8) ?? "<Error: Could not convert json data to string.>"
+		} catch let error {
+			return "<Error: Could not encode this dictionary: (\(error)>"
 		}
 	}
 }

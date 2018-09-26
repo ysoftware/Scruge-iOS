@@ -26,18 +26,42 @@ struct Api {
 	}
 
 	func getCampaignList(for query:CampaignQuery?,
-						 completion: @escaping (Result<CampaignListResponse, NetworkingError>)->Void) {
-		var params:[String:Any] = [:]
+						 _ completion: @escaping (Result<CampaignListResponse, NetworkingError>)->Void) {
+		let params:[String:Any] = [:]
 		// create params from query
 		service.get("campaigns", params, completion)
 	}
 
 	// MARK: - Updates
 
-	func getUpdateList(forCampaignId id:String,
-					   completion: @escaping (Result<UpdateListResponse, NetworkingError>)->Void) {
+	func getUpdateList(for campaign:Campaign,
+					   _ completion: @escaping (Result<UpdateListResponse, NetworkingError>)->Void) {
 		var params:[String:Any] = [:]
-		params["id"] = id
+		params["id"] = campaign.id
 		service.get("updates", params, completion)
+	}
+
+	func getUpdateDescription(for update:Update,
+							  _ completion: @escaping (Result<HTMLResponse, NetworkingError>)->Void) {
+		service.get("update/\(update.id)/description", nil, completion)
+	}
+
+	// MARK: - Comments
+
+	func getComments(for campaign:Campaign,
+					 _ completion: @escaping (Result<CommentListResponse, NetworkingError>)->Void) {
+		service.get("campaign/\(campaign.id)/comments", nil, completion)
+	}
+
+	func getComments(for update:Update,
+					 _ completion: @escaping (Result<CommentListResponse, NetworkingError>)->Void) {
+		service.get("update/\(update.id)/comments", nil, completion)
+	}
+
+	// MARK: - Milestones
+
+	func getMilestones(for campaign:Campaign,
+					   _ completion: @escaping (Result<MilestoneListResponse, NetworkingError>)->Void) {
+		service.get("campaign/\(campaign.id)/milestones", nil, completion)
 	}
 }

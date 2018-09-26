@@ -1,5 +1,5 @@
 //
-//  UpdateResponse.swift
+//  UpdateResp.swift
 //  Scruge
 //
 //  Created by ysoftware on 25/09/2018.
@@ -11,4 +11,9 @@ import Foundation
 struct UpdateListResponse: Codable {
 
 	var updates:[Update]
+}
+
+struct HTMLResponse: Codable {
+
+	var html:String
 }
