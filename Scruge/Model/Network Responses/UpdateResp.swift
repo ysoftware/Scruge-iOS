@@ -10,10 +10,5 @@ import Foundation
 
 struct UpdateListResponse: Codable {
 
-	var updates:[Update]
-}
-
-struct HTMLResponse: Codable {
-
-	var html:String
+	var data:[Update]
 }

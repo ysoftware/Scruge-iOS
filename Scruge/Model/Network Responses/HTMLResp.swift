@@ -1,5 +1,5 @@
 //
-//  CommentResp.swift
+//  BackendResponse.swift
 //  Scruge
 //
 //  Created by ysoftware on 26/09/2018.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CommentListResponse: Codable {
+struct HTMLResponse: Codable {
 
-	let data:[Comment]
+	var data:String
 }

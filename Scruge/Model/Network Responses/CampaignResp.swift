@@ -10,10 +10,10 @@ import Foundation
 
 struct CampaignResponse: Codable {
 
-	let campaign:Campaign
+	let data:Campaign
 }
 
 struct CampaignListResponse: Codable {
 
-	let campaigns:[PartialCampaign]
+	let data:[PartialCampaign]
 }

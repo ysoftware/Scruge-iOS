@@ -26,7 +26,7 @@ final class CampaignVM: ViewModel<Campaign> {
 		Api().getCampaign(with: id) { result in
 			switch result {
 			case .success(let response):
-				self.model = response.campaign
+				self.model = response.data
 				self.notifyUpdated()
 			case .failure(_):
 				self.model = nil

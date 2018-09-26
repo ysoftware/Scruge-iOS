@@ -28,7 +28,7 @@ final class UpdateAVM: SimpleArrayViewModel<Update, UpdateVM> {
 		Api().getUpdateList(for: campaign) { result in
 			switch result {
 			case .success(let response):
-				block(.success(response.updates))
+				block(.success(response.data))
 			case .failure(let error):
 				block(.failure(AnyError(error)))
 			}

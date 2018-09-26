@@ -33,7 +33,7 @@ final class CommentAVM: ArrayViewModel<Comment, CommentVM, CommentQuery> {
 
 		switch result {
 		case .success(let response):
-			block(.success(response.comments))
+			block(.success(response.data))
 		case .failure(let error):
 			block(.failure(AnyError(error)))
 		}

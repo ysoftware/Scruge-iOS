@@ -16,7 +16,7 @@ final class CampaignAVM: ArrayViewModel<PartialCampaign, PartialCampaignVM, Camp
 		Api().getCampaignList(for: query) { result in
 			switch result {
 			case .success(let response):
-				block(.success(response.campaigns))
+				block(.success(response.data))
 			case .failure(let error):
 				block(.failure(AnyError(error)))
 			}
