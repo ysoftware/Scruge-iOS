@@ -51,20 +51,21 @@ struct Network:Networking {
 	}
 
 	func handleResponse<T:Codable>(_ response: (Response?),
-								   _ completion: (Result<T, AnyError>)->Void) {
+								   _ completion: @escaping (Result<T, AnyError>)->Void) {
+		DispatchQueue.main.async {
+			guard let response = response else {
+				return completion(.failure(AnyError(NetworkingError.connectionProblem)))
+			}
 
-		guard let response = response else {
-			return completion(.failure(AnyError(NetworkingError.connectionProblem)))
+			if let error = response.error {
+				return completion(.failure(AnyError(error)))
+			}
+
+			guard let object = T.init(response.data) else {
+				return completion(.failure(AnyError(NetworkingError.connectionProblem)))
+			}
+
+			completion(.success(object))
 		}
-
-		if let error = response.error {
-			return completion(.failure(AnyError(error)))
-		}
-
-		guard let object = T.init(response.data) else {
-			return completion(.failure(AnyError(NetworkingError.connectionProblem)))
-		}
-
-		completion(.success(object))
 	}
 }

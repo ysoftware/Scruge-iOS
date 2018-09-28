@@ -1797,6 +1797,7 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="gXx-Qm-2MZ" firstAttribute="trailing" secondItem="l0o-ur-qQ0" secondAttribute="trailing" constant="20" id="3Cp-LU-IFr"/>
                             <constraint firstItem="l0o-ur-qQ0" firstAttribute="leading" secondItem="gXx-Qm-2MZ" secondAttribute="leading" constant="20" id="6XA-fJ-G3p"/>
@@ -1806,6 +1807,9 @@
                             <constraint firstItem="l0o-ur-qQ0" firstAttribute="top" secondItem="gXx-Qm-2MZ" secondAttribute="top" constant="30" id="wrQ-ee-3uJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gXx-Qm-2MZ"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="lgE-z4-0Pb" appends="YES" id="ZVM-Fm-cAc"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" id="vhU-rI-yek"/>
                     <connections>
@@ -1814,6 +1818,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4u-YI-o0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="lgE-z4-0Pb">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="83a-K6-dXO" id="ENt-ZH-eO0"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1876" y="474"/>
         </scene>
