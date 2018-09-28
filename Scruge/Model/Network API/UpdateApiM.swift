@@ -10,5 +10,5 @@ import Foundation
 
 struct UpdateListResponse: Codable {
 
-	var data:[Update]
+	let data:[Update]
 }

@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Response
+
 struct CampaignResponse: Codable {
 
 	let data:Campaign
@@ -16,4 +18,17 @@ struct CampaignResponse: Codable {
 struct CampaignListResponse: Codable {
 
 	let data:[PartialCampaign]
+}
+
+// MARK: - Request
+
+struct CampaignListRequest: Codable {
+
+	let page:Int?
+
+	let query:String?
+
+	let categories:[String]?
+
+	let tags:[String]?
 }

@@ -18,6 +18,28 @@ struct Api {
 		self.service = service
 	}
 
+	// MARK: - Auth
+
+	func logIn(email:String,
+			   password:String,
+			   _ completion: @escaping (Result<AuthResponse, NetworkingError>)->Void) {
+		let request = AuthRequest(email: email, password: password)
+		service.post("auth/login", request.toDictionary(), completion)
+	}
+
+	func signUp(email:String,
+				password:String,
+				_ completion: @escaping (Result<AuthResponse, NetworkingError>)->Void) {
+		let request = AuthRequest(email: email, password: password)
+		service.post("auth/register", request.toDictionary(), completion)
+	}
+	
+	func verifyToken(token:String,
+					 _ completion: @escaping (Result<SuccessResponse, NetworkingError>)->Void) {
+		let request = VerificationRequest(token: token)
+		service.post("auth/verifyToken", request.toDictionary(), completion)
+	}
+
 	// MARK: - Campaigns
 
 	func getCampaign(with id:String,
@@ -47,7 +69,7 @@ struct Api {
 	}
 
 	func getCampaignDescription(for campaign:Campaign,
-							  	_ completion: @escaping (Result<HTMLResponse, NetworkingError>)->Void) {
+								_ completion: @escaping (Result<HTMLResponse, NetworkingError>)->Void) {
 		service.get("campaign/\(campaign.id)/description", nil, completion)
 	}
 

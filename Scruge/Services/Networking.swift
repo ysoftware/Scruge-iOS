@@ -61,7 +61,7 @@ struct Network:Networking {
 		}
 	}
 
-	func handleResponse<T:Codable>(_ response: (Response?),
+	private func handleResponse<T:Codable>(_ response: (Response?),
 								   _ completion: (Result<T, NetworkingError>)->Void) {
 		guard let response = response,
 			let result = T.init(response.data)

@@ -10,5 +10,5 @@ import Foundation
 
 struct HTMLResponse: Codable {
 
-	var data:String
+	let data:String
 }
