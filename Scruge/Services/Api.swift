@@ -8,13 +8,13 @@
 
 import Result
 
-struct Api {
+final class Api {
 
 	// MARK: - Initialization
 
 	let service:Networking
 
-	init(service:Networking = Network(baseUrl: "http://api.scruge.com/v1/")) {
+	init(service:Networking = Network(baseUrl: "https://api.scruge.com/v1/")) {
 		self.service = service
 	}
 
@@ -33,7 +33,7 @@ struct Api {
 		let request = AuthRequest(email: email, password: password)
 		service.post("auth/register", request.toDictionary(), completion)
 	}
-	
+
 	func verifyToken(token:String,
 					 _ completion: @escaping (Result<SuccessResponse, NetworkingError>)->Void) {
 		let request = VerificationRequest(token: token)

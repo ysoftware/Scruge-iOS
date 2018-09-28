@@ -10,7 +10,7 @@
 		512EE954BDA3136818C75BF7 /* Pods_Scruge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */; };
 		716AE1CC215977470098882F /* CampaignAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE1CB215977470098882F /* CampaignAVM.swift */; };
 		71971C812158E056004D28E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C802158E056004D28E7 /* AppDelegate.swift */; };
-		71971C832158E056004D28E7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C822158E056004D28E7 /* ViewController.swift */; };
+		71971C832158E056004D28E7 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C822158E056004D28E7 /* AuthVC.swift */; };
 		71971C862158E056004D28E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71971C842158E056004D28E7 /* Main.storyboard */; };
 		71971C882158E058004D28E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71971C872158E058004D28E7 /* Assets.xcassets */; };
 		71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71971C892158E058004D28E7 /* LaunchScreen.storyboard */; };
@@ -44,6 +44,8 @@
 		71BE1046215A2020004753EC /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1045215A2020004753EC /* Networking.swift */; };
 		71BE9560215E1B36001CF853 /* AuthApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE955F215E1B36001CF853 /* AuthApiM.swift */; };
 		71BE9562215E2519001CF853 /* OtherApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9561215E2519001CF853 /* OtherApiM.swift */; };
+		71BE9565215E2A22001CF853 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9564215E2A22001CF853 /* TokenManager.swift */; };
+		71BE9567215E2AD2001CF853 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9566215E2AD2001CF853 /* Service.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
@@ -77,7 +79,7 @@
 		716AE1CB215977470098882F /* CampaignAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignAVM.swift; sourceTree = "<group>"; };
 		71971C7D2158E056004D28E7 /* Scruge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scruge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71971C802158E056004D28E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		71971C822158E056004D28E7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		71971C822158E056004D28E7 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
 		71971C852158E056004D28E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		71971C872158E058004D28E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71971C8A2158E058004D28E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -116,6 +118,8 @@
 		71BE1045215A2020004753EC /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		71BE955F215E1B36001CF853 /* AuthApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApiM.swift; sourceTree = "<group>"; };
 		71BE9561215E2519001CF853 /* OtherApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherApiM.swift; sourceTree = "<group>"; };
+		71BE9564215E2A22001CF853 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		71BE9566215E2AD2001CF853 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -228,10 +232,12 @@
 		71971CB12158E3E6004D28E7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				71BE9566215E2AD2001CF853 /* Service.swift */,
 				71C8E8E621590F1E0078BD36 /* Blockchain */,
 				71BE1045215A2020004753EC /* Networking.swift */,
 				71C8E8F0215912690078BD36 /* Api.swift */,
 				71C8E8F2215912A10078BD36 /* Settings.swift */,
+				71BE9564215E2A22001CF853 /* TokenManager.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -294,7 +300,7 @@
 		71971CBA2158E44E004D28E7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				71971C822158E056004D28E7 /* ViewController.swift */,
+				71BE9563215E26CA001CF853 /* Auth */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -392,6 +398,14 @@
 				71B38D21215BBEC400929CC3 /* RewardAVM.swift */,
 			);
 			path = Reward;
+			sourceTree = "<group>";
+		};
+		71BE9563215E26CA001CF853 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				71971C822158E056004D28E7 /* AuthVC.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		71C8E8E621590F1E0078BD36 /* Blockchain */ = {
@@ -668,11 +682,13 @@
 				71B38D1D215BBBAA00929CC3 /* Reward.swift in Sources */,
 				71B38D14215B999400929CC3 /* Milestone.swift in Sources */,
 				716AE1CC215977470098882F /* CampaignAVM.swift in Sources */,
+				71BE9565215E2A22001CF853 /* TokenManager.swift in Sources */,
 				71C8E8F1215912690078BD36 /* Api.swift in Sources */,
 				71B38D1B215BA3E600929CC3 /* HTMLApiM.swift in Sources */,
 				71BE9560215E1B36001CF853 /* AuthApiM.swift in Sources */,
-				71971C832158E056004D28E7 /* ViewController.swift in Sources */,
+				71971C832158E056004D28E7 /* AuthVC.swift in Sources */,
 				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,
+				71BE9567215E2AD2001CF853 /* Service.swift in Sources */,
 				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,
 				71B38CFD215ABDF000929CC3 /* UpdateApiM.swift in Sources */,
 				71B38D02215ABE6E00929CC3 /* UpdateAVM.swift in Sources */,
