@@ -19,16 +19,4 @@ final class Settings {
 	}
 
 	private let defaults:UserDefaults = .standard
-
-	// MARK: - Auth
-
-	let USER_ID = "user_id"
-
-	var userId:String? {
-		return defaults.string(forKey: USER_ID)
-	}
-
-	func setUserId(_ id:String) {
-		defaults.set(id, forKey: USER_ID)
-	}
 }
