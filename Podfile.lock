@@ -1,6 +1,6 @@
 PODS:
   - appendAttributedString (0.1)
-  - AuthController (0.1)
+  - KeychainSwift (12.0.0)
   - Kingfisher (4.10.0)
   - MVVM (0.1):
     - Result
@@ -13,7 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - appendAttributedString
-  - "AuthController (from `https://profitprojectsbot:12345678@bitbucket.org/ysoftware/authcontroller.git`)"
+  - KeychainSwift (~> 12.0)
   - Kingfisher (~> 4)
   - "MVVM (from `https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git`)"
   - R.swift
@@ -23,6 +23,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - appendAttributedString
+    - KeychainSwift
     - Kingfisher
     - R.swift
     - R.swift.Library
@@ -31,22 +32,17 @@ SPEC REPOS:
     - SwiftHTTP
 
 EXTERNAL SOURCES:
-  AuthController:
-    :git: "https://profitprojectsbot:12345678@bitbucket.org/ysoftware/authcontroller.git"
   MVVM:
     :git: "https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git"
 
 CHECKOUT OPTIONS:
-  AuthController:
-    :commit: 87ced39eddb2775232599e8998bc0b050597969a
-    :git: "https://profitprojectsbot:12345678@bitbucket.org/ysoftware/authcontroller.git"
   MVVM:
     :commit: 123eb4eacdc4d0abf4179a96fe3858ef973a69e8
     :git: "https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git"
 
 SPEC CHECKSUMS:
   appendAttributedString: b4edc3042b996ab7dc62907070b84ecda379dde5
-  AuthController: 24dc6d10c756a68557354c5e2119283b3f387c6c
+  KeychainSwift: d5e776578587ee5958ce36601df22f168f65138a
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   MVVM: 586bab0227d6fa43271f656535373e539a886575
   R.swift: d6a5ec2f55a8441dc0ed9f1f8b37d7d11ae85c66
@@ -55,6 +51,6 @@ SPEC CHECKSUMS:
   SwiftDate: 52b718d32ec006861a2be2756cbfa482d438e781
   SwiftHTTP: e94f1aa8cde58637dcc0100f6349de31a3337fde
 
-PODFILE CHECKSUM: 590821a6b09008d0d6976b713228db2352e71e62
+PODFILE CHECKSUM: f1dc9df4c9c60e30ab8c67fea592ffc7228177dd
 
 COCOAPODS: 1.5.2

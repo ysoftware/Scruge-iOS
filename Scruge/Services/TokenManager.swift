@@ -6,19 +6,27 @@
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
-import Foundation
+import KeychainSwift
 
 final class TokenManager {
 
-	func save(_ token:String) {
+	private let AUTH_TOKEN = "auth_token"
 
+	private let keychain = KeychainSwift()
+
+	init() {
+		keychain.synchronizable = false
+	}
+
+	func save(_ token:String) {
+		keychain.set(token, forKey: AUTH_TOKEN, withAccess: .accessibleWhenUnlockedThisDeviceOnly)
 	}
 
 	func removeToken() {
-
+		keychain.delete(AUTH_TOKEN)
 	}
 
-	func getToken() -> String {
-		return ""
+	func getToken() -> String? {
+		return keychain.get(AUTH_TOKEN)
 	}
 }

@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "AuthController.h"
 
-FOUNDATION_EXPORT double AuthControllerVersionNumber;
-FOUNDATION_EXPORT const unsigned char AuthControllerVersionString[];
+FOUNDATION_EXPORT double KeychainSwiftVersionNumber;
+FOUNDATION_EXPORT const unsigned char KeychainSwiftVersionString[];
 

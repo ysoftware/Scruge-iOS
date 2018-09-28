@@ -9,8 +9,8 @@ target 'Scruge' do
   pod 'SwiftDate', '~> 5'
   pod 'Kingfisher', '~> 4'
   pod 'appendAttributedString'
+  pod 'KeychainSwift', '~> 12.0'
 
-  pod 'AuthController', :git=>'https://profitprojectsbot:12345678@bitbucket.org/ysoftware/authcontroller.git'
   pod 'MVVM', :git=>'https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git'
 
   target 'ScrugeTests' do

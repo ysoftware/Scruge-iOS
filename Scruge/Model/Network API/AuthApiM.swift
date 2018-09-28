@@ -17,6 +17,11 @@ struct AuthResponse: Codable {
 	let token:String?
 }
 
+struct ProfileResponse: Codable {
+	
+	let user:Profile
+}
+
 // MARK: - Request
 
 struct AuthRequest: Codable {

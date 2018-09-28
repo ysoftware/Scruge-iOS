@@ -12,11 +12,23 @@ import Foundation
 final class Settings {
 
 	/// Очистить все настройки пользователя
-	public static func clear() {
+	public func clear() {
 		let domain = Bundle.main.bundleIdentifier!
 		defaults.removePersistentDomain(forName: domain)
 		defaults.synchronize()
 	}
 
-	private static let defaults:UserDefaults = .standard
+	private let defaults:UserDefaults = .standard
+
+	// MARK: - Auth
+
+	let USER_ID = "user_id"
+
+	var userId:String? {
+		return defaults.string(forKey: USER_ID)
+	}
+
+	func setUserId(_ id:String) {
+		defaults.set(id, forKey: USER_ID)
+	}
 }

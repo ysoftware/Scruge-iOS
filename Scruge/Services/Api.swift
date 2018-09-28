@@ -34,6 +34,11 @@ final class Api {
 		service.post("auth/register", request.toDictionary(), completion)
 	}
 
+	func getProfile(token:String,
+					_ completion: @escaping (Result<ProfileResponse, NetworkingError>)->Void) {
+		
+	}
+
 	// MARK: - Campaigns
 
 	func getCampaign(with id:String,

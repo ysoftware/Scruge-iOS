@@ -46,6 +46,7 @@
 		71BE9562215E2519001CF853 /* OtherApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9561215E2519001CF853 /* OtherApiM.swift */; };
 		71BE9565215E2A22001CF853 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9564215E2A22001CF853 /* TokenManager.swift */; };
 		71BE9567215E2AD2001CF853 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9566215E2AD2001CF853 /* Service.swift */; };
+		71BE956A215E3A7B001CF853 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9569215E3A7B001CF853 /* Profile.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
@@ -120,6 +121,8 @@
 		71BE9561215E2519001CF853 /* OtherApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherApiM.swift; sourceTree = "<group>"; };
 		71BE9564215E2A22001CF853 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		71BE9566215E2AD2001CF853 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		71BE9568215E2D85001CF853 /* Scruge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scruge.entitlements; sourceTree = "<group>"; };
+		71BE9569215E3A7B001CF853 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -201,6 +204,7 @@
 		71971C7F2158E056004D28E7 /* Scruge */ = {
 			isa = PBXGroup;
 			children = (
+				71BE9568215E2D85001CF853 /* Scruge.entitlements */,
 				71971CB12158E3E6004D28E7 /* Services */,
 				71971CB42158E3FE004D28E7 /* Model */,
 				71971CB32158E3F6004D28E7 /* ViewModel */,
@@ -234,7 +238,7 @@
 			children = (
 				71BE9566215E2AD2001CF853 /* Service.swift */,
 				71C8E8E621590F1E0078BD36 /* Blockchain */,
-				71BE1045215A2020004753EC /* Networking.swift */,
+				71BE956B215E3CD9001CF853 /* Network */,
 				71C8E8F0215912690078BD36 /* Api.swift */,
 				71C8E8F2215912A10078BD36 /* Settings.swift */,
 				71BE9564215E2A22001CF853 /* TokenManager.swift */,
@@ -289,8 +293,8 @@
 		71971CB72158E427004D28E7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
-				71971CB82158E445004D28E7 /* R.generated.swift */,
 				71971C802158E056004D28E7 /* AppDelegate.swift */,
+				71971CB82158E445004D28E7 /* R.generated.swift */,
 				71971C872158E058004D28E7 /* Assets.xcassets */,
 				71971C8C2158E058004D28E7 /* Info.plist */,
 			);
@@ -387,6 +391,7 @@
 				71B38CFA215ABDE400929CC3 /* Update.swift */,
 				71B38D1C215BBBAA00929CC3 /* Reward.swift */,
 				71B38D05215B871E00929CC3 /* Comment.swift */,
+				71BE9569215E3A7B001CF853 /* Profile.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -406,6 +411,14 @@
 				71971C822158E056004D28E7 /* AuthVC.swift */,
 			);
 			path = Auth;
+			sourceTree = "<group>";
+		};
+		71BE956B215E3CD9001CF853 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				71BE1045215A2020004753EC /* Networking.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 		71C8E8E621590F1E0078BD36 /* Blockchain */ = {
@@ -509,6 +522,11 @@
 				TargetAttributes = {
 					71971C7C2158E056004D28E7 = {
 						CreatedOnToolsVersion = 10.0;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 0;
+							};
+						};
 					};
 					71971C902158E059004D28E7 = {
 						CreatedOnToolsVersion = 10.0;
@@ -611,7 +629,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Scruge/Pods-Scruge-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/AuthController/AuthController.framework",
+				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MVVM/MVVM.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
@@ -622,7 +640,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AuthController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MVVM.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
@@ -703,6 +721,7 @@
 				71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */,
 				71B38CFB215ABDE400929CC3 /* Update.swift in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
+				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,
 				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,
 				71B38D0B215B879D00929CC3 /* CommentVM.swift in Sources */,
 				71B38D20215BBE8200929CC3 /* RewardVM.swift in Sources */,

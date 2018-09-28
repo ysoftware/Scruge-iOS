@@ -1733,7 +1733,7 @@
         <!--Auth View Controller-->
         <scene sceneID="gJY-G4-uq0">
             <objects>
-                <viewController id="83a-K6-dXO" customClass="AuthViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthVC" id="83a-K6-dXO" customClass="AuthViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3tw-7K-myX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
