@@ -14,11 +14,15 @@ final class AuthViewController: UIViewController {
 
 	@IBOutlet weak var emailField: UITextField!
 	@IBOutlet weak var passwordField: UITextField!
+	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
 	// MARK: - Actions
 
 	@IBAction func login(_ sender: Any) {
+		isWorking = true
 		Service.api.logIn(email: email, password: password) { result in
+			self.isWorking = false
+
 			switch result {
 			case .success(let response): self.handle(response)
 			case .failure(let error): self.showError(error)
@@ -27,7 +31,10 @@ final class AuthViewController: UIViewController {
 	}
 
 	@IBAction func signUp(_ sender: Any) {
+		isWorking = true
 		Service.api.signUp(email: email, password: password) { result in
+			self.isWorking = false
+
 			switch result {
 			case .success(let response): self.handle(response, created: true)
 			case .failure(let error): self.showError(error)
@@ -44,6 +51,12 @@ final class AuthViewController: UIViewController {
 	}
 
 	// MARK: - Properties
+
+	var isWorking:Bool = false {
+		didSet {
+			activityIndicator.alpha = isWorking ? 1 : 0
+		}
+	}
 
 	var email:String {
 		return emailField.text ?? ""

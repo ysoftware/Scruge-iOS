@@ -1741,12 +1741,17 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="l0o-ur-qQ0">
                                 <rect key="frame" x="20" y="94" width="335" height="244"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scruge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sa0-R3-isJ">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AjY-1O-6SA">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="54"/>
-                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scruge" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sa0-R3-isJ">
+                                                <rect key="frame" x="89.5" y="0.0" width="156" height="54"/>
+                                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="45"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="3KL-rb-2rA">
                                         <rect key="frame" x="0.0" y="94" width="335" height="150"/>
                                         <subviews>
@@ -1785,6 +1790,11 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ph8-r9-p3K">
+                                <rect key="frame" x="285.5" y="111" width="20" height="20"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v0V-F7-T7y">
                                 <rect key="frame" x="0.0" y="628" width="375" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1801,10 +1811,12 @@
                         <constraints>
                             <constraint firstItem="gXx-Qm-2MZ" firstAttribute="trailing" secondItem="l0o-ur-qQ0" secondAttribute="trailing" constant="20" id="3Cp-LU-IFr"/>
                             <constraint firstItem="l0o-ur-qQ0" firstAttribute="leading" secondItem="gXx-Qm-2MZ" secondAttribute="leading" constant="20" id="6XA-fJ-G3p"/>
+                            <constraint firstItem="ph8-r9-p3K" firstAttribute="leading" secondItem="sa0-R3-isJ" secondAttribute="trailing" constant="20" id="6ud-mg-TVC"/>
                             <constraint firstItem="gXx-Qm-2MZ" firstAttribute="bottom" secondItem="v0V-F7-T7y" secondAttribute="bottom" constant="10" id="C1Q-PH-zVf"/>
                             <constraint firstItem="v0V-F7-T7y" firstAttribute="leading" secondItem="gXx-Qm-2MZ" secondAttribute="leading" id="lcN-Az-co0"/>
                             <constraint firstItem="gXx-Qm-2MZ" firstAttribute="trailing" secondItem="v0V-F7-T7y" secondAttribute="trailing" id="qKR-Xi-KA3"/>
                             <constraint firstItem="l0o-ur-qQ0" firstAttribute="top" secondItem="gXx-Qm-2MZ" secondAttribute="top" constant="30" id="wrQ-ee-3uJ"/>
+                            <constraint firstItem="ph8-r9-p3K" firstAttribute="centerY" secondItem="sa0-R3-isJ" secondAttribute="centerY" id="xs6-Eb-wle"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gXx-Qm-2MZ"/>
                         <connections>
@@ -1813,6 +1825,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vhU-rI-yek"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="ph8-r9-p3K" id="J6b-KU-ICz"/>
                         <outlet property="emailField" destination="e4W-dC-Pw9" id="En1-Zg-sNz"/>
                         <outlet property="passwordField" destination="o2X-9B-OSc" id="tHj-Ap-bvG"/>
                     </connections>
