@@ -20,9 +20,9 @@ struct PartialCampaign: Equatable, Codable {
 
 	let endTimestamp:Int
 
-	let raisedAmount:Int
+	let raisedAmount:Double
 
-	let fundAmount:Int
+	let fundAmount:Double
 }
 
 struct Campaign: Equatable, Codable {
@@ -37,9 +37,9 @@ struct Campaign: Equatable, Codable {
 
 	let endTimestamp:Int
 
-	let raisedAmount:Int
+	let raisedAmount:Double
 
-	let fundAmount:Int
+	let fundAmount:Double
 
 	// MARK: - Full campaign only
 

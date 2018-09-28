@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="431" id="PjA-s0-gGc" customClass="CampaignCell" customModule="Scruge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="431"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PjA-s0-gGc" id="0a1-Mm-jLQ">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="430.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z1I-Au-E0o">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="430.5"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="well" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-gN-Wpo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ggd-gN-Wpo" secondAttribute="height" multiplier="16:9" id="Ulj-jY-wKo"/>
+                                </constraints>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zkt-yF-qY5">
+                                <rect key="frame" x="0.0" y="221" width="375" height="198.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building a water well in a distant African village" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-gT-blG">
+                                        <rect key="frame" x="8" y="0.0" width="359" height="43"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$4 500 raised of  $5 000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nZa-y6-Leu">
+                                        <rect key="frame" x="8" y="53" width="359" height="17"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjQ-ee-ffD" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="80" width="359" height="7"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Dl-uK-VEO">
+                                                <rect key="frame" x="0.0" y="0.0" width="323" height="7"/>
+                                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </view>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.86048719620000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="6Dl-uK-VEO" firstAttribute="top" secondItem="qjQ-ee-ffD" secondAttribute="top" id="40N-qo-L2w"/>
+                                            <constraint firstItem="6Dl-uK-VEO" firstAttribute="width" secondItem="qjQ-ee-ffD" secondAttribute="width" multiplier="0.9" id="amL-ob-5We"/>
+                                            <constraint firstItem="6Dl-uK-VEO" firstAttribute="leading" secondItem="qjQ-ee-ffD" secondAttribute="leading" id="bCs-GQ-Ekd"/>
+                                            <constraint firstAttribute="height" constant="7" id="dzs-cH-xuS"/>
+                                            <constraint firstAttribute="bottom" secondItem="6Dl-uK-VEO" secondAttribute="bottom" id="esR-fv-n8Q"/>
+                                        </constraints>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="NO"/>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zKa-88-ZXA">
+                                        <rect key="frame" x="8" y="97" width="359" height="17"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="90% raised" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vG9-F8-ezY">
+                                                <rect key="frame" x="0.0" y="0.0" width="72.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="6 days left" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCN-hh-Ryc">
+                                                <rect key="frame" x="72.5" y="0.0" width="286.5" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Our goal is to install a water pump in Malawi to empower villagers to build a better future for themselves." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzM-D5-xiI">
+                                        <rect key="frame" x="8" y="124" width="359" height="66.5"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="8" right="8"/>
+                            </stackView>
+                            <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ab0-oa-LQQ">
+                                <rect key="frame" x="0.0" y="429.5" width="375" height="1"/>
+                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="1" id="thF-Q5-2fa"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <gestureRecognizers/>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="z1I-Au-E0o" secondAttribute="bottom" id="bla-Z8-J5f"/>
+                    <constraint firstItem="z1I-Au-E0o" firstAttribute="top" secondItem="0a1-Mm-jLQ" secondAttribute="top" id="cs3-eX-W6U"/>
+                    <constraint firstAttribute="trailing" secondItem="z1I-Au-E0o" secondAttribute="trailing" id="oC9-mb-Cbg"/>
+                    <constraint firstItem="z1I-Au-E0o" firstAttribute="leading" secondItem="0a1-Mm-jLQ" secondAttribute="leading" id="t0Y-sC-KvK"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="kzM-D5-xiI" id="9dS-Cf-JgD"/>
+                <outlet property="leftLabel" destination="vG9-F8-ezY" id="bxi-3G-rPN"/>
+                <outlet property="progressConstraint" destination="amL-ob-5We" id="Th5-Lr-gLM"/>
+                <outlet property="raisedLabel" destination="nZa-y6-Leu" id="6OM-2J-LiO"/>
+                <outlet property="rightLabel" destination="eCN-hh-Ryc" id="dyh-lQ-zfi"/>
+                <outlet property="titleLabel" destination="eRk-gT-blG" id="ozO-0y-KBK"/>
+                <outlet property="topImage" destination="ggd-gN-Wpo" id="Y6m-l8-m41"/>
+            </connections>
+            <point key="canvasLocation" x="93.599999999999994" y="197.45127436281859"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="well" width="307.20001220703125" height="230.39999389648438"/>
+    </resources>
+</document>

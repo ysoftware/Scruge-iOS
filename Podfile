@@ -4,7 +4,7 @@ target 'Scruge' do
   use_frameworks!
 
   # Pods for Scruge
-  pod 'R.swift'
+  pod 'R.swift', '~> 5.0.0.alpha.2'
   pod 'SwiftHTTP', '~> 3'
   pod 'SwiftDate', '~> 5'
   pod 'Kingfisher', '~> 4'

@@ -8,11 +8,7 @@
 
 import MVVM
 
-protocol PartialCampaignVMProtocol {
-
-}
-
-final class CampaignVM: ViewModel<Campaign>, PartialCampaignVMProtocol {
+final class CampaignVM: ViewModel<Campaign> {
 
 	let id:String
 
@@ -45,6 +41,36 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignVMProtocol {
 	}
 }
 
-final class PartialCampaignVM: ViewModel<PartialCampaign>, PartialCampaignVMProtocol {
+final class PartialCampaignVM: ViewModel<PartialCampaign> {
 
+	var imageUrl:String {
+		return model?.image ?? ""
+	}
+
+	var description:String {
+		return model?.description ?? ""
+	}
+
+	var title:String {
+		return model?.title ?? ""
+	}
+
+	var progress:Double {
+		guard let model = model else { return 0 }
+		return model.raisedAmount / model.fundAmount
+	}
+
+	var subTitle:String {
+		guard let model = model else { return "" }
+		return "$\(model.raisedAmount) raised of $\(model.fundAmount)"
+	}
+
+	var daysLeft:String {
+		return "n days left"
+	}
+
+	var raisedText:String {
+		guard let model = model else { return "..." }
+		return "raised \(model.raisedAmount)"
+	}
 }
