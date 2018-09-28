@@ -8,7 +8,16 @@
 
 import Foundation
 
+// MARK: - Response
+
 struct SuccessResponse: Codable {
 
 	let success:Bool
+}
+
+// MARK: - Request
+
+struct TokenRequest: Codable {
+
+	let token:String
 }

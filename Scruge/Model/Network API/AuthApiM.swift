@@ -25,8 +25,3 @@ struct AuthRequest: Codable {
 
 	let password:String
 }
-
-struct VerificationRequest: Codable {
-
-	let token:String
-}

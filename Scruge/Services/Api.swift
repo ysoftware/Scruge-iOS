@@ -34,12 +34,6 @@ final class Api {
 		service.post("auth/register", request.toDictionary(), completion)
 	}
 
-	func verifyToken(token:String,
-					 _ completion: @escaping (Result<SuccessResponse, NetworkingError>)->Void) {
-		let request = VerificationRequest(token: token)
-		service.post("auth/verifyToken", request.toDictionary(), completion)
-	}
-
 	// MARK: - Campaigns
 
 	func getCampaign(with id:String,
