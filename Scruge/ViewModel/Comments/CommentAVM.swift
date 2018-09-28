@@ -35,14 +35,14 @@ final class CommentAVM: ArrayViewModel<Comment, CommentVM, CommentQuery> {
 		}
 	}
 
-	func completion(_ result:Result<CommentListResponse, NetworkingError>,
+	func completion(_ result:Result<CommentListResponse, AnyError>,
 					_ block: (Result<[Comment], AnyError>) -> Void) {
 
 		switch result {
 		case .success(let response):
 			block(.success(response.data))
 		case .failure(let error):
-			block(.failure(AnyError(error)))
+			block(.failure(error))
 		}
 	}
 }

@@ -12,7 +12,7 @@ final class Service {
 
 	private init() { }
 
-	static let api:Api = .init()
+	static let api = Api()
 
 	static let tokenManager = TokenManager()
 

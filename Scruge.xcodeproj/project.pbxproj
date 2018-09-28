@@ -239,7 +239,7 @@
 				71BE9566215E2AD2001CF853 /* Service.swift */,
 				71C8E8E621590F1E0078BD36 /* Blockchain */,
 				71BE956B215E3CD9001CF853 /* Network */,
-				71C8E8F0215912690078BD36 /* Api.swift */,
+				71BE956E215E5D11001CF853 /* Api */,
 				71C8E8F2215912A10078BD36 /* Settings.swift */,
 				71BE9564215E2A22001CF853 /* TokenManager.swift */,
 			);
@@ -273,7 +273,6 @@
 		71971CB42158E3FE004D28E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				71B38CF7215AA0FB00929CC3 /* Network API */,
 				71B38D17215B9AD000929CC3 /* Entities */,
 			);
 			path = Model;
@@ -341,7 +340,7 @@
 			path = Codable;
 			sourceTree = "<group>";
 		};
-		71B38CF7215AA0FB00929CC3 /* Network API */ = {
+		71B38CF7215AA0FB00929CC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				71BE955F215E1B36001CF853 /* AuthApiM.swift */,
@@ -352,7 +351,7 @@
 				71B38D1A215BA3E600929CC3 /* HTMLApiM.swift */,
 				71BE9561215E2519001CF853 /* OtherApiM.swift */,
 			);
-			path = "Network API";
+			path = Model;
 			sourceTree = "<group>";
 		};
 		71B38CFE215ABE2700929CC3 /* Update */ = {
@@ -419,6 +418,15 @@
 				71BE1045215A2020004753EC /* Networking.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		71BE956E215E5D11001CF853 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				71C8E8F0215912690078BD36 /* Api.swift */,
+				71B38CF7215AA0FB00929CC3 /* Model */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		71C8E8E621590F1E0078BD36 /* Blockchain */ = {

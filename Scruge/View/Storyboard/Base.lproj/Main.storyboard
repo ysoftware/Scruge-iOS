@@ -406,7 +406,7 @@
                     <navigationItem key="navigationItem" title="Your Profile" id="jBW-k6-liy">
                         <barButtonItem key="leftBarButtonItem" title="Log out" id="G55-dW-Ydw">
                             <connections>
-                                <segue destination="Ira-lJ-XeE" kind="presentation" id="hX6-gq-xf4"/>
+                                <segue destination="83a-K6-dXO" kind="show" id="rck-ba-bFI"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Settings" id="64f-ZI-lyd"/>
@@ -1733,7 +1733,7 @@
         <!--Auth View Controller-->
         <scene sceneID="gJY-G4-uq0">
             <objects>
-                <viewController storyboardIdentifier="AuthVC" id="83a-K6-dXO" customClass="AuthViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AuthVC" hidesBottomBarWhenPushed="YES" id="83a-K6-dXO" customClass="AuthViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3tw-7K-myX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1777,7 +1777,6 @@
                                                         <state key="normal" title="Sign Up"/>
                                                         <connections>
                                                             <action selector="signUp:" destination="83a-K6-dXO" eventType="touchUpInside" id="ia4-kl-EXM"/>
-                                                            <segue destination="pbW-VC-hwo" kind="show" id="mye-Hd-eSC"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -1816,7 +1815,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="J4u-YI-o0F" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-585" y="-3112"/>
+            <point key="canvasLocation" x="1876" y="474"/>
         </scene>
         <!--Create Profile -->
         <scene sceneID="Hp7-LH-J9u">
@@ -1830,13 +1829,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Few-9r-wEY">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="276"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="296"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="l9n-T6-6Nl">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="276"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="296"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nov-1T-uJp">
-                                                        <rect key="frame" x="10" y="10" width="355" height="100"/>
+                                                        <rect key="frame" x="10" y="30" width="355" height="100"/>
                                                         <subviews>
                                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pick_image" translatesAutoresizingMaskIntoConstraints="NO" id="Ipy-N3-VNL" customClass="RoundedImageView" customModule="Scruge" customModuleProvider="target">
                                                                 <rect key="frame" x="127.5" y="0.0" width="100" height="100"/>
@@ -1861,23 +1860,20 @@
                                                         </constraints>
                                                     </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="your name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Hw-zk-ay9">
-                                                        <rect key="frame" x="10" y="132" width="355" height="30"/>
+                                                        <rect key="frame" x="10" y="152" width="355" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="name"/>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="country (optional)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HuH-y1-4JL">
-                                                        <rect key="frame" x="10" y="184" width="355" height="30"/>
+                                                        <rect key="frame" x="10" y="204" width="355" height="30"/>
                                                         <nil key="textColor"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="words"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8FH-2v-Bjc">
-                                                        <rect key="frame" x="10" y="236" width="355" height="30"/>
+                                                        <rect key="frame" x="10" y="256" width="355" height="30"/>
                                                         <state key="normal" title="Save Profile"/>
-                                                        <connections>
-                                                            <segue destination="pbW-VC-hwo" kind="custom" customClass="DismissSegue" customModule="Scruge" customModuleProvider="target" id="Dsq-lx-na5"/>
-                                                        </connections>
                                                     </button>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
@@ -1914,7 +1910,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbN-Bd-xhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="300" y="-3112"/>
+            <point key="canvasLocation" x="2762" y="474"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NU7-rb-iYT">
@@ -1934,24 +1930,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TdD-02-NAY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-639.20000000000005" y="-958.4707646176912"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="K9r-oY-jqx">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Ira-lJ-XeE" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jvu-lX-A7D">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="83a-K6-dXO" kind="relationship" relationship="rootViewController" id="6KV-7t-tNG"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Th3-AC-XQU" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1498.4000000000001" y="-2067.6161919040483"/>
         </scene>
         <!--Profile-->
         <scene sceneID="cDe-cd-jOq">

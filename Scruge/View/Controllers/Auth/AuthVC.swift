@@ -21,8 +21,12 @@ final class AuthViewController: UIViewController {
 		Service.api.logIn(email: email, password: password) { result in
 			switch result {
 			case .success(let response):
+				if response.errorCode != nil {
+					return self.showError(code: response.errorCode!)
+				}
+
 				guard response.success, let token = response.token else {
-					return // self.showError()
+					return self.showError()
 				}
 				Service.tokenManager.save(token)
 				self.dismiss(animated: true)
@@ -38,10 +42,11 @@ final class AuthViewController: UIViewController {
 			switch result {
 			case .success(let response):
 				guard response.success, let token = response.token else {
-					return // self.showError()
+					return self.showError()
 				}
 				Service.tokenManager.save(token)
 				// TO-DO: open profile setup
+
 			case .failure(let error):
 				self.showError(error)
 			}
@@ -69,7 +74,26 @@ final class AuthViewController: UIViewController {
 
 	}
 
-	func showError(_ error:Error) {
+	// MARK: - Show error
 
+	func showError(_ error:Error? = nil) {
+		guard let error = error else { return }
+		switch error {
+		case NetworkingError.connectionProblem:
+			alert("Connection problem")
+		default:
+			alert("Unexpected error")
+		}
+	}
+
+	func showError(code:Int) {
+		switch code {
+		case 1:
+			alert("Email already taken")
+		case 2:
+			alert("Incorrect credentials")
+		default:
+			showError()
+		}
 	}
 }

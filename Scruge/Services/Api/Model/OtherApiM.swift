@@ -19,5 +19,5 @@ struct SuccessResponse: Codable {
 
 struct TokenRequest: Codable {
 
-	let token:String
+	let token = TokenManager().getToken()
 }

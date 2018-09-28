@@ -12,7 +12,7 @@ import Foundation
 
 struct CampaignResponse: Codable {
 
-	let data:Campaign
+	let data:Campaign?
 }
 
 struct CampaignListResponse: Codable {
@@ -31,4 +31,6 @@ struct CampaignListRequest: Codable {
 	let categories:[String]?
 
 	let tags:[String]?
+
+	let token = TokenManager().getToken()
 }

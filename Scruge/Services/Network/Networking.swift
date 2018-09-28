@@ -9,26 +9,15 @@
 import SwiftHTTP
 import Result
 
-enum NetworkingError:Error {
-
-	case connectionError
-
-	case incorrectRequest
-
-	case serverError
-
-	case unknown(Int)
-}
-
 protocol Networking {
 
 	func get<T:Codable>(_ request:String,
 			 _ params:HTTPParameterProtocol?,
-			 _ completion: @escaping (Result<T, NetworkingError>)->Void)
+			 _ completion: @escaping (Result<T, AnyError>)->Void)
 
 	func post<T:Codable>(_ request:String,
 			  _ params:HTTPParameterProtocol?,
-			  _ completion: @escaping (Result<T, NetworkingError>)->Void)
+			  _ completion: @escaping (Result<T, AnyError>)->Void)
 }
 
 struct Network:Networking {
@@ -41,7 +30,7 @@ struct Network:Networking {
 
 	func get<T:Codable>(_ request:String,
 			 _ params:HTTPParameterProtocol?,
-			 _ completion: @escaping (Result<T, NetworkingError>)->Void) {
+			 _ completion: @escaping (Result<T, AnyError>)->Void) {
 
 		HTTP.GET(baseUrl + request,
 				 parameters: params,
@@ -52,7 +41,7 @@ struct Network:Networking {
 
 	func post<T:Codable>(_ request:String,
 			  _ params:HTTPParameterProtocol?,
-			  _ completion: @escaping (Result<T, NetworkingError>)->Void) {
+			  _ completion: @escaping (Result<T, AnyError>)->Void) {
 
 		HTTP.POST(baseUrl + request,
 				 parameters: params,
@@ -61,13 +50,21 @@ struct Network:Networking {
 		}
 	}
 
-	private func handleResponse<T:Codable>(_ response: (Response?),
-								   _ completion: (Result<T, NetworkingError>)->Void) {
-		guard let response = response,
-			let result = T.init(response.data)
-			else {
-				return completion(Result<T, NetworkingError>.failure(.connectionError))
+	func handleResponse<T:Codable>(_ response: (Response?),
+								   _ completion: (Result<T, AnyError>)->Void) {
+
+		guard let response = response else {
+			return completion(.failure(AnyError(NetworkingError.connectionProblem)))
 		}
-		completion(.success(result))
+
+		if let error = response.error {
+			return completion(.failure(AnyError(error)))
+		}
+
+		guard let object = T.init(response.data) else {
+			return completion(.failure(AnyError(NetworkingError.connectionProblem)))
+		}
+
+		completion(.success(object))
 	}
 }
