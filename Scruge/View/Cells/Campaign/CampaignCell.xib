@@ -21,7 +21,7 @@
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z1I-Au-E0o">
                         <rect key="frame" x="0.0" y="0.0" width="254" height="397.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="well" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-gN-Wpo">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-gN-Wpo">
                                 <rect key="frame" x="0.0" y="0.0" width="254" height="143"/>
                                 <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -122,7 +122,4 @@
             <point key="canvasLocation" x="49.600000000000001" y="175.41229385307346"/>
         </tableViewCell>
     </objects>
-    <resources>
-        <image name="well" width="307.20001220703125" height="230.39999389648438"/>
-    </resources>
 </document>

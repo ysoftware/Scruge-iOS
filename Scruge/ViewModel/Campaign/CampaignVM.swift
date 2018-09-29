@@ -60,17 +60,12 @@ final class PartialCampaignVM: ViewModel<PartialCampaign> {
 		return model.raisedAmount / model.fundAmount
 	}
 
-	var subTitle:String {
+	var raisedString:String {
 		guard let model = model else { return "" }
 		return "$\(model.raisedAmount) raised of $\(model.fundAmount)"
 	}
 
 	var daysLeft:String {
 		return "n days left"
-	}
-
-	var raisedText:String {
-		guard let model = model else { return "..." }
-		return "raised \(model.raisedAmount)"
 	}
 }

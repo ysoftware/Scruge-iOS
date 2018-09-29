@@ -20,8 +20,7 @@ final class FeaturedViewController: UIViewController {
 	// MARK: - Actions
 
 	@objc func titleTapped() {
-		isShowingCategories.toggle()
-		categoriesTableView.isHidden = !isShowingCategories
+		showCategories(!isShowingCategories)
 	}
 
 	// MARK: - Properties
@@ -32,29 +31,30 @@ final class FeaturedViewController: UIViewController {
 	var tableUpdateHandler:ArrayViewModelUpdateHandler!
 	let categories = [ "Technology", "Donations", "Games" ]
 
-	// MARK: - Methods
+	// MARK: - Setup
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		setupVM()
 		addTitleButton()
 		setupTableView()
-		setupVM()
+		setInitial()
 	}
 
 	func addTitleButton() {
-		// default
-		titleButton.setTitle("Featured", for: .normal)
-		categoriesTableView.isHidden = true
-
 		titleButton.setTitleColor(.black, for: .normal)
 		titleButton.addTarget(self, action: #selector(titleTapped), for: .touchUpInside)
 		navigationItem.titleView = titleButton
 	}
 
+	func setInitial() {
+		selectCategory("Featured")
+		categoriesTableView.isHidden = true
+	}
+
 	func setupVM() {
 		tableUpdateHandler = ArrayViewModelUpdateHandler(with: campaignTableView)
-
 		vm.delegate = self
 		vm.reloadData()
 	}
@@ -71,8 +71,30 @@ final class FeaturedViewController: UIViewController {
 									 forCellReuseIdentifier: R.reuseIdentifier.categoryCell.identifier)
 	}
 
-	func updateState() {
+	// MARK: - Methods
+
+	func showCategories(_ value:Bool) {
+		guard isShowingCategories != value else { return }
 		
+		isShowingCategories = value
+		if value {
+			self.categoriesTableView.alpha = 0
+			self.categoriesTableView.isHidden = false
+		}
+		UIView.animate(withDuration: 0.25, animations: {
+			self.categoriesTableView.alpha = value ? 1 : 0
+		}) { _ in
+			self.categoriesTableView.isHidden = !value
+		}
+	}
+
+	func updateState() {
+
+	}
+
+	func selectCategory(_ string:String) {
+		titleButton.setTitle(string, for: .normal)
+		titleButton.sizeToFit()
 	}
 }
 
@@ -99,6 +121,21 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 	}
 }
 
+extension FeaturedViewController: UITableViewDelegate {
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+
+		if tableView == campaignTableView {
+
+			return
+		}
+
+		showCategories(false)
+		selectCategory(categories[indexPath.row])
+	}
+}
+
 extension FeaturedViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,13 +159,6 @@ extension FeaturedViewController: UITableViewDataSource {
 												 for: indexPath)!
 		return cell.setup(with: categories[indexPath.row])
 		
-	}
-}
-
-extension FeaturedViewController: UITableViewDelegate {
-
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }
 

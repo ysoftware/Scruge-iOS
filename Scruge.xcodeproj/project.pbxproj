@@ -54,7 +54,7 @@
 		71BE957C215EA8E2001CF853 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE957B215EA8E1001CF853 /* Tabbar.swift */; };
 		71BE957F215F5D3C001CF853 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE957E215F5D3C001CF853 /* CategoryCell.swift */; };
 		71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE9580215F5D49001CF853 /* CategoryCell.xib */; };
-		71BE9583215F7945001CF853 /* MockNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9582215F7945001CF853 /* MockNetwork.swift */; };
+		71BE9583215F7945001CF853 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9582215F7945001CF853 /* Mock.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
@@ -138,7 +138,7 @@
 		71BE957B215EA8E1001CF853 /* Tabbar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tabbar.swift; sourceTree = "<group>"; };
 		71BE957E215F5D3C001CF853 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		71BE9580215F5D49001CF853 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
-		71BE9582215F7945001CF853 /* MockNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetwork.swift; sourceTree = "<group>"; };
+		71BE9582215F7945001CF853 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -437,7 +437,7 @@
 			isa = PBXGroup;
 			children = (
 				71BE1045215A2020004753EC /* Networking.swift */,
-				71BE9582215F7945001CF853 /* MockNetwork.swift */,
+				71BE9582215F7945001CF853 /* Mock.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -776,7 +776,7 @@
 				71B38D0F215B87AE00929CC3 /* CommentQ.swift in Sources */,
 				71971CC12158F076004D28E7 /* RoundedView.swift in Sources */,
 				71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */,
-				71BE9583215F7945001CF853 /* MockNetwork.swift in Sources */,
+				71BE9583215F7945001CF853 /* Mock.swift in Sources */,
 				71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */,
 				71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */,
 				71C8E8F3215912A10078BD36 /* Settings.swift in Sources */,
