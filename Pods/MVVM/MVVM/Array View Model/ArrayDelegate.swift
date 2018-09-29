@@ -19,11 +19,14 @@ public protocol ArrayViewModelDelegate: class {
 	/// - Parameters:
 	///   - arrayViewModel: объект arrayViewModel.
 	///   - update: информация об обновлении данных.
-	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>,
-								 _ update: Update) where Q:Query
+	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: Update)
+		where M: Equatable, VM: ViewModel<M>, Q: Query
 }
 
 public extension ArrayViewModelDelegate {
+
+	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: Update)
+		where M: Equatable, VM: ViewModel<M>, Q: Query {}
 
 	func didChangeState(to state:ArrayViewModelState) {}
 }

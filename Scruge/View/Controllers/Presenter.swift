@@ -16,7 +16,7 @@ struct Presenter {
 	}
 
 	static func setupMainTabs() -> [UIViewController] {
-		let featured = R.storyboard.main.trendingVC()!.inNavigationController
+		let featured = R.storyboard.main.featuredVC()!.inNavigationController
 		featured.tabBarItem = UITabBarItem(title: "Featured", image: nil, tag: 0)
 
 		let activity = R.storyboard.main.activityVC()!.inNavigationController

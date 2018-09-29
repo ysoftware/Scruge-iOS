@@ -1636,10 +1636,10 @@
             </objects>
             <point key="canvasLocation" x="2356" y="705"/>
         </scene>
-        <!--Trending View Controller-->
+        <!--Featured View Controller-->
         <scene sceneID="Ag6-eH-ABm">
             <objects>
-                <viewController storyboardIdentifier="TrendingVC" id="q3b-Vn-YAv" customClass="TrendingViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeaturedVC" id="q3b-Vn-YAv" customClass="FeaturedViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1dJ-qR-SG6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1648,18 +1648,31 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cap-N4-e8v">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="q3b-Vn-YAv" id="mph-q6-dMW"/>
+                                    <outlet property="delegate" destination="q3b-Vn-YAv" id="bzB-YR-Umz"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="RmF-Tu-4YV" firstAttribute="leading" secondItem="1dJ-qR-SG6" secondAttribute="leading" id="7Um-mR-zwq"/>
                             <constraint firstAttribute="trailing" secondItem="RmF-Tu-4YV" secondAttribute="trailing" id="BzW-Vx-gRt"/>
+                            <constraint firstItem="cap-N4-e8v" firstAttribute="bottom" secondItem="RmF-Tu-4YV" secondAttribute="bottom" id="CRy-6R-mQ2"/>
                             <constraint firstItem="RmF-Tu-4YV" firstAttribute="top" secondItem="1dJ-qR-SG6" secondAttribute="top" id="Ld1-co-xUK"/>
+                            <constraint firstItem="cap-N4-e8v" firstAttribute="top" secondItem="RmF-Tu-4YV" secondAttribute="top" id="Mb7-ly-WX9"/>
+                            <constraint firstItem="cap-N4-e8v" firstAttribute="leading" secondItem="RmF-Tu-4YV" secondAttribute="leading" id="Wc9-Wm-gi2"/>
                             <constraint firstAttribute="bottomMargin" secondItem="RmF-Tu-4YV" secondAttribute="bottom" id="Zso-ot-BX7"/>
+                            <constraint firstItem="cap-N4-e8v" firstAttribute="trailing" secondItem="RmF-Tu-4YV" secondAttribute="trailing" id="uhW-pP-7Er"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f29-8i-jOR"/>
                     </view>
                     <connections>
-                        <outlet property="tableView" destination="RmF-Tu-4YV" id="eNd-43-Bg7"/>
+                        <outlet property="campaignTableView" destination="RmF-Tu-4YV" id="2lL-77-kZx"/>
+                        <outlet property="categoriesTableView" destination="cap-N4-e8v" id="Xye-uM-7Gm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0p-gb-O8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1669,7 +1682,6 @@
         <!--Tabbar View Controller-->
         <scene sceneID="3qy-Dd-rii">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="oSw-dI-7Q5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="tTh-mh-2gC" customClass="TabbarViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="5rN-vY-PP7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
@@ -1677,6 +1689,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oSw-dI-7Q5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2388" y="-260"/>
         </scene>

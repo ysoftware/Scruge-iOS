@@ -19,6 +19,7 @@ final class CampaignCell: UITableViewCell {
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var progressConstraint: NSLayoutConstraint!
 
+	@discardableResult
 	func setup(_ vm:PartialCampaignVM) -> CampaignCell {
 
 		if let url = URL(string: vm.imageUrl) {
