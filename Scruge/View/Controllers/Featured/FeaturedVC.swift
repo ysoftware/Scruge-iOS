@@ -21,7 +21,7 @@ final class FeaturedViewController: UIViewController {
 
 	@objc func titleTapped() {
 		isShowingCategories.toggle()
-		categoriesTableView.isHidden = isShowingCategories
+		categoriesTableView.isHidden = !isShowingCategories
 	}
 
 	// MARK: - Properties
@@ -43,7 +43,11 @@ final class FeaturedViewController: UIViewController {
 	}
 
 	func addTitleButton() {
-		titleButton.setTitle("Featured", for: .normal) // default
+		// default
+		titleButton.setTitle("Featured", for: .normal)
+		categoriesTableView.isHidden = true
+
+		titleButton.setTitleColor(.black, for: .normal)
 		titleButton.addTarget(self, action: #selector(titleTapped), for: .touchUpInside)
 		navigationItem.titleView = titleButton
 	}
@@ -56,7 +60,7 @@ final class FeaturedViewController: UIViewController {
 	}
 
 	func setupTableView() {
-		campaignTableView.estimatedRowHeight = 300
+		campaignTableView.estimatedRowHeight = 400
 		campaignTableView.rowHeight = UITableView.automaticDimension
 		campaignTableView.register(UINib(resource: R.nib.campaignCell),
 								   forCellReuseIdentifier: R.reuseIdentifier.campaignCell.identifier)

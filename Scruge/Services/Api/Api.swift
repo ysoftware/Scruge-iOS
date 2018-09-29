@@ -15,7 +15,9 @@ final class Api {
 
 	let service:Networking
 
-	init(service:Networking = Network(baseUrl: "https://scruge.com/api/")) {
+	init(service:Networking
+//		= Network(baseUrl: "https://scruge.com/api/")) {
+		= Mock()) {
 		self.service = service
 	}
 

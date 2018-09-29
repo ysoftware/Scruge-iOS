@@ -20,8 +20,7 @@ extension UIView {
 											   attribute: constraint.secondAttribute,
 											   multiplier: multiplier,
 											   constant: constraint.constant)
-		removeConstraint(constraint)
-		addConstraint(newConstraint)
+		constraint.isActive = false
 		newConstraint.isActive = true
 		layoutIfNeeded()
 		return newConstraint

@@ -62,7 +62,7 @@ struct Network:Networking {
 			}
 
 			guard let object = T.init(response.data) else {
-				return completion(.failure(AnyError(NetworkingError.connectionProblem)))
+				return completion(.failure(AnyError(NetworkingError.parsingError)))
 			}
 
 			completion(.success(object))
