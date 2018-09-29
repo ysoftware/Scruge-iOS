@@ -25,8 +25,5 @@ public protocol ArrayViewModelDelegate: class {
 
 public extension ArrayViewModelDelegate {
 
-	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: Update)
-		where M: Equatable, VM: ViewModel<M>, Q: Query {}
-
 	func didChangeState(to state:ArrayViewModelState) {}
 }
