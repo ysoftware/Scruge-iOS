@@ -11,14 +11,14 @@ import Result
 
 final class CommentAVM: ArrayViewModel<Comment, CommentVM, CommentQuery> {
 
-	let source:CommentSource?
+	private let source:CommentSource?
 
 	init(source:CommentSource) {
 		self.source = source
 	}
 
 	init(_ comments:[Comment]) {
-		source = nil
+		self.source = nil
 		super.init()
 		manageItems(comments)
 	}

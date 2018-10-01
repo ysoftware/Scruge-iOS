@@ -47,9 +47,9 @@ struct Campaign: Equatable, Codable {
 
 	let rewards:[Reward]
 
-	let currentMilestone:Milestone
+	let currentMilestone:Milestone?
 
 	let lastUpdate:Update?
 
-	let lastComments:[Comment]
+	let topComments:[Comment]
 }

@@ -10,7 +10,7 @@ import MVVM
 
 final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 
-	let id:String
+	private let id:String
 
 	init(_ id:String) {
 		self.id = id
@@ -31,12 +31,12 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 			switch result {
 			case .success(let response):
 				self.model = response.data
-				self.notifyUpdated()
 			case .failure:
 				self.model = nil
-				self.notifyUpdated()
 				// TO-DO: display error maybe
 			}
+			self.resetViewModels()
+			self.notifyUpdated()
 		}
 	}
 
@@ -51,6 +51,31 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 			}
 		}
 	}
+
+	func resetViewModels() {
+		guard let model = model else { return }
+
+		if let update = model.lastUpdate {
+			lastUpdateVM = UpdateVM(update)
+		}
+
+		if let milestone = model.currentMilestone {
+			currentMilestoneVM = MilestoneVM(milestone)
+		}
+
+		rewardsVM = RewardAVM(model.rewards)
+		topCommentsVM = CommentAVM(model.topComments)
+	}
+
+	// MARK: - View Models
+
+	private(set) var lastUpdateVM:UpdateVM?
+
+	private(set) var topCommentsVM:CommentAVM?
+
+	private(set) var currentMilestoneVM:MilestoneVM?
+
+	private(set) var rewardsVM:RewardAVM?
 
 	// MARK: - Properties
 
@@ -80,52 +105,3 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 		return "n days left"
 	}
 }
-
-final class PartialCampaignVM: ViewModel<PartialCampaign>, PartialCampaignProperties {
-
-	var id:String {
-		return model?.id ?? ""
-	}
-
-	var imageUrl:String {
-		return model?.imageUrl ?? ""
-	}
-
-	var description:String {
-		return model?.description ?? ""
-	}
-
-	var title:String {
-		return model?.title ?? ""
-	}
-
-	var progress:Double {
-		guard let model = model else { return 0 }
-		return model.raisedAmount / model.fundAmount
-	}
-
-	var raisedString:String {
-		guard let model = model else { return "" }
-		return "$\(model.raisedAmount) raised of $\(model.fundAmount)"
-	}
-
-	var daysLeft:String {
-		return "n days left"
-	}
-}
-
-// MARK: - Unite these two
-
-protocol PartialCampaignProperties {
-
-	var description:String { get }
-
-	var title:String { get }
-
-	var progress:Double { get }
-
-	var raisedString:String { get }
-
-	var daysLeft:String { get }
-}
-

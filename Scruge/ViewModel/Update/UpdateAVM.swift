@@ -11,7 +11,7 @@ import Result
 
 final class UpdateAVM: SimpleArrayViewModel<Update, UpdateVM> {
 
-	let campaign:Campaign?
+	private let campaign:Campaign?
 
 	init(_ campaign:Campaign) {
 		self.campaign = campaign

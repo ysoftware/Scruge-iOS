@@ -57,6 +57,7 @@
 		71BE9583215F7945001CF853 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9582215F7945001CF853 /* Mock.swift */; };
 		71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE958621620BE3001CF853 /* CampaignVC.swift */; };
 		71BE958921621AF9001CF853 /* CampHTMLVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE958821621AF9001CF853 /* CampHTMLVC.swift */; };
+		71BE958C21622C3F001CF853 /* PartialCampVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE958B21622C3F001CF853 /* PartialCampVM.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
@@ -143,6 +144,7 @@
 		71BE9582215F7945001CF853 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		71BE958621620BE3001CF853 /* CampaignVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignVC.swift; sourceTree = "<group>"; };
 		71BE958821621AF9001CF853 /* CampHTMLVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampHTMLVC.swift; sourceTree = "<group>"; };
+		71BE958B21622C3F001CF853 /* PartialCampVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialCampVM.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -503,6 +505,7 @@
 			isa = PBXGroup;
 			children = (
 				71C8E8ED215910500078BD36 /* CampaignVM.swift */,
+				71BE958B21622C3F001CF853 /* PartialCampVM.swift */,
 				716AE1CB215977470098882F /* CampaignAVM.swift */,
 				71BE1042215A1EBD004753EC /* CampaignQ.swift */,
 			);
@@ -818,6 +821,7 @@
 				71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */,
 				71BE957C215EA8E2001CF853 /* Tabbar.swift in Sources */,
 				71B38CFB215ABDE400929CC3 /* Update.swift in Sources */,
+				71BE958C21622C3F001CF853 /* PartialCampVM.swift in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
 				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,
 				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,

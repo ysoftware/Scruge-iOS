@@ -100,7 +100,7 @@ struct Mock: Networking {
 					"description":"I'm going to tell you about some philosophy of choice and free will in the Matrix."
 				},
 
-				"lastComments": [
+				"topComments": [
 					{
 						"id":"1",
 						"text":"Can not wait for this movie! The idea looks so interesting.",
