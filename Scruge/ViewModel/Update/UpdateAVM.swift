@@ -25,7 +25,7 @@ final class UpdateAVM: SimpleArrayViewModel<Update, UpdateVM> {
 
 	override func fetchData(_ block: @escaping (Result<[Update], AnyError>) -> Void) {
 		guard let campaign = campaign else { return }
-		Api().getUpdateList(for: campaign) { result in
+		Service.api.getUpdateList(for: campaign) { result in
 			switch result {
 			case .success(let response):
 				block(.success(response.data))

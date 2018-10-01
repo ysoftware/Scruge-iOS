@@ -27,7 +27,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 	}
 
 	public func load() {
-		Api().getCampaign(with: id) { result in
+		Service.api.getCampaign(with: id) { result in
 			switch result {
 			case .success(let response):
 				self.model = response.data
@@ -42,7 +42,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 
 	public func loadDescription(_ completion: @escaping (String)->Void) {
 		guard let model = model else { return completion("") }
-		Api().getCampaignDescription(for: model) { result in
+		Service.api.getCampaignDescription(for: model) { result in
 			if case let .success(response) = result {
 				completion(response.data)
 			}

@@ -13,7 +13,7 @@ final class CampaignAVM: ArrayViewModel<PartialCampaign, PartialCampaignVM, Camp
 
 	override func fetchData(_ query: CampaignQuery?,
 							_ block: @escaping (Result<[PartialCampaign], AnyError>) -> Void) {
-		Api().getCampaignList(for: query) { result in
+		Service.api.getCampaignList(for: query) { result in
 			switch result {
 			case .success(let response):
 				block(.success(response.data))

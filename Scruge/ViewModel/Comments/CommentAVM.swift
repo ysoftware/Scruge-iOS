@@ -26,17 +26,16 @@ final class CommentAVM: ArrayViewModel<Comment, CommentVM, CommentQuery> {
 	override func fetchData(_ query: CommentQuery?,
 							_ block: @escaping (Result<[Comment], AnyError>) -> Void) {
 		guard let source = source else { return }
-		let api = Api()
 		switch source {
 		case .campaign(let campaign):
-			api.getComments(for: campaign) { self.completion($0, block) }
+			Service.api.getComments(for: campaign) { self.handleResponse($0, block) }
 		case .update(let update):
-			api.getComments(for: update) { self.completion($0, block) }
+			Service.api.getComments(for: update) { self.handleResponse($0, block) }
 		}
 	}
 
-	func completion(_ result:Result<CommentListResponse, AnyError>,
-					_ block: (Result<[Comment], AnyError>) -> Void) {
+	func handleResponse(_ result:Result<CommentListResponse, AnyError>,
+						_ block: (Result<[Comment], AnyError>) -> Void) {
 
 		switch result {
 		case .success(let response):

@@ -8,7 +8,7 @@
 
 import Foundation
 
-final class Service {
+struct Service {
 
 	private init() { }
 
