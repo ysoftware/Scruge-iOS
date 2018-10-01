@@ -853,7 +853,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bNa-Vc-cRW" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="pvB-oA-Td1"/>
             </objects>
-            <point key="canvasLocation" x="1633" y="309"/>
+            <point key="canvasLocation" x="1633" y="558"/>
         </scene>
         <!--Contribute-->
         <scene sceneID="7j6-46-Gyw">
@@ -1233,11 +1233,7 @@
                     <size key="freeformSize" width="375" height="1100"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUE-xQ-aHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="pi4-7O-J4r" userLabel="1">
-                    <connections>
-                        <segue destination="bVR-hL-loL" kind="show" id="Cvf-Zn-rDO"/>
-                    </connections>
-                </tapGestureRecognizer>
+                <tapGestureRecognizer id="pi4-7O-J4r" userLabel="1"/>
                 <tapGestureRecognizer id="AFW-cG-hEn" userLabel="2"/>
             </objects>
             <point key="canvasLocation" x="1633" y="-795"/>
@@ -1901,15 +1897,15 @@
             </objects>
             <point key="canvasLocation" x="-612" y="1965"/>
         </scene>
-        <!--View Controller-->
+        <!--Campaign View Controller-->
         <scene sceneID="7Mq-h4-r2N">
             <objects>
-                <viewController storyboardIdentifier="ActivityVC" id="bSn-68-QGz" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampaignVC" id="bSn-68-QGz" customClass="CampaignViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O95-fJ-muX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hdg-Pb-D1I">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hdg-Pb-D1I">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -1927,8 +1923,72 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FAl-fi-C3i"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="hdg-Pb-D1I" id="USs-u0-xTM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Y2-md-9p2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-722" y="-976"/>
+        </scene>
+        <!--CampaignHTML View Controller-->
+        <scene sceneID="yuM-aR-OhE">
+            <objects>
+                <viewController storyboardIdentifier="CampaignHTMLVC" id="g0t-lk-yTV" customClass="CampaignHTMLViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qa4-gX-0km">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MLq-l3-DRu">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a1g-ip-6Qm" firstAttribute="trailing" secondItem="MLq-l3-DRu" secondAttribute="trailing" id="3ni-cX-VE4"/>
+                            <constraint firstItem="MLq-l3-DRu" firstAttribute="top" secondItem="a1g-ip-6Qm" secondAttribute="top" id="AbT-4y-03Z"/>
+                            <constraint firstItem="MLq-l3-DRu" firstAttribute="leading" secondItem="a1g-ip-6Qm" secondAttribute="leading" id="Vt7-yv-35D"/>
+                            <constraint firstItem="a1g-ip-6Qm" firstAttribute="bottom" secondItem="MLq-l3-DRu" secondAttribute="bottom" id="ZL4-FZ-857"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="a1g-ip-6Qm"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="MLq-l3-DRu" id="Vhw-Dx-gqF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ufv-Hy-Jeb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="68" y="-976"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="Ard-ES-eM9">
+            <objects>
+                <viewController storyboardIdentifier="ActivityVC" id="v30-3i-aVb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bLr-B2-TP3">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DXy-ql-Zsw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="v30-3i-aVb" id="hqR-YD-dNm"/>
+                                    <outlet property="delegate" destination="v30-3i-aVb" id="tIS-oc-hUv"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="DXy-ql-Zsw" secondAttribute="bottom" id="8rC-R9-Hpz"/>
+                            <constraint firstItem="DXy-ql-Zsw" firstAttribute="leading" secondItem="bLr-B2-TP3" secondAttribute="leading" id="R0G-0T-sZt"/>
+                            <constraint firstItem="DXy-ql-Zsw" firstAttribute="top" secondItem="bLr-B2-TP3" secondAttribute="top" id="lWQ-ca-Jug"/>
+                            <constraint firstAttribute="trailing" secondItem="DXy-ql-Zsw" secondAttribute="trailing" id="na0-vU-Uu0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DIR-CJ-h1e"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9zL-sY-Szi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1498" y="-260"/>
         </scene>

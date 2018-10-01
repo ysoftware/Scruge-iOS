@@ -30,6 +30,20 @@ struct Presenter {
 
 		return [featured, activity, search, profile]
 	}
+
+	static func presentCampaignViewController(in vc:UIViewController,
+											  with campaignVM:PartialCampaignVM) {
+		let new = R.storyboard.main.campaignVC()!
+		new.campaignVM = CampaignVM(campaignVM.id)
+		vc.show(new, sender: self)
+	}
+
+	static func presentCampaignHTMLViewController(in vc:UIViewController,
+												  for campaignVM:CampaignVM) {
+		let new = R.storyboard.main.campaignHTMLVC()!
+		new.vm = campaignVM
+		vc.show(new, sender: self)
+	}
 }
 
 fileprivate extension UIViewController {

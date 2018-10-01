@@ -11,25 +11,45 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampaignCell" rowHeight="398" id="PjA-s0-gGc" customClass="CampaignCell" customModule="Scruge" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="254" height="398"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampaignCell" rowHeight="467" id="PjA-s0-gGc" customClass="CampaignCell" customModule="Scruge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="254" height="467"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="PjA-s0-gGc" id="0a1-Mm-jLQ">
-                <rect key="frame" x="0.0" y="0.0" width="254" height="397.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="254" height="466.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z1I-Au-E0o">
-                        <rect key="frame" x="0.0" y="0.0" width="254" height="397.5"/>
+                        <rect key="frame" x="0.0" y="0.0" width="254" height="466.5"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-gN-Wpo">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sq3-PB-9in">
                                 <rect key="frame" x="0.0" y="0.0" width="254" height="143"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <subviews>
+                                    <webView hidden="YES" opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVW-Zz-ybR">
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="143"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </webView>
+                                    <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ggd-gN-Wpo">
+                                        <rect key="frame" x="0.0" y="0.0" width="254" height="143"/>
+                                        <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="ggd-gN-Wpo" secondAttribute="height" multiplier="16:9" id="Ulj-jY-wKo"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="ggd-gN-Wpo" secondAttribute="height" multiplier="16:9" id="Ulj-jY-wKo"/>
+                                    <constraint firstAttribute="bottom" secondItem="ggd-gN-Wpo" secondAttribute="bottom" id="00B-nr-4hk"/>
+                                    <constraint firstAttribute="trailing" secondItem="ggd-gN-Wpo" secondAttribute="trailing" id="2HU-fj-gjR"/>
+                                    <constraint firstAttribute="trailing" secondItem="IVW-Zz-ybR" secondAttribute="trailing" id="a2G-ta-623"/>
+                                    <constraint firstItem="IVW-Zz-ybR" firstAttribute="top" secondItem="sq3-PB-9in" secondAttribute="top" id="bsx-4A-a4l"/>
+                                    <constraint firstItem="ggd-gN-Wpo" firstAttribute="top" secondItem="sq3-PB-9in" secondAttribute="top" id="czq-aI-aT3"/>
+                                    <constraint firstItem="ggd-gN-Wpo" firstAttribute="leading" secondItem="sq3-PB-9in" secondAttribute="leading" id="h7h-WG-0av"/>
+                                    <constraint firstAttribute="bottom" secondItem="IVW-Zz-ybR" secondAttribute="bottom" id="oXX-JT-wbp"/>
+                                    <constraint firstItem="IVW-Zz-ybR" firstAttribute="leading" secondItem="sq3-PB-9in" secondAttribute="leading" id="vqw-gP-5db"/>
                                 </constraints>
-                            </imageView>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zkt-yF-qY5">
-                                <rect key="frame" x="0.0" y="153" width="254" height="233.5"/>
+                                <rect key="frame" x="0.0" y="153" width="254" height="313.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Building a water well in a distant African village" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-gT-blG">
                                         <rect key="frame" x="8" y="0.0" width="238" height="43"/>
@@ -84,21 +104,24 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Our goal is to install a water pump in Malawi to empower villagers to build a better future for themselves." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzM-D5-xiI">
-                                        <rect key="frame" x="8" y="124" width="238" height="101.5"/>
+                                        <rect key="frame" x="8" y="124" width="238" height="181.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f0D-9p-Drn">
+                                        <rect key="frame" x="8" y="305.5" width="238" height="0.0"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                        <state key="normal" title="Read the whole story →">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="readMore:" destination="PjA-s0-gGc" eventType="touchUpInside" id="jWX-92-oTA"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <edgeInsets key="layoutMargins" top="0.0" left="8" bottom="8" right="8"/>
                             </stackView>
-                            <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ab0-oa-LQQ">
-                                <rect key="frame" x="0.0" y="396.5" width="254" height="1"/>
-                                <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="1" id="thF-Q5-2fa"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <gestureRecognizers/>
                     </stackView>
@@ -115,11 +138,13 @@
                 <outlet property="leftLabel" destination="vG9-F8-ezY" id="bxi-3G-rPN"/>
                 <outlet property="progressConstraint" destination="amL-ob-5We" id="Th5-Lr-gLM"/>
                 <outlet property="raisedLabel" destination="nZa-y6-Leu" id="6OM-2J-LiO"/>
+                <outlet property="readMoreButton" destination="f0D-9p-Drn" id="uMa-E9-bFA"/>
                 <outlet property="rightLabel" destination="eCN-hh-Ryc" id="dyh-lQ-zfi"/>
                 <outlet property="titleLabel" destination="eRk-gT-blG" id="ozO-0y-KBK"/>
                 <outlet property="topImage" destination="ggd-gN-Wpo" id="Y6m-l8-m41"/>
+                <outlet property="topWebView" destination="IVW-Zz-ybR" id="j4f-Ks-pD7"/>
             </connections>
-            <point key="canvasLocation" x="49.600000000000001" y="175.41229385307346"/>
+            <point key="canvasLocation" x="49.600000000000001" y="206.44677661169416"/>
         </tableViewCell>
     </objects>
 </document>

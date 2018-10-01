@@ -21,4 +21,6 @@ struct Reward: Equatable, Codable {
 	let available:Int?
 
 	let totalAvailable:Int?
+
+	let additionalInfo:String?
 }

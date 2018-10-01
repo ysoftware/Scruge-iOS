@@ -16,7 +16,7 @@ struct PartialCampaign: Equatable, Codable {
 
 	let description:String
 
-	let image:String
+	let imageUrl:String
 
 	let endTimestamp:Int
 
@@ -33,7 +33,7 @@ struct Campaign: Equatable, Codable {
 
 	let description:String
 
-	let image:String
+	let mediaUrl:String // image or video
 
 	let endTimestamp:Int
 

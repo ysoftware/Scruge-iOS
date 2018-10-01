@@ -8,7 +8,7 @@
 
 import MVVM
 
-final class CampaignVM: ViewModel<Campaign> {
+final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 
 	let id:String
 
@@ -32,19 +32,30 @@ final class CampaignVM: ViewModel<Campaign> {
 			case .success(let response):
 				self.model = response.data
 				self.notifyUpdated()
-			case .failure(_):
+			case .failure:
 				self.model = nil
 				self.notifyUpdated()
 				// TO-DO: display error maybe
 			}
 		}
 	}
-}
 
-final class PartialCampaignVM: ViewModel<PartialCampaign> {
+	public func loadDescription(_ completion: @escaping (String)->Void) {
+		guard let model = model else { return completion("") }
+		Api().getCampaignDescription(for: model) { result in
+			if case let .success(response) = result {
+				completion(response.data)
+			}
+			else {
+				completion("")
+			}
+		}
+	}
 
-	var imageUrl:String {
-		return model?.image ?? ""
+	// MARK: - Properties
+
+	var mediaUrl:String {
+		return model?.mediaUrl ?? ""
 	}
 
 	var description:String {
@@ -69,3 +80,52 @@ final class PartialCampaignVM: ViewModel<PartialCampaign> {
 		return "n days left"
 	}
 }
+
+final class PartialCampaignVM: ViewModel<PartialCampaign>, PartialCampaignProperties {
+
+	var id:String {
+		return model?.id ?? ""
+	}
+
+	var imageUrl:String {
+		return model?.imageUrl ?? ""
+	}
+
+	var description:String {
+		return model?.description ?? ""
+	}
+
+	var title:String {
+		return model?.title ?? ""
+	}
+
+	var progress:Double {
+		guard let model = model else { return 0 }
+		return model.raisedAmount / model.fundAmount
+	}
+
+	var raisedString:String {
+		guard let model = model else { return "" }
+		return "$\(model.raisedAmount) raised of $\(model.fundAmount)"
+	}
+
+	var daysLeft:String {
+		return "n days left"
+	}
+}
+
+// MARK: - Unite these two
+
+protocol PartialCampaignProperties {
+
+	var description:String { get }
+
+	var title:String { get }
+
+	var progress:Double { get }
+
+	var raisedString:String { get }
+
+	var daysLeft:String { get }
+}
+

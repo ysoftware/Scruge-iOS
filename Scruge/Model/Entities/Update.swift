@@ -17,4 +17,6 @@ struct Update: Equatable, Codable {
 	let title:String
 
 	let timestamp:Int
+
+	let description:String?
 }

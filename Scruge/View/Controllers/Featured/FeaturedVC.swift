@@ -127,8 +127,8 @@ extension FeaturedViewController: UITableViewDelegate {
 		tableView.deselectRow(at: indexPath, animated: true)
 
 		if tableView == campaignTableView {
-
-			return
+			return Presenter.presentCampaignViewController(in: self,
+														   with: vm.item(at: indexPath.row))
 		}
 
 		showCategories(false)
