@@ -152,7 +152,7 @@ extension FeaturedViewController: UITableViewDataSource {
 		if tableView == campaignTableView {
 			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
 													 for: indexPath)!
-			return cell.setup(vm.item(at: indexPath.row, shouldLoadMore: true))
+			return cell.setup(with: vm.item(at: indexPath.row, shouldLoadMore: true))
 		}
 
 		let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryCell,

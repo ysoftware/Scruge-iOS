@@ -62,6 +62,8 @@
 		71BE9591216233E3001CF853 /* CampFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9590216233E3001CF853 /* CampFooter.swift */; };
 		71BE95932162343F001CF853 /* CampHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95922162343F001CF853 /* CampHeader.xib */; };
 		71BE959521623448001CF853 /* CampFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE959421623448001CF853 /* CampFooter.xib */; };
+		71BE959921625582001CF853 /* MilestoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE959821625582001CF853 /* MilestoneCell.xib */; };
+		71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE959A216255C1001CF853 /* MilestoneCell.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
@@ -153,6 +155,8 @@
 		71BE9590216233E3001CF853 /* CampFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampFooter.swift; sourceTree = "<group>"; };
 		71BE95922162343F001CF853 /* CampHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampHeader.xib; sourceTree = "<group>"; };
 		71BE959421623448001CF853 /* CampFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampFooter.xib; sourceTree = "<group>"; };
+		71BE959821625582001CF853 /* MilestoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MilestoneCell.xib; sourceTree = "<group>"; };
+		71BE959A216255C1001CF853 /* MilestoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneCell.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -345,6 +349,7 @@
 		71971CBB2158E454004D28E7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				71BE959721625575001CF853 /* Milestone */,
 				71BE957D215F5D31001CF853 /* Category */,
 				71BE9577215E7FC1001CF853 /* Campaign  */,
 				71BE958D2162339F001CF853 /* Campaign Details */,
@@ -513,6 +518,15 @@
 			path = "Campaign Details";
 			sourceTree = "<group>";
 		};
+		71BE959721625575001CF853 /* Milestone */ = {
+			isa = PBXGroup;
+			children = (
+				71BE959821625582001CF853 /* MilestoneCell.xib */,
+				71BE959A216255C1001CF853 /* MilestoneCell.swift */,
+			);
+			path = Milestone;
+			sourceTree = "<group>";
+		};
 		71C8E8E621590F1E0078BD36 /* Blockchain */ = {
 			isa = PBXGroup;
 			children = (
@@ -659,6 +673,7 @@
 			files = (
 				71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */,
 				71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */,
+				71BE959921625582001CF853 /* MilestoneCell.xib in Resources */,
 				71BE9572215E777A001CF853 /* CampaignCell.xib in Resources */,
 				71971C882158E058004D28E7 /* Assets.xcassets in Resources */,
 				71BE959521623448001CF853 /* CampFooter.xib in Resources */,
@@ -847,6 +862,7 @@
 				71B38CFB215ABDE400929CC3 /* Update.swift in Sources */,
 				71BE958C21622C3F001CF853 /* PartialCampVM.swift in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
+				71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */,
 				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,
 				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,
 				71B38D0B215B879D00929CC3 /* CommentVM.swift in Sources */,

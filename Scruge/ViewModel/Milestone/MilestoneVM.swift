@@ -10,4 +10,11 @@ import MVVM
 
 final class MilestoneVM: ViewModel<Milestone> {
 
+	var description:String {
+		return model?.description ?? ""
+	}
+
+	var date:String {
+		return "January 1, 2019" //model?.endTimestamp
+	}
 }

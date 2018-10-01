@@ -25,7 +25,7 @@ final class CampaignCell: UITableViewCell {
 	// MARK: - Setup
 
 	@discardableResult
-	func setup(_ vm:PartialCampaignProperties) -> CampaignCell {
+	func setup(with vm:PartialCampaignProperties) -> CampaignCell {
 
 		titleLabel.text = vm.title
 		descriptionLabel.text = vm.description
