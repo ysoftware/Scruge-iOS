@@ -10,8 +10,12 @@ import MVVM
 
 final class UpdateVM: ViewModel<Update> {
 
+	var imageUrl:String? {
+		return model?.imageUrl
+	}
+
 	var date:String {
-		return "\(model?.timestamp ?? 0)"
+		return "21 October, 2018" // "\(model?.timestamp ?? 0)"
 	}
 
 	var title:String {

@@ -19,4 +19,6 @@ struct Update: Equatable, Codable {
 	let timestamp:Int
 
 	let description:String?
+
+	let imageUrl:String?
 }

@@ -64,6 +64,8 @@
 		71BE959521623448001CF853 /* CampFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE959421623448001CF853 /* CampFooter.xib */; };
 		71BE959921625582001CF853 /* MilestoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE959821625582001CF853 /* MilestoneCell.xib */; };
 		71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE959A216255C1001CF853 /* MilestoneCell.swift */; };
+		71BE959E216258DE001CF853 /* UpdateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE959D216258DE001CF853 /* UpdateCell.swift */; };
+		71BE95A0216258E7001CF853 /* UpdateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE959F216258E7001CF853 /* UpdateCell.xib */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
@@ -157,6 +159,8 @@
 		71BE959421623448001CF853 /* CampFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampFooter.xib; sourceTree = "<group>"; };
 		71BE959821625582001CF853 /* MilestoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MilestoneCell.xib; sourceTree = "<group>"; };
 		71BE959A216255C1001CF853 /* MilestoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneCell.swift; sourceTree = "<group>"; };
+		71BE959D216258DE001CF853 /* UpdateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCell.swift; sourceTree = "<group>"; };
+		71BE959F216258E7001CF853 /* UpdateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateCell.xib; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -349,6 +353,7 @@
 		71971CBB2158E454004D28E7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				71BE959C216258D4001CF853 /* Update */,
 				71BE959721625575001CF853 /* Milestone */,
 				71BE957D215F5D31001CF853 /* Category */,
 				71BE9577215E7FC1001CF853 /* Campaign  */,
@@ -527,6 +532,15 @@
 			path = Milestone;
 			sourceTree = "<group>";
 		};
+		71BE959C216258D4001CF853 /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				71BE959D216258DE001CF853 /* UpdateCell.swift */,
+				71BE959F216258E7001CF853 /* UpdateCell.xib */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
 		71C8E8E621590F1E0078BD36 /* Blockchain */ = {
 			isa = PBXGroup;
 			children = (
@@ -674,6 +688,7 @@
 				71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */,
 				71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */,
 				71BE959921625582001CF853 /* MilestoneCell.xib in Resources */,
+				71BE95A0216258E7001CF853 /* UpdateCell.xib in Resources */,
 				71BE9572215E777A001CF853 /* CampaignCell.xib in Resources */,
 				71971C882158E058004D28E7 /* Assets.xcassets in Resources */,
 				71BE959521623448001CF853 /* CampFooter.xib in Resources */,
@@ -840,6 +855,7 @@
 				71971C832158E056004D28E7 /* AuthVC.swift in Sources */,
 				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,
 				71BE9567215E2AD2001CF853 /* Service.swift in Sources */,
+				71BE959E216258DE001CF853 /* UpdateCell.swift in Sources */,
 				71BE957F215F5D3C001CF853 /* CategoryCell.swift in Sources */,
 				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,
 				71B38CFD215ABDF000929CC3 /* UpdateApiM.swift in Sources */,

@@ -34,11 +34,14 @@ final class CampaignCell: UITableViewCell {
 		progressConstraint = changeMultiplier(to: CGFloat(vm.progress), for: progressConstraint)
 
 		if let vm = vm as? PartialCampaignVM {
-			topImage.isHidden = false
 			topWebView.isHidden = true
 
 			if let url = URL(string: vm.imageUrl) {
+				topImage.isHidden = false
 				topImage.kf.setImage(with: url)
+			}
+			else {
+				topImage.isHidden = true
 			}
 		}
 		else if let vm = vm as? CampaignVM {

@@ -58,6 +58,8 @@ final class CampaignViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.campaignCell.identifier)
 		tableView.register(UINib(resource: R.nib.milestoneCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.milestoneCell.identifier)
+		tableView.register(UINib(resource: R.nib.updateCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.updateCell.identifier)
 		tableView.registerHeaderFooterView(R.nib.campHeader)
 		tableView.registerHeaderFooterView(R.nib.campFooter)
 	}
@@ -103,6 +105,12 @@ extension CampaignViewController: UITableViewDataSource {
 			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.milestoneCell,
 													 for: indexPath)!
 			if let vm = vm.currentMilestoneVM {
+				return cell.setup(with: vm)
+			}
+		case 2:
+			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
+													 for: indexPath)!
+			if let vm = vm.lastUpdateVM {
 				return cell.setup(with: vm)
 			}
 		default: break

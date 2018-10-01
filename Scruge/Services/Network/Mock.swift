@@ -96,6 +96,7 @@ struct Mock: Networking {
 					"id":"1",
 					"campaignId":"1",
 					"title":"Writer's blog: Day 12",
+					"imageUrl":"https://assets.rebelcircus.com/blog/wp-content/uploads/2016/03/article-2222541-15A98BAC000005DC-820_634x429-e1457975643432.jpg",
 					"timestamp":1538380424000,
 					"description":"I'm going to tell you about some philosophy of choice and free will in the Matrix."
 				},

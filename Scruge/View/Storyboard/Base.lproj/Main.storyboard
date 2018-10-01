@@ -529,7 +529,7 @@
                                                                             </label>
                                                                         </subviews>
                                                                     </stackView>
-                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="symp" translatesAutoresizingMaskIntoConstraints="NO" id="9qh-dj-UEB">
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9qh-dj-UEB">
                                                                         <rect key="frame" x="8" y="39.5" width="359" height="150"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="150" id="G95-bZ-qm5"/>
@@ -1996,7 +1996,6 @@
     <resources>
         <image name="pick_image" width="613.44000244140625" height="768"/>
         <image name="profile" width="270" height="300"/>
-        <image name="symp" width="639" height="479"/>
         <image name="synth" width="1024" height="576"/>
         <image name="well" width="307.20001220703125" height="230.39999389648438"/>
     </resources>
