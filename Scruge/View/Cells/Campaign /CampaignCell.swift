@@ -13,7 +13,6 @@ final class CampaignCell: UITableViewCell {
 
 	// MARK: - Outlets
 
-	@IBOutlet weak var readMoreButton: UIButton!
 	@IBOutlet weak var topWebView: UIWebView!
 	@IBOutlet weak var topImage: UIImageView!
 	@IBOutlet weak var titleLabel: UILabel!
@@ -23,22 +22,10 @@ final class CampaignCell: UITableViewCell {
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var progressConstraint: NSLayoutConstraint!
 
-	// MARK: - Actions
-
-	@IBAction func readMore(_ sender: Any) {
-		readMoreBlock?()
-	}
-
-	// MARK: - Properties
-
-	var readMoreBlock:(()->Void)?
-
 	// MARK: - Setup
 
 	@discardableResult
-	func setup(_ vm:PartialCampaignProperties,
-			   onReadMore block: (()->Void)? = nil) -> CampaignCell {
-		readMoreBlock = block
+	func setup(_ vm:PartialCampaignProperties) -> CampaignCell {
 
 		titleLabel.text = vm.title
 		descriptionLabel.text = vm.description
@@ -49,7 +36,6 @@ final class CampaignCell: UITableViewCell {
 		if let vm = vm as? PartialCampaignVM {
 			topImage.isHidden = false
 			topWebView.isHidden = true
-			readMoreButton.isHidden = true
 
 			if let url = URL(string: vm.imageUrl) {
 				topImage.kf.setImage(with: url)
@@ -57,7 +43,6 @@ final class CampaignCell: UITableViewCell {
 		}
 		else if let vm = vm as? CampaignVM {
 			topImage.isHidden = true
-			readMoreButton.isHidden = false
 			setupWebView(with: vm.mediaUrl)
 		}
 		return self

@@ -34,7 +34,7 @@ struct Presenter {
 	static func presentCampaignViewController(in vc:UIViewController,
 											  with campaignVM:PartialCampaignVM) {
 		let new = R.storyboard.main.campaignVC()!
-		new.campaignVM = CampaignVM(campaignVM.id)
+		new.vm = CampaignVM(campaignVM.id)
 		vc.show(new, sender: self)
 	}
 

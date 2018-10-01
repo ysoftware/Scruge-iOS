@@ -79,6 +79,10 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 
 	// MARK: - Properties
 
+	var totalCommentsCount:String {
+		return "\(model?.totalCommentsCount ?? 0)"
+	}
+
 	var mediaUrl:String {
 		return model?.mediaUrl ?? ""
 	}

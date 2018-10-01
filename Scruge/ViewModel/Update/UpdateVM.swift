@@ -9,5 +9,16 @@
 import MVVM
 
 final class UpdateVM: ViewModel<Update> {
-	
+
+	var date:String {
+		return "\(model?.timestamp ?? 0)"
+	}
+
+	var title:String {
+		return model?.title ?? ""
+	}
+
+	var descsription:String {
+		return model?.description ?? ""
+	}
 }
