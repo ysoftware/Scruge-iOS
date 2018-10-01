@@ -29,7 +29,8 @@ final class CampaignCell: UITableViewCell {
 
 		titleLabel.text = vm.title
 		descriptionLabel.text = vm.description
-		leftLabel.text = vm.raisedString
+		leftLabel.text = vm.progressString
+		raisedLabel.text = vm.raisedString
 		rightLabel.text = vm.daysLeft
 		progressConstraint = changeMultiplier(to: CGFloat(vm.progress), for: progressConstraint)
 

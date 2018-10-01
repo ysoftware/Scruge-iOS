@@ -9,5 +9,19 @@
 import MVVM
 
 final class CommentVM: ViewModel<Comment> {
-	
+
+	var username:String {
+		return model?.authorName ?? "Anonymous"
+	}
+
+	var profileImageUrl:URL? {
+		if let url = model?.authorPhoto {
+			return URL(string: url)
+		}
+		return nil
+	}
+
+	var comment:String {
+		return model?.text ?? ""
+	}
 }

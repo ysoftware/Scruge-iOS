@@ -40,6 +40,7 @@ final class CampaignViewController: UIViewController {
 		super.viewDidLoad()
 
 		setupTableView()
+		setupVM()
 	}
 
 	func setupVM() {
@@ -49,8 +50,6 @@ final class CampaignViewController: UIViewController {
 
 	func setupTableView() {
 		tableView.delaysContentTouches = false
-
-		tableView.contentInset = UIEdgeInsets(top: -35, left: 0, bottom: -10, right: 0)
 		tableView.estimatedRowHeight = 400
 		tableView.rowHeight = UITableView.automaticDimension
 
@@ -60,8 +59,18 @@ final class CampaignViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.milestoneCell.identifier)
 		tableView.register(UINib(resource: R.nib.updateCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.updateCell.identifier)
+		tableView.register(UINib(resource: R.nib.commentCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.commentCell.identifier)
+		tableView.register(UINib(resource: R.nib.rewardCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.rewardCell.identifier)
 		tableView.registerHeaderFooterView(R.nib.campHeader)
 		tableView.registerHeaderFooterView(R.nib.campFooter)
+
+		updateTableLayout()
+	}
+
+	func updateTableLayout() {
+		tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
 	}
 
 	func shouldDisplay(section:Int) -> Bool {
@@ -113,6 +122,18 @@ extension CampaignViewController: UITableViewDataSource {
 			if let vm = vm.lastUpdateVM {
 				return cell.setup(with: vm)
 			}
+		case 3:
+			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell,
+													 for: indexPath)!
+			if let vm = vm.topCommentsVM?.item(at: indexPath.row) {
+				return cell.setup(with: vm)
+			}
+		case 4:
+			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.rewardCell,
+													 for: indexPath)!
+			if let vm = vm.rewardsVM?.item(at: indexPath.row) {
+				return cell.setup(with: vm)
+			}
 		default: break
 		}
 		return UITableViewCell()
@@ -154,7 +175,7 @@ extension CampaignViewController: UITableViewDataSource {
 			default: break
 			}
 		}
-		return 0
+		return .leastNormalMagnitude
 	}
 
 	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
@@ -164,7 +185,7 @@ extension CampaignViewController: UITableViewDataSource {
 			default: break
 			}
 		}
-		return 0
+		return .leastNormalMagnitude
 	}
 }
 
@@ -185,7 +206,23 @@ extension CampaignViewController: UITableViewDelegate {
 extension CampaignViewController: ViewModelDelegate {
 
 	func didUpdateData<M>(_ viewModel: ViewModel<M>) where M : Equatable {
-		tableView.reloadData()
+		if viewModel === vm {
+			vm.lastUpdateVM?.delegate = self
+			vm.currentMilestoneVM?.delegate = self
+			vm.topCommentsVM?.delegate = self
+			vm.rewardsVM?.delegate = self
+			tableView.reloadData()
+			updateTableLayout()
+		}
+	}
+}
+
+extension CampaignViewController: ArrayViewModelDelegate {
+
+	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)
+		where M : Equatable, VM : ViewModel<M>, Q : Query {
+			tableView.reloadData()
+			updateTableLayout()
 	}
 }
 

@@ -95,14 +95,19 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 		return model?.title ?? ""
 	}
 
-	var progress:Double {
+	var progress:Double { // 0 - 1
 		guard let model = model else { return 0 }
 		return model.raisedAmount / model.fundAmount
 	}
 
+	var progressString:String { // 0% - 100%
+		guard let model = model else { return "0%" }
+		return "\((model.raisedAmount / model.fundAmount * 100).format())%"
+	}
+
 	var raisedString:String {
 		guard let model = model else { return "" }
-		return "$\(model.raisedAmount) raised of $\(model.fundAmount)"
+		return "$\(model.raisedAmount.format()) raised of $\(model.fundAmount.format())"
 	}
 
 	var daysLeft:String {
