@@ -40,22 +40,26 @@ extension PartialCampaignModelHolder {
 
 	var progressString: String {  // 0% - 100%
 		guard let model = model else { return "0% raised" }
-		return "\((model.raisedAmount / model.fundAmount * 100).format())% raised"
+		return "\((model.raisedAmount / model.fundAmount * 100).formatRounding())% raised"
 	}
 
 	var raisedString: String {
 		guard let model = model else { return "" }
-		return "$\(model.raisedAmount.format()) raised of $\(model.fundAmount.format())"
+		return "\(model.raisedAmount.format(as: .decimal)) raised of \(model.fundAmount.format(as: .decimal))"
 	}
 
 	var daysLeft: String {
 		guard let model = model else { return "" }
 
-		let endDate = Date(milliseconds: model.endTimestamp)
-		let now = Date()
-		let diff = (endDate - now).in(.day) ?? 0
+		let d = Date(milliseconds: model.endTimestamp) - Date()
+		let diff = d.timeInterval.toString {
+			$0.maximumUnitCount = 1
+			$0.zeroFormattingBehavior = .dropAll
+			$0.allowedUnits = [ .month, .day, .hour, .minute]
+			$0.collapsesLargestUnit = true
+			$0.unitsStyle = .full
+		}
 
-		return "\(diff) days left"
+		return "\(diff) left"
 	}
 }
-

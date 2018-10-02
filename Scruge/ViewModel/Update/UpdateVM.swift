@@ -7,6 +7,7 @@
 //
 
 import MVVM
+import SwiftDate
 
 final class UpdateVM: ViewModel<Update> {
 
@@ -15,7 +16,8 @@ final class UpdateVM: ViewModel<Update> {
 	}
 
 	var date:String {
-		return "21 October, 2018" // "\(model?.timestamp ?? 0)"
+		guard let model = model else { return "" }
+		return Date(milliseconds: model.timestamp).toFormat("d MMM")
 	}
 
 	var title:String {

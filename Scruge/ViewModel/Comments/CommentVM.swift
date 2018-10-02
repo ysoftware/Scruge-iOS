@@ -24,4 +24,9 @@ final class CommentVM: ViewModel<Comment> {
 	var comment:String {
 		return model?.text ?? ""
 	}
+
+	var date:String {
+		guard let model = model else { return "" }
+		return Date(milliseconds: model.timestamp).toFormat("d MMM HH:mm")
+	}
 }

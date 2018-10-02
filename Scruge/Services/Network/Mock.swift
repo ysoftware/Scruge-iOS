@@ -25,7 +25,7 @@ struct Mock: Networking {
 
 	func handle<T:Codable>(request:String,
 						   _ completion:  @escaping (Result<T, AnyError>) -> Void) {
-		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
 			let json:String
 			switch request {
 			case "campaigns": json = self.campaignsList()
@@ -48,6 +48,7 @@ struct Mock: Networking {
 			"data": {
 				"id":"1",
 				"title":"The Matrix",
+				"imageUrl":"https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/03/matrix_reboot_1000-630x400-1.jpg",
 				"mediaUrl":"https://www.youtube-nocookie.com/embed/m8e-FF8MsqU?playsinline=1&rel=0&controls=0&showinfo=0",
 				"description":"A programmer is brought back to reason and reality when learning he was living in a program created by gigantic machines which make human birth artificial. In order to set humanity free, Neo will have to face many enemies by using technologies and self-trust.",
 				"endTimestamp":1546329224000,
@@ -150,7 +151,7 @@ struct Mock: Networking {
 					"title":"The Matrix: Reloaded",
 					"imageUrl":"https://i.ytimg.com/vi/GOVS6iCJ52s/maxresdefault.jpg",
 					"description":"Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.",
-					"endTimestamp":0,
+					"endTimestamp":1601646231000,
 					"raisedAmount":7000000,
 					"fundAmount":150000000
 				},
@@ -159,9 +160,9 @@ struct Mock: Networking {
 					"title":"The Matrix Revolutions",
 					"imageUrl":"http://www.postapoc-media.com/wp-content/uploads/2013/02/matrix-revolutions-31.jpg",
 					"description":"The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.",
-					"endTimestamp":0,
-					"raisedAmount":12,
-					"fundAmount":150000000
+					"endTimestamp":1664718231000,
+					"raisedAmount":0.00005,
+					"fundAmount":22896
 				}
 			]
 		}
