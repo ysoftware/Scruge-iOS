@@ -118,7 +118,7 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 	func didChangeState(to state: ArrayViewModelState) {
 		switch state {
 		case .error(let error):
-			errorView.set(message: makeError(error))
+			errorView.set(message: ErrorHandler.message(for: error))
 		case .loadingMore:
 			UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		case .paginationError:

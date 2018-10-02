@@ -32,7 +32,7 @@ struct Mock: Networking {
 			case "campaign/1": json = self.campaign()
 			case "auth/login", "auth/register": json = self.auth()
 			case "categories": json = self.categories()
-			default: return completion(.failure(AnyError(NetworkingError.connectionProblem)))
+			default: return completion(.failure(AnyError(NetworkingError.unknown)))
 			}
 
 			guard let object = T.init(json.data(using: .utf8)!) else {

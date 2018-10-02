@@ -42,7 +42,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 				self.state = .ready
 			case .failure(let error):
 				self.model = nil
-				self.state = .error(makeError(error))
+				self.state = .error(ErrorHandler.message(for: error))
 			}
 			self.resetViewModels()
 		}
