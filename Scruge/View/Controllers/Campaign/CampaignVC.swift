@@ -95,13 +95,15 @@ final class CampaignViewController: UIViewController {
 	}
 
 	func showData() {
-		showView()
+		// reset delegates
 		vm.lastUpdateVM?.delegate = self
 		vm.currentMilestoneVM?.delegate = self
 		vm.topCommentsVM?.delegate = self
 		vm.rewardsVM?.delegate = self
+
 		tableView.reloadData()
 		updateTableLayout()
+		showView()
 	}
 
 	func showLoading() {
@@ -235,11 +237,16 @@ extension CampaignViewController: UITableViewDelegate {
 extension CampaignViewController: ViewModelDelegate {
 
 	func didUpdateData<M>(_ viewModel: ViewModel<M>) where M : Equatable {
-		if viewModel === vm {
-			switch vm.state {
-			case .ready: showData()
-			case .loading: showLoading()
-			case .error(let error): showError(error)
+		DispatchQueue.main.async {
+			if viewModel === self.vm {
+				switch self.vm.state {
+				case .ready:
+					self.showData()
+				case .loading:
+					self.showLoading()
+				case .error(let error):
+					self.showError(error)
+				}
 			}
 		}
 	}
@@ -249,7 +256,8 @@ extension CampaignViewController: ArrayViewModelDelegate {
 
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
-			tableView.reloadData()
-			updateTableLayout()
+			DispatchQueue.main.async {
+				self.tableView.reloadData()
+			}
 	}
 }
