@@ -24,11 +24,11 @@ struct CampaignListResponse: Codable {
 
 struct CampaignListRequest: Codable {
 
-	let page:Int?
+	let page:Int
 
 	let query:String?
 
-	let categories:[String]?
+	let categories:String?
 
 	let tags:[String]?
 

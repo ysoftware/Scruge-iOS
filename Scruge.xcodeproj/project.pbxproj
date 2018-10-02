@@ -75,6 +75,7 @@
 		71BE95B0216352F2001CF853 /* TableHeaderTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95AF216352F2001CF853 /* TableHeaderTap.swift */; };
 		71BE95B221635835001CF853 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95B121635835001CF853 /* Error.swift */; };
 		71BE95B421635A30001CF853 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95B321635A2F001CF853 /* ViewState.swift */; };
+		71BE95B821636245001CF853 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95B721636245001CF853 /* ErrorView.xib */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
@@ -179,6 +180,7 @@
 		71BE95AF216352F2001CF853 /* TableHeaderTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderTap.swift; sourceTree = "<group>"; };
 		71BE95B121635835001CF853 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		71BE95B321635A2F001CF853 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
+		71BE95B721636245001CF853 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -389,7 +391,7 @@
 		71971CBC2158E45B004D28E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				71BE95AD2163520D001CF853 /* ErrorView.swift */,
+				71BE95B621636236001CF853 /* Error */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -592,6 +594,15 @@
 			path = Navigation;
 			sourceTree = "<group>";
 		};
+		71BE95B621636236001CF853 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				71BE95AD2163520D001CF853 /* ErrorView.swift */,
+				71BE95B721636245001CF853 /* ErrorView.xib */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		71C8E8E621590F1E0078BD36 /* Blockchain */ = {
 			isa = PBXGroup;
 			children = (
@@ -739,6 +750,7 @@
 				71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */,
 				71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */,
 				71BE959921625582001CF853 /* MilestoneCell.xib in Resources */,
+				71BE95B821636245001CF853 /* ErrorView.xib in Resources */,
 				71BE95A0216258E7001CF853 /* UpdateCell.xib in Resources */,
 				71BE9572215E777A001CF853 /* CampaignCell.xib in Resources */,
 				71BE95A821626034001CF853 /* RewardCell.xib in Resources */,
