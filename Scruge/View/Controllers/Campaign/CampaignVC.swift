@@ -228,10 +228,6 @@ extension CampaignViewController: UITableViewDelegate {
 		}
 		return
 	}
-
-	func tableView(_ tableView: UITableView, shouldHighlightRowAt indexPath: IndexPath) -> Bool {
-		return false
-	}
 }
 
 extension CampaignViewController: ViewModelDelegate {

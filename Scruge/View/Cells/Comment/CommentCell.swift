@@ -11,16 +11,18 @@ import Kingfisher
 
 final class CommentCell: UITableViewCell {
 
+	@IBOutlet weak var dateLabel: UILabel!
 	@IBOutlet weak var profileImage: RoundedImageView!
 	@IBOutlet weak var usernameLabel: UILabel!
 	@IBOutlet weak var commentLabel: UILabel!
 
 	@discardableResult
 	func setup(with vm:CommentVM) -> Self {
-		usernameLabel.text = vm.username
+		usernameLabel.text = vm.authorName
 		commentLabel.text = vm.comment
+		dateLabel.text = vm.date
 
-		if let url = vm.profileImageUrl {
+		if let url = vm.authorPhoto {
 			profileImage.kf.setImage(with: url)
 		}
 		return self

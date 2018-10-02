@@ -49,12 +49,12 @@ struct Mock: Networking {
 				"id":"1",
 				"title":"The Matrix",
 				"imageUrl":"https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/03/matrix_reboot_1000-630x400-1.jpg",
-				"mediaUrl":"https://www.youtube-nocookie.com/embed/m8e-FF8MsqU?playsinline=1&rel=0&controls=0&showinfo=0",
 				"description":"A programmer is brought back to reason and reality when learning he was living in a program created by gigantic machines which make human birth artificial. In order to set humanity free, Neo will have to face many enemies by using technologies and self-trust.",
 				"endTimestamp":1546329224000,
 				"raisedAmount":12000000,
 				"fundAmount":63000000,
 
+				"mediaUrl":"https://www.youtube-nocookie.com/embed/m8e-FF8MsqU?playsinline=1&rel=0&controls=0&showinfo=0",
 				"totalCommentsCount": 5,
 				"rewards": [
 					{
@@ -108,6 +108,7 @@ struct Mock: Networking {
 				"topComments": [
 					{
 						"id":"1",
+						"authorName": "Darius X",
 						"text":"Can not wait for this movie! The idea looks so interesting.",
 						"timestamp":1538380424000
 					},

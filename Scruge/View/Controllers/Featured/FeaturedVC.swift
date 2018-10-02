@@ -149,7 +149,6 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 extension FeaturedViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
 
 		if tableView == campaignTableView {
 			return Presenter

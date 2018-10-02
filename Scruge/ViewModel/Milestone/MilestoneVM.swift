@@ -15,6 +15,7 @@ final class MilestoneVM: ViewModel<Milestone> {
 	}
 
 	var date:String {
-		return "January 1, 2019" //model?.endTimestamp
+		guard let model = model else { return "" }
+		return Date(milliseconds: model.endTimestamp).toFormat("d MMMM")
 	}
 }

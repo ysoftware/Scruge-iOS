@@ -20,19 +20,24 @@ final class CampaignCell: UITableViewCell {
 	@IBOutlet weak var leftLabel: UILabel!
 	@IBOutlet weak var rightLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
-	@IBOutlet weak var progressConstraint: NSLayoutConstraint!
+	@IBOutlet weak var progressView: ProgressView!
 
 	// MARK: - Setup
 
 	@discardableResult
 	func setup(with vm:PartialCampaignViewModel) -> CampaignCell {
 
+		selectionStyle = .none
+		progressView.isRelativeRadius = false
+		progressView.cornerRadius = 3
+		clipsToBounds = true
+
 		titleLabel.text = vm.title
 		descriptionLabel.text = vm.description
 		leftLabel.text = vm.progressString
 		raisedLabel.text = vm.raisedString
 		rightLabel.text = vm.daysLeft
-		progressConstraint = changeMultiplier(to: CGFloat(vm.progress), for: progressConstraint)
+		progressView.progress = vm.progress
 
 		if let vm = vm as? PartialCampaignVM {
 			topWebView.isHidden = true

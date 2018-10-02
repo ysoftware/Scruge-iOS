@@ -10,11 +10,11 @@ import MVVM
 
 final class CommentVM: ViewModel<Comment> {
 
-	var username:String {
+	var authorName:String {
 		return model?.authorName ?? "Anonymous"
 	}
 
-	var profileImageUrl:URL? {
+	var authorPhoto:URL? {
 		if let url = model?.authorPhoto {
 			return URL(string: url)
 		}
@@ -27,6 +27,6 @@ final class CommentVM: ViewModel<Comment> {
 
 	var date:String {
 		guard let model = model else { return "" }
-		return Date(milliseconds: model.timestamp).toFormat("d MMM HH:mm")
+		return Date(milliseconds: model.timestamp).toFormat("d MMMM, H:mm")
 	}
 }

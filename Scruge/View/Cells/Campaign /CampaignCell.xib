@@ -63,26 +63,22 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjQ-ee-ffD" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
+                                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjQ-ee-ffD" customClass="ProgressView" customModule="Scruge" customModuleProvider="target">
                                         <rect key="frame" x="10" y="81" width="234" height="7"/>
-                                        <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Dl-uK-VEO">
-                                                <rect key="frame" x="0.0" y="0.0" width="210.5" height="7"/>
-                                                <color key="backgroundColor" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            </view>
-                                        </subviews>
                                         <color key="backgroundColor" white="0.86048719620000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="6Dl-uK-VEO" firstAttribute="top" secondItem="qjQ-ee-ffD" secondAttribute="top" id="40N-qo-L2w"/>
-                                            <constraint firstItem="6Dl-uK-VEO" firstAttribute="width" secondItem="qjQ-ee-ffD" secondAttribute="width" multiplier="0.9" id="amL-ob-5We"/>
-                                            <constraint firstItem="6Dl-uK-VEO" firstAttribute="leading" secondItem="qjQ-ee-ffD" secondAttribute="leading" id="bCs-GQ-Ekd"/>
                                             <constraint firstAttribute="height" constant="7" id="dzs-cH-xuS"/>
-                                            <constraint firstAttribute="bottom" secondItem="6Dl-uK-VEO" secondAttribute="bottom" id="esR-fv-n8Q"/>
                                         </constraints>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="NO"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                                 <real key="value" value="3"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="color" keyPath="color">
+                                                <color key="value" red="0.0" green="0.56284224989999998" blue="0.31881666180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="progress">
+                                                <real key="value" value="0.5"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
@@ -126,7 +122,7 @@
             <connections>
                 <outlet property="descriptionLabel" destination="kzM-D5-xiI" id="9dS-Cf-JgD"/>
                 <outlet property="leftLabel" destination="vG9-F8-ezY" id="bxi-3G-rPN"/>
-                <outlet property="progressConstraint" destination="amL-ob-5We" id="Th5-Lr-gLM"/>
+                <outlet property="progressView" destination="qjQ-ee-ffD" id="UCB-9c-n1H"/>
                 <outlet property="raisedLabel" destination="nZa-y6-Leu" id="6OM-2J-LiO"/>
                 <outlet property="rightLabel" destination="eCN-hh-Ryc" id="dyh-lQ-zfi"/>
                 <outlet property="titleLabel" destination="eRk-gT-blG" id="ozO-0y-KBK"/>

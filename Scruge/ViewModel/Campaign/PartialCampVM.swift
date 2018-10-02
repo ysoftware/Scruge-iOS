@@ -59,7 +59,6 @@ extension PartialCampaignModelHolder {
 			$0.collapsesLargestUnit = true
 			$0.unitsStyle = .full
 		}
-
 		return "\(diff) left"
 	}
 }
