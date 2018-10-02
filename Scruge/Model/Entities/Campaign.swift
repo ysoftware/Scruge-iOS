@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PartialCampaign: Equatable, Codable {
+struct PartialCampaign: Equatable, Codable, PartialCampaignModel {
 
 	let id:String
 
@@ -25,7 +25,7 @@ struct PartialCampaign: Equatable, Codable {
 	let fundAmount:Double
 }
 
-struct Campaign: Equatable, Codable {
+struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	let id:String
 
@@ -33,15 +33,17 @@ struct Campaign: Equatable, Codable {
 
 	let description:String
 
-	let mediaUrl:String // image or video
-
 	let endTimestamp:Int
 
 	let raisedAmount:Double
 
+	let imageUrl:String
+
 	let fundAmount:Double
 
 	// MARK: - Full campaign only
+
+	let mediaUrl:String // image or video
 
 	let totalCommentsCount:Int
 
@@ -52,4 +54,21 @@ struct Campaign: Equatable, Codable {
 	let lastUpdate:Update?
 
 	let topComments:[Comment]
+}
+
+protocol PartialCampaignModel {
+
+	var id:String { get }
+
+	var title:String { get }
+
+	var description:String { get }
+
+	var imageUrl:String { get }
+
+	var endTimestamp:Int { get }
+
+	var raisedAmount:Double { get }
+
+	var fundAmount:Double { get }
 }

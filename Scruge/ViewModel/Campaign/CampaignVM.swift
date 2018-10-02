@@ -8,7 +8,9 @@
 
 import MVVM
 
-final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
+final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCampaignModelHolder {
+
+	typealias Model = Campaign
 
 	private let id:String
 	private(set) var state:ViewState = .loading {
@@ -87,38 +89,11 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 
 	// MARK: - Properties
 
-	var totalCommentsCount:String {
-		return "\(model?.totalCommentsCount ?? 0)"
-	}
-
 	var mediaUrl:String {
 		return model?.mediaUrl ?? ""
 	}
 
-	var description:String {
-		return model?.description ?? ""
-	}
-
-	var title:String {
-		return model?.title ?? ""
-	}
-
-	var progress:Double { // 0 - 1
-		guard let model = model else { return 0 }
-		return model.raisedAmount / model.fundAmount
-	}
-
-	var progressString:String { // 0% - 100%
-		guard let model = model else { return "0% raised" }
-		return "\((model.raisedAmount / model.fundAmount * 100).format())% raised"
-	}
-
-	var raisedString:String {
-		guard let model = model else { return "" }
-		return "$\(model.raisedAmount.format()) raised of $\(model.fundAmount.format())"
-	}
-
-	var daysLeft:String {
-		return "n days left"
+	var totalCommentsCount:String {
+		return "\(model?.totalCommentsCount ?? 0)"
 	}
 }

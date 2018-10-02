@@ -25,7 +25,7 @@ final class CampaignCell: UITableViewCell {
 	// MARK: - Setup
 
 	@discardableResult
-	func setup(with vm:PartialCampaignProperties) -> CampaignCell {
+	func setup(with vm:PartialCampaignViewModel) -> CampaignCell {
 
 		titleLabel.text = vm.title
 		descriptionLabel.text = vm.description
@@ -37,7 +37,7 @@ final class CampaignCell: UITableViewCell {
 		if let vm = vm as? PartialCampaignVM {
 			topWebView.isHidden = true
 
-			if let url = URL(string: vm.imageUrl) {
+			if let url = vm.imageUrl {
 				topImage.isHidden = false
 				topImage.kf.setImage(with: url)
 			}

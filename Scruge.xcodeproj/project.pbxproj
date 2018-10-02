@@ -80,6 +80,7 @@
 		71BE95BD2163768A001CF853 /* CategoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BC2163768A001CF853 /* CategoryVM.swift */; };
 		71BE95BF216376A9001CF853 /* CategoryAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BE216376A9001CF853 /* CategoryAVM.swift */; };
 		71BE95C1216376F1001CF853 /* CategoryApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95C0216376F1001CF853 /* CategoryApiM.swift */; };
+		71BE95C32163ABF5001CF853 /* CampaignProto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95C22163ABF5001CF853 /* CampaignProto.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
@@ -189,6 +190,7 @@
 		71BE95BC2163768A001CF853 /* CategoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVM.swift; sourceTree = "<group>"; };
 		71BE95BE216376A9001CF853 /* CategoryAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAVM.swift; sourceTree = "<group>"; };
 		71BE95C0216376F1001CF853 /* CategoryApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryApiM.swift; sourceTree = "<group>"; };
+		71BE95C22163ABF5001CF853 /* CampaignProto.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignProto.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -638,6 +640,7 @@
 				71BE958B21622C3F001CF853 /* PartialCampVM.swift */,
 				716AE1CB215977470098882F /* CampaignAVM.swift */,
 				71BE1042215A1EBD004753EC /* CampaignQ.swift */,
+				71BE95C22163ABF5001CF853 /* CampaignProto.swift */,
 			);
 			path = Campaign;
 			sourceTree = "<group>";
@@ -926,6 +929,7 @@
 				71B38D19215B9B0300929CC3 /* MilestoneAVM.swift in Sources */,
 				71B38D06215B871E00929CC3 /* Comment.swift in Sources */,
 				71B38D1D215BBBAA00929CC3 /* Reward.swift in Sources */,
+				71BE95C32163ABF5001CF853 /* CampaignProto.swift in Sources */,
 				71B38D14215B999400929CC3 /* Milestone.swift in Sources */,
 				71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */,
 				716AE1CC215977470098882F /* CampaignAVM.swift in Sources */,
