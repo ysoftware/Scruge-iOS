@@ -1656,23 +1656,51 @@
                                     <outlet property="delegate" destination="q3b-Vn-YAv" id="bzB-YR-Umz"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PcP-tl-sxr" userLabel="Error" customClass="ErrorView" customModule="Scruge" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rsK-D7-Im9" userLabel="Loading">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="lvI-vg-zvQ">
+                                        <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                        <color key="color" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="lvI-vg-zvQ" firstAttribute="centerY" secondItem="rsK-D7-Im9" secondAttribute="centerY" id="Pm4-M0-ecJ"/>
+                                    <constraint firstItem="lvI-vg-zvQ" firstAttribute="centerX" secondItem="rsK-D7-Im9" secondAttribute="centerX" id="pj5-wa-xuR"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="PcP-tl-sxr" firstAttribute="leading" secondItem="f29-8i-jOR" secondAttribute="leading" id="4QM-NN-w3a"/>
                             <constraint firstItem="RmF-Tu-4YV" firstAttribute="leading" secondItem="1dJ-qR-SG6" secondAttribute="leading" id="7Um-mR-zwq"/>
+                            <constraint firstItem="PcP-tl-sxr" firstAttribute="trailing" secondItem="f29-8i-jOR" secondAttribute="trailing" id="7fu-j9-yEi"/>
+                            <constraint firstItem="f29-8i-jOR" firstAttribute="bottom" secondItem="rsK-D7-Im9" secondAttribute="bottom" id="9z3-05-DPu"/>
                             <constraint firstAttribute="trailing" secondItem="RmF-Tu-4YV" secondAttribute="trailing" id="BzW-Vx-gRt"/>
                             <constraint firstItem="cap-N4-e8v" firstAttribute="bottom" secondItem="RmF-Tu-4YV" secondAttribute="bottom" id="CRy-6R-mQ2"/>
+                            <constraint firstItem="PcP-tl-sxr" firstAttribute="top" secondItem="1dJ-qR-SG6" secondAttribute="top" id="Cxh-8K-ud3"/>
                             <constraint firstItem="RmF-Tu-4YV" firstAttribute="top" secondItem="1dJ-qR-SG6" secondAttribute="top" id="Ld1-co-xUK"/>
                             <constraint firstItem="cap-N4-e8v" firstAttribute="top" secondItem="RmF-Tu-4YV" secondAttribute="top" id="Mb7-ly-WX9"/>
                             <constraint firstItem="cap-N4-e8v" firstAttribute="leading" secondItem="RmF-Tu-4YV" secondAttribute="leading" id="Wc9-Wm-gi2"/>
+                            <constraint firstItem="rsK-D7-Im9" firstAttribute="top" secondItem="1dJ-qR-SG6" secondAttribute="top" id="Ydp-9N-zh0"/>
                             <constraint firstAttribute="bottom" secondItem="RmF-Tu-4YV" secondAttribute="bottom" id="Zso-ot-BX7"/>
+                            <constraint firstItem="rsK-D7-Im9" firstAttribute="trailing" secondItem="f29-8i-jOR" secondAttribute="trailing" id="bNh-CR-Avm"/>
+                            <constraint firstItem="f29-8i-jOR" firstAttribute="bottom" secondItem="PcP-tl-sxr" secondAttribute="bottom" id="lZ4-Nb-7SK"/>
                             <constraint firstItem="cap-N4-e8v" firstAttribute="trailing" secondItem="RmF-Tu-4YV" secondAttribute="trailing" id="uhW-pP-7Er"/>
+                            <constraint firstItem="rsK-D7-Im9" firstAttribute="leading" secondItem="f29-8i-jOR" secondAttribute="leading" id="xbV-hu-y9e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="f29-8i-jOR"/>
                     </view>
                     <connections>
                         <outlet property="campaignTableView" destination="RmF-Tu-4YV" id="2lL-77-kZx"/>
                         <outlet property="categoriesTableView" destination="cap-N4-e8v" id="Xye-uM-7Gm"/>
+                        <outlet property="errorView" destination="PcP-tl-sxr" id="LVN-e0-Jva"/>
+                        <outlet property="loadingView" destination="rsK-D7-Im9" id="M3k-Qb-wkp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0p-gb-O8b" userLabel="First Responder" sceneMemberID="firstResponder"/>

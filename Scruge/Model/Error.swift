@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import Result
 
 enum AuthError: Error {
 
@@ -29,14 +30,28 @@ enum NetworkingError: Error {
 	case parsingError
 }
 
-func makeError(_ error:Error) -> String {
-	let m:String
-	switch error {
-	case AuthError.exists: m = "User already exists"
-	case AuthError.incorrectCredentials: m = "Incorrect credentials"
-	case NetworkingError.parsingError: m = "Incorrect server response"
-	case NetworkingError.connectionProblem: m = "Connection problem"
-	default: m = "An error occured"
+// extract Error from Result's AnyError
+private func extractError(_ error:Error) -> Error {
+	if let any = error as? AnyError {
+		return any.error
 	}
-	return m
+	return error
+}
+
+func makeError(_ error:Error) -> String {
+	let error = extractError(error)
+	if let authError = error as? AuthError {
+		switch authError {
+		case .exists: return "User already exists"
+		case .incorrectCredentials: return "Incorrect credentials"
+		}
+	}
+	else if let networkError = error as? NetworkingError {
+		switch networkError {
+		case .parsingError: return "Unexpected server response"
+		case .connectionProblem: return "Unable to connect to the server"
+		case .unknown: break
+		}
+	}
+	return "Unexpected Error"
 }

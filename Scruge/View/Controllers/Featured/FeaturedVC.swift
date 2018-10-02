@@ -15,7 +15,9 @@ final class FeaturedViewController: UIViewController {
 
 	@IBOutlet weak var campaignTableView: UITableView!
 	@IBOutlet weak var categoriesTableView: UITableView!
-	var titleButton = UIButton(type: .custom)
+	private var titleButton = UIButton(type: .custom)
+	@IBOutlet weak var loadingView: UIView!
+	@IBOutlet weak var errorView: ErrorView!
 
 	// MARK: - Actions
 
@@ -108,14 +110,26 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 
 	func didChangeState(to state: ArrayViewModelState) {
 		switch state {
-		case .initial, .loading:
-			break
-		case .error(_):
-			break
-		case .ready(_):
-			break
-		case .loadingMore, .paginationError:
-			break
+		case .error(let error):
+			errorView.set(message: makeError(error))
+		case .loadingMore:
+			UIApplication.shared.isNetworkActivityIndicatorVisible = true
+		case .paginationError:
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+		default: break
+		}
+		showView()
+	}
+
+	func showView() {
+		errorView.isHidden = true
+		loadingView.isHidden = true
+		switch vm.state {
+		case .error:
+			errorView.isHidden = false
+		case .loading, .initial:
+			loadingView.isHidden = false
+		default: break
 		}
 	}
 }
@@ -126,8 +140,8 @@ extension FeaturedViewController: UITableViewDelegate {
 		tableView.deselectRow(at: indexPath, animated: true)
 
 		if tableView == campaignTableView {
-			return Presenter.presentCampaignViewController(in: self,
-														   with: vm.item(at: indexPath.row))
+			return Presenter
+				.presentCampaignViewController(in: self, with: vm.item(at: indexPath.row))
 		}
 
 		showCategories(false)

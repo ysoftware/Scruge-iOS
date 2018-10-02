@@ -639,8 +639,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71971CA52158E059004D28E7 /* Build configuration list for PBXNativeTarget "Scruge" */;
 			buildPhases = (
-				71BE958A2162284E001CF853 /* Increment build number */,
 				16947475C64A98912E348D53 /* [CP] Check Pods Manifest.lock */,
+				71BE958A2162284E001CF853 /* Increment build number */,
 				71971CAE2158E340004D28E7 /* R.Swift */,
 				71971C792158E056004D28E7 /* Sources */,
 				71971C7A2158E056004D28E7 /* Frameworks */,
@@ -866,13 +866,9 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 			);
 			name = "Increment build number";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
