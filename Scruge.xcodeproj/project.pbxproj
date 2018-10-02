@@ -608,8 +608,8 @@
 		71BE95B621636236001CF853 /* Error */ = {
 			isa = PBXGroup;
 			children = (
-				71BE95AD2163520D001CF853 /* ErrorView.swift */,
 				71BE95B721636245001CF853 /* ErrorView.xib */,
+				71BE95AD2163520D001CF853 /* ErrorView.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";

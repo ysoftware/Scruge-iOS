@@ -136,6 +136,11 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 			errorView.isHidden = false
 		case .loading, .initial:
 			loadingView.isHidden = false
+		case .ready:
+			if campaignVM.numberOfItems == 0 {
+				errorView.set(message: "No campaigns were found for your request")
+				errorView.isHidden = false
+			}
 		default: break
 		}
 	}
