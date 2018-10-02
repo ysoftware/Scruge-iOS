@@ -40,7 +40,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OXO-uV-jJd">
-                                <rect key="frame" x="10" y="95.5" width="395" height="26"/>
+                                <rect key="frame" x="10" y="95.5" width="395" height="36"/>
                                 <string key="text">You will support the project and you will receive an album made using only our experimental instruments. 
 (2x12" 180g)</string>
                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
@@ -48,14 +48,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKQ-ot-fwd">
-                                <rect key="frame" x="10" y="131.5" width="395" height="1"/>
+                                <rect key="frame" x="10" y="141.5" width="395" height="1"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="1" id="ge5-xT-zmA"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                        <edgeInsets key="layoutMargins" top="10" left="10" bottom="0.0" right="10"/>
                     </stackView>
                 </subviews>
                 <constraints>

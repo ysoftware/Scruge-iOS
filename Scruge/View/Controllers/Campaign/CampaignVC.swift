@@ -67,12 +67,6 @@ final class CampaignViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.rewardCell.identifier)
 		tableView.registerHeaderFooterView(R.nib.campHeader)
 		tableView.registerHeaderFooterView(R.nib.campFooter)
-
-		updateTableLayout()
-	}
-
-	func updateTableLayout() {
-		tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: -10, right: 0)
 	}
 
 	func shouldDisplay(section:Int) -> Bool {
@@ -95,14 +89,12 @@ final class CampaignViewController: UIViewController {
 	}
 
 	func showData() {
-		// reset delegates
 		vm.lastUpdateVM?.delegate = self
 		vm.currentMilestoneVM?.delegate = self
 		vm.topCommentsVM?.delegate = self
 		vm.rewardsVM?.delegate = self
 
 		tableView.reloadData()
-		updateTableLayout()
 		showView()
 	}
 
@@ -223,6 +215,8 @@ extension CampaignViewController: UITableViewDataSource {
 extension CampaignViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+
 		switch (indexPath.row, indexPath.section) {
 		default: break
 		}
