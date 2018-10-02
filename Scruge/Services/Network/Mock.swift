@@ -31,6 +31,7 @@ struct Mock: Networking {
 			case "campaigns": json = self.campaignsList()
 			case "campaign/1": json = self.campaign()
 			case "auth/login", "auth/register": json = self.auth()
+			case "categories": json = self.categories()
 			default: return completion(.failure(AnyError(NetworkingError.connectionProblem)))
 			}
 
@@ -162,6 +163,26 @@ struct Mock: Networking {
 					"raisedAmount":12,
 					"fundAmount":150000000
 				}
+			]
+		}
+		"""
+	}
+
+	func categories() -> String {
+		return """
+		{
+			"data": [
+				{ "name":"Art", "id":"1" },
+				{ "name":"Comics", "id":"2" },
+				{ "name":"Crafts", "id":"3" },
+				{ "name":"Design", "id":"4" },
+				{ "name":"Fashion", "id":"5" },
+				{ "name":"Film&Video", "id":"6" },
+				{ "name":"Games", "id":"7" },
+				{ "name":"Music", "id":"8" },
+				{ "name":"Publishing", "id":"9" },
+				{ "name":"Technology", "id":"10" },
+				{ "name":"Theater", "id":"11" }
 			]
 		}
 		"""

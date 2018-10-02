@@ -13,10 +13,9 @@ final class CategoryCell: UITableViewCell {
 	@IBOutlet weak var titleLabel:UILabel!
 
 	@discardableResult
-	func setup(with string:String) -> CategoryCell {
+	func setup(with vm:CategoryVM) -> CategoryCell {
 
-		titleLabel.text = string
-		
+		titleLabel.text = vm.name
 		return self
 	}
 }

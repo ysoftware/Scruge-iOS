@@ -10,6 +10,8 @@ import MVVM
 
 struct CampaignQuery: Query {
 
+	// MARK: - Pagination
+
 	var currentPosition = 0
 
 	mutating func advance() {
@@ -19,4 +21,8 @@ struct CampaignQuery: Query {
 	mutating func resetPosition() {
 		currentPosition = 0
 	}
+
+	// MARK: - Request
+
+	var category:CategoryVM?
 }

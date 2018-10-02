@@ -42,6 +42,12 @@ final class Api {
 
 	}
 
+	// MARK: - Categoriess
+
+	func getCategories(_ completion: @escaping (Result<CategoriesResponse, AnyError>)->Void) {
+		service.get("categories", nil, completion)
+	}
+
 	// MARK: - Campaigns
 
 	func getCampaign(with id:String,
@@ -51,8 +57,8 @@ final class Api {
 
 	func getCampaignList(for query:CampaignQuery?,
 						 _ completion: @escaping (Result<CampaignListResponse, AnyError>)->Void) {
-		let params:[String:Any] = [:]
-		// create params from query
+		var params:[String:Any] = [:]
+		params["category"] = query?.category?.model?.id
 		service.get("campaigns", params, completion)
 	}
 

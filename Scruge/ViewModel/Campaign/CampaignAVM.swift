@@ -11,6 +11,11 @@ import Result
 
 final class CampaignAVM: ArrayViewModel<PartialCampaign, PartialCampaignVM, CampaignQuery> {
 
+	override init() {
+		super.init()
+		query = CampaignQuery()
+	}
+
 	override func fetchData(_ query: CampaignQuery?,
 							_ block: @escaping (Result<[PartialCampaign], AnyError>) -> Void) {
 		Service.api.getCampaignList(for: query) { result in

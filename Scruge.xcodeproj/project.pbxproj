@@ -76,6 +76,10 @@
 		71BE95B221635835001CF853 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95B121635835001CF853 /* Error.swift */; };
 		71BE95B421635A30001CF853 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95B321635A2F001CF853 /* ViewState.swift */; };
 		71BE95B821636245001CF853 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95B721636245001CF853 /* ErrorView.xib */; };
+		71BE95BB2163744E001CF853 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BA2163744E001CF853 /* Category.swift */; };
+		71BE95BD2163768A001CF853 /* CategoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BC2163768A001CF853 /* CategoryVM.swift */; };
+		71BE95BF216376A9001CF853 /* CategoryAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BE216376A9001CF853 /* CategoryAVM.swift */; };
+		71BE95C1216376F1001CF853 /* CategoryApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95C0216376F1001CF853 /* CategoryApiM.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
@@ -181,6 +185,10 @@
 		71BE95B121635835001CF853 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		71BE95B321635A2F001CF853 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		71BE95B721636245001CF853 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
+		71BE95BA2163744E001CF853 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		71BE95BC2163768A001CF853 /* CategoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVM.swift; sourceTree = "<group>"; };
+		71BE95BE216376A9001CF853 /* CategoryAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAVM.swift; sourceTree = "<group>"; };
+		71BE95C0216376F1001CF853 /* CategoryApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryApiM.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -317,6 +325,7 @@
 		71971CB32158E3F6004D28E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				71BE95B921636F9D001CF853 /* Category */,
 				71C8E8EF215910DD0078BD36 /* Campaign */,
 				71B38D10215B998300929CC3 /* Milestone */,
 				71B38CFE215ABE2700929CC3 /* Update */,
@@ -424,6 +433,7 @@
 				71B38D07215B875900929CC3 /* CommentApiM.swift */,
 				71B38D1A215BA3E600929CC3 /* HTMLApiM.swift */,
 				71BE9561215E2519001CF853 /* OtherApiM.swift */,
+				71BE95C0216376F1001CF853 /* CategoryApiM.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -465,6 +475,7 @@
 				71B38D1C215BBBAA00929CC3 /* Reward.swift */,
 				71B38D05215B871E00929CC3 /* Comment.swift */,
 				71BE9569215E3A7B001CF853 /* Profile.swift */,
+				71BE95BA2163744E001CF853 /* Category.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -601,6 +612,15 @@
 				71BE95B721636245001CF853 /* ErrorView.xib */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		71BE95B921636F9D001CF853 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				71BE95BC2163768A001CF853 /* CategoryVM.swift */,
+				71BE95BE216376A9001CF853 /* CategoryAVM.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 		71C8E8E621590F1E0078BD36 /* Blockchain */ = {
@@ -918,12 +938,14 @@
 				71BE95AC21626610001CF853 /* NumberString.swift in Sources */,
 				71971C832158E056004D28E7 /* AuthVC.swift in Sources */,
 				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,
+				71BE95C1216376F1001CF853 /* CategoryApiM.swift in Sources */,
 				71BE9567215E2AD2001CF853 /* Service.swift in Sources */,
 				71BE95B0216352F2001CF853 /* TableHeaderTap.swift in Sources */,
 				71BE959E216258DE001CF853 /* UpdateCell.swift in Sources */,
 				71BE957F215F5D3C001CF853 /* CategoryCell.swift in Sources */,
 				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,
 				71B38CFD215ABDF000929CC3 /* UpdateApiM.swift in Sources */,
+				71BE95BD2163768A001CF853 /* CategoryVM.swift in Sources */,
 				71B38D02215ABE6E00929CC3 /* UpdateAVM.swift in Sources */,
 				71B38D04215AC1E800929CC3 /* Alert.swift in Sources */,
 				71BE9574215E7835001CF853 /* CampaignCell.swift in Sources */,
@@ -947,7 +969,9 @@
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
 				71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */,
 				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,
+				71BE95BB2163744E001CF853 /* Category.swift in Sources */,
 				71BE95A521625E64001CF853 /* CommentCell.swift in Sources */,
+				71BE95BF216376A9001CF853 /* CategoryAVM.swift in Sources */,
 				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,
 				71B38D0B215B879D00929CC3 /* CommentVM.swift in Sources */,
 				71B38D20215BBE8200929CC3 /* RewardVM.swift in Sources */,

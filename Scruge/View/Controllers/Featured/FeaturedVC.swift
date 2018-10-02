@@ -15,7 +15,6 @@ final class FeaturedViewController: UIViewController {
 
 	@IBOutlet weak var campaignTableView: UITableView!
 	@IBOutlet weak var categoriesTableView: UITableView!
-	private var titleButton = UIButton(type: .custom)
 	@IBOutlet weak var loadingView: UIView!
 	@IBOutlet weak var errorView: ErrorView!
 
@@ -27,10 +26,11 @@ final class FeaturedViewController: UIViewController {
 
 	// MARK: - Properties
 
-	var isShowingCategories = false
-	let vm = CampaignAVM()
-	var tableUpdateHandler:ArrayViewModelUpdateHandler!
-	let categories = [ "Technology", "Donations", "Games" ]
+	private var titleButton = UIButton(type: .custom)
+	private var isShowingCategories = false
+	private let campaignVM = CampaignAVM()
+	private var tableUpdateHandler:ArrayViewModelUpdateHandler!
+	private let categoriesVM = CategoryAVM()
 
 	// MARK: - Setup
 
@@ -50,14 +50,17 @@ final class FeaturedViewController: UIViewController {
 	}
 
 	func setInitial() {
-		selectCategory("Featured")
+		selectCategory(nil)
 		categoriesTableView.isHidden = true
 	}
 
 	func setupVM() {
 		tableUpdateHandler = ArrayViewModelUpdateHandler(with: campaignTableView)
-		vm.delegate = self
-		vm.reloadData()
+		campaignVM.delegate = self
+		// campaignVM.reloadData() in setInitial() -> selectCategory(nil)
+
+		categoriesVM.delegate = self
+		categoriesVM.reloadData()
 	}
 
 	func setupTableView() {
@@ -89,12 +92,11 @@ final class FeaturedViewController: UIViewController {
 		}
 	}
 
-	func updateState() {
+	func selectCategory(_ vm:CategoryVM?) {
+		campaignVM.query?.category = vm
+		campaignVM.reloadData()
 
-	}
-
-	func selectCategory(_ string:String) {
-		titleButton.setTitle(string, for: .normal)
+		titleButton.setTitle(vm?.name ?? "Featured", for: .normal)
 		titleButton.sizeToFit()
 	}
 }
@@ -104,8 +106,13 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>,
 								 _ update: MVVM.Update)
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
-		
-		tableUpdateHandler.handle(update)
+
+			if arrayViewModel === campaignVM {
+				tableUpdateHandler.handle(update)
+			}
+			else {
+				categoriesTableView.reloadData()
+			}
 	}
 
 	func didChangeState(to state: ArrayViewModelState) {
@@ -124,7 +131,7 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 	func showView() {
 		errorView.isHidden = true
 		loadingView.isHidden = true
-		switch vm.state {
+		switch campaignVM.state {
 		case .error:
 			errorView.isHidden = false
 		case .loading, .initial:
@@ -141,11 +148,11 @@ extension FeaturedViewController: UITableViewDelegate {
 
 		if tableView == campaignTableView {
 			return Presenter
-				.presentCampaignViewController(in: self, with: vm.item(at: indexPath.row))
+				.presentCampaignViewController(in: self, with: campaignVM.item(at: indexPath.row))
 		}
 
 		showCategories(false)
-		selectCategory(categories[indexPath.row])
+		selectCategory(categoriesVM.item(at: indexPath.row))
 	}
 }
 
@@ -153,10 +160,10 @@ extension FeaturedViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		if tableView == campaignTableView {
-			return vm.numberOfItems
+			return campaignVM.numberOfItems
 		}
 
-		return categories.count
+		return categoriesVM.numberOfItems
 	}
 
 	func tableView(_ tableView: UITableView,
@@ -165,12 +172,11 @@ extension FeaturedViewController: UITableViewDataSource {
 		if tableView == campaignTableView {
 			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
 													 for: indexPath)!
-			return cell.setup(with: vm.item(at: indexPath.row, shouldLoadMore: true))
+			return cell.setup(with: campaignVM.item(at: indexPath.row, shouldLoadMore: true))
 		}
 
 		let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryCell,
 												 for: indexPath)!
-		return cell.setup(with: categories[indexPath.row])
-		
+		return cell.setup(with: categoriesVM.item(at: indexPath.row))
 	}
 }
