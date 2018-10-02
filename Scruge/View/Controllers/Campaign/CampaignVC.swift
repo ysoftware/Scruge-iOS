@@ -89,9 +89,9 @@ final class CampaignViewController: UIViewController {
 	// MARK: - State
 
 	func showView() {
-		tableView.isHidden = vm.state != CampaignVM.State.ready
-		loadingView.isHidden = vm.state != CampaignVM.State.loading
-		errorView.isHidden = vm.state != CampaignVM.State.error("")
+		tableView.isHidden = vm.state != .ready
+		loadingView.isHidden = vm.state != .loading
+		errorView.isHidden = vm.state != .error("")
 	}
 
 	func showData() {

@@ -16,3 +16,4 @@ final class TabbarViewController: UITabBarController {
 		viewControllers = Presenter.setupMainTabs()
 	}
 }
+ 

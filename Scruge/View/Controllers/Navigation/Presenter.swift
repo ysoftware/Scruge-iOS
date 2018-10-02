@@ -5,7 +5,7 @@
 //  Created by ysoftware on 24.09.2018.
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
-
+ 
 import UIKit
 
 struct Presenter {
@@ -18,7 +18,7 @@ struct Presenter {
 	static func setupMainTabs() -> [UIViewController] {
 		let featured = R.storyboard.main.featuredVC()!.inNavigationController
 		featured.tabBarItem = UITabBarItem(title: "Featured", image: nil, tag: 0)
-
+ 
 		let activity = R.storyboard.main.activityVC()!.inNavigationController
 		activity.tabBarItem = UITabBarItem(title: "Activity", image: nil, tag: 1)
 

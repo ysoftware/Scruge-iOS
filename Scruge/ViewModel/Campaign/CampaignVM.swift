@@ -11,7 +11,7 @@ import MVVM
 final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 
 	private let id:String
-	private(set) var state:State = .loading {
+	private(set) var state:ViewState = .loading {
 		didSet {
 			notifyUpdated()
 		}
@@ -121,29 +121,4 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 	var daysLeft:String {
 		return "n days left"
 	}
-}
-
-extension CampaignVM {
-
-	enum State:Equatable {
-
-		case loading, ready, error(String)
-
-		static func ==(lhs:State, rhs:State) -> Bool {
-			switch (lhs, rhs) {
-			case (.error, .error), (.loading, .loading), (.ready, .ready): return true
-			default: return false
-			}
-		}
-	}
-}
-
-func makeError(_ error:Error) -> String {
-	let m:String
-	switch error {
-	case NetworkingError.parsingError: m = "Incorrect server response"
-	case NetworkingError.connectionProblem: m = "Connection problem"
-	default: m = "An error occured"
-	}
-	return m
 }

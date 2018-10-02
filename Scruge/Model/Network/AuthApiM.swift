@@ -32,21 +32,3 @@ struct AuthRequest: Codable {
 
 	let password:String
 }
-
-enum AuthError: Error {
-
-	case exists
-
-	static func from(_ error:Error?) -> AuthError {
-		return .exists
-	}
-}
-
-enum NetworkingError: Error {
-
-	case connectionProblem
-
-	case unknown
-
-	case parsingError
-}

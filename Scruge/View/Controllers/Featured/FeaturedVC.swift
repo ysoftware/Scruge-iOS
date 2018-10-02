@@ -25,7 +25,6 @@ final class FeaturedViewController: UIViewController {
 
 	// MARK: - Properties
 
-	var state:FeaturedViewControllerState = .loading { didSet { updateState() }}
 	var isShowingCategories = false
 	let vm = CampaignAVM()
 	var tableUpdateHandler:ArrayViewModelUpdateHandler!
@@ -110,11 +109,11 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 	func didChangeState(to state: ArrayViewModelState) {
 		switch state {
 		case .initial, .loading:
-			self.state = .loading
+			break
 		case .error(_):
-			self.state = .error
+			break
 		case .ready(_):
-			self.state = .normal
+			break
 		case .loadingMore, .paginationError:
 			break
 		}
@@ -160,13 +159,4 @@ extension FeaturedViewController: UITableViewDataSource {
 		return cell.setup(with: categories[indexPath.row])
 		
 	}
-}
-
-enum FeaturedViewControllerState {
-
-	case loading
-
-	case error
-
-	case normal
 }
