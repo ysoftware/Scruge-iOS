@@ -71,6 +71,8 @@
 		71BE95A821626034001CF853 /* RewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95A721626034001CF853 /* RewardCell.xib */; };
 		71BE95AA2162603C001CF853 /* RewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95A92162603C001CF853 /* RewardCell.swift */; };
 		71BE95AC21626610001CF853 /* NumberString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95AB21626610001CF853 /* NumberString.swift */; };
+		71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95AD2163520D001CF853 /* ErrorView.swift */; };
+		71BE95B0216352F2001CF853 /* TableHeaderTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95AF216352F2001CF853 /* TableHeaderTap.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
@@ -171,6 +173,8 @@
 		71BE95A721626034001CF853 /* RewardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RewardCell.xib; sourceTree = "<group>"; };
 		71BE95A92162603C001CF853 /* RewardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCell.swift; sourceTree = "<group>"; };
 		71BE95AB21626610001CF853 /* NumberString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberString.swift; sourceTree = "<group>"; };
+		71BE95AD2163520D001CF853 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		71BE95AF216352F2001CF853 /* TableHeaderTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderTap.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -333,6 +337,7 @@
 				71C8E8E4215907580078BD36 /* DismissSegue.swift */,
 				71B38D03215AC1E800929CC3 /* Alert.swift */,
 				71BE95AB21626610001CF853 /* NumberString.swift */,
+				71BE95AF216352F2001CF853 /* TableHeaderTap.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 		71971CBC2158E45B004D28E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				71BE95AD2163520D001CF853 /* ErrorView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -889,6 +895,7 @@
 				71971C832158E056004D28E7 /* AuthVC.swift in Sources */,
 				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,
 				71BE9567215E2AD2001CF853 /* Service.swift in Sources */,
+				71BE95B0216352F2001CF853 /* TableHeaderTap.swift in Sources */,
 				71BE959E216258DE001CF853 /* UpdateCell.swift in Sources */,
 				71BE957F215F5D3C001CF853 /* CategoryCell.swift in Sources */,
 				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,
@@ -912,6 +919,7 @@
 				71BE957C215EA8E2001CF853 /* Tabbar.swift in Sources */,
 				71B38CFB215ABDE400929CC3 /* Update.swift in Sources */,
 				71BE958C21622C3F001CF853 /* PartialCampVM.swift in Sources */,
+				71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
 				71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */,
 				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,

@@ -48,8 +48,8 @@ final class PartialCampaignVM: ViewModel<PartialCampaign>, PartialCampaignProper
 	}
 
 	var progressString:String { // 0% - 100%
-		guard let model = model else { return "0%" }
-		return "\((model.raisedAmount / model.fundAmount * 100).format())%"
+		guard let model = model else { return "0% raised" }
+		return "\((model.raisedAmount / model.fundAmount * 100).format())% raised"
 	}
 
 	var raisedString:String {

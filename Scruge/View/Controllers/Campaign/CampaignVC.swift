@@ -13,6 +13,8 @@ final class CampaignViewController: UIViewController {
 
 	// MARK: - Outlets
 
+	@IBOutlet weak var errorView: ErrorView!
+	@IBOutlet weak var loadingView: UIView!
 	@IBOutlet weak var tableView: UITableView!
 
 	// MARK: - Actions
@@ -82,6 +84,33 @@ final class CampaignViewController: UIViewController {
 		case 4: return (vm.rewardsVM?.numberOfItems ?? 0) != 0
 		default: return false
 		}
+	}
+
+	// MARK: - State
+
+	func showView() {
+		tableView.isHidden = vm.state != CampaignVM.State.ready
+		loadingView.isHidden = vm.state != CampaignVM.State.loading
+		errorView.isHidden = vm.state != CampaignVM.State.error("")
+	}
+
+	func showData() {
+		showView()
+		vm.lastUpdateVM?.delegate = self
+		vm.currentMilestoneVM?.delegate = self
+		vm.topCommentsVM?.delegate = self
+		vm.rewardsVM?.delegate = self
+		tableView.reloadData()
+		updateTableLayout()
+	}
+
+	func showLoading() {
+		showView()
+	}
+
+	func showError(_ message:String) {
+		showView()
+		errorView.set(message: message)
 	}
 }
 
@@ -207,12 +236,11 @@ extension CampaignViewController: ViewModelDelegate {
 
 	func didUpdateData<M>(_ viewModel: ViewModel<M>) where M : Equatable {
 		if viewModel === vm {
-			vm.lastUpdateVM?.delegate = self
-			vm.currentMilestoneVM?.delegate = self
-			vm.topCommentsVM?.delegate = self
-			vm.rewardsVM?.delegate = self
-			tableView.reloadData()
-			updateTableLayout()
+			switch vm.state {
+			case .ready: showData()
+			case .loading: showLoading()
+			case .error(let error): showError(error)
+			}
 		}
 	}
 }
@@ -223,16 +251,5 @@ extension CampaignViewController: ArrayViewModelDelegate {
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
 			tableView.reloadData()
 			updateTableLayout()
-	}
-}
-
-extension UITableViewHeaderFooterView {
-
-	@discardableResult
-	func addTap(target: Any, action: Selector, section:Int) -> Self {
-		tag = section
-		let tap = UITapGestureRecognizer(target: target, action: action)
-		addGestureRecognizer(tap)
-		return self
 	}
 }

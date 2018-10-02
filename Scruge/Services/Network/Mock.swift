@@ -25,21 +25,23 @@ struct Mock: Networking {
 
 	func handle<T:Codable>(request:String,
 						   _ completion:  @escaping (Result<T, AnyError>) -> Void) {
-		let json:String
-		switch request {
-		case "campaigns": json = campaignsList()
-		case "campaign/1": json = campaign()
-		case "auth/login", "auth/register": json = auth()
-		default: return completion(.failure(AnyError(NetworkingError.connectionProblem)))
-		}
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+			let json:String
+			switch request {
+			case "campaigns": json = self.campaignsList()
+			case "campaign/1": json = self.campaign()
+			case "auth/login", "auth/register": json = self.auth()
+			default: return completion(.failure(AnyError(NetworkingError.connectionProblem)))
+			}
 
-		guard let object = T.init(json.data(using: .utf8)!) else {
-			return completion(.failure(AnyError(NetworkingError.parsingError)))
+			guard let object = T.init(json.data(using: .utf8)!) else {
+				return completion(.failure(AnyError(NetworkingError.parsingError)))
+			}
+			completion(.success(object))
 		}
-		completion(.success(object))
 	}
 
-	func campaign() -> String {
+	private func campaign() -> String {
 		return """
 		{
 			"data": {
@@ -118,7 +120,7 @@ struct Mock: Networking {
 		"""
 	}
 
-	func auth() -> String {
+	private func auth() -> String {
 		return """
 		{
 			"data": [
@@ -129,7 +131,7 @@ struct Mock: Networking {
 		"""
 	}
 
-	func campaignsList() -> String {
+	private func campaignsList() -> String {
 		return """
 		{
 			"data": [

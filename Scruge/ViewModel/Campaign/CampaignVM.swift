@@ -11,6 +11,13 @@ import MVVM
 final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 
 	private let id:String
+	private(set) var state:State = .loading {
+		didSet {
+			notifyUpdated()
+		}
+	}
+
+	// MARK: - Setup
 
 	init(_ id:String) {
 		self.id = id
@@ -23,20 +30,21 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 		super.init()
 		self.arrayDelegate = arrayDelegate
 		self.model = model
-		notifyUpdated()
+		state = .ready
 	}
 
 	public func load() {
+		state = .loading
 		Service.api.getCampaign(with: id) { result in
 			switch result {
 			case .success(let response):
 				self.model = response.data
-			case .failure:
+				self.state = .ready
+			case .failure(let error):
 				self.model = nil
-				// TO-DO: display error maybe
+				self.state = .error(makeError(error))
 			}
 			self.resetViewModels()
-			self.notifyUpdated()
 		}
 	}
 
@@ -52,7 +60,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 		}
 	}
 
-	func resetViewModels() {
+	private func resetViewModels() {
 		guard let model = model else { return }
 
 		if let update = model.lastUpdate {
@@ -101,8 +109,8 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 	}
 
 	var progressString:String { // 0% - 100%
-		guard let model = model else { return "0%" }
-		return "\((model.raisedAmount / model.fundAmount * 100).format())%"
+		guard let model = model else { return "0% raised" }
+		return "\((model.raisedAmount / model.fundAmount * 100).format())% raised"
 	}
 
 	var raisedString:String {
@@ -113,4 +121,29 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignProperties {
 	var daysLeft:String {
 		return "n days left"
 	}
+}
+
+extension CampaignVM {
+
+	enum State:Equatable {
+
+		case loading, ready, error(String)
+
+		static func ==(lhs:State, rhs:State) -> Bool {
+			switch (lhs, rhs) {
+			case (.error, .error), (.loading, .loading), (.ready, .ready): return true
+			default: return false
+			}
+		}
+	}
+}
+
+func makeError(_ error:Error) -> String {
+	let m:String
+	switch error {
+	case NetworkingError.parsingError: m = "Incorrect server response"
+	case NetworkingError.connectionProblem: m = "Connection problem"
+	default: m = "An error occured"
+	}
+	return m
 }
