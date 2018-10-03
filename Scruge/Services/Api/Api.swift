@@ -9,7 +9,7 @@
 import Result
 import SwiftHTTP
 
-final class Api {
+struct Api {
 
 	// MARK: - Initialization
 

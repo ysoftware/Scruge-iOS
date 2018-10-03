@@ -8,7 +8,7 @@
 
 import KeychainSwift
 
-final class TokenManager {
+struct TokenManager {
 
 	private let AUTH_TOKEN = "auth_token"
 

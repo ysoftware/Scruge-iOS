@@ -9,7 +9,7 @@
 import Foundation
 
 /// Набор статических методов для работы с UserDefaults.
-final class Settings {
+struct Settings {
 
 	/// Очистить все настройки пользователя
 	public func clear() {
