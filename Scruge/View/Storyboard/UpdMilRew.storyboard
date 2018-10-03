@@ -44,20 +44,39 @@
             </objects>
             <point key="canvasLocation" x="-81.159420289855078" y="39.508928571428569"/>
         </scene>
-        <!--Milestones View Controller-->
+        <!--Milestones-->
         <scene sceneID="tsf-me-jOb">
             <objects>
-                <viewController storyboardIdentifier="MilestonesVC" id="r7o-AA-FzE" customClass="MilestonesViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MilestonesVC" title="Milestones" id="r7o-AA-FzE" customClass="MilestonesViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lQG-Uu-xQT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mZU-k2-b8S">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="r7o-AA-FzE" id="9R3-0G-yTj"/>
+                                    <outlet property="delegate" destination="r7o-AA-FzE" id="hC1-UI-951"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="mZU-k2-b8S" secondAttribute="bottom" id="9Oe-T2-2dR"/>
+                            <constraint firstItem="mZU-k2-b8S" firstAttribute="top" secondItem="lQG-Uu-xQT" secondAttribute="top" id="Vjc-g8-Pzd"/>
+                            <constraint firstItem="mZU-k2-b8S" firstAttribute="trailing" secondItem="g2p-Wj-2Wc" secondAttribute="trailing" id="pl1-4h-O5y"/>
+                            <constraint firstItem="mZU-k2-b8S" firstAttribute="leading" secondItem="g2p-Wj-2Wc" secondAttribute="leading" id="zjj-vK-KNd"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="g2p-Wj-2Wc"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="mZU-k2-b8S" id="0Dh-0a-Sp1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ry6-d6-OXb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="762" y="38"/>
+            <point key="canvasLocation" x="733.33333333333337" y="37.5"/>
         </scene>
         <!--Comments-->
         <scene sceneID="Z7e-8A-wcQ">

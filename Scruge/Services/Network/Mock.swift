@@ -34,6 +34,7 @@ struct Mock: Networking {
 			case "categories": json = self.categories()
 			case "campaign/1/updates": json = self.updates()
 			case "campaign/1/comments": json = self.comments()
+			case "campaign/1/milestones": json = self.milestones()
 			default: return completion(.failure(AnyError(NetworkingError.unknown)))
 			}
 
@@ -42,6 +43,36 @@ struct Mock: Networking {
 			}
 			completion(.success(object))
 		}
+	}
+
+	private func milestones() -> String {
+		return """
+		{
+			"data": [
+				{
+					"id": "0",
+					"title":"Post-Production",
+					"endTimestamp":1554199676000,
+					"campaignId":"1",
+					"description": "We edit it and put some effects on."
+				},
+				{
+					"id": "1",
+					"title":"Filming",
+					"endTimestamp":1567345924000,
+					"campaignId":"1",
+					"description": "We film everything."
+				},
+				{
+					"id": "2",
+					"title":"Casting",
+					"endTimestamp":1551426824000,
+					"campaignId":"1",
+					"description": "We're supposed to finish casting and compose the whole crew by this time."
+				}
+			]
+		}
+		"""
 	}
 
 	private func comments() -> String {

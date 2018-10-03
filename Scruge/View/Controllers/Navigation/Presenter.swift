@@ -53,6 +53,14 @@ struct Presenter {
 		vc.show(new, sender: self)
 	}
 
+	static func presentMilestonesViewController(in vc:UIViewController,
+												for campaignVM:CampaignVM) {
+		guard let model = campaignVM.model else { return }
+		let new = R.storyboard.updMilRew.milestonesVC()!
+		new.vm = MilestoneAVM(model)
+		vc.show(new, sender: self)
+	}
+
 	static func presentCommentsViewController(in vc:UIViewController,
 											  for campaignVM:CampaignVM) {
 		guard let model = campaignVM.model else { return }
