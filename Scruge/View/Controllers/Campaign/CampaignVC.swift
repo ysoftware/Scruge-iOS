@@ -127,39 +127,36 @@ extension CampaignViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView,
 				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+		var cell:UITableViewCell!
 		switch indexPath.section {
 		case 0:
-			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
-													 for: indexPath)!
-			return cell.setup(with: vm)
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
+												 for: indexPath)!.setup(with: vm)
 		case 1:
-			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.milestoneCell,
-													 for: indexPath)!
 			if let vm = vm.currentMilestoneVM {
-				return cell.setup(with: vm)
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.milestoneCell,
+													 for: indexPath)!.setup(with: vm)
 			}
 		case 2:
-			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
-													 for: indexPath)!
 			if let vm = vm.lastUpdateVM {
-				return cell.setup(with: vm)
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
+													 for: indexPath)!.setup(with: vm)
 			}
 		case 3:
-			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell,
-													 for: indexPath)!
 			if let vm = vm.topCommentsVM?.item(at: indexPath.row) {
-				return cell.setup(with: vm)
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell,
+													 for: indexPath)!.setup(with: vm)
 			}
 		case 4:
-			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.rewardCell,
-													 for: indexPath)!
 			if let vm = vm.rewardsVM?.item(at: indexPath.row) {
-				return cell.setup(with: vm)
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.rewardCell,
+													 for: indexPath)!.setup(with: vm)
 			}
 		default: break
 		}
-		return UITableViewCell()
+		if cell == nil { cell = UITableViewCell() }
+		cell.selectionStyle = .none
+		return cell
 	}
 
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
