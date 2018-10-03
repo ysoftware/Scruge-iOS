@@ -33,6 +33,7 @@ struct Mock: Networking {
 			case "auth/login", "auth/register": json = self.auth()
 			case "categories": json = self.categories()
 			case "campaign/1/updates": json = self.updates()
+			case "campaign/1/comments": json = self.comments()
 			default: return completion(.failure(AnyError(NetworkingError.unknown)))
 			}
 
@@ -41,6 +42,42 @@ struct Mock: Networking {
 			}
 			completion(.success(object))
 		}
+	}
+
+	private func comments() -> String {
+		return """
+		{
+			"data": [
+				{
+					"id":"1",
+					"authorName": "Darius X",
+					"text":"Can not wait for this movie! The idea looks so interesting.",
+					"timestamp":1538380424000
+				},
+				{
+					"id":"2",
+					"text":"They better cast Keanu Reeves or I'm taking my money back!",
+					"timestamp":1538179044000
+				},
+				{
+					"id":"3",
+					"text":"The story and the philosophy is mind-blowing! This is going to be a great movie!",
+					"timestamp":1537975044000
+				},
+				{
+					"id":"4",
+					"authorName": "Michael Stevens",
+					"text":"Who needs so much philosophy in a movie? Please just add more action.",
+					"timestamp":1537771044000
+				},
+				{
+					"id":"5",
+					"text":"I will support all of your projects guys. Love you!",
+					"timestamp":1537468044000
+				}
+			]
+		}
+		"""
 	}
 
 	private func updates() -> String {

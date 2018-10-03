@@ -44,6 +44,8 @@ final class CampaignViewController: UIViewController {
 			Presenter.presentCampaignHTMLViewController(in: self, for: vm)
 		case 2:
 			Presenter.presentUpdatesViewController(in: self, for: vm)
+		case 3:
+			Presenter.presentCommentsViewController(in: self, for: vm)
 		default: break
 		}
 	}

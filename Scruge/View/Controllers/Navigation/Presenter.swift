@@ -52,6 +52,14 @@ struct Presenter {
 		new.vm = UpdateAVM(model)
 		vc.show(new, sender: self)
 	}
+
+	static func presentCommentsViewController(in vc:UIViewController,
+											  for campaignVM:CampaignVM) {
+		guard let model = campaignVM.model else { return }
+		let new = R.storyboard.updMilRew.commentsVC()!
+		new.vm = CommentAVM(source: .campaign(model))
+		vc.show(new, sender: self)
+	}
 }
 
 fileprivate extension UIViewController {

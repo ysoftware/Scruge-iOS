@@ -59,6 +59,40 @@
             </objects>
             <point key="canvasLocation" x="762" y="38"/>
         </scene>
+        <!--Comments View Controller-->
+        <scene sceneID="Z7e-8A-wcQ">
+            <objects>
+                <viewController storyboardIdentifier="CommentsVC" id="8Ms-fC-wEl" customClass="CommentsViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="auQ-eU-KvA">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ujg-Aa-MEa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="8Ms-fC-wEl" id="fQM-Fj-gqI"/>
+                                    <outlet property="delegate" destination="8Ms-fC-wEl" id="Ni5-8t-Xc8"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Ujg-Aa-MEa" firstAttribute="leading" secondItem="vmc-pa-hxr" secondAttribute="leading" id="2Fn-aR-xM3"/>
+                            <constraint firstItem="vmc-pa-hxr" firstAttribute="trailing" secondItem="Ujg-Aa-MEa" secondAttribute="trailing" id="BGQ-CS-1ZN"/>
+                            <constraint firstItem="Ujg-Aa-MEa" firstAttribute="top" secondItem="auQ-eU-KvA" secondAttribute="top" id="KZZ-eT-7eG"/>
+                            <constraint firstAttribute="bottom" secondItem="Ujg-Aa-MEa" secondAttribute="bottom" id="NOM-GT-bsE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="vmc-pa-hxr"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Ujg-Aa-MEa" id="43q-JO-ES9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="n76-aB-LU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512" y="38"/>
+        </scene>
         <!--Activity View Controller-->
         <scene sceneID="f94-LG-TQz">
             <objects>
