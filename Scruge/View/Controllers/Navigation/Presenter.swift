@@ -11,12 +11,12 @@ import UIKit
 struct Presenter {
 
 	static func presentAuthViewController(in vc:UIViewController) {
-		let new = R.storyboard.main.authVC()!.inNavigationController
+		let new = R.storyboard.authProfile.authVC()!.inNavigationController
 		vc.present(new, animated: true)
 	}
 
 	static func setupMainTabs() -> [UIViewController] {
-		let featured = R.storyboard.main.featuredVC()!.inNavigationController
+		let featured = R.storyboard.campaign.featuredVC()!.inNavigationController
 		featured.tabBarItem = UITabBarItem(title: "Featured", image: nil, tag: 0)
  
 		let activity = R.storyboard.main.activityVC()!.inNavigationController
@@ -33,14 +33,14 @@ struct Presenter {
 
 	static func presentCampaignViewController(in vc:UIViewController,
 											  with campaignVM:PartialCampaignVM) {
-		let new = R.storyboard.main.campaignVC()!
+		let new = R.storyboard.campaign.campaignVC()!
 		new.vm = CampaignVM(campaignVM.id)
 		vc.show(new, sender: self)
 	}
 
 	static func presentCampaignHTMLViewController(in vc:UIViewController,
 												  for campaignVM:CampaignVM) {
-		let new = R.storyboard.main.campaignHTMLVC()!
+		let new = R.storyboard.campaign.campaignHTMLVC()!
 		new.vm = campaignVM
 		vc.show(new, sender: self)
 	}

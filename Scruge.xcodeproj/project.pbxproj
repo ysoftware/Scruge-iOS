@@ -90,6 +90,8 @@
 		71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8ED215910500078BD36 /* CampaignVM.swift */; };
 		71C8E8F1215912690078BD36 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8F0215912690078BD36 /* Api.swift */; };
 		71C8E8F3215912A10078BD36 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8F2215912A10078BD36 /* Settings.swift */; };
+		71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */; };
+		71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */; };
 		8C8CD5C46C0D9A389DDD6F7B /* Pods_ScrugeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */; };
 		EB5D555ED85FD38C8FDBC1E0 /* Pods_ScrugeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F72C8E9414CF0808510DF3D /* Pods_ScrugeUITests.framework */; };
 /* End PBXBuildFile section */
@@ -203,6 +205,8 @@
 		71C8E8ED215910500078BD36 /* CampaignVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignVM.swift; sourceTree = "<group>"; };
 		71C8E8F0215912690078BD36 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		71C8E8F2215912A10078BD36 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Campaign.storyboard; sourceTree = "<group>"; };
+		71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthProfile.storyboard; sourceTree = "<group>"; };
 		825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scruge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEF28830A2E790AC6CB0B01 /* Pods-ScrugeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeTests/Pods-ScrugeTests.release.xcconfig"; sourceTree = "<group>"; };
 		91B9FC9C0CACF2FAFAA009DB /* Pods-ScrugeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeUITests/Pods-ScrugeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -421,6 +425,8 @@
 			children = (
 				71971C892158E058004D28E7 /* LaunchScreen.storyboard */,
 				71971C842158E056004D28E7 /* Main.storyboard */,
+				71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */,
+				71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -790,6 +796,8 @@
 				71971C882158E058004D28E7 /* Assets.xcassets in Resources */,
 				71BE959521623448001CF853 /* CampFooter.xib in Resources */,
 				71971C862158E056004D28E7 /* Main.storyboard in Resources */,
+				71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */,
+				71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */,
 				71BE95932162343F001CF853 /* CampHeader.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
