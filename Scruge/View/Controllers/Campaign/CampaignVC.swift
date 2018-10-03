@@ -16,13 +16,21 @@ final class CampaignViewController: UIViewController {
 	@IBOutlet weak var errorView: ErrorView!
 	@IBOutlet weak var loadingView: UIView!
 	@IBOutlet weak var tableView: UITableView!
+
 	@IBOutlet weak var contributeView: UIView!
 	@IBOutlet weak var contributeButton: UIButton!
+	@IBOutlet weak var contributeViewTopConstraint: NSLayoutConstraint!
 
 	// MARK: - Actions
 	
 	@IBAction func contribute(_ sender: Any) {
-		
+		switch vm.status {
+		case .contribute:
+			let sectionForRewards = numberOfSections() - 1
+			tableView.scrollToRow(at: IndexPath(row: 0, section: sectionForRewards),
+								  at: .top, animated: true)
+		default: break
+		}
 	}
 
 	@objc
@@ -130,14 +138,42 @@ final class CampaignViewController: UIViewController {
 		showView()
 		errorView.set(message: message)
 	}
+
+	private func numberOfSections() -> Int {
+		return [0, 1, 2, 3, 4].reduce(0, { result, value in
+			return result + (self.shouldDisplay(section: value) ? 1 : 0)
+		})
+	}
+
+	private func showContributeButtonIfNeeded() {
+		switch vm.status {
+		case .contribute:
+			let section = numberOfSections() - 1
+			let rewards = vm?.rewardsVM?.numberOfItems ?? 0
+			let row = max(rewards / 2, 0)
+			let indexPath = IndexPath(row: row, section: section)
+			let isVisible = tableView.indexPathsForVisibleRows?.contains(indexPath) ?? false
+			showContributeButton(isVisible)
+		default:
+			showContributeButton(false)
+		}
+	}
+
+	private func showContributeButton(_ visible:Bool = true) {
+		var offset:CGFloat = 50
+		if #available(iOS 11, *) { offset += view.safeAreaInsets.bottom }
+		contributeViewTopConstraint.constant = visible ? 0 : offset
+
+		UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
+			self.view.layoutIfNeeded()
+		})
+	}
 }
 
 extension CampaignViewController: UITableViewDataSource {
 
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return [0, 1, 2, 3, 4].reduce(0, { result, value in
-			return result + (self.shouldDisplay(section: value) ? 1 : 0)
-		})
+		return numberOfSections()
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -151,6 +187,8 @@ extension CampaignViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView,
 				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		showContributeButtonIfNeeded()
+
 		var cell:UITableViewCell!
 		switch indexPath.section {
 		case 0:
