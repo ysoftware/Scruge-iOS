@@ -25,7 +25,7 @@ struct Api {
 
 	func logIn(email:String,
 			   password:String,
-			   _ completion: @escaping (Result<AuthResponse, AnyError>)->Void) {
+			   _ completion: @escaping (Result<LoginResponse, AnyError>)->Void) {
 		let request = AuthRequest(email: email, password: password)
 		service.post("auth/login", request.toDictionary(), completion)
 	}
@@ -35,6 +35,12 @@ struct Api {
 				_ completion: @escaping (Result<AuthResponse, AnyError>)->Void) {
 		let request = AuthRequest(email: email, password: password)
 		service.post("auth/register", request.toDictionary(), completion)
+	}
+
+	func checkEmail(_ email:String,
+					_ completion: @escaping (Result<AuthResponse, AnyError>)->Void) {
+		let request = EmailRequest(email: email)
+		service.post("auth/check_email", request.toDictionary(), completion)
 	}
 
 	func getProfile(token:String,

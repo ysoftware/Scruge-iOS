@@ -12,9 +12,12 @@ import Foundation
 
 struct AuthResponse: Codable {
 
-	let errorCode:Int?
+	let result:Int
+}
 
-	let success:Bool
+struct LoginResponse: Codable {
+
+	let result:Int
 
 	let token:String?
 }
@@ -25,6 +28,11 @@ struct ProfileResponse: Codable {
 }
 
 // MARK: - Request
+
+struct EmailRequest: Codable {
+
+	let email:String
+}
 
 struct AuthRequest: Codable {
 

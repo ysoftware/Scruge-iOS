@@ -30,7 +30,8 @@ struct Mock: Networking {
 			switch request {
 			case "campaigns": json = self.campaignsList()
 			case "campaign/1": json = self.campaign()
-			case "auth/login", "auth/register": json = self.auth()
+			case "auth/login": json = self.login()
+			case "auth/register": json = self.register()
 			case "categories": json = self.categories()
 			case "campaign/1/updates": json = self.updates()
 			case "campaign/1/comments": json = self.comments()
@@ -240,12 +241,22 @@ struct Mock: Networking {
 		"""
 	}
 
-	private func auth() -> String {
+	private func login() -> String {
 		return """
 		{
 			"data": [
-				"success":true,
+				"result":0,
 				"token":"some-auth-token-value"
+			]
+		}
+		"""
+	}
+
+	private func register() -> String {
+		return """
+		{
+			"data": [
+				"result":1001
 			]
 		}
 		"""

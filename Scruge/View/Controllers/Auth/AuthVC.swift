@@ -19,24 +19,45 @@ final class AuthViewController: UIViewController {
 	// MARK: - Actions
 
 	@IBAction func login(_ sender: Any) {
+		guard validate() else { return }
+
 		isWorking = true
 		Service.api.logIn(email: email, password: password) { result in
 			self.isWorking = false
 
 			switch result {
-			case .success(let response): self.handle(response)
+			case .success(let response):
+
+				guard response.result == 0 else {
+					return self.showError(code: response.result)
+				}
+
+				guard let token = response.token else {
+					return self.showError()
+				}
+				self.navigationController?.dismiss(animated: true)
+				Service.tokenManager.save(token)
+				
 			case .failure(let error): self.showError(error)
 			}
 		}
 	}
 
 	@IBAction func signUp(_ sender: Any) {
+		guard validate() else { return }
+
 		isWorking = true
 		Service.api.signUp(email: email, password: password) { result in
 			self.isWorking = false
 
 			switch result {
-			case .success(let response): self.handle(response, created: true)
+			case .success(let response):
+
+				guard response.result == 0 else {
+					return self.showError(code: response.result)
+				}
+				self.login(self)
+
 			case .failure(let error): self.showError(error)
 			}
 		}
@@ -68,45 +89,40 @@ final class AuthViewController: UIViewController {
 
 	// MARK: - Methods
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
+	func validate() -> Bool {
 
-	}
-
-	func handle(_ response: AuthResponse, created:Bool = false) {
-		if response.errorCode != nil {
-			return showError(code: response.errorCode!)
+		if email.isEmpty {
+			alert("Enter your email")
+			return false
 		}
 
-		guard response.success, let token = response.token else {
-			return showError()
+		if password.isEmpty {
+			alert("Enter your password")
+			return false
 		}
 
-		if created {
-			// TO-DO: open profile setup
-
-		}
-		else {
-			navigationController?.dismiss(animated: true)
-		}
-
-		Service.tokenManager.save(token)
+		return true
 	}
 
 	// MARK: - Show error
 
 	func showError(_ error:Error? = nil) {
-		guard let error = error else { return }
-		switch error {
-		case NetworkingError.connectionProblem: alert("Connection problem")
-		default: alert("Unexpected error")
+		if let error = error {
+			switch error {
+			case NetworkingError.connectionProblem: alert("Connection problem")
+			default: alert("Unexpected error")
+			}
+		}
+		else {
+			alert("Unexpected error")
 		}
 	}
 
 	func showError(code:Int) {
 		switch code {
-		case 1: alert("Email already taken")
-		case 2: alert("Incorrect credentials")
+		case 1001: alert("Email already taken")
+		case 1002: alert("Incorrect credentials")
+		case 1003: alert("User blocked")
 		default: showError()
 		}
 	}
