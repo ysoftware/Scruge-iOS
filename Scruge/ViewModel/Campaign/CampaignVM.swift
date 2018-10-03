@@ -102,8 +102,9 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		return .none
 	}
 
-	var mediaUrl:String {
-		return model?.mediaUrl ?? ""
+	var mediaUrl:URL? {
+		guard let model = model else { return nil }
+		return URL(string: model.mediaUrl)
 	}
 
 	var totalCommentsCount:String {
