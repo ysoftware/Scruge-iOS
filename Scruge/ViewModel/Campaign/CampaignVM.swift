@@ -89,11 +89,29 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	// MARK: - Properties
 
+	var status:Status {
+		guard let model = model else { return .none }
+
+		// campaign is not over
+		if model.endTimestamp > Date().milliseconds {
+			return .contribute
+		}
+
+		// TO-DO: add voting too
+
+		return .none
+	}
+
 	var mediaUrl:String {
 		return model?.mediaUrl ?? ""
 	}
 
 	var totalCommentsCount:String {
 		return "\(model?.totalCommentsCount ?? 0)"
+	}
+
+	enum Status {
+
+		case contribute, vote, none
 	}
 }

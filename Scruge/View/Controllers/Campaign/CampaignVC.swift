@@ -16,8 +16,14 @@ final class CampaignViewController: UIViewController {
 	@IBOutlet weak var errorView: ErrorView!
 	@IBOutlet weak var loadingView: UIView!
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var contributeView: UIView!
+	@IBOutlet weak var contributeButton: UIButton!
 
 	// MARK: - Actions
+	
+	@IBAction func contribute(_ sender: Any) {
+		
+	}
 
 	@objc
 	func headerTap(_ tap:UITapGestureRecognizer) {
@@ -41,20 +47,22 @@ final class CampaignViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		setupTableView()
 		setupVM()
+		setupTableView()
 	}
 
-	func setupVM() {
+	private func setupVM() {
 		vm.delegate = self
 		vm.load()
 	}
 
-	func setupTableView() {
+	private func setupTableView() {
 		tableView.delaysContentTouches = false
 		tableView.estimatedRowHeight = 400
 		tableView.rowHeight = UITableView.automaticDimension
 
+		tableView.registerHeaderFooterView(R.nib.campHeader)
+		tableView.registerHeaderFooterView(R.nib.campFooter)
 		tableView.register(UINib(resource: R.nib.campaignCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.campaignCell.identifier)
 		tableView.register(UINib(resource: R.nib.milestoneCell),
@@ -65,11 +73,24 @@ final class CampaignViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.commentCell.identifier)
 		tableView.register(UINib(resource: R.nib.rewardCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.rewardCell.identifier)
-		tableView.registerHeaderFooterView(R.nib.campHeader)
-		tableView.registerHeaderFooterView(R.nib.campFooter)
 	}
 
-	func shouldDisplay(section:Int) -> Bool {
+	private func setupBottomButton() {
+		switch vm.status {
+		case .none:
+			contributeView.isHidden = true
+		case .vote:
+			contributeView.isHidden = false
+			contributeView.backgroundColor = Service.constants.color.contributeBlue
+			contributeButton.setTitle("Vote", for: .normal)
+		case .contribute:
+			contributeView.isHidden = false
+			contributeView.backgroundColor = Service.constants.color.contributeGreen
+			contributeButton.setTitle("Contribute", for: .normal)
+		}
+	}
+
+	private func shouldDisplay(section:Int) -> Bool {
 		switch section {
 		case 0: return true
 		case 1: return vm.currentMilestoneVM != nil
@@ -82,13 +103,13 @@ final class CampaignViewController: UIViewController {
 
 	// MARK: - State
 
-	func showView() {
+	private func showView() {
 		tableView.isHidden = vm.state != .ready
 		loadingView.isHidden = vm.state != .loading
 		errorView.isHidden = vm.state != .error("")
 	}
 
-	func showData() {
+	private func showData() {
 		vm.lastUpdateVM?.delegate = self
 		vm.currentMilestoneVM?.delegate = self
 		vm.topCommentsVM?.delegate = self
@@ -96,13 +117,14 @@ final class CampaignViewController: UIViewController {
 
 		tableView.reloadData()
 		showView()
+		setupBottomButton()
 	}
 
-	func showLoading() {
+	private func showLoading() {
 		showView()
 	}
 
-	func showError(_ message:String) {
+	private func showError(_ message:String) {
 		showView()
 		errorView.set(message: message)
 	}

@@ -17,4 +17,6 @@ struct Service {
 	static let tokenManager = TokenManager()
 
 	static let settings = Settings()
+
+	static let constants = Constants()
 }

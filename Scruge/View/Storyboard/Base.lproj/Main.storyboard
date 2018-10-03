@@ -822,7 +822,7 @@
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.3035360943" green="0.79302300349999999" blue="0.3035360943" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.30196078431372547" green="0.792156862745098" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="OG3-ll-KAi"/>
                                     <constraint firstAttribute="bottom" secondItem="dwY-ML-fPw" secondAttribute="bottom" id="Ouk-Wp-8I1"/>
@@ -1600,7 +1600,7 @@
                                         </state>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" red="0.3035360942652196" green="0.66636944438094758" blue="0.79302300347222221" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.30196078431372547" green="0.66666666666666663" blue="0.792156862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstItem="7Wb-Ug-ma0" firstAttribute="top" secondItem="7CK-wi-0Uj" secondAttribute="top" id="BPW-Lf-bcj"/>
                                     <constraint firstAttribute="bottom" secondItem="7Wb-Ug-ma0" secondAttribute="bottom" id="MmB-vY-b62"/>
@@ -1928,7 +1928,7 @@
         <!--Campaign View Controller-->
         <scene sceneID="7Mq-h4-r2N">
             <objects>
-                <viewController storyboardIdentifier="CampaignVC" id="bSn-68-QGz" customClass="CampaignViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampaignVC" hidesBottomBarWhenPushed="YES" id="bSn-68-QGz" customClass="CampaignViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O95-fJ-muX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1941,6 +1941,29 @@
                                     <outlet property="delegate" destination="bSn-68-QGz" id="Tdb-iK-cuP"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o18-DA-2UC">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXt-23-vnW">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <state key="normal" title="Contribute">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="contribute:" destination="bSn-68-QGz" eventType="touchUpInside" id="bL6-tB-LqR"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" red="0.3035360943" green="0.79302300349999999" blue="0.3035360943" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="EXt-23-vnW" firstAttribute="leading" secondItem="o18-DA-2UC" secondAttribute="leading" id="6gR-cd-jfh"/>
+                                    <constraint firstItem="EXt-23-vnW" firstAttribute="top" secondItem="o18-DA-2UC" secondAttribute="top" id="ESy-vn-ly9"/>
+                                    <constraint firstAttribute="trailing" secondItem="EXt-23-vnW" secondAttribute="trailing" id="KKx-Bs-vKI"/>
+                                    <constraint firstAttribute="height" constant="50" id="fum-3Y-4JR"/>
+                                    <constraint firstAttribute="bottom" secondItem="EXt-23-vnW" secondAttribute="bottom" id="rWw-ve-X1v"/>
+                                </constraints>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNJ-yh-Lww" userLabel="Error" customClass="ErrorView" customModule="Scruge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1962,6 +1985,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="FAl-fi-C3i" firstAttribute="bottom" secondItem="o18-DA-2UC" secondAttribute="bottom" id="3Bl-0y-7zZ"/>
                             <constraint firstItem="DNJ-yh-Lww" firstAttribute="top" secondItem="FAl-fi-C3i" secondAttribute="top" id="758-iW-kj0"/>
                             <constraint firstItem="FAl-fi-C3i" firstAttribute="trailing" secondItem="E83-Ia-11J" secondAttribute="trailing" id="Fkd-Ev-aa6"/>
                             <constraint firstItem="E83-Ia-11J" firstAttribute="top" secondItem="FAl-fi-C3i" secondAttribute="top" id="HmW-5Y-gDg"/>
@@ -1969,7 +1993,9 @@
                             <constraint firstItem="FAl-fi-C3i" firstAttribute="trailing" secondItem="DNJ-yh-Lww" secondAttribute="trailing" id="MDy-PB-915"/>
                             <constraint firstItem="hdg-Pb-D1I" firstAttribute="top" secondItem="O95-fJ-muX" secondAttribute="top" id="Y6T-rh-hBl"/>
                             <constraint firstItem="hdg-Pb-D1I" firstAttribute="leading" secondItem="O95-fJ-muX" secondAttribute="leading" id="a7n-Wb-Wdx"/>
+                            <constraint firstItem="FAl-fi-C3i" firstAttribute="trailing" secondItem="o18-DA-2UC" secondAttribute="trailing" id="amh-0R-b8R"/>
                             <constraint firstItem="DNJ-yh-Lww" firstAttribute="leading" secondItem="FAl-fi-C3i" secondAttribute="leading" id="cm5-mE-nCh"/>
+                            <constraint firstItem="o18-DA-2UC" firstAttribute="leading" secondItem="FAl-fi-C3i" secondAttribute="leading" id="eVm-YX-74c"/>
                             <constraint firstItem="E83-Ia-11J" firstAttribute="leading" secondItem="FAl-fi-C3i" secondAttribute="leading" id="fDp-cW-Unj"/>
                             <constraint firstItem="FAl-fi-C3i" firstAttribute="bottom" secondItem="E83-Ia-11J" secondAttribute="bottom" id="kQ6-9L-OeQ"/>
                             <constraint firstItem="FAl-fi-C3i" firstAttribute="bottom" secondItem="DNJ-yh-Lww" secondAttribute="bottom" id="oMY-Lz-ItI"/>
@@ -1978,6 +2004,8 @@
                         <viewLayoutGuide key="safeArea" id="FAl-fi-C3i"/>
                     </view>
                     <connections>
+                        <outlet property="contributeButton" destination="EXt-23-vnW" id="yRc-0j-sfo"/>
+                        <outlet property="contributeView" destination="o18-DA-2UC" id="jc6-Iu-sy5"/>
                         <outlet property="errorView" destination="DNJ-yh-Lww" id="y0W-gZ-F5C"/>
                         <outlet property="loadingView" destination="E83-Ia-11J" id="Y38-KG-pXz"/>
                         <outlet property="tableView" destination="hdg-Pb-D1I" id="USs-u0-xTM"/>
