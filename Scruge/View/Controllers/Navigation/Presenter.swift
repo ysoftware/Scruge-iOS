@@ -44,6 +44,14 @@ struct Presenter {
 		new.vm = campaignVM
 		vc.show(new, sender: self)
 	}
+
+	static func presentUpdatesViewController(in vc:UIViewController,
+											 for campaignVM:CampaignVM) {
+		guard let model = campaignVM.model else { return }
+		let new = R.storyboard.updMilRew.updatesVC()!
+		new.vm = UpdateAVM(model)
+		vc.show(new, sender: self)
+	}
 }
 
 fileprivate extension UIViewController {

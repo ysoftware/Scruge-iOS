@@ -25,13 +25,14 @@ struct Mock: Networking {
 
 	func handle<T:Codable>(request:String,
 						   _ completion:  @escaping (Result<T, AnyError>) -> Void) {
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
 			let json:String
 			switch request {
 			case "campaigns": json = self.campaignsList()
 			case "campaign/1": json = self.campaign()
 			case "auth/login", "auth/register": json = self.auth()
 			case "categories": json = self.categories()
+			case "campaign/1/updates": json = self.updates()
 			default: return completion(.failure(AnyError(NetworkingError.unknown)))
 			}
 
@@ -40,6 +41,39 @@ struct Mock: Networking {
 			}
 			completion(.success(object))
 		}
+	}
+
+	private func updates() -> String {
+		return """
+		{
+			"data": [
+				{
+					"id":"2",
+					"campaignId":"1",
+					"title":"Writer's blog: Day 12",
+					"imageUrl":"https://assets.rebelcircus.com/blog/wp-content/uploads/2016/03/article-2222541-15A98BAC000005DC-820_634x429-e1457975643432.jpg",
+					"timestamp":1538380424000,
+					"description":"I'm going to tell you about some philosophy of choice and free will in the Matrix."
+				},
+				{
+					"id":"1",
+					"campaignId":"1",
+					"title":"Filming Locations: Syndney",
+					"imageUrl":"https://files.sharenator.com/The-Matrix1-Famous-Movie-Locations-s1279x729-416679.png",
+					"timestamp":1537344468000,
+					"description":"We've found the right kind of look we wanted to make our movie to fit in. Look at some beautiful locations in Sydney we're going to try to use in filming."
+				},
+				{
+					"id":"0",
+					"campaignId":"1",
+					"title":"Technical Specifications: Panavision Panaflex Platinum",
+					"imageUrl":"https://www.panavision.com/sites/default/files/pictures/products/1_PFXP_Studio_0_RGB_flat012011.jpg",
+					"timestamp":1536395416000,
+					"description":"We're going to rent Panavision Panaflex Platinum camera for the shooting. 35mm and aspect ratio of 2.39:1 will give the movie just the right look and feel to reflect the story of the world of Matrix."
+				}
+			]
+		}
+		"""
 	}
 
 	private func campaign() -> String {
@@ -89,7 +123,7 @@ struct Mock: Networking {
 				],
 
 				"currentMilestone": {
-					"id": "1",
+					"id": "2",
 					"title":"Casting",
 					"endTimestamp":1551426824000,
 					"campaignId":"1",
@@ -97,7 +131,7 @@ struct Mock: Networking {
 				},
 
 				"lastUpdate": {
-					"id":"1",
+					"id":"3",
 					"campaignId":"1",
 					"title":"Writer's blog: Day 12",
 					"imageUrl":"https://assets.rebelcircus.com/blog/wp-content/uploads/2016/03/article-2222541-15A98BAC000005DC-820_634x429-e1457975643432.jpg",

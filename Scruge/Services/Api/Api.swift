@@ -66,37 +66,37 @@ final class Api {
 
 	func getUpdateList(for campaign:Campaign,
 					   _ completion: @escaping (Result<UpdateListResponse, AnyError>)->Void) {
-//		service.get("campaign/\(campaign.id)/updates", nil, completion)
+		service.get("campaign/\(campaign.id)/updates", nil, completion)
 	}
 
 	// MARK: - HTML Description
 
 	func getUpdateDescription(for update:Update,
 							  _ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
-//		service.get("campaign/\(update.campaignId)/update/\(update.id)/description", nil, completion)
+		service.get("campaign/\(update.campaignId)/update/\(update.id)/description", nil, completion)
 	}
-//
+
 	func getCampaignDescription(for campaign:Campaign,
 								_ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
-//		service.get("campaign/\(campaign.id)/description", nil, completion)
+		service.get("campaign/\(campaign.id)/description", nil, completion)
 	}
 
 	// MARK: - Milestones
 
 	func getMilestones(for campaign:Campaign,
 					   _ completion: @escaping (Result<MilestoneListResponse, AnyError>)->Void) {
-//		service.get("campaign/\(campaign.id)/milestones", nil, completion)
+		service.get("campaign/\(campaign.id)/milestones", nil, completion)
 	}
 
 	// MARK: - Comments
 
 	func getComments(for campaign:Campaign,
 					 _ completion: @escaping (Result<CommentListResponse, AnyError>)->Void) {
-//		service.get("campaign/\(campaign.id)/comments", nil, completion)
+		service.get("campaign/\(campaign.id)/comments", nil, completion)
 	}
 
 	func getComments(for update:Update,
 					 _ completion: @escaping (Result<CommentListResponse, AnyError>)->Void) {
-//		service.get("campaign/\(update.campaignId)/update/\(update.id)/comments", nil, completion)
+		service.get("campaign/\(update.campaignId)/update/\(update.id)/comments", nil, completion)
 	}
 }

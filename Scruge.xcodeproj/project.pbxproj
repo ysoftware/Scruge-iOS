@@ -401,7 +401,7 @@
 			children = (
 				71BE95B521635A67001CF853 /* Navigation */,
 				71BE9563215E26CA001CF853 /* Auth */,
-				71DA7E922164AB2F0052EB8F /* UpdateMilestoneReward */,
+				71DA7E922164AB2F0052EB8F /* Update and Milestone */,
 				71BE958521620BD2001CF853 /* Campaign */,
 			);
 			path = Controllers;
@@ -665,14 +665,14 @@
 			path = Campaign;
 			sourceTree = "<group>";
 		};
-		71DA7E922164AB2F0052EB8F /* UpdateMilestoneReward */ = {
+		71DA7E922164AB2F0052EB8F /* Update and Milestone */ = {
 			isa = PBXGroup;
 			children = (
 				71DA7E972164AB6E0052EB8F /* ActivityVC.swift */,
 				71DA7E932164AB420052EB8F /* UpdatesVC.swift */,
 				71DA7E952164AB510052EB8F /* MilestonesVC.swift */,
 			);
-			path = UpdateMilestoneReward;
+			path = "Update and Milestone";
 			sourceTree = "<group>";
 		};
 		9E01F0AF29DD0E979EC82684 /* Frameworks */ = {

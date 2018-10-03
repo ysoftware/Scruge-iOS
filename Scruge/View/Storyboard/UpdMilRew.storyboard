@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -10,27 +10,46 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Updates View Controller-->
+        <!--Updates-->
         <scene sceneID="RGB-i8-fHn">
             <objects>
-                <viewController storyboardIdentifier="UpdatesVC" id="lJj-ci-nMk" customClass="UpdatesViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UpdatesVC" title="Updates" id="lJj-ci-nMk" customClass="UpdatesViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eC0-Gi-faS">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xxz-ck-5dg">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="lJj-ci-nMk" id="VZP-hd-5sz"/>
+                                    <outlet property="delegate" destination="lJj-ci-nMk" id="rUV-Kx-LEl"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="xxz-ck-5dg" secondAttribute="bottom" id="EiU-t6-Se0"/>
+                            <constraint firstItem="lwv-Cq-jqp" firstAttribute="trailing" secondItem="xxz-ck-5dg" secondAttribute="trailing" id="NYx-3E-ti9"/>
+                            <constraint firstItem="xxz-ck-5dg" firstAttribute="top" secondItem="lwv-Cq-jqp" secondAttribute="top" id="Nt7-qo-8U8"/>
+                            <constraint firstItem="xxz-ck-5dg" firstAttribute="leading" secondItem="lwv-Cq-jqp" secondAttribute="leading" id="bLy-xJ-7gB"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="lwv-Cq-jqp"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="xxz-ck-5dg" id="kZe-S7-AGB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XCM-G6-BFv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-81" y="40"/>
+            <point key="canvasLocation" x="-81.159420289855078" y="39.508928571428569"/>
         </scene>
         <!--Milestones View Controller-->
         <scene sceneID="tsf-me-jOb">
             <objects>
                 <viewController storyboardIdentifier="MilestonesVC" id="r7o-AA-FzE" customClass="MilestonesViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lQG-Uu-xQT">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="g2p-Wj-2Wc"/>
@@ -45,11 +64,11 @@
             <objects>
                 <viewController storyboardIdentifier="ActivityVC" id="pIz-sy-rpm" customClass="ActivityViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="enO-pM-uZK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="dVB-8Q-m8V">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="pIz-sy-rpm" id="A2F-Pd-DmL"/>

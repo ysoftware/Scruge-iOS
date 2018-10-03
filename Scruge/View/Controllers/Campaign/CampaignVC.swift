@@ -34,6 +34,8 @@ final class CampaignViewController: UIViewController {
 		switch tap.view!.tag {
 		case 0:
 			Presenter.presentCampaignHTMLViewController(in: self, for: vm)
+		case 2:
+			Presenter.presentUpdatesViewController(in: self, for: vm)
 		default: break
 		}
 	}
