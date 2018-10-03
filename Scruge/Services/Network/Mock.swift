@@ -74,6 +74,21 @@ struct Mock: Networking {
 					"id":"5",
 					"text":"I will support all of your projects guys. Love you!",
 					"timestamp":1537468044000
+				},
+				{
+					"id":"6",
+					"text":"Looks nice.",
+					"timestamp":1537468044000
+				},
+				{
+					"id":"7",
+					"text":"I love complicated movies",
+					"timestamp":1537468044000
+				},
+				{
+					"id":"8",
+					"text":"Great project.",
+					"timestamp":1537468044000
 				}
 			]
 		}
@@ -126,7 +141,7 @@ struct Mock: Networking {
 				"fundAmount":63000000,
 
 				"mediaUrl":"https://www.youtube-nocookie.com/embed/m8e-FF8MsqU?playsinline=1&rel=0&controls=0&showinfo=0",
-				"totalCommentsCount": 5,
+				"totalCommentsCount": 8,
 				"rewards": [
 					{
 						"id":"0",

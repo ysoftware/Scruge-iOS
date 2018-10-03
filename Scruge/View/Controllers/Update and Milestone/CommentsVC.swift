@@ -14,6 +14,14 @@ final class CommentsViewController: UIViewController {
 	// MARK: - Outlets
 
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var commentInputView: UIVisualEffectView!
+	@IBOutlet weak var commentField: UITextField!
+	@IBOutlet weak var inputBottomConstraint: NSLayoutConstraint!
+	
+	// MARK: - Actions
+
+	@IBAction func sendComment(_ sender: Any) {
+	}
 
 	// MARK: - Properties
 
@@ -28,9 +36,34 @@ final class CommentsViewController: UIViewController {
 		setupVM()
 	}
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		setupKeyboard()
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		NotificationCenter.default.removeObserver(self)
+	}
+
 	private func setupVM() {
 		vm.delegate = self
 		vm.reloadData()
+	}
+
+	private func setupKeyboard() {
+		setKeyboard(open: false, with: nil)
+
+		NotificationCenter.default.addObserver(forName: UIWindow.keyboardWillShowNotification,
+											   object: nil,
+											   queue: .main) { [weak self] notification in
+												self?.setKeyboard(open: true, with: notification)
+		}
+		NotificationCenter.default.addObserver(forName: UIWindow.keyboardWillHideNotification,
+											   object: nil,
+											   queue: .main) { [weak self] notification in
+												self?.setKeyboard(open: false, with: notification)
+		}
 	}
 
 	private func setupTableView() {
@@ -38,6 +71,32 @@ final class CommentsViewController: UIViewController {
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.register(UINib(resource: R.nib.commentCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.commentCell.identifier)
+	}
+
+	private func setKeyboard(open:Bool, with notification:Notification?) {
+
+		// input view inset
+		if open, let notification = notification {
+			guard let frame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+				else { return }
+			inputBottomConstraint.constant = frame.cgRectValue.height
+		}
+		else {
+			inputBottomConstraint.constant = 0
+		}
+
+		if let notification = notification {
+			guard
+				let info = notification.userInfo,
+				let curve = info[UIResponder.keyboardAnimationCurveUserInfoKey] as? UInt,
+				let duration = info[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+				else { return }
+
+			let options = UIView.AnimationOptions(rawValue: curve)
+			UIView.animate(withDuration: duration, delay: 0, options: options, animations: {
+				self.view.layoutIfNeeded()
+			})
+		}
 	}
 }
 

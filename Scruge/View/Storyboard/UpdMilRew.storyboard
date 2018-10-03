@@ -59,39 +59,97 @@
             </objects>
             <point key="canvasLocation" x="762" y="38"/>
         </scene>
-        <!--Comments View Controller-->
+        <!--Comments-->
         <scene sceneID="Z7e-8A-wcQ">
             <objects>
-                <viewController storyboardIdentifier="CommentsVC" id="8Ms-fC-wEl" customClass="CommentsViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentsVC" title="Comments" id="8Ms-fC-wEl" customClass="CommentsViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="auQ-eU-KvA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ujg-Aa-MEa">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ujg-Aa-MEa">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="807"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <viewLayoutGuide key="safeArea" id="P3h-GE-Nak"/>
                                 <connections>
                                     <outlet property="dataSource" destination="8Ms-fC-wEl" id="fQM-Fj-gqI"/>
                                     <outlet property="delegate" destination="8Ms-fC-wEl" id="Ni5-8t-Xc8"/>
                                 </connections>
                             </tableView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ckR-M0-yWJ">
+                                <rect key="frame" x="0.0" y="807" width="414" height="89"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Ih1-Hg-xBu">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b7m-zu-69h">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0qA-Ly-8fN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uvO-bd-R6Y">
+                                                            <rect key="frame" x="10" y="10" width="348" height="35"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="35" id="eiy-iC-iTe"/>
+                                                            </constraints>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-85-lzY">
+                                                            <rect key="frame" x="368" y="10" width="36" height="35"/>
+                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                            <state key="normal" title="Send"/>
+                                                            <connections>
+                                                                <action selector="sendComment:" destination="8Ms-fC-wEl" eventType="touchUpInside" id="1x9-lI-Cv7"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                                                </stackView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="0qA-Ly-8fN" secondAttribute="bottom" id="HxO-SC-SWQ"/>
+                                                <constraint firstItem="0qA-Ly-8fN" firstAttribute="leading" secondItem="b7m-zu-69h" secondAttribute="leading" id="Uuw-0e-Pse"/>
+                                                <constraint firstAttribute="trailing" secondItem="0qA-Ly-8fN" secondAttribute="trailing" id="c9x-Ca-kl0"/>
+                                                <constraint firstItem="0qA-Ly-8fN" firstAttribute="top" secondItem="b7m-zu-69h" secondAttribute="top" id="vSa-LV-bsk"/>
+                                            </constraints>
+                                        </view>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="b7m-zu-69h" firstAttribute="top" secondItem="Ih1-Hg-xBu" secondAttribute="top" id="ThC-G8-2yT"/>
+                                        <constraint firstAttribute="trailing" secondItem="b7m-zu-69h" secondAttribute="trailing" id="eSQ-yX-b2G"/>
+                                        <constraint firstAttribute="bottom" secondItem="b7m-zu-69h" secondAttribute="bottom" id="g6i-iW-v56"/>
+                                        <constraint firstItem="b7m-zu-69h" firstAttribute="leading" secondItem="Ih1-Hg-xBu" secondAttribute="leading" id="pbt-sV-PgO"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="extraLight"/>
+                            </visualEffectView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ujg-Aa-MEa" firstAttribute="leading" secondItem="vmc-pa-hxr" secondAttribute="leading" id="2Fn-aR-xM3"/>
                             <constraint firstItem="vmc-pa-hxr" firstAttribute="trailing" secondItem="Ujg-Aa-MEa" secondAttribute="trailing" id="BGQ-CS-1ZN"/>
+                            <constraint firstItem="ckR-M0-yWJ" firstAttribute="leading" secondItem="vmc-pa-hxr" secondAttribute="leading" id="Ho8-sP-eZv"/>
                             <constraint firstItem="Ujg-Aa-MEa" firstAttribute="top" secondItem="auQ-eU-KvA" secondAttribute="top" id="KZZ-eT-7eG"/>
-                            <constraint firstAttribute="bottom" secondItem="Ujg-Aa-MEa" secondAttribute="bottom" id="NOM-GT-bsE"/>
+                            <constraint firstItem="ckR-M0-yWJ" firstAttribute="top" secondItem="Ujg-Aa-MEa" secondAttribute="bottom" id="k1X-zr-ugG"/>
+                            <constraint firstAttribute="bottom" secondItem="ckR-M0-yWJ" secondAttribute="bottom" id="tEg-5q-a4o"/>
+                            <constraint firstItem="vmc-pa-hxr" firstAttribute="trailing" secondItem="ckR-M0-yWJ" secondAttribute="trailing" id="zgV-yD-OCV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vmc-pa-hxr"/>
                     </view>
                     <connections>
+                        <outlet property="commentField" destination="uvO-bd-R6Y" id="D0w-Pu-FD3"/>
+                        <outlet property="commentInputView" destination="ckR-M0-yWJ" id="nDP-WB-ARt"/>
+                        <outlet property="inputBottomConstraint" destination="g6i-iW-v56" id="8Up-MV-a8h"/>
                         <outlet property="tableView" destination="Ujg-Aa-MEa" id="43q-JO-ES9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n76-aB-LU7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1512" y="38"/>
+            <point key="canvasLocation" x="1511.5942028985507" y="37.5"/>
         </scene>
         <!--Activity View Controller-->
         <scene sceneID="f94-LG-TQz">
