@@ -19,13 +19,13 @@ struct Presenter {
 		let featured = R.storyboard.campaign.featuredVC()!.inNavigationController
 		featured.tabBarItem = UITabBarItem(title: "Featured", image: nil, tag: 0)
  
-		let activity = R.storyboard.main.activityVC()!.inNavigationController
+		let activity = R.storyboard.updMilRew.activityVC()!.inNavigationController
 		activity.tabBarItem = UITabBarItem(title: "Activity", image: nil, tag: 1)
 
-		let search = R.storyboard.main.searchVC()!.inNavigationController
+		let search = R.storyboard.campaign.searchVC()!.inNavigationController
 		search.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 2)
 
-		let profile = R.storyboard.main.profileVC()!.inNavigationController
+		let profile = R.storyboard.authProfile.profileVC()!.inNavigationController
 		profile.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 3)
 
 		return [featured, activity, search, profile]

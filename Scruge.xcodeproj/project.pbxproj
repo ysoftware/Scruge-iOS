@@ -92,6 +92,11 @@
 		71C8E8F3215912A10078BD36 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8F2215912A10078BD36 /* Settings.swift */; };
 		71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */; };
 		71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */; };
+		71DA7E912164AAF90052EB8F /* UpdMilRew.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E902164AAF90052EB8F /* UpdMilRew.storyboard */; };
+		71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E932164AB420052EB8F /* UpdatesVC.swift */; };
+		71DA7E962164AB510052EB8F /* MilestonesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E952164AB510052EB8F /* MilestonesVC.swift */; };
+		71DA7E982164AB6E0052EB8F /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E972164AB6E0052EB8F /* ActivityVC.swift */; };
+		71DA7E9A2164ABBC0052EB8F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E992164ABBC0052EB8F /* SearchVC.swift */; };
 		8C8CD5C46C0D9A389DDD6F7B /* Pods_ScrugeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */; };
 		EB5D555ED85FD38C8FDBC1E0 /* Pods_ScrugeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F72C8E9414CF0808510DF3D /* Pods_ScrugeUITests.framework */; };
 /* End PBXBuildFile section */
@@ -207,6 +212,11 @@
 		71C8E8F2215912A10078BD36 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Campaign.storyboard; sourceTree = "<group>"; };
 		71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthProfile.storyboard; sourceTree = "<group>"; };
+		71DA7E902164AAF90052EB8F /* UpdMilRew.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdMilRew.storyboard; sourceTree = "<group>"; };
+		71DA7E932164AB420052EB8F /* UpdatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesVC.swift; sourceTree = "<group>"; };
+		71DA7E952164AB510052EB8F /* MilestonesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestonesVC.swift; sourceTree = "<group>"; };
+		71DA7E972164AB6E0052EB8F /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
+		71DA7E992164ABBC0052EB8F /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scruge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEF28830A2E790AC6CB0B01 /* Pods-ScrugeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeTests/Pods-ScrugeTests.release.xcconfig"; sourceTree = "<group>"; };
 		91B9FC9C0CACF2FAFAA009DB /* Pods-ScrugeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeUITests/Pods-ScrugeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -391,7 +401,7 @@
 			children = (
 				71BE95B521635A67001CF853 /* Navigation */,
 				71BE9563215E26CA001CF853 /* Auth */,
-				71BE9578215EA6F4001CF853 /* Featured */,
+				71DA7E922164AB2F0052EB8F /* UpdateMilestoneReward */,
 				71BE958521620BD2001CF853 /* Campaign */,
 			);
 			path = Controllers;
@@ -427,6 +437,7 @@
 				71971C842158E056004D28E7 /* Main.storyboard */,
 				71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */,
 				71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */,
+				71DA7E902164AAF90052EB8F /* UpdMilRew.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -540,14 +551,6 @@
 			path = "Campaign ";
 			sourceTree = "<group>";
 		};
-		71BE9578215EA6F4001CF853 /* Featured */ = {
-			isa = PBXGroup;
-			children = (
-				71BE9579215EA75B001CF853 /* FeaturedVC.swift */,
-			);
-			path = Featured;
-			sourceTree = "<group>";
-		};
 		71BE957D215F5D31001CF853 /* Category */ = {
 			isa = PBXGroup;
 			children = (
@@ -560,6 +563,8 @@
 		71BE958521620BD2001CF853 /* Campaign */ = {
 			isa = PBXGroup;
 			children = (
+				71DA7E992164ABBC0052EB8F /* SearchVC.swift */,
+				71BE9579215EA75B001CF853 /* FeaturedVC.swift */,
 				71BE958621620BE3001CF853 /* CampaignVC.swift */,
 				71BE958821621AF9001CF853 /* CampHTMLVC.swift */,
 			);
@@ -658,6 +663,16 @@
 				71BE95C22163ABF5001CF853 /* CampaignProto.swift */,
 			);
 			path = Campaign;
+			sourceTree = "<group>";
+		};
+		71DA7E922164AB2F0052EB8F /* UpdateMilestoneReward */ = {
+			isa = PBXGroup;
+			children = (
+				71DA7E972164AB6E0052EB8F /* ActivityVC.swift */,
+				71DA7E932164AB420052EB8F /* UpdatesVC.swift */,
+				71DA7E952164AB510052EB8F /* MilestonesVC.swift */,
+			);
+			path = UpdateMilestoneReward;
 			sourceTree = "<group>";
 		};
 		9E01F0AF29DD0E979EC82684 /* Frameworks */ = {
@@ -787,6 +802,7 @@
 			files = (
 				71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */,
 				71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */,
+				71DA7E912164AAF90052EB8F /* UpdMilRew.storyboard in Resources */,
 				71BE959921625582001CF853 /* MilestoneCell.xib in Resources */,
 				71BE95B821636245001CF853 /* ErrorView.xib in Resources */,
 				71BE95A0216258E7001CF853 /* UpdateCell.xib in Resources */,
@@ -956,6 +972,7 @@
 				71B38D1B215BA3E600929CC3 /* HTMLApiM.swift in Sources */,
 				71BE9560215E1B36001CF853 /* AuthApiM.swift in Sources */,
 				71BE95B221635835001CF853 /* Error.swift in Sources */,
+				71DA7E982164AB6E0052EB8F /* ActivityVC.swift in Sources */,
 				71BE95AC21626610001CF853 /* NumberString.swift in Sources */,
 				71971C832158E056004D28E7 /* AuthVC.swift in Sources */,
 				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,
@@ -987,11 +1004,13 @@
 				71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */,
 				71BE957C215EA8E2001CF853 /* Tabbar.swift in Sources */,
 				71B38CFB215ABDE400929CC3 /* Update.swift in Sources */,
+				71DA7E9A2164ABBC0052EB8F /* SearchVC.swift in Sources */,
 				71BE958C21622C3F001CF853 /* PartialCampVM.swift in Sources */,
 				71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
 				71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */,
 				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,
+				71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */,
 				71BE95BB2163744E001CF853 /* Category.swift in Sources */,
 				71BE95A521625E64001CF853 /* CommentCell.swift in Sources */,
 				71BE95BF216376A9001CF853 /* CategoryAVM.swift in Sources */,
@@ -1008,6 +1027,7 @@
 				71B38D00215ABE3400929CC3 /* UpdateVM.swift in Sources */,
 				71BE9562215E2519001CF853 /* OtherApiM.swift in Sources */,
 				71BE95C92163E879001CF853 /* ProgressView.swift in Sources */,
+				71DA7E962164AB510052EB8F /* MilestonesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
