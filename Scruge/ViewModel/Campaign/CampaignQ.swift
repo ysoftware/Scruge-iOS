@@ -12,17 +12,21 @@ struct CampaignQuery: Query {
 
 	// MARK: - Pagination
 
-	var currentPosition = 0
+	var page = 0
 
 	mutating func advance() {
-		currentPosition += 1
+		page += 1
 	}
 
 	mutating func resetPosition() {
-		currentPosition = 0
+		page = 0
 	}
 
 	// MARK: - Request
 
 	var category:CategoryVM?
+
+	var query:String?
+
+	var tags:[String]?
 }

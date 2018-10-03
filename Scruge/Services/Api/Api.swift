@@ -42,7 +42,7 @@ final class Api {
 
 	}
 
-	// MARK: - Categoriess
+	// MARK: - Categories
 
 	func getCategories(_ completion: @escaping (Result<CategoriesResponse, AnyError>)->Void) {
 		service.get("categories", nil, completion)
@@ -57,9 +57,8 @@ final class Api {
 
 	func getCampaignList(for query:CampaignQuery?,
 						 _ completion: @escaping (Result<CampaignListResponse, AnyError>)->Void) {
-		var params:[String:Any] = [:]
-		params["category"] = query?.category?.model?.id
-		service.get("campaigns", params, completion)
+		let request = CampaignListRequest(from: query)
+		service.get("campaigns", request.toDictionary(), completion)
 	}
 
 	// MARK: - Updates
