@@ -165,6 +165,7 @@ struct Mock: Networking {
 		{
 			"data": {
 				"id":"1",
+				"type":"1",
 				"title":"The Matrix",
 				"imageUrl":"https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/03/matrix_reboot_1000-630x400-1.jpg",
 				"description":"A programmer is brought back to reason and reality when learning he was living in a program created by gigantic machines which make human birth artificial. In order to set humanity free, Neo will have to face many enemies by using technologies and self-trust.",
@@ -268,6 +269,7 @@ struct Mock: Networking {
 			"data": [
 				{
 					"id":"1",
+					"type":"1",
 					"title":"The Matrix",
 					"imageUrl":"https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/03/matrix_reboot_1000-630x400-1.jpg",
 					"description":"A programmer is brought back to reason and reality when learning he was living in a program created by gigantic machines which make human birth artificial. In order to set humanity free, Neo will have to face many enemies by using technologies and self-trust.",
@@ -277,6 +279,7 @@ struct Mock: Networking {
 				},
 				{
 					"id":"2",
+					"type":"1",
 					"title":"The Matrix: Reloaded",
 					"imageUrl":"https://i.ytimg.com/vi/GOVS6iCJ52s/maxresdefault.jpg",
 					"description":"Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.",
@@ -286,6 +289,7 @@ struct Mock: Networking {
 				},
 				{
 					"id":"3",
+					"type":"1",
 					"title":"The Matrix Revolutions",
 					"imageUrl":"http://www.postapoc-media.com/wp-content/uploads/2013/02/matrix-revolutions-31.jpg",
 					"description":"The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.",

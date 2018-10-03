@@ -29,4 +29,6 @@ struct CampaignQuery: Query {
 	var query:String?
 
 	var tags:[String]?
+
+	var type:String?
 }

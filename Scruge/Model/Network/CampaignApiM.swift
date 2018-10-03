@@ -29,6 +29,7 @@ struct CampaignListRequest: Codable {
 		query = q?.query
 		category = q?.category?.model?.id
 		tags = q?.tags
+		type = q?.type
 	}
 
 	let page:Int
@@ -38,6 +39,8 @@ struct CampaignListRequest: Codable {
 	let category:String?
 
 	let tags:[String]?
+
+	let type:String?
 
 	let token = TokenManager().getToken()
 }
