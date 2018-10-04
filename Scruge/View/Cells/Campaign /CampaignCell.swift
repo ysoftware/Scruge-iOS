@@ -13,13 +13,13 @@ final class CampaignCell: UITableViewCell {
 
 	// MARK: - Outlets
 
-	@IBOutlet weak var topWebView: UIWebView!
+	@IBOutlet weak var topWebView: UIWebView?
+	@IBOutlet weak var descriptionLabel: UILabel?
 	@IBOutlet weak var topImage: UIImageView!
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var raisedLabel: UILabel!
 	@IBOutlet weak var leftLabel: UILabel!
 	@IBOutlet weak var rightLabel: UILabel!
-	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var progressView: ProgressView!
 
 	private var didLoadMedia = false
@@ -37,7 +37,7 @@ final class CampaignCell: UITableViewCell {
 		progressView.clipsToBounds = true
 
 		titleLabel.text = vm.title
-		descriptionLabel.text = vm.description
+		descriptionLabel?.text = vm.description
 		leftLabel.text = vm.progressString
 		raisedLabel.text = vm.raisedString
 		rightLabel.text = vm.daysLeft
@@ -53,7 +53,7 @@ final class CampaignCell: UITableViewCell {
 	}
 
 	func setupWebView(with url:URL) {
-		guard !didLoadMedia else {
+		guard !didLoadMedia, let topWebView = topWebView else {
 			return
 		}
 		topWebView.isHidden = true
@@ -67,7 +67,7 @@ final class CampaignCell: UITableViewCell {
 	}
 
 	private func setupImageView() {
-		topWebView.isHidden = true
+		topWebView?.isHidden = true
 		topImage.isHidden = false
 
 		if let url = imageUrl {

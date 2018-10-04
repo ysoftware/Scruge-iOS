@@ -31,7 +31,8 @@ final class ProfileViewController: UIViewController {
 
 	// MARK: - Properties
 
-	private var vm = ProfileVM()
+	private var profileVM = ProfileVM()
+	private var campaignsVM = CampaignAVM()
 
 	// MARK: - Setup
 
@@ -45,27 +46,30 @@ final class ProfileViewController: UIViewController {
 	private func setupTable() {
 		tableView.estimatedRowHeight = 400
 		tableView.rowHeight = UITableView.automaticDimension
-		tableView.register(UINib(resource: R.nib.updateCell),
+		tableView.register(UINib(resource: R.nib.campaignSmallCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.campaignCell.identifier)
 	}
 
 	private func setupVM() {
-		vm.delegate = self
-		vm.load()
+		profileVM.delegate = self
+		profileVM.load()
+
+		campaignsVM.delegate = self
+		campaignsVM.reloadData()
 	}
 
 	// MARK: - Methods
 
 	private func refreshProfile() {
-		profileImage.kf.setImage(with: vm.imageUrl,
+		profileImage.kf.setImage(with: profileVM.imageUrl,
 								 placeholder: nil,
 								 options: nil,
 								 progressBlock: nil) { (image, _, _, _) in
 										self.profileImage.isHidden = image == nil
 		}
-		nameLabel.text = vm.name
-		emailLabel.text = vm.email
-		descriptionLabel.text = vm.description
+		nameLabel.text = profileVM.name
+		emailLabel.text = profileVM.email
+		descriptionLabel.text = profileVM.description
 		setupNavigationBarButtons()
 	}
 
@@ -82,6 +86,23 @@ final class ProfileViewController: UIViewController {
 	}
 }
 
+extension ProfileViewController: UITableViewDataSource {
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return campaignsVM.numberOfItems
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
+											 for: indexPath)!
+		.setup(with: campaignsVM.item(at: indexPath.row))
+	}
+
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return "Backed by you"
+	}
+}
+
 extension ProfileViewController: ViewModelDelegate {
 
 	func didUpdateData<M>(_ viewModel: ViewModel<M>) where M : Equatable {
@@ -89,14 +110,14 @@ extension ProfileViewController: ViewModelDelegate {
 	}
 }
 
-extension ProfileViewController: UITableViewDataSource {
+extension ProfileViewController: ArrayViewModelDelegate {
 
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 0
+	func didChangeState(to state: ArrayViewModelState) {
+
 	}
 
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
-											 for: indexPath)!
+	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)
+		where M : Equatable, VM : ViewModel<M>, Q : Query {
+		tableView.reloadData()
 	}
 }
