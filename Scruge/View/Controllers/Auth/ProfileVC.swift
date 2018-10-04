@@ -29,10 +29,6 @@ final class ProfileViewController: UIViewController {
 
 	}
 
-	@IBAction func openAuthPage(_ sender:Any) {
-		Presenter.presentAuthViewController(in: self)
-	}
-
 	// MARK: - Properties
 
 	private var vm = ProfileVM()
