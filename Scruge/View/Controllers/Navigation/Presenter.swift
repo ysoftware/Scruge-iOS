@@ -17,10 +17,10 @@ struct Presenter {
 
 	static func setupMainTabs() -> [UIViewController] {
 		let featured = R.storyboard.campaign.featuredVC()!.inNavigationController
-		featured.tabBarItem = UITabBarItem(title: "Featured", image: nil, tag: 0)
+		featured.tabBarItem = UITabBarItem(title: "Campaigns", image: nil, tag: 0)
  
 		let activity = R.storyboard.updMilRew.activityVC()!.inNavigationController
-		activity.tabBarItem = UITabBarItem(title: "Activity", image: nil, tag: 1)
+		activity.tabBarItem = UITabBarItem(title: "Updates", image: nil, tag: 1)
 
 		let search = R.storyboard.campaign.searchVC()!.inNavigationController
 		search.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 2)

@@ -170,10 +170,10 @@
             </objects>
             <point key="canvasLocation" x="1511.5942028985507" y="37.5"/>
         </scene>
-        <!--Activity-->
+        <!--Updates-->
         <scene sceneID="f94-LG-TQz">
             <objects>
-                <viewController storyboardIdentifier="ActivityVC" title="Activity" id="pIz-sy-rpm" customClass="ActivityViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityVC" title="Updates" id="pIz-sy-rpm" customClass="ActivityViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="enO-pM-uZK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
