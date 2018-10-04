@@ -32,6 +32,7 @@ struct Network:Networking {
 			 _ params:HTTPParameterProtocol?,
 			 _ completion: @escaping (Result<T, AnyError>)->Void) {
 
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		HTTP.GET(baseUrl + request,
 				 parameters: params,
 				 requestSerializer: JSONParameterSerializer()) { response in
@@ -43,6 +44,7 @@ struct Network:Networking {
 			  _ params:HTTPParameterProtocol?,
 			  _ completion: @escaping (Result<T, AnyError>)->Void) {
 
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		HTTP.POST(baseUrl + request,
 				 parameters: params,
 				 requestSerializer: JSONParameterSerializer()) { response in
@@ -52,6 +54,7 @@ struct Network:Networking {
 
 	func handleResponse<T:Codable>(_ response: (Response?),
 								   _ completion: @escaping (Result<T, AnyError>)->Void) {
+		UIApplication.shared.isNetworkActivityIndicatorVisible = false
 		DispatchQueue.main.async {
 			guard let response = response else {
 				return completion(.failure(AnyError(NetworkingError.connectionProblem)))

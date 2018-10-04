@@ -14,18 +14,22 @@ struct Mock: Networking {
 	func get<T:Codable>(_ request: String,
 						_ params: HTTPParameterProtocol?,
 						_ completion: @escaping (Result<T, AnyError>) -> Void) {
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		handle(request: request, completion)
 	}
 
 	func post<T:Codable>(_ request: String,
 						 _ params: HTTPParameterProtocol?,
 						 _ completion: @escaping (Result<T, AnyError>) -> Void) {
+		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		handle(request: request, completion)
 	}
 
 	func handle<T:Codable>(request:String,
 						   _ completion:  @escaping (Result<T, AnyError>) -> Void) {
 		DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+
 			let json:String
 			switch request {
 			case "campaigns": json = self.campaignsList()
@@ -266,7 +270,7 @@ struct Mock: Networking {
 	private func register() -> String {
 		return """
 		{
-			"result":1001
+			"result":0
 		}
 		"""
 	}
