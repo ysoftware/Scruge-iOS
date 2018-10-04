@@ -28,7 +28,10 @@ final class CampaignViewController: UIViewController {
 		case .contribute:
 			let sectionForRewards = numberOfSections() - 1
 			tableView.scrollToRow(at: IndexPath(row: 0, section: sectionForRewards),
-								  at: .top, animated: true)
+									   at: .top, animated: true)
+			DispatchQueue.main.asyncAfter(deadline: .now() + ANIMATION_TIME) {
+				self.tableView.reloadData()
+			}
 		default: break
 		}
 	}
@@ -55,6 +58,8 @@ final class CampaignViewController: UIViewController {
 	// MARK: - Properties
 
 	var vm:CampaignVM!
+	private var isShowingContributeButton = true
+	private let ANIMATION_TIME = 0.25
 
 	// MARK: - Setup
 
@@ -153,23 +158,24 @@ final class CampaignViewController: UIViewController {
 		switch vm.status {
 		case .contribute:
 			let section = numberOfSections() - 1
-			let rewards = vm?.rewardsVM?.numberOfItems ?? 0
-			let row = max(rewards / 2, 0)
-			let indexPath = IndexPath(row: row, section: section)
-			let isVisible = tableView.indexPathsForVisibleRows?.contains(indexPath) ?? false
-			showContributeButton(isVisible)
+			let indexPath = IndexPath(row: 0, section: section)
+			let isHidden = tableView.indexPathsForVisibleRows?.contains(indexPath) ?? false
+			showContributeButton(!isHidden)
 		default:
 			showContributeButton(false)
 		}
 	}
 
 	private func showContributeButton(_ visible:Bool = true) {
+		guard visible != isShowingContributeButton else { return }
+		isShowingContributeButton = visible
+
 		var offset:CGFloat = 50
 		if #available(iOS 11, *) { offset += view.safeAreaInsets.bottom }
-		contributeViewTopConstraint.constant = visible ? 0 : offset
+		contributeViewTopConstraint.constant = visible ? offset : 0
 
-		UIView.animate(withDuration: 0.25, delay: 0, options: .curveEaseInOut, animations: {
-			self.view.layoutIfNeeded()
+		UIView.animate(withDuration: ANIMATION_TIME, delay: 0, options: .curveEaseInOut, animations: {
+			self.view.layoutSubviews()
 		})
 	}
 }
