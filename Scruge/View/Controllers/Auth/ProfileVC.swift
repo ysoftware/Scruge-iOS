@@ -13,6 +13,7 @@ final class ProfileViewController: UIViewController {
 
 	// MARK: - Outlets
 
+	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var profileImage:UIImageView!
 	@IBOutlet weak var nameLabel:UILabel!
 	@IBOutlet weak var emailLabel:UILabel!
@@ -26,7 +27,6 @@ final class ProfileViewController: UIViewController {
 	}
 
 	@IBAction func openSettings(_ sender:Any) {
-
 	}
 
 	// MARK: - Properties
@@ -37,7 +37,16 @@ final class ProfileViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		setupTable()
 		setupVM()
+	}
+
+	private func setupTable() {
+		tableView.estimatedRowHeight = 400
+		tableView.rowHeight = UITableView.automaticDimension
+		tableView.register(UINib(resource: R.nib.updateCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.campaignCell.identifier)
 	}
 
 	private func setupVM() {
@@ -77,5 +86,17 @@ extension ProfileViewController: ViewModelDelegate {
 
 	func didUpdateData<M>(_ viewModel: ViewModel<M>) where M : Equatable {
 		refreshProfile()
+	}
+}
+
+extension ProfileViewController: UITableViewDataSource {
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return 0
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
+											 for: indexPath)!
 	}
 }

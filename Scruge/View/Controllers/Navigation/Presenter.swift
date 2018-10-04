@@ -68,6 +68,11 @@ struct Presenter {
 		new.vm = CommentAVM(source: .campaign(model))
 		vc.show(new, sender: self)
 	}
+
+	static func presentProfileEditViewController(in vc:UIViewController) {
+		let new = R.storyboard.authProfile.profileEditVC()!
+		vc.show(new, sender: self)
+	}
 }
 
 fileprivate extension UIViewController {

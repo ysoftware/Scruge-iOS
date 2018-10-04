@@ -21,7 +21,7 @@ final class AuthViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Continue without login",
+		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Continue without login",
 															style: .plain,
 															target: self,
 															action: #selector(cancel))
@@ -43,6 +43,7 @@ final class AuthViewController: UIViewController {
 
 			switch result {
 			case .success(let response):
+
 				guard response.result == 0 else {
 					return self.showError(code: response.result)
 				}
@@ -50,8 +51,15 @@ final class AuthViewController: UIViewController {
 				guard let token = response.token else {
 					return self.showError()
 				}
-				self.navigationController?.dismiss(animated: true)
+
 				Service.tokenManager.save(token)
+
+				if self.didSignUp {
+					Presenter.presentProfileEditViewController(in: self)
+				}
+				else {
+					self.navigationController?.dismiss(animated: true)
+				}
 				
 			case .failure(let error):
 				self.showError(error)
@@ -68,9 +76,11 @@ final class AuthViewController: UIViewController {
 
 			switch result {
 			case .success(let response):
+
 				guard response.result == 0 else {
 					return self.showError(code: response.result)
 				}
+				self.didSignUp = true
 				self.login(self)
 
 			case .failure(let error):
@@ -89,6 +99,8 @@ final class AuthViewController: UIViewController {
 
 	// MARK: - Properties
 
+	var didSignUp = false
+
 	var isWorking:Bool = false {
 		didSet {
 			activityIndicator.alpha = isWorking ? 1 : 0
@@ -96,7 +108,7 @@ final class AuthViewController: UIViewController {
 	}
 
 	var email:String {
-		return emailField.text ?? ""
+		return emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 	}
 
 	var password:String {
@@ -107,13 +119,23 @@ final class AuthViewController: UIViewController {
 
 	func validate() -> Bool {
 
-		if email.isEmpty {
+		guard email.count > 0 else {
 			alert("Enter your email")
 			return false
 		}
 
-		if password.isEmpty {
+		guard password.count > 0 else {
 			alert("Enter your password")
+			return false
+		}
+
+		guard email.isValidEmail() else {
+			alert("Email is not valid")
+			return false
+		}
+
+		guard password.count > 6 else {
+			alert("Password is too short")
 			return false
 		}
 

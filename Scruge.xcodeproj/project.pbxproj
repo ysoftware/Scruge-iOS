@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		512EE954BDA3136818C75BF7 /* Pods_Scruge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */; };
+		71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3D21663B8900C5B633 /* ProfileEditVC.swift */; };
+		71163A40216642F400C5B633 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3F216642F400C5B633 /* EmailValidation.swift */; };
 		716AE1CC215977470098882F /* CampaignAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE1CB215977470098882F /* CampaignAVM.swift */; };
 		71971C812158E056004D28E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C802158E056004D28E7 /* AppDelegate.swift */; };
 		71971C832158E056004D28E7 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C822158E056004D28E7 /* AuthVC.swift */; };
@@ -124,6 +126,8 @@
 /* Begin PBXFileReference section */
 		38208ECDA13EC24E9D2BEB36 /* Pods-ScrugeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeTests/Pods-ScrugeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		71163A3D21663B8900C5B633 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
+		71163A3F216642F400C5B633 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		716AE1CB215977470098882F /* CampaignAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignAVM.swift; sourceTree = "<group>"; };
 		71971C7D2158E056004D28E7 /* Scruge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scruge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71971C802158E056004D28E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -387,6 +391,7 @@
 				71BE95AB21626610001CF853 /* NumberString.swift */,
 				71BE95AF216352F2001CF853 /* TableHeaderTap.swift */,
 				71BE95CA21649C67001CF853 /* DateMilliseconds.swift */,
+				71163A3F216642F400C5B633 /* EmailValidation.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -537,6 +542,7 @@
 			children = (
 				71971C822158E056004D28E7 /* AuthVC.swift */,
 				71AB79022165FC260077D904 /* ProfileVC.swift */,
+				71163A3D21663B8900C5B633 /* ProfileEditVC.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -780,6 +786,9 @@
 							com.apple.Keychain = {
 								enabled = 0;
 							};
+							com.apple.SafariKeychain = {
+								enabled = 1;
+							};
 						};
 					};
 					71971C902158E059004D28E7 = {
@@ -1019,6 +1028,7 @@
 				71BE9583215F7945001CF853 /* Mock.swift in Sources */,
 				71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */,
 				71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */,
+				71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */,
 				71BE958921621AF9001CF853 /* CampHTMLVC.swift in Sources */,
 				71C8E8F3215912A10078BD36 /* Settings.swift in Sources */,
 				71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */,
@@ -1029,6 +1039,7 @@
 				71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
 				71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */,
+				71163A40216642F400C5B633 /* EmailValidation.swift in Sources */,
 				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,
 				71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */,
 				71BE95BB2163744E001CF853 /* Category.swift in Sources */,
@@ -1223,6 +1234,7 @@
 			baseConfigurationReference = CF18F8B8236AF2DDD504351B /* Pods-Scruge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Scruge/Scruge.entitlements;
 				DEVELOPMENT_TEAM = S422Q897FZ;
 				INFOPLIST_FILE = "$(SRCROOT)/Scruge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1242,6 +1254,7 @@
 			baseConfigurationReference = A017E097DEA406DB35999946 /* Pods-Scruge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Scruge/Scruge.entitlements;
 				DEVELOPMENT_TEAM = S422Q897FZ;
 				INFOPLIST_FILE = "$(SRCROOT)/Scruge/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
