@@ -55,6 +55,7 @@ final class ProfileViewController: UIViewController {
 		profileVM.load()
 
 		campaignsVM.delegate = self
+		campaignsVM.query?.requestType = .backed
 		campaignsVM.reloadData()
 	}
 

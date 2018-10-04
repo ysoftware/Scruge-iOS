@@ -24,6 +24,13 @@ struct CampaignQuery: Query {
 
 	// MARK: - Request
 
+	enum RequestType {
+
+		case regular, backed, subscribed
+	}
+
+	var requestType:RequestType = .regular
+
 	var category:CategoryVM?
 
 	var query:String?

@@ -63,6 +63,16 @@ struct Api {
 
 	func getCampaignList(for query:CampaignQuery?,
 						 _ completion: @escaping (Result<CampaignListResponse, AnyError>)->Void) {
+		if let query = query, query.requestType != .regular {
+			let request = TokenRequest()
+			switch query.requestType {
+			case .backed:
+				return service.get("campaigns/backed", request.toDictionary(), completion)
+			case .subscribed:
+				return service.get("campaigns/subscribed", request.toDictionary(), completion)
+			default: break
+			}
+		}
 		let request = CampaignListRequest(from: query)
 		service.get("campaigns", request.toDictionary(), completion)
 	}
