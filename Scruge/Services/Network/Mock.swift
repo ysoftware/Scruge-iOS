@@ -36,6 +36,7 @@ struct Mock: Networking {
 			case "campaign/1/updates": json = self.updates()
 			case "campaign/1/comments": json = self.comments()
 			case "campaign/1/milestones": json = self.milestones()
+			case "profile": json = self.profile()
 			default: return completion(.failure(AnyError(NetworkingError.unknown)))
 			}
 
@@ -44,6 +45,17 @@ struct Mock: Networking {
 			}
 			completion(.success(object))
 		}
+	}
+
+	private func profile() -> String {
+		return """
+		{
+			"data": {
+				"email": "ysoftware@yandex.ru",
+				"description": "I'm in your area!"
+			}
+		}
+		"""
 	}
 
 	private func milestones() -> String {
@@ -245,10 +257,8 @@ struct Mock: Networking {
 	private func login() -> String {
 		return """
 		{
-			"data": [
-				"result":0,
-				"token":"some-auth-token-value"
-			]
+			"result":0,
+			"token":"some-auth-token-value"
 		}
 		"""
 	}
@@ -256,9 +266,7 @@ struct Mock: Networking {
 	private func register() -> String {
 		return """
 		{
-			"data": [
-				"result":1001
-			]
+			"result":1001
 		}
 		"""
 	}

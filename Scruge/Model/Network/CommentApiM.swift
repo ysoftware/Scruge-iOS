@@ -8,7 +8,22 @@
 
 import Foundation
 
+// MARK: - Response
+
 struct CommentListResponse: Codable {
 
 	let data:[Comment]
+}
+
+// MARK: - Request
+
+struct CommentListRequest: Codable {
+
+	init(from q: CommentQuery?) {
+		page = q?.page ?? 0
+	}
+
+	let page:Int
+
+	let token = Service.tokenManager.getToken()
 }

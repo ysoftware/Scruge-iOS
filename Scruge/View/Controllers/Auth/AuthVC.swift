@@ -16,7 +16,23 @@ final class AuthViewController: UIViewController {
 	@IBOutlet weak var passwordField: UITextField!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
+	// MARK: - Setup
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Continue without login",
+															style: .plain,
+															target: self,
+															action: #selector(cancel))
+	}
+
 	// MARK: - Actions
+
+	@objc func cancel(_ sender:Any) {
+		view.endEditing(true)
+		dismiss(animated: true)
+	}
 
 	@IBAction func login(_ sender: Any) {
 		guard validate() else { return }
@@ -27,7 +43,6 @@ final class AuthViewController: UIViewController {
 
 			switch result {
 			case .success(let response):
-
 				guard response.result == 0 else {
 					return self.showError(code: response.result)
 				}
@@ -38,7 +53,8 @@ final class AuthViewController: UIViewController {
 				self.navigationController?.dismiss(animated: true)
 				Service.tokenManager.save(token)
 				
-			case .failure(let error): self.showError(error)
+			case .failure(let error):
+				self.showError(error)
 			}
 		}
 	}
@@ -52,13 +68,13 @@ final class AuthViewController: UIViewController {
 
 			switch result {
 			case .success(let response):
-
 				guard response.result == 0 else {
 					return self.showError(code: response.result)
 				}
 				self.login(self)
 
-			case .failure(let error): self.showError(error)
+			case .failure(let error):
+				self.showError(error)
 			}
 		}
 	}

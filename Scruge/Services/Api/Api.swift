@@ -43,9 +43,9 @@ struct Api {
 		service.post("auth/check_email", request.toDictionary(), completion)
 	}
 
-	func getProfile(token:String,
-					_ completion: @escaping (Result<ProfileResponse, AnyError>)->Void) {
-
+	func getProfile(_ completion: @escaping (Result<ProfileResponse, AnyError>)->Void) {
+		let request = TokenRequest()
+		service.post("profile", request.toDictionary(), completion)
 	}
 
 	// MARK: - Categories
@@ -96,14 +96,16 @@ struct Api {
 
 	// MARK: - Comments
 
-	func getComments(for campaign:Campaign,
+	func getComments(for query:CommentQuery,
 					 _ completion: @escaping (Result<CommentListResponse, AnyError>)->Void) {
-		service.get("campaign/\(campaign.id)/comments", nil, completion)
-	}
-
-	func getComments(for update:Update,
-					 in campaign:Campaign,
-					 _ completion: @escaping (Result<CommentListResponse, AnyError>)->Void) {
-		service.get("campaign/\(campaign.id)/update/\(update.id)/comments", nil, completion)
+		let method:String
+		switch query.source {
+		case .campaign(let campaign):
+			method = "campaign/\(campaign.id)/comments"
+		case .update(let campaign, let update):
+			method = "campaign/\(campaign.id)/update/\(update.id)/comments"
+		}
+		let request = CommentListRequest(from: query)
+		service.get(method, request.toDictionary(), completion)
 	}
 }

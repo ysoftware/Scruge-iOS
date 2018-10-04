@@ -17,6 +17,8 @@ enum CommentSource {
 
 struct CommentQuery: Query {
 
+	let source:CommentSource
+
 	var page = 0
 
 	mutating func advance() {

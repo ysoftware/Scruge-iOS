@@ -21,6 +21,7 @@
 		71971CC12158F076004D28E7 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CC02158F076004D28E7 /* RoundedView.swift */; };
 		71AB79012164D2650077D904 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB79002164D2650077D904 /* CommentsVC.swift */; };
 		71AB79032165FC260077D904 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB79022165FC260077D904 /* ProfileVC.swift */; };
+		71AB7906216609420077D904 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB7905216609420077D904 /* ProfileVM.swift */; };
 		71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF2215A9DF700929CC3 /* Codable.swift */; };
 		71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF4215A9E1000929CC3 /* JSONAny.swift */; };
 		71B38CF9215AA16400929CC3 /* CampaignApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF8215AA10900929CC3 /* CampaignApiM.swift */; };
@@ -142,6 +143,7 @@
 		71971CC02158F076004D28E7 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		71AB79002164D2650077D904 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
 		71AB79022165FC260077D904 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
+		71AB7905216609420077D904 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		71B38CF2215A9DF700929CC3 /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		71B38CF4215A9E1000929CC3 /* JSONAny.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAny.swift; sourceTree = "<group>"; };
 		71B38CF8215AA10900929CC3 /* CampaignApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignApiM.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 		71971CB32158E3F6004D28E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				71AB7904216609330077D904 /* Profile */,
 				71BE95B921636F9D001CF853 /* Category */,
 				71C8E8EF215910DD0078BD36 /* Campaign */,
 				71B38D10215B998300929CC3 /* Milestone */,
@@ -444,6 +447,14 @@
 				71DA7E902164AAF90052EB8F /* UpdMilRew.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		71AB7904216609330077D904 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				71AB7905216609420077D904 /* ProfileVM.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		71B38CF6215A9E1400929CC3 /* Codable */ = {
@@ -972,6 +983,7 @@
 				71BE95C32163ABF5001CF853 /* CampaignProto.swift in Sources */,
 				71B38D14215B999400929CC3 /* Milestone.swift in Sources */,
 				71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */,
+				71AB7906216609420077D904 /* ProfileVM.swift in Sources */,
 				716AE1CC215977470098882F /* CampaignAVM.swift in Sources */,
 				71BE9565215E2A22001CF853 /* TokenManager.swift in Sources */,
 				71AB79012164D2650077D904 /* CommentsVC.swift in Sources */,

@@ -24,7 +24,7 @@ struct LoginResponse: Codable {
 
 struct ProfileResponse: Codable {
 
-	let user:Profile?
+	let data:Profile?
 }
 
 // MARK: - Request

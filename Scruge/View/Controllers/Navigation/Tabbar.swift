@@ -14,6 +14,21 @@ final class TabbarViewController: UITabBarController {
 		super.viewDidLoad()
 
 		viewControllers = Presenter.setupMainTabs()
+		delegate = self
 	}
 }
- 
+
+extension TabbarViewController: UITabBarControllerDelegate {
+
+	func tabBarController(_ tabBarController: UITabBarController,
+						  shouldSelect viewController: UIViewController) -> Bool {
+		if let nav = viewController as? UINavigationController,
+			nav.topViewController is ProfileViewController,
+			Service.tokenManager.getToken() == nil {
+
+			Presenter.presentAuthViewController(in: self)
+			return false
+		}
+		return true
+	}
+}

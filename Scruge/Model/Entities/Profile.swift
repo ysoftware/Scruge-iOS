@@ -10,9 +10,11 @@ import Foundation
 
 struct Profile: Equatable, Codable {
 
-	var name: String
+	let email:String
 
-	var imageUrl:String
+	let name:String?
 
-	var description:String
+	let imageUrl:String?
+
+	let description:String?
 }
