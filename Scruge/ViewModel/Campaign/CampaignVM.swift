@@ -74,7 +74,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		}
 
 		rewardsVM = RewardAVM(model.rewards)
-		topCommentsVM = CommentAVM(model.topComments)
+		topCommentsVM = CommentAVM(model.topComments, source: .campaign(model))
 	}
 
 	// MARK: - View Models

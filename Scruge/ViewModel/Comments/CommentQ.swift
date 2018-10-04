@@ -10,20 +10,20 @@ import MVVM
 
 enum CommentSource {
 
-	case update(Update)
+	case update(Campaign, Update)
 
 	case campaign(Campaign)
 }
 
 struct CommentQuery: Query {
 
-	var currentPosition = 0
+	var page = 0
 
 	mutating func advance() {
-		currentPosition += 1
+		page += 1
 	}
 
 	mutating func resetPosition() {
-		currentPosition = 0
+		page = 0
 	}
 }

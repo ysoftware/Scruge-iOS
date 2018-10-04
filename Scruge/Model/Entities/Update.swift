@@ -12,8 +12,6 @@ struct Update: Equatable, Codable {
 
 	let id:String
 
-	let campaignId:String
-
 	let title:String
 
 	let timestamp:Int

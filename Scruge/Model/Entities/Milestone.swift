@@ -17,6 +17,4 @@ struct Milestone: Equatable, Codable {
 	let endTimestamp:Int
 
 	let description:String
-
-	let campaignId:String
 }

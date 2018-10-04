@@ -77,8 +77,9 @@ struct Api {
 	// MARK: - HTML Description
 
 	func getUpdateDescription(for update:Update,
+							  in campaign:Campaign,
 							  _ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
-		service.get("campaign/\(update.campaignId)/update/\(update.id)/description", nil, completion)
+		service.get("campaign/\(campaign.id)/update/\(update.id)/description", nil, completion)
 	}
 
 	func getCampaignDescription(for campaign:Campaign,
@@ -101,7 +102,8 @@ struct Api {
 	}
 
 	func getComments(for update:Update,
+					 in campaign:Campaign,
 					 _ completion: @escaping (Result<CommentListResponse, AnyError>)->Void) {
-		service.get("campaign/\(update.campaignId)/update/\(update.id)/comments", nil, completion)
+		service.get("campaign/\(campaign.id)/update/\(update.id)/comments", nil, completion)
 	}
 }
