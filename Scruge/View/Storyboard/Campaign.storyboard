@@ -215,12 +215,29 @@
                     <view key="view" contentMode="scaleToFill" id="Iih-AR-hhE">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="twH-Ga-qpR">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="FPY-3Z-2md" id="aPg-oG-XN4"/>
+                                    <outlet property="delegate" destination="FPY-3Z-2md" id="SlV-wz-pH7"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="twH-Ga-qpR" firstAttribute="trailing" secondItem="GUN-Dq-906" secondAttribute="trailing" id="6vw-rv-DCg"/>
+                            <constraint firstItem="twH-Ga-qpR" firstAttribute="top" secondItem="Iih-AR-hhE" secondAttribute="top" id="RVl-HO-K6Z"/>
+                            <constraint firstAttribute="bottom" secondItem="twH-Ga-qpR" secondAttribute="bottom" id="T37-Th-URT"/>
+                            <constraint firstItem="twH-Ga-qpR" firstAttribute="leading" secondItem="GUN-Dq-906" secondAttribute="leading" id="xSk-6T-zyi"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="GUN-Dq-906"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="y12-Po-bTz"/>
                     <connections>
                         <outlet property="searchDisplayController" destination="zmm-wM-8ay" id="Y36-dl-6nQ"/>
+                        <outlet property="tableView" destination="twH-Ga-qpR" id="RdL-Km-v5z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z9L-RN-9gX" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -233,7 +250,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="-1498" y="-230"/>
+            <point key="canvasLocation" x="-1498.4000000000001" y="-230.54187192118226"/>
         </scene>
     </scenes>
 </document>

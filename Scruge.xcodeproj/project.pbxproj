@@ -588,9 +588,9 @@
 		71BE958521620BD2001CF853 /* Campaign */ = {
 			isa = PBXGroup;
 			children = (
-				71DA7E992164ABBC0052EB8F /* SearchVC.swift */,
 				71BE9579215EA75B001CF853 /* FeaturedVC.swift */,
 				71BE958621620BE3001CF853 /* CampaignVC.swift */,
+				71DA7E992164ABBC0052EB8F /* SearchVC.swift */,
 				71BE958821621AF9001CF853 /* CampHTMLVC.swift */,
 			);
 			path = Campaign;
