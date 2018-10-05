@@ -18,15 +18,39 @@ final class CommentsViewController: UIViewController {
 	@IBOutlet weak var commentField: UITextField!
 	@IBOutlet weak var inputBottomConstraint: NSLayoutConstraint!
 	@IBOutlet weak var loadingView: LoadingView!
+	@IBOutlet weak var commentActivity: UIActivityIndicatorView!
+	@IBOutlet weak var sendButton: UIButton!
 
 	// MARK: - Actions
 
 	@IBAction func sendComment(_ sender: Any) {
+		if let comment = comment {
+
+			commentActivity.isHidden = false
+			sendButton.isHidden = true
+
+			vm.postComment(comment) { success in
+				self.commentActivity.isHidden = true
+				self.sendButton.isHidden = false
+
+			}
+		}
+		else {
+			// TO-DO: error: can not send
+		}
 	}
 
 	// MARK: - Properties
 
 	public var vm:CommentAVM!
+
+	private var comment:String? {
+		let string = (commentField.text ?? "").trimmingCharacters(in: .whitespaces)
+		if string.count < 5 {
+			return nil
+		}
+		return string
+	}
 
 	// MARK: - Setup
 
@@ -35,6 +59,7 @@ final class CommentsViewController: UIViewController {
 
 		setupTableView()
 		setupVM()
+		setupInputBar()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -45,6 +70,11 @@ final class CommentsViewController: UIViewController {
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		NotificationCenter.default.removeObserver(self)
+	}
+
+	private func setupInputBar() {
+		commentActivity.isHidden = true
+		sendButton.isHidden = false
 	}
 
 	private func setupVM() {

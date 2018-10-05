@@ -126,7 +126,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Add your comment..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uvO-bd-R6Y">
-                                                            <rect key="frame" x="10" y="10" width="348" height="35"/>
+                                                            <rect key="frame" x="10" y="10" width="344" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="eiy-iC-iTe"/>
                                                             </constraints>
@@ -134,14 +134,32 @@
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done"/>
                                                         </textField>
-                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-85-lzY">
-                                                            <rect key="frame" x="368" y="10" width="36" height="35"/>
-                                                            <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                            <state key="normal" title="Send"/>
-                                                            <connections>
-                                                                <action selector="sendComment:" destination="8Ms-fC-wEl" eventType="touchUpInside" id="1x9-lI-Cv7"/>
-                                                            </connections>
-                                                        </button>
+                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7v-Je-yXj">
+                                                            <rect key="frame" x="364" y="10" width="40" height="35"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-85-lzY">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="40" height="35"/>
+                                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                                                    <state key="normal" title="Send"/>
+                                                                    <connections>
+                                                                        <action selector="sendComment:" destination="8Ms-fC-wEl" eventType="touchUpInside" id="1x9-lI-Cv7"/>
+                                                                    </connections>
+                                                                </button>
+                                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="H3J-l1-rIE">
+                                                                    <rect key="frame" x="10" y="7.5" width="20" height="20"/>
+                                                                </activityIndicatorView>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="9AZ-85-lzY" secondAttribute="trailing" id="7LT-s2-wtm"/>
+                                                                <constraint firstItem="H3J-l1-rIE" firstAttribute="centerY" secondItem="g7v-Je-yXj" secondAttribute="centerY" id="F6P-Ie-VJH"/>
+                                                                <constraint firstAttribute="width" constant="40" id="VEo-C2-Jx5"/>
+                                                                <constraint firstItem="9AZ-85-lzY" firstAttribute="top" secondItem="g7v-Je-yXj" secondAttribute="top" id="iK4-fP-8ai"/>
+                                                                <constraint firstItem="9AZ-85-lzY" firstAttribute="leading" secondItem="g7v-Je-yXj" secondAttribute="leading" id="oes-4C-Jx9"/>
+                                                                <constraint firstItem="H3J-l1-rIE" firstAttribute="centerX" secondItem="g7v-Je-yXj" secondAttribute="centerX" id="qsn-gR-0sC"/>
+                                                                <constraint firstAttribute="bottom" secondItem="9AZ-85-lzY" secondAttribute="bottom" id="t2O-JS-thn"/>
+                                                            </constraints>
+                                                        </view>
                                                     </subviews>
                                                     <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
                                                 </stackView>
@@ -164,7 +182,7 @@
                                 </view>
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zug-ir-djO" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zug-ir-djO" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
@@ -186,10 +204,12 @@
                         <viewLayoutGuide key="safeArea" id="vmc-pa-hxr"/>
                     </view>
                     <connections>
+                        <outlet property="commentActivity" destination="H3J-l1-rIE" id="fC1-LO-dQZ"/>
                         <outlet property="commentField" destination="uvO-bd-R6Y" id="D0w-Pu-FD3"/>
                         <outlet property="commentInputView" destination="ckR-M0-yWJ" id="nDP-WB-ARt"/>
                         <outlet property="inputBottomConstraint" destination="g6i-iW-v56" id="8Up-MV-a8h"/>
                         <outlet property="loadingView" destination="zug-ir-djO" id="lXc-X6-FKK"/>
+                        <outlet property="sendButton" destination="9AZ-85-lzY" id="g2i-qX-rZU"/>
                         <outlet property="tableView" destination="Ujg-Aa-MEa" id="43q-JO-ES9"/>
                     </connections>
                 </viewController>

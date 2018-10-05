@@ -106,6 +106,20 @@ struct Api {
 
 	// MARK: - Comments
 
+	func postComment(_ comment:String,
+					 source: CommentSource,
+					 _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+		let method:String
+		switch source {
+		case .campaign(let campaign):
+			method = "campaign/\(campaign.id)/comment"
+		case .update(let campaign, let update):
+			method = "campaign/\(campaign.id)/update/\(update.id)/comment"
+		}
+		let request = CommentRequest(comment: comment)
+		service.post(method, request.toDictionary(), completion)
+	}
+
 	func getComments(for query:CommentQuery,
 					 _ completion: @escaping (Result<CommentListResponse, AnyError>)->Void) {
 		let method:String

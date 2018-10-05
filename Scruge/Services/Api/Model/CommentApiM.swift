@@ -17,6 +17,17 @@ struct CommentListResponse: Codable {
 
 // MARK: - Request
 
+struct CommentRequest: Codable {
+
+	init(comment:String) {
+		self.comment = comment
+	}
+
+	let comment:String
+
+	let token = Service.tokenManager.getToken()
+}
+
 struct CommentListRequest: Codable {
 
 	init(from q: CommentQuery?) {
