@@ -19,7 +19,7 @@ struct Presenter {
 		let featured = R.storyboard.campaign.featuredVC()!.inNavigationController
 		featured.tabBarItem = UITabBarItem(title: "Campaigns", image: nil, tag: 0)
  
-		let activity = R.storyboard.updMilRew.activityVC()!.inNavigationController
+		let activity = R.storyboard.details.activityVC()!.inNavigationController
 		activity.tabBarItem = UITabBarItem(title: "Updates", image: nil, tag: 1)
 
 		let search = R.storyboard.campaign.searchVC()!.inNavigationController
@@ -48,7 +48,7 @@ struct Presenter {
 	static func presentUpdatesViewController(in vc:UIViewController,
 											 for campaignVM:CampaignVM) {
 		guard let model = campaignVM.model else { return }
-		let new = R.storyboard.updMilRew.updatesVC()!
+		let new = R.storyboard.details.updatesVC()!
 		new.vm = UpdateAVM(model)
 		vc.show(new, sender: self)
 	}
@@ -56,7 +56,7 @@ struct Presenter {
 	static func presentMilestonesViewController(in vc:UIViewController,
 												for campaignVM:CampaignVM) {
 		guard let model = campaignVM.model else { return }
-		let new = R.storyboard.updMilRew.milestonesVC()!
+		let new = R.storyboard.details.milestonesVC()!
 		new.vm = MilestoneAVM(model)
 		vc.show(new, sender: self)
 	}
@@ -64,7 +64,7 @@ struct Presenter {
 	static func presentCommentsViewController(in vc:UIViewController,
 											  for campaignVM:CampaignVM) {
 		guard let model = campaignVM.model else { return }
-		let new = R.storyboard.updMilRew.commentsVC()!
+		let new = R.storyboard.details.commentsVC()!
 		new.vm = CommentAVM(source: .campaign(model))
 		vc.show(new, sender: self)
 	}

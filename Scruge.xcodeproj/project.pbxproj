@@ -101,7 +101,7 @@
 		71C8E8F3215912A10078BD36 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8F2215912A10078BD36 /* Settings.swift */; };
 		71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */; };
 		71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */; };
-		71DA7E912164AAF90052EB8F /* UpdMilRew.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E902164AAF90052EB8F /* UpdMilRew.storyboard */; };
+		71DA7E912164AAF90052EB8F /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E902164AAF90052EB8F /* Details.storyboard */; };
 		71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E932164AB420052EB8F /* UpdatesVC.swift */; };
 		71DA7E962164AB510052EB8F /* MilestonesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E952164AB510052EB8F /* MilestonesVC.swift */; };
 		71DA7E982164AB6E0052EB8F /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E972164AB6E0052EB8F /* ActivityVC.swift */; };
@@ -230,7 +230,7 @@
 		71C8E8F2215912A10078BD36 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Campaign.storyboard; sourceTree = "<group>"; };
 		71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthProfile.storyboard; sourceTree = "<group>"; };
-		71DA7E902164AAF90052EB8F /* UpdMilRew.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UpdMilRew.storyboard; sourceTree = "<group>"; };
+		71DA7E902164AAF90052EB8F /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
 		71DA7E932164AB420052EB8F /* UpdatesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdatesVC.swift; sourceTree = "<group>"; };
 		71DA7E952164AB510052EB8F /* MilestonesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestonesVC.swift; sourceTree = "<group>"; };
 		71DA7E972164AB6E0052EB8F /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
@@ -438,7 +438,7 @@
 			children = (
 				71BE95B521635A67001CF853 /* Navigation */,
 				71BE9563215E26CA001CF853 /* Auth */,
-				71DA7E922164AB2F0052EB8F /* Update and Milestone */,
+				71DA7E922164AB2F0052EB8F /* Campaign Details */,
 				71BE958521620BD2001CF853 /* Campaign */,
 			);
 			path = Controllers;
@@ -475,7 +475,7 @@
 				71971C842158E056004D28E7 /* Main.storyboard */,
 				71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */,
 				71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */,
-				71DA7E902164AAF90052EB8F /* UpdMilRew.storyboard */,
+				71DA7E902164AAF90052EB8F /* Details.storyboard */,
 			);
 			path = Storyboard;
 			sourceTree = "<group>";
@@ -715,7 +715,7 @@
 			path = Campaign;
 			sourceTree = "<group>";
 		};
-		71DA7E922164AB2F0052EB8F /* Update and Milestone */ = {
+		71DA7E922164AB2F0052EB8F /* Campaign Details */ = {
 			isa = PBXGroup;
 			children = (
 				71DA7E972164AB6E0052EB8F /* ActivityVC.swift */,
@@ -723,7 +723,7 @@
 				71DA7E952164AB510052EB8F /* MilestonesVC.swift */,
 				71AB79002164D2650077D904 /* CommentsVC.swift */,
 			);
-			path = "Update and Milestone";
+			path = "Campaign Details";
 			sourceTree = "<group>";
 		};
 		9E01F0AF29DD0E979EC82684 /* Frameworks */ = {
@@ -856,7 +856,7 @@
 			files = (
 				71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */,
 				71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */,
-				71DA7E912164AAF90052EB8F /* UpdMilRew.storyboard in Resources */,
+				71DA7E912164AAF90052EB8F /* Details.storyboard in Resources */,
 				71BE959921625582001CF853 /* MilestoneCell.xib in Resources */,
 				71BE95B821636245001CF853 /* ErrorView.xib in Resources */,
 				71BE95A0216258E7001CF853 /* UpdateCell.xib in Resources */,

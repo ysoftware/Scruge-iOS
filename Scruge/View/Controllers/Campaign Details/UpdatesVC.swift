@@ -14,6 +14,7 @@ final class UpdatesViewController: UIViewController {
 	// MARK: - Outlets
 
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var loadingView: LoadingView!
 
 	// MARK: - Properties
 
@@ -69,6 +70,20 @@ extension UpdatesViewController: ArrayViewModelDelegate {
 	}
 
 	func didChangeState(to state: ArrayViewModelState) {
-
+		switch state {
+		case .initial, .loading:
+			loadingView.set(state: .loading)
+		case .error(let error):
+			let message = ErrorHandler.message(for: error)
+			loadingView.set(state: .error(message))
+		case .ready:
+			if vm.numberOfItems == 0 {
+				loadingView.set(state: .error("No comments"))
+			}
+			else {
+				loadingView.set(state: .ready)
+			}
+		default: break
+		}
 	}
 }

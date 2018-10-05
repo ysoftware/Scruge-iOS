@@ -17,7 +17,8 @@ final class CommentsViewController: UIViewController {
 	@IBOutlet weak var commentInputView: UIVisualEffectView!
 	@IBOutlet weak var commentField: UITextField!
 	@IBOutlet weak var inputBottomConstraint: NSLayoutConstraint!
-	
+	@IBOutlet weak var loadingView: LoadingView!
+
 	// MARK: - Actions
 
 	@IBAction func sendComment(_ sender: Any) {
@@ -125,6 +126,20 @@ extension CommentsViewController: ArrayViewModelDelegate {
 	}
 
 	func didChangeState(to state: ArrayViewModelState) {
-
+		switch state {
+		case .initial, .loading:
+			loadingView.set(state: .loading)
+		case .error(let error):
+			let message = ErrorHandler.message(for: error)
+			loadingView.set(state: .error(message))
+		case .ready:
+			if vm.numberOfItems == 0 {
+				loadingView.set(state: .error("No comments"))
+			}
+			else {
+				loadingView.set(state: .ready)
+			}
+		default: break
+		}
 	}
 }
