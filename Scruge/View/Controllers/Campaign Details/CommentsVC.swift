@@ -33,10 +33,15 @@ final class CommentsViewController: UIViewController {
 				self.commentActivity.isHidden = true
 				self.sendButton.isHidden = false
 
+				if success {
+					self.view.endEditing(true)
+					self.setKeyboard(height: 0)
+					self.commentField.text = ""
+				}
+				else {
+					// TO-DO: some error, did not send
+				}
 			}
-		}
-		else {
-			// TO-DO: error: can not send
 		}
 	}
 

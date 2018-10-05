@@ -36,12 +36,13 @@ struct Mock: Networking {
 			case "campaigns/backed": json = self.backedCampaigns()
 			case "campaign/1": json = self.campaign()
 			case "auth/login": json = self.login()
-			case "auth/register": json = self.register()
+			case "auth/register": json = self.success()
 			case "categories": json = self.categories()
 			case "campaign/1/updates": json = self.updates()
 			case "campaign/1/comments": json = self.comments()
 			case "campaign/1/milestones": json = self.milestones()
 			case "profile": json = self.profile()
+			case "campaign/1/comment": json = self.success()
 			default: return completion(.failure(AnyError(NetworkingError.unknown)))
 			}
 
@@ -269,7 +270,7 @@ struct Mock: Networking {
 		"""
 	}
 
-	private func register() -> String {
+	private func success() -> String {
 		return """
 		{
 			"result":0
