@@ -145,7 +145,7 @@
                                                                         <action selector="sendComment:" destination="8Ms-fC-wEl" eventType="touchUpInside" id="1x9-lI-Cv7"/>
                                                                     </connections>
                                                                 </button>
-                                                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="H3J-l1-rIE">
+                                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="H3J-l1-rIE">
                                                                     <rect key="frame" x="10" y="7.5" width="20" height="20"/>
                                                                 </activityIndicatorView>
                                                             </subviews>
