@@ -18,7 +18,7 @@ final class CommentAVM: ArrayViewModel<Comment, CommentVM, CommentQuery> {
 
 	init(_ comments:[Comment], source:CommentSource) {
 		super.init()
-		manageItems(comments)
+		setData(comments.map { CommentVM($0) })
 	}
 
 	override func fetchData(_ query: CommentQuery?,

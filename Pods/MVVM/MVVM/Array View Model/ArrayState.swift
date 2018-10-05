@@ -9,21 +9,7 @@
 import Foundation
 
 /// Статус процессов внутри array view model.
-public enum ArrayViewModelState: Equatable {
-
-	public static func == (lhs: ArrayViewModelState, rhs: ArrayViewModelState) -> Bool {
-		switch (lhs, rhs) {
-		case (.initial, .initial),
-			 (.loading, .loading),
-			 (.loadingMore, .loadingMore),
-			 (.error, .error),
-			 (.paginationError, .paginationError):
-			return true
-		case (.ready(let value), .ready(let value2)) :
-			return value == value2
-		default: return false
-		}
-	}
+public enum ArrayViewModelState {
 
 	// MARK: - Cases
 
@@ -76,6 +62,23 @@ public enum ArrayViewModelState: Equatable {
 		}
 		else {
 			self = .paginationError(error: error)
+		}
+	}
+}
+
+extension ArrayViewModelState: Equatable {
+
+	public static func == (lhs: ArrayViewModelState, rhs: ArrayViewModelState) -> Bool {
+		switch (lhs, rhs) {
+		case (.initial, .initial),
+			 (.loading, .loading),
+			 (.loadingMore, .loadingMore),
+			 (.error, .error),
+			 (.paginationError, .paginationError):
+			return true
+		case (.ready(let value), .ready(let value2)) :
+			return value == value2
+		default: return false
 		}
 	}
 }

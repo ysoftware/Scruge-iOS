@@ -12,6 +12,8 @@
 		71163A40216642F400C5B633 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3F216642F400C5B633 /* EmailValidation.swift */; };
 		71163A422166499200C5B633 /* CampaignSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71163A412166499200C5B633 /* CampaignSmallCell.xib */; };
 		71163A472167517E00C5B633 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A462167517E00C5B633 /* Wallet.swift */; };
+		71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A49216754BC00C5B633 /* LoadingView.swift */; };
+		71163A4C216754C400C5B633 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71163A4B216754C400C5B633 /* LoadingView.xib */; };
 		716AE1CC215977470098882F /* CampaignAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE1CB215977470098882F /* CampaignAVM.swift */; };
 		71971C812158E056004D28E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C802158E056004D28E7 /* AppDelegate.swift */; };
 		71971C832158E056004D28E7 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C822158E056004D28E7 /* AuthVC.swift */; };
@@ -132,6 +134,8 @@
 		71163A3F216642F400C5B633 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		71163A412166499200C5B633 /* CampaignSmallCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampaignSmallCell.xib; sourceTree = "<group>"; };
 		71163A462167517E00C5B633 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		71163A49216754BC00C5B633 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		71163A4B216754C400C5B633 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		716AE1CB215977470098882F /* CampaignAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignAVM.swift; sourceTree = "<group>"; };
 		71971C7D2158E056004D28E7 /* Scruge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scruge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71971C802158E056004D28E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -287,6 +291,15 @@
 				71163A462167517E00C5B633 /* Wallet.swift */,
 			);
 			path = Wallet;
+			sourceTree = "<group>";
+		};
+		71163A48216754A600C5B633 /* Loading View */ = {
+			isa = PBXGroup;
+			children = (
+				71163A4B216754C400C5B633 /* LoadingView.xib */,
+				71163A49216754BC00C5B633 /* LoadingView.swift */,
+			);
+			path = "Loading View";
 			sourceTree = "<group>";
 		};
 		71971C742158E056004D28E7 = {
@@ -448,6 +461,7 @@
 		71971CBC2158E45B004D28E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				71163A48216754A600C5B633 /* Loading View */,
 				71BE95B621636236001CF853 /* Error */,
 				71BE95C82163E879001CF853 /* ProgressView.swift */,
 			);
@@ -851,6 +865,7 @@
 				71BE95A321625E5B001CF853 /* CommentCell.xib in Resources */,
 				71971C882158E058004D28E7 /* Assets.xcassets in Resources */,
 				71BE959521623448001CF853 /* CampFooter.xib in Resources */,
+				71163A4C216754C400C5B633 /* LoadingView.xib in Resources */,
 				71971C862158E056004D28E7 /* Main.storyboard in Resources */,
 				71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */,
 				71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */,
@@ -1060,6 +1075,7 @@
 				71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */,
 				71BE95BB2163744E001CF853 /* Category.swift in Sources */,
 				71BE95A521625E64001CF853 /* CommentCell.swift in Sources */,
+				71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */,
 				71BE95BF216376A9001CF853 /* CategoryAVM.swift in Sources */,
 				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,
 				71B38D0B215B879D00929CC3 /* CommentVM.swift in Sources */,

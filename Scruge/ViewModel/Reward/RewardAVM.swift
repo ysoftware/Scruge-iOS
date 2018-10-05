@@ -13,7 +13,7 @@ final class RewardAVM: SimpleArrayViewModel<Reward, RewardVM> {
 
 	init(_ rewards:[Reward]) {
 		super.init()
-		manageItems(rewards)
+		setData(rewards.map { RewardVM($0) })
 	}
 
 	override func fetchData(_ block: @escaping (Result<[Reward], AnyError>) -> Void) {

@@ -20,7 +20,7 @@ final class UpdateAVM: SimpleArrayViewModel<Update, UpdateVM> {
 	init(_ updates:[Update], for campaign:Campaign) {
 		self.campaign = campaign
 		super.init()
-		manageItems(updates)
+		setData(updates.map { UpdateVM($0) })
 	}
 
 	override func fetchData(_ block: @escaping (Result<[Update], AnyError>) -> Void) {

@@ -20,7 +20,7 @@ final class MilestoneAVM: SimpleArrayViewModel<Milestone, MilestoneVM> {
 	init(_ milestones:[Milestone]) {
 		campaign = nil
 		super.init()
-		manageItems(milestones)
+		setData(milestones.map { MilestoneVM($0) })
 	}
 
 	override func fetchData(_ block: @escaping (Result<[Milestone], AnyError>) -> Void) {
