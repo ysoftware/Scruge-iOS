@@ -10,7 +10,7 @@ import Foundation
 
 // MARK: - Response
 
-struct AuthResponse: Codable {
+struct ResultResponse: Codable {
 
 	let result:Int
 }

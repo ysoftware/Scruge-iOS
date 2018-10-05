@@ -16,7 +16,7 @@ struct Api {
 	let service:Networking
 
 	init(service:Networking
-//		= Network(baseUrl: "https://scruge.com/api/")) {
+//		= Network(baseUrl: "https://scruge.world/api/")) {
 		= Mock()) {
 		self.service = service
 	}
@@ -32,13 +32,13 @@ struct Api {
 
 	func signUp(email:String,
 				password:String,
-				_ completion: @escaping (Result<AuthResponse, AnyError>)->Void) {
+				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		let request = AuthRequest(email: email, password: password)
 		service.post("auth/register", request.toDictionary(), completion)
 	}
 
 	func checkEmail(_ email:String,
-					_ completion: @escaping (Result<AuthResponse, AnyError>)->Void) {
+					_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		let request = EmailRequest(email: email)
 		service.post("auth/check_email", request.toDictionary(), completion)
 	}

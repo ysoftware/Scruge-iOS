@@ -14,5 +14,5 @@ import Foundation
 
 struct TokenRequest: Codable {
 
-	let token = TokenManager().getToken()
+	let token = Service.tokenManager.getToken()
 }

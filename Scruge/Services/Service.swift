@@ -19,4 +19,8 @@ struct Service {
 	static let settings = Settings()
 
 	static let constants = Constants()
+
+	static let blockchain = Blockchain()
+
+	static let wallet = Wallet()
 }

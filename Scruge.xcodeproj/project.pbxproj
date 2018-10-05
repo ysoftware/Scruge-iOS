@@ -11,6 +11,7 @@
 		71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3D21663B8900C5B633 /* ProfileEditVC.swift */; };
 		71163A40216642F400C5B633 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3F216642F400C5B633 /* EmailValidation.swift */; };
 		71163A422166499200C5B633 /* CampaignSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71163A412166499200C5B633 /* CampaignSmallCell.xib */; };
+		71163A472167517E00C5B633 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A462167517E00C5B633 /* Wallet.swift */; };
 		716AE1CC215977470098882F /* CampaignAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE1CB215977470098882F /* CampaignAVM.swift */; };
 		71971C812158E056004D28E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C802158E056004D28E7 /* AppDelegate.swift */; };
 		71971C832158E056004D28E7 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C822158E056004D28E7 /* AuthVC.swift */; };
@@ -130,6 +131,7 @@
 		71163A3D21663B8900C5B633 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
 		71163A3F216642F400C5B633 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		71163A412166499200C5B633 /* CampaignSmallCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampaignSmallCell.xib; sourceTree = "<group>"; };
+		71163A462167517E00C5B633 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		716AE1CB215977470098882F /* CampaignAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignAVM.swift; sourceTree = "<group>"; };
 		71971C7D2158E056004D28E7 /* Scruge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scruge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71971C802158E056004D28E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -279,6 +281,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		71163A452167517400C5B633 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				71163A462167517E00C5B633 /* Wallet.swift */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
 		71971C742158E056004D28E7 = {
 			isa = PBXGroup;
 			children = (
@@ -335,8 +345,9 @@
 		71971CB12158E3E6004D28E7 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				71C8E8E621590F1E0078BD36 /* Blockchain */,
 				71BE956B215E3CD9001CF853 /* Network */,
+				71163A452167517400C5B633 /* Wallet */,
+				71C8E8E621590F1E0078BD36 /* Blockchain */,
 				71BE956E215E5D11001CF853 /* Api */,
 				71BE9566215E2AD2001CF853 /* Service.swift */,
 				71C8E8F2215912A10078BD36 /* Settings.swift */,
@@ -374,7 +385,6 @@
 		71971CB42158E3FE004D28E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				71B38CF7215AA0FB00929CC3 /* Network */,
 				71B38D17215B9AD000929CC3 /* Entities */,
 				71BE95B321635A2F001CF853 /* ViewState.swift */,
 				71BE95B121635835001CF853 /* Error.swift */,
@@ -473,7 +483,7 @@
 			path = Codable;
 			sourceTree = "<group>";
 		};
-		71B38CF7215AA0FB00929CC3 /* Network */ = {
+		71B38CF7215AA0FB00929CC3 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				71BE955F215E1B36001CF853 /* AuthApiM.swift */,
@@ -485,7 +495,7 @@
 				71BE9561215E2519001CF853 /* OtherApiM.swift */,
 				71BE95C0216376F1001CF853 /* CategoryApiM.swift */,
 			);
-			path = Network;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		71B38CFE215ABE2700929CC3 /* Update */ = {
@@ -561,6 +571,7 @@
 		71BE956E215E5D11001CF853 /* Api */ = {
 			isa = PBXGroup;
 			children = (
+				71B38CF7215AA0FB00929CC3 /* Model */,
 				71C8E8F0215912690078BD36 /* Api.swift */,
 			);
 			path = Api;
@@ -1033,6 +1044,7 @@
 				71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */,
 				71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */,
 				71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */,
+				71163A472167517E00C5B633 /* Wallet.swift in Sources */,
 				71BE958921621AF9001CF853 /* CampHTMLVC.swift in Sources */,
 				71C8E8F3215912A10078BD36 /* Settings.swift in Sources */,
 				71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */,

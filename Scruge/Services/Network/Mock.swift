@@ -56,8 +56,9 @@ struct Mock: Networking {
 		return """
 		{
 			"data": {
-				"email": "ysoftware@yandex.ru",
-				"description": "I'm in your area!"
+				"id":"123456",
+				"email": "yaroslav.erohin@scruge.world",
+				"description": "I'm not even sure why we need this description but it's all fine, don't worry about it."
 			}
 		}
 		"""
