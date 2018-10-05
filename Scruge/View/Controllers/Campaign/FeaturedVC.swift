@@ -15,8 +15,7 @@ final class FeaturedViewController: UIViewController {
 
 	@IBOutlet weak var campaignTableView: UITableView!
 	@IBOutlet weak var categoriesTableView: UITableView!
-	@IBOutlet weak var loadingView: UIView!
-	@IBOutlet weak var errorView: ErrorView!
+	@IBOutlet weak var loadingView: LoadingView!
 
 	// MARK: - Actions
 
@@ -116,30 +115,18 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 	}
 
 	func didChangeState(to state: ArrayViewModelState) {
-		switch state {
-		case .error(let error):
-			errorView.set(message: ErrorHandler.message(for: error))
-		case .loadingMore:
-			UIApplication.shared.isNetworkActivityIndicatorVisible = true
-		case .paginationError:
-			UIApplication.shared.isNetworkActivityIndicatorVisible = false
-		default: break
-		}
-		showView()
-	}
-
-	func showView() {
-		errorView.isHidden = true
-		loadingView.isHidden = true
 		switch campaignVM.state {
-		case .error:
-			errorView.isHidden = false
+		case .error(let error):
+			let message = ErrorHandler.message(for: error)
+			loadingView.set(state: .error(message))
 		case .loading, .initial:
-			loadingView.isHidden = false
+			loadingView.set(state: .loading)
 		case .ready:
 			if campaignVM.numberOfItems == 0 {
-				errorView.set(message: "No campaigns were found for your request")
-				errorView.isHidden = false
+				loadingView.set(state: .error("No campaigns were found for your request"))
+			}
+			else {
+				loadingView.set(state: .ready)
 			}
 		default: break
 		}

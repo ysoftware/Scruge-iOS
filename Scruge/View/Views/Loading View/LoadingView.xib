@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="7jW-Nj-Ce9"/>
+                <outlet property="errorView" destination="RDm-49-yvw" id="E93-MU-csv"/>
+                <outlet property="loadingView" destination="nUW-ig-X7z" id="ps0-Dv-cyv"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RDm-49-yvw" customClass="ErrorView" customModule="Scruge" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nUW-ig-X7z">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="j0h-rj-z5m">
+                            <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="j0h-rj-z5m" firstAttribute="centerY" secondItem="nUW-ig-X7z" secondAttribute="centerY" id="fgE-V2-ZDS"/>
+                        <constraint firstItem="j0h-rj-z5m" firstAttribute="centerX" secondItem="nUW-ig-X7z" secondAttribute="centerX" id="hAY-z6-8ba"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="nUW-ig-X7z" secondAttribute="trailing" id="2rx-BH-jFv"/>
+                <constraint firstItem="RDm-49-yvw" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9Rh-g1-Kfu"/>
+                <constraint firstItem="RDm-49-yvw" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="GUp-Yq-yyo"/>
+                <constraint firstAttribute="bottom" secondItem="RDm-49-yvw" secondAttribute="bottom" id="HTh-nQ-uva"/>
+                <constraint firstAttribute="bottom" secondItem="nUW-ig-X7z" secondAttribute="bottom" id="K4j-oc-ME2"/>
+                <constraint firstItem="nUW-ig-X7z" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="NYU-ir-D3O"/>
+                <constraint firstAttribute="trailing" secondItem="RDm-49-yvw" secondAttribute="trailing" id="Uc0-a1-MIs"/>
+                <constraint firstItem="nUW-ig-X7z" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="tI4-rV-E0U"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="136.80000000000001" y="48.125937031484263"/>
+        </view>
+    </objects>
+</document>

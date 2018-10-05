@@ -13,8 +13,7 @@ final class CampaignViewController: UIViewController {
 
 	// MARK: - Outlets
 
-	@IBOutlet weak var errorView: ErrorView!
-	@IBOutlet weak var loadingView: UIView!
+	@IBOutlet weak var loadingView: LoadingView!
 	@IBOutlet weak var tableView: UITableView!
 
 	@IBOutlet weak var contributeView: UIView!
@@ -122,12 +121,6 @@ final class CampaignViewController: UIViewController {
 
 	// MARK: - State
 
-	private func showView() {
-		tableView.isHidden = vm.state != .ready
-		loadingView.isHidden = vm.state != .loading
-		errorView.isHidden = vm.state != .error("")
-	}
-
 	private func showData() {
 		vm.lastUpdateVM?.delegate = self
 		vm.currentMilestoneVM?.delegate = self
@@ -135,17 +128,7 @@ final class CampaignViewController: UIViewController {
 		vm.rewardsVM?.delegate = self
 
 		tableView.reloadData()
-		showView()
 		setupBottomButton()
-	}
-
-	private func showLoading() {
-		showView()
-	}
-
-	private func showError(_ message:String) {
-		showView()
-		errorView.set(message: message)
 	}
 
 	private func numberOfSections() -> Int {
@@ -296,17 +279,19 @@ extension CampaignViewController: UITableViewDelegate {
 extension CampaignViewController: ViewModelDelegate {
 
 	func didUpdateData<M>(_ viewModel: ViewModel<M>) where M : Equatable {
-		DispatchQueue.main.async {
-			if viewModel === self.vm {
-				switch self.vm.state {
-				case .ready:
-					self.showData()
-				case .loading:
-					self.showLoading()
-				case .error(let error):
-					self.showError(error)
-				}
-			}
+		guard viewModel === vm else {
+			tableView.reloadData()
+			return
+		}
+
+		switch self.vm.state {
+		case .loading:
+			self.loadingView.set(state: .loading)
+		case .error(let message):
+			self.loadingView.set(state: .error(message))
+		case .ready:
+			self.showData()
+			self.loadingView.set(state: .ready)
 		}
 	}
 }
@@ -315,8 +300,6 @@ extension CampaignViewController: ArrayViewModelDelegate {
 
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
-			DispatchQueue.main.async {
-				self.tableView.reloadData()
-			}
+			self.tableView.reloadData()
 	}
 }
