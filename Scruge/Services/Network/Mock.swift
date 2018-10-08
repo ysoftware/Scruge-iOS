@@ -11,12 +11,24 @@ import Result
 
 struct Mock: Networking {
 
-	let realNetwork = Network()
+	private let activity = ActivityIndicatorController()
+	private let realNetwork = Network()
+
+	func upload<T:Codable>(_ request:String,
+						   data:Data,
+						   fileName:String,
+						   mimeType:String,
+						   _ completion: @escaping (Result<T, AnyError>)->Void) {
+		activity.beginAnimating()
+		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+			self.activity.endAnimating()
+		}
+	}
 
 	func get<T:Codable>(_ request: String,
 						_ params: HTTPParameterProtocol?,
 						_ completion: @escaping (Result<T, AnyError>) -> Void) {
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
+		activity.beginAnimating()
 		handle(request: request, completion)
 	}
 
@@ -29,14 +41,14 @@ struct Mock: Networking {
 			return realNetwork.post(request, params, completion)
 		}
 
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
+		activity.beginAnimating()
 		handle(request: request, completion)
 	}
 
 	func handle<T:Codable>(request:String,
 						   _ completion:  @escaping (Result<T, AnyError>) -> Void) {
 		DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+			self.activity.endAnimating()
 
 			let json:String
 			switch request {
@@ -64,6 +76,7 @@ struct Mock: Networking {
 		{
 			"data": {
 				"id":"123456",
+				"imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71p0xSyQcKL._SX425_.jpg",
 				"email": "some.email@scruge.world",
 				"description": "I'm not even sure why we need this description but it's all fine, don't worry about it."
 			}

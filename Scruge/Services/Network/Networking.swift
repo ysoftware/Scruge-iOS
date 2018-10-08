@@ -18,21 +18,41 @@ protocol Networking {
 	func post<T:Codable>(_ request:String,
 			  _ params:HTTPParameterProtocol?,
 			  _ completion: @escaping (Result<T, AnyError>)->Void)
+
+	func upload<T:Codable>(_ request:String,
+						   data:Data,
+						   fileName:String,
+						   mimeType:String,
+						   _ completion: @escaping (Result<T, AnyError>)->Void)
 }
 
 struct Network:Networking {
 
-	var baseUrl:String
+	private let activity = ActivityIndicatorController()
+	private let baseUrl:String
 
 	init(baseUrl:String = "http://35.234.70.252/") {
 		self.baseUrl = baseUrl
+	}
+
+	func upload<T:Codable>(_ request:String,
+						   data:Data,
+						   fileName:String,
+						   mimeType:String,
+						   _ completion: @escaping (Result<T, AnyError>)->Void) {
+		activity.beginAnimating()
+
+		HTTP.POST(baseUrl + request,
+				  parameters: Upload(data: data, fileName: fileName, mimeType: mimeType)) { response in
+					self.handleResponse(response, completion)
+		}
 	}
 
 	func get<T:Codable>(_ request:String,
 			 _ params:HTTPParameterProtocol?,
 			 _ completion: @escaping (Result<T, AnyError>)->Void) {
 
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
+		activity.beginAnimating()
 		HTTP.GET(baseUrl + request,
 				 parameters: params,
 				 requestSerializer: JSONParameterSerializer()) { response in
@@ -44,7 +64,7 @@ struct Network:Networking {
 			  _ params:HTTPParameterProtocol?,
 			  _ completion: @escaping (Result<T, AnyError>)->Void) {
 
-		UIApplication.shared.isNetworkActivityIndicatorVisible = true
+		activity.beginAnimating()
 		HTTP.POST(baseUrl + request,
 				 parameters: params,
 				 requestSerializer: JSONParameterSerializer()) { response in
@@ -55,7 +75,7 @@ struct Network:Networking {
 	func handleResponse<T:Codable>(_ response: (Response?),
 								   _ completion: @escaping (Result<T, AnyError>)->Void) {
 		DispatchQueue.main.async {
-			UIApplication.shared.isNetworkActivityIndicatorVisible = false
+			self.activity.endAnimating()
 			guard let response = response else {
 				return completion(.failure(AnyError(NetworkingError.connectionProblem)))
 			}

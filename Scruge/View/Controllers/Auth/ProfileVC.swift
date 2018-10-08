@@ -27,6 +27,11 @@ final class ProfileViewController: UIViewController {
 	}
 
 	@IBAction func openSettings(_ sender:Any) {
+		
+	}
+
+	@IBAction func editProfile(_ sender:Any) {
+		Presenter.presentProfileEditViewController(in: self, with: profileVM)
 	}
 
 	// MARK: - Properties
@@ -43,6 +48,12 @@ final class ProfileViewController: UIViewController {
 		setupVM()
 	}
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+
+		profileVM.load()
+	}
+
 	private func setupTable() {
 		tableView.estimatedRowHeight = 400
 		tableView.rowHeight = UITableView.automaticDimension
@@ -52,7 +63,6 @@ final class ProfileViewController: UIViewController {
 
 	private func setupVM() {
 		profileVM.delegate = self
-		profileVM.load()
 
 		campaignsVM.delegate = self
 		campaignsVM.query?.requestType = .backed

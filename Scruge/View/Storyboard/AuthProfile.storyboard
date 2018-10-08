@@ -152,9 +152,10 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nov-1T-uJp">
                                                         <rect key="frame" x="20" y="64" width="335" height="100"/>
                                                         <subviews>
-                                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pick_image" translatesAutoresizingMaskIntoConstraints="NO" id="Ipy-N3-VNL" customClass="RoundedImageView" customModule="Scruge" customModuleProvider="target">
+                                                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pick_image" translatesAutoresizingMaskIntoConstraints="NO" id="Ipy-N3-VNL" customClass="RoundedImageView" customModule="Scruge" customModuleProvider="target">
                                                                 <rect key="frame" x="117.66666666666666" y="0.0" width="100" height="100"/>
                                                                 <color key="backgroundColor" white="0.86048719620000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <gestureRecognizers/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="100" id="YRg-gl-HmM"/>
                                                                     <constraint firstAttribute="width" secondItem="Ipy-N3-VNL" secondAttribute="height" id="o7C-2q-1Nw"/>
@@ -165,6 +166,9 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="YES"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <outletCollection property="gestureRecognizers" destination="3BU-uV-eDO" appends="YES" id="WZT-Mi-BSo"/>
+                                                                </connections>
                                                             </imageView>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -228,6 +232,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="Pfp-9o-GPI" firstAttribute="bottom" secondItem="0B3-XL-ehc" secondAttribute="bottom" id="5e1-vJ-5uw"/>
                             <constraint firstItem="Pfp-9o-GPI" firstAttribute="trailing" secondItem="0B3-XL-ehc" secondAttribute="trailing" id="EnA-1V-sE0"/>
@@ -235,10 +240,29 @@
                             <constraint firstItem="0B3-XL-ehc" firstAttribute="leading" secondItem="09a-Hb-N4c" secondAttribute="leading" id="u0R-KD-qTI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Pfp-9o-GPI"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="q7o-PH-jhk" appends="YES" id="JTd-q6-QGn"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="Create Profile " id="CKb-2G-xhN"/>
+                    <connections>
+                        <outlet property="countryField" destination="HuH-y1-4JL" id="wp7-9t-mRb"/>
+                        <outlet property="descriptionField" destination="k4v-lW-KnB" id="gOL-Fo-DPZ"/>
+                        <outlet property="nameField" destination="2Hw-zk-ay9" id="Zhm-yn-W2J"/>
+                        <outlet property="profileImage" destination="Ipy-N3-VNL" id="miS-oV-IGa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QbN-Bd-xhG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="3BU-uV-eDO" userLabel="image tap">
+                    <connections>
+                        <action selector="pickImage:" destination="pbW-VC-hwo" id="8Xb-vq-CgV"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="q7o-PH-jhk">
+                    <connections>
+                        <action selector="dismissKeyboard:" destination="pbW-VC-hwo" id="r1z-TL-QzU"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-769" y="1964"/>
         </scene>
@@ -297,7 +321,11 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
+                                                <gestureRecognizers/>
                                                 <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="xAT-zo-jIp" appends="YES" id="C1A-M6-48r"/>
+                                                </connections>
                                             </stackView>
                                             <view alpha="0.20000000298023224" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NlS-Kb-N0y" userLabel="Separator">
                                                 <rect key="frame" x="0.0" y="295" width="375" height="1"/>
@@ -393,7 +421,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uac-Lg-mk7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="pQF-iE-mCA"/>
+                <tapGestureRecognizer id="xAT-zo-jIp">
+                    <connections>
+                        <action selector="editProfile:" destination="zmd-gF-0sA" id="1My-8C-v1w"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-1498" y="1281"/>
         </scene>

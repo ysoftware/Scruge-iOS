@@ -43,6 +43,27 @@ struct Api {
 		service.post("auth/check_email", request.toDictionary(), completion)
 	}
 
+	// MARK: - Profile
+
+	func updateProfileImage(_ image:UIImage,
+							_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+		guard let data = image.jpegData(compressionQuality: 0.8) else {
+			return completion(.failure(AnyError(NetworkingError.parsingError)))
+		}
+		service.upload("profile/image",
+					   data: data,
+					   fileName: "avatar.jpg",
+					   mimeType: "image/jpeg", completion)
+	}
+
+	func updateProfile(name:String,
+					   country:String,
+					   description:String,
+					   _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+		let request = ProfileRequest(name: name, country: country, description: description)
+		service.post("profile", request.toDictionary(), completion)
+	}
+
 	func getProfile(_ completion: @escaping (Result<ProfileResponse, AnyError>)->Void) {
 		let request = TokenRequest()
 		service.post("profile", request.toDictionary(), completion)

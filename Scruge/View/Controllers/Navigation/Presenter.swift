@@ -69,9 +69,18 @@ struct Presenter {
 		vc.show(new, sender: self)
 	}
 
-	static func presentProfileEditViewController(in vc:UIViewController) {
+	static func presentProfileEditViewController(in vc:UIViewController, with vm:ProfileVM? = nil) {
 		let new = R.storyboard.authProfile.profileEditVC()!
+		new.editingProfile = vm
 		vc.show(new, sender: self)
+	}
+
+	static func presentImagePicker(in vc:UIViewController,
+								   block: @escaping (UIImage?)->Void) {
+		let new = UIImagePickerController()
+		let delegate = ImagePickerDelegate(block)
+		new.delegate = delegate
+		vc.present(new, animated: true)
 	}
 }
 

@@ -47,3 +47,12 @@ struct AuthRequest: Codable {
 
 	let device = "iOS \(UIDevice.current.systemVersion)"
 }
+
+struct ProfileRequest: Codable {
+
+	let name:String
+
+	let country:String
+
+	let description:String
+}

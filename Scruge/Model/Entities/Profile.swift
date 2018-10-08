@@ -16,6 +16,8 @@ struct Profile: Equatable, Codable {
 
 	let name:String?
 
+	let country:String?
+
 	let imageUrl:String?
 
 	let description:String?
