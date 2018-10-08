@@ -11,11 +11,19 @@ import Result
 
 enum AuthError: Error {
 
-	case blocked
+	case accountBlocked // user_banned
 
-	case exists
+	case accountExists // login_already_exists
 
-	case incorrectCredentials
+	case incorrectCredentials // login_or_pass_not_valid
+
+	case invalidEmail // invalid_email_format
+
+	case authenticationFailed // token_must_not_be_empty
+
+	case incorrectEmailLength // login_must_be_5_254_symbols
+
+	case incorrectPasswordLength // password_must_be_5_50_symbols
 }
 
 enum NetworkingError: Error {
@@ -38,8 +46,12 @@ struct ErrorHandler {
 		let error = extractError(error)
 		if let authError = error as? AuthError {
 			switch authError {
-			case .blocked: return "This account was blocked"
-			case .exists: return "User already exists"
+			case .incorrectEmailLength: return "Email should be longer than 5 and shorter than 254 symbols."
+			case .incorrectPasswordLength: return "Password should be longer than 5 and shorter than 50 symbols."
+			case .authenticationFailed: return "Authentication failed. Please try logging out and back in again."
+			case .invalidEmail: return "Incorrectly formatted email"
+			case .accountBlocked: return "This account was blocked"
+			case .accountExists: return "User already exists"
 			case .incorrectCredentials: return "Incorrect credentials"
 			}
 		}
@@ -56,9 +68,13 @@ struct ErrorHandler {
 	static func error(from result:Int) -> Error? {
 		switch result {
 		case 0: return nil
-		case 1001: return AuthError.exists
-		case 1002: return AuthError.incorrectCredentials
-		case 1003: return AuthError.blocked
+		case 101: return AuthError.incorrectEmailLength
+		case 102: return AuthError.invalidEmail
+		case 103: return AuthError.incorrectPasswordLength
+		case 104: return AuthError.authenticationFailed
+		case 201: return AuthError.accountExists
+		case 301: return AuthError.incorrectCredentials
+		case 310: return AuthError.accountBlocked
 		default: return NetworkingError.unknown
 		}
 	}
