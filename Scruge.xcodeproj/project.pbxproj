@@ -14,7 +14,6 @@
 		71163A472167517E00C5B633 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A462167517E00C5B633 /* Wallet.swift */; };
 		71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A49216754BC00C5B633 /* LoadingView.swift */; };
 		71163A4C216754C400C5B633 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71163A4B216754C400C5B633 /* LoadingView.xib */; };
-		71387A8C216B696B00B24C67 /* ImagePickerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A8B216B696B00B24C67 /* ImagePickerDelegate.swift */; };
 		71387A8E216B6C2200B24C67 /* ImageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A8D216B6C2200B24C67 /* ImageTools.swift */; };
 		71387A90216B6C6C00B24C67 /* CoreGraphicsTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A8F216B6C6C00B24C67 /* CoreGraphicsTools.swift */; };
 		71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A94216B73B700B24C67 /* ActivityIndicator.swift */; };
@@ -140,7 +139,6 @@
 		71163A462167517E00C5B633 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		71163A49216754BC00C5B633 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		71163A4B216754C400C5B633 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
-		71387A8B216B696B00B24C67 /* ImagePickerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerDelegate.swift; sourceTree = "<group>"; };
 		71387A8D216B6C2200B24C67 /* ImageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTools.swift; sourceTree = "<group>"; };
 		71387A8F216B6C6C00B24C67 /* CoreGraphicsTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreGraphicsTools.swift; sourceTree = "<group>"; };
 		71387A94216B73B700B24C67 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -323,7 +321,6 @@
 			isa = PBXGroup;
 			children = (
 				71C8E8E4215907580078BD36 /* DismissSegue.swift */,
-				71387A8B216B696B00B24C67 /* ImagePickerDelegate.swift */,
 				71BE95AF216352F2001CF853 /* TableHeaderTap.swift */,
 				71BE9575215E7C8A001CF853 /* ConstraintMultiplier.swift */,
 				71971CC02158F076004D28E7 /* RoundedView.swift */,
@@ -1123,7 +1120,6 @@
 				71BE95BB2163744E001CF853 /* Category.swift in Sources */,
 				71BE95A521625E64001CF853 /* CommentCell.swift in Sources */,
 				71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */,
-				71387A8C216B696B00B24C67 /* ImagePickerDelegate.swift in Sources */,
 				71BE95BF216376A9001CF853 /* CategoryAVM.swift in Sources */,
 				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,
 				71B38D0B215B879D00929CC3 /* CommentVM.swift in Sources */,

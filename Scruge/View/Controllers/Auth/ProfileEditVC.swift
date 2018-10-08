@@ -23,7 +23,14 @@ final class ProfileEditViewController: UIViewController {
 			if success {
 				self.uploadImage { success in
 					if success {
-						self.dismiss(animated: true)
+						if self.editingProfile == nil {
+							// dismiss modal auth controller
+							self.dismiss(animated: true)
+						}
+						else {
+							// pop back to profile controller
+							self.navigationController?.popViewController(animated: true)
+						}
 					}
 				}
 			}
@@ -44,17 +51,7 @@ final class ProfileEditViewController: UIViewController {
 	}
 
 	@IBAction func pickImage(_ sender: Any) {
-		Presenter.presentImagePicker(in: self) { [unowned self] image in
-
-			guard let image = image else { return }
-
-			guard image.size.width > 50, image.size.height > 50 else {
-				return self.alert("Selected image is too small")
-			}
-
-			self.selectedImage = image.downscaled(to: 500)
-			self.profileImage.image = self.selectedImage
-		}
+		Presenter.presentImagePicker(in: self, delegate: self)
 	}
 
 	// MARK: - Properties
@@ -127,5 +124,26 @@ final class ProfileEditViewController: UIViewController {
 		Service.api.updateProfile(name: name, country: country, description: description) { result in
 			completion(self.handleResponse(result))
 		}
+	}
+}
+
+extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+
+	func imagePickerController(_ picker: UIImagePickerController,
+							   didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+		guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
+
+		guard image.size.width > 50, image.size.height > 50 else {
+			return self.alert("Selected image is too small")
+		}
+
+		self.selectedImage = image.downscaled(to: 400)
+		self.profileImage.image = self.selectedImage
+
+		picker.dismiss(animated: true)
+	}
+
+	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+		picker.dismiss(animated: true)
 	}
 }

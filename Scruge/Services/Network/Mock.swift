@@ -60,7 +60,7 @@ struct Mock: Networking {
 			case "campaign/1/comments": json = self.comments()
 			case "campaign/1/milestones": json = self.milestones()
 			case "profile": json = self.profile()
-			case "campaign/1/comment": json = self.success()
+			case "campaign/1/comment", "profile/image": json = self.success()
 			default: return completion(.failure(AnyError(NetworkingError.unknown)))
 			}
 

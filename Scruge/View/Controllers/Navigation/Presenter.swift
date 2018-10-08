@@ -76,10 +76,10 @@ struct Presenter {
 	}
 
 	static func presentImagePicker(in vc:UIViewController,
-								   block: @escaping (UIImage?)->Void) {
+								   delegate: UIImagePickerControllerDelegate&UINavigationControllerDelegate) {
 		let new = UIImagePickerController()
-		let delegate = ImagePickerDelegate(block)
 		new.delegate = delegate
+		new.allowsEditing = true
 		vc.present(new, animated: true)
 	}
 }
