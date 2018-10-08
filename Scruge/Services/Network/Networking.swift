@@ -76,6 +76,7 @@ struct Network:Networking {
 								   _ completion: @escaping (Result<T, AnyError>)->Void) {
 		DispatchQueue.main.async {
 			self.activity.endAnimating()
+			
 			guard let response = response else {
 				return completion(.failure(AnyError(NetworkingError.connectionProblem)))
 			}

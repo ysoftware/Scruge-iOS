@@ -13,12 +13,12 @@ final class ActivityIndicatorController {
 	private var count = 0
 
 	func beginAnimating() {
-		count -= 1
+		count += 1
 		update()
 	}
 
 	func endAnimating() {
-		count += 1
+		count -= 1
 		update()
 	}
 

@@ -74,6 +74,7 @@ struct Mock: Networking {
 	private func profile() -> String {
 		return """
 		{
+			"result": 0,
 			"data": {
 				"id":"123456",
 				"imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71p0xSyQcKL._SX425_.jpg",
