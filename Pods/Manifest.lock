@@ -1,5 +1,5 @@
 PODS:
-  - appendAttributedString (0.1)
+  - appendAttributedString (0.2)
   - KeychainSwift (12.0.0)
   - Kingfisher (4.10.0)
   - MVVM (0.1):
@@ -41,7 +41,7 @@ CHECKOUT OPTIONS:
     :git: "https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git"
 
 SPEC CHECKSUMS:
-  appendAttributedString: b4edc3042b996ab7dc62907070b84ecda379dde5
+  appendAttributedString: 2e0ba3b3871fde5e9869c21bf7e5357ebb748fc5
   KeychainSwift: d5e776578587ee5958ce36601df22f168f65138a
   Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
   MVVM: 586bab0227d6fa43271f656535373e539a886575
