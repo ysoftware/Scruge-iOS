@@ -143,3 +143,19 @@ final class AuthViewController: UIViewController {
 		return true
 	}
 }
+
+extension AuthViewController: UITextFieldDelegate {
+
+	func textField(_ textField: UITextField,
+				shouldChangeCharactersIn range: NSRange,
+				replacementString string: String) -> Bool {
+
+		guard let text = textField.text else { return true }
+		let newLength = text.count + string.count - range.length
+
+		if textField == emailField {
+			return newLength <= 254
+		}
+		return true
+	}
+}

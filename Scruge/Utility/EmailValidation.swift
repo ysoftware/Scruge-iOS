@@ -11,6 +11,8 @@ import Foundation
 extension String {
 
 	func isValidEmail() -> Bool {
+		guard (5...254).contains(count) else { return false } // for our app needs
+
 		let firstPart = "[A-Z0-9a-z]([A-Z0-9a-z._%+-]{0,30}[A-Z0-9a-z])?"
 		let secondPart = "([A-Z0-9a-z]([A-Z0-9a-z-]{0,30}[A-Z0-9a-z])?\\.){1,5}"
 		let emailRegex = firstPart + "@" + secondPart + "[A-Za-z]{2,8}"
