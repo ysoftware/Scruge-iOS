@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 // MARK: - Response
 
@@ -36,7 +36,14 @@ struct EmailRequest: Codable {
 
 struct AuthRequest: Codable {
 
-	let email:String
+	init(login:String, password:String) {
+		self.login = login
+		self.password = password
+	}
+
+	let login:String
 
 	let password:String
+
+	let device = "iOS \(UIDevice.current.systemVersion)"
 }

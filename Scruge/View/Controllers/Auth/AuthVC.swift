@@ -44,12 +44,12 @@ final class AuthViewController: UIViewController {
 			switch result {
 			case .success(let response):
 
-				guard response.result == 0 else {
-					return self.showError(code: response.result)
+				if let error = ErrorHandler.error(from: response.result) {
+					return self.alert(ErrorHandler.message(for: error))
 				}
 
 				guard let token = response.token else {
-					return self.showError()
+					return self.alert(ErrorHandler.message(for: NetworkingError.unknown))
 				}
 
 				Service.tokenManager.save(token)
@@ -62,7 +62,7 @@ final class AuthViewController: UIViewController {
 				}
 				
 			case .failure(let error):
-				self.showError(error)
+				self.alert(ErrorHandler.message(for: error))
 			}
 		}
 	}
@@ -77,14 +77,15 @@ final class AuthViewController: UIViewController {
 			switch result {
 			case .success(let response):
 
-				guard response.result == 0 else {
-					return self.showError(code: response.result)
+				if let error = ErrorHandler.error(from: response.result) {
+					return self.alert(ErrorHandler.message(for: error))
 				}
+
 				self.didSignUp = true
 				self.login(self)
 
 			case .failure(let error):
-				self.showError(error)
+				self.alert(ErrorHandler.message(for: error))
 			}
 		}
 	}
@@ -140,28 +141,5 @@ final class AuthViewController: UIViewController {
 		}
 
 		return true
-	}
-
-	// MARK: - Show error
-
-	func showError(_ error:Error? = nil) {
-		if let error = error {
-			switch error {
-			case NetworkingError.connectionProblem: alert("Connection problem")
-			default: alert("Unexpected error")
-			}
-		}
-		else {
-			alert("Unexpected error")
-		}
-	}
-
-	func showError(code:Int) {
-		switch code {
-		case 1001: alert("Email already taken")
-		case 1002: alert("Incorrect credentials")
-		case 1003: alert("User blocked")
-		default: showError()
-		}
 	}
 }

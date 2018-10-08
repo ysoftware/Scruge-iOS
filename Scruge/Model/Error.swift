@@ -11,14 +11,11 @@ import Result
 
 enum AuthError: Error {
 
+	case blocked
+
 	case exists
 
 	case incorrectCredentials
-
-	static func from(_ error:Error?) -> AuthError {
-		// TO-DO: actually parse
-		return .exists
-	}
 }
 
 enum NetworkingError: Error {
@@ -41,6 +38,7 @@ struct ErrorHandler {
 		let error = extractError(error)
 		if let authError = error as? AuthError {
 			switch authError {
+			case .blocked: return "This account was blocked"
 			case .exists: return "User already exists"
 			case .incorrectCredentials: return "Incorrect credentials"
 			}
@@ -53,5 +51,15 @@ struct ErrorHandler {
 			}
 		}
 		return "Unexpected Error"
+	}
+
+	static func error(from result:Int) -> Error? {
+		switch result {
+		case 0: return nil
+		case 1001: return AuthError.exists
+		case 1002: return AuthError.incorrectCredentials
+		case 1003: return AuthError.blocked
+		default: return NetworkingError.unknown
+		}
 	}
 }

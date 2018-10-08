@@ -24,7 +24,7 @@ struct Network:Networking {
 
 	var baseUrl:String
 
-	init(baseUrl:String) {
+	init(baseUrl:String = "http://35.234.70.252/") {
 		self.baseUrl = baseUrl
 	}
 
@@ -54,8 +54,8 @@ struct Network:Networking {
 
 	func handleResponse<T:Codable>(_ response: (Response?),
 								   _ completion: @escaping (Result<T, AnyError>)->Void) {
-		UIApplication.shared.isNetworkActivityIndicatorVisible = false
 		DispatchQueue.main.async {
+			UIApplication.shared.isNetworkActivityIndicatorVisible = false
 			guard let response = response else {
 				return completion(.failure(AnyError(NetworkingError.connectionProblem)))
 			}

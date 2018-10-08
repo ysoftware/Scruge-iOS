@@ -11,6 +11,8 @@ import Result
 
 struct Mock: Networking {
 
+	let realNetwork = Network()
+
 	func get<T:Codable>(_ request: String,
 						_ params: HTTPParameterProtocol?,
 						_ completion: @escaping (Result<T, AnyError>) -> Void) {
@@ -21,6 +23,12 @@ struct Mock: Networking {
 	func post<T:Codable>(_ request: String,
 						 _ params: HTTPParameterProtocol?,
 						 _ completion: @escaping (Result<T, AnyError>) -> Void) {
+
+		// use real backend requests for working methods
+		if request.contains("auth") {
+			return realNetwork.post(request, params, completion)
+		}
+
 		UIApplication.shared.isNetworkActivityIndicatorVisible = true
 		handle(request: request, completion)
 	}
@@ -35,8 +43,6 @@ struct Mock: Networking {
 			case "campaigns": json = self.campaignsList()
 			case "campaigns/backed": json = self.backedCampaigns()
 			case "campaign/1": json = self.campaign()
-			case "auth/login": json = self.login()
-			case "auth/register": json = self.success()
 			case "categories": json = self.categories()
 			case "campaign/1/updates": json = self.updates()
 			case "campaign/1/comments": json = self.comments()
@@ -257,15 +263,6 @@ struct Mock: Networking {
 					}
 				]
 			}
-		}
-		"""
-	}
-
-	private func login() -> String {
-		return """
-		{
-			"result":0,
-			"token":"some-auth-token-value"
 		}
 		"""
 	}
