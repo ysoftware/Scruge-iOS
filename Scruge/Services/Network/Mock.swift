@@ -64,7 +64,7 @@ struct Mock: Networking {
 		{
 			"data": {
 				"id":"123456",
-				"email": "yaroslav.erohin@scruge.world",
+				"email": "some.email@scruge.world",
 				"description": "I'm not even sure why we need this description but it's all fine, don't worry about it."
 			}
 		}
