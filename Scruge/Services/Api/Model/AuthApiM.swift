@@ -55,4 +55,6 @@ struct ProfileRequest: Codable {
 	let country:String
 
 	let description:String
+
+	let token = Service.tokenManager.getToken()
 }

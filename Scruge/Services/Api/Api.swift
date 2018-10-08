@@ -65,32 +65,30 @@ struct Api {
 	}
 
 	func getProfile(_ completion: @escaping (Result<ProfileResponse, AnyError>)->Void) {
-		let request = TokenRequest()
-		service.post("profile", request.toDictionary(), completion)
+		service.post("profile", TokenRequest().toDictionary(), completion)
 	}
 
 	// MARK: - Categories
 
 	func getCategories(_ completion: @escaping (Result<CategoriesResponse, AnyError>)->Void) {
-		service.get("categories", nil, completion)
+		service.get("categories", TokenRequest().toDictionary(), completion)
 	}
 
 	// MARK: - Campaigns
 
 	func getCampaign(with id:String,
 					 _ completion: @escaping (Result<CampaignResponse, AnyError>)->Void) {
-		service.get("campaign/\(id)", nil, completion)
+		service.get("campaign/\(id)", TokenRequest().toDictionary(), completion)
 	}
 
 	func getCampaignList(for query:CampaignQuery?,
 						 _ completion: @escaping (Result<CampaignListResponse, AnyError>)->Void) {
 		if let query = query, query.requestType != .regular {
-			let request = TokenRequest()
 			switch query.requestType {
 			case .backed:
-				return service.get("campaigns/backed", request.toDictionary(), completion)
+				return service.get("campaigns/backed", TokenRequest().toDictionary(), completion)
 			case .subscribed:
-				return service.get("campaigns/subscribed", request.toDictionary(), completion)
+				return service.get("campaigns/subscribed", TokenRequest().toDictionary(), completion)
 			default: break
 			}
 		}
@@ -102,7 +100,7 @@ struct Api {
 
 	func getUpdateList(for campaign:Campaign,
 					   _ completion: @escaping (Result<UpdateListResponse, AnyError>)->Void) {
-		service.get("campaign/\(campaign.id)/updates", nil, completion)
+		service.get("campaign/\(campaign.id)/updates", TokenRequest().toDictionary(), completion)
 	}
 
 	// MARK: - HTML Description
@@ -110,19 +108,21 @@ struct Api {
 	func getUpdateDescription(for update:Update,
 							  in campaign:Campaign,
 							  _ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
-		service.get("campaign/\(campaign.id)/update/\(update.id)/description", nil, completion)
+		service.get("campaign/\(campaign.id)/update/\(update.id)/description",
+			TokenRequest().toDictionary(),
+			completion)
 	}
 
 	func getCampaignDescription(for campaign:Campaign,
 								_ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
-		service.get("campaign/\(campaign.id)/description", nil, completion)
+		service.get("campaign/\(campaign.id)/description", TokenRequest().toDictionary(), completion)
 	}
 
 	// MARK: - Milestones
 
 	func getMilestones(for campaign:Campaign,
 					   _ completion: @escaping (Result<MilestoneListResponse, AnyError>)->Void) {
-		service.get("campaign/\(campaign.id)/milestones", nil, completion)
+		service.get("campaign/\(campaign.id)/milestones", TokenRequest().toDictionary(), completion)
 	}
 
 	// MARK: - Comments
