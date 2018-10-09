@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MVVM
 
 final class SearchViewController: UIViewController {
 
@@ -18,7 +19,7 @@ final class SearchViewController: UIViewController {
 	// MARK: - Properties
 
 	private let searchController = UISearchController(searchResultsController: nil)
-	private let vm = CampaignAVM()
+	private let campaignsVM = CampaignAVM()
 	private let tags = ["crypto", "services", "marketplace", "ico", "technology"]
 	private var selectedTags = [""]
 
@@ -29,6 +30,8 @@ final class SearchViewController: UIViewController {
 
 		setupSearchBar()
 		setupCollection()
+		setupTable()
+		setupVM()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -45,12 +48,23 @@ final class SearchViewController: UIViewController {
 		tagCollectionView.collectionViewLayout.invalidateLayout()
 	}
 
+	private func setupVM() {
+		campaignsVM.delegate = self
+	}
+
 	private func setupCollection() {
 		tagCollectionView.register(UINib(resource: R.nib.tagCell),
 								   forCellWithReuseIdentifier: R.reuseIdentifier.tagCell.identifier)
 		let layout = tagCollectionView.collectionViewLayout as? UICollectionViewFlowLayout
 		layout?.itemSize = UICollectionViewFlowLayout.automaticSize
 		layout?.estimatedItemSize = CGSize(width: 100, height: 50)
+	}
+
+	private func setupTable() {
+		tableView.estimatedRowHeight = 400
+		tableView.rowHeight = UITableView.automaticDimension
+		tableView.register(UINib(resource: R.nib.campaignSmallCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.campaignCell.identifier)
 	}
 
 	private func setupSearchBar() {
@@ -69,22 +83,32 @@ final class SearchViewController: UIViewController {
 extension SearchViewController: UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate {
 
 	func updateSearchResults(for searchController: UISearchController) {
-		vm.query?.query = searchController.searchBar.text
+		campaignsVM.query?.query = searchController.searchBar.text
 	}
 
 	func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-		vm.reloadData()
+		campaignsVM.reloadData()
+	}
+}
+
+extension SearchViewController: UITableViewDelegate {
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+		Presenter.presentCampaignViewController(in: self, with: campaignsVM.item(at: indexPath.row))
 	}
 }
 
 extension SearchViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return vm.numberOfItems
+		return campaignsVM.numberOfItems
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return UITableViewCell()
+		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
+											 for: indexPath)!
+			.setup(with: campaignsVM.item(at: indexPath.row))
 	}
 }
 
@@ -121,7 +145,19 @@ extension SearchViewController: UICollectionViewDelegate {
 			selectedTags.append(tag)
 		}
 
-		vm.query?.tags = selectedTags
-		vm.reloadData()
+		campaignsVM.query?.tags = selectedTags
+		campaignsVM.reloadData()
+	}
+}
+
+extension SearchViewController: ArrayViewModelDelegate {
+
+	func didChangeState(to state: ArrayViewModelState) {
+
+	}
+
+	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)
+		where M : Equatable, VM : ViewModel<M>, Q : Query {
+			tableView.reloadData()
 	}
 }
