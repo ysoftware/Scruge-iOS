@@ -19,11 +19,11 @@ protocol Networking {
 			  _ params:HTTPParameterProtocol?,
 			  _ completion: @escaping (Result<T, AnyError>)->Void)
 
-	func upload<T:Codable>(_ request:String,
-						   data:Data,
-						   fileName:String,
-						   mimeType:String,
-						   _ completion: @escaping (Result<T, AnyError>)->Void)
+	func upload(_ request:String,
+				data:Data,
+				fileName:String,
+				mimeType:String,
+				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void)
 }
 
 struct Network:Networking {
@@ -35,15 +35,16 @@ struct Network:Networking {
 		self.baseUrl = baseUrl
 	}
 
-	func upload<T:Codable>(_ request:String,
-						   data:Data,
-						   fileName:String,
-						   mimeType:String,
-						   _ completion: @escaping (Result<T, AnyError>)->Void) {
+	func upload(_ request:String,
+				data:Data,
+				fileName:String,
+				mimeType:String,
+				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		activity.beginAnimating()
 
+		let params = ["file":Upload(data: data, fileName: fileName, mimeType: mimeType)]
 		HTTP.POST(baseUrl + request,
-				  parameters: Upload(data: data, fileName: fileName, mimeType: mimeType)) { response in
+				  parameters: params) { response in
 					self.handleResponse(response, completion)
 		}
 	}

@@ -13,15 +13,16 @@ struct Mock: Networking {
 
 	private let activity = ActivityIndicatorController()
 	private let realNetwork = Network()
-
-	func upload<T:Codable>(_ request:String,
-						   data:Data,
-						   fileName:String,
-						   mimeType:String,
-						   _ completion: @escaping (Result<T, AnyError>)->Void) {
+	
+	func upload(_ request:String,
+				data:Data,
+				fileName:String,
+				mimeType:String,
+				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		activity.beginAnimating()
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			self.activity.endAnimating()
+			completion(.success(ResultResponse(result: 0)))
 		}
 	}
 
