@@ -19,21 +19,27 @@ final class ProfileEditViewController: UIViewController {
 	// MARK: - Actions
 
 	@IBAction func save(_ sender: Any) {
-		updateProfile { success in
-			if success {
-				self.uploadImage { success in
-					if success {
-						if self.editingProfile == nil {
-							// dismiss modal auth controller
-							self.dismiss(animated: true)
-						}
-						else {
-							// pop back to profile controller
-							self.navigationController?.popViewController(animated: true)
-						}
-					}
-				}
-			}
+		let name = nameField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+		let country = countryField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
+		let description = descriptionField.text?.trimmingCharacters(in: .whitespaces)
+
+		ProfileVM.updateProfile(name: name,
+								country: country,
+								description: description,
+								image: selectedImage) { error in
+
+									if let error = error {
+										return self.alert(ErrorHandler.message(for: error))
+									}
+
+									if self.editingProfile == nil {
+										// dismiss modal auth controller
+										self.dismiss(animated: true)
+									}
+									else {
+										// pop back to profile controller
+										self.navigationController?.popViewController(animated: true)
+									}
 		}
 	}
 
@@ -88,45 +94,6 @@ final class ProfileEditViewController: UIViewController {
 															style: .plain,
 															target: self,
 															action: #selector(cancel))
-	}
-
-	// MARK: - Methods
-
-	private func uploadImage(_ completion: @escaping (Bool)->Void) {
-		if let image = selectedImage {
-			Service.api.updateProfileImage(image) { result in
-				completion(self.handleResponse(result))
-			}
-			return completion(false)
-		}
-		completion(true)
-	}
-
-	private func handleResponse(_ result: Result<ResultResponse, AnyError>) -> Bool {
-		switch result {
-		case .success(let response):
-			if let error = ErrorHandler.error(from: response.result) {
-				self.alert(ErrorHandler.message(for: error))
-				return false
-			}
-			return true
-		case .failure(let error):
-			self.alert(ErrorHandler.message(for: error))
-			return false
-		}
-	}
-
-	private func updateProfile(_ completion: @escaping (Bool)->Void) {
-
-		guard
-			let name = nameField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-			let country = countryField.text?.trimmingCharacters(in: .whitespacesAndNewlines),
-			let description = descriptionField.text?.trimmingCharacters(in: .whitespaces)
-			else { return completion(false) }
-
-		Service.api.updateProfile(name: name, country: country, description: description) { result in
-			completion(self.handleResponse(result))
-		}
 	}
 }
 
