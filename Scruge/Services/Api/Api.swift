@@ -50,7 +50,12 @@ struct Api {
 		guard let data = image.jpegData(compressionQuality: 0.8) else {
 			return completion(.failure(AnyError(NetworkingError.parsingError)))
 		}
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+		}
+		let params = ["token":token]
 		service.upload("profile/image",
+					   params,
 					   data: data,
 					   fileName: "avatar.jpg",
 					   mimeType: "image/jpeg", completion)

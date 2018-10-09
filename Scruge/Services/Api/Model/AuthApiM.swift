@@ -24,6 +24,8 @@ struct LoginResponse: Codable {
 
 struct ProfileResponse: Codable {
 
+	let result:Int
+
 	let data:Profile?
 }
 

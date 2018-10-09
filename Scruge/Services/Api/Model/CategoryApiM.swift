@@ -10,5 +10,7 @@ import Foundation
 
 struct CategoriesResponse: Codable {
 
+	let result:Int
+
 	let data:[Category]
 }

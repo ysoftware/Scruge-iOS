@@ -10,5 +10,7 @@ import Foundation
 
 struct MilestoneListResponse: Codable {
 
+	let result:Int
+
 	let data:[Milestone]
 }

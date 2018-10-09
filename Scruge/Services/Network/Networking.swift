@@ -20,6 +20,7 @@ protocol Networking {
 			  _ completion: @escaping (Result<T, AnyError>)->Void)
 
 	func upload(_ request:String,
+				_ params:[String:Any]?,
 				data:Data,
 				fileName:String,
 				mimeType:String,
@@ -36,13 +37,15 @@ struct Network:Networking {
 	}
 
 	func upload(_ request:String,
+				_ params:[String:Any]?,
 				data:Data,
 				fileName:String,
 				mimeType:String,
 				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		activity.beginAnimating()
 
-		let params = ["file":Upload(data: data, fileName: fileName, mimeType: mimeType)]
+		var parameters = params ?? [:]
+		parameters["file"] = Upload(data: data, fileName: fileName, mimeType: mimeType)
 		HTTP.POST(baseUrl + request,
 				  parameters: params) { response in
 					self.handleResponse(response, completion)

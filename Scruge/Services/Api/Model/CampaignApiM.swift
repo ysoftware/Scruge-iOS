@@ -12,10 +12,14 @@ import Foundation
 
 struct CampaignResponse: Codable {
 
+	let result:Int
+
 	let data:Campaign?
 }
 
 struct CampaignListResponse: Codable {
+
+	let result:Int
 
 	let data:[PartialCampaign]
 }

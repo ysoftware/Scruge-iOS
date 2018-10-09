@@ -64,7 +64,7 @@ final class ProfileEditViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		setupNavigationBarButtons()
+		setupNavigationBar()
 		setupEditing()
 	}
 
@@ -77,8 +77,11 @@ final class ProfileEditViewController: UIViewController {
 		profileImage.kf.setImage(with: imageURL)
 	}
 
-	private func setupNavigationBarButtons() {
-		guard editingProfile == nil else { return }
+	private func setupNavigationBar() {
+		let isEditing = editingProfile != nil
+		title = isEditing ? "Update Profile" : "Create Profile"
+
+		guard !isEditing else { return }
 		
 		navigationItem.setHidesBackButton(true, animated: false)
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel",

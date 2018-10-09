@@ -10,5 +10,7 @@ import Foundation
 
 struct UpdateListResponse: Codable {
 
+	let result:Int
+
 	let data:[Update]
 }

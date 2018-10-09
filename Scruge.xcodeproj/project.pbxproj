@@ -419,9 +419,9 @@
 			isa = PBXGroup;
 			children = (
 				71BE9566215E2AD2001CF853 /* Service.swift */,
-				71BE956B215E3CD9001CF853 /* Network */,
 				71163A452167517400C5B633 /* Wallet */,
 				71C8E8E621590F1E0078BD36 /* Blockchain */,
+				71BE956B215E3CD9001CF853 /* Network */,
 				71BE956E215E5D11001CF853 /* Api */,
 				71387A96216B74E000B24C67 /* Other */,
 			);

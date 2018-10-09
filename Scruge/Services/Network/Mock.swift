@@ -13,8 +13,9 @@ struct Mock: Networking {
 
 	private let activity = ActivityIndicatorController()
 	private let realNetwork = Network()
-	
+
 	func upload(_ request:String,
+				_ params:[String:Any]?,
 				data:Data,
 				fileName:String,
 				mimeType:String,
@@ -89,6 +90,7 @@ struct Mock: Networking {
 	private func milestones() -> String {
 		return """
 		{
+			"result": 0,
 			"data": [
 				{
 					"id": "0",
@@ -119,6 +121,7 @@ struct Mock: Networking {
 	private func comments() -> String {
 		return """
 		{
+			"result": 0,
 			"data": [
 				{
 					"id":"1",
@@ -170,6 +173,7 @@ struct Mock: Networking {
 	private func updates() -> String {
 		return """
 		{
+			"result": 0,
 			"data": [
 				{
 					"id":"2",
@@ -203,6 +207,7 @@ struct Mock: Networking {
 	private func campaign() -> String {
 		return """
 		{
+			"result": 0,
 			"data": {
 				"id":"1",
 				"type":"1",
@@ -293,6 +298,7 @@ struct Mock: Networking {
 	private func campaignsList() -> String {
 		return """
 		{
+			"result": 0,
 			"data": [
 				{
 					"id":"1",
@@ -333,6 +339,7 @@ struct Mock: Networking {
 	private func backedCampaigns() -> String {
 		return """
 		{
+			"result": 0,
 			"data": [
 				{
 					"id":"1",
@@ -362,6 +369,7 @@ struct Mock: Networking {
 	func categories() -> String {
 		return """
 		{
+			"result": 0,
 			"data": [
 				{ "name":"Art", "id":"1" },
 				{ "name":"Comics", "id":"2" },
