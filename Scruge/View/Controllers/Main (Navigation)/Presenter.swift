@@ -35,14 +35,14 @@ struct Presenter {
 											  with campaignVM:PartialCampaignVM) {
 		let new = R.storyboard.campaign.campaignVC()!
 		new.vm = CampaignVM(campaignVM.id)
-		vc.show(new, sender: self)
+		vc.show(new, sender: new)
 	}
 
 	static func presentCampaignHTMLViewController(in vc:UIViewController,
 												  for campaignVM:CampaignVM) {
 		let new = R.storyboard.campaign.campaignHTMLVC()!
 		new.vm = campaignVM
-		vc.show(new, sender: self)
+		vc.show(new, sender: new)
 	}
 
 	static func presentUpdatesViewController(in vc:UIViewController,
@@ -50,7 +50,7 @@ struct Presenter {
 		guard let model = campaignVM.model else { return }
 		let new = R.storyboard.details.updatesVC()!
 		new.vm = UpdateAVM(model)
-		vc.show(new, sender: self)
+		vc.show(new, sender: new)
 	}
 
 	static func presentMilestonesViewController(in vc:UIViewController,
@@ -58,7 +58,7 @@ struct Presenter {
 		guard let model = campaignVM.model else { return }
 		let new = R.storyboard.details.milestonesVC()!
 		new.vm = MilestoneAVM(model)
-		vc.show(new, sender: self)
+		vc.show(new, sender: new)
 	}
 
 	static func presentCommentsViewController(in vc:UIViewController,
@@ -66,13 +66,13 @@ struct Presenter {
 		guard let model = campaignVM.model else { return }
 		let new = R.storyboard.details.commentsVC()!
 		new.vm = CommentAVM(source: .campaign(model))
-		vc.show(new, sender: self)
+		vc.show(new, sender: new)
 	}
 
 	static func presentProfileEditViewController(in vc:UIViewController, with vm:ProfileVM? = nil) {
 		let new = R.storyboard.authProfile.profileEditVC()!
 		new.editingProfile = vm
-		vc.show(new, sender: self)
+		vc.show(new, sender: new)
 	}
 
 	static func presentImagePicker(in vc:UIViewController,
@@ -81,6 +81,11 @@ struct Presenter {
 		new.delegate = delegate
 		new.allowsEditing = true
 		vc.present(new, animated: true)
+	}
+
+	static func presentSettingsViewController(in vc:UIViewController) {
+		let new = R.storyboard.main.settingsVC()!
+		vc.show(new, sender: new)
 	}
 }
 

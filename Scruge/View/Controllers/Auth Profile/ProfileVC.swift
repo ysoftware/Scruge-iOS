@@ -28,7 +28,7 @@ final class ProfileViewController: UIViewController {
 	}
 
 	@IBAction func openSettings(_ sender:Any) {
-		
+		Presenter.presentSettingsViewController(in: self)
 	}
 
 	@IBAction func editProfile(_ sender:Any) {
