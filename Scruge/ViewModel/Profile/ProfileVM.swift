@@ -28,7 +28,7 @@ final class ProfileVM: ViewModel<Profile> {
 	}
 
 	var imageUrl:URL? {
-		guard let model = model, let imageUrl = model.imageUrl else { return nil }
+		guard let model = model, let imageUrl = model.image else { return nil }
 		return URL(string: imageUrl)
 	}
 

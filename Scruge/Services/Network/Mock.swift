@@ -104,7 +104,7 @@ struct Mock: Networking {
 			"result": 0,
 			"data": {
 				"id":"123456",
-				"imageUrl": "https://images-na.ssl-images-amazon.com/images/I/71p0xSyQcKL._SX425_.jpg",
+				"image": "https://images-na.ssl-images-amazon.com/images/I/71p0xSyQcKL._SX425_.jpg",
 				"email": "some.email@scruge.world",
 				"description": "I'm not even sure why we need this description but it's all fine, don't worry about it."
 			}
