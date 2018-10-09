@@ -57,7 +57,7 @@ struct Api {
 		service.upload("profile/image",
 					   params,
 					   data: data,
-					   fileName: "avatar.jpg",
+					   fileName: "image.jpg",
 					   mimeType: "image/jpeg", completion)
 	}
 
@@ -66,7 +66,7 @@ struct Api {
 					   description:String,
 					   _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		let request = ProfileRequest(name: name, country: country, description: description)
-		service.post("profile", request.toDictionary(), completion)
+		service.put("profile", request.toDictionary(), completion)
 	}
 
 	func getProfile(_ completion: @escaping (Result<ProfileResponse, AnyError>)->Void) {
