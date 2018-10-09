@@ -382,11 +382,19 @@
                                                             <outlet property="delegate" destination="zmd-gF-0sA" id="NL3-5L-P44"/>
                                                         </connections>
                                                     </tableView>
+                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QaO-Nd-psR" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="453.33333333333331"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </view>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="GB9-C1-Sea" secondAttribute="trailing" id="DEj-SO-mhn"/>
+                                                    <constraint firstItem="QaO-Nd-psR" firstAttribute="top" secondItem="1Ut-Cj-EId" secondAttribute="top" id="DZe-aJ-rJQ"/>
                                                     <constraint firstItem="GB9-C1-Sea" firstAttribute="top" secondItem="1Ut-Cj-EId" secondAttribute="top" id="JT0-nV-xz7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="QaO-Nd-psR" secondAttribute="trailing" id="JcZ-QH-pCu"/>
+                                                    <constraint firstItem="QaO-Nd-psR" firstAttribute="leading" secondItem="1Ut-Cj-EId" secondAttribute="leading" id="LCP-bB-nyV"/>
+                                                    <constraint firstAttribute="bottom" secondItem="QaO-Nd-psR" secondAttribute="bottom" id="azJ-my-ep8"/>
                                                     <constraint firstAttribute="bottom" secondItem="GB9-C1-Sea" secondAttribute="bottom" id="hNo-OB-RJG"/>
                                                     <constraint firstItem="GB9-C1-Sea" firstAttribute="leading" secondItem="1Ut-Cj-EId" secondAttribute="leading" id="uOU-Vi-46H"/>
                                                 </constraints>
@@ -415,6 +423,7 @@
                     <connections>
                         <outlet property="descriptionLabel" destination="xzB-lA-2KD" id="LLa-Pn-FbG"/>
                         <outlet property="emailLabel" destination="7LC-6H-WGU" id="Tqy-0K-F7a"/>
+                        <outlet property="loadingView" destination="QaO-Nd-psR" id="67y-jg-efE"/>
                         <outlet property="nameLabel" destination="fyW-N7-c67" id="9cM-M4-SVE"/>
                         <outlet property="profileImage" destination="BRF-vq-nlF" id="Xmo-kB-eYl"/>
                         <outlet property="tableView" destination="GB9-C1-Sea" id="LeC-qU-2qg"/>

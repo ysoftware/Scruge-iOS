@@ -186,6 +186,10 @@
                                     <outlet property="delegate" destination="FPY-3Z-2md" id="SlV-wz-pH7"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLG-dQ-ngU" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="104" width="375" height="708"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="0OC-P4-Nx8">
                                 <rect key="frame" x="0.0" y="44" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.95176048801369861" green="0.95176048801369861" blue="0.95176048801369861" alpha="1" colorSpace="calibratedRGB"/>
@@ -210,15 +214,20 @@
                             <constraint firstItem="0OC-P4-Nx8" firstAttribute="leading" secondItem="Iih-AR-hhE" secondAttribute="leading" id="1zM-dl-lpa"/>
                             <constraint firstItem="0OC-P4-Nx8" firstAttribute="top" secondItem="GUN-Dq-906" secondAttribute="top" id="3QP-cB-TzW"/>
                             <constraint firstAttribute="trailing" secondItem="0OC-P4-Nx8" secondAttribute="trailing" id="4iK-Hv-JHW"/>
+                            <constraint firstItem="PLG-dQ-ngU" firstAttribute="leading" secondItem="twH-Ga-qpR" secondAttribute="leading" id="4uE-e0-Chl"/>
                             <constraint firstItem="twH-Ga-qpR" firstAttribute="trailing" secondItem="GUN-Dq-906" secondAttribute="trailing" id="6vw-rv-DCg"/>
+                            <constraint firstItem="PLG-dQ-ngU" firstAttribute="trailing" secondItem="twH-Ga-qpR" secondAttribute="trailing" id="HCr-a4-1PT"/>
                             <constraint firstAttribute="bottom" secondItem="twH-Ga-qpR" secondAttribute="bottom" id="T37-Th-URT"/>
+                            <constraint firstItem="PLG-dQ-ngU" firstAttribute="bottom" secondItem="twH-Ga-qpR" secondAttribute="bottom" id="YUM-Zu-xyl"/>
                             <constraint firstItem="twH-Ga-qpR" firstAttribute="top" secondItem="0OC-P4-Nx8" secondAttribute="bottom" id="kT1-pA-uwd"/>
                             <constraint firstItem="twH-Ga-qpR" firstAttribute="leading" secondItem="GUN-Dq-906" secondAttribute="leading" id="xSk-6T-zyi"/>
+                            <constraint firstItem="PLG-dQ-ngU" firstAttribute="top" secondItem="twH-Ga-qpR" secondAttribute="top" id="y7m-b1-0mE"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="GUN-Dq-906"/>
                     </view>
                     <tabBarItem key="tabBarItem" systemItem="search" id="y12-Po-bTz"/>
                     <connections>
+                        <outlet property="loadingView" destination="PLG-dQ-ngU" id="Jhe-x4-oSF"/>
                         <outlet property="searchDisplayController" destination="zmm-wM-8ay" id="Y36-dl-6nQ"/>
                         <outlet property="tableView" destination="twH-Ga-qpR" id="RdL-Km-v5z"/>
                         <outlet property="tagCollectionView" destination="0OC-P4-Nx8" id="5ae-j8-vjj"/>

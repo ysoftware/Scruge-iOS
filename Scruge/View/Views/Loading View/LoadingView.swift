@@ -54,8 +54,8 @@ final class LoadingView: UIView {
 			errorView.isHidden = true
 		case .error(let message):
 			isHidden = false
-			loadingView.isHidden = false
-			errorView.isHidden = true
+			loadingView.isHidden = true
+			errorView.isHidden = false
 			errorView.set(message: message)
 		case .ready:
 			isHidden = true

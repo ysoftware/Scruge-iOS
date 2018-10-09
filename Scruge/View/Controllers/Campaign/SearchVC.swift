@@ -13,6 +13,7 @@ final class SearchViewController: UIViewController {
 
 	// MARK: - Outlets
 
+	@IBOutlet weak var loadingView: LoadingView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var tagCollectionView: UICollectionView!
 
@@ -61,6 +62,8 @@ final class SearchViewController: UIViewController {
 	}
 
 	private func setupTable() {
+		loadingView.set(state: .ready) // TO-DO: remove after initially populating the table
+
 		tableView.estimatedRowHeight = 400
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.register(UINib(resource: R.nib.campaignSmallCell),
@@ -153,7 +156,21 @@ extension SearchViewController: UICollectionViewDelegate {
 extension SearchViewController: ArrayViewModelDelegate {
 
 	func didChangeState(to state: ArrayViewModelState) {
-
+		switch campaignsVM.state {
+		case .error(let error):
+			let message = ErrorHandler.message(for: error)
+			loadingView.set(state: .error(message))
+		case .loading, .initial:
+			loadingView.set(state: .loading)
+		case .ready:
+			if campaignsVM.numberOfItems == 0 {
+				loadingView.set(state: .error("No campaigns were found for your request"))
+			}
+			else {
+				loadingView.set(state: .ready)
+			}
+		default: break
+		}
 	}
 
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)

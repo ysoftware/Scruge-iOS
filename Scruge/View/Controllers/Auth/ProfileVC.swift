@@ -12,7 +12,8 @@ import MVVM
 final class ProfileViewController: UIViewController {
 
 	// MARK: - Outlets
-
+	
+	@IBOutlet weak var loadingView: LoadingView!
 	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var profileImage:UIImageView!
 	@IBOutlet weak var nameLabel:UILabel!
@@ -132,7 +133,21 @@ extension ProfileViewController: ViewModelDelegate {
 extension ProfileViewController: ArrayViewModelDelegate {
 
 	func didChangeState(to state: ArrayViewModelState) {
-
+		switch campaignsVM.state {
+		case .error(let error):
+			let message = ErrorHandler.message(for: error)
+			loadingView.set(state: .error(message))
+		case .loading, .initial:
+			loadingView.set(state: .loading)
+		case .ready:
+			if campaignsVM.numberOfItems == 0 {
+				loadingView.set(state: .error("You haven't backed any campaigns yet."))
+			}
+			else {
+				loadingView.set(state: .ready)
+			}
+		default: break
+		}
 	}
 
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)
