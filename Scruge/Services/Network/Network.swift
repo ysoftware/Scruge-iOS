@@ -27,12 +27,12 @@ struct Network:Networking {
 				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 
 		var parameters = params ?? [:]
-		parameters["file"] = Upload(data: data, fileName: fileName, mimeType: mimeType)
-		log("UPLOAD", request, parameters)
+		parameters["image"] = Upload(data: data, fileName: fileName, mimeType: mimeType)
+		log("POST", request, parameters)
 		activity.beginAnimating()
 
 		HTTP.POST(baseUrl + request,
-				  parameters: params) { response in
+				  parameters: parameters) { response in
 					self.handleResponse(response, completion)
 		}
 	}

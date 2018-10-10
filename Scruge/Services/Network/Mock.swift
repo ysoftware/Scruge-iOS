@@ -22,8 +22,11 @@ struct Mock: Networking {
 				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 
 		// use real backend requests for working methods
-		if request.contains("profile") {
-			return realNetwork.post(request, params, completion)
+		if request.contains("profile")
+			|| request.contains("avatar") {
+
+			return realNetwork.upload(request, params, data: data,
+									  fileName: fileName, mimeType: mimeType, completion)
 		}
 
 		activity.beginAnimating()
@@ -38,8 +41,10 @@ struct Mock: Networking {
 						_ completion: @escaping (Result<T, AnyError>) -> Void) {
 
 		// use real backend requests for working methods
-		if request.contains("profile") {
-			return realNetwork.post(request, params, completion)
+		if request.contains("profile")
+			|| request.contains("avatar") {
+
+			return realNetwork.get(request, params, completion)
 		}
 
 		activity.beginAnimating()
@@ -51,7 +56,9 @@ struct Mock: Networking {
 						 _ completion: @escaping (Result<T, AnyError>) -> Void) {
 
 		// use real backend requests for working methods
-		if request.contains("auth") || request.contains("profile") {
+		if request.contains("auth")
+			|| request.contains("profile") {
+
 			return realNetwork.post(request, params, completion)
 		}
 
