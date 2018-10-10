@@ -16,8 +16,8 @@ struct Api {
 	let service:Networking
 
 	init(service:Networking
-//		= Network()) {
-		= Mock()) {
+		= Network()) {
+//		= Mock()) {
 		self.service = service
 	}
 
@@ -48,14 +48,13 @@ struct Api {
 	func updateProfileImage(_ image:UIImage,
 							_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		guard let data = image.jpegData(compressionQuality: 0.8) else {
-			return completion(.failure(AnyError(NetworkingError.parsingError)))
+			return completion(.failure(AnyError(BackendError.parsingError)))
 		}
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.authenticationFailed)))
 		}
-		let params = ["token":token]
-		service.upload("profile/image",
-					   params,
+		service.upload("avatar/\(token)",
+					   nil,
 					   data: data,
 					   fileName: "image.jpg",
 					   mimeType: "image/jpeg", completion)
@@ -66,11 +65,17 @@ struct Api {
 					   description:String,
 					   _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		let request = ProfileRequest(name: name, country: country, description: description)
-		service.put("profile", request.toDictionary(), completion)
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+		}
+		service.put("profile/\(token)", request.toDictionary(), completion)
 	}
 
 	func getProfile(_ completion: @escaping (Result<ProfileResponse, AnyError>)->Void) {
-		service.post("profile", TokenRequest().toDictionary(), completion)
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+		}
+		service.get("profile/\(token)", nil, completion)
 	}
 
 	// MARK: - Categories

@@ -15,7 +15,7 @@ final class ProfileVM: ViewModel<Profile> {
 		Service.api.getProfile { result in
 			switch result {
 			case .success(let response):
-				self.model = response.data
+				self.model = response.profile
 			case .failure:
 				self.model = nil
 			}
@@ -24,7 +24,7 @@ final class ProfileVM: ViewModel<Profile> {
 	}
 
 	var email:String? {
-		return model?.email ?? "email@company.com"
+		return model?.login ?? "email@company.com"
 	}
 
 	var imageUrl:URL? {

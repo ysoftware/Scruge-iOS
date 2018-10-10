@@ -51,7 +51,7 @@ struct Mock: Networking {
 						 _ completion: @escaping (Result<T, AnyError>) -> Void) {
 
 		// use real backend requests for working methods
-		if request.contains("auth") {
+		if request.contains("auth") || request.contains("profile") {
 			return realNetwork.post(request, params, completion)
 		}
 
@@ -65,7 +65,7 @@ struct Mock: Networking {
 
 		// use real backend requests for working methods
 		if request.contains("profile") {
-			return realNetwork.post(request, params, completion)
+			return realNetwork.put(request, params, completion)
 		}
 
 		activity.beginAnimating()
@@ -88,11 +88,11 @@ struct Mock: Networking {
 			case "campaign/1/milestones": json = self.milestones()
 			case "profile": json = self.profile()
 			case "campaign/1/comment", "profile/image": json = self.success()
-			default: return completion(.failure(AnyError(NetworkingError.unknown)))
+			default: return completion(.failure(AnyError(NetworkingError.unknown(999))))
 			}
 
 			guard let object = T.init(json.data(using: .utf8)!) else {
-				return completion(.failure(AnyError(NetworkingError.parsingError)))
+				return completion(.failure(AnyError(BackendError.parsingError)))
 			}
 			completion(.success(object))
 		}

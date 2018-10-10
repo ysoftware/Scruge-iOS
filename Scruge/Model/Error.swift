@@ -11,28 +11,33 @@ import Result
 
 enum AuthError: Error {
 
-	case accountBlocked // user_banned
+	case accountBlocked
 
-	case accountExists // login_already_exists
+	case accountExists
 
-	case incorrectCredentials // login_or_pass_not_valid
+	case incorrectCredentials
 
-	case invalidEmail // invalid_email_format
+	case invalidEmail
 
-	case authenticationFailed // token_must_not_be_empty
+	case authenticationFailed // passed empty token
 
-	case incorrectEmailLength // login_must_be_5_254_symbols
+	case incorrectEmailLength // 5 to 254 symbols
 
-	case incorrectPasswordLength // password_must_be_5_50_symbols
+	case incorrectPasswordLength // 5 to 50 symbols
+}
+
+enum BackendError: Error {
+
+	case parsingError
+
+	case resourceNotFound
 }
 
 enum NetworkingError: Error {
 
 	case connectionProblem
 
-	case unknown
-
-	case parsingError
+	case unknown(Int)
 }
 
 struct ErrorHandler {
@@ -57,9 +62,14 @@ struct ErrorHandler {
 		}
 		else if let networkError = error as? NetworkingError {
 			switch networkError {
-			case .parsingError: return "Unexpected server response"
 			case .connectionProblem: return "Unable to connect to the server"
-			case .unknown: break
+			case .unknown(let code): return "Error code \(code)"
+			}
+		}
+		else if let backendError = error as? BackendError {
+			switch backendError {
+			case .resourceNotFound: return "Nothing was found for this request"
+			case .parsingError: return "Unexpected server response"
 			}
 		}
 		return "Unexpected Error"
@@ -72,10 +82,11 @@ struct ErrorHandler {
 		case 102: return AuthError.invalidEmail
 		case 103: return AuthError.incorrectPasswordLength
 		case 104: return AuthError.authenticationFailed
+		case 105: return BackendError.resourceNotFound
 		case 201: return AuthError.accountExists
 		case 301: return AuthError.incorrectCredentials
 		case 310: return AuthError.accountBlocked
-		default: return NetworkingError.unknown
+		default: return NetworkingError.unknown(result)
 		}
 	}
 }

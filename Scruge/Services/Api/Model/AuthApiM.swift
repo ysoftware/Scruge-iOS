@@ -26,7 +26,7 @@ struct ProfileResponse: Codable {
 
 	let result:Int
 
-	let data:Profile?
+	let profile:Profile?
 }
 
 // MARK: - Request
@@ -57,6 +57,4 @@ struct ProfileRequest: Codable {
 	let country:String
 
 	let description:String
-
-	let token = Service.tokenManager.getToken()
 }

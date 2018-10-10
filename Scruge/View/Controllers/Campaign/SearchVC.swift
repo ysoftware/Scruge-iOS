@@ -22,7 +22,7 @@ final class SearchViewController: UIViewController {
 	private let searchController = UISearchController(searchResultsController: nil)
 	private let campaignsVM = CampaignAVM()
 	private let tags = ["crypto", "services", "marketplace", "ico", "technology"]
-	private var selectedTags = [""]
+	private var selectedTags:[String] = []
 
 	// MARK: - Setup
 
