@@ -274,6 +274,7 @@ extension CampaignViewController: UITableViewDataSource {
 		case .milestone: title = "See all milestones →"
 		case .update: title = "See all updates →"
 		case .comments: title = "See all comments →"
+		case .documents: title = "See all documents →"
 		default: footer = nil
 		}
 		return footer?
@@ -296,7 +297,7 @@ extension CampaignViewController: UITableViewDataSource {
 		let b = block(for: section)
 		if shouldDisplay(b) {
 			switch b {
-			case .info, .milestone, .update, .comments: return 55
+			case .info, .milestone, .update, .comments, .documents: return 55
 			default: break
 			}
 		}
