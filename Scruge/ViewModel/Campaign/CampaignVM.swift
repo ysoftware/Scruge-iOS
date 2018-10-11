@@ -94,12 +94,19 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	// MARK: - Properties
 
-	var documents:[Document]? {
-		return model?.documents
+	var documents:[Document] {
+		return model?.documents ?? []
 	}
 
-	var social:Social? {
-		return model?.social
+	var social:[SocialElement] {
+		return model?.social?.map { key, value in
+			guard let type = SocialNetwork(rawValue: key) else { return nil }
+			return SocialElement(name: value, type: type)
+			}.compactMap { $0 } ?? []
+	}
+
+	var faq:[Faq] {
+		return model?.faq ?? []
 	}
 
 	var about:String? {

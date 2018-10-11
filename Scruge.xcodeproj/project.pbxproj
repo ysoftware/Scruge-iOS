@@ -32,6 +32,9 @@
 		71971CB92158E445004D28E7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CB82158E445004D28E7 /* R.generated.swift */; };
 		71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CBE2158E8AA004D28E7 /* Presenter.swift */; };
 		71971CC12158F076004D28E7 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CC02158F076004D28E7 /* RoundedView.swift */; };
+		71A0C1A7216F939900C2ACF3 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1A6216F939900C2ACF3 /* AboutCell.swift */; };
+		71A0C1A9216F93A500C2ACF3 /* AboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A0C1A8216F93A500C2ACF3 /* AboutCell.xib */; };
+		71A0C1AE216F9B9200C2ACF3 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1AD216F9B9200C2ACF3 /* Social.swift */; };
 		71AB79012164D2650077D904 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB79002164D2650077D904 /* CommentsVC.swift */; };
 		71AB79032165FC260077D904 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB79022165FC260077D904 /* ProfileVC.swift */; };
 		71AB7906216609420077D904 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB7905216609420077D904 /* ProfileVM.swift */; };
@@ -167,6 +170,9 @@
 		71971CB82158E445004D28E7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		71971CBE2158E8AA004D28E7 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		71971CC02158F076004D28E7 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		71A0C1A6216F939900C2ACF3 /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
+		71A0C1A8216F93A500C2ACF3 /* AboutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutCell.xib; sourceTree = "<group>"; };
+		71A0C1AD216F9B9200C2ACF3 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		71AB79002164D2650077D904 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
 		71AB79022165FC260077D904 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		71AB7905216609420077D904 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
@@ -510,7 +516,9 @@
 				71BE959721625575001CF853 /* Milestone */,
 				71BE957D215F5D31001CF853 /* Category */,
 				71BE9577215E7FC1001CF853 /* Campaign  */,
-				71BE958D2162339F001CF853 /* Campaign Details */,
+				71A0C1AB216F93BA00C2ACF3 /* Header */,
+				71A0C1AC216F93C000C2ACF3 /* Footer */,
+				71A0C1AA216F93AA00C2ACF3 /* About */,
 				71387A97216CA73000B24C67 /* Tag */,
 			);
 			path = Cells;
@@ -536,6 +544,33 @@
 				71DA7E902164AAF90052EB8F /* Details.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		71A0C1AA216F93AA00C2ACF3 /* About */ = {
+			isa = PBXGroup;
+			children = (
+				71A0C1A8216F93A500C2ACF3 /* AboutCell.xib */,
+				71A0C1A6216F939900C2ACF3 /* AboutCell.swift */,
+			);
+			path = About;
+			sourceTree = "<group>";
+		};
+		71A0C1AB216F93BA00C2ACF3 /* Header */ = {
+			isa = PBXGroup;
+			children = (
+				71BE95922162343F001CF853 /* CampHeader.xib */,
+				71BE958E216233CF001CF853 /* CampHeader.swift */,
+			);
+			path = Header;
+			sourceTree = "<group>";
+		};
+		71A0C1AC216F93C000C2ACF3 /* Footer */ = {
+			isa = PBXGroup;
+			children = (
+				71BE959421623448001CF853 /* CampFooter.xib */,
+				71BE9590216233E3001CF853 /* CampFooter.swift */,
+			);
+			path = Footer;
 			sourceTree = "<group>";
 		};
 		71AB7904216609330077D904 /* Profile */ = {
@@ -608,6 +643,7 @@
 				71B38D05215B871E00929CC3 /* Comment.swift */,
 				71BE9569215E3A7B001CF853 /* Profile.swift */,
 				71BE95BA2163744E001CF853 /* Other.swift */,
+				71A0C1AD216F9B9200C2ACF3 /* Social.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -679,17 +715,6 @@
 				71BE958821621AF9001CF853 /* CampHTMLVC.swift */,
 			);
 			path = Campaign;
-			sourceTree = "<group>";
-		};
-		71BE958D2162339F001CF853 /* Campaign Details */ = {
-			isa = PBXGroup;
-			children = (
-				71BE95922162343F001CF853 /* CampHeader.xib */,
-				71BE958E216233CF001CF853 /* CampHeader.swift */,
-				71BE959421623448001CF853 /* CampFooter.xib */,
-				71BE9590216233E3001CF853 /* CampFooter.swift */,
-			);
-			path = "Campaign Details";
 			sourceTree = "<group>";
 		};
 		71BE959721625575001CF853 /* Milestone */ = {
@@ -931,6 +956,7 @@
 				71971C862158E056004D28E7 /* Main.storyboard in Resources */,
 				71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */,
 				71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */,
+				71A0C1A9216F93A500C2ACF3 /* AboutCell.xib in Resources */,
 				71BE95932162343F001CF853 /* CampHeader.xib in Resources */,
 				71163A422166499200C5B633 /* CampaignSmallCell.xib in Resources */,
 			);
@@ -1118,6 +1144,7 @@
 				71BE95CD21649FF2001CF853 /* Constants.swift in Sources */,
 				71387A9D216CCC4800B24C67 /* SettingsVC.swift in Sources */,
 				71BE958F216233CF001CF853 /* CampHeader.swift in Sources */,
+				71A0C1AE216F9B9200C2ACF3 /* Social.swift in Sources */,
 				71BE95CB21649C67001CF853 /* DateMilliseconds.swift in Sources */,
 				71BE95AA2162603C001CF853 /* RewardCell.swift in Sources */,
 				71BE9583215F7945001CF853 /* Mock.swift in Sources */,
@@ -1158,6 +1185,7 @@
 				71B38D00215ABE3400929CC3 /* UpdateVM.swift in Sources */,
 				71BE9562215E2519001CF853 /* OtherApiM.swift in Sources */,
 				71BE95C92163E879001CF853 /* ProgressView.swift in Sources */,
+				71A0C1A7216F939900C2ACF3 /* AboutCell.swift in Sources */,
 				71DA7E962164AB510052EB8F /* MilestonesVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

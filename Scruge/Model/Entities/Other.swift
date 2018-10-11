@@ -15,21 +15,6 @@ struct Category: Equatable, Codable {
 	let name:String
 }
 
-struct Social: Equatable, Codable {
-
-	let twitter:String?
-
-	let facebook:String?
-
-	let instagram:String?
-
-	let website:String?
-
-	let vk:String?
-
-	let youtube:String?
-}
-
 struct Faq: Equatable, Codable {
 
 	let question:String

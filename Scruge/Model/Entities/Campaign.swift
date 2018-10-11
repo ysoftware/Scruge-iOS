@@ -65,7 +65,7 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	let totalCommentsCount:Int
 
-	let	social:Social?
+	let	social:[String:String]?
 
 	let faq:[Faq]?
 

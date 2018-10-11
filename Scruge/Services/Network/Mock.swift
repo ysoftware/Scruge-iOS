@@ -256,6 +256,8 @@ struct Mock: Networking {
 				"softCap":63000000,
 				"hardCap":150000000,
 
+				"about":"Our team is comprised of a couple of smart guys. We are also cool.",
+
 				"videoUrl":"https://www.youtube-nocookie.com/embed/m8e-FF8MsqU?playsinline=1&rel=0&controls=0&showinfo=0",
 				"totalCommentsCount": 8,
 				"rewards": [

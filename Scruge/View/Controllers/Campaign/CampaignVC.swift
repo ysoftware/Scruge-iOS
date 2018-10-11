@@ -123,9 +123,9 @@ final class CampaignViewController: UIViewController {
 		case .milestone: return vm.currentMilestoneVM != nil
 		case .update: return vm.lastUpdateVM != nil
 		case .about: return vm.about != nil
-		case .social: return vm.social != nil
+		case .social: return vm.social.count != 0
 		case .comments: return (vm.topCommentsVM?.numberOfItems) ?? 0 != 0
-		case .documents: return vm.documents != nil
+		case .documents: return vm.documents.count != 0
 		case .rewards: return (vm.rewardsVM?.numberOfItems ?? 0) != 0
 		default: return false
 		}
@@ -220,9 +220,12 @@ extension CampaignViewController: UITableViewDataSource {
 													 for: indexPath)!.setup(with: vm)
 			}
 		case .about:
-			cell = UITableViewCell()
+			cell = UITableViewCell(style: .default, reuseIdentifier: nil)
+			cell.textLabel?.text = vm.about
 		case .social:
-			cell = UITableViewCell()
+			cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
+			cell.textLabel?.text = "Facebook"
+		default: break
 		}
 		if cell == nil { cell = UITableViewCell() }
 		cell.selectionStyle = .none
@@ -244,9 +247,10 @@ extension CampaignViewController: UITableViewDataSource {
 		case .about:
 			if vm.about != nil { header?.setup(as: "About the team") }
 		case .faq:
-			if vm.about != nil { header?.setup(as: "Frequently Asked Questions") }
+			let count = vm.faq.count
+			if count > 0 { header?.setup(as: "Frequently asked questions", "\(count)") }
 		case .documents:
-			let count = vm.documents?.count ?? 0
+			let count = vm.documents.count
 			if count > 0 { header?.setup(as: "Documents", "\(count)") }
 		default: header = nil
 		}
