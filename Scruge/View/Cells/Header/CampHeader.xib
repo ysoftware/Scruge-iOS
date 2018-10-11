@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="50" translatesAutoresizingMaskIntoConstraints="NO" id="xyV-3v-Wjw">
-                        <rect key="frame" x="10" y="10" width="331" height="28.5"/>
+                        <rect key="frame" x="10" y="15" width="331" height="18.5"/>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -44,7 +44,7 @@
                     <constraint firstItem="xyV-3v-Wjw" firstAttribute="leading" secondItem="vQl-XF-ZHY" secondAttribute="leading" constant="10" id="IyK-rC-sH0"/>
                     <constraint firstAttribute="trailing" secondItem="jRQ-ri-Z5e" secondAttribute="trailing" constant="20" id="XNa-PW-QSA"/>
                     <constraint firstItem="9dH-eP-1sy" firstAttribute="leading" secondItem="vQl-XF-ZHY" secondAttribute="leading" id="XRS-LB-eWS"/>
-                    <constraint firstItem="xyV-3v-Wjw" firstAttribute="top" secondItem="vQl-XF-ZHY" secondAttribute="top" constant="10" id="YvJ-i3-Tm8"/>
+                    <constraint firstItem="xyV-3v-Wjw" firstAttribute="top" secondItem="vQl-XF-ZHY" secondAttribute="top" constant="15" id="YvJ-i3-Tm8"/>
                     <constraint firstItem="xyV-3v-Wjw" firstAttribute="centerY" secondItem="vQl-XF-ZHY" secondAttribute="centerY" id="fLN-vy-BWj"/>
                     <constraint firstItem="9dH-eP-1sy" firstAttribute="top" secondItem="vQl-XF-ZHY" secondAttribute="top" id="n1K-Po-B3D"/>
                     <constraint firstItem="jRQ-ri-Z5e" firstAttribute="leading" secondItem="xyV-3v-Wjw" secondAttribute="trailing" id="vC9-Pc-LYp"/>

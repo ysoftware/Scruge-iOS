@@ -19,19 +19,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9s-uq-81E">
-                        <rect key="frame" x="10" y="10" width="479" height="38.5"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <rect key="frame" x="10" y="0.0" width="479" height="33.5"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3Xb-C7-fEQ">
-                        <rect key="frame" x="10" y="58.5" width="479" height="40"/>
+                        <rect key="frame" x="10" y="53.5" width="479" height="35"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="40" id="Gcm-Jo-6eK"/>
+                            <constraint firstAttribute="height" constant="35" id="Gcm-Jo-6eK"/>
                         </constraints>
-                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="EoO-os-03A">
-                            <size key="itemSize" width="40" height="40"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="20" minimumInteritemSpacing="20" id="EoO-os-03A">
+                            <size key="itemSize" width="35" height="35"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -43,18 +43,20 @@
                     </collectionView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="x9s-uq-81E" firstAttribute="top" secondItem="Cjx-Jn-SxF" secondAttribute="top" constant="10" id="BBz-6z-3iV"/>
-                    <constraint firstAttribute="bottom" secondItem="3Xb-C7-fEQ" secondAttribute="bottom" constant="10" id="OUW-Vy-j9O"/>
+                    <constraint firstItem="x9s-uq-81E" firstAttribute="top" secondItem="Cjx-Jn-SxF" secondAttribute="top" id="BBz-6z-3iV"/>
+                    <constraint firstAttribute="bottom" secondItem="3Xb-C7-fEQ" secondAttribute="bottom" constant="20" id="OUW-Vy-j9O"/>
                     <constraint firstItem="3Xb-C7-fEQ" firstAttribute="leading" secondItem="Cjx-Jn-SxF" secondAttribute="leading" constant="10" id="Uc1-Ys-KeK"/>
                     <constraint firstAttribute="trailing" secondItem="3Xb-C7-fEQ" secondAttribute="trailing" constant="10" id="V69-CD-7ta"/>
-                    <constraint firstItem="3Xb-C7-fEQ" firstAttribute="top" secondItem="x9s-uq-81E" secondAttribute="bottom" constant="10" id="cmi-bE-tIu"/>
+                    <constraint firstItem="3Xb-C7-fEQ" firstAttribute="top" secondItem="x9s-uq-81E" secondAttribute="bottom" constant="20" id="cmi-bE-tIu"/>
                     <constraint firstAttribute="trailing" secondItem="x9s-uq-81E" secondAttribute="trailing" constant="10" id="hbU-Wp-p5f"/>
                     <constraint firstItem="x9s-uq-81E" firstAttribute="leading" secondItem="Cjx-Jn-SxF" secondAttribute="leading" constant="10" id="mXV-Ze-6SK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="aboutLabel" destination="x9s-uq-81E" id="8W5-Tc-6mv"/>
+                <outlet property="collectionHeightConstraint" destination="Gcm-Jo-6eK" id="HUp-SO-xQK"/>
                 <outlet property="collectionView" destination="3Xb-C7-fEQ" id="5n8-vz-Bax"/>
+                <outlet property="marginConstraint" destination="cmi-bE-tIu" id="whZ-h0-f2P"/>
             </connections>
             <point key="canvasLocation" x="-114.40000000000001" y="46.326836581709152"/>
         </tableViewCell>

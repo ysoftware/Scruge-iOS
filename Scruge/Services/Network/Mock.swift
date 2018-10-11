@@ -293,7 +293,12 @@ struct Mock: Networking {
 				],
 
 				"social": {
-					"website":"http://something.ru",
+				"website":"http://something.ru",
+				"twitter":"awd",
+				"instagram":"http://something.ru",
+				"vk":"awd",
+				"youtube":"http://something.ru",
+				"facebook":"awd"
 				},
 
 				"documents": [

@@ -8,13 +8,14 @@
 
 import UIKit
 import MVVM
+import SafariServices
 
 final class CampaignViewController: UIViewController {
 
 	enum Block:Int {
 
 		case info = 0, milestone = 1, update = 2, comments = 3,
-		about = 4, social = 5, faq = 6, documents = 7, rewards = 8
+		about = 4, faq = 5, documents = 6, rewards = 7
 	}
 
 	// MARK: - Outlets
@@ -27,7 +28,11 @@ final class CampaignViewController: UIViewController {
 	@IBOutlet weak var contributeViewTopConstraint: NSLayoutConstraint!
 
 	// MARK: - Actions
-	
+
+	private func openSocialPage(_ element:SocialElement) {
+
+	}
+
 	@IBAction func contribute(_ sender: Any) {
 		switch vm.status {
 		case .contribute:
@@ -96,6 +101,8 @@ final class CampaignViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.commentCell.identifier)
 		tableView.register(UINib(resource: R.nib.rewardCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.rewardCell.identifier)
+		tableView.register(UINib(resource: R.nib.aboutCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.aboutCell.identifier)
 	}
 
 	private func setupBottomButton() {
@@ -123,7 +130,6 @@ final class CampaignViewController: UIViewController {
 		case .milestone: return vm.currentMilestoneVM != nil
 		case .update: return vm.lastUpdateVM != nil
 		case .about: return vm.about != nil
-		case .social: return vm.social.count != 0
 		case .comments: return (vm.topCommentsVM?.numberOfItems) ?? 0 != 0
 		case .documents: return vm.documents.count != 0
 		case .rewards: return (vm.rewardsVM?.numberOfItems ?? 0) != 0
@@ -131,7 +137,7 @@ final class CampaignViewController: UIViewController {
 		}
 	}
 
-	// MARK: - State
+	// MARK: - Methods
 
 	private func showData() {
 		vm.lastUpdateVM?.delegate = self
@@ -173,13 +179,13 @@ final class CampaignViewController: UIViewController {
 extension CampaignViewController: UITableViewDataSource {
 
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return 9
+		return 8
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		let b = block(for: section)
 		switch b {
-		case .info, .about, .milestone, .update, .social:
+		case .info, .about, .milestone, .update:
 			return (shouldDisplay(b) ? 1 : 0)
 		case .comments:
 			return vm.topCommentsVM?.numberOfItems ?? 0
@@ -209,6 +215,14 @@ extension CampaignViewController: UITableViewDataSource {
 				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
 													 for: indexPath)!.setup(with: vm)
 			}
+		case .about:
+			if vm.about != nil || vm.social.count > 0 {
+				cell = tableView.dequeueReusableCell(
+					withIdentifier: R.reuseIdentifier.aboutCell,
+					for: indexPath)!.setup(with: vm) { [unowned self] element in
+						self.openSocialPage(element)
+				}
+			}
 		case .comments:
 			if let vm = vm.topCommentsVM?.item(at: indexPath.row) {
 				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell,
@@ -219,12 +233,6 @@ extension CampaignViewController: UITableViewDataSource {
 				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.rewardCell,
 													 for: indexPath)!.setup(with: vm)
 			}
-		case .about:
-			cell = UITableViewCell(style: .default, reuseIdentifier: nil)
-			cell.textLabel?.text = vm.about
-		case .social:
-			cell = UITableViewCell(style: .value1, reuseIdentifier: nil)
-			cell.textLabel?.text = "Facebook"
 		default: break
 		}
 		if cell == nil { cell = UITableViewCell() }

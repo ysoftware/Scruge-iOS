@@ -12,13 +12,22 @@ final class AboutCell: UITableViewCell {
 
 	@IBOutlet weak var collectionView:UICollectionView!
 	@IBOutlet weak var aboutLabel:UILabel!
-
+	@IBOutlet weak var collectionHeightConstraint: NSLayoutConstraint!
+	@IBOutlet weak var marginConstraint: NSLayoutConstraint!
+	
 	var social:[SocialElement] = []
+	var block:((SocialElement)->Void)?
 
 	@discardableResult
-	func setup(with vm:CampaignVM) -> Self {
+	func setup(with vm:CampaignVM, _ block: ((SocialElement)->Void)?) -> Self {
+		self.block = block
 		social = vm.social
 		aboutLabel.text = vm.about
+
+		collectionView.register(UINib(resource: R.nib.socialCell),
+								forCellWithReuseIdentifier: R.nib.socialCell.identifier)
+		collectionHeightConstraint.constant = 	social.count > 0 ? 35 : 0
+		marginConstraint.constant = 			social.count > 0 ? 20 : 0
 		collectionView.reloadData()
 		return self
 	}
@@ -32,24 +41,15 @@ extension AboutCell: UICollectionViewDataSource {
 
 	func collectionView(_ collectionView: UICollectionView,
 						cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = UICollectionViewCell()
-		let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 40, height: 40))
-		cell.contentView.addSubview(imageView)
-		imageView.image = social[indexPath.item].image
-		return cell
+		return collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.socialCell,
+													  for: indexPath)!
+			.setup(with: social[indexPath.item])
 	}
 }
 
-extension SocialElement {
+extension AboutCell: UICollectionViewDelegate {
 
-	var image:UIImage {
-		switch type {
-		case .twitter: return #imageLiteral(resourceName: "twitter")
-		case .facebook: return #imageLiteral(resourceName: "facebook.jpg")
-		case .instagram: return #imageLiteral(resourceName: "instagram.jpg")
-		case .vk: return #imageLiteral(resourceName: "vk.jpg")
-		case .website: return #imageLiteral(resourceName: "website.jpg")
-		case .youtube: return #imageLiteral(resourceName: "youtube.jpg")
-		}
+	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+		block?(social[indexPath.item])
 	}
 }
