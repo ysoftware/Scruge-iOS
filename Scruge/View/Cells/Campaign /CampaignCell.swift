@@ -43,8 +43,8 @@ final class CampaignCell: UITableViewCell {
 		rightLabel.text = vm.daysLeft
 		progressView.progress = vm.progress
 
-		if let vm = vm as? CampaignVM, let mediaUrl = vm.mediaUrl {
-			setupWebView(with: mediaUrl)
+		if let vm = vm as? CampaignVM, let videoUrl = vm.videoUrl {
+			setupWebView(with: videoUrl)
 		}
 		else {
 			setupImageView()

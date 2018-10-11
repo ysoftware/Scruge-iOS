@@ -30,13 +30,23 @@
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9dH-eP-1sy">
+                        <rect key="frame" x="0.0" y="47.5" width="398" height="1"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="Lda-6B-0dn"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="9dH-eP-1sy" secondAttribute="trailing" id="IuR-rb-agV"/>
                     <constraint firstItem="xyV-3v-Wjw" firstAttribute="leading" secondItem="vQl-XF-ZHY" secondAttribute="leading" constant="10" id="IyK-rC-sH0"/>
                     <constraint firstAttribute="trailing" secondItem="jRQ-ri-Z5e" secondAttribute="trailing" constant="20" id="XNa-PW-QSA"/>
+                    <constraint firstItem="9dH-eP-1sy" firstAttribute="leading" secondItem="vQl-XF-ZHY" secondAttribute="leading" id="XRS-LB-eWS"/>
                     <constraint firstItem="xyV-3v-Wjw" firstAttribute="top" secondItem="vQl-XF-ZHY" secondAttribute="top" constant="10" id="YvJ-i3-Tm8"/>
                     <constraint firstItem="xyV-3v-Wjw" firstAttribute="centerY" secondItem="vQl-XF-ZHY" secondAttribute="centerY" id="fLN-vy-BWj"/>
+                    <constraint firstAttribute="bottom" secondItem="9dH-eP-1sy" secondAttribute="bottom" id="jDY-Cp-ySG"/>
                     <constraint firstItem="jRQ-ri-Z5e" firstAttribute="leading" secondItem="xyV-3v-Wjw" secondAttribute="trailing" id="vC9-Pc-LYp"/>
                     <constraint firstItem="jRQ-ri-Z5e" firstAttribute="centerY" secondItem="vQl-XF-ZHY" secondAttribute="centerY" id="wjB-1k-kNm"/>
                 </constraints>

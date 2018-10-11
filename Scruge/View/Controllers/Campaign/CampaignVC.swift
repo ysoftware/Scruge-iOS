@@ -11,6 +11,12 @@ import MVVM
 
 final class CampaignViewController: UIViewController {
 
+	enum Block:Int {
+
+		case info = 0, milestone = 1, update = 2, comments = 3,
+		about = 4, social = 5, faq = 6, documents = 7, rewards = 8
+	}
+
 	// MARK: - Outlets
 
 	@IBOutlet weak var loadingView: LoadingView!
@@ -25,9 +31,8 @@ final class CampaignViewController: UIViewController {
 	@IBAction func contribute(_ sender: Any) {
 		switch vm.status {
 		case .contribute:
-			let sectionForRewards = numberOfSections() - 1
-			tableView.scrollToRow(at: IndexPath(row: 0, section: sectionForRewards),
-									   at: .top, animated: true)
+			tableView.scrollToRow(at: IndexPath(row: 0, section: Block.rewards.rawValue),
+								  at: .top, animated: true)
 			DispatchQueue.main.asyncAfter(deadline: .now() + ANIMATION_TIME) {
 				self.tableView.reloadData()
 			}
@@ -108,13 +113,20 @@ final class CampaignViewController: UIViewController {
 		}
 	}
 
-	private func shouldDisplay(section:Int) -> Bool {
-		switch section {
-		case 0: return true
-		case 1: return vm.currentMilestoneVM != nil
-		case 2: return vm.lastUpdateVM != nil
-		case 3: return (vm.topCommentsVM?.numberOfItems) ?? 0 != 0
-		case 4: return (vm.rewardsVM?.numberOfItems ?? 0) != 0
+	private func block(for section:Int) -> Block {
+		return Block(rawValue: section)!
+	}
+
+	private func shouldDisplay(_ block:Block) -> Bool {
+		switch block {
+		case .info: return true
+		case .milestone: return vm.currentMilestoneVM != nil
+		case .update: return vm.lastUpdateVM != nil
+		case .about: return vm.about != nil
+		case .social: return vm.social != nil
+		case .comments: return (vm.topCommentsVM?.numberOfItems) ?? 0 != 0
+		case .documents: return vm.documents != nil
+		case .rewards: return (vm.rewardsVM?.numberOfItems ?? 0) != 0
 		default: return false
 		}
 	}
@@ -131,17 +143,12 @@ final class CampaignViewController: UIViewController {
 		setupBottomButton()
 	}
 
-	private func numberOfSections() -> Int {
-		return [0, 1, 2, 3, 4].reduce(0, { result, value in
-			return result + (self.shouldDisplay(section: value) ? 1 : 0)
-		})
-	}
-
 	private func showContributeButtonIfNeeded() {
 		switch vm.status {
 		case .contribute:
-			let section = numberOfSections() - 1
-			let indexPath = IndexPath(row: 0, section: section)
+			guard shouldDisplay(.rewards) else { return showContributeButton(true) }
+
+			let indexPath = IndexPath(row: 0, section: Block.rewards.rawValue)
 			let isHidden = tableView.indexPathsForVisibleRows?.contains(indexPath) ?? false
 			showContributeButton(!isHidden)
 		default:
@@ -166,15 +173,20 @@ final class CampaignViewController: UIViewController {
 extension CampaignViewController: UITableViewDataSource {
 
 	func numberOfSections(in tableView: UITableView) -> Int {
-		return numberOfSections()
+		return 9
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		switch section {
-		case 0, 1, 2: return (shouldDisplay(section: section) ? 1 : 0)
-		case 3: return vm.topCommentsVM?.numberOfItems ?? 0
-		case 4: return vm.rewardsVM?.numberOfItems ?? 0
-		default: return 0
+		let b = block(for: section)
+		switch b {
+		case .info, .about, .milestone, .update, .social:
+			return (shouldDisplay(b) ? 1 : 0)
+		case .comments:
+			return vm.topCommentsVM?.numberOfItems ?? 0
+		case .rewards:
+			return vm.rewardsVM?.numberOfItems ?? 0
+		case .faq, .documents:
+			return 0
 		}
 	}
 
@@ -183,31 +195,34 @@ extension CampaignViewController: UITableViewDataSource {
 		showContributeButtonIfNeeded()
 
 		var cell:UITableViewCell!
-		switch indexPath.section {
-		case 0:
+		switch block(for: indexPath.section) {
+		case .info:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
 												 for: indexPath)!.setup(with: vm)
-		case 1:
+		case .milestone:
 			if let vm = vm.currentMilestoneVM {
 				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.milestoneCell,
 													 for: indexPath)!.setup(with: vm)
 			}
-		case 2:
+		case .update:
 			if let vm = vm.lastUpdateVM {
 				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
 													 for: indexPath)!.setup(with: vm)
 			}
-		case 3:
+		case .comments:
 			if let vm = vm.topCommentsVM?.item(at: indexPath.row) {
 				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell,
 													 for: indexPath)!.setup(with: vm)
 			}
-		case 4:
+		case .rewards:
 			if let vm = vm.rewardsVM?.item(at: indexPath.row) {
 				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.rewardCell,
 													 for: indexPath)!.setup(with: vm)
 			}
-		default: break
+		case .about:
+			cell = UITableViewCell()
+		case .social:
+			cell = UITableViewCell()
 		}
 		if cell == nil { cell = UITableViewCell() }
 		cell.selectionStyle = .none
@@ -215,38 +230,50 @@ extension CampaignViewController: UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-		let header = tableView.dequeueReusableHeaderFooterView(
-			withIdentifier: R.reuseIdentifier.campaignHeader.identifier) as! CampaignHeader
-		switch section {
-		case 1: if let vm = vm.currentMilestoneVM { header.setup(with: vm) }
-		case 2: if let vm = vm.lastUpdateVM { header.setup(with: vm) }
-		case 3: if let vm = vm.topCommentsVM { header.setup(with: vm, for: self.vm) }
-		case 4: if let vm = vm.rewardsVM { header.setup(with: vm) }
-		default: return nil
+		var header = tableView.dequeueReusableHeaderFooterView(
+			withIdentifier: R.reuseIdentifier.campaignHeader.identifier) as? CampaignHeader
+		switch block(for: section) {
+		case .milestone:
+			if let vm = vm.currentMilestoneVM { header?.setup(with: vm) }
+		case .update:
+			if let vm = vm.lastUpdateVM { header?.setup(with: vm) }
+		case .comments:
+			if let vm = vm.topCommentsVM { header?.setup(with: vm, for: self.vm) }
+		case .rewards:
+			if let vm = vm.rewardsVM { header?.setup(with: vm) }
+		case .about:
+			if vm.about != nil { header?.setup(as: "About the team") }
+		case .faq:
+			if vm.about != nil { header?.setup(as: "Frequently Asked Questions") }
+		case .documents:
+			let count = vm.documents?.count ?? 0
+			if count > 0 { header?.setup(as: "Documents", "\(count)") }
+		default: header = nil
 		}
-		return header.addTap(target: self, action: #selector(headerTap), section: section)
+		return header?.addTap(target: self, action: #selector(headerTap), section: section)
 	}
 
 	func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-		let footer = tableView.dequeueReusableHeaderFooterView(
-			withIdentifier: R.reuseIdentifier.campaignFooter.identifier) as! CampaignFooter
-		let title:String
-		switch section {
-		case 0: title = "Read the full story →"
-		case 1: title = "See all milestones →"
-		case 2: title = "See all updates →"
-		case 3: title = "See all comments →"
-		default: return nil
+		var footer = tableView.dequeueReusableHeaderFooterView(
+			withIdentifier: R.reuseIdentifier.campaignFooter.identifier) as? CampaignFooter
+		var title:String = ""
+		switch block(for: section) {
+		case .info: title = "See the pitch →"
+		case .milestone: title = "See all milestones →"
+		case .update: title = "See all updates →"
+		case .comments: title = "See all comments →"
+		default: footer = nil
 		}
-		return footer
+		return footer?
 			.setup(with: title)
 			.addTap(target: self, action: #selector(footerTap), section: section)
 	}
 
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-		if shouldDisplay(section: section) {
-			switch section {
-			case 1, 2, 3, 4: return 50
+		let b = block(for: section)
+		if shouldDisplay(b) {
+			switch b {
+			case .milestone, .update, .comments, .documents, .about, .rewards: return 50
 			default: break
 			}
 		}
@@ -254,9 +281,10 @@ extension CampaignViewController: UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-		if shouldDisplay(section: section) {
-			switch section {
-			case 0, 1, 2, 3: return 55
+		let b = block(for: section)
+		if shouldDisplay(b) {
+			switch b {
+			case .info, .milestone, .update, .comments: return 55
 			default: break
 			}
 		}

@@ -92,7 +92,7 @@
 		71BE95B221635835001CF853 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95B121635835001CF853 /* Error.swift */; };
 		71BE95B421635A30001CF853 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95B321635A2F001CF853 /* ViewState.swift */; };
 		71BE95B821636245001CF853 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95B721636245001CF853 /* ErrorView.xib */; };
-		71BE95BB2163744E001CF853 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BA2163744E001CF853 /* Category.swift */; };
+		71BE95BB2163744E001CF853 /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BA2163744E001CF853 /* Other.swift */; };
 		71BE95BD2163768A001CF853 /* CategoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BC2163768A001CF853 /* CategoryVM.swift */; };
 		71BE95BF216376A9001CF853 /* CategoryAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BE216376A9001CF853 /* CategoryAVM.swift */; };
 		71BE95C1216376F1001CF853 /* CategoryApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95C0216376F1001CF853 /* CategoryApiM.swift */; };
@@ -228,7 +228,7 @@
 		71BE95B121635835001CF853 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		71BE95B321635A2F001CF853 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		71BE95B721636245001CF853 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
-		71BE95BA2163744E001CF853 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		71BE95BA2163744E001CF853 /* Other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
 		71BE95BC2163768A001CF853 /* CategoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVM.swift; sourceTree = "<group>"; };
 		71BE95BE216376A9001CF853 /* CategoryAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAVM.swift; sourceTree = "<group>"; };
 		71BE95C0216376F1001CF853 /* CategoryApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryApiM.swift; sourceTree = "<group>"; };
@@ -607,7 +607,7 @@
 				71B38D1C215BBBAA00929CC3 /* Reward.swift */,
 				71B38D05215B871E00929CC3 /* Comment.swift */,
 				71BE9569215E3A7B001CF853 /* Profile.swift */,
-				71BE95BA2163744E001CF853 /* Category.swift */,
+				71BE95BA2163744E001CF853 /* Other.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1141,7 +1141,7 @@
 				71163A40216642F400C5B633 /* EmailValidation.swift in Sources */,
 				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,
 				71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */,
-				71BE95BB2163744E001CF853 /* Category.swift in Sources */,
+				71BE95BB2163744E001CF853 /* Other.swift in Sources */,
 				71BE95A521625E64001CF853 /* CommentCell.swift in Sources */,
 				71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */,
 				71BE95BF216376A9001CF853 /* CategoryAVM.swift in Sources */,

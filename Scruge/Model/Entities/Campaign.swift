@@ -14,17 +14,21 @@ struct PartialCampaign: Equatable, Codable, PartialCampaignModel {
 
 	let title:String
 
-	let type:String
+	let kind:String
 
 	let description:String
 
 	let imageUrl:String
 
+	let startTimestamp:Int
+
 	let endTimestamp:Int
 
-	let raisedAmount:Double
+	let hardCap:Double
 
-	let fundAmount:Double
+	let softCap:Double
+
+	let raised:Double
 }
 
 struct Campaign: Equatable, Codable, PartialCampaignModel {
@@ -33,31 +37,47 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	let title:String
 
-	let type:String
+	let kind:String
 	
 	let description:String
 
-	let endTimestamp:Int
-
-	let raisedAmount:Double
-
 	let imageUrl:String
 
-	let fundAmount:Double
+	let startTimestamp:Int
+
+	let endTimestamp:Int
+
+	let hardCap:Double
+
+	let softCap:Double
+
+	let raised:Double
 
 	// MARK: - Full campaign only
 
-	let mediaUrl:String // image or video
+	let publicTokenPercent:Double
+
+	let annualInflationPercent:Double?
+
+	let about:String?
+
+	let videoUrl:String // video
 
 	let totalCommentsCount:Int
 
-	let rewards:[Reward]
+	let	social:Social?
+
+	let faq:[Faq]?
+
+	let documents:[Document]?
+
+	let rewards:[Reward]?
 
 	let currentMilestone:Milestone?
 
 	let lastUpdate:Update?
 
-	let topComments:[Comment]
+	let topComments:[Comment]?
 }
 
 protocol PartialCampaignModel {
@@ -66,13 +86,19 @@ protocol PartialCampaignModel {
 
 	var title:String { get }
 
+	var kind:String { get }
+
 	var description:String { get }
 
 	var imageUrl:String { get }
 
+	var startTimestamp:Int { get }
+
 	var endTimestamp:Int { get }
 
-	var raisedAmount:Double { get }
+	var hardCap:Double { get }
 
-	var fundAmount:Double { get }
+	var softCap:Double { get }
+
+	var raised:Double { get }
 }

@@ -87,7 +87,7 @@ struct Mock: Networking {
 			let json:String
 			switch request {
 			case "campaigns": json = self.campaignsList()
-			case "campaigns/backed": json = self.backedCampaigns()
+			case "campaigns/backed": json = self.campaignsList()
 			case "campaign/1": json = self.campaign()
 			case "categories": json = self.categories()
 			case "campaign/1/updates": json = self.updates()
@@ -247,10 +247,16 @@ struct Mock: Networking {
 				"imageUrl":"https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/03/matrix_reboot_1000-630x400-1.jpg",
 				"description":"A programmer is brought back to reason and reality when learning he was living in a program created by gigantic machines which make human birth artificial. In order to set humanity free, Neo will have to face many enemies by using technologies and self-trust.",
 				"endTimestamp":1546329224000,
-				"raisedAmount":12000000,
-				"fundAmount":63000000,
+				"kind":"ico",
+				"startTimestamp":1545329224000,
+				"raised":12000000,
+				"tokenSupply":1000000000,
+				"publicTokenPercent":80,
+				"annualInflationPercent":0,
+				"softCap":63000000,
+				"hardCap":150000000,
 
-				"mediaUrl":"https://www.youtube-nocookie.com/embed/m8e-FF8MsqU?playsinline=1&rel=0&controls=0&showinfo=0",
+				"videoUrl":"https://www.youtube-nocookie.com/embed/m8e-FF8MsqU?playsinline=1&rel=0&controls=0&showinfo=0",
 				"totalCommentsCount": 8,
 				"rewards": [
 					{
@@ -281,6 +287,17 @@ struct Mock: Networking {
 						"available": 80,
 						"totalAvailable": 100,
 						"additionalInfo": "Delivered to you by quick mail"
+					}
+				],
+
+				"social": {
+					"website":"http://something.ru",
+				},
+
+				"documents": [
+					{
+						"name":"Whitepaper",
+						"documentUrl":"http://whitepaper.com/1"
 					}
 				],
 
@@ -333,65 +350,20 @@ struct Mock: Networking {
 			"result": 0,
 			"data": [
 				{
+					"kind":"ico",
 					"id":"1",
 					"type":"1",
 					"title":"The Matrix",
 					"imageUrl":"https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/03/matrix_reboot_1000-630x400-1.jpg",
 					"description":"A programmer is brought back to reason and reality when learning he was living in a program created by gigantic machines which make human birth artificial. In order to set humanity free, Neo will have to face many enemies by using technologies and self-trust.",
 					"endTimestamp":1546329224000,
-					"raisedAmount":12000000,
-					"fundAmount":63000000
-				},
-				{
-					"id":"2",
-					"type":"1",
-					"title":"The Matrix: Reloaded",
-					"imageUrl":"https://i.ytimg.com/vi/GOVS6iCJ52s/maxresdefault.jpg",
-					"description":"Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.",
-					"endTimestamp":1601646231000,
-					"raisedAmount":7000000,
-					"fundAmount":150000000
-				},
-				{
-					"id":"3",
-					"type":"1",
-					"title":"The Matrix Revolutions",
-					"imageUrl":"http://www.postapoc-media.com/wp-content/uploads/2013/02/matrix-revolutions-31.jpg",
-					"description":"The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.",
-					"endTimestamp":1664718231000,
-					"raisedAmount":0.00005,
-					"fundAmount":22896
-				}
-			]
-		}
-		"""
-	}
-
-
-	private func backedCampaigns() -> String {
-		return """
-		{
-			"result": 0,
-			"data": [
-				{
-					"id":"1",
-					"type":"1",
-					"title":"The Matrix",
-					"imageUrl":"https://ksassets.timeincuk.net/wp/uploads/sites/55/2017/03/matrix_reboot_1000-630x400-1.jpg",
-					"description":"A programmer is brought back to reason and reality when learning he was living in a program created by gigantic machines which make human birth artificial. In order to set humanity free, Neo will have to face many enemies by using technologies and self-trust.",
-					"endTimestamp":1546329224000,
-					"raisedAmount":12000000,
-					"fundAmount":63000000
-				},
-				{
-					"id":"2",
-					"type":"1",
-					"title":"The Matrix: Reloaded",
-					"imageUrl":"https://i.ytimg.com/vi/GOVS6iCJ52s/maxresdefault.jpg",
-					"description":"Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.",
-					"endTimestamp":1601646231000,
-					"raisedAmount":7000000,
-					"fundAmount":150000000
+					"startTimestamp":1545329224000,
+					"raised":12000000,
+					"tokenSupply":1000000000,
+					"publicTokenPercent":80,
+					"annualInflationPercent":0,
+					"softCap":63000000,
+					"hardCap":150000000
 				}
 			]
 		}

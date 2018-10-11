@@ -40,4 +40,11 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 		rightLabel.text = ""
 		return self
 	}
+
+	@discardableResult
+	func setup(as title:String, _ description:String? = nil) -> Self {
+		titleLabel.text = title
+		rightLabel.text = description
+		return self
+	}
 }

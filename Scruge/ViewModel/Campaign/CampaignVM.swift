@@ -73,8 +73,13 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			currentMilestoneVM = MilestoneVM(milestone)
 		}
 
-		rewardsVM = RewardAVM(model.rewards)
-		topCommentsVM = CommentAVM(model.topComments, source: .campaign(model))
+		if let rewards = model.rewards {
+			rewardsVM = RewardAVM(rewards)
+		}
+
+		if let comments = model.topComments {
+			topCommentsVM = CommentAVM(comments, source: .campaign(model))
+		}
 	}
 
 	// MARK: - View Models
@@ -89,6 +94,18 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	// MARK: - Properties
 
+	var documents:[Document]? {
+		return model?.documents
+	}
+
+	var social:Social? {
+		return model?.social
+	}
+
+	var about:String? {
+		return model?.about
+	}
+
 	var status:Status {
 		guard let model = model else { return .none }
 
@@ -102,9 +119,9 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		return .none
 	}
 
-	var mediaUrl:URL? {
+	var videoUrl:URL? {
 		guard let model = model else { return nil }
-		return URL(string: model.mediaUrl)
+		return URL(string: model.videoUrl)
 	}
 
 	var totalCommentsCount:String {
