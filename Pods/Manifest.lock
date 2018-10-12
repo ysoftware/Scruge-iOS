@@ -37,7 +37,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MVVM:
-    :commit: a04283310bd574466b39934cf27a90ca7ed57b09
+    :commit: 2ecef9fab6d98580a11922870bf0ab87ea8d30d8
     :git: "https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git"
 
 SPEC CHECKSUMS:
@@ -51,6 +51,6 @@ SPEC CHECKSUMS:
   SwiftDate: 52b718d32ec006861a2be2756cbfa482d438e781
   SwiftHTTP: e94f1aa8cde58637dcc0100f6349de31a3337fde
 
-PODFILE CHECKSUM: 79f7e2ed54fd54e54965a308c4f4e65f1ac2f870
+PODFILE CHECKSUM: 7ba497b82710f2d7d3800063f9666ffa73ccde23
 
 COCOAPODS: 1.5.2

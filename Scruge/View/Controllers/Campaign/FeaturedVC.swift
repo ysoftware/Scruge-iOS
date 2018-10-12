@@ -122,7 +122,7 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 		case .loading, .initial:
 			loadingView.set(state: .loading)
 		case .ready:
-			if campaignVM.numberOfItems == 0 {
+			if campaignVM.isEmpty {
 				loadingView.set(state: .error("No campaigns were found for your request"))
 			}
 			else {

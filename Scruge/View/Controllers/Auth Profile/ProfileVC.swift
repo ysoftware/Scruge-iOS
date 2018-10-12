@@ -140,7 +140,7 @@ extension ProfileViewController: ArrayViewModelDelegate {
 		case .loading, .initial:
 			loadingView.set(state: .loading)
 		case .ready:
-			if campaignsVM.numberOfItems == 0 {
+			if campaignsVM.isEmpty {
 				loadingView.set(state: .error("You haven't backed any campaigns yet."))
 			}
 			else {

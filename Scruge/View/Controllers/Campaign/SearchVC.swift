@@ -163,7 +163,7 @@ extension SearchViewController: ArrayViewModelDelegate {
 		case .loading, .initial:
 			loadingView.set(state: .loading)
 		case .ready:
-			if campaignsVM.numberOfItems == 0 {
+			if campaignsVM.isEmpty {
 				loadingView.set(state: .error("No campaigns were found for your request"))
 			}
 			else {

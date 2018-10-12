@@ -168,7 +168,7 @@ extension CommentsViewController: ArrayViewModelDelegate {
 			let message = ErrorHandler.message(for: error)
 			loadingView.set(state: .error(message))
 		case .ready:
-			if vm.numberOfItems == 0 {
+			if vm.isEmpty {
 				loadingView.set(state: .error("No comments"))
 			}
 			else {
