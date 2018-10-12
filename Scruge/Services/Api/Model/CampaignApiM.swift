@@ -45,6 +45,4 @@ struct CampaignListRequest: Codable {
 	let tags:[String]?
 
 	let type:String?
-
-	let token = Service.tokenManager.getToken()
 }

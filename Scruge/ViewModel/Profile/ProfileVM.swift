@@ -24,7 +24,7 @@ final class ProfileVM: ViewModel<Profile> {
 	}
 
 	var email:String? {
-		return model?.login ?? "email@company.com"
+		return model?.login
 	}
 
 	var imageUrl:URL? {

@@ -14,3 +14,10 @@ struct CategoriesResponse: Codable {
 
 	let data:[Category]
 }
+
+struct TagsResponse: Codable {
+
+	let result:Int
+
+	let data:[String]
+}

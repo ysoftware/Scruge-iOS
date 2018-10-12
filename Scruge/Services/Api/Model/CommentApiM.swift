@@ -37,6 +37,4 @@ struct CommentListRequest: Codable {
 	}
 
 	let page:Int
-
-	let token = Service.tokenManager.getToken()
 }

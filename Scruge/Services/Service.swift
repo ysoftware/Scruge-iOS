@@ -20,7 +20,7 @@ struct Service {
 
 	static let constants = Constants()
 
-	static let blockchain = Blockchain()
+	static let eos = EOS()
 
 	static let wallet = Wallet()
 }

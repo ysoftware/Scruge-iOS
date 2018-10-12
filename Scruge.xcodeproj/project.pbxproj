@@ -74,7 +74,6 @@
 		71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1042215A1EBD004753EC /* CampaignQ.swift */; };
 		71BE1046215A2020004753EC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1045215A2020004753EC /* Network.swift */; };
 		71BE9560215E1B36001CF853 /* AuthApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE955F215E1B36001CF853 /* AuthApiM.swift */; };
-		71BE9562215E2519001CF853 /* OtherApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9561215E2519001CF853 /* OtherApiM.swift */; };
 		71BE9565215E2A22001CF853 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9564215E2A22001CF853 /* TokenManager.swift */; };
 		71BE9567215E2AD2001CF853 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9566215E2AD2001CF853 /* Service.swift */; };
 		71BE956A215E3A7B001CF853 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9569215E3A7B001CF853 /* Profile.swift */; };
@@ -116,7 +115,7 @@
 		71BE95CB21649C67001CF853 /* DateMilliseconds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95CA21649C67001CF853 /* DateMilliseconds.swift */; };
 		71BE95CD21649FF2001CF853 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95CC21649FF2001CF853 /* Constants.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
-		71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* Blockchain.swift */; };
+		71C8E8E821590F2A0078BD36 /* EOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* EOS.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
 		71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8ED215910500078BD36 /* CampaignVM.swift */; };
 		71C8E8F1215912690078BD36 /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8F0215912690078BD36 /* Api.swift */; };
@@ -226,7 +225,6 @@
 		71BE1042215A1EBD004753EC /* CampaignQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignQ.swift; sourceTree = "<group>"; };
 		71BE1045215A2020004753EC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		71BE955F215E1B36001CF853 /* AuthApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApiM.swift; sourceTree = "<group>"; };
-		71BE9561215E2519001CF853 /* OtherApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherApiM.swift; sourceTree = "<group>"; };
 		71BE9564215E2A22001CF853 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
 		71BE9566215E2AD2001CF853 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
 		71BE9568215E2D85001CF853 /* Scruge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Scruge.entitlements; sourceTree = "<group>"; };
@@ -269,7 +267,7 @@
 		71BE95CA21649C67001CF853 /* DateMilliseconds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMilliseconds.swift; sourceTree = "<group>"; };
 		71BE95CC21649FF2001CF853 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
-		71C8E8E721590F2A0078BD36 /* Blockchain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Blockchain.swift; sourceTree = "<group>"; };
+		71C8E8E721590F2A0078BD36 /* EOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOS.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
 		71C8E8ED215910500078BD36 /* CampaignVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignVM.swift; sourceTree = "<group>"; };
 		71C8E8F0215912690078BD36 /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
@@ -458,7 +456,7 @@
 			children = (
 				71BE9566215E2AD2001CF853 /* Service.swift */,
 				71163A452167517400C5B633 /* Wallet */,
-				71C8E8E621590F1E0078BD36 /* Blockchain */,
+				71C8E8E621590F1E0078BD36 /* EOS */,
 				71BE956B215E3CD9001CF853 /* Network */,
 				71BE956E215E5D11001CF853 /* Api */,
 				71387A96216B74E000B24C67 /* Other */,
@@ -677,7 +675,6 @@
 				71B38D15215B9A9B00929CC3 /* MilestoneApiM.swift */,
 				71B38D07215B875900929CC3 /* CommentApiM.swift */,
 				71B38D1A215BA3E600929CC3 /* HTMLApiM.swift */,
-				71BE9561215E2519001CF853 /* OtherApiM.swift */,
 				71BE95C0216376F1001CF853 /* CategoryApiM.swift */,
 			);
 			path = Model;
@@ -861,12 +858,12 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		71C8E8E621590F1E0078BD36 /* Blockchain */ = {
+		71C8E8E621590F1E0078BD36 /* EOS */ = {
 			isa = PBXGroup;
 			children = (
-				71C8E8E721590F2A0078BD36 /* Blockchain.swift */,
+				71C8E8E721590F2A0078BD36 /* EOS.swift */,
 			);
-			path = Blockchain;
+			path = EOS;
 			sourceTree = "<group>";
 		};
 		71C8E8EF215910DD0078BD36 /* Campaign */ = {
@@ -1275,11 +1272,10 @@
 				71B38D22215BBEC400929CC3 /* RewardAVM.swift in Sources */,
 				71A0C1B6217089A700C2ACF3 /* FaqVM.swift in Sources */,
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,
-				71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */,
+				71C8E8E821590F2A0078BD36 /* EOS.swift in Sources */,
 				71BE1046215A2020004753EC /* Network.swift in Sources */,
 				71BE957A215EA75B001CF853 /* FeaturedVC.swift in Sources */,
 				71B38D00215ABE3400929CC3 /* UpdateVM.swift in Sources */,
-				71BE9562215E2519001CF853 /* OtherApiM.swift in Sources */,
 				71BE95C92163E879001CF853 /* ProgressView.swift in Sources */,
 				71A0C1A7216F939900C2ACF3 /* AboutCell.swift in Sources */,
 				71DA7E962164AB510052EB8F /* MilestonesVC.swift in Sources */,

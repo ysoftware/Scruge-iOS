@@ -1,5 +1,5 @@
 //
-//  Blockchain.swift
+//  EOS.swift
 //  Scruge
 //
 //  Created by ysoftware on 24.09.2018.
@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct Blockchain {
+struct EOS {
 	
 }
