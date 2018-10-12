@@ -42,6 +42,20 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 	}
 
 	@discardableResult
+	func setup(with vm:DocumentAVM) -> Self {
+		titleLabel.text = "Documents"
+		rightLabel.text = "\(vm.numberOfItems)"
+		return self
+	}
+
+	@discardableResult
+	func setup(with vm:FaqAVM) -> Self {
+		titleLabel.text = "Frequently asked questions"
+		rightLabel.text = "\(vm.numberOfItems)"
+		return self
+	}
+
+	@discardableResult
 	func setup(as title:String, _ description:String? = nil) -> Self {
 		titleLabel.text = title
 		rightLabel.text = description

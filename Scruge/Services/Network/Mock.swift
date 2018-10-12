@@ -240,7 +240,7 @@ struct Mock: Networking {
 		return """
 		{
 			"result": 0,
-			"data": {
+			"campaign": {
 				"id":"1",
 				"type":"1",
 				"title":"The Matrix",
@@ -269,6 +269,17 @@ struct Mock: Networking {
 					"youtube":"https://something.ru",
 					"facebook":"https://facebook.com"
 				},
+
+				"faq": [
+					{
+						"question":"Is this yet another stupid action movie?",
+						"answer":"Hell, no. This movie is going to fuck your brains out!"
+					},
+					{
+						"question":"Will the sequels be as good?",
+						"answer":"I don't know. I hope we don't go too crazy."
+					}
+				],
 
 				"documents": [
 					{

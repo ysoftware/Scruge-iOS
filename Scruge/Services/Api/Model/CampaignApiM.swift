@@ -14,7 +14,7 @@ struct CampaignResponse: Codable {
 
 	let result:Int
 
-	let data:Campaign?
+	let campaign:Campaign?
 }
 
 struct CampaignListResponse: Codable {

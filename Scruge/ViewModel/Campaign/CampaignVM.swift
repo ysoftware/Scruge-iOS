@@ -40,7 +40,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		Service.api.getCampaign(with: id) { result in
 			switch result {
 			case .success(let response):
-				self.model = response.data
+				self.model = response.campaign
 				self.state = .ready
 			case .failure(let error):
 				self.model = nil
@@ -68,17 +68,43 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		if let update = model.lastUpdate {
 			lastUpdateVM = UpdateVM(update)
 		}
+		else {
+			lastUpdateVM = nil
+		}
 
 		if let milestone = model.currentMilestone {
 			currentMilestoneVM = MilestoneVM(milestone)
+		}
+		else {
+			currentMilestoneVM = nil
 		}
 
 		if let rewards = model.rewards {
 			rewardsVM = RewardAVM(rewards)
 		}
+		else {
+			rewardsVM = nil
+		}
 
 		if let comments = model.topComments {
 			topCommentsVM = CommentAVM(comments, source: .campaign(model))
+		}
+		else {
+			topCommentsVM = nil
+		}
+
+		if let documents = model.documents {
+			documentsVM = DocumentAVM(documents)
+		}
+		else {
+			documentsVM = nil
+		}
+
+		if let faq = model.faq {
+			faqVM = FaqAVM(faq)
+		}
+		else {
+			faqVM = nil
 		}
 	}
 
@@ -92,21 +118,17 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	private(set) var rewardsVM:RewardAVM?
 
-	// MARK: - Properties
+	private(set) var documentsVM:DocumentAVM?
 
-	var documents:[Document] {
-		return model?.documents ?? []
-	}
+	private(set) var faqVM:FaqAVM?
+
+	// MARK: - Properties
 
 	var social:[SocialElement] {
 		return model?.social?.map { key, value in
 			guard let type = SocialNetwork(rawValue: key) else { return nil }
 			return SocialElement(url: value, type: type)
 			}.compactMap { $0 } ?? []
-	}
-
-	var faq:[Faq] {
-		return model?.faq ?? []
 	}
 
 	var about:String? {

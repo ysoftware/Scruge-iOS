@@ -144,9 +144,9 @@ final class CampaignViewController: UIViewController {
 		case .update: return vm.lastUpdateVM != nil
 		case .about: return vm.about != nil
 		case .comments: return (vm.topCommentsVM?.numberOfItems) ?? 0 != 0
-		case .documents: return vm.documents.count != 0
+		case .documents: return (vm.documentsVM?.numberOfItems) ?? 0 != 0
+		case .faq: return (vm.documentsVM?.numberOfItems) ?? 0 != 0
 		case .rewards: return (vm.rewardsVM?.numberOfItems ?? 0) != 0
-		default: return false
 		}
 	}
 
@@ -272,17 +272,15 @@ extension CampaignViewController: UITableViewDataSource {
 			case .update:
 				if let vm = vm.lastUpdateVM { header?.setup(with: vm) }
 			case .comments:
-				if let vm = vm.topCommentsVM { header?.setup(with: vm, for: self.vm) }
+				if let vm = vm.topCommentsVM, vm.numberOfItems > 0 { header?.setup(with: vm, for: self.vm) }
 			case .rewards:
-				if let vm = vm.rewardsVM { header?.setup(with: vm) }
+				if let vm = vm.rewardsVM, vm.numberOfItems > 0 { header?.setup(with: vm) }
 			case .about:
 				if vm.about != nil { header?.setup(as: "About the team") }
 			case .faq:
-				let count = vm.faq.count
-				if count > 0 { header?.setup(as: "Frequently asked questions", "\(count)") }
+				if let vm = vm.faqVM, vm.numberOfItems > 0  { header?.setup(with: vm) }
 			case .documents:
-				let count = vm.documents.count
-				if count > 0 { header?.setup(as: "Documents", "\(count)") }
+				if let vm = vm.documentsVM, vm.numberOfItems > 0 { header?.setup(with: vm) }
 			default: header = nil
 			}
 		}

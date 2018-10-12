@@ -37,9 +37,15 @@
 		71A0C1AE216F9B9200C2ACF3 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1AD216F9B9200C2ACF3 /* Social.swift */; };
 		71A0C1B1216FA6A300C2ACF3 /* SocialCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1B0216FA6A300C2ACF3 /* SocialCell.swift */; };
 		71A0C1B3216FA6CD00C2ACF3 /* SocialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A0C1B2216FA6CD00C2ACF3 /* SocialCell.xib */; };
+		71A0C1B6217089A700C2ACF3 /* FaqVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1B5217089A700C2ACF3 /* FaqVM.swift */; };
+		71A0C1B821708A2B00C2ACF3 /* FaqAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1B721708A2B00C2ACF3 /* FaqAVM.swift */; };
+		71A0C1BA21708AD000C2ACF3 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1B921708AD000C2ACF3 /* Category.swift */; };
+		71A0C1BC21708AEC00C2ACF3 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1BB21708AEC00C2ACF3 /* Document.swift */; };
 		71AB79012164D2650077D904 /* CommentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB79002164D2650077D904 /* CommentsVC.swift */; };
 		71AB79032165FC260077D904 /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB79022165FC260077D904 /* ProfileVC.swift */; };
 		71AB7906216609420077D904 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB7905216609420077D904 /* ProfileVM.swift */; };
+		71AD0E2721708BD000077446 /* DocumentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0E2621708B2400077446 /* DocumentVM.swift */; };
+		71AD0E2821708BD000077446 /* DocumentAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0E2521708B2400077446 /* DocumentAVM.swift */; };
 		71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF2215A9DF700929CC3 /* Codable.swift */; };
 		71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF4215A9E1000929CC3 /* JSONAny.swift */; };
 		71B38CF9215AA16400929CC3 /* CampaignApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF8215AA10900929CC3 /* CampaignApiM.swift */; };
@@ -97,7 +103,7 @@
 		71BE95B221635835001CF853 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95B121635835001CF853 /* Error.swift */; };
 		71BE95B421635A30001CF853 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95B321635A2F001CF853 /* ViewState.swift */; };
 		71BE95B821636245001CF853 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95B721636245001CF853 /* ErrorView.xib */; };
-		71BE95BB2163744E001CF853 /* Other.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BA2163744E001CF853 /* Other.swift */; };
+		71BE95BB2163744E001CF853 /* Faq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BA2163744E001CF853 /* Faq.swift */; };
 		71BE95BD2163768A001CF853 /* CategoryVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BC2163768A001CF853 /* CategoryVM.swift */; };
 		71BE95BF216376A9001CF853 /* CategoryAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BE216376A9001CF853 /* CategoryAVM.swift */; };
 		71BE95C1216376F1001CF853 /* CategoryApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95C0216376F1001CF853 /* CategoryApiM.swift */; };
@@ -177,9 +183,15 @@
 		71A0C1AD216F9B9200C2ACF3 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
 		71A0C1B0216FA6A300C2ACF3 /* SocialCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialCell.swift; sourceTree = "<group>"; };
 		71A0C1B2216FA6CD00C2ACF3 /* SocialCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SocialCell.xib; sourceTree = "<group>"; };
+		71A0C1B5217089A700C2ACF3 /* FaqVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqVM.swift; sourceTree = "<group>"; };
+		71A0C1B721708A2B00C2ACF3 /* FaqAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqAVM.swift; sourceTree = "<group>"; };
+		71A0C1B921708AD000C2ACF3 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		71A0C1BB21708AEC00C2ACF3 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		71AB79002164D2650077D904 /* CommentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsVC.swift; sourceTree = "<group>"; };
 		71AB79022165FC260077D904 /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		71AB7905216609420077D904 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
+		71AD0E2521708B2400077446 /* DocumentAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentAVM.swift; sourceTree = "<group>"; };
+		71AD0E2621708B2400077446 /* DocumentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVM.swift; sourceTree = "<group>"; };
 		71B38CF2215A9DF700929CC3 /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		71B38CF4215A9E1000929CC3 /* JSONAny.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAny.swift; sourceTree = "<group>"; };
 		71B38CF8215AA10900929CC3 /* CampaignApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignApiM.swift; sourceTree = "<group>"; };
@@ -238,7 +250,7 @@
 		71BE95B121635835001CF853 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		71BE95B321635A2F001CF853 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		71BE95B721636245001CF853 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
-		71BE95BA2163744E001CF853 /* Other.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Other.swift; sourceTree = "<group>"; };
+		71BE95BA2163744E001CF853 /* Faq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faq.swift; sourceTree = "<group>"; };
 		71BE95BC2163768A001CF853 /* CategoryVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVM.swift; sourceTree = "<group>"; };
 		71BE95BE216376A9001CF853 /* CategoryAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryAVM.swift; sourceTree = "<group>"; };
 		71BE95C0216376F1001CF853 /* CategoryApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryApiM.swift; sourceTree = "<group>"; };
@@ -463,6 +475,8 @@
 				71B38CFE215ABE2700929CC3 /* Update */,
 				71B38D1E215BBE1E00929CC3 /* Reward */,
 				71B38D09215B879100929CC3 /* Comments */,
+				71A0C1B42170899C00C2ACF3 /* Faq */,
+				71AD0E2421708B1E00077446 /* Document */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -587,12 +601,30 @@
 			path = Social;
 			sourceTree = "<group>";
 		};
+		71A0C1B42170899C00C2ACF3 /* Faq */ = {
+			isa = PBXGroup;
+			children = (
+				71A0C1B5217089A700C2ACF3 /* FaqVM.swift */,
+				71A0C1B721708A2B00C2ACF3 /* FaqAVM.swift */,
+			);
+			path = Faq;
+			sourceTree = "<group>";
+		};
 		71AB7904216609330077D904 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
 				71AB7905216609420077D904 /* ProfileVM.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		71AD0E2421708B1E00077446 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				71AD0E2621708B2400077446 /* DocumentVM.swift */,
+				71AD0E2521708B2400077446 /* DocumentAVM.swift */,
+			);
+			path = Document;
 			sourceTree = "<group>";
 		};
 		71B38CF6215A9E1400929CC3 /* Serialization */ = {
@@ -650,14 +682,16 @@
 		71B38D17215B9AD000929CC3 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				71A0C1B921708AD000C2ACF3 /* Category.swift */,
 				71C8E8EB2159101B0078BD36 /* Campaign.swift */,
 				71B38D13215B999400929CC3 /* Milestone.swift */,
 				71B38CFA215ABDE400929CC3 /* Update.swift */,
 				71B38D1C215BBBAA00929CC3 /* Reward.swift */,
 				71B38D05215B871E00929CC3 /* Comment.swift */,
 				71BE9569215E3A7B001CF853 /* Profile.swift */,
-				71BE95BA2163744E001CF853 /* Other.swift */,
 				71A0C1AD216F9B9200C2ACF3 /* Social.swift */,
+				71BE95BA2163744E001CF853 /* Faq.swift */,
+				71A0C1BB21708AEC00C2ACF3 /* Document.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1118,6 +1152,7 @@
 				71B38CF9215AA16400929CC3 /* CampaignApiM.swift in Sources */,
 				71B38D08215B875900929CC3 /* CommentApiM.swift in Sources */,
 				71AB79032165FC260077D904 /* ProfileVC.swift in Sources */,
+				71A0C1B821708A2B00C2ACF3 /* FaqAVM.swift in Sources */,
 				71BE95B421635A30001CF853 /* ViewState.swift in Sources */,
 				71B38D19215B9B0300929CC3 /* MilestoneAVM.swift in Sources */,
 				71B38D06215B871E00929CC3 /* Comment.swift in Sources */,
@@ -1126,6 +1161,7 @@
 				71B38D14215B999400929CC3 /* Milestone.swift in Sources */,
 				71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */,
 				71AB7906216609420077D904 /* ProfileVM.swift in Sources */,
+				71A0C1BC21708AEC00C2ACF3 /* Document.swift in Sources */,
 				716AE1CC215977470098882F /* CampaignAVM.swift in Sources */,
 				71BE9565215E2A22001CF853 /* TokenManager.swift in Sources */,
 				71AB79012164D2650077D904 /* CommentsVC.swift in Sources */,
@@ -1140,6 +1176,7 @@
 				71971C832158E056004D28E7 /* AuthVC.swift in Sources */,
 				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,
 				71BE95C1216376F1001CF853 /* CategoryApiM.swift in Sources */,
+				71AD0E2821708BD000077446 /* DocumentAVM.swift in Sources */,
 				71BE9567215E2AD2001CF853 /* Service.swift in Sources */,
 				71BE95B0216352F2001CF853 /* TableHeaderTap.swift in Sources */,
 				71BE959E216258DE001CF853 /* UpdateCell.swift in Sources */,
@@ -1148,6 +1185,7 @@
 				71B38CFD215ABDF000929CC3 /* UpdateApiM.swift in Sources */,
 				71BE95BD2163768A001CF853 /* CategoryVM.swift in Sources */,
 				71B38D02215ABE6E00929CC3 /* UpdateAVM.swift in Sources */,
+				71AD0E2721708BD000077446 /* DocumentVM.swift in Sources */,
 				71B38D04215AC1E800929CC3 /* Alert.swift in Sources */,
 				71BE9574215E7835001CF853 /* CampaignCell.swift in Sources */,
 				71BE9576215E7C8A001CF853 /* ConstraintMultiplier.swift in Sources */,
@@ -1162,6 +1200,7 @@
 				71A0C1AE216F9B9200C2ACF3 /* Social.swift in Sources */,
 				71BE95CB21649C67001CF853 /* DateMilliseconds.swift in Sources */,
 				71BE95AA2162603C001CF853 /* RewardCell.swift in Sources */,
+				71A0C1BA21708AD000C2ACF3 /* Category.swift in Sources */,
 				71BE9583215F7945001CF853 /* Mock.swift in Sources */,
 				71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */,
 				71387A99216CA73D00B24C67 /* TagCell.swift in Sources */,
@@ -1184,7 +1223,7 @@
 				71163A40216642F400C5B633 /* EmailValidation.swift in Sources */,
 				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,
 				71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */,
-				71BE95BB2163744E001CF853 /* Other.swift in Sources */,
+				71BE95BB2163744E001CF853 /* Faq.swift in Sources */,
 				71BE95A521625E64001CF853 /* CommentCell.swift in Sources */,
 				71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */,
 				71BE95BF216376A9001CF853 /* CategoryAVM.swift in Sources */,
@@ -1194,6 +1233,7 @@
 				71B38D16215B9A9B00929CC3 /* MilestoneApiM.swift in Sources */,
 				71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */,
 				71B38D22215BBEC400929CC3 /* RewardAVM.swift in Sources */,
+				71A0C1B6217089A700C2ACF3 /* FaqVM.swift in Sources */,
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,
 				71C8E8E821590F2A0078BD36 /* Blockchain.swift in Sources */,
 				71BE1046215A2020004753EC /* Network.swift in Sources */,
