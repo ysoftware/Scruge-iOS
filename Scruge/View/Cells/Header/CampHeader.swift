@@ -30,7 +30,7 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 	@discardableResult
 	func setup(with vm:CommentAVM, for campaignVM:CampaignVM) -> Self {
 		titleLabel.text = "Comments"
-		rightLabel.text = campaignVM.totalCommentsCount
+		rightLabel.text = "\(campaignVM.commentsCount)"
 		return self
 	}
 

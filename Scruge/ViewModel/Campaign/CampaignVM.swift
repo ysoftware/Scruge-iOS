@@ -124,6 +124,10 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	// MARK: - Properties
 
+	var commentsCount:Int {
+		return model?.totalCommentsCount ?? 0
+	}
+
 	var social:[SocialElement] {
 		return model?.social?.map { key, value in
 			guard let type = SocialNetwork(rawValue: key) else { return nil }
@@ -151,10 +155,6 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	var videoUrl:URL? {
 		guard let model = model else { return nil }
 		return URL(string: model.videoUrl)
-	}
-
-	var totalCommentsCount:String {
-		return "\(model?.totalCommentsCount ?? 0)"
 	}
 
 	enum Status {

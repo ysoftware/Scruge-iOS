@@ -81,6 +81,8 @@ final class CampaignViewController: UIViewController {
 
 	var vm:CampaignVM!
 	private var isShowingContributeButton = true
+
+	private let MAX_ELEMENTS = 3
 	private let ANIMATION_TIME = 0.25
 
 	// MARK: - Setup
@@ -139,6 +141,21 @@ final class CampaignViewController: UIViewController {
 
 	private func block(for section:Int) -> Block {
 		return Block(rawValue: section)!
+	}
+
+	private func shouldDisplayFooter(_ block:Block) -> Bool {
+		guard shouldDisplay(block) else { return false }
+
+		switch block {
+		case .documents:
+			return vm.documentsVM?.numberOfItems ?? 0 > MAX_ELEMENTS
+		case .faq:
+			return vm.faqVM?.numberOfItems ?? 0 > MAX_ELEMENTS
+		case .comments:
+			return vm.commentsCount > MAX_ELEMENTS
+		case .info, .milestone, .update: return true
+		case .rewards, .about: return false
+		}
 	}
 
 	private func shouldDisplay(_ block:Block) -> Bool {
@@ -213,13 +230,13 @@ extension CampaignViewController: UITableViewDataSource {
 		case .info, .about, .milestone, .update:
 			return (shouldDisplay(b) ? 1 : 0)
 		case .comments:
-			return min(3, vm.topCommentsVM?.numberOfItems ?? 0)
+			return min(MAX_ELEMENTS, vm.topCommentsVM?.numberOfItems ?? 0)
 		case .rewards:
 			return vm.rewardsVM?.numberOfItems ?? 0
 		case .faq:
-			return min(3, vm.faqVM?.numberOfItems ?? 0)
+			return min(MAX_ELEMENTS, vm.faqVM?.numberOfItems ?? 0)
 		case .documents:
-			return min(3, vm.documentsVM?.numberOfItems ?? 0)
+			return min(MAX_ELEMENTS, vm.documentsVM?.numberOfItems ?? 0)
 		}
 	}
 
@@ -307,14 +324,20 @@ extension CampaignViewController: UITableViewDataSource {
 			withIdentifier: R.reuseIdentifier.campaignFooter.identifier) as? CampaignFooter
 		var title:String = ""
 		let b = block(for: section)
-		if shouldDisplay(b) {
+		if shouldDisplayFooter(b) {
 			switch b {
-			case .info: title = "See the pitch →"
-			case .milestone: title = "See all milestones →"
-			case .update: title = "See all updates →"
-			case .comments: title = "See all comments →"
-			case .documents: title = "See all documents →"
-			case .faq: title = "See all answers →"
+			case .info:
+				title = "See the pitch →"
+			case .milestone:
+				title = "See all milestones →"
+			case .update:
+				title = "See all updates →"
+			case .comments:
+				title = "See all comments →"
+			case .documents:
+				title = "See all documents →"
+			case .faq:
+				title = "See all answers →"
 			default: footer = nil
 			}
 		}
@@ -336,7 +359,7 @@ extension CampaignViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
 		let b = block(for: section)
-		if shouldDisplay(b) {
+		if shouldDisplayFooter(b) {
 			switch b {
 			case .info, .milestone, .update, .comments, .documents, .faq: return 55
 			case .rewards, .about: break
