@@ -372,7 +372,11 @@ extension CampaignViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 
-		switch (indexPath.row, indexPath.section) {
+		let b = block(for: indexPath.section)
+		switch b {
+		case .documents:
+			guard let url = vm.documentsVM?.item(at: indexPath.row).documentUrl else { return }
+			Presenter.presentSafariViewController(in: self, url: url)
 		default: break
 		}
 		return

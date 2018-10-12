@@ -284,7 +284,7 @@ struct Mock: Networking {
 				"documents": [
 					{
 						"name":"Whitepaper",
-						"documentUrl":"http://whitepaper.com/1"
+						"documentUrl":"https://paragoncoin.com/whitepaper.pdf"
 					}
 				],
 
