@@ -103,7 +103,18 @@ struct Presenter {
 
 	static func presentDocumentsViewController(in vc:UIViewController,
 											   with vm:CampaignVM) {
-		
+		guard let vm = vm.documentsVM else { return }
+		let new = R.storyboard.details.documentsVC()!
+		new.vm = vm
+		vc.show(new, sender: new)
+	}
+
+	static func presentFaqViewController(in vc:UIViewController,
+											   with vm:CampaignVM) {
+		guard let vm = vm.faqVM else { return }
+		let new = R.storyboard.details.faqVC()!
+		new.vm = vm
+		vc.show(new, sender: new)
 	}
 }
 

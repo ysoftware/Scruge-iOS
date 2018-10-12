@@ -51,10 +51,6 @@ final class CampaignViewController: UIViewController {
 	func headerTap(_ tap:UITapGestureRecognizer) {
 		let b = block(for: tap.view!.tag)
 		switch b {
-		case .update:
-			break
-		case .documents:
-			Presenter.presentDocumentsViewController(in: self, with: vm)
 		default: break
 		}
 	}
@@ -73,6 +69,8 @@ final class CampaignViewController: UIViewController {
 			Presenter.presentCommentsViewController(in: self, for: vm)
 		case .documents:
 			Presenter.presentDocumentsViewController(in: self, with: vm)
+		case .faq:
+			Presenter.presentFaqViewController(in: self, with: vm)
 		default: break
 		}
 	}
