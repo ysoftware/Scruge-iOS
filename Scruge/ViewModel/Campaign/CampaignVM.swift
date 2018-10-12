@@ -101,7 +101,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	var social:[SocialElement] {
 		return model?.social?.map { key, value in
 			guard let type = SocialNetwork(rawValue: key) else { return nil }
-			return SocialElement(name: value, type: type)
+			return SocialElement(url: value, type: type)
 			}.compactMap { $0 } ?? []
 	}
 

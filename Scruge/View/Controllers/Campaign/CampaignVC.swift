@@ -30,16 +30,18 @@ final class CampaignViewController: UIViewController {
 	// MARK: - Actions
 
 	private func openSocialPage(_ element:SocialElement) {
-
+		guard let url = URL(string: element.url) else { return }
+		Presenter.presentSafariViewController(in: self, url: url)
 	}
 
 	@IBAction func contribute(_ sender: Any) {
 		switch vm.status {
 		case .contribute:
-			tableView.scrollToRow(at: IndexPath(row: 0, section: Block.rewards.rawValue),
-								  at: .top, animated: true)
-			DispatchQueue.main.asyncAfter(deadline: .now() + ANIMATION_TIME) {
-				self.tableView.reloadData()
+			if shouldDisplay(.rewards) {
+				scrollToRewards()
+			}
+			else {
+				Presenter.presentContributeViewController(in: self, with: vm)
 			}
 		default: break
 		}
@@ -47,19 +49,30 @@ final class CampaignViewController: UIViewController {
 
 	@objc
 	func headerTap(_ tap:UITapGestureRecognizer) {
+		let b = block(for: tap.view!.tag)
+		switch b {
+		case .update:
+			break
+		case .documents:
+			Presenter.presentDocumentsViewController(in: self, with: vm)
+		default: break
+		}
 	}
 
 	@objc
 	func footerTap(_ tap:UITapGestureRecognizer) {
-		switch tap.view!.tag {
-		case 0:
+		let b = block(for: tap.view!.tag)
+		switch b {
+		case .info:
 			Presenter.presentCampaignHTMLViewController(in: self, for: vm)
-		case 1:
+		case .milestone:
 			Presenter.presentMilestonesViewController(in: self, for: vm)
-		case 2:
+		case .update:
 			Presenter.presentUpdatesViewController(in: self, for: vm)
-		case 3:
+		case .comments:
 			Presenter.presentCommentsViewController(in: self, for: vm)
+		case .documents:
+			Presenter.presentDocumentsViewController(in: self, with: vm)
 		default: break
 		}
 	}
@@ -173,6 +186,14 @@ final class CampaignViewController: UIViewController {
 		UIView.animate(withDuration: ANIMATION_TIME, delay: 0, options: .curveEaseInOut, animations: {
 			self.view.layoutSubviews()
 		})
+	}
+
+	private func scrollToRewards() {
+		tableView.scrollToRow(at: IndexPath(row: 0, section: Block.rewards.rawValue),
+							  at: .top, animated: true)
+		DispatchQueue.main.asyncAfter(deadline: .now() + ANIMATION_TIME) {
+			self.tableView.reloadData()
+		}
 	}
 }
 

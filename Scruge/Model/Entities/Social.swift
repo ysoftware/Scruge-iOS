@@ -25,7 +25,7 @@ enum SocialNetwork:String {
 
 struct SocialElement {
 
-	let name:String
+	let url:String
 
 	let type:SocialNetwork
 }

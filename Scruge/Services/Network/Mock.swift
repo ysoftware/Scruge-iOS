@@ -262,12 +262,12 @@ struct Mock: Networking {
 				"totalCommentsCount": 8,
 
 				"social": {
-					"website":"http://something.ru",
-					"twitter":"awd",
-					"instagram":"http://something.ru",
-					"vk":"awd",
-					"youtube":"http://something.ru",
-					"facebook":"awd"
+					"website":"a",
+					"twitter":"https://twitter.com",
+					"instagram":"https://something.ru",
+					"vk":"https://vk.com",
+					"youtube":"https://something.ru",
+					"facebook":"https://facebook.com"
 				},
 
 				"documents": [

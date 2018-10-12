@@ -7,6 +7,7 @@
 //
  
 import UIKit
+import SafariServices
 
 struct Presenter {
 
@@ -86,6 +87,23 @@ struct Presenter {
 	static func presentSettingsViewController(in vc:UIViewController) {
 		let new = R.storyboard.main.settingsVC()!
 		vc.show(new, sender: new)
+	}
+
+	static func presentSafariViewController(in vc:UIViewController, url:URL) {
+		guard UIApplication.shared.canOpenURL(url) else { return }
+		let new = SFSafariViewController(url: url)
+		vc.present(new, animated: true)
+	}
+
+	static func presentContributeViewController(in vc:UIViewController,
+												with vm:CampaignVM,
+												for reward:Reward? = nil) {
+		
+	}
+
+	static func presentDocumentsViewController(in vc:UIViewController,
+											   with vm:CampaignVM) {
+		
 	}
 }
 
