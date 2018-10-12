@@ -243,24 +243,27 @@ extension CampaignViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		var header = tableView.dequeueReusableHeaderFooterView(
 			withIdentifier: R.reuseIdentifier.campaignHeader.identifier) as? CampaignHeader
-		switch block(for: section) {
-		case .milestone:
-			if let vm = vm.currentMilestoneVM { header?.setup(with: vm) }
-		case .update:
-			if let vm = vm.lastUpdateVM { header?.setup(with: vm) }
-		case .comments:
-			if let vm = vm.topCommentsVM { header?.setup(with: vm, for: self.vm) }
-		case .rewards:
-			if let vm = vm.rewardsVM { header?.setup(with: vm) }
-		case .about:
-			if vm.about != nil { header?.setup(as: "About the team") }
-		case .faq:
-			let count = vm.faq.count
-			if count > 0 { header?.setup(as: "Frequently asked questions", "\(count)") }
-		case .documents:
-			let count = vm.documents.count
-			if count > 0 { header?.setup(as: "Documents", "\(count)") }
-		default: header = nil
+		let b = block(for: section)
+		if shouldDisplay(b) {
+			switch b {
+			case .milestone:
+				if let vm = vm.currentMilestoneVM { header?.setup(with: vm) }
+			case .update:
+				if let vm = vm.lastUpdateVM { header?.setup(with: vm) }
+			case .comments:
+				if let vm = vm.topCommentsVM { header?.setup(with: vm, for: self.vm) }
+			case .rewards:
+				if let vm = vm.rewardsVM { header?.setup(with: vm) }
+			case .about:
+				if vm.about != nil { header?.setup(as: "About the team") }
+			case .faq:
+				let count = vm.faq.count
+				if count > 0 { header?.setup(as: "Frequently asked questions", "\(count)") }
+			case .documents:
+				let count = vm.documents.count
+				if count > 0 { header?.setup(as: "Documents", "\(count)") }
+			default: header = nil
+			}
 		}
 		return header?.addTap(target: self, action: #selector(headerTap), section: section)
 	}
@@ -269,13 +272,16 @@ extension CampaignViewController: UITableViewDataSource {
 		var footer = tableView.dequeueReusableHeaderFooterView(
 			withIdentifier: R.reuseIdentifier.campaignFooter.identifier) as? CampaignFooter
 		var title:String = ""
-		switch block(for: section) {
-		case .info: title = "See the pitch →"
-		case .milestone: title = "See all milestones →"
-		case .update: title = "See all updates →"
-		case .comments: title = "See all comments →"
-		case .documents: title = "See all documents →"
-		default: footer = nil
+		let b = block(for: section)
+		if shouldDisplay(b) {
+			switch b {
+			case .info: title = "See the pitch →"
+			case .milestone: title = "See all milestones →"
+			case .update: title = "See all updates →"
+			case .comments: title = "See all comments →"
+			case .documents: title = "See all documents →"
+			default: footer = nil
+			}
 		}
 		return footer?
 			.setup(with: title)

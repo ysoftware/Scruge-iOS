@@ -260,45 +260,14 @@ struct Mock: Networking {
 
 				"videoUrl":"https://www.youtube-nocookie.com/embed/m8e-FF8MsqU?playsinline=1&rel=0&controls=0&showinfo=0",
 				"totalCommentsCount": 8,
-				"rewards": [
-					{
-						"id":"0",
-						"amount":2,
-						"title":"Thank you!",
-						"description":"You get a pre recorded video of cast and crew saying thank you for all our funders."
-					},
-					{
-						"id":"1",
-						"amount":10,
-						"title":"+ T shirt",
-						"description":"You get a themed T-shirt",
-						"additionalInfo": "Delivered by regular mailing service"
-					},
-					{
-						"id":"2",
-						"amount":50,
-						"title":"+ DVD Box",
-						"description":"You get a themed T-shirt and a DVD Box Set",
-						"additionalInfo": "Delivered to you by quick mail"
-					},
-					{
-						"id":"3",
-						"amount":100,
-						"title":"+ Signed Poster",
-						"description":"You get a themed T-shirt, a DVD Box Set and a signed poster",
-						"available": 80,
-						"totalAvailable": 100,
-						"additionalInfo": "Delivered to you by quick mail"
-					}
-				],
 
 				"social": {
-				"website":"http://something.ru",
-				"twitter":"awd",
-				"instagram":"http://something.ru",
-				"vk":"awd",
-				"youtube":"http://something.ru",
-				"facebook":"awd"
+					"website":"http://something.ru",
+					"twitter":"awd",
+					"instagram":"http://something.ru",
+					"vk":"awd",
+					"youtube":"http://something.ru",
+					"facebook":"awd"
 				},
 
 				"documents": [
