@@ -34,8 +34,8 @@
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="7Jc-4P-izX" firstAttribute="top" secondItem="uzT-qM-lP1" secondAttribute="top" constant="10" id="2hF-DI-02O"/>
-                    <constraint firstItem="oqk-vb-Uiu" firstAttribute="top" secondItem="7Jc-4P-izX" secondAttribute="bottom" constant="10" id="YbT-BT-b0u"/>
+                    <constraint firstItem="7Jc-4P-izX" firstAttribute="top" secondItem="uzT-qM-lP1" secondAttribute="top" priority="999" constant="10" id="2hF-DI-02O"/>
+                    <constraint firstItem="oqk-vb-Uiu" firstAttribute="top" secondItem="7Jc-4P-izX" secondAttribute="bottom" priority="999" constant="10" id="YbT-BT-b0u"/>
                     <constraint firstAttribute="trailing" secondItem="oqk-vb-Uiu" secondAttribute="trailing" id="bqi-ya-0Df"/>
                     <constraint firstItem="7Jc-4P-izX" firstAttribute="leading" secondItem="uzT-qM-lP1" secondAttribute="leading" constant="10" id="ebc-Hy-i7k"/>
                     <constraint firstItem="oqk-vb-Uiu" firstAttribute="leading" secondItem="uzT-qM-lP1" secondAttribute="leading" id="hGh-m8-SZZ"/>
