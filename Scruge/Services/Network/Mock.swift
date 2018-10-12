@@ -256,7 +256,7 @@ struct Mock: Networking {
 				"softCap":63000000,
 				"hardCap":150000000,
 
-				"about":"Our team is comprised of a couple of smart guys. We are also cool.",
+				"about":"Our team is comprised of a couple of smart guys (girls). We are also cool. \\nMaking movies since mid 90s, we are famous for making cool shit and sometimes really dumb shit. We will not disappoint you this time!",
 
 				"videoUrl":"https://www.youtube-nocookie.com/embed/m8e-FF8MsqU?playsinline=1&rel=0&controls=0&showinfo=0",
 				"totalCommentsCount": 8,

@@ -116,6 +116,10 @@ final class CampaignViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.rewardCell.identifier)
 		tableView.register(UINib(resource: R.nib.aboutCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.aboutCell.identifier)
+		tableView.register(UINib(resource: R.nib.faqCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.faqCell.identifier)
+		tableView.register(UINib(resource: R.nib.documentCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.documentCell.identifier)
 	}
 
 	private func setupBottomButton() {
@@ -209,11 +213,13 @@ extension CampaignViewController: UITableViewDataSource {
 		case .info, .about, .milestone, .update:
 			return (shouldDisplay(b) ? 1 : 0)
 		case .comments:
-			return vm.topCommentsVM?.numberOfItems ?? 0
+			return min(3, vm.topCommentsVM?.numberOfItems ?? 0)
 		case .rewards:
 			return vm.rewardsVM?.numberOfItems ?? 0
-		case .faq, .documents:
-			return 0
+		case .faq:
+			return min(3, vm.faqVM?.numberOfItems ?? 0)
+		case .documents:
+			return min(3, vm.documentsVM?.numberOfItems ?? 0)
 		}
 	}
 
@@ -254,7 +260,16 @@ extension CampaignViewController: UITableViewDataSource {
 				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.rewardCell,
 													 for: indexPath)!.setup(with: vm)
 			}
-		default: break
+		case .faq:
+			if let vm = vm.faqVM?.item(at: indexPath.row) {
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.faqCell,
+													 for: indexPath)!.setup(with: vm)
+			}
+		case .documents:
+			if let vm = vm.documentsVM?.item(at: indexPath.row) {
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.documentCell,
+													 for: indexPath)!.setup(with: vm)
+			}
 		}
 		if cell == nil { cell = UITableViewCell() }
 		cell.selectionStyle = .none
@@ -299,6 +314,7 @@ extension CampaignViewController: UITableViewDataSource {
 			case .update: title = "See all updates →"
 			case .comments: title = "See all comments →"
 			case .documents: title = "See all documents →"
+			case .faq: title = "See all answers →"
 			default: footer = nil
 			}
 		}
@@ -311,8 +327,8 @@ extension CampaignViewController: UITableViewDataSource {
 		let b = block(for: section)
 		if shouldDisplay(b) {
 			switch b {
-			case .milestone, .update, .comments, .documents, .about, .rewards: return 50
-			default: break
+			case .milestone, .update, .comments, .documents, .about, .rewards, .faq: return 50
+			case .info: break
 			}
 		}
 		return .leastNormalMagnitude
@@ -322,8 +338,8 @@ extension CampaignViewController: UITableViewDataSource {
 		let b = block(for: section)
 		if shouldDisplay(b) {
 			switch b {
-			case .info, .milestone, .update, .comments, .documents: return 55
-			default: break
+			case .info, .milestone, .update, .comments, .documents, .faq: return 55
+			case .rewards, .about: break
 			}
 		}
 		return .leastNormalMagnitude

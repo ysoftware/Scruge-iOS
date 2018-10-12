@@ -46,6 +46,10 @@
 		71AB7906216609420077D904 /* ProfileVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AB7905216609420077D904 /* ProfileVM.swift */; };
 		71AD0E2721708BD000077446 /* DocumentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0E2621708B2400077446 /* DocumentVM.swift */; };
 		71AD0E2821708BD000077446 /* DocumentAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0E2521708B2400077446 /* DocumentAVM.swift */; };
+		71AD0E2B21708DD800077446 /* FaqCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71AD0E2A21708DD800077446 /* FaqCell.xib */; };
+		71AD0E2D21708DEB00077446 /* FaqCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0E2C21708DEB00077446 /* FaqCell.swift */; };
+		71AD0E302170919A00077446 /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0E2F2170919A00077446 /* DocumentCell.swift */; };
+		71AD0E32217091BD00077446 /* DocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71AD0E31217091BD00077446 /* DocumentCell.xib */; };
 		71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF2215A9DF700929CC3 /* Codable.swift */; };
 		71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF4215A9E1000929CC3 /* JSONAny.swift */; };
 		71B38CF9215AA16400929CC3 /* CampaignApiM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF8215AA10900929CC3 /* CampaignApiM.swift */; };
@@ -192,6 +196,10 @@
 		71AB7905216609420077D904 /* ProfileVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVM.swift; sourceTree = "<group>"; };
 		71AD0E2521708B2400077446 /* DocumentAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentAVM.swift; sourceTree = "<group>"; };
 		71AD0E2621708B2400077446 /* DocumentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVM.swift; sourceTree = "<group>"; };
+		71AD0E2A21708DD800077446 /* FaqCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FaqCell.xib; sourceTree = "<group>"; };
+		71AD0E2C21708DEB00077446 /* FaqCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FaqCell.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/View/Cells/Faq/FaqCell.swift"; sourceTree = "<absolute>"; };
+		71AD0E2F2170919A00077446 /* DocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
+		71AD0E31217091BD00077446 /* DocumentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentCell.xib; sourceTree = "<group>"; };
 		71B38CF2215A9DF700929CC3 /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		71B38CF4215A9E1000929CC3 /* JSONAny.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAny.swift; sourceTree = "<group>"; };
 		71B38CF8215AA10900929CC3 /* CampaignApiM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignApiM.swift; sourceTree = "<group>"; };
@@ -528,6 +536,8 @@
 		71971CBB2158E454004D28E7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				71AD0E2E2170918900077446 /* Document */,
+				71AD0E2921708DCD00077446 /* Faq */,
 				71BE95A621626023001CF853 /* Reward */,
 				71BE95A121625E4D001CF853 /* Comment */,
 				71BE959C216258D4001CF853 /* Update */,
@@ -623,6 +633,24 @@
 			children = (
 				71AD0E2621708B2400077446 /* DocumentVM.swift */,
 				71AD0E2521708B2400077446 /* DocumentAVM.swift */,
+			);
+			path = Document;
+			sourceTree = "<group>";
+		};
+		71AD0E2921708DCD00077446 /* Faq */ = {
+			isa = PBXGroup;
+			children = (
+				71AD0E2A21708DD800077446 /* FaqCell.xib */,
+				71AD0E2C21708DEB00077446 /* FaqCell.swift */,
+			);
+			path = Faq;
+			sourceTree = "<group>";
+		};
+		71AD0E2E2170918900077446 /* Document */ = {
+			isa = PBXGroup;
+			children = (
+				71AD0E31217091BD00077446 /* DocumentCell.xib */,
+				71AD0E2F2170919A00077446 /* DocumentCell.swift */,
 			);
 			path = Document;
 			sourceTree = "<group>";
@@ -999,6 +1027,7 @@
 				71BE95A821626034001CF853 /* RewardCell.xib in Resources */,
 				71BE95A321625E5B001CF853 /* CommentCell.xib in Resources */,
 				71971C882158E058004D28E7 /* Assets.xcassets in Resources */,
+				71AD0E2B21708DD800077446 /* FaqCell.xib in Resources */,
 				71BE959521623448001CF853 /* CampFooter.xib in Resources */,
 				71163A4C216754C400C5B633 /* LoadingView.xib in Resources */,
 				71387A9B216CA74400B24C67 /* TagCell.xib in Resources */,
@@ -1007,6 +1036,7 @@
 				71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */,
 				71A0C1A9216F93A500C2ACF3 /* AboutCell.xib in Resources */,
 				71BE95932162343F001CF853 /* CampHeader.xib in Resources */,
+				71AD0E32217091BD00077446 /* DocumentCell.xib in Resources */,
 				71163A422166499200C5B633 /* CampaignSmallCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1161,6 +1191,7 @@
 				71B38D14215B999400929CC3 /* Milestone.swift in Sources */,
 				71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */,
 				71AB7906216609420077D904 /* ProfileVM.swift in Sources */,
+				71AD0E302170919A00077446 /* DocumentCell.swift in Sources */,
 				71A0C1BC21708AEC00C2ACF3 /* Document.swift in Sources */,
 				716AE1CC215977470098882F /* CampaignAVM.swift in Sources */,
 				71BE9565215E2A22001CF853 /* TokenManager.swift in Sources */,
@@ -1217,6 +1248,7 @@
 				71BE958C21622C3F001CF853 /* PartialCampVM.swift in Sources */,
 				71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */,
 				71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */,
+				71AD0E2D21708DEB00077446 /* FaqCell.swift in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
 				71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */,
 				71387A90216B6C6C00B24C67 /* CoreGraphicsTools.swift in Sources */,
