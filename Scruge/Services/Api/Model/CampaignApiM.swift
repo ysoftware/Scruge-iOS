@@ -21,7 +21,7 @@ struct CampaignListResponse: Codable {
 
 	let result:Int
 
-	let data:[PartialCampaign]
+	let campaigns:[PartialCampaign]
 }
 
 // MARK: - Request

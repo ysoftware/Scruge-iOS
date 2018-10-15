@@ -14,8 +14,6 @@ struct PartialCampaign: Equatable, Codable, PartialCampaignModel {
 
 	let title:String
 
-	let kind:String
-
 	let description:String
 
 	let imageUrl:String
@@ -36,8 +34,6 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 	let id:String
 
 	let title:String
-
-	let kind:String
 	
 	let description:String
 
@@ -87,8 +83,6 @@ protocol PartialCampaignModel {
 	var id:String { get }
 
 	var title:String { get }
-
-	var kind:String { get }
 
 	var description:String { get }
 

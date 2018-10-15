@@ -15,7 +15,7 @@ struct Network:Networking {
 	private let baseUrl:String
 	var isLoggingEnabled = true
 
-	init(baseUrl:String = "http://35.234.70.252/") {
+	init(baseUrl:String = "http://35.242.235.123/") {
 		self.baseUrl = baseUrl
 	}
 
