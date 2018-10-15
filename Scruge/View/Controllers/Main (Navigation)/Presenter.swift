@@ -5,7 +5,7 @@
 //  Created by ysoftware on 24.09.2018.
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
- 
+
 import UIKit
 import SafariServices
 
@@ -110,9 +110,23 @@ struct Presenter {
 	}
 
 	static func presentFaqViewController(in vc:UIViewController,
-											   with vm:CampaignVM) {
+										 with vm:CampaignVM) {
 		guard let vm = vm.faqVM else { return }
 		let new = R.storyboard.details.faqVC()!
+		new.vm = vm
+		vc.show(new, sender: new)
+	}
+
+	static func presentContributeViewController(in vc:UIViewController,
+												with vm:CampaignVM) {
+		let new = R.storyboard.details.contributeVC()!
+		new.vm = vm
+		vc.show(new, sender: new)
+	}
+
+	static func presentVoteViewController(in vc:UIViewController,
+										  with vm:CampaignVM) {
+		let new = R.storyboard.details.voteVC()!
 		new.vm = vm
 		vc.show(new, sender: new)
 	}
