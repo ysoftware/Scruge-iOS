@@ -55,6 +55,8 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	// MARK: - Full campaign only
 
+	let state:String?
+
 	let publicTokenPercent:Double
 
 	let annualInflationPercent:Double?

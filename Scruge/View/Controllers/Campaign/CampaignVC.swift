@@ -124,9 +124,9 @@ final class CampaignViewController: UIViewController {
 
 	private func setupBottomButton() {
 		switch vm.status {
-		case .none:
+		case .idle:
 			contributeView.isHidden = true
-		case .vote:
+		case .voteMilestone, .voteDeadline:
 			contributeView.isHidden = false
 			contributeView.backgroundColor = Service.constants.color.contributeBlue
 			contributeButton.setTitle("Vote", for: .normal)

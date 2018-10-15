@@ -10,6 +10,17 @@ import MVVM
 
 final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCampaignModelHolder {
 
+	enum Status: String, Codable {
+
+		case contribute = "contributing"
+
+		case voteDeadline = "voteDeadline"
+
+		case voteMilestone = "voteMilestone"
+
+		case idle = "idle"
+	}
+	
 	typealias Model = Campaign
 
 	private let id:String
@@ -140,25 +151,12 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	var status:Status {
-		guard let model = model else { return .none }
-
-		// campaign is not over
-		if model.endTimestamp > Date().milliseconds {
-			return .contribute
-		}
-
-		// TO-DO: add voting too
-
-		return .none
+		guard let state = model?.state, let status = Status(rawValue: state) else { return .idle }
+		return status
 	}
 
 	var videoUrl:URL? {
 		guard let model = model else { return nil }
 		return URL(string: model.videoUrl)
-	}
-
-	enum Status {
-
-		case contribute, vote, none
 	}
 }
