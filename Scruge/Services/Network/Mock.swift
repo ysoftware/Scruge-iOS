@@ -42,7 +42,9 @@ struct Mock: Networking {
 
 		// use real backend requests for working methods
 		if request.contains("profile")
-			|| request.contains("avatar") {
+			|| request.contains("avatar")
+			|| request.contains("campaign/")
+			|| request.contains("campaigns") {
 
 			return realNetwork.get(request, params, completion)
 		}
