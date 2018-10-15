@@ -37,7 +37,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MVVM:
-    :commit: 2ecef9fab6d98580a11922870bf0ab87ea8d30d8
+    :commit: c7b9b8768e7037773813c4614fe3257dcaa6d99a
     :git: "https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git"
 
 SPEC CHECKSUMS:

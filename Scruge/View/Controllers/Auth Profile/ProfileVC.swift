@@ -132,7 +132,10 @@ extension ProfileViewController: ViewModelDelegate {
 
 extension ProfileViewController: ArrayViewModelDelegate {
 
-	func didChangeState(to state: ArrayViewModelState) {
+	func didChangeState<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>,
+								  to state: ArrayViewModelState)
+		where M : Equatable, VM : ViewModel<M>, Q : Query {
+			
 		switch campaignsVM.state {
 		case .error(let error):
 			let message = ErrorHandler.message(for: error)

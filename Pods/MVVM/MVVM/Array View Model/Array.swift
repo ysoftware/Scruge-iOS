@@ -23,7 +23,7 @@ open class ArrayViewModel<M, VM:ViewModel<M>, Q:Query> {
 		didSet {
 			DispatchQueue.main.async {
 				if !self.array.isEmpty {
-					self.delegate?.didChangeState(to: self.state)
+					self.delegate?.didChangeState(self, to: self.state)
 					self.delegate?.didUpdateData(self, .reload)
 				}
 			}
@@ -40,7 +40,7 @@ open class ArrayViewModel<M, VM:ViewModel<M>, Q:Query> {
 	public private(set) var state:ArrayViewModelState = .initial {
 		didSet {
 			DispatchQueue.main.async {
-				self.delegate?.didChangeState(to: self.state)
+				self.delegate?.didChangeState(self, to: self.state)
 			}
 		}
 	}
@@ -129,7 +129,16 @@ open class ArrayViewModel<M, VM:ViewModel<M>, Q:Query> {
 	/// Сбросить все данные.
 	public func clearData() {
 		resetData()
-		manageItems([])
+		setData([])
+	}
+
+	// MARK: - Private methods
+
+	/// Очистить данные и сбросить информацию о загрузке.
+	private func resetData() {
+		state.reset()
+		shouldClearData = true
+		query?.resetPosition()
 	}
 
 	/// Принять новые загруженные элементы в список.
@@ -159,15 +168,6 @@ open class ArrayViewModel<M, VM:ViewModel<M>, Q:Query> {
 		}
 	}
 
-	// MARK: - Private methods
-
-	/// Очистить данные и сбросить информацию о загрузке.
-	private func resetData() {
-		state.reset()
-		shouldClearData = true
-		query?.resetPosition()
-	}
-
 	// MARK: - Operations
 
 	/// Добвить элементы в список. Список будет завершённым (reachedEnd).
@@ -175,8 +175,12 @@ open class ArrayViewModel<M, VM:ViewModel<M>, Q:Query> {
 	/// - Parameter data: новыйые объекты viewModel.
 	public func setData(_ data:[VM]) {
 		DispatchQueue.main.async {
-			self.array.append(contentsOf: data)
+			self.query?.resetPosition()
+			self.shouldClearData = false
+
+			self.array = data
 			data.forEach { $0.arrayDelegate = self }
+
 			self.delegate?.didUpdateData(self, .reload)
 			self.state.setReady(true)
 		}

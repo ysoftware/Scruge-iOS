@@ -160,7 +160,10 @@ extension CommentsViewController: ArrayViewModelDelegate {
 			tableView.reloadData()
 	}
 
-	func didChangeState(to state: ArrayViewModelState) {
+	func didChangeState<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>,
+								  to state: ArrayViewModelState)
+		where M : Equatable, VM : ViewModel<M>, Q : Query {
+			
 		switch state {
 		case .initial, .loading:
 			loadingView.set(state: .loading)

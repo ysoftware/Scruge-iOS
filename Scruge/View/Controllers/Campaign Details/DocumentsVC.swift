@@ -69,8 +69,4 @@ extension DocumentsViewController: ArrayViewModelDelegate {
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
 			tableView.reloadData()
 	}
-
-	func didChangeState(to state: ArrayViewModelState) {
-		// no-op
-	}
 }
