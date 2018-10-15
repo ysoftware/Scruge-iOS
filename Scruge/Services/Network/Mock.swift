@@ -21,14 +21,6 @@ struct Mock: Networking {
 				mimeType:String,
 				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 
-		// use real backend requests for working methods
-		if request.contains("profile")
-			|| request.contains("avatar") {
-
-			return realNetwork.upload(request, params, data: data,
-									  fileName: fileName, mimeType: mimeType, completion)
-		}
-
 		activity.beginAnimating()
 		DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
 			self.activity.endAnimating()
@@ -40,15 +32,6 @@ struct Mock: Networking {
 						_ params: HTTPParameterProtocol?,
 						_ completion: @escaping (Result<T, AnyError>) -> Void) {
 
-		// use real backend requests for working methods
-		if request.contains("profile")
-			|| request.contains("avatar")
-			|| request.contains("campaign/")
-			|| request.contains("campaigns") {
-
-			return realNetwork.get(request, params, completion)
-		}
-
 		activity.beginAnimating()
 		handle(request: request, completion)
 	}
@@ -57,13 +40,6 @@ struct Mock: Networking {
 						 _ params: HTTPParameterProtocol?,
 						 _ completion: @escaping (Result<T, AnyError>) -> Void) {
 
-		// use real backend requests for working methods
-		if request.contains("auth")
-			|| request.contains("profile") {
-
-			return realNetwork.post(request, params, completion)
-		}
-
 		activity.beginAnimating()
 		handle(request: request, completion)
 	}
@@ -71,11 +47,6 @@ struct Mock: Networking {
 	func put<T:Codable>(_ request: String,
 						_ params: HTTPParameterProtocol?,
 						_ completion: @escaping (Result<T, AnyError>) -> Void) {
-
-		// use real backend requests for working methods
-		if request.contains("profile") {
-			return realNetwork.put(request, params, completion)
-		}
 
 		activity.beginAnimating()
 		handle(request: request, completion)
@@ -337,7 +308,7 @@ struct Mock: Networking {
 		return """
 		{
 			"result": 0,
-			"data": [
+			"campaigns": [
 				{
 					"kind":"ico",
 					"id":"1",
