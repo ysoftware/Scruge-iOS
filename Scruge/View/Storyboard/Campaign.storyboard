@@ -140,10 +140,10 @@
             </objects>
             <point key="canvasLocation" x="-722.39999999999998" y="-976.46176911544239"/>
         </scene>
-        <!--CampaignHTML View Controller-->
+        <!--Pitch View Controller-->
         <scene sceneID="yuM-aR-OhE">
             <objects>
-                <viewController storyboardIdentifier="CampaignHTMLVC" id="g0t-lk-yTV" customClass="CampaignHTMLViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PitchVC" id="g0t-lk-yTV" customClass="PitchViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="qa4-gX-0km">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

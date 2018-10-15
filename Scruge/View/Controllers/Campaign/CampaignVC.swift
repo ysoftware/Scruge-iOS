@@ -60,7 +60,7 @@ final class CampaignViewController: UIViewController {
 		let b = block(for: tap.view!.tag)
 		switch b {
 		case .info:
-			Presenter.presentCampaignHTMLViewController(in: self, for: vm)
+			Presenter.presentPitchViewController(in: self, for: vm)
 		case .milestone:
 			Presenter.presentMilestonesViewController(in: self, for: vm)
 		case .update:

@@ -8,7 +8,7 @@
 
 import UIKit
 
-final class CampaignHTMLViewController: UIViewController {
+final class PitchViewController: UIViewController {
 
 	@IBOutlet weak var webView: UIWebView!
 

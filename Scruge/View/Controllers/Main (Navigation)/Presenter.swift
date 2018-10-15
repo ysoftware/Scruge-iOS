@@ -39,9 +39,9 @@ struct Presenter {
 		vc.show(new, sender: new)
 	}
 
-	static func presentCampaignHTMLViewController(in vc:UIViewController,
-												  for campaignVM:CampaignVM) {
-		let new = R.storyboard.campaign.campaignHTMLVC()!
+	static func presentPitchViewController(in vc:UIViewController,
+										   for campaignVM:CampaignVM) {
+		let new = R.storyboard.campaign.pitchVC()!
 		new.vm = campaignVM
 		vc.show(new, sender: new)
 	}
