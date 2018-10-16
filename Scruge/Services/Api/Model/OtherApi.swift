@@ -19,12 +19,12 @@ struct TagsResponse: Codable {
 
 	let result:Int
 
-	let data:[String]
+	let tags:[String]
 }
 
 struct HTMLResponse: Codable {
 
 	let result:Int
 
-	let data:String
+	let content:String
 }
