@@ -55,7 +55,7 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	let publicTokenPercent:Double
 
-	let annualInflationPercent:Double?
+	let annualInflationPercent:Range?
 
 	let about:String?
 
@@ -63,7 +63,7 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	let totalCommentsCount:Int
 
-	let	social:[String:String]?
+	let	social:[Social]?
 
 	let faq:[Faq]?
 

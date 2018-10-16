@@ -12,5 +12,5 @@ struct Document: Equatable, Codable {
 
 	let name:String
 
-	let documentUrl:String
+	let url:String
 }

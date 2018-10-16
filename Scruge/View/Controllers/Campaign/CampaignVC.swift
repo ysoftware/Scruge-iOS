@@ -29,7 +29,7 @@ final class CampaignViewController: UIViewController {
 
 	// MARK: - Actions
 
-	private func openSocialPage(_ element:SocialElement) {
+	private func openSocialPage(_ element:Social) {
 		guard let url = URL(string: element.url) else { return }
 		Presenter.presentSafariViewController(in: self, url: url)
 	}

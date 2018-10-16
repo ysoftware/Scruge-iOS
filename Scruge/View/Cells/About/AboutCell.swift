@@ -15,11 +15,11 @@ final class AboutCell: UITableViewCell {
 	@IBOutlet weak var collectionHeightConstraint: NSLayoutConstraint!
 	@IBOutlet weak var marginConstraint: NSLayoutConstraint!
 	
-	var social:[SocialElement] = []
-	var block:((SocialElement)->Void)?
+	var social:[Social] = []
+	var block:((Social)->Void)?
 
 	@discardableResult
-	func setup(with vm:CampaignVM, _ block: ((SocialElement)->Void)?) -> Self {
+	func setup(with vm:CampaignVM, _ block: ((Social)->Void)?) -> Self {
 		self.block = block
 		social = vm.social
 		aboutLabel.text = vm.about

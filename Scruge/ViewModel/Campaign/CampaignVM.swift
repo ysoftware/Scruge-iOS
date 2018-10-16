@@ -139,11 +139,8 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		return model?.totalCommentsCount ?? 0
 	}
 
-	var social:[SocialElement] {
-		return model?.social?.map { key, value in
-			guard let type = SocialNetwork(rawValue: key) else { return nil }
-			return SocialElement(url: value, type: type)
-			}.compactMap { $0 } ?? []
+	var social:[Social] {
+		return model?.social ?? []
 	}
 
 	var about:String? {

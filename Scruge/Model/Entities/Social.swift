@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SocialNetwork:String {
+enum SocialNetwork:String, Codable {
 
 	case facebook = "facebook"
 
@@ -23,9 +23,9 @@ enum SocialNetwork:String {
 	case youtube = "youtube"
 }
 
-struct SocialElement {
+struct Social:Codable, Equatable {
 
 	let url:String
 
-	let type:SocialNetwork
+	let name:SocialNetwork
 }

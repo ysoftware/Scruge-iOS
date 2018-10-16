@@ -15,7 +15,7 @@ final class DocumentVM: ViewModel<Document> {
 	}
 
 	var documentUrl:URL? {
-		guard let url = model?.documentUrl else { return nil }
+		guard let url = model?.url else { return nil }
 		return URL(string: url)
 	}
 }

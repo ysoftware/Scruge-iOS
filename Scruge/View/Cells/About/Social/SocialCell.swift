@@ -13,16 +13,16 @@ final class SocialCell: UICollectionViewCell {
 	@IBOutlet weak var imageView:UIImageView!
 
 	@discardableResult
-	func setup(with element:SocialElement) -> Self {
+	func setup(with element:Social) -> Self {
 		imageView.image = element.image
 		return self
 	}
 }
 
-extension SocialElement {
+extension Social {
 
 	var image:UIImage {
-		switch type {
+		switch name {
 		case .twitter: return #imageLiteral(resourceName: "twitter")
 		case .facebook: return #imageLiteral(resourceName: "facebook.jpg")
 		case .instagram: return #imageLiteral(resourceName: "instagram.jpg")
