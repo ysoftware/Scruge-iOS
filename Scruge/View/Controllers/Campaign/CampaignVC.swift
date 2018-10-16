@@ -164,7 +164,7 @@ final class CampaignViewController: UIViewController {
 		case .about: return vm.about != nil
 		case .comments: return (vm.topCommentsVM?.numberOfItems) ?? 0 != 0
 		case .documents: return (vm.documentsVM?.numberOfItems) ?? 0 != 0
-		case .faq: return (vm.documentsVM?.numberOfItems) ?? 0 != 0
+		case .faq: return (vm.faqVM?.numberOfItems) ?? 0 != 0
 		case .rewards: return (vm.rewardsVM?.numberOfItems ?? 0) != 0
 		}
 	}
@@ -306,7 +306,7 @@ extension CampaignViewController: UITableViewDataSource {
 			case .rewards:
 				if let vm = vm.rewardsVM, vm.numberOfItems > 0 { header?.setup(with: vm) }
 			case .about:
-				if vm.about != nil { header?.setup(as: "About the team") }
+				header?.setup(as: "About the team")
 			case .faq:
 				if let vm = vm.faqVM, vm.numberOfItems > 0  { header?.setup(with: vm) }
 			case .documents:
