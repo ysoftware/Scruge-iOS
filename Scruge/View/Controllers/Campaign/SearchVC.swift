@@ -21,7 +21,7 @@ final class SearchViewController: UIViewController {
 
 	private let searchController = UISearchController(searchResultsController: nil)
 	private let campaignsVM = CampaignAVM()
-	private let tags = ["tech", "marketplace", "hardware", "eco", "energy", "travel", "mobile", "apps", "sharing economy", "consumers", "social impact"]
+	private let tags = ["social", "gaming", "gambling", "crowdfunding", "exchanges", "sharing services", "social networks", "mining", "p2p marketplaces", "data", "ai"]
 	private var selectedTags:[String] = []
 
 	// MARK: - Setup
