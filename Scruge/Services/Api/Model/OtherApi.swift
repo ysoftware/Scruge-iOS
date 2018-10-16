@@ -1,5 +1,5 @@
 //
-//  CategoryApiM.swift
+//  CategoryApi.swift
 //  Scruge
 //
 //  Created by ysoftware on 02/10/2018.
@@ -20,4 +20,11 @@ struct TagsResponse: Codable {
 	let result:Int
 
 	let data:[String]
+}
+
+struct HTMLResponse: Codable {
+
+	let result:Int
+
+	let data:String
 }

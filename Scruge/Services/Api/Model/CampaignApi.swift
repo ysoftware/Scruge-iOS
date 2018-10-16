@@ -1,5 +1,5 @@
 //
-//  CampaignResp.swift
+//  CampaignApi.swift
 //  Scruge
 //
 //  Created by ysoftware on 24.09.2018.

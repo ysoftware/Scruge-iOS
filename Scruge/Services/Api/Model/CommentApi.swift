@@ -1,5 +1,5 @@
 //
-//  CommentResp.swift
+//  CommentApi.swift
 //  Scruge
 //
 //  Created by ysoftware on 26/09/2018.

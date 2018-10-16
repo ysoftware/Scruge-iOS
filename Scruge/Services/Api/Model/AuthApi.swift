@@ -1,5 +1,5 @@
 //
-//  AuthResp.swift
+//  AuthApi.swift
 //  Scruge
 //
 //  Created by ysoftware on 28/09/2018.
