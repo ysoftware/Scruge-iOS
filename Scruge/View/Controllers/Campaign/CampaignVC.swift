@@ -149,20 +149,17 @@ final class CampaignViewController: UIViewController {
 			return vm.documentsVM?.numberOfItems ?? 0 > MAX_ELEMENTS
 		case .faq:
 			return vm.faqVM?.numberOfItems ?? 0 > MAX_ELEMENTS
-		case .comments:
-			return vm.commentsCount > MAX_ELEMENTS
-		case .info, .milestone, .update: return true
+		case .info, .milestone, .update, .comments: return true
 		case .rewards, .about: return false
 		}
 	}
 
 	private func shouldDisplay(_ block:Block) -> Bool {
 		switch block {
-		case .info: return true
+		case .info, .comments: return true
 		case .milestone: return vm.currentMilestoneVM != nil
 		case .update: return vm.lastUpdateVM != nil
 		case .about: return vm.about != nil
-		case .comments: return (vm.topCommentsVM?.numberOfItems) ?? 0 != 0
 		case .documents: return (vm.documentsVM?.numberOfItems) ?? 0 != 0
 		case .faq: return (vm.faqVM?.numberOfItems) ?? 0 != 0
 		case .rewards: return (vm.rewardsVM?.numberOfItems ?? 0) != 0
@@ -303,6 +300,9 @@ extension CampaignViewController: UITableViewDataSource {
 				if let vm = vm.lastUpdateVM { header?.setup(with: vm) }
 			case .comments:
 				if let vm = vm.topCommentsVM, vm.numberOfItems > 0 { header?.setup(with: vm, for: self.vm) }
+				else {
+					header?.setup(as: "Comments", "0")
+				}
 			case .rewards:
 				if let vm = vm.rewardsVM, vm.numberOfItems > 0 { header?.setup(with: vm) }
 			case .about:
@@ -331,7 +331,12 @@ extension CampaignViewController: UITableViewDataSource {
 			case .update:
 				title = "See all updates →"
 			case .comments:
-				title = "See all comments →"
+				if vm.commentsCount > MAX_ELEMENTS {
+					title = "See all comments →"
+				}
+				else {
+					title = "Add your comment →"
+				}
 			case .documents:
 				title = "See all documents →"
 			case .faq:
