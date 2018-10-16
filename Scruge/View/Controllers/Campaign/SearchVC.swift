@@ -111,7 +111,7 @@ extension SearchViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
 											 for: indexPath)!
-			.setup(with: campaignsVM.item(at: indexPath.row))
+			.setup(with: campaignsVM.item(at: indexPath.row, shouldLoadMore: true))
 	}
 }
 
