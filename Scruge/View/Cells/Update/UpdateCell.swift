@@ -23,9 +23,13 @@ final class UpdateCell: UITableViewCell {
 		dateLabel.text = vm.date
 		dateLabel.isHidden = hideDate
 
-		if let string = vm.imageUrl, let url = URL(string: string) {
+		if let string = vm.imageUrl, let url = URL(string: string), url.isValidImageResource {
 			updateImage.isHidden = false
-			updateImage.kf.setImage(with: url)
+			updateImage.kf.setImage(with: url) { image, _, _, _ in
+				DispatchQueue.main.async {
+					self.updateImage.isHidden = image == nil
+				}
+			}
 		}
 		else {
 			updateImage.isHidden = true

@@ -76,7 +76,7 @@ final class ProfileViewController: UIViewController {
 		profileImage.kf.setImage(with: profileVM.imageUrl,
 								 placeholder: nil,
 								 options: nil,
-								 progressBlock: nil) { (image, _, _, _) in
+								 progressBlock: nil) { image, _, _, _ in
 										self.profileImage.isHidden = image == nil
 		}
 		nameLabel.text = profileVM.name
