@@ -95,11 +95,17 @@ struct Network:Networking {
 			}
 
 			guard let object = T.init(response.data) else {
-				let string = String(data: response.data, encoding: .utf8) ?? ""
-				self.log(response, "Could not parse object.\n\(string)")
-				return completion(.failure(AnyError(BackendError.parsingError)))
+				guard let resultResponse = ResultResponse(response.data) else {
+					let string = String(data: response.data, encoding: .utf8) ?? ""
+					self.log(response, "Could not parse object.\n\(string)")
+					return completion(.failure(AnyError(BackendError.parsingError)))
+				}
+				let code = resultResponse.result
+				self.log(response, "Result: \(code)")
+				let error = ErrorHandler.error(from: resultResponse.result) ?? NetworkingError.unknown(code)
+				return completion(.failure(AnyError(error)))
 			}
-
+			
 			self.log(response, "\(object.toDictionary())")
 			completion(.success(object))
 		}

@@ -37,6 +37,8 @@ enum NetworkingError: Error {
 
 	case connectionProblem
 
+	case notFound
+
 	case unknown(Int)
 }
 
@@ -63,7 +65,8 @@ struct ErrorHandler {
 		else if let networkError = error as? NetworkingError {
 			switch networkError {
 			case .connectionProblem: return "Unable to connect to the server"
-			case .unknown(let code): return "Error code \(code)"
+			case .notFound: return "Resource not found"
+			case .unknown(let code): return "Error: \(code)"
 			}
 		}
 		else if let backendError = error as? BackendError {
@@ -78,10 +81,11 @@ struct ErrorHandler {
 	static func error(from result:Int) -> Error? {
 		switch result {
 		case 0: return nil
+		case 100: return AuthError.authenticationFailed
 		case 101: return AuthError.incorrectEmailLength
 		case 102: return AuthError.invalidEmail
 		case 103: return AuthError.incorrectPasswordLength
-		case 104: return AuthError.authenticationFailed
+		case 104, 404: return AuthError.authenticationFailed
 		case 105: return BackendError.resourceNotFound
 		case 201: return AuthError.accountExists
 		case 301: return AuthError.incorrectCredentials
