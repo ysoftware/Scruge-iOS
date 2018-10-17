@@ -65,7 +65,7 @@ extension FixedWidthInteger {
 /// The `_BigInt` type is fully generic on the size of its "word" -- the
 /// `BigInt` alias uses the system's word-sized `UInt` as its word type, but
 /// any word size should work properly.
-public struct _BigInt<Word: FixedWidthInteger & UnsignedInteger> :
+public struct _BigInt<Word: FixedWidthInteger> :
     BinaryInteger, SignedInteger, CustomStringConvertible,
     CustomDebugStringConvertible
     where Word.Magnitude == Word

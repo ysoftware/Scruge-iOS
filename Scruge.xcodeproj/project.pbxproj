@@ -17,8 +17,6 @@
 		71345AF32176000000F28AF1 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF22176000000F28AF1 /* Range.swift */; };
 		71345AF721760E0100F28AF1 /* ImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF621760E0100F28AF1 /* ImageURL.swift */; };
 		71345AF92177336F00F28AF1 /* StringTruncate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF82177336F00F28AF1 /* StringTruncate.swift */; };
-		71345BEF21773D2400F28AF1 /* curve-specific.inc in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC121773D2400F28AF1 /* curve-specific.inc */; };
-		71345BF021773D2400F28AF1 /* platform-specific.inc in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC321773D2400F28AF1 /* platform-specific.inc */; };
 		71345BF121773D2400F28AF1 /* ripemd160.c in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC621773D2400F28AF1 /* ripemd160.c */; };
 		71345BF221773D2400F28AF1 /* uECC.c in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC721773D2400F28AF1 /* uECC.c */; };
 		71345BF321773D2400F28AF1 /* base58.c in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC821773D2400F28AF1 /* base58.c */; };
@@ -1554,7 +1552,6 @@
 				71BE958921621AF9001CF853 /* PitchVC.swift in Sources */,
 				71A0C1B1216FA6A300C2ACF3 /* SocialCell.swift in Sources */,
 				71C8E8F3215912A10078BD36 /* Settings.swift in Sources */,
-				71345BEF21773D2400F28AF1 /* curve-specific.inc in Sources */,
 				71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */,
 				71BE957C215EA8E2001CF853 /* Tabbar.swift in Sources */,
 				71B38CFB215ABDE400929CC3 /* Update.swift in Sources */,
@@ -1564,7 +1561,6 @@
 				71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */,
 				71345BF821773D2400F28AF1 /* ResourceUtil.swift in Sources */,
 				71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */,
-				71345BF021773D2400F28AF1 /* platform-specific.inc in Sources */,
 				71AD0E2D21708DEB00077446 /* FaqCell.swift in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
 				71345BF721773D2400F28AF1 /* AccountUtil.swift in Sources */,
