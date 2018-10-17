@@ -37,19 +37,21 @@ struct EOS {
 		let transfer = Transfer()
 		transfer.from = "default"
 		transfer.to = "username"
-		transfer.quantity = "1.0 EOS"
+		transfer.quantity = "1.0000 EOS"
 		transfer.memo = "help"
 
 		Currency.transferCurrency(transfer: transfer,
 								  code: "eosio.token",
 								  privateKey: privateKey) { result, error in
-
 									guard self.handleError(error) else {
 										return
 									}
-
-									// we got a result
+									self.handleTransactionResult(result!)
 		}
+	}
+
+	func handleTransactionResult(_ result:TransactionResult) {
+		print("Transaction id: \(result.transactionId)")
 	}
 
 	func handleError(_ error: Error?) -> Bool {
