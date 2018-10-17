@@ -17,6 +17,34 @@
 		71345AF32176000000F28AF1 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF22176000000F28AF1 /* Range.swift */; };
 		71345AF721760E0100F28AF1 /* ImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF621760E0100F28AF1 /* ImageURL.swift */; };
 		71345AF92177336F00F28AF1 /* StringTruncate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF82177336F00F28AF1 /* StringTruncate.swift */; };
+		71345BEF21773D2400F28AF1 /* curve-specific.inc in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC121773D2400F28AF1 /* curve-specific.inc */; };
+		71345BF021773D2400F28AF1 /* platform-specific.inc in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC321773D2400F28AF1 /* platform-specific.inc */; };
+		71345BF121773D2400F28AF1 /* ripemd160.c in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC621773D2400F28AF1 /* ripemd160.c */; };
+		71345BF221773D2400F28AF1 /* uECC.c in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC721773D2400F28AF1 /* uECC.c */; };
+		71345BF321773D2400F28AF1 /* base58.c in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC821773D2400F28AF1 /* base58.c */; };
+		71345BF421773D2400F28AF1 /* Crypto.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BCC21773D2400F28AF1 /* Crypto.swift */; };
+		71345BF521773D2400F28AF1 /* TransactionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BCF21773D2400F28AF1 /* TransactionUtil.swift */; };
+		71345BF621773D2400F28AF1 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BD021773D2400F28AF1 /* Transaction.swift */; };
+		71345BF721773D2400F28AF1 /* AccountUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BD221773D2400F28AF1 /* AccountUtil.swift */; };
+		71345BF821773D2400F28AF1 /* ResourceUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BD421773D2400F28AF1 /* ResourceUtil.swift */; };
+		71345BF921773D2400F28AF1 /* Currency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BD621773D2400F28AF1 /* Currency.swift */; };
+		71345BFA21773D2400F28AF1 /* Signature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BD821773D2400F28AF1 /* Signature.swift */; };
+		71345BFB21773D2400F28AF1 /* ChainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BDB21773D2400F28AF1 /* ChainRouter.swift */; };
+		71345BFC21773D2400F28AF1 /* EOSRPC+Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BDC21773D2400F28AF1 /* EOSRPC+Chain.swift */; };
+		71345BFD21773D2400F28AF1 /* EOSRPC+History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BDE21773D2400F28AF1 /* EOSRPC+History.swift */; };
+		71345BFE21773D2400F28AF1 /* HistoryRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BDF21773D2400F28AF1 /* HistoryRouter.swift */; };
+		71345BFF21773D2400F28AF1 /* EOSRPC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BE121773D2400F28AF1 /* EOSRPC.swift */; };
+		71345C0021773D2400F28AF1 /* BaseRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BE221773D2400F28AF1 /* BaseRouter.swift */; };
+		71345C0121773D2400F28AF1 /* KeyPair.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BE421773D2400F28AF1 /* KeyPair.swift */; };
+		71345C0221773D2400F28AF1 /* PublicKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BE521773D2400F28AF1 /* PublicKey.swift */; };
+		71345C0321773D2400F28AF1 /* PrivateKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BE621773D2400F28AF1 /* PrivateKey.swift */; };
+		71345C0421773D2400F28AF1 /* ChainModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BE821773D2400F28AF1 /* ChainModels.swift */; };
+		71345C0521773D2400F28AF1 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BE921773D2400F28AF1 /* Error.swift */; };
+		71345C0621773D2400F28AF1 /* BigInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BEA21773D2400F28AF1 /* BigInt.swift */; };
+		71345C0821773D2400F28AF1 /* SEWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345BEE21773D2400F28AF1 /* SEWallet.swift */; };
+		71345C0D21773D2800F28AF1 /* AnyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345C0A21773D2800F28AF1 /* AnyDecodable.swift */; };
+		71345C0E21773D2800F28AF1 /* AnyCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345C0B21773D2800F28AF1 /* AnyCodable.swift */; };
+		71345C0F21773D2800F28AF1 /* AnyEncodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345C0C21773D2800F28AF1 /* AnyEncodable.swift */; };
 		71387A8E216B6C2200B24C67 /* ImageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A8D216B6C2200B24C67 /* ImageTools.swift */; };
 		71387A90216B6C6C00B24C67 /* CoreGraphicsTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A8F216B6C6C00B24C67 /* CoreGraphicsTools.swift */; };
 		71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A94216B73B700B24C67 /* ActivityIndicator.swift */; };
@@ -106,7 +134,7 @@
 		71BE95AC21626610001CF853 /* NumberString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95AB21626610001CF853 /* NumberString.swift */; };
 		71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95AD2163520D001CF853 /* ErrorView.swift */; };
 		71BE95B0216352F2001CF853 /* TableHeaderTap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95AF216352F2001CF853 /* TableHeaderTap.swift */; };
-		71BE95B221635835001CF853 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95B121635835001CF853 /* Error.swift */; };
+		71BE95B221635835001CF853 /* ErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95B121635835001CF853 /* ErrorHandler.swift */; };
 		71BE95B421635A30001CF853 /* ViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95B321635A2F001CF853 /* ViewState.swift */; };
 		71BE95B821636245001CF853 /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95B721636245001CF853 /* ErrorView.xib */; };
 		71BE95BB2163744E001CF853 /* Faq.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95BA2163744E001CF853 /* Faq.swift */; };
@@ -165,6 +193,42 @@
 		71345AF22176000000F28AF1 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
 		71345AF621760E0100F28AF1 /* ImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURL.swift; sourceTree = "<group>"; };
 		71345AF82177336F00F28AF1 /* StringTruncate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTruncate.swift; sourceTree = "<group>"; };
+		71345BBC21773D2300F28AF1 /* uECC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uECC.h; sourceTree = "<group>"; };
+		71345BBD21773D2400F28AF1 /* ripemd160.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ripemd160.h; sourceTree = "<group>"; };
+		71345BBE21773D2400F28AF1 /* asm_arm.inc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asm_arm.inc.h; sourceTree = "<group>"; };
+		71345BBF21773D2400F28AF1 /* uECC_vli.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uECC_vli.h; sourceTree = "<group>"; };
+		71345BC021773D2400F28AF1 /* libbase58.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = libbase58.h; sourceTree = "<group>"; };
+		71345BC121773D2400F28AF1 /* curve-specific.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = "curve-specific.inc"; sourceTree = "<group>"; };
+		71345BC221773D2400F28AF1 /* types.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = types.h; sourceTree = "<group>"; };
+		71345BC321773D2400F28AF1 /* platform-specific.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = "platform-specific.inc"; sourceTree = "<group>"; };
+		71345BC421773D2400F28AF1 /* Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Bridging-Header.h"; sourceTree = "<group>"; };
+		71345BC621773D2400F28AF1 /* ripemd160.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ripemd160.c; sourceTree = "<group>"; };
+		71345BC721773D2400F28AF1 /* uECC.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = uECC.c; sourceTree = "<group>"; };
+		71345BC821773D2400F28AF1 /* base58.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base58.c; sourceTree = "<group>"; };
+		71345BCC21773D2400F28AF1 /* Crypto.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Crypto.swift; sourceTree = "<group>"; };
+		71345BCF21773D2400F28AF1 /* TransactionUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransactionUtil.swift; sourceTree = "<group>"; };
+		71345BD021773D2400F28AF1 /* Transaction.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		71345BD221773D2400F28AF1 /* AccountUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountUtil.swift; sourceTree = "<group>"; };
+		71345BD421773D2400F28AF1 /* ResourceUtil.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResourceUtil.swift; sourceTree = "<group>"; };
+		71345BD621773D2400F28AF1 /* Currency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Currency.swift; sourceTree = "<group>"; };
+		71345BD821773D2400F28AF1 /* Signature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Signature.swift; sourceTree = "<group>"; };
+		71345BDB21773D2400F28AF1 /* ChainRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainRouter.swift; sourceTree = "<group>"; };
+		71345BDC21773D2400F28AF1 /* EOSRPC+Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EOSRPC+Chain.swift"; sourceTree = "<group>"; };
+		71345BDE21773D2400F28AF1 /* EOSRPC+History.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "EOSRPC+History.swift"; sourceTree = "<group>"; };
+		71345BDF21773D2400F28AF1 /* HistoryRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryRouter.swift; sourceTree = "<group>"; };
+		71345BE121773D2400F28AF1 /* EOSRPC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOSRPC.swift; sourceTree = "<group>"; };
+		71345BE221773D2400F28AF1 /* BaseRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseRouter.swift; sourceTree = "<group>"; };
+		71345BE421773D2400F28AF1 /* KeyPair.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyPair.swift; sourceTree = "<group>"; };
+		71345BE521773D2400F28AF1 /* PublicKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PublicKey.swift; sourceTree = "<group>"; };
+		71345BE621773D2400F28AF1 /* PrivateKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrivateKey.swift; sourceTree = "<group>"; };
+		71345BE821773D2400F28AF1 /* ChainModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChainModels.swift; sourceTree = "<group>"; };
+		71345BE921773D2400F28AF1 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		71345BEA21773D2400F28AF1 /* BigInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigInt.swift; sourceTree = "<group>"; };
+		71345BEB21773D2400F28AF1 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		71345BEE21773D2400F28AF1 /* SEWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEWallet.swift; sourceTree = "<group>"; };
+		71345C0A21773D2800F28AF1 /* AnyDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyDecodable.swift; sourceTree = "<group>"; };
+		71345C0B21773D2800F28AF1 /* AnyCodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyCodable.swift; sourceTree = "<group>"; };
+		71345C0C21773D2800F28AF1 /* AnyEncodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyEncodable.swift; sourceTree = "<group>"; };
 		71387A8D216B6C2200B24C67 /* ImageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTools.swift; sourceTree = "<group>"; };
 		71387A8F216B6C6C00B24C67 /* CoreGraphicsTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreGraphicsTools.swift; sourceTree = "<group>"; };
 		71387A94216B73B700B24C67 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -261,7 +325,7 @@
 		71BE95AB21626610001CF853 /* NumberString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberString.swift; sourceTree = "<group>"; };
 		71BE95AD2163520D001CF853 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		71BE95AF216352F2001CF853 /* TableHeaderTap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableHeaderTap.swift; sourceTree = "<group>"; };
-		71BE95B121635835001CF853 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		71BE95B121635835001CF853 /* ErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorHandler.swift; sourceTree = "<group>"; };
 		71BE95B321635A2F001CF853 /* ViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewState.swift; sourceTree = "<group>"; };
 		71BE95B721636245001CF853 /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		71BE95BA2163744E001CF853 /* Faq.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Faq.swift; sourceTree = "<group>"; };
@@ -352,6 +416,225 @@
 				71163A49216754BC00C5B633 /* LoadingView.swift */,
 			);
 			path = "Loading View";
+			sourceTree = "<group>";
+		};
+		71345BA221773CEC00F28AF1 /* Third-Party */ = {
+			isa = PBXGroup;
+			children = (
+				71345C0921773D2800F28AF1 /* AnyCodable */,
+				71345BB921773D2300F28AF1 /* SwiftyEOS */,
+			);
+			path = "Third-Party";
+			sourceTree = "<group>";
+		};
+		71345BB921773D2300F28AF1 /* SwiftyEOS */ = {
+			isa = PBXGroup;
+			children = (
+				71345BBA21773D2300F28AF1 /* Libraries */,
+				71345BC921773D2400F28AF1 /* Sources */,
+			);
+			path = SwiftyEOS;
+			sourceTree = "<group>";
+		};
+		71345BBA21773D2300F28AF1 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				71345BBB21773D2300F28AF1 /* include */,
+				71345BC521773D2400F28AF1 /* src */,
+			);
+			path = Libraries;
+			sourceTree = "<group>";
+		};
+		71345BBB21773D2300F28AF1 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				71345BBC21773D2300F28AF1 /* uECC.h */,
+				71345BBD21773D2400F28AF1 /* ripemd160.h */,
+				71345BBE21773D2400F28AF1 /* asm_arm.inc.h */,
+				71345BBF21773D2400F28AF1 /* uECC_vli.h */,
+				71345BC021773D2400F28AF1 /* libbase58.h */,
+				71345BC121773D2400F28AF1 /* curve-specific.inc */,
+				71345BC221773D2400F28AF1 /* types.h */,
+				71345BC321773D2400F28AF1 /* platform-specific.inc */,
+				71345BC421773D2400F28AF1 /* Bridging-Header.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		71345BC521773D2400F28AF1 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				71345BC621773D2400F28AF1 /* ripemd160.c */,
+				71345BC721773D2400F28AF1 /* uECC.c */,
+				71345BC821773D2400F28AF1 /* base58.c */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		71345BC921773D2400F28AF1 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				71345BCA21773D2400F28AF1 /* SwiftyEOS */,
+				71345BEC21773D2400F28AF1 /* Utils */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		71345BCA21773D2400F28AF1 /* SwiftyEOS */ = {
+			isa = PBXGroup;
+			children = (
+				71345BCB21773D2400F28AF1 /* Crypto */,
+				71345BCD21773D2400F28AF1 /* Contract */,
+				71345BD721773D2400F28AF1 /* Signature */,
+				71345BD921773D2400F28AF1 /* Network */,
+				71345BE321773D2400F28AF1 /* Key */,
+				71345BE721773D2400F28AF1 /* Models */,
+				71345BEB21773D2400F28AF1 /* main.swift */,
+			);
+			path = SwiftyEOS;
+			sourceTree = "<group>";
+		};
+		71345BCB21773D2400F28AF1 /* Crypto */ = {
+			isa = PBXGroup;
+			children = (
+				71345BCC21773D2400F28AF1 /* Crypto.swift */,
+			);
+			path = Crypto;
+			sourceTree = "<group>";
+		};
+		71345BCD21773D2400F28AF1 /* Contract */ = {
+			isa = PBXGroup;
+			children = (
+				71345BCE21773D2400F28AF1 /* transaction */,
+				71345BD121773D2400F28AF1 /* account */,
+				71345BD321773D2400F28AF1 /* resource */,
+				71345BD521773D2400F28AF1 /* currency */,
+			);
+			path = Contract;
+			sourceTree = "<group>";
+		};
+		71345BCE21773D2400F28AF1 /* transaction */ = {
+			isa = PBXGroup;
+			children = (
+				71345BCF21773D2400F28AF1 /* TransactionUtil.swift */,
+				71345BD021773D2400F28AF1 /* Transaction.swift */,
+			);
+			path = transaction;
+			sourceTree = "<group>";
+		};
+		71345BD121773D2400F28AF1 /* account */ = {
+			isa = PBXGroup;
+			children = (
+				71345BD221773D2400F28AF1 /* AccountUtil.swift */,
+			);
+			path = account;
+			sourceTree = "<group>";
+		};
+		71345BD321773D2400F28AF1 /* resource */ = {
+			isa = PBXGroup;
+			children = (
+				71345BD421773D2400F28AF1 /* ResourceUtil.swift */,
+			);
+			path = resource;
+			sourceTree = "<group>";
+		};
+		71345BD521773D2400F28AF1 /* currency */ = {
+			isa = PBXGroup;
+			children = (
+				71345BD621773D2400F28AF1 /* Currency.swift */,
+			);
+			path = currency;
+			sourceTree = "<group>";
+		};
+		71345BD721773D2400F28AF1 /* Signature */ = {
+			isa = PBXGroup;
+			children = (
+				71345BD821773D2400F28AF1 /* Signature.swift */,
+			);
+			path = Signature;
+			sourceTree = "<group>";
+		};
+		71345BD921773D2400F28AF1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				71345BDA21773D2400F28AF1 /* Chain */,
+				71345BDD21773D2400F28AF1 /* History */,
+				71345BE021773D2400F28AF1 /* Base */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		71345BDA21773D2400F28AF1 /* Chain */ = {
+			isa = PBXGroup;
+			children = (
+				71345BDB21773D2400F28AF1 /* ChainRouter.swift */,
+				71345BDC21773D2400F28AF1 /* EOSRPC+Chain.swift */,
+			);
+			path = Chain;
+			sourceTree = "<group>";
+		};
+		71345BDD21773D2400F28AF1 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				71345BDE21773D2400F28AF1 /* EOSRPC+History.swift */,
+				71345BDF21773D2400F28AF1 /* HistoryRouter.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		71345BE021773D2400F28AF1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				71345BE121773D2400F28AF1 /* EOSRPC.swift */,
+				71345BE221773D2400F28AF1 /* BaseRouter.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		71345BE321773D2400F28AF1 /* Key */ = {
+			isa = PBXGroup;
+			children = (
+				71345BE421773D2400F28AF1 /* KeyPair.swift */,
+				71345BE521773D2400F28AF1 /* PublicKey.swift */,
+				71345BE621773D2400F28AF1 /* PrivateKey.swift */,
+			);
+			path = Key;
+			sourceTree = "<group>";
+		};
+		71345BE721773D2400F28AF1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				71345BE821773D2400F28AF1 /* ChainModels.swift */,
+				71345BE921773D2400F28AF1 /* Error.swift */,
+				71345BEA21773D2400F28AF1 /* BigInt.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		71345BEC21773D2400F28AF1 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				71345BED21773D2400F28AF1 /* iOS */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		71345BED21773D2400F28AF1 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				71345BEE21773D2400F28AF1 /* SEWallet.swift */,
+			);
+			path = iOS;
+			sourceTree = "<group>";
+		};
+		71345C0921773D2800F28AF1 /* AnyCodable */ = {
+			isa = PBXGroup;
+			children = (
+				71345C0A21773D2800F28AF1 /* AnyDecodable.swift */,
+				71345C0B21773D2800F28AF1 /* AnyCodable.swift */,
+				71345C0C21773D2800F28AF1 /* AnyEncodable.swift */,
+			);
+			path = AnyCodable;
 			sourceTree = "<group>";
 		};
 		71387A91216B6C7500B24C67 /* UIImage */ = {
@@ -505,7 +788,7 @@
 				71B38D17215B9AD000929CC3 /* Entities */,
 				71345AF22176000000F28AF1 /* Range.swift */,
 				71BE95B321635A2F001CF853 /* ViewState.swift */,
-				71BE95B121635835001CF853 /* Error.swift */,
+				71BE95B121635835001CF853 /* ErrorHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -513,6 +796,7 @@
 		71971CB52158E402004D28E7 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				71345BA221773CEC00F28AF1 /* Third-Party */,
 				71387A92216B6C8400B24C67 /* View */,
 				71B38CF6215A9E1400929CC3 /* Serialization */,
 				71387A93216B6CA500B24C67 /* Data formatting */,
@@ -1200,6 +1484,8 @@
 				71BE95B421635A30001CF853 /* ViewState.swift in Sources */,
 				71B38D19215B9B0300929CC3 /* MilestoneAVM.swift in Sources */,
 				71B38D06215B871E00929CC3 /* Comment.swift in Sources */,
+				71345C0121773D2400F28AF1 /* KeyPair.swift in Sources */,
+				71345C0221773D2400F28AF1 /* PublicKey.swift in Sources */,
 				71B38D1D215BBBAA00929CC3 /* Reward.swift in Sources */,
 				71BE95C32163ABF5001CF853 /* CampaignProto.swift in Sources */,
 				71B38D14215B999400929CC3 /* Milestone.swift in Sources */,
@@ -1209,16 +1495,19 @@
 				71AD0E302170919A00077446 /* DocumentCell.swift in Sources */,
 				71345AF92177336F00F28AF1 /* StringTruncate.swift in Sources */,
 				71A0C1BC21708AEC00C2ACF3 /* Document.swift in Sources */,
+				71345C0621773D2400F28AF1 /* BigInt.swift in Sources */,
 				716AE1CC215977470098882F /* CampaignAVM.swift in Sources */,
 				71BE9565215E2A22001CF853 /* TokenManager.swift in Sources */,
 				71AB79012164D2650077D904 /* CommentsVC.swift in Sources */,
 				71C8E8F1215912690078BD36 /* Api.swift in Sources */,
 				71BE9591216233E3001CF853 /* CampFooter.swift in Sources */,
 				71BE9560215E1B36001CF853 /* AuthApi.swift in Sources */,
-				71BE95B221635835001CF853 /* Error.swift in Sources */,
+				71BE95B221635835001CF853 /* ErrorHandler.swift in Sources */,
 				71387A8E216B6C2200B24C67 /* ImageTools.swift in Sources */,
 				71DA7E982164AB6E0052EB8F /* ActivityVC.swift in Sources */,
 				71BE95AC21626610001CF853 /* NumberString.swift in Sources */,
+				71345BF521773D2400F28AF1 /* TransactionUtil.swift in Sources */,
+				71345C0421773D2400F28AF1 /* ChainModels.swift in Sources */,
 				71971C832158E056004D28E7 /* AuthVC.swift in Sources */,
 				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,
 				71BE95C1216376F1001CF853 /* OtherApi.swift in Sources */,
@@ -1230,10 +1519,14 @@
 				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,
 				71BE95BD2163768A001CF853 /* CategoryVM.swift in Sources */,
 				71B38D02215ABE6E00929CC3 /* UpdateAVM.swift in Sources */,
+				71345BF221773D2400F28AF1 /* uECC.c in Sources */,
 				71AD0E2721708BD000077446 /* DocumentVM.swift in Sources */,
 				71B38D04215AC1E800929CC3 /* Alert.swift in Sources */,
+				71345BF121773D2400F28AF1 /* ripemd160.c in Sources */,
+				71345BFA21773D2400F28AF1 /* Signature.swift in Sources */,
 				71BE9574215E7835001CF853 /* CampaignCell.swift in Sources */,
 				71BE9576215E7C8A001CF853 /* ConstraintMultiplier.swift in Sources */,
+				71345BFC21773D2400F28AF1 /* EOSRPC+Chain.swift in Sources */,
 				71387A9F216CD17300B24C67 /* Networking.swift in Sources */,
 				71B38D12215B998F00929CC3 /* MilestoneVM.swift in Sources */,
 				71B38D0F215B87AE00929CC3 /* CommentQ.swift in Sources */,
@@ -1242,33 +1535,46 @@
 				71BE95CD21649FF2001CF853 /* Constants.swift in Sources */,
 				71387A9D216CCC4800B24C67 /* SettingsVC.swift in Sources */,
 				71BE958F216233CF001CF853 /* CampHeader.swift in Sources */,
+				71345C0E21773D2800F28AF1 /* AnyCodable.swift in Sources */,
 				71A0C1AE216F9B9200C2ACF3 /* Social.swift in Sources */,
+				71345C0021773D2400F28AF1 /* BaseRouter.swift in Sources */,
 				71BE95CB21649C67001CF853 /* DateMilliseconds.swift in Sources */,
 				71BE95AA2162603C001CF853 /* RewardCell.swift in Sources */,
+				71345C0321773D2400F28AF1 /* PrivateKey.swift in Sources */,
 				71A0C1BA21708AD000C2ACF3 /* Category.swift in Sources */,
 				71BE9583215F7945001CF853 /* Mock.swift in Sources */,
 				71345AF32176000000F28AF1 /* Range.swift in Sources */,
 				71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */,
 				71387A99216CA73D00B24C67 /* TagCell.swift in Sources */,
 				71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */,
+				71345BFB21773D2400F28AF1 /* ChainRouter.swift in Sources */,
 				71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */,
+				71345C0821773D2400F28AF1 /* SEWallet.swift in Sources */,
 				71163A472167517E00C5B633 /* Wallet.swift in Sources */,
 				71BE958921621AF9001CF853 /* PitchVC.swift in Sources */,
 				71A0C1B1216FA6A300C2ACF3 /* SocialCell.swift in Sources */,
 				71C8E8F3215912A10078BD36 /* Settings.swift in Sources */,
+				71345BEF21773D2400F28AF1 /* curve-specific.inc in Sources */,
 				71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */,
 				71BE957C215EA8E2001CF853 /* Tabbar.swift in Sources */,
 				71B38CFB215ABDE400929CC3 /* Update.swift in Sources */,
 				71DA7E9A2164ABBC0052EB8F /* SearchVC.swift in Sources */,
 				71BE958C21622C3F001CF853 /* PartialCampVM.swift in Sources */,
+				71345BFE21773D2400F28AF1 /* HistoryRouter.swift in Sources */,
 				71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */,
+				71345BF821773D2400F28AF1 /* ResourceUtil.swift in Sources */,
 				71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */,
+				71345BF021773D2400F28AF1 /* platform-specific.inc in Sources */,
 				71AD0E2D21708DEB00077446 /* FaqCell.swift in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
+				71345BF721773D2400F28AF1 /* AccountUtil.swift in Sources */,
 				71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */,
+				71345BFD21773D2400F28AF1 /* EOSRPC+History.swift in Sources */,
 				71387A90216B6C6C00B24C67 /* CoreGraphicsTools.swift in Sources */,
 				71345AF721760E0100F28AF1 /* ImageURL.swift in Sources */,
+				71345C0521773D2400F28AF1 /* Error.swift in Sources */,
 				71163A40216642F400C5B633 /* EmailValidation.swift in Sources */,
+				71345C0F21773D2800F28AF1 /* AnyEncodable.swift in Sources */,
 				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,
 				71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */,
 				71BE95BB2163744E001CF853 /* Faq.swift in Sources */,
@@ -1277,20 +1583,26 @@
 				71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */,
 				71BE95BF216376A9001CF853 /* CategoryAVM.swift in Sources */,
 				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,
+				71345BF421773D2400F28AF1 /* Crypto.swift in Sources */,
 				71B38D0B215B879D00929CC3 /* CommentVM.swift in Sources */,
 				71B38D20215BBE8200929CC3 /* RewardVM.swift in Sources */,
+				71345BF921773D2400F28AF1 /* Currency.swift in Sources */,
 				71B38D16215B9A9B00929CC3 /* DetailsApi.swift in Sources */,
 				71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */,
 				71B38D22215BBEC400929CC3 /* RewardAVM.swift in Sources */,
+				71345BFF21773D2400F28AF1 /* EOSRPC.swift in Sources */,
 				71A0C1B6217089A700C2ACF3 /* FaqVM.swift in Sources */,
+				71345BF621773D2400F28AF1 /* Transaction.swift in Sources */,
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,
 				71C8E8E821590F2A0078BD36 /* EOS.swift in Sources */,
 				71BE1046215A2020004753EC /* Network.swift in Sources */,
 				71BE957A215EA75B001CF853 /* FeaturedVC.swift in Sources */,
 				71B38D00215ABE3400929CC3 /* UpdateVM.swift in Sources */,
+				71345BF321773D2400F28AF1 /* base58.c in Sources */,
 				71BE95C92163E879001CF853 /* ProgressView.swift in Sources */,
 				71A0C1A7216F939900C2ACF3 /* AboutCell.swift in Sources */,
 				71DA7E962164AB510052EB8F /* MilestonesVC.swift in Sources */,
+				71345C0D21773D2800F28AF1 /* AnyDecodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1468,6 +1780,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Scruge/Scruge.entitlements;
 				DEVELOPMENT_TEAM = S422Q897FZ;
+				HEADER_SEARCH_PATHS = "Scruge/Dependencies/Third-Party/SwiftyEOS/Libraries/include";
 				INFOPLIST_FILE = "$(SRCROOT)/Scruge/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1477,6 +1790,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.MVP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENABLE_BATCH_MODE = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Scruge/Dependencies/Third-Party/SwiftyEOS/Libraries/include/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1489,6 +1803,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Scruge/Scruge.entitlements;
 				DEVELOPMENT_TEAM = S422Q897FZ;
+				HEADER_SEARCH_PATHS = "Scruge/Dependencies/Third-Party/SwiftyEOS/Libraries/include";
 				INFOPLIST_FILE = "$(SRCROOT)/Scruge/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1498,6 +1813,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.MVP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENABLE_BATCH_MODE = NO;
+				SWIFT_OBJC_BRIDGING_HEADER = "Scruge/Dependencies/Third-Party/SwiftyEOS/Libraries/include/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
