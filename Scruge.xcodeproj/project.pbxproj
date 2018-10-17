@@ -435,7 +435,7 @@
 				71971CB42158E3FE004D28E7 /* Model */,
 				71971CB32158E3F6004D28E7 /* ViewModel */,
 				71971CB22158E3F0004D28E7 /* View */,
-				71971CB52158E402004D28E7 /* Utility */,
+				71971CB52158E402004D28E7 /* Dependencies */,
 				71971CB72158E427004D28E7 /* Support */,
 			);
 			path = Scruge;
@@ -510,7 +510,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		71971CB52158E402004D28E7 /* Utility */ = {
+		71971CB52158E402004D28E7 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
 				71387A92216B6C8400B24C67 /* View */,
@@ -518,7 +518,7 @@
 				71387A93216B6CA500B24C67 /* Data formatting */,
 				71387A91216B6C7500B24C67 /* UIImage */,
 			);
-			path = Utility;
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		71971CB72158E427004D28E7 /* Support */ = {
