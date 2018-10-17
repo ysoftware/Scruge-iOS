@@ -16,6 +16,7 @@
 		71163A4C216754C400C5B633 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71163A4B216754C400C5B633 /* LoadingView.xib */; };
 		71345AF32176000000F28AF1 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF22176000000F28AF1 /* Range.swift */; };
 		71345AF721760E0100F28AF1 /* ImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF621760E0100F28AF1 /* ImageURL.swift */; };
+		71345AF92177336F00F28AF1 /* StringTruncate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF82177336F00F28AF1 /* StringTruncate.swift */; };
 		71387A8E216B6C2200B24C67 /* ImageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A8D216B6C2200B24C67 /* ImageTools.swift */; };
 		71387A90216B6C6C00B24C67 /* CoreGraphicsTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A8F216B6C6C00B24C67 /* CoreGraphicsTools.swift */; };
 		71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A94216B73B700B24C67 /* ActivityIndicator.swift */; };
@@ -163,6 +164,7 @@
 		71163A4B216754C400C5B633 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		71345AF22176000000F28AF1 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
 		71345AF621760E0100F28AF1 /* ImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURL.swift; sourceTree = "<group>"; };
+		71345AF82177336F00F28AF1 /* StringTruncate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTruncate.swift; sourceTree = "<group>"; };
 		71387A8D216B6C2200B24C67 /* ImageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTools.swift; sourceTree = "<group>"; };
 		71387A8F216B6C6C00B24C67 /* CoreGraphicsTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreGraphicsTools.swift; sourceTree = "<group>"; };
 		71387A94216B73B700B24C67 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 				71BE95CA21649C67001CF853 /* DateMilliseconds.swift */,
 				71163A3F216642F400C5B633 /* EmailValidation.swift */,
 				71345AF621760E0100F28AF1 /* ImageURL.swift */,
+				71345AF82177336F00F28AF1 /* StringTruncate.swift */,
 			);
 			path = "Data formatting";
 			sourceTree = "<group>";
@@ -1204,6 +1207,7 @@
 				71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */,
 				71AB7906216609420077D904 /* ProfileVM.swift in Sources */,
 				71AD0E302170919A00077446 /* DocumentCell.swift in Sources */,
+				71345AF92177336F00F28AF1 /* StringTruncate.swift in Sources */,
 				71A0C1BC21708AEC00C2ACF3 /* Document.swift in Sources */,
 				716AE1CC215977470098882F /* CampaignAVM.swift in Sources */,
 				71BE9565215E2A22001CF853 /* TokenManager.swift in Sources */,

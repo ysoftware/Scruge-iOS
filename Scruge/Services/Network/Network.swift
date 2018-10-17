@@ -14,6 +14,7 @@ struct Network:Networking {
 	private let activity = ActivityIndicatorController()
 	private let baseUrl:String
 	var isLoggingEnabled = true
+	var logLimit = 500
 
 	init(baseUrl:String = "http://35.242.235.123/") {
 		self.baseUrl = baseUrl
@@ -115,13 +116,17 @@ struct Network:Networking {
 
 	private func log(_ response:Response?, _ string:String) {
 		if isLoggingEnabled {
-			print("RESPONSE: \(response?.URL?.path ?? "")\n\(string)\n")
+			let message = "RESPONSE: \(response?.URL?.path ?? "")\n\(string)"
+				.truncate(to: logLimit) + "\n"
+			print(message)
 		}
 	}
 
 	private func log(_ request:String, _ method:String, _ params:HTTPParameterProtocol?) {
 		if isLoggingEnabled {
-			print("\(request): /\(method)\n\(params ?? [:])\n")
+			let message = "\(request): /\(method)\n\(params ?? [:])"
+				.truncate(to: logLimit) + "\n"
+			print(message)
 		}
 	}
 }

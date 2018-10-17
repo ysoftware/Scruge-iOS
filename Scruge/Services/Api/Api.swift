@@ -130,7 +130,7 @@ struct Api {
 
 	func getCampaignDescription(for campaign:Campaign,
 								_ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
-		service.get("campaign/pitch/\(campaign.id)", nil, completion)
+		service.get("campaign/\(campaign.id)/pitch", nil, completion)
 	}
 
 	// MARK: - Milestones
