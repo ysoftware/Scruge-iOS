@@ -272,7 +272,7 @@ struct PackedTransaction {
         
         var signature = Data(repeating: UInt8(0), count: 32*2)
         let rectId = signature.withUnsafeMutableBytes { bytes -> Int32 in
-            return uECC_sign_forbc([UInt8](pk.data), packedSha256, UInt32(packedSha256.count), bytes, curve(enclave: pk.enclave))
+			return uECC_sign_forbc([UInt8](pk.data), packedSha256, UInt32(packedSha256!.count), bytes, curve(enclave: pk.enclave))
         }
         if rectId == -1 {
             return
@@ -300,7 +300,7 @@ struct PackedTransaction {
                 memcpy(prt + 65, pk.enclave.rawValue, 2)
             })
             
-            var tempBytes = [UInt8](temp)
+            var tempBytes = [UInt8](temp)!
             let rmdHash = RMD(&tempBytes, 67)
             
             bin.withUnsafeMutableBytes({ prt -> Void in
