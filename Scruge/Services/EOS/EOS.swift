@@ -32,17 +32,13 @@ struct EOS {
 
 	func sendMoney() {
 
-		let privateKey = PrivateKey.randomPrivateKey()! //(keyString: "5JsK462V1twPZHXW2iBPNoncRT8XBC7NwUHkKS1FDgZNCTGZNZV")!
-		let publicKey = PublicKey(privateKey: privateKey)
-
-		print("private key: \(privateKey.wif())")
-		print("public key : \(publicKey.wif())")
+		let privateKey = try! PrivateKey(keyString: "5JsK462V1twPZHXW2iBPNoncRT8XBC7NwUHkKS1FDgZNCTGZNZV")!
 
 		let transfer = Transfer()
 		transfer.from = "default"
 		transfer.to = "username"
 		transfer.quantity = "1.0 EOS"
-		transfer.memo = "test"
+		transfer.memo = ""
 
 		Currency.transferCurrency(transfer: transfer,
 								  code: "eosio.token",

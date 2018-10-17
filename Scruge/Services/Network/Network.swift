@@ -95,8 +95,8 @@ struct Network:Networking {
 				return completion(.failure(AnyError(error)))
 			}
 
-			guard let object = T.init(response.data) else {
-				guard let resultResponse = ResultResponse(response.data) else {
+			guard let object = T.init(from: response.data) else {
+				guard let resultResponse = ResultResponse(from: response.data) else {
 					let string = String(data: response.data, encoding: .utf8) ?? ""
 					self.log(response, "Could not parse object.\n\(string)")
 					return completion(.failure(AnyError(BackendError.parsingError)))

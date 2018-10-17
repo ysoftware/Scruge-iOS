@@ -268,7 +268,7 @@ struct PackedTransaction {
         let packedBytes: [UInt8] = [UInt8](DataWriter.dataForSignature(chainId: chainId, pkt: self))
         
         let digest = Data(bytes: packedBytes, count: packedBytes.count).sha256()
-        let packedSha256 = [UInt8](digest)!
+        let packedSha256 = [UInt8](digest)
         
         var signature = Data(repeating: UInt8(0), count: 32*2)
         let rectId = signature.withUnsafeMutableBytes { bytes -> Int32 in
@@ -300,7 +300,7 @@ struct PackedTransaction {
                 memcpy(prt + 65, pk.enclave.rawValue, 2)
             })
             
-            var tempBytes = [UInt8](temp)!
+            var tempBytes = [UInt8](temp)
             let rmdHash = RMD(&tempBytes, 67)
             
             bin.withUnsafeMutableBytes({ prt -> Void in

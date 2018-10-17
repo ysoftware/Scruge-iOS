@@ -10,7 +10,7 @@ import Foundation
 
 public extension Decodable {
 
-	public init?(_ data:Data) {
+	public init?(from data:Data) {
 		do {
 			self = try JSONDecoder().decode(Self.self, from: data)
 		}

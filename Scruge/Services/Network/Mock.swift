@@ -71,7 +71,7 @@ struct Mock: Networking {
 			default: return completion(.failure(AnyError(NetworkingError.unknown(999))))
 			}
 
-			guard let object = T.init(json.data(using: .utf8)!) else {
+			guard let object = T.init(from: json.data(using: .utf8)!) else {
 				return completion(.failure(AnyError(BackendError.parsingError)))
 			}
 			completion(.success(object))

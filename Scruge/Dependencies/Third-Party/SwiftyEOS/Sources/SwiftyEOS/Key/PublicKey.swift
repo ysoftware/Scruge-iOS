@@ -13,7 +13,7 @@ extension Data {
         let size_of_data_to_hash = count
         let size_of_hash_bytes = 4
         var data: Array<UInt8> = Array(repeating: UInt8(0), count: size_of_data_to_hash+size_of_hash_bytes)
-        var bytes = [UInt8](self)!
+        var bytes = [UInt8](self)
         for i in 0..<size_of_data_to_hash {
             data[i] = bytes[i]
         }
@@ -42,7 +42,7 @@ struct PublicKey {
         default:
             curve = uECC_secp256k1()
         }
-        uECC_compute_public_key([UInt8](privateKey.data), &publicBytes, curve)
+        uECC_compute_public_key([UInt8].init(privateKey.data), &publicBytes, curve)
         uECC_compress(&publicBytes, &compressedPublicBytes, curve)
         
         data = Data(bytes: compressedPublicBytes, count: 33)
