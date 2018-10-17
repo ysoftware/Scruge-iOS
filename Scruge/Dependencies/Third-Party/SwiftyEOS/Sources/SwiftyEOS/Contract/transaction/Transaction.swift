@@ -268,11 +268,11 @@ struct PackedTransaction {
         let packedBytes: [UInt8] = [UInt8](DataWriter.dataForSignature(chainId: chainId, pkt: self))
         
         let digest = Data(bytes: packedBytes, count: packedBytes.count).sha256()
-        let packedSha256 = [UInt8](digest)
+        let packedSha256 = [UInt8](digest)!
         
         var signature = Data(repeating: UInt8(0), count: 32*2)
         let rectId = signature.withUnsafeMutableBytes { bytes -> Int32 in
-			return uECC_sign_forbc([UInt8](pk.data), packedSha256, UInt32(packedSha256!.count), bytes, curve(enclave: pk.enclave))
+			return uECC_sign_forbc([UInt8](pk.data), packedSha256, UInt32(packedSha256.count), bytes, curve(enclave: pk.enclave))
         }
         if rectId == -1 {
             return

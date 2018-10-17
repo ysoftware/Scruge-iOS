@@ -130,6 +130,11 @@ struct Presenter {
 		new.vm = vm
 		vc.show(new, sender: new)
 	}
+
+	static func presentWallerViewController(in vc:UIViewController) {
+		let new = R.storyboard.chain.walletVC()!
+		vc.show(new, sender: new)
+	}
 }
 
 fileprivate extension UIViewController {

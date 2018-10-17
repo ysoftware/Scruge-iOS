@@ -27,6 +27,10 @@ final class ProfileViewController: UIViewController {
 		tabBarController?.selectedIndex = 0
 	}
 
+	@IBAction func openWallet(_ sender: Any) {
+		Presenter.presentWallerViewController(in: self)
+	}
+
 	@IBAction func openSettings(_ sender:Any) {
 		Presenter.presentSettingsViewController(in: self)
 	}
