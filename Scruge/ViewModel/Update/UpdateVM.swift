@@ -27,4 +27,16 @@ final class UpdateVM: ViewModel<Update> {
 	var descsription:String {
 		return model?.description ?? ""
 	}
+
+	func loadDescription(_ completion: @escaping (String)->Void) {
+		guard let model = model else { return completion("") }
+		Service.api.getUpdateContent(for: model) { result in
+			if case let .success(response) = result {
+				completion(response.content)
+			}
+			else {
+				completion("")
+			}
+		}
+	}
 }

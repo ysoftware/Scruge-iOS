@@ -39,10 +39,17 @@ struct Presenter {
 		vc.show(new, sender: new)
 	}
 
-	static func presentPitchViewController(in vc:UIViewController,
-										   for campaignVM:CampaignVM) {
-		let new = R.storyboard.campaign.pitchVC()!
-		new.vm = campaignVM
+	static func presentContentViewController(in vc:UIViewController,
+											 for campaignVM:CampaignVM) {
+		let new = R.storyboard.campaign.contentVC()!
+		new.campaignVM = campaignVM
+		vc.show(new, sender: new)
+	}
+
+	static func presentContentViewController(in vc:UIViewController,
+											 for update:UpdateVM) {
+		let new = R.storyboard.campaign.contentVC()!
+		new.updateVM = update
 		vc.show(new, sender: new)
 	}
 

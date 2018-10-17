@@ -60,7 +60,7 @@ final class CampaignViewController: UIViewController {
 		let b = block(for: tap.view!.tag)
 		switch b {
 		case .info:
-			Presenter.presentPitchViewController(in: self, for: vm)
+			Presenter.presentContentViewController(in: self, for: vm)
 		case .milestone:
 			Presenter.presentMilestonesViewController(in: self, for: vm)
 		case .update:
@@ -382,6 +382,9 @@ extension CampaignViewController: UITableViewDelegate {
 		case .documents:
 			guard let url = vm.documentsVM?.item(at: indexPath.row).documentUrl else { return }
 			Presenter.presentSafariViewController(in: self, url: url)
+		case .update:
+			guard let vm = vm.lastUpdateVM else { return }
+			Presenter.presentContentViewController(in: self, for: vm)
 		default: break
 		}
 		return

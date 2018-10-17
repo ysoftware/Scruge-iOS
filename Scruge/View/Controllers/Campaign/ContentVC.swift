@@ -1,0 +1,32 @@
+//
+//  CampaignHTMLVC.swift
+//  Scruge
+//
+//  Created by ysoftware on 01/10/2018.
+//  Copyright © 2018 Ysoftware. All rights reserved.
+//
+
+import UIKit
+
+final class ContentViewController: UIViewController {
+
+	@IBOutlet weak var webView: UIWebView!
+
+	var campaignVM:CampaignVM?
+	var updateVM:UpdateVM?
+
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+		if let vm = campaignVM?.lastUpdateVM {
+			vm.loadDescription { body in
+				self.webView.loadHTMLString(body, baseURL: nil)
+			}
+		}
+		else if let vm = updateVM {
+			vm.loadDescription { body in
+				self.webView.loadHTMLString(body, baseURL: nil)
+			}
+		}
+	}
+}

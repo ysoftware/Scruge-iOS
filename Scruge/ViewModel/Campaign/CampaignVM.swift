@@ -61,9 +61,9 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		}
 	}
 
-	public func loadDescription(_ completion: @escaping (String)->Void) {
+	func loadDescription(_ completion: @escaping (String)->Void) {
 		guard let model = model else { return completion("") }
-		Service.api.getCampaignDescription(for: model) { result in
+		Service.api.getCampaignContent(for: model) { result in
 			if case let .success(response) = result {
 				completion(response.content)
 			}

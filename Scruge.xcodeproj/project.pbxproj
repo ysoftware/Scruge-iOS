@@ -117,7 +117,7 @@
 		71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE9580215F5D49001CF853 /* CategoryCell.xib */; };
 		71BE9583215F7945001CF853 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9582215F7945001CF853 /* Mock.swift */; };
 		71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE958621620BE3001CF853 /* CampaignVC.swift */; };
-		71BE958921621AF9001CF853 /* PitchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE958821621AF9001CF853 /* PitchVC.swift */; };
+		71BE958921621AF9001CF853 /* ContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE958821621AF9001CF853 /* ContentVC.swift */; };
 		71BE958C21622C3F001CF853 /* PartialCampVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE958B21622C3F001CF853 /* PartialCampVM.swift */; };
 		71BE958F216233CF001CF853 /* CampHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE958E216233CF001CF853 /* CampHeader.swift */; };
 		71BE9591216233E3001CF853 /* CampFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9590216233E3001CF853 /* CampFooter.swift */; };
@@ -310,7 +310,7 @@
 		71BE9580215F5D49001CF853 /* CategoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryCell.xib; sourceTree = "<group>"; };
 		71BE9582215F7945001CF853 /* Mock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mock.swift; sourceTree = "<group>"; };
 		71BE958621620BE3001CF853 /* CampaignVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignVC.swift; sourceTree = "<group>"; };
-		71BE958821621AF9001CF853 /* PitchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PitchVC.swift; sourceTree = "<group>"; };
+		71BE958821621AF9001CF853 /* ContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentVC.swift; sourceTree = "<group>"; };
 		71BE958B21622C3F001CF853 /* PartialCampVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialCampVM.swift; sourceTree = "<group>"; };
 		71BE958E216233CF001CF853 /* CampHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampHeader.swift; sourceTree = "<group>"; };
 		71BE9590216233E3001CF853 /* CampFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampFooter.swift; sourceTree = "<group>"; };
@@ -1092,7 +1092,7 @@
 				71BE9579215EA75B001CF853 /* FeaturedVC.swift */,
 				71BE958621620BE3001CF853 /* CampaignVC.swift */,
 				71DA7E992164ABBC0052EB8F /* SearchVC.swift */,
-				71BE958821621AF9001CF853 /* PitchVC.swift */,
+				71BE958821621AF9001CF853 /* ContentVC.swift */,
 			);
 			path = Campaign;
 			sourceTree = "<group>";
@@ -1565,7 +1565,7 @@
 				71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */,
 				71345C0821773D2400F28AF1 /* SEWallet.swift in Sources */,
 				71163A472167517E00C5B633 /* Wallet.swift in Sources */,
-				71BE958921621AF9001CF853 /* PitchVC.swift in Sources */,
+				71BE958921621AF9001CF853 /* ContentVC.swift in Sources */,
 				71A0C1B1216FA6A300C2ACF3 /* SocialCell.swift in Sources */,
 				71C8E8F3215912A10078BD36 /* Settings.swift in Sources */,
 				71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */,

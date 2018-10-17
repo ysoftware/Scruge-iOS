@@ -128,9 +128,14 @@ struct Api {
 		service.get("campaign/\(campaign.id)/update/\(update.id)/description", nil, completion)
 	}
 
-	func getCampaignDescription(for campaign:Campaign,
-								_ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
-		service.get("campaign/\(campaign.id)/pitch", nil, completion)
+	func getCampaignContent(for campaign:Campaign,
+							_ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
+		service.get("campaign/\(campaign.id)/content", nil, completion)
+	}
+
+	func getUpdateContent(for update:Update,
+						  _ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
+		service.get("update/\(update.id)/content", nil, completion)
 	}
 
 	// MARK: - Milestones
