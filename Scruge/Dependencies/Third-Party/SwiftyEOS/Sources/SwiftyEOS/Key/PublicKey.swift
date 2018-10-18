@@ -42,7 +42,7 @@ struct PublicKey {
         default:
             curve = uECC_secp256k1()
         }
-        uECC_compute_public_key([UInt8].init(privateKey.data), &publicBytes, curve)
+        uECC_compute_public_key([UInt8](privateKey.data), &publicBytes, curve)
         uECC_compress(&publicBytes, &compressedPublicBytes, curve)
         
         data = Data(bytes: compressedPublicBytes, count: 33)
