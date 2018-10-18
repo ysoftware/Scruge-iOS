@@ -27,6 +27,16 @@ final class ContentViewController: UIViewController {
 			vm.loadDescription { body in
 				self.webView.loadHTMLString(body, baseURL: nil)
 			}
+
+			let button = UIBarButtonItem(title: "Comments",
+										 style: .plain,
+										 target: self,
+										 action: #selector(openComments))
+			navigationItem.rightBarButtonItem = button
 		}
+	}
+
+	@objc func openComments(_ sender:Any) {
+		Presenter.presentCommentsViewController(in: self, for: updateVM!)
 	}
 }

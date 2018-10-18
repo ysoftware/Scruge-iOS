@@ -10,7 +10,7 @@ import MVVM
 
 enum CommentSource {
 
-	case update(Campaign, Update)
+	case update(Update)
 
 	case campaign(Campaign)
 }

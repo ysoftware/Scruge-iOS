@@ -77,6 +77,14 @@ struct Presenter {
 		vc.show(new, sender: new)
 	}
 
+	static func presentCommentsViewController(in vc:UIViewController,
+											  for updateVM:UpdateVM) {
+		guard let model = updateVM.model else { return }
+		let new = R.storyboard.details.commentsVC()!
+		new.vm = CommentAVM(source: .update(model))
+		vc.show(new, sender: new)
+	}
+
 	static func presentProfileEditViewController(in vc:UIViewController, with vm:ProfileVM? = nil) {
 		let new = R.storyboard.authProfile.profileEditVC()!
 		new.editingProfile = vm

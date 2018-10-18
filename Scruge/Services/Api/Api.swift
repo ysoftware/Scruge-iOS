@@ -154,8 +154,8 @@ struct Api {
 		switch source {
 		case .campaign(let campaign):
 			method = "campaign/\(campaign.id)/comment"
-		case .update(let campaign, let update):
-			method = "campaign/\(campaign.id)/update/\(update.id)/comment"
+		case .update(let update):
+			method = "update/\(update.id)/comment"
 		}
 		let request = CommentRequest(comment: comment)
 		service.post(method, request.toDictionary(), completion)
@@ -167,8 +167,8 @@ struct Api {
 		switch query.source {
 		case .campaign(let campaign):
 			method = "campaign/\(campaign.id)/comments"
-		case .update(let campaign, let update):
-			method = "campaign/\(campaign.id)/update/\(update.id)/comments"
+		case .update(let update):
+			method = "update/\(update.id)/comments"
 		}
 		let request = CommentListRequest(from: query)
 		service.get(method, request.toDictionary(), completion)
