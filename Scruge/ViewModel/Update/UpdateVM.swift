@@ -17,7 +17,7 @@ final class UpdateVM: ViewModel<Update> {
 
 	var date:String {
 		guard let model = model else { return "" }
-		return Date(milliseconds: model.timestamp).toFormat("d MMMM yyyy")
+		return Date.present(model.timestamp, as: "d MMMM yyyy")
 	}
 
 	var title:String {
