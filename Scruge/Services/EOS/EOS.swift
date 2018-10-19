@@ -32,6 +32,32 @@ struct EOS {
 		}
 	}
 
+	/// send money from this account
+	/// wallet has to be unlocked first
+	func sendMoney(from account:AccountModel,
+				   to recipient:String,
+				   amount:NSDecimalNumber,
+				   symbol:String,
+				   passcode:String,
+				   _ completion: @escaping (Bool)->Void) {
+
+		let transfer = Transfer()
+		transfer.from = account.name
+		transfer.to = recipient
+		transfer.quantity = "\(amount) \(symbol)"
+		transfer.memo = ""
+
+		account.wallet.transferToken(transfer: transfer,
+									 code: "eosio.token",
+									 unlockOncePasscode: nil) { result, error in
+										guard self.handleError(error) else {
+											return completion(false)
+										}
+										print("Transaction id: \(result!.transactionId)")
+										completion(true)
+		}
+	}
+
 	func getBalance(for account:String, _ completion: @escaping (NSDecimalNumber, String)->Void) {
 		let symbol = "EOS"
 		chain.getCurrencyBalance(account: account, symbol: symbol, code: "eosio.token") { number, error in

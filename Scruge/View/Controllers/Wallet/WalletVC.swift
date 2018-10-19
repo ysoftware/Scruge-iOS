@@ -9,6 +9,8 @@
 import UIKit
 import MVVM
 
+let PASSCODE = "123456" // TO-DO: remove this
+
 final class WalletViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView!
@@ -22,7 +24,7 @@ final class WalletViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		vm = AccountAVM(passcode: "passcode")
+		vm = AccountAVM(passcode: PASSCODE)
 
 		setupNavigationBar()
 		setupTable()
@@ -56,6 +58,13 @@ final class WalletViewController: UIViewController {
 
 	@objc func openImportKey(_ sender:Any) {
 		Presenter.presentImporKeyViewController(in: self)
+	}
+}
+
+extension WalletViewController: UITableViewDelegate {
+
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
 	}
 }
 

@@ -26,7 +26,8 @@ struct Wallet {
 		return service.keystore.accounts()
 	}
 
-	func importKey(_ privateKey:String, passcode: String,
+	func importKey(_ privateKey:String,
+				   passcode: String,
 				   _ completion: @escaping (SELocalAccount?)->Void) {
 
 		service.importAccount(privateKey: privateKey, passcode: passcode, succeed: { account in

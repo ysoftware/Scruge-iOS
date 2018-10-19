@@ -13,8 +13,9 @@ struct Network:Networking {
 
 	private let activity = ActivityIndicatorController()
 	private let baseUrl:String
+
 	var isLoggingEnabled = true
-	var logLimit = 500
+	var logLimit = 300
 
 	init(baseUrl:String = "http://35.186.247.45/") {
 		self.baseUrl = baseUrl

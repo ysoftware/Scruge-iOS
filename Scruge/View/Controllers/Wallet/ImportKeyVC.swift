@@ -25,7 +25,7 @@ final class ImportKeyViewController: UIViewController {
 	}
 
 	@objc func save(_ sender:Any) {
-		Service.wallet.importKey(textView.text, passcode: "12345") { account in
+		Service.wallet.importKey(textView.text, passcode: PASSCODE) { account in
 			if account != nil {
 				self.navigationController?.popViewController(animated: true)
 			}
