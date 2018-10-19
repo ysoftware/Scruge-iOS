@@ -20,7 +20,8 @@ final class ImportKeyViewController: UIViewController {
 	func setupNavigationBar() {
 		let saveButton = UIBarButtonItem(title: "Save key",
 										 style: .plain,
-										 target: self, action: #selector(save))
+										 target: self,
+										 action: #selector(save))
 		navigationItem.rightBarButtonItem = saveButton
 	}
 
@@ -31,7 +32,9 @@ final class ImportKeyViewController: UIViewController {
 
 			Service.wallet.importKey(self.textView.text, passcode: passcode) { account in
 				if account != nil {
-					self.navigationController?.popViewController(animated: true)
+					DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+						self.navigationController?.popViewController(animated: true)
+					}
 				}
 				else {
 					self.alert("Error: Could not import this key")
