@@ -52,6 +52,7 @@
 		71345C1F2179CB7F00F28AF1 /* AccountAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345C1E2179CB7F00F28AF1 /* AccountAVM.swift */; };
 		71345C212179D24C00F28AF1 /* AccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71345C202179D24C00F28AF1 /* AccountCell.xib */; };
 		71345C242179D25D00F28AF1 /* AccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345C232179D25D00F28AF1 /* AccountCell.swift */; };
+		71345C26217A055500F28AF1 /* asm_arm.inc in Sources */ = {isa = PBXBuildFile; fileRef = 71345C25217A055400F28AF1 /* asm_arm.inc */; };
 		71387A8E216B6C2200B24C67 /* ImageTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A8D216B6C2200B24C67 /* ImageTools.swift */; };
 		71387A90216B6C6C00B24C67 /* CoreGraphicsTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A8F216B6C6C00B24C67 /* CoreGraphicsTools.swift */; };
 		71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A94216B73B700B24C67 /* ActivityIndicator.swift */; };
@@ -245,6 +246,7 @@
 		71345C1E2179CB7F00F28AF1 /* AccountAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountAVM.swift; sourceTree = "<group>"; };
 		71345C202179D24C00F28AF1 /* AccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountCell.xib; sourceTree = "<group>"; };
 		71345C232179D25D00F28AF1 /* AccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountCell.swift; sourceTree = "<group>"; };
+		71345C25217A055400F28AF1 /* asm_arm.inc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.pascal; path = asm_arm.inc; sourceTree = "<group>"; };
 		71387A8D216B6C2200B24C67 /* ImageTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTools.swift; sourceTree = "<group>"; };
 		71387A8F216B6C6C00B24C67 /* CoreGraphicsTools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreGraphicsTools.swift; sourceTree = "<group>"; };
 		71387A94216B73B700B24C67 /* ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityIndicator.swift; sourceTree = "<group>"; };
@@ -465,6 +467,7 @@
 			isa = PBXGroup;
 			children = (
 				71345BBC21773D2300F28AF1 /* uECC.h */,
+				71345C25217A055400F28AF1 /* asm_arm.inc */,
 				71345BBD21773D2400F28AF1 /* ripemd160.h */,
 				71345BBE21773D2400F28AF1 /* asm_arm.inc.h */,
 				71345BBF21773D2400F28AF1 /* uECC_vli.h */,
@@ -1587,6 +1590,7 @@
 				71B38D0F215B87AE00929CC3 /* CommentQ.swift in Sources */,
 				71971CC12158F076004D28E7 /* RoundedView.swift in Sources */,
 				71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */,
+				71345C26217A055500F28AF1 /* asm_arm.inc in Sources */,
 				71345C1F2179CB7F00F28AF1 /* AccountAVM.swift in Sources */,
 				71BE95CD21649FF2001CF853 /* Constants.swift in Sources */,
 				71387A9D216CCC4800B24C67 /* SettingsVC.swift in Sources */,
