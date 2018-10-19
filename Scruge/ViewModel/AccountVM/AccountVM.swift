@@ -10,6 +10,11 @@ import MVVM
 
 final class AccountVM:ViewModel<AccountModel> {
 
+	required init(_ model: AccountModel, arrayDelegate: ViewModelDelegate?) {
+		super.init(model, arrayDelegate: arrayDelegate)
+		updateBalance()
+	}
+
 	var name:String {
 		return model!.name
 	}
@@ -17,7 +22,8 @@ final class AccountVM:ViewModel<AccountModel> {
 	private var balance:(NSDecimalNumber, String)?
 
 	var balanceString:String {
-		return "\(balance!.0) \(balance!.1)"
+		guard let balance = balance else { return "..." }
+		return "\(balance.0) \(balance.1)"
 	}
 
 	func updateBalance() {

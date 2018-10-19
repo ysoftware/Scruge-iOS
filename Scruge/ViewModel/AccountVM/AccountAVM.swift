@@ -29,15 +29,8 @@ final class AccountAVM:SimpleArrayViewModel<AccountModel, AccountVM> {
 				i += 1
 				if i == wallets.count {
 					block(.success(out))
-					self.reloadBalance()
 				}
 			}
-		}
-	}
-
-	private func reloadBalance() {
-		for element in array {
-			element.updateBalance()
 		}
 	}
 }

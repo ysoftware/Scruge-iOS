@@ -45,6 +45,8 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func setupNavigationBar() {
+		title = "Accounts"
+		
 		let importButton = UIBarButtonItem(title: "Import Key", style: .plain,
 										   target: self, action: #selector(openImportKey))
 		navigationItem.rightBarButtonItem = importButton
