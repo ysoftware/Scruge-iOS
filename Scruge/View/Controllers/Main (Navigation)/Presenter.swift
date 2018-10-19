@@ -147,7 +147,12 @@ struct Presenter {
 	}
 
 	static func presentWallerViewController(in vc:UIViewController) {
-		let new = R.storyboard.chain.walletVC()!
+		let new = R.storyboard.wallet.walletVC()!
+		vc.show(new, sender: new)
+	}
+
+	static func presentImporKeyViewController(in vc:UIViewController) {
+		let new = R.storyboard.wallet.importKeyVC()!
 		vc.show(new, sender: new)
 	}
 }

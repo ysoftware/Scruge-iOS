@@ -184,24 +184,39 @@ extension String {
                 let data = try Data(contentsOf: fileUrl!)
                 let account = try SELocalAccount(fileData: data)
                 return account
-            } else {
+            }
+			else {
                 return nil
             }
-        } catch {
+        }
+		catch {
             print("Error while enumerating files: \(error.localizedDescription)")
             return nil
         }
     }
-    
-    //    func accounts() -> [SELocalAccount] {
-    //        let fileManager = FileManager.default
-    //        do {
-    //            let fileURLs = try fileManager.contentsOfDirectory(at: keyUrl, includingPropertiesForKeys: nil)
-    //            // process files
-    //        } catch {
-    //            print("Error while enumerating files: \(error.localizedDescription)")
-    //        }
-    //    }
+
+	func accounts() -> [SELocalAccount] {
+		var accounts:[SELocalAccount] = []
+		let fileManager = FileManager.default
+		do {
+			let fileURLs = try fileManager.contentsOfDirectory(at: keyUrl, includingPropertiesForKeys: nil)
+			// process files
+			fileURLs.forEach { fileUrl in
+				do {
+					let data = try Data(contentsOf: fileUrl)
+					let account = try SELocalAccount(fileData: data)
+					accounts.append(account)
+				}
+				catch {
+					print("Error while enumerating files: \(error.localizedDescription)")
+				}
+			}
+		}
+		catch {
+			print("Error while enumerating files: \(error.localizedDescription)")
+		}
+		return accounts
+	}
 }
 
 struct RawKeystore: Codable {

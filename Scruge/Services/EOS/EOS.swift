@@ -10,51 +10,41 @@ import Foundation
 
 struct EOS {
 
-	fileprivate let rpc = EOSRPC.sharedInstance
+	fileprivate let chain = EOSRPC.sharedInstance
 
 	init() {
 		EOSRPC.endpoint = "http://31.10.90.99:8888"
 	}
 
-	func chainInfo() {
-		rpc.chainInfo { info, error in
+	// MARK: - Methods
 
+	func getAccounts(for wallet:SELocalAccount, completion: @escaping ([String])->Void) {
+		guard let key = wallet.rawPublicKey else {
+			return completion([])
+		}
+
+		chain.getKeyAccounts(pub: key) { result, error in
+			guard self.handleError(error) else {
+				return
+			}
+
+			completion(result!.accountNames)
 		}
 	}
 
-	func getBalance() {
-		rpc.getCurrencyBalance(account: "default",
-							   symbol: "EOS",
-							   code: "eosio.token") { number, error in
-
+	func getBalance(for account:String, _ completion: @escaping (NSDecimalNumber, String)->Void) {
+		let symbol = "EOS"
+		chain.getCurrencyBalance(account: account, symbol: symbol, code: "eosio.token") { number, error in
+			guard self.handleError(error) else {
+				return completion(0, symbol)
+			}
+			completion(number!, symbol)
 		}
 	}
 
-	func sendMoney() {
+	// MARK: - Handle
 
-		let privateKey = try! PrivateKey(keyString: "5JsK462V1twPZHXW2iBPNoncRT8XBC7NwUHkKS1FDgZNCTGZNZV")!
-
-		let transfer = Transfer()
-		transfer.from = "default"
-		transfer.to = "username"
-		transfer.quantity = "1.0000 EOS"
-		transfer.memo = "help"
-
-		Currency.transferCurrency(transfer: transfer,
-								  code: "eosio.token",
-								  privateKey: privateKey) { result, error in
-									guard self.handleError(error) else {
-										return
-									}
-									self.handleTransactionResult(result!)
-		}
-	}
-
-	func handleTransactionResult(_ result:TransactionResult) {
-		print("Transaction id: \(result.transactionId)")
-	}
-
-	func handleError(_ error: Error?) -> Bool {
+	private func handleError(_ error: Error?) -> Bool {
 		if let error = error as NSError? {
 			if let error = (error.userInfo["RPCErrorResponse"] as? RPCErrorResponse)?.error {
 				print("EOS Response: \(error.name) (\(error.code)):\n\(error.what)")

@@ -16,7 +16,7 @@ struct Network:Networking {
 	var isLoggingEnabled = true
 	var logLimit = 500
 
-	init(baseUrl:String = "http://35.242.235.123/") {
+	init(baseUrl:String = "http://35.186.247.45/") {
 		self.baseUrl = baseUrl
 	}
 
