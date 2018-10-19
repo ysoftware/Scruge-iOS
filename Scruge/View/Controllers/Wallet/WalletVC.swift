@@ -9,22 +9,18 @@
 import UIKit
 import MVVM
 
-let PASSCODE = "123456" // TO-DO: remove this
-
 final class WalletViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView!
 
 	// MARK: - Property
 
-	var vm:AccountAVM!
+	let vm:AccountAVM = AccountAVM()
 
 	// MARK: - Setup
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		vm = AccountAVM(passcode: PASSCODE)
 
 		setupNavigationBar()
 		setupTable()
@@ -65,6 +61,21 @@ extension WalletViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
+
+		let account = self.vm.item(at: indexPath.row)
+
+		if account.isLocked {
+			let message = "Enter your passcode to unlock this account"
+			Presenter.presentPasscodeViewController(in: self, message: message) { input in
+				guard let passcode = input else { return }
+
+				let result = account.unlock(passcode)
+				self.alert(result ? "Account unlocked for 3 minutes, private key can be accessed." : "Error")
+			}
+		}
+		else {
+			self.alert("Account is already unlocked, private key can be accessed")
+		}
 	}
 }
 

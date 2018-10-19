@@ -22,7 +22,7 @@ struct Wallet {
 		}
 	}
 	
-	func getWallets(_ passcode:String) -> [SELocalAccount] {
+	func getWallets() -> [SELocalAccount] {
 		return service.keystore.accounts()
 	}
 

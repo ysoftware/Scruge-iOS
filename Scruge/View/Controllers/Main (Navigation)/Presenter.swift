@@ -155,6 +155,16 @@ struct Presenter {
 		let new = R.storyboard.wallet.importKeyVC()!
 		vc.show(new, sender: new)
 	}
+
+	static func presentPasscodeViewController(in vc:UIViewController,
+											  message:String,
+											  _ completion: @escaping (String?)->Void) {
+		vc.askForInput("Passcode protection",
+					   question: message,
+					   placeholder: "Passcode...", keyboardType: .numberPad) { input in
+						completion(input)
+		}
+	}
 }
 
 fileprivate extension UIViewController {

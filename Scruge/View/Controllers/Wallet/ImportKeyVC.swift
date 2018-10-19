@@ -25,12 +25,17 @@ final class ImportKeyViewController: UIViewController {
 	}
 
 	@objc func save(_ sender:Any) {
-		Service.wallet.importKey(textView.text, passcode: PASSCODE) { account in
-			if account != nil {
-				self.navigationController?.popViewController(animated: true)
-			}
-			else {
-				self.alert("Error has occured")
+		let message = "Enter new passcode for this account"
+		Presenter .presentPasscodeViewController(in: self, message: message) { input in
+			guard let passcode = input else { return }
+
+			Service.wallet.importKey(self.textView.text, passcode: passcode) { account in
+				if account != nil {
+					self.navigationController?.popViewController(animated: true)
+				}
+				else {
+					self.alert("Error: Could not import this key")
+				}
 			}
 		}
 	}

@@ -11,16 +11,10 @@ import Result
 
 final class AccountAVM:SimpleArrayViewModel<AccountModel, AccountVM> {
 
-	var passcode:String
-
-	init(passcode:String) {
-		self.passcode = passcode
-	}
-
 	override func fetchData(_ block: @escaping (Result<[AccountModel], AnyError>) -> Void) {
 		var i = 0
 		var out:[AccountModel] = []
-		let wallets = Service.wallet.getWallets(passcode)
+		let wallets = Service.wallet.getWallets()
 
 		for wallet in wallets {
 			Service.eos.getAccounts(for: wallet) { accounts in
