@@ -165,13 +165,13 @@ extension FeaturedViewController: UITableViewDataSource {
 				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
 		if tableView == campaignTableView {
-			let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
-													 for: indexPath)!
-			return cell.setup(with: campaignVM.item(at: indexPath.row, shouldLoadMore: true))
+			return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
+												 for: indexPath)!
+				.setup(with: campaignVM.item(at: indexPath.row, shouldLoadMore: true))
 		}
 
-		let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryCell,
-												 for: indexPath)!
-		return cell.setup(with: categoriesVM.item(at: indexPath.row))
+		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryCell,
+											 for: indexPath)!
+			.setup(with: categoriesVM.item(at: indexPath.row))
 	}
 }

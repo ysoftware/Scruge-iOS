@@ -19,9 +19,11 @@ final class SearchViewController: UIViewController {
 
 	// MARK: - Properties
 
+	private var tableUpdateHandler:ArrayViewModelUpdateHandler!
 	private let searchController = UISearchController(searchResultsController: nil)
 	private let campaignsVM = CampaignAVM()
-	private let tags = ["social", "gaming", "gambling", "crowdfunding", "exchanges", "sharing services", "social networks", "mining", "p2p marketplaces", "data", "ai"]
+	private let tags = ["social", "gaming", "gambling", "crowdfunding", "exchanges", "sharing services",
+						"social networks", "mining", "p2p marketplaces", "data", "ai"]
 	private var selectedTags:[String] = []
 
 	// MARK: - Setup
@@ -37,7 +39,7 @@ final class SearchViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		// The following block also "fixes" the problem without jumpiness after the view has already appeared on screen.
+		// The following also "fixes" the problem without jumpiness after the view has already appeared.
 		DispatchQueue.main.async {
 			self.tagCollectionView.collectionViewLayout.invalidateLayout()
 		}
@@ -51,6 +53,7 @@ final class SearchViewController: UIViewController {
 
 	private func setupVM() {
 		campaignsVM.delegate = self
+		tableUpdateHandler = ArrayViewModelUpdateHandler(with: tableView)
 	}
 
 	private func setupCollection() {
@@ -64,7 +67,7 @@ final class SearchViewController: UIViewController {
 	private func setupTable() {
 		loadingView.set(state: .ready) // TO-DO: remove after initially populating the table
 
-		tableView.estimatedRowHeight = 400
+		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.register(UINib(resource: R.nib.campaignSmallCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.campaignCell.identifier)
@@ -178,6 +181,6 @@ extension SearchViewController: ArrayViewModelDelegate {
 
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
-			tableView.reloadData()
+			tableUpdateHandler.handle(update)
 	}
 }
