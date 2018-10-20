@@ -68,8 +68,7 @@
 		71971C862158E056004D28E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71971C842158E056004D28E7 /* Main.storyboard */; };
 		71971C882158E058004D28E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71971C872158E058004D28E7 /* Assets.xcassets */; };
 		71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71971C892158E058004D28E7 /* LaunchScreen.storyboard */; };
-		71971C962158E059004D28E7 /* ScrugeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C952158E059004D28E7 /* ScrugeTests.swift */; };
-		71971CA12158E059004D28E7 /* ScrugeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CA02158E059004D28E7 /* ScrugeUITests.swift */; };
+		71971C962158E059004D28E7 /* WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C952158E059004D28E7 /* WalletTests.swift */; };
 		71971CB92158E445004D28E7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CB82158E445004D28E7 /* R.generated.swift */; };
 		71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CBE2158E8AA004D28E7 /* Presenter.swift */; };
 		71971CC12158F076004D28E7 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CC02158F076004D28E7 /* RoundedView.swift */; };
@@ -169,18 +168,10 @@
 		71F68A4A21709D8A00F7E728 /* FaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4921709D8A00F7E728 /* FaqVC.swift */; };
 		71F68A4C21709E2700F7E728 /* DocumentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4B21709E2700F7E728 /* DocumentsVC.swift */; };
 		8C8CD5C46C0D9A389DDD6F7B /* Pods_ScrugeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */; };
-		EB5D555ED85FD38C8FDBC1E0 /* Pods_ScrugeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F72C8E9414CF0808510DF3D /* Pods_ScrugeUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		71971C922158E059004D28E7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 71971C752158E056004D28E7 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 71971C7C2158E056004D28E7;
-			remoteInfo = Scruge;
-		};
-		71971C9D2158E059004D28E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 71971C752158E056004D28E7 /* Project object */;
 			proxyType = 1;
@@ -265,11 +256,8 @@
 		71971C8A2158E058004D28E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		71971C8C2158E058004D28E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71971C912158E059004D28E7 /* ScrugeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrugeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		71971C952158E059004D28E7 /* ScrugeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrugeTests.swift; sourceTree = "<group>"; };
+		71971C952158E059004D28E7 /* WalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTests.swift; sourceTree = "<group>"; };
 		71971C972158E059004D28E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		71971C9C2158E059004D28E7 /* ScrugeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrugeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		71971CA02158E059004D28E7 /* ScrugeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrugeUITests.swift; sourceTree = "<group>"; };
-		71971CA22158E059004D28E7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71971CB82158E445004D28E7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		71971CBE2158E8AA004D28E7 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		71971CC02158F076004D28E7 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
@@ -392,14 +380,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8C8CD5C46C0D9A389DDD6F7B /* Pods_ScrugeTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		71971C992158E059004D28E7 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				EB5D555ED85FD38C8FDBC1E0 /* Pods_ScrugeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -741,7 +721,6 @@
 			children = (
 				71971C7F2158E056004D28E7 /* Scruge */,
 				71971C942158E059004D28E7 /* ScrugeTests */,
-				71971C9F2158E059004D28E7 /* ScrugeUITests */,
 				71971C7E2158E056004D28E7 /* Products */,
 				5ED3CA62F48657A058B07B71 /* Pods */,
 				9E01F0AF29DD0E979EC82684 /* Frameworks */,
@@ -753,7 +732,6 @@
 			children = (
 				71971C7D2158E056004D28E7 /* Scruge.app */,
 				71971C912158E059004D28E7 /* ScrugeTests.xctest */,
-				71971C9C2158E059004D28E7 /* ScrugeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -774,19 +752,10 @@
 		71971C942158E059004D28E7 /* ScrugeTests */ = {
 			isa = PBXGroup;
 			children = (
-				71971C952158E059004D28E7 /* ScrugeTests.swift */,
+				71971C952158E059004D28E7 /* WalletTests.swift */,
 				71971C972158E059004D28E7 /* Info.plist */,
 			);
 			path = ScrugeTests;
-			sourceTree = "<group>";
-		};
-		71971C9F2158E059004D28E7 /* ScrugeUITests */ = {
-			isa = PBXGroup;
-			children = (
-				71971CA02158E059004D28E7 /* ScrugeUITests.swift */,
-				71971CA22158E059004D28E7 /* Info.plist */,
-			);
-			path = ScrugeUITests;
 			sourceTree = "<group>";
 		};
 		71971CB12158E3E6004D28E7 /* Services */ = {
@@ -1289,25 +1258,6 @@
 			productReference = 71971C912158E059004D28E7 /* ScrugeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		71971C9B2158E059004D28E7 /* ScrugeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 71971CAB2158E059004D28E7 /* Build configuration list for PBXNativeTarget "ScrugeUITests" */;
-			buildPhases = (
-				77EA98F98EB616843581B9F4 /* [CP] Check Pods Manifest.lock */,
-				71971C982158E059004D28E7 /* Sources */,
-				71971C992158E059004D28E7 /* Frameworks */,
-				71971C9A2158E059004D28E7 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				71971C9E2158E059004D28E7 /* PBXTargetDependency */,
-			);
-			name = ScrugeUITests;
-			productName = ScrugeUITests;
-			productReference = 71971C9C2158E059004D28E7 /* ScrugeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1333,10 +1283,6 @@
 						CreatedOnToolsVersion = 10.0;
 						TestTargetID = 71971C7C2158E056004D28E7;
 					};
-					71971C9B2158E059004D28E7 = {
-						CreatedOnToolsVersion = 10.0;
-						TestTargetID = 71971C7C2158E056004D28E7;
-					};
 				};
 			};
 			buildConfigurationList = 71971C782158E056004D28E7 /* Build configuration list for PBXProject "Scruge" */;
@@ -1354,7 +1300,6 @@
 			targets = (
 				71971C7C2158E056004D28E7 /* Scruge */,
 				71971C902158E059004D28E7 /* ScrugeTests */,
-				71971C9B2158E059004D28E7 /* ScrugeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -1392,13 +1337,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		71971C8F2158E059004D28E7 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		71971C9A2158E059004D28E7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1503,24 +1441,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "#!/bin/bash\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleVersion\" \"$INFOPLIST_FILE\")\nbuildNumber=$(($buildNumber + 1))\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion $buildNumber\" \"$INFOPLIST_FILE\"\n";
-		};
-		77EA98F98EB616843581B9F4 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-ScrugeUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1670,15 +1590,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71971C962158E059004D28E7 /* ScrugeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		71971C982158E059004D28E7 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				71971CA12158E059004D28E7 /* ScrugeUITests.swift in Sources */,
+				71971C962158E059004D28E7 /* WalletTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1689,11 +1601,6 @@
 			isa = PBXTargetDependency;
 			target = 71971C7C2158E056004D28E7 /* Scruge */;
 			targetProxy = 71971C922158E059004D28E7 /* PBXContainerItemProxy */;
-		};
-		71971C9E2158E059004D28E7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 71971C7C2158E056004D28E7 /* Scruge */;
-			targetProxy = 71971C9D2158E059004D28E7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1923,48 +1830,6 @@
 			};
 			name = Release;
 		};
-		71971CAC2158E059004D28E7 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 91B9FC9C0CACF2FAFAA009DB /* Pods-ScrugeUITests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S422Q897FZ;
-				INFOPLIST_FILE = ScrugeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.ScrugeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Scruge;
-			};
-			name = Debug;
-		};
-		71971CAD2158E059004D28E7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E8B5E6BDB93E01D5E3313BF5 /* Pods-ScrugeUITests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = S422Q897FZ;
-				INFOPLIST_FILE = ScrugeUITests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.ScrugeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = Scruge;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1991,15 +1856,6 @@
 			buildConfigurations = (
 				71971CA92158E059004D28E7 /* Debug */,
 				71971CAA2158E059004D28E7 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		71971CAB2158E059004D28E7 /* Build configuration list for PBXNativeTarget "ScrugeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				71971CAC2158E059004D28E7 /* Debug */,
-				71971CAD2158E059004D28E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
