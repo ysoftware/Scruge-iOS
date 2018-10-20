@@ -35,6 +35,7 @@ final class ProfileEditViewController: UIViewController {
 									if self.editingProfile == nil {
 										// dismiss modal auth controller
 										self.dismiss(animated: true)
+										self.authCompletionBlock?(true)
 									}
 									else {
 										// pop back to profile controller
@@ -62,7 +63,9 @@ final class ProfileEditViewController: UIViewController {
 
 	// MARK: - Properties
 
+	var authCompletionBlock:((Bool)->Void)?
 	var editingProfile:ProfileVM?
+	
 	private var selectedImage:UIImage?
 	
 	// MARK: - Setup

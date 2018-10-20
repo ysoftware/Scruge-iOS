@@ -32,6 +32,7 @@ final class AuthViewController: UIViewController {
 	@objc func cancel(_ sender:Any) {
 		view.endEditing(true)
 		dismiss(animated: true)
+		authCompletionBlock?(false)
 	}
 
 	@IBAction func login(_ sender: Any) {
@@ -55,10 +56,12 @@ final class AuthViewController: UIViewController {
 				Service.tokenManager.save(token)
 
 				if self.didSignUp {
-					Presenter.presentProfileEditViewController(in: self)
+					Presenter.presentProfileSetupViewController(in: self,
+																completion: self.authCompletionBlock)
 				}
 				else {
 					self.navigationController?.dismiss(animated: true)
+					self.authCompletionBlock?(true)
 				}
 				
 			case .failure(let error):
@@ -100,25 +103,27 @@ final class AuthViewController: UIViewController {
 
 	// MARK: - Properties
 
-	var didSignUp = false
+	var authCompletionBlock:((Bool)->Void)?
 
-	var isWorking:Bool = false {
+	private var didSignUp = false
+
+	private var isWorking:Bool = false {
 		didSet {
 			activityIndicator.alpha = isWorking ? 1 : 0
 		}
 	}
 
-	var email:String {
+	private var email:String {
 		return emailField.text?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
 	}
 
-	var password:String {
+	private var password:String {
 		return passwordField.text ?? ""
 	}
 
 	// MARK: - Methods
 
-	func validate() -> Bool {
+	private func validate() -> Bool {
 
 		guard email.count > 0 else {
 			alert("Enter your email")

@@ -11,15 +11,10 @@ import SafariServices
 
 struct Presenter {
 
-	static func presentAuthViewController(in vc:UIViewController) {
-		let new = R.storyboard.authProfile.authVC()!.inNavigationController
-		vc.present(new, animated: true)
-	}
-
 	static func setupMainTabs() -> [UIViewController] {
 		let featured = R.storyboard.campaign.featuredVC()!.inNavigationController
 		featured.tabBarItem = UITabBarItem(title: "Campaigns", image: nil, tag: 0)
- 
+
 		let activity = R.storyboard.details.activityVC()!.inNavigationController
 		activity.tabBarItem = UITabBarItem(title: "Updates", image: nil, tag: 1)
 
@@ -30,6 +25,29 @@ struct Presenter {
 		profile.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 3)
 
 		return [featured, activity, search, profile]
+	}
+
+	// MARK: - Auth
+
+	static func presentAuthViewController(in vc:UIViewController,
+										  completion: @escaping (Bool)->Void) {
+		let new = R.storyboard.authProfile.authVC()!
+		new.authCompletionBlock = completion
+		vc.present(new.inNavigationController, animated: true)
+	}
+
+	static func presentProfileSetupViewController(in vc:UIViewController,
+												  completion: ((Bool)->Void)?) {
+		let new = R.storyboard.authProfile.profileEditVC()!
+		new.authCompletionBlock = completion
+		vc.show(new, sender: new)
+	}
+
+	static func presentProfileEditViewController(in vc:UIViewController,
+												 with vm:ProfileVM) {
+		let new = R.storyboard.authProfile.profileEditVC()!
+		new.editingProfile = vm
+		vc.show(new, sender: new)
 	}
 
 	static func presentCampaignViewController(in vc:UIViewController,
@@ -82,12 +100,6 @@ struct Presenter {
 		guard let model = updateVM.model else { return }
 		let new = R.storyboard.details.commentsVC()!
 		new.vm = CommentAVM(source: .update(model))
-		vc.show(new, sender: new)
-	}
-
-	static func presentProfileEditViewController(in vc:UIViewController, with vm:ProfileVM? = nil) {
-		let new = R.storyboard.authProfile.profileEditVC()!
-		new.editingProfile = vm
 		vc.show(new, sender: new)
 	}
 
@@ -145,6 +157,8 @@ struct Presenter {
 		new.vm = vm
 		vc.show(new, sender: new)
 	}
+
+	// MARK: - Wallet
 
 	static func presentWallerViewController(in vc:UIViewController) {
 		let new = R.storyboard.wallet.walletVC()!
