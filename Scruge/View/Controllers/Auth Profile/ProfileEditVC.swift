@@ -58,7 +58,7 @@ final class ProfileEditViewController: UIViewController {
 	}
 
 	@IBAction func pickImage(_ sender: Any) {
-		Presenter.presentImagePicker(in: self, delegate: self)
+		Service.presenter.presentImagePicker(in: self, delegate: self)
 	}
 
 	// MARK: - Properties

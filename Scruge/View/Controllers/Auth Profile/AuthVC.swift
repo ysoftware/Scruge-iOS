@@ -56,7 +56,7 @@ final class AuthViewController: UIViewController {
 				Service.tokenManager.save(token)
 
 				if self.didSignUp {
-					Presenter.presentProfileSetupViewController(in: self,
+					Service.presenter.presentProfileSetupViewController(in: self,
 																completion: self.authCompletionBlock)
 				}
 				else {

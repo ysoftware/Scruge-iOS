@@ -11,7 +11,7 @@ import SafariServices
 
 struct Presenter {
 
-	static func setupMainTabs() -> [UIViewController] {
+	func setupMainTabs() -> [UIViewController] {
 		let featured = R.storyboard.campaign.featuredVC()!.inNavigationController
 		featured.tabBarItem = UITabBarItem(title: "Campaigns", image: nil, tag: 0)
 
@@ -29,57 +29,44 @@ struct Presenter {
 
 	// MARK: - Auth
 
-	static func presentAuthViewController(in vc:UIViewController,
+	func presentAuthViewController(in vc:UIViewController,
 										  completion: @escaping (Bool)->Void) {
 		let new = R.storyboard.authProfile.authVC()!
 		new.authCompletionBlock = completion
 		vc.present(new.inNavigationController, animated: true)
 	}
 
-	static func presentProfileSetupViewController(in vc:UIViewController,
+	func presentProfileSetupViewController(in vc:UIViewController,
 												  completion: ((Bool)->Void)?) {
 		let new = R.storyboard.authProfile.profileEditVC()!
 		new.authCompletionBlock = completion
 		vc.show(new, sender: new)
 	}
 
-	static func presentProfileEditViewController(in vc:UIViewController,
+	func presentProfileEditViewController(in vc:UIViewController,
 												 with vm:ProfileVM) {
 		let new = R.storyboard.authProfile.profileEditVC()!
 		new.editingProfile = vm
 		vc.show(new, sender: new)
 	}
 
-	static func presentCampaignViewController(in vc:UIViewController,
+	// MARK: - Campaign
+
+	func presentCampaignViewController(in vc:UIViewController,
 											  with campaignVM:PartialCampaignVM) {
 		let new = R.storyboard.campaign.campaignVC()!
 		new.vm = CampaignVM(campaignVM.id)
 		vc.show(new, sender: new)
 	}
 
-	static func presentContentViewController(in vc:UIViewController,
+	func presentContentViewController(in vc:UIViewController,
 											 for campaignVM:CampaignVM) {
 		let new = R.storyboard.campaign.contentVC()!
 		new.campaignVM = campaignVM
 		vc.show(new, sender: new)
 	}
 
-	static func presentContentViewController(in vc:UIViewController,
-											 for update:UpdateVM) {
-		let new = R.storyboard.campaign.contentVC()!
-		new.updateVM = update
-		vc.show(new, sender: new)
-	}
-
-	static func presentUpdatesViewController(in vc:UIViewController,
-											 for campaignVM:CampaignVM) {
-		guard let model = campaignVM.model else { return }
-		let new = R.storyboard.details.updatesVC()!
-		new.vm = UpdateAVM(model)
-		vc.show(new, sender: new)
-	}
-
-	static func presentMilestonesViewController(in vc:UIViewController,
+	func presentMilestonesViewController(in vc:UIViewController,
 												for campaignVM:CampaignVM) {
 		guard let model = campaignVM.model else { return }
 		let new = R.storyboard.details.milestonesVC()!
@@ -87,48 +74,7 @@ struct Presenter {
 		vc.show(new, sender: new)
 	}
 
-	static func presentCommentsViewController(in vc:UIViewController,
-											  for campaignVM:CampaignVM) {
-		guard let model = campaignVM.model else { return }
-		let new = R.storyboard.details.commentsVC()!
-		new.vm = CommentAVM(source: .campaign(model))
-		vc.show(new, sender: new)
-	}
-
-	static func presentCommentsViewController(in vc:UIViewController,
-											  for updateVM:UpdateVM) {
-		guard let model = updateVM.model else { return }
-		let new = R.storyboard.details.commentsVC()!
-		new.vm = CommentAVM(source: .update(model))
-		vc.show(new, sender: new)
-	}
-
-	static func presentImagePicker(in vc:UIViewController,
-								   delegate: UIImagePickerControllerDelegate&UINavigationControllerDelegate) {
-		let new = UIImagePickerController()
-		new.delegate = delegate
-		new.allowsEditing = true
-		vc.present(new, animated: true)
-	}
-
-	static func presentSettingsViewController(in vc:UIViewController) {
-		let new = R.storyboard.main.settingsVC()!
-		vc.show(new, sender: new)
-	}
-
-	static func presentSafariViewController(in vc:UIViewController, url:URL) {
-		guard UIApplication.shared.canOpenURL(url) else { return }
-		let new = SFSafariViewController(url: url)
-		vc.present(new, animated: true)
-	}
-
-	static func presentContributeViewController(in vc:UIViewController,
-												with vm:CampaignVM,
-												for reward:Reward? = nil) {
-		
-	}
-
-	static func presentDocumentsViewController(in vc:UIViewController,
+	func presentDocumentsViewController(in vc:UIViewController,
 											   with vm:CampaignVM) {
 		guard let vm = vm.documentsVM else { return }
 		let new = R.storyboard.details.documentsVC()!
@@ -136,7 +82,7 @@ struct Presenter {
 		vc.show(new, sender: new)
 	}
 
-	static func presentFaqViewController(in vc:UIViewController,
+	func presentFaqViewController(in vc:UIViewController,
 										 with vm:CampaignVM) {
 		guard let vm = vm.faqVM else { return }
 		let new = R.storyboard.details.faqVC()!
@@ -144,33 +90,99 @@ struct Presenter {
 		vc.show(new, sender: new)
 	}
 
-	static func presentContributeViewController(in vc:UIViewController,
-												with vm:CampaignVM) {
+	// MARK: - Updates
+
+	func presentContentViewController(in vc:UIViewController,
+									  for update:UpdateVM) {
+		let new = R.storyboard.campaign.contentVC()!
+		new.updateVM = update
+		vc.show(new, sender: new)
+	}
+
+	func presentUpdatesViewController(in vc:UIViewController,
+									  for campaignVM:CampaignVM) {
+		guard let model = campaignVM.model else { return }
+		let new = R.storyboard.details.updatesVC()!
+		new.vm = UpdateAVM(model)
+		vc.show(new, sender: new)
+	}
+
+	// MARK: - Comments
+
+	func presentCommentsViewController(in vc:UIViewController,
+									   for campaignVM:CampaignVM) {
+		guard let model = campaignVM.model else { return }
+		let new = R.storyboard.details.commentsVC()!
+		new.vm = CommentAVM(source: .campaign(model))
+		vc.show(new, sender: new)
+	}
+
+	func presentCommentsViewController(in vc:UIViewController,
+									   for updateVM:UpdateVM) {
+		guard let model = updateVM.model else { return }
+		let new = R.storyboard.details.commentsVC()!
+		new.vm = CommentAVM(source: .update(model))
+		vc.show(new, sender: new)
+	}
+
+	// MARK: - Other
+
+	func presentSettingsViewController(in vc:UIViewController) {
+		let new = R.storyboard.main.settingsVC()!
+		vc.show(new, sender: new)
+	}
+
+	// MARK: - General
+
+	func presentImagePicker(in vc:UIViewController,
+							delegate: UIImagePickerControllerDelegate&UINavigationControllerDelegate) {
+		let new = UIImagePickerController()
+		new.delegate = delegate
+		new.allowsEditing = true
+		vc.present(new, animated: true)
+	}
+
+	func presentSafariViewController(in vc:UIViewController, url:URL) {
+		guard UIApplication.shared.canOpenURL(url) else { return }
+		let new = SFSafariViewController(url: url)
+		vc.present(new, animated: true)
+	}
+
+	// MARK: - Contributions
+
+	func presentContributeViewController(in vc:UIViewController,
+										 with vm:CampaignVM) {
 		let new = R.storyboard.details.contributeVC()!
 		new.vm = vm
 		vc.show(new, sender: new)
 	}
 
-	static func presentVoteViewController(in vc:UIViewController,
-										  with vm:CampaignVM) {
+	func presentVoteViewController(in vc:UIViewController,
+								   with vm:CampaignVM) {
 		let new = R.storyboard.details.voteVC()!
 		new.vm = vm
 		vc.show(new, sender: new)
 	}
 
+	func presentContributeViewController(in vc:UIViewController,
+										 with vm:CampaignVM,
+										 for reward:Reward? = nil) {
+
+	}
+
 	// MARK: - Wallet
 
-	static func presentWallerViewController(in vc:UIViewController) {
+	func presentWallerViewController(in vc:UIViewController) {
 		let new = R.storyboard.wallet.walletVC()!
 		vc.show(new, sender: new)
 	}
 
-	static func presentImporKeyViewController(in vc:UIViewController) {
+	func presentImporKeyViewController(in vc:UIViewController) {
 		let new = R.storyboard.wallet.importKeyVC()!
 		vc.show(new, sender: new)
 	}
 
-	static func presentPasscodeViewController(in vc:UIViewController,
+	func presentPasscodeViewController(in vc:UIViewController,
 											  message:String,
 											  _ completion: @escaping (String?)->Void) {
 		vc.askForInput("Passcode protection",

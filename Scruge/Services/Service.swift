@@ -23,4 +23,6 @@ struct Service {
 	static let eos = EOS()
 
 	static let wallet = Wallet()
+
+	static let presenter = Presenter()
 }

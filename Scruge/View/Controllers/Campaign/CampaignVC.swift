@@ -31,7 +31,7 @@ final class CampaignViewController: UIViewController {
 
 	private func openSocialPage(_ element:Social) {
 		guard let url = URL(string: element.url) else { return }
-		Presenter.presentSafariViewController(in: self, url: url)
+		Service.presenter.presentSafariViewController(in: self, url: url)
 	}
 
 	@IBAction func contribute(_ sender: Any) {
@@ -41,7 +41,7 @@ final class CampaignViewController: UIViewController {
 				scrollToRewards()
 			}
 			else {
-				Presenter.presentContributeViewController(in: self, with: vm)
+				Service.presenter.presentContributeViewController(in: self, with: vm)
 			}
 		default: break
 		}
@@ -60,17 +60,17 @@ final class CampaignViewController: UIViewController {
 		let b = block(for: tap.view!.tag)
 		switch b {
 		case .info:
-			Presenter.presentContentViewController(in: self, for: vm)
+			Service.presenter.presentContentViewController(in: self, for: vm)
 		case .milestone:
-			Presenter.presentMilestonesViewController(in: self, for: vm)
+			Service.presenter.presentMilestonesViewController(in: self, for: vm)
 		case .update:
-			Presenter.presentUpdatesViewController(in: self, for: vm)
+			Service.presenter.presentUpdatesViewController(in: self, for: vm)
 		case .comments:
-			Presenter.presentCommentsViewController(in: self, for: vm)
+			Service.presenter.presentCommentsViewController(in: self, for: vm)
 		case .documents:
-			Presenter.presentDocumentsViewController(in: self, with: vm)
+			Service.presenter.presentDocumentsViewController(in: self, with: vm)
 		case .faq:
-			Presenter.presentFaqViewController(in: self, with: vm)
+			Service.presenter.presentFaqViewController(in: self, with: vm)
 		default: break
 		}
 	}
@@ -381,10 +381,10 @@ extension CampaignViewController: UITableViewDelegate {
 		switch b {
 		case .documents:
 			guard let url = vm.documentsVM?.item(at: indexPath.row).documentUrl else { return }
-			Presenter.presentSafariViewController(in: self, url: url)
+			Service.presenter.presentSafariViewController(in: self, url: url)
 		case .update:
 			guard let vm = vm.lastUpdateVM else { return }
-			Presenter.presentContentViewController(in: self, for: vm)
+			Service.presenter.presentContentViewController(in: self, for: vm)
 		default: break
 		}
 		return

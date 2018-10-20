@@ -15,7 +15,7 @@ final class WalletViewController: UIViewController {
 
 	// MARK: - Property
 
-	let vm:AccountAVM = AccountAVM()
+	let vm = AccountAVM()
 
 	// MARK: - Setup
 
@@ -53,7 +53,7 @@ final class WalletViewController: UIViewController {
 	// MARK: - Methods
 
 	@objc func openImportKey(_ sender:Any) {
-		Presenter.presentImporKeyViewController(in: self)
+		Service.presenter.presentImporKeyViewController(in: self)
 	}
 }
 
@@ -66,7 +66,7 @@ extension WalletViewController: UITableViewDelegate {
 
 		if account.isLocked {
 			let message = "Enter your passcode to unlock this account"
-			Presenter.presentPasscodeViewController(in: self, message: message) { input in
+			Service.presenter.presentPasscodeViewController(in: self, message: message) { input in
 				guard let passcode = input else { return }
 
 				let result = account.unlock(passcode)

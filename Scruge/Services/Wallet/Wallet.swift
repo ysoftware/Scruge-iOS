@@ -12,18 +12,18 @@ struct Wallet {
 
 	fileprivate let service = SEKeystoreService.sharedInstance
 
-	func createWallet(_ passcode:String,
-					  _ completion: @escaping (SELocalAccount?)->Void) {
+	func getWallets() -> [SELocalAccount] {
+		return service.keystore.accounts()
+	}
+
+	func createKey(_ passcode:String,
+				   _ completion: @escaping (SELocalAccount?)->Void) {
 
 		service.newAccount(passcode: passcode, succeed: { account in
 			completion(account)
 		}) { error in
 			completion(nil)
 		}
-	}
-	
-	func getWallets() -> [SELocalAccount] {
-		return service.keystore.accounts()
 	}
 
 	func importKey(_ privateKey:String,

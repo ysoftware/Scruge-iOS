@@ -27,7 +27,7 @@ final class ImportKeyViewController: UIViewController {
 
 	@objc func save(_ sender:Any) {
 		let message = "Enter new passcode for this account"
-		Presenter .presentPasscodeViewController(in: self, message: message) { input in
+		Service.presenter.presentPasscodeViewController(in: self, message: message) { input in
 			guard let passcode = input else { return }
 
 			Service.wallet.importKey(self.textView.text, passcode: passcode) { account in

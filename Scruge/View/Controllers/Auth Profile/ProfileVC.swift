@@ -28,15 +28,15 @@ final class ProfileViewController: UIViewController {
 	}
 
 	@IBAction func openWallet(_ sender: Any) {
-		Presenter.presentWallerViewController(in: self)
+		Service.presenter.presentWallerViewController(in: self)
 	}
 
 	@IBAction func openSettings(_ sender:Any) {
-		Presenter.presentSettingsViewController(in: self)
+		Service.presenter.presentSettingsViewController(in: self)
 	}
 
 	@IBAction func editProfile(_ sender:Any) {
-		Presenter.presentProfileEditViewController(in: self, with: profileVM)
+		Service.presenter.presentProfileEditViewController(in: self, with: profileVM)
 	}
 
 	// MARK: - Properties
@@ -106,7 +106,7 @@ extension ProfileViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		Presenter.presentCampaignViewController(in: self, with: campaignsVM.item(at: indexPath.row))
+		Service.presenter.presentCampaignViewController(in: self, with: campaignsVM.item(at: indexPath.row))
 	}
 }
 

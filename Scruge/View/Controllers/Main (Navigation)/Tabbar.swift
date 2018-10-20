@@ -13,7 +13,7 @@ final class TabbarViewController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		viewControllers = Presenter.setupMainTabs()
+		viewControllers = Service.presenter.setupMainTabs()
 		delegate = self
 	}
 }
@@ -28,7 +28,7 @@ extension TabbarViewController: UITabBarControllerDelegate {
 			nav.topViewController is ProfileViewController,
 			Service.tokenManager.getToken() == nil {
 
-			Presenter.presentAuthViewController(in: self) { didLogIn in
+			Service.presenter.presentAuthViewController(in: self) { didLogIn in
 				// select profile tab after successful login
 				tabBarController.selectedIndex = 3
 			}

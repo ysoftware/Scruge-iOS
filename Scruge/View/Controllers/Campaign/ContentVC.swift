@@ -37,6 +37,6 @@ final class ContentViewController: UIViewController {
 	}
 
 	@objc func openComments(_ sender:Any) {
-		Presenter.presentCommentsViewController(in: self, for: updateVM!)
+		Service.presenter.presentCommentsViewController(in: self, for: updateVM!)
 	}
 }

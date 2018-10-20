@@ -59,7 +59,7 @@ extension DocumentsViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 		guard let url = vm.item(at: indexPath.row).documentUrl else { return }
-		Presenter.presentSafariViewController(in: self, url: url)
+		Service.presenter.presentSafariViewController(in: self, url: url)
 	}
 }
 
