@@ -148,7 +148,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	var status:Status {
-		guard let state = model?.state, let status = Status(rawValue: state) else { return .idle }
+		guard let state = model?.state, let status = Status(rawValue: state) else { return .contribute }
 		return status
 	}
 

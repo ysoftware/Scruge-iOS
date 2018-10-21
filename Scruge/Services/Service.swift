@@ -10,8 +10,6 @@ import Foundation
 
 struct Service {
 
-	private init() { }
-
 	static let api = Api()
 
 	static let tokenManager = TokenManager()
