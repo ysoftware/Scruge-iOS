@@ -17,7 +17,7 @@ struct Network:Networking {
 	var isLoggingEnabled = true
 	var logLimit = 300
 
-	init(baseUrl:String = "http://api.scruge.world") {
+	init(baseUrl:String = "http://api.scruge.world/") {
 		self.baseUrl = baseUrl
 	}
 

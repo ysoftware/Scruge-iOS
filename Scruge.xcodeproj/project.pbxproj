@@ -64,6 +64,7 @@
 		715DB15D217471980005B69D /* ContributeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB15C217471980005B69D /* ContributeVC.swift */; };
 		716AE1CC215977470098882F /* CampaignAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE1CB215977470098882F /* CampaignAVM.swift */; };
 		718B2F29217BAD3C00831B34 /* DataFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F28217BAD3C00831B34 /* DataFormatting.swift */; };
+		718B2F2B217CA0EC00831B34 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F2A217CA0EC00831B34 /* Services.swift */; };
 		71971C812158E056004D28E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C802158E056004D28E7 /* AppDelegate.swift */; };
 		71971C832158E056004D28E7 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C822158E056004D28E7 /* AuthVC.swift */; };
 		71971C862158E056004D28E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71971C842158E056004D28E7 /* Main.storyboard */; };
@@ -250,6 +251,7 @@
 		715DB15C217471980005B69D /* ContributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributeVC.swift; sourceTree = "<group>"; };
 		716AE1CB215977470098882F /* CampaignAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignAVM.swift; sourceTree = "<group>"; };
 		718B2F28217BAD3C00831B34 /* DataFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatting.swift; sourceTree = "<group>"; };
+		718B2F2A217CA0EC00831B34 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		71971C7D2158E056004D28E7 /* Scruge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scruge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71971C802158E056004D28E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71971C822158E056004D28E7 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
@@ -756,6 +758,7 @@
 			children = (
 				71971C952158E059004D28E7 /* Wallet.swift */,
 				718B2F28217BAD3C00831B34 /* DataFormatting.swift */,
+				718B2F2A217CA0EC00831B34 /* Services.swift */,
 				71971C972158E059004D28E7 /* Info.plist */,
 			);
 			path = ScrugeTests;
@@ -1594,6 +1597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				718B2F29217BAD3C00831B34 /* DataFormatting.swift in Sources */,
+				718B2F2B217CA0EC00831B34 /* Services.swift in Sources */,
 				71971C962158E059004D28E7 /* Wallet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
