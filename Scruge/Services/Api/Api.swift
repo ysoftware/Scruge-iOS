@@ -13,12 +13,10 @@ struct Api {
 
 	// MARK: - Initialization
 
-	let service:Networking
+	var service:Networking = Network()
 
-	init(service:Networking
-		= Network()) {
-//		= Mock()) {
-		self.service = service
+	mutating func setTestNetwork(_ value:Bool) {
+		service = value ? Mock() : Network()
 	}
 
 	// MARK: - Auth
