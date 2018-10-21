@@ -30,6 +30,10 @@ struct Wallet {
 				   passcode: String,
 				   _ completion: @escaping (SELocalAccount?)->Void) {
 
+		guard privateKey.count == 51, privateKey.starts(with: "5") else {
+			return completion(nil)
+		}
+
 		service.importAccount(privateKey: privateKey, passcode: passcode, succeed: { account in
 			completion(account)
 		}) { error in

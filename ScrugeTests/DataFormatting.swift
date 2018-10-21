@@ -12,15 +12,16 @@ import XCTest
 final class DataFormattingTests: XCTestCase {
 
 	func testNumberString() {
+		let sym = Locale.current.decimalSeparator!
 
 		// formatRounding(to:min:)
-		XCTAssertEqual("1.0000", 1.0.formatRounding(to: 10, min: 4))
-		XCTAssertEqual("1.000001", 1.000001.formatRounding(to: 10, min: 4))
+		XCTAssertEqual("1\(sym)0000", 1.0.formatRounding(to: 10, min: 4))
+		XCTAssertEqual("1\(sym)000001", 1.000001.formatRounding(to: 10, min: 4))
 
 		// format(as:)
 		XCTAssertEqual("1", 1.0.format(as: .decimal))
-		XCTAssertEqual("1.1", 1.1.format(as: .decimal))
-		XCTAssertEqual("1.01", 1.0100.format(as: .decimal))
+		XCTAssertEqual("1\(sym)1", 1.1.format(as: .decimal))
+		XCTAssertEqual("1\(sym)01", 1.0100.format(as: .decimal))
 	}
 
 	func testDateMilliseconds() {
