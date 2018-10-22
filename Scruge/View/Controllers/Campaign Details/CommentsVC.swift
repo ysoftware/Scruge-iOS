@@ -37,6 +37,7 @@ final class CommentsViewController: UIViewController {
 					self.view.endEditing(true)
 					self.setKeyboard(height: 0)
 					self.commentField.text = ""
+					self.vm.reloadData()
 				}
 				else {
 					// TO-DO: some error, did not send
@@ -80,6 +81,7 @@ final class CommentsViewController: UIViewController {
 	private func setupInputBar() {
 		commentActivity.isHidden = true
 		sendButton.isHidden = false
+		commentField.delegate = self
 	}
 
 	private func setupVM() {
@@ -179,5 +181,21 @@ extension CommentsViewController: ArrayViewModelDelegate {
 			}
 		default: break
 		}
+	}
+}
+
+extension CommentsViewController: UITextFieldDelegate {
+
+	func textField(_ textField: UITextField,
+				   shouldChangeCharactersIn range: NSRange,
+				   replacementString string: String) -> Bool {
+
+		guard let text = textField.text else { return true }
+		let newLength = text.count + string.count - range.length
+
+		if textField == commentField {
+			return newLength <= 599
+		}
+		return true
 	}
 }
