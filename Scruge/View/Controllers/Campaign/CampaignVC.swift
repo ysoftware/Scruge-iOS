@@ -78,10 +78,9 @@ final class CampaignViewController: UIViewController {
 	// MARK: - Properties
 
 	var vm:CampaignVM!
-	private var isShowingContributeButton = true
+	private var isShowingContributeButton = false
 
 	private let MAX_ELEMENTS = 3
-	private let ANIMATION_TIME = 0.25
 
 	// MARK: - Setup
 
@@ -125,13 +124,13 @@ final class CampaignViewController: UIViewController {
 	private func setupBottomButton() {
 		switch vm.status {
 		case .idle:
-			contributeView.isHidden = true
+			showContributeButton(false, duration: 0)
 		case .voteMilestone, .voteDeadline:
-			contributeView.isHidden = false
+			showContributeButton(true, duration: 0)
 			contributeView.backgroundColor = Service.constants.color.contributeBlue
 			contributeButton.setTitle("Vote", for: .normal)
 		case .contribute:
-			contributeView.isHidden = false
+			showContributeButton(true, duration: 0)
 			contributeView.backgroundColor = Service.constants.color.contributeGreen
 			contributeButton.setTitle("Contribute", for: .normal)
 		}
@@ -191,7 +190,7 @@ final class CampaignViewController: UIViewController {
 		}
 	}
 
-	private func showContributeButton(_ visible:Bool = true) {
+	private func showContributeButton(_ visible:Bool = true, duration:TimeInterval = 0.25) {
 		guard visible != isShowingContributeButton else { return }
 		isShowingContributeButton = visible
 
@@ -199,7 +198,7 @@ final class CampaignViewController: UIViewController {
 		if #available(iOS 11, *) { offset += view.safeAreaInsets.bottom }
 		contributeViewTopConstraint.constant = visible ? offset : 0
 
-		UIView.animate(withDuration: ANIMATION_TIME, delay: 0, options: .curveEaseInOut, animations: {
+		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
 			self.view.layoutSubviews()
 		})
 	}
@@ -207,7 +206,7 @@ final class CampaignViewController: UIViewController {
 	private func scrollToRewards() {
 		tableView.scrollToRow(at: IndexPath(row: 0, section: Block.rewards.rawValue),
 							  at: .top, animated: true)
-		DispatchQueue.main.asyncAfter(deadline: .now() + ANIMATION_TIME) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
 			self.tableView.reloadData()
 		}
 	}

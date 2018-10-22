@@ -29,7 +29,7 @@ final class CommentAVM: ArrayViewModel<Comment, CommentVM, CommentQuery> {
 		Service.api.getComments(for: query) { result in
 			switch result {
 			case .success(let response):
-				block(.success(response.data))
+				block(.success(response.comments))
 			case .failure(let error):
 				block(.failure(error))
 			}

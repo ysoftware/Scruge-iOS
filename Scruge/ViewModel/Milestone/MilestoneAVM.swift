@@ -28,7 +28,7 @@ final class MilestoneAVM: SimpleArrayViewModel<Milestone, MilestoneVM> {
 		Service.api.getMilestones(for: campaign) { result in
 			switch result {
 			case .success(let response):
-				block(.success(response.data))
+				block(.success(response.milestones))
 			case .failure(let error):
 				block(.failure(AnyError(error)))
 			}

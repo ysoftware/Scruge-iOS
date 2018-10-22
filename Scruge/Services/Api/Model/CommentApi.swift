@@ -14,7 +14,7 @@ struct CommentListResponse: Codable {
 
 	let result:Int
 
-	let data:[Comment]
+	let comments:[Comment]
 }
 
 // MARK: - Request

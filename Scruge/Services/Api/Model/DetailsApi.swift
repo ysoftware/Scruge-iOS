@@ -12,7 +12,7 @@ struct MilestoneListResponse: Codable {
 
 	let result:Int
 
-	let data:[Milestone]
+	let milestones:[Milestone]
 }
 
 struct UpdateListResponse: Codable {
