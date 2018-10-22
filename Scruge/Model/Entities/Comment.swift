@@ -18,5 +18,5 @@ struct Comment:Equatable, Codable {
 
 	let authorName:String?
 
-	let authorPhoto:String?
+	let authorAvatar:String?
 }

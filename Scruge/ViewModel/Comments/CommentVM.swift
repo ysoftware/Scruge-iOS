@@ -15,7 +15,7 @@ final class CommentVM: ViewModel<Comment> {
 	}
 
 	var authorPhoto:URL? {
-		if let url = model?.authorPhoto {
+		if let url = model?.authorAvatar {
 			return URL(string: url)
 		}
 		return nil
