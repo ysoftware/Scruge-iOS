@@ -37,7 +37,7 @@ final class CommentsViewController: UIViewController {
 					self.view.endEditing(true)
 					self.setKeyboard(height: 0)
 					self.commentField.text = ""
-					self.vm.reloadData()
+					self.reloadData()
 				}
 				else {
 					// TO-DO: some error, did not send
@@ -86,7 +86,7 @@ final class CommentsViewController: UIViewController {
 
 	private func setupVM() {
 		vm.delegate = self
-		vm.reloadData()
+		reloadData()
 	}
 
 	private func setupKeyboard() {
@@ -105,10 +105,17 @@ final class CommentsViewController: UIViewController {
 	}
 
 	private func setupTableView() {
+		tableView.refreshControl = UIRefreshControl()
+		tableView.refreshControl!.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+
 		tableView.estimatedRowHeight = 80
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.register(UINib(resource: R.nib.commentCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.commentCell.identifier)
+	}
+
+	@objc func reloadData() {
+		vm.reloadData()
 	}
 
 	// MARK: - Keyboard
@@ -165,13 +172,15 @@ extension CommentsViewController: ArrayViewModelDelegate {
 	func didChangeState<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>,
 								  to state: ArrayViewModelState)
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
-			
+		
 		switch state {
-		case .initial, .loading:
+		case .initial:
 			loadingView.set(state: .loading)
 		case .error(let error):
 			let message = ErrorHandler.message(for: error)
 			loadingView.set(state: .error(message))
+
+			tableView.refreshControl?.endRefreshing()
 		case .ready:
 			if vm.isEmpty {
 				loadingView.set(state: .error("No comments"))
@@ -179,6 +188,7 @@ extension CommentsViewController: ArrayViewModelDelegate {
 			else {
 				loadingView.set(state: .ready)
 			}
+			tableView.refreshControl?.endRefreshing()
 		default: break
 		}
 	}

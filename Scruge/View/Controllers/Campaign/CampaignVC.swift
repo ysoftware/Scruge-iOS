@@ -97,6 +97,9 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func setupTableView() {
+		tableView.refreshControl = UIRefreshControl()
+		tableView.refreshControl!.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+
 		tableView.delaysContentTouches = false
 		tableView.estimatedRowHeight = 400
 		tableView.rowHeight = UITableView.automaticDimension
@@ -166,6 +169,10 @@ final class CampaignViewController: UIViewController {
 	}
 
 	// MARK: - Methods
+
+	@objc func reloadData() {
+		vm.reloadData()
+	}
 
 	private func showData() {
 		vm.lastUpdateVM?.delegate = self
@@ -400,12 +407,14 @@ extension CampaignViewController: ViewModelDelegate {
 
 		switch self.vm.state {
 		case .loading:
-			self.loadingView.set(state: .loading)
+			loadingView.set(state: .loading)
 		case .error(let message):
-			self.loadingView.set(state: .error(message))
+			loadingView.set(state: .error(message))
+			tableView.refreshControl?.endRefreshing()
 		case .ready:
-			self.showData()
-			self.loadingView.set(state: .ready)
+			showData()
+			loadingView.set(state: .ready)
+			tableView.refreshControl?.endRefreshing()
 		}
 	}
 }

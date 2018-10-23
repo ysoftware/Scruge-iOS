@@ -46,8 +46,12 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		state = .ready
 	}
 
-	public func load() {
+	func load() {
 		state = .loading
+		reloadData()
+	}
+
+	func reloadData() {
 		Service.api.getCampaign(with: id) { result in
 			switch result {
 			case .success(let response):
