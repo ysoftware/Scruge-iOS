@@ -12,6 +12,7 @@ import MVVM
 final class WalletViewController: UIViewController {
 
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var loadingView: LoadingView!
 
 	// MARK: - Property
 
@@ -24,6 +25,7 @@ final class WalletViewController: UIViewController {
 
 		setupNavigationBar()
 		setupTable()
+		setupActions()
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -38,22 +40,42 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func setupVM() {
-		vm.reloadData()
 		vm.delegate = self
+		vm.reloadData()
 	}
 
 	private func setupNavigationBar() {
 		title = "Accounts"
-		
-		let importButton = UIBarButtonItem(title: "Import Key", style: .plain,
-										   target: self, action: #selector(openImportKey))
-		navigationItem.rightBarButtonItem = importButton
+	}
+
+	private func setupActions() {
+		loadingView.errorViewDelegate = self
+		loadingView.errorView.setButtonTitle("Get started")
 	}
 
 	// MARK: - Methods
 
-	@objc func openImportKey(_ sender:Any) {
+	private func updateStatus() {
+		switch vm.status {
+		case .error(let error):
+			loadingView.set(state: .error(ErrorHandler.message(for: error)))
+		case .loading:
+			loadingView.set(state: .loading)
+		case .noAccounts:
+			loadingView.set(state: .error("No accounts are associated with imported private key."))
+		case .noKey:
+			loadingView.set(state: .error("You can import your key or create a new one."))
+		case .ready:
+			loadingView.set(state: .ready)
+		}
+	}
+
+	private func openImportKey() {
 		Service.presenter.presentImporKeyViewController(in: self)
+	}
+
+	private func openCreateKey() {
+
 	}
 }
 
@@ -99,5 +121,30 @@ extension WalletViewController: ArrayViewModelDelegate {
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
 
 			tableView.reloadData()
+			updateStatus()
+	}
+}
+
+extension WalletViewController: ErrorViewDelegate {
+
+	// get started button click
+	func didTryAgain() {
+		let createKey = UIAlertAction(title: "Create new key",
+									  style: .default) { _ in
+										self.openCreateKey()
+		}
+
+		let importKey = UIAlertAction(title: "Import existing key",
+									  style: .default) { _ in
+										self.openImportKey()
+		}
+
+		let cancel = UIAlertAction(title: "Cancel",
+								   style: .cancel) { _ in
+		}
+
+		Service.presenter.presentActions(in: self,
+										 title: "Select action",
+										 message: "", actions: [createKey, importKey, cancel])
 	}
 }

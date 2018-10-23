@@ -134,6 +134,20 @@ struct Presenter {
 
 	// MARK: - General
 
+	func presentActions(in vc:UIViewController,
+						title:String,
+						message:String,
+						actions:[UIAlertAction]) {
+
+		let alert = UIAlertController(title: title,
+									  message: message,
+									  preferredStyle: .actionSheet)
+		for action in actions {
+			alert.addAction(action)
+		}
+		vc.present(alert, animated: true)
+	}
+
 	func presentImagePicker(in vc:UIViewController,
 							delegate: UIImagePickerControllerDelegate&UINavigationControllerDelegate) {
 		let new = UIImagePickerController()

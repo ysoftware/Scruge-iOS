@@ -12,8 +12,8 @@ struct Wallet {
 
 	fileprivate let service = SEKeystoreService.sharedInstance
 
-	func getWallets() -> [SELocalAccount] {
-		return service.keystore.accounts()
+	func getWallet() -> SELocalAccount? {
+		return service.keystore.defaultAccount()
 	}
 
 	func createKey(_ passcode:String,

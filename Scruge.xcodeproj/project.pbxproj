@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		512EE954BDA3136818C75BF7 /* Pods_Scruge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */; };
+		710FE992217F94F8009E51E5 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710FE991217F94F8009E51E5 /* Balance.swift */; };
 		71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3D21663B8900C5B633 /* ProfileEditVC.swift */; };
 		71163A40216642F400C5B633 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3F216642F400C5B633 /* EmailValidation.swift */; };
 		71163A422166499200C5B633 /* CampaignSmallCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71163A412166499200C5B633 /* CampaignSmallCell.xib */; };
@@ -185,6 +186,7 @@
 /* Begin PBXFileReference section */
 		38208ECDA13EC24E9D2BEB36 /* Pods-ScrugeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeTests/Pods-ScrugeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		710FE991217F94F8009E51E5 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		71163A3D21663B8900C5B633 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
 		71163A3F216642F400C5B633 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		71163A412166499200C5B633 /* CampaignSmallCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampaignSmallCell.xib; sourceTree = "<group>"; };
@@ -1180,6 +1182,7 @@
 			isa = PBXGroup;
 			children = (
 				71C8E8E721590F2A0078BD36 /* EOS.swift */,
+				710FE991217F94F8009E51E5 /* Balance.swift */,
 			);
 			path = EOS;
 			sourceTree = "<group>";
@@ -1576,6 +1579,7 @@
 				71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */,
 				71B38D22215BBEC400929CC3 /* RewardAVM.swift in Sources */,
 				71345BFF21773D2400F28AF1 /* EOSRPC.swift in Sources */,
+				710FE992217F94F8009E51E5 /* Balance.swift in Sources */,
 				71A0C1B6217089A700C2ACF3 /* FaqVM.swift in Sources */,
 				71345BF621773D2400F28AF1 /* Transaction.swift in Sources */,
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,

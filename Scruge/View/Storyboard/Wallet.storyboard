@@ -26,17 +26,26 @@
                                     <outlet property="delegate" destination="cc8-hu-uvn" id="Ulj-53-KcU"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZyX-Gt-tbs" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="jOB-Lr-SYT" firstAttribute="trailing" secondItem="T7C-8n-2x5" secondAttribute="trailing" id="5tU-Fw-xNa"/>
                             <constraint firstItem="jOB-Lr-SYT" firstAttribute="top" secondItem="V77-NM-mBp" secondAttribute="top" id="69h-tT-d18"/>
                             <constraint firstItem="jOB-Lr-SYT" firstAttribute="leading" secondItem="T7C-8n-2x5" secondAttribute="leading" id="85v-HT-fsr"/>
+                            <constraint firstAttribute="trailing" secondItem="ZyX-Gt-tbs" secondAttribute="trailing" id="8K9-4H-RAy"/>
+                            <constraint firstItem="ZyX-Gt-tbs" firstAttribute="leading" secondItem="V77-NM-mBp" secondAttribute="leading" id="QMy-vB-De3"/>
+                            <constraint firstItem="ZyX-Gt-tbs" firstAttribute="top" secondItem="V77-NM-mBp" secondAttribute="top" id="TZC-CG-FAu"/>
                             <constraint firstAttribute="bottomMargin" secondItem="jOB-Lr-SYT" secondAttribute="bottom" id="Ute-Ly-rg5"/>
+                            <constraint firstAttribute="bottomMargin" secondItem="ZyX-Gt-tbs" secondAttribute="bottom" id="yCf-Pr-P8N"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T7C-8n-2x5"/>
                     </view>
                     <connections>
+                        <outlet property="loadingView" destination="ZyX-Gt-tbs" id="3xP-Pm-ltZ"/>
                         <outlet property="tableView" destination="jOB-Lr-SYT" id="2rh-V0-lPg"/>
                     </connections>
                 </viewController>
@@ -56,7 +65,7 @@
                                 <rect key="frame" x="10" y="30" width="363" height="627"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="33"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" secureTextEntry="YES" textContentType="password"/>
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

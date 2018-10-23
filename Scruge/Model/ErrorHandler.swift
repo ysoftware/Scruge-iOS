@@ -42,6 +42,13 @@ enum NetworkingError: Error {
 	case unknown(Int)
 }
 
+enum WalletError: Error {
+
+	case noAccounts
+
+	case noKey
+}
+
 struct ErrorHandler {
 
 	// extract Error from Result's AnyError

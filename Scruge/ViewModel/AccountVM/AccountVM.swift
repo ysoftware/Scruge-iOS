@@ -12,7 +12,7 @@ final class AccountVM:ViewModel<AccountModel> {
 
 	let UNLOCK_DURATION:TimeInterval = 180
 
-	private var balance:(NSDecimalNumber, String)?
+	private var balances:[Balance] = []
 
 	required init(_ model: AccountModel, arrayDelegate: ViewModelDelegate?) {
 		super.init(model, arrayDelegate: arrayDelegate)
@@ -30,15 +30,17 @@ final class AccountVM:ViewModel<AccountModel> {
 	}
 
 	var balanceString:String {
-		guard let balance = balance else { return "..." }
-		return "\(balance.0) \(balance.1)"
+		return balances.reduce("", { result, balance in
+			let separator =  result.count > 0 ? ", " : ""
+			return "\(result)\(separator)\(balance.amount) \(balance.symbol)"
+		})
 	}
 
 	// MARK: - Methods
 
 	func updateBalance() {
-		Service.eos.getBalance(for: name) { balance, symbol in
-			self.balance = (balance, symbol)
+		Service.eos.getBalance(for: name, currencies: ["EOS", "SCR"]) { balances in
+			self.balances = balances
 			self.notifyUpdated()
 		}
 	}

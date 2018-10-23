@@ -11,19 +11,27 @@ import Result
 
 final class AccountAVM:SimpleArrayViewModel<AccountModel, AccountVM> {
 
+	enum Status {
+
+		case loading, noKey, noAccounts, ready, error(Error)
+	}
+
+	var status:Status = .noAccounts
+
 	override func fetchData(_ block: @escaping (Result<[AccountModel], AnyError>) -> Void) {
-		var i = 0
-		var out:[AccountModel] = []
-		let wallets = Service.wallet.getWallets()
+		guard let wallet = Service.wallet.getWallet() else {
+			self.status = .noKey
+			return block(.success([]))
+		}
 
-		for wallet in wallets {
-			Service.eos.getAccounts(for: wallet) { accounts in
-				out.append(contentsOf: accounts.map { AccountModel(name: $0, wallet: wallet) })
-
-				i += 1
-				if i == wallets.count {
-					block(.success(out))
-				}
+		Service.eos.getAccounts(for: wallet) { result in
+			switch result {
+			case .failure(let error):
+				self.status = .error(error)
+				return block(.success([]))
+			case .success(let accounts):
+				self.status = accounts.isEmpty ? .noAccounts : .ready
+				block(.success(accounts.map { AccountModel(name: $0, wallet: wallet) }))
 			}
 		}
 	}

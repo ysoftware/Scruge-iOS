@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
-import Foundation
+import Result
 
 struct EOS {
 
@@ -18,17 +18,19 @@ struct EOS {
 
 	// MARK: - Methods
 
-	func getAccounts(for wallet:SELocalAccount, completion: @escaping ([String])->Void) {
+	func getAccounts(for wallet:SELocalAccount,
+					 completion: @escaping (Result<[String], AnyError>)->Void) {
+
 		guard let key = wallet.rawPublicKey else {
-			return completion([])
+			return completion(.failure(AnyError(WalletError.noKey)))
 		}
 
 		chain.getKeyAccounts(pub: key) { result, error in
 			guard self.handleError(error) else {
-				return
+				return completion(.failure(AnyError(error!)))
 			}
 
-			completion(result!.accountNames)
+			completion(.success(result!.accountNames))
 		}
 	}
 
@@ -58,18 +60,33 @@ struct EOS {
 		}
 	}
 
-	func getBalance(for account:String, _ completion: @escaping (NSDecimalNumber, String)->Void) {
-		let symbol = "EOS"
-		chain.getCurrencyBalance(account: account, symbol: symbol, code: "eosio.token") { number, error in
-			guard self.handleError(error) else {
-				return completion(0, symbol)
+	func getBalance(for account:String,
+					currencies:[String],
+					_ completion: @escaping ([Balance])->Void) {
+
+		var i = 0
+		var balances:[Balance] = []
+
+		for currency in currencies {
+			chain.getCurrencyBalance(account: account,
+									 symbol: currency,
+									 code: "eosio.token") { number, error in
+										self.handleError(error)
+
+										i += 1
+										balances.append(Balance(symbol: currency,
+																amount: number ?? 0))
+
+										if i == currencies.count {
+											completion(balances)
+										}
 			}
-			completion(number!, symbol)
 		}
 	}
 
 	// MARK: - Handle
 
+	@discardableResult
 	private func handleError(_ error: Error?) -> Bool {
 		if let error = error as NSError? {
 			if let error = (error.userInfo["RPCErrorResponse"] as? RPCErrorResponse)?.error {

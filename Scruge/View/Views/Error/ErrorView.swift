@@ -52,6 +52,10 @@ final class ErrorView: UIView {
 
 	// MARK: - Methods
 
+	func setButtonTitle(_ title:String) {
+		tryAgainButton.setTitle(title, for: .normal)
+	}
+
 	private func showTryAgainButtonIfNeeded() {
 		tryAgainButton.isHidden = delegate == nil
 	}
