@@ -19,7 +19,7 @@ final class AccountAVM:SimpleArrayViewModel<AccountModel, AccountVM> {
 	var status:Status = .noAccounts
 
 	override func fetchData(_ block: @escaping (Result<[AccountModel], AnyError>) -> Void) {
-		guard let wallet = Service.wallet.getWallet() else {
+		guard let wallet = getWallet() else {
 			self.status = .noKey
 			return block(.success([]))
 		}
@@ -35,6 +35,10 @@ final class AccountAVM:SimpleArrayViewModel<AccountModel, AccountVM> {
 				block(.success(accounts))
 			}
 		}
+	}
+
+	func getWallet() -> SELocalAccount? {
+		return Service.wallet.getWallet()
 	}
 
 	func deleteWallet() {

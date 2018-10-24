@@ -30,6 +30,9 @@ final class ImportKeyViewController: UIViewController {
 		Service.presenter.presentPasscodeViewController(in: self, message: message) { input in
 			guard let passcode = input else { return }
 
+			// if existed
+			Service.wallet.deleteWallet()
+			
 			Service.wallet.importKey(self.textView.text, passcode: passcode) { account in
 				if account != nil {
 					DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {

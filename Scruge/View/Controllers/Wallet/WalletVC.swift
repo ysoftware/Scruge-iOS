@@ -123,7 +123,7 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func showPublicKey() {
-		guard let wallet = Service.wallet.getWallet() else {
+		guard let wallet = vm.getWallet() else {
 			// should not happen
 			return
 		}
@@ -144,7 +144,7 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func exportPrivateKey() {
-		guard let wallet = Service.wallet.getWallet() else {
+		guard let wallet = vm.getWallet() else {
 			// should not happen
 			return
 		}
