@@ -88,16 +88,20 @@ struct ErrorHandler {
 	static func error(from result:Int) -> Error? {
 		switch result {
 		case 0: return nil
-		case 100: return AuthError.authenticationFailed
+			
+		// common
+		case 10: return AuthError.authenticationFailed
+		case 11: return BackendError.badRequest
+		case 12: return BackendError.resourceNotFound
+		// auth
 		case 101: return AuthError.incorrectEmailLength
 		case 102: return AuthError.invalidEmail
 		case 103: return AuthError.incorrectPasswordLength
-		case 104, 404: return AuthError.authenticationFailed
-		case 106: return BackendError.badRequest
-		case 105: return BackendError.resourceNotFound
-		case 201: return AuthError.accountExists
-		case 301: return AuthError.incorrectCredentials
-		case 310: return AuthError.accountBlocked
+		case 104: return AuthError.authenticationFailed
+		case 105: return AuthError.accountExists
+		case 106: return AuthError.incorrectCredentials
+		case 107: return AuthError.accountBlocked
+
 		default: return NetworkingError.unknown(result)
 		}
 	}
