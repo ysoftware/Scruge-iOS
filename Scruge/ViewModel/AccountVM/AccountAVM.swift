@@ -31,7 +31,8 @@ final class AccountAVM:SimpleArrayViewModel<AccountModel, AccountVM> {
 				return block(.success([]))
 			case .success(let accounts):
 				self.status = accounts.isEmpty ? .noAccounts : .ready
-				block(.success(accounts.map { AccountModel(name: $0, wallet: wallet) }))
+				let accounts = accounts.map { AccountModel(name: $0, wallet: wallet) }.sorted()
+				block(.success(accounts))
 			}
 		}
 	}

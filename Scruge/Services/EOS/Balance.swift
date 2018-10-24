@@ -14,3 +14,10 @@ struct Balance {
 
 	let amount:NSDecimalNumber
 }
+
+extension Balance: Comparable {
+
+	static func < (lhs: Balance, rhs: Balance) -> Bool {
+		return lhs.symbol < rhs.symbol
+	}
+}

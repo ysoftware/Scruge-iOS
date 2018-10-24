@@ -31,8 +31,9 @@ final class AccountVM:ViewModel<AccountModel> {
 
 	var balanceString:String {
 		return balances.reduce("", { result, balance in
-			let separator =  result.count > 0 ? ", " : ""
-			return "\(result)\(separator)\(balance.amount) \(balance.symbol)"
+			let amount = balance.amount.doubleValue.formatRounding(to: 4, min: 4)
+			let separator =  result.count > 0 ? "\n" : ""
+			return "\(result)\(separator)\(balance.symbol) \(amount)"
 		})
 	}
 
@@ -40,7 +41,7 @@ final class AccountVM:ViewModel<AccountModel> {
 
 	func updateBalance() {
 		Service.eos.getBalance(for: name, currencies: ["EOS", "SCR"]) { balances in
-			self.balances = balances
+			self.balances = balances.sorted()
 			self.notifyUpdated()
 		}
 	}

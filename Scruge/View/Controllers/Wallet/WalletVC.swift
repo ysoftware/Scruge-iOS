@@ -35,13 +35,16 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func setupTable() {
+		tableView.refreshControl = UIRefreshControl()
+		tableView.refreshControl!.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+
 		tableView.register(UINib(resource: R.nib.accountCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.accountCell.identifier)
 	}
 
 	private func setupVM() {
 		vm.delegate = self
-		vm.reloadData()
+		reloadData()
 	}
 
 	private func setupNavigationBar() {
@@ -55,10 +58,15 @@ final class WalletViewController: UIViewController {
 
 	// MARK: - Methods
 
+	@objc func reloadData() {
+		vm.reloadData()
+	}
+
 	private func updateStatus() {
 		switch vm.status {
 		case .error(let error):
 			loadingView.set(state: .error(ErrorHandler.message(for: error)))
+			tableView.refreshControl?.endRefreshing()
 		case .loading:
 			loadingView.set(state: .loading)
 		case .noAccounts:
@@ -67,6 +75,7 @@ final class WalletViewController: UIViewController {
 			loadingView.set(state: .error("You can import your key or create a new one."))
 		case .ready:
 			loadingView.set(state: .ready)
+			tableView.refreshControl?.endRefreshing()
 		}
 
 		switch vm.status {
@@ -168,20 +177,7 @@ extension WalletViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 
-		let account = self.vm.item(at: indexPath.row)
-
-		if account.isLocked {
-			let message = "Enter your passcode to unlock this account"
-			Service.presenter.presentPasscodeViewController(in: self, message: message) { input in
-				guard let passcode = input else { return }
-
-				let result = account.unlock(passcode)
-				self.alert(result ? "Account unlocked for 3 minutes, private key can be accessed." : "Error")
-			}
-		}
-		else {
-			self.alert("Account is already unlocked, private key can be accessed")
-		}
+		
 	}
 }
 

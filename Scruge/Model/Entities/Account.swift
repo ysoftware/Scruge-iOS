@@ -14,3 +14,10 @@ struct AccountModel: Equatable {
 
 	var wallet:SELocalAccount
 }
+
+extension AccountModel: Comparable {
+
+	static func < (lhs: AccountModel, rhs: AccountModel) -> Bool {
+		return lhs.name < rhs.name
+	}
+}
