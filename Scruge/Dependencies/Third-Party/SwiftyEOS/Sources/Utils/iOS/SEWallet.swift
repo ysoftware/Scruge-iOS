@@ -158,13 +158,13 @@ extension String {
         try account.write(to: keyUrl.appendingPathComponent(account.publicKey!))
         return account
     }
-    
-    func deleteAccount(passcode: String, account: SELocalAccount) throws {
-        let _ = try account.decrypt(passcode: passcode)
-        try FileManager.default.removeItem(at: keyUrl.appendingPathComponent(account.publicKey!))
-        SELocalAccount.__account = nil
-    }
-    
+
+	func deleteAccount(passcode: String, account: SELocalAccount) throws {
+		let _ = try account.decrypt(passcode: passcode)
+		try FileManager.default.removeItem(at: keyUrl.appendingPathComponent(account.publicKey!))
+		SELocalAccount.__account = nil
+	}
+
     func changeAccountPasscode(oldcode: String, newcode: String, account: SELocalAccount) throws -> SELocalAccount {
         let pk = try account.decrypt(passcode: oldcode)
         try FileManager.default.removeItem(at: keyUrl.appendingPathComponent(account.publicKey!))

@@ -35,4 +35,11 @@ final class AccountAVM:SimpleArrayViewModel<AccountModel, AccountVM> {
 			}
 		}
 	}
+
+	func deleteWallet() {
+		Service.wallet.deleteWallet()
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
+			self.reloadData()
+		}
+	}
 }

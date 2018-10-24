@@ -16,6 +16,11 @@ struct Wallet {
 		return service.keystore.defaultAccount()
 	}
 
+	func deleteWallet() {
+		guard let account = getWallet() else { return }
+		try? service.deleteAccount(account: account)
+	}
+
 	func createKey(_ passcode:String,
 				   _ completion: @escaping (SELocalAccount?)->Void) {
 
@@ -39,5 +44,13 @@ struct Wallet {
 		}) { error in
 			completion(nil)
 		}
+	}
+}
+
+extension SEKeystoreService {
+
+	func deleteAccount(account: SELocalAccount) throws {
+		try FileManager.default.removeItem(at: keystore.keyUrl.appendingPathComponent(account.publicKey!))
+		SELocalAccount.__account = nil
 	}
 }

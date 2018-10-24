@@ -16,7 +16,7 @@ final class WalletViewController: UIViewController {
 
 	// MARK: - Property
 
-	let vm = AccountAVM()
+	private let vm = AccountAVM()
 
 	// MARK: - Setup
 
@@ -67,6 +67,90 @@ final class WalletViewController: UIViewController {
 			loadingView.set(state: .error("You can import your key or create a new one."))
 		case .ready:
 			loadingView.set(state: .ready)
+		}
+
+		switch vm.status {
+		case .ready:
+			navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Options",
+																style: .plain,
+																target: self,
+																action: #selector(showSettings))
+		default:
+			navigationItem.rightBarButtonItem = nil
+		}
+	}
+
+	@objc func showSettings() {
+		let showPublic = UIAlertAction(title: "Show public key",
+									  style: .default) { _ in
+										self.showPublicKey()
+		}
+
+		let export = UIAlertAction(title: "Export private key",
+									  style: .destructive) { _ in
+										self.exportPrivateKey()
+		}
+
+		let delete = UIAlertAction(title: "Delete wallet",
+									  style: .destructive) { _ in
+										self.deleteWallet()
+		}
+
+		let cancel = UIAlertAction(title: "Cancel",
+								   style: .cancel) { _ in
+		}
+
+		Service.presenter.presentActions(in: self,
+										 title: "Select action",
+										 message: "", actions: [showPublic, export, delete, cancel])
+	}
+
+	private func deleteWallet() {
+		self.ask(question: "Are you sure?") { response in
+			if response {
+				self.vm.deleteWallet()
+			}
+		}
+	}
+
+	private func showPublicKey() {
+		guard let wallet = Service.wallet.getWallet() else {
+			// should not happen
+			return
+		}
+
+		Service.presenter.presentPasscodeViewController(in: self, message: "") { input in
+			guard let passcode = input else { return }
+
+			try? wallet.timedUnlock(passcode: passcode, timeout: 100)
+			if !wallet.isLocked(), let key = wallet.rawPublicKey {
+
+				// TO-DO: make it pretty
+				self.alert("\(key)")
+			}
+			else {
+				self.alert("Incorrect passcode")
+			}
+		}
+	}
+
+	private func exportPrivateKey() {
+		guard let wallet = Service.wallet.getWallet() else {
+			// should not happen
+			return
+		}
+
+		Service.presenter.presentPasscodeViewController(in: self, message: "") { input in
+			guard let passcode = input else { return }
+
+			if let key = try? wallet.decrypt(passcode: passcode) {
+
+				// TO-DO: make it pretty
+				self.alert("\(key.rawPrivateKey())")
+			}
+			else {
+				self.alert("Incorrect passcode")
+			}
 		}
 	}
 
