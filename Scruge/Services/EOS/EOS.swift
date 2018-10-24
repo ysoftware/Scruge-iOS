@@ -13,7 +13,8 @@ struct EOS {
 	fileprivate let chain = EOSRPC.sharedInstance
 
 	init() {
-		EOSRPC.endpoint = "http://31.10.90.99:8888"
+//		EOSRPC.endpoint = "http://31.10.90.99:8888"
+		EOSRPC.endpoint = "http://35.242.241.205:7777"
 	}
 
 	// MARK: - Methods
