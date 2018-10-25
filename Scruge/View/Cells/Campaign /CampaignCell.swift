@@ -59,10 +59,11 @@ final class CampaignCell: UITableViewCell {
 		topWebView.isHidden = true
 		topImage.isHidden = true
 		topWebView.delegate = self
-		topWebView.loadRequest(URLRequest(url: url))
 		topWebView.isHidden = false
 		topWebView.scrollView.isScrollEnabled = false
 		topWebView.allowsInlineMediaPlayback = true
+		topWebView.mediaPlaybackRequiresUserAction = true
+		topWebView.loadRequest(URLRequest(url: url))
 		didLoadMedia = true
 	}
 

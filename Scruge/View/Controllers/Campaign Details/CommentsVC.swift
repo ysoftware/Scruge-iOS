@@ -24,24 +24,23 @@ final class CommentsViewController: UIViewController {
 	// MARK: - Actions
 
 	@IBAction func sendComment(_ sender: Any) {
-		if let comment = comment {
+		guard let comment = comment else { return alert("Message is too short") }
+		
+		commentActivity.isHidden = false
+		sendButton.isHidden = true
 
-			commentActivity.isHidden = false
-			sendButton.isHidden = true
+		vm.postComment(comment) { success in
+			self.commentActivity.isHidden = true
+			self.sendButton.isHidden = false
 
-			vm.postComment(comment) { success in
-				self.commentActivity.isHidden = true
-				self.sendButton.isHidden = false
-
-				if success {
-					self.view.endEditing(true)
-					self.setKeyboard(height: 0)
-					self.commentField.text = ""
-					self.reloadData()
-				}
-				else {
-					// TO-DO: some error, did not send
-				}
+			if success {
+				self.view.endEditing(true)
+				self.setKeyboard(height: 0)
+				self.commentField.text = ""
+				self.reloadData()
+			}
+			else {
+				// TO-DO: some error, did not send
 			}
 		}
 	}
@@ -52,7 +51,7 @@ final class CommentsViewController: UIViewController {
 
 	private var comment:String? {
 		let string = (commentField.text ?? "").trimmingCharacters(in: .whitespaces)
-		if string.count < 5 {
+		if string.count < 3 {
 			return nil
 		}
 		return string
