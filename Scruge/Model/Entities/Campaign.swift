@@ -51,7 +51,9 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	// MARK: - Full campaign only
 
-	let state:String?
+	let isSubscribed:Bool?
+
+	let state:Int?
 
 	let publicTokenPercent:Double
 

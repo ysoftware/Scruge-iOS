@@ -10,15 +10,17 @@ import MVVM
 
 final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCampaignModelHolder {
 
-	enum Status: String, Codable {
+	enum Status: Int, Codable {
 
-		case contribute = "contributing"
+		case idle = 0
 
-		case voteDeadline = "voteDeadline"
+		case contribute = 1
 
-		case voteMilestone = "voteMilestone"
+		case contributeLimitReached = 2
 
-		case idle = "idle"
+		case voteDeadline = 3
+
+		case voteMilestone = 4
 	}
 	
 	typealias Model = Campaign
@@ -152,7 +154,8 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	var status:Status {
-		guard let state = model?.state, let status = Status(rawValue: state) else { return .contribute }
+		guard let state = model?.state, let status = Status(rawValue: state)
+			else { return .idle }
 		return status
 	}
 
