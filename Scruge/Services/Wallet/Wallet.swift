@@ -24,6 +24,7 @@ struct Wallet {
 	func createKey(_ passcode:String,
 				   _ completion: @escaping (SELocalAccount?)->Void) {
 
+		deleteWallet()
 		service.newAccount(passcode: passcode, succeed: { account in
 			completion(account)
 		}) { error in

@@ -52,8 +52,23 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func setupActions() {
-		loadingView.errorViewDelegate = self
 		loadingView.errorView.setButtonTitle("Get started")
+		switch vm.status {
+		case .noKey:
+			loadingView.errorViewDelegate = self
+		default:
+			loadingView.errorViewDelegate = nil
+		}
+
+		switch vm.status {
+		case .ready, .noAccounts:
+			navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Options",
+																style: .plain,
+																target: self,
+																action: #selector(showSettings))
+		default:
+			navigationItem.rightBarButtonItem = nil
+		}
 	}
 
 	// MARK: - Methods
@@ -78,15 +93,7 @@ final class WalletViewController: UIViewController {
 			tableView.refreshControl?.endRefreshing()
 		}
 
-		switch vm.status {
-		case .ready:
-			navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Options",
-																style: .plain,
-																target: self,
-																action: #selector(showSettings))
-		default:
-			navigationItem.rightBarButtonItem = nil
-		}
+		setupActions()
 	}
 
 	@objc func showSettings() {
@@ -149,7 +156,8 @@ final class WalletViewController: UIViewController {
 			return
 		}
 
-		Service.presenter.presentPasscodeViewController(in: self, message: "") { input in
+		let message = "Enter your passcode to unlock the wallet."
+		Service.presenter.presentPasscodeViewController(in: self, message: message) { input in
 			guard let passcode = input else { return }
 
 			if let key = try? wallet.decrypt(passcode: passcode) {
@@ -168,7 +176,19 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func openCreateKey() {
+		let message = "Enter passcode for this wallet."
+		Service.presenter.presentPasscodeViewController(in: self, message: message) { input in
+			guard let passcode = input else { return }
 
+			Service.wallet.createKey(passcode) { account in
+				if account != nil {
+					self.vm.reloadData()
+				}
+				else {
+					self.alert("There was an error while creating wallet.")
+				}
+			}
+		}
 	}
 }
 
