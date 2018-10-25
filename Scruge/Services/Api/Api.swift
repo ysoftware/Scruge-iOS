@@ -111,6 +111,18 @@ struct Api {
 		service.get("campaigns", request.toDictionary(), completion)
 	}
 
+	func setSubscribing(_ subscribing:Bool,
+						to campaign:Campaign,
+						_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+		}
+
+		let request = CampaignRequest(campaignId: campaign.id)
+		let action = subscribing ? "subscribe" : "unsubscribe"
+		service.post("user/\(token)/campaign_\(action)", request.toDictionary(), completion)
+	}
+
 	// MARK: - Updates
 
 	func getUpdateList(for campaign:Campaign,

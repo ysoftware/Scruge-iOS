@@ -51,7 +51,7 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	// MARK: - Full campaign only
 
-	let isSubscribed:Bool?
+	var isSubscribed:Bool?
 
 	let state:Int?
 

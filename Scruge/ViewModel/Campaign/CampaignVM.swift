@@ -79,6 +79,24 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		}
 	}
 
+	func toggleSubscribing() {
+		guard let model = model else { return }
+
+		let newValue = !isSubscribed
+		Service.api.setSubscribing(newValue, to: model) { result in
+			switch result {
+			case .success(let response):
+				if response.result == 0 {
+					self.model?.isSubscribed = newValue
+					self.notifyUpdated()
+				}
+			case .failure(_):
+				// nothing
+				break
+			}
+		}
+	}
+
 	private func resetViewModels() {
 		guard let model = model else { return }
 
@@ -141,6 +159,10 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	// MARK: - Properties
 
+	var isSubscribed:Bool {
+		return model?.isSubscribed ?? false
+	}
+
 	var commentsCount:Int {
 		return model?.totalCommentsCount ?? 0
 	}
@@ -161,6 +183,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	var videoUrl:URL? {
 		guard let model = model else { return nil }
-		return URL(string: model.videoUrl)
+		return URL(string: model.videoUrl
+			.replacingOccurrences(of: "controls=0", with: ""))
 	}
 }

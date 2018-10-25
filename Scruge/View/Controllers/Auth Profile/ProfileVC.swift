@@ -143,7 +143,7 @@ extension ProfileViewController: ArrayViewModelDelegate {
 		switch campaignsVM.state {
 		case .error(let error):
 			let message = ErrorHandler.message(for: error)
-			loadingView.set(state: .error(message))
+			loadingView.set(state: .error("You haven't backed any campaigns yet."))
 		case .loading, .initial:
 			loadingView.set(state: .loading)
 		case .ready:

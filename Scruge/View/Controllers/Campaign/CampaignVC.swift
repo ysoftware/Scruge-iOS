@@ -78,7 +78,6 @@ final class CampaignViewController: UIViewController {
 	// MARK: - Properties
 
 	var vm:CampaignVM!
-	private var isShowingContributeButton = false
 
 	private let MAX_ELEMENTS = 3
 
@@ -89,6 +88,7 @@ final class CampaignViewController: UIViewController {
 
 		setupVM()
 		setupTableView()
+		setupNavigationBar()
 	}
 
 	private func setupVM() {
@@ -124,8 +124,19 @@ final class CampaignViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.documentCell.identifier)
 	}
 
+	private func setupNavigationBar() {
+		let title = vm.isSubscribed ? "Unsubscribe" : "Subscribe"
+		let subscribeButton = UIBarButtonItem(title: title,
+											  style: .plain,
+											  target: self,
+											  action: #selector(toggleSubscription))
+		navigationItem.rightBarButtonItem = subscribeButton
+	}
+
 	private func setupBottomButton() {
 		switch vm.status {
+		case .contributeLimitReached:
+			showContributeButton(false, duration: 0)
 		case .idle:
 			showContributeButton(false, duration: 0)
 		case .voteMilestone, .voteDeadline:
@@ -170,6 +181,10 @@ final class CampaignViewController: UIViewController {
 
 	// MARK: - Methods
 
+	@objc func toggleSubscription() {
+		vm.toggleSubscribing()
+	}
+
 	@objc func reloadData() {
 		vm.reloadData()
 	}
@@ -198,9 +213,6 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func showContributeButton(_ visible:Bool = true, duration:TimeInterval = 0.25) {
-		guard visible != isShowingContributeButton else { return }
-		isShowingContributeButton = visible
-
 		var offset:CGFloat = 50
 		if #available(iOS 11, *) { offset += view.safeAreaInsets.bottom }
 		contributeViewTopConstraint.constant = visible ? offset : 0

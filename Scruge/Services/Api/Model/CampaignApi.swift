@@ -10,6 +10,11 @@ import Foundation
 
 // MARK: - Response
 
+struct CampaignRequest: Codable {
+
+	let campaignId:String
+}
+
 struct CampaignResponse: Codable {
 
 	let result:Int
