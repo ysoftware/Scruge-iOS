@@ -46,7 +46,7 @@ final class AuthViewController: UIViewController {
 			case .success(let response):
 
 				if let error = ErrorHandler.error(from: response.result) {
-					return self.alert(ErrorHandler.message(for: error))
+					return self.alert(error)
 				}
 
 				guard let token = response.token else {
@@ -65,7 +65,7 @@ final class AuthViewController: UIViewController {
 				}
 				
 			case .failure(let error):
-				self.alert(ErrorHandler.message(for: error))
+				self.alert(error)
 			}
 		}
 	}
@@ -81,14 +81,14 @@ final class AuthViewController: UIViewController {
 			case .success(let response):
 
 				if let error = ErrorHandler.error(from: response.result) {
-					return self.alert(ErrorHandler.message(for: error))
+					return self.alert(error)
 				}
 
 				self.didSignUp = true
 				self.login(self)
 
 			case .failure(let error):
-				self.alert(ErrorHandler.message(for: error))
+				self.alert(error)
 			}
 		}
 	}

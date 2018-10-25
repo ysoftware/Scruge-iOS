@@ -29,7 +29,7 @@ final class ProfileEditViewController: UIViewController {
 								image: selectedImage) { error in
 
 									if let error = error {
-										return self.alert(ErrorHandler.message(for: error))
+										return self.alert(error)
 									}
 
 									if self.editingProfile == nil {

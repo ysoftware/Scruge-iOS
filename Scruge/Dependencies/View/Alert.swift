@@ -10,13 +10,18 @@ import UIKit
 
 extension UIViewController {
 
-	func alert(_ message:String) {
+	func alert(_ error:Error, _ completion: (()->Void)? = nil) {
+		let message = ErrorHandler.message(for: error)
+		alert(message, completion)
+	}
+
+	func alert(_ message:String, _ completion: (()->Void)? = nil) {
 		let string = message
 		let alert = UIAlertController(title: "Attention!", message: string, preferredStyle: .alert)
-		let action = UIAlertAction(title: "OK", style: .default) { _ in
+		alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
 			alert.dismiss(animated: true)
-		}
-		alert.addAction(action)
+			completion?()
+		})
 		present(alert, animated: true, completion: nil)
 	}
 
@@ -44,7 +49,7 @@ extension UIViewController {
 		let alertController = UIAlertController(title: title, message: question, preferredStyle: .alert)
 		alertController.addTextField { textField in
 			textField.placeholder = placeholder
-			textField.keyboardType = .numberPad
+			textField.keyboardType = keyboardType
 		}
 		alertController.addAction(UIAlertAction(title: "Send", style: .default) { alert in
 			let textField = alertController.textFields![0] as UITextField

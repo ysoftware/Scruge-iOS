@@ -47,6 +47,8 @@ enum WalletError: Error {
 	case noAccounts
 
 	case noKey
+
+	case incorrectPasscode
 }
 
 struct ErrorHandler {

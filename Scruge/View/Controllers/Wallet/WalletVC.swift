@@ -52,9 +52,12 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func setupActions() {
-		loadingView.errorView.setButtonTitle("Get started")
 		switch vm.status {
 		case .noKey:
+			loadingView.errorView.setButtonTitle("Get started")
+			loadingView.errorViewDelegate = self
+		case .noAccounts:
+			loadingView.errorView.setButtonTitle("Create new account")
 			loadingView.errorViewDelegate = self
 		default:
 			loadingView.errorViewDelegate = nil
@@ -129,44 +132,82 @@ final class WalletViewController: UIViewController {
 		}
 	}
 
-	private func showPublicKey() {
-		guard let wallet = vm.getWallet() else {
-			// should not happen
-			return
+	private func createWallet() {
+		let createKey = UIAlertAction(title: "Create new key",
+									  style: .default) { _ in
+										self.openCreateKey()
 		}
 
+		let importKey = UIAlertAction(title: "Import existing key",
+									  style: .default) { _ in
+										self.openImportKey()
+		}
+
+		let cancel = UIAlertAction(title: "Cancel",
+								   style: .cancel) { _ in
+		}
+
+		Service.presenter.presentActions(in: self,
+										 title: "Select action",
+										 message: "", actions: [createKey, importKey, cancel])
+	}
+
+	private func createAccount() {
+		let message = "Enter your passcode to unlock the wallet."
+		Service.presenter.presentPasscodeViewController(in: self, message: message) { input in
+			guard let passcode = input else { return }
+			
+			self.createAccount(passcode: passcode)
+		}
+	}
+
+	private func createAccount(passcode:String) {
+		self.askForInput(question: "Enter new account name (12 symbols)") { name in
+			guard let accountName = name else { return }
+
+			guard accountName.count == 12 else {
+				return self.alert("Account name has to be 12 symbols long.")  {
+					self.createAccount(passcode: passcode)
+				}
+			}
+
+			self.vm.createAccount(withName: accountName, passcode: passcode) { error in
+				if let error = error {
+					self.alert(error)
+				}
+				else {
+					self.alert("Will send message to the backend. Not implemented.")
+				}
+			}
+		}
+	}
+
+	private func showPublicKey() {
 		Service.presenter.presentPasscodeViewController(in: self, message: "") { input in
 			guard let passcode = input else { return }
 
-			try? wallet.timedUnlock(passcode: passcode, timeout: 100)
-			if !wallet.isLocked(), let key = wallet.rawPublicKey {
-
-				// TO-DO: make it pretty
-				self.alert("\(key)")
-			}
-			else {
-				self.alert("Incorrect passcode")
+			self.vm.getPublicKey(passcode: passcode) { result in
+				switch result {
+				case .success(let key):
+					self.alert(key)
+				case .failure(let error):
+					self.alert(error)
+				}
 			}
 		}
 	}
 
 	private func exportPrivateKey() {
-		guard let wallet = vm.getWallet() else {
-			// should not happen
-			return
-		}
-
-		let message = "Enter your passcode to unlock the wallet."
-		Service.presenter.presentPasscodeViewController(in: self, message: message) { input in
+		Service.presenter.presentPasscodeViewController(in: self, message: "") { input in
 			guard let passcode = input else { return }
 
-			if let key = try? wallet.decrypt(passcode: passcode) {
-
-				// TO-DO: make it pretty
-				self.alert("\(key.rawPrivateKey())")
-			}
-			else {
-				self.alert("Incorrect passcode")
+			self.vm.exportPrivateKey(passcode: passcode) { result in
+				switch result {
+				case .success(let key):
+					self.alert(key)
+				case .failure(let error):
+					self.alert(error)
+				}
 			}
 		}
 	}
@@ -229,22 +270,12 @@ extension WalletViewController: ErrorViewDelegate {
 
 	// get started button click
 	func didTryAgain() {
-		let createKey = UIAlertAction(title: "Create new key",
-									  style: .default) { _ in
-										self.openCreateKey()
+		switch vm.status {
+		case .noKey:
+			createWallet()
+		case .noAccounts:
+			createAccount()
+		default: break
 		}
-
-		let importKey = UIAlertAction(title: "Import existing key",
-									  style: .default) { _ in
-										self.openImportKey()
-		}
-
-		let cancel = UIAlertAction(title: "Cancel",
-								   style: .cancel) { _ in
-		}
-
-		Service.presenter.presentActions(in: self,
-										 title: "Select action",
-										 message: "", actions: [createKey, importKey, cancel])
 	}
 }

@@ -47,4 +47,48 @@ final class AccountAVM:SimpleArrayViewModel<AccountModel, AccountVM> {
 			self.reloadData()
 		}
 	}
+
+	func exportPrivateKey(passcode:String, _ completion: (Result<String, AnyError>)->Void) {
+		guard let wallet = getWallet() else { return completion(.failure(AnyError(WalletError.noKey))) }
+
+		do {
+			let key = try wallet.decrypt(passcode: passcode)
+			completion(.success(key.rawPrivateKey()))
+		}
+		catch {
+			completion(.failure(AnyError(error)))
+		}
+	}
+
+	func getPublicKey(passcode:String, _ completion: (Result<String, AnyError>)->Void) {
+		guard let wallet = getWallet() else { return completion(.failure(AnyError(WalletError.noKey))) }
+
+		try? wallet.timedUnlock(passcode: passcode, timeout: 2)
+		guard !wallet.isLocked(), let key = wallet.rawPublicKey else {
+			return completion(.failure(AnyError(WalletError.incorrectPasscode)))
+		}
+
+		completion(.success(key))
+	}
+
+	func createAccount(withName accountName:String,
+					   passcode:String,
+					   _ completion: @escaping (Error?)->Void) {
+		guard let wallet = getWallet() else { return completion(nil) }
+
+		try? wallet.timedUnlock(passcode: passcode, timeout: 2)
+		guard !wallet.isLocked(), let key = wallet.rawPublicKey else {
+			return completion(WalletError.incorrectPasscode)
+		}
+
+		Service.api.createAccount(withName: accountName, publicKey: key) { result in
+			switch result {
+			case .success(let response):
+				let error = ErrorHandler.error(from: response.result)
+				completion(error)
+			case .failure(let error):
+				completion(error)
+			}
+		}
+	}
 }

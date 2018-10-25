@@ -8,6 +8,17 @@
 
 import Foundation
 
+// MARK: - Request
+
+struct AccountRequest: Codable {
+
+	let accountName:String
+
+	let publicKey:String
+}
+
+// MARK: - Response
+
 struct CategoriesResponse: Codable {
 
 	let result:Int

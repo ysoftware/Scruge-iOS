@@ -19,6 +19,18 @@ struct Api {
 		service = value ? Mock() : Network()
 	}
 
+	// MARK: - Wallet
+
+	func createAccount(withName accountName: String,
+					   publicKey: String,
+					   _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+		}
+		let request = AccountRequest(accountName: accountName, publicKey: publicKey)
+		service.post("create_eos_account/\(token)", request.toDictionary(), completion)
+	}
+
 	// MARK: - Auth
 
 	func logIn(email:String,
