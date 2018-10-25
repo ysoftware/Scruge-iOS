@@ -57,6 +57,8 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	let publicTokenPercent:Double
 
+	let tokenSupply:Double?
+
 	let annualInflationPercent:Range?
 
 	let about:String?

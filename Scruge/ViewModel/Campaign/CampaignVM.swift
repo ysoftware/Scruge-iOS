@@ -137,16 +137,22 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 		var items:[Technical] = []
 
-		if let inflation = model?.annualInflationPercent {
-			items.append(Technical(name: "Annual inflation rate",
-								   value: "\(inflation.start)% - \(inflation.end)%",
-				description: "Range of annual inflation rate"))
+		if let supply = model?.tokenSupply {
+			items.append(Technical(name: "Total token supply",
+								   value: supply.format(as: .decimal, separateWith: " "),
+				description: "Total amount of tokens to be issued"))
 		}
 
 		if let publicTokenPercent = model?.publicTokenPercent {
 			items.append(Technical(name: "Token public percent",
 								   value: "\(publicTokenPercent)%",
 				description: "Percent of all issued tokens to be sold to public"))
+		}
+
+		if let inflation = model?.annualInflationPercent {
+			items.append(Technical(name: "Annual inflation rate",
+								   value: "\(inflation.start)% - \(inflation.end)%",
+				description: "Range of annual inflation rate"))
 		}
 
 		technicalVM = TechnicalAVM(items)

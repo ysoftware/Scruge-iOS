@@ -10,17 +10,24 @@ import Foundation
 
 extension Double {
 
-	func formatRounding(to decimalPlaces:Int = 1, min:Int = 0) -> String {
+	func formatRounding(to decimalPlaces:Int = 1,
+						min:Int = 0,
+						separateWith separator:String? = "") -> String {
 		let formatter = NumberFormatter()
 		formatter.minimumFractionDigits = min
 		formatter.maximumFractionDigits = decimalPlaces
+		formatter.groupingSeparator = separator
+		formatter.groupingSize = 3
 		formatter.minimumIntegerDigits = 1
 		return formatter.string(for: self)!
 	}
 
-	func format(as style:NumberFormatter.Style) -> String {
+	func format(as style:NumberFormatter.Style,
+				separateWith separator:String? = "") -> String {
 		let formatter = NumberFormatter()
 		formatter.numberStyle = style
+		formatter.groupingSeparator = separator
+		formatter.groupingSize = 3
 		formatter.maximumFractionDigits = 10
 		return formatter.string(for: self)!
 	}
