@@ -94,7 +94,7 @@ final class AuthViewController: UIViewController {
 	}
 
 	@IBAction func openPrivacyPolicy(_ sender: Any) {
-		// TO-DO: open privacy url
+		#warning("open privacy url")
 	}
 
 	@IBAction func hideKeyboard(_ sender: Any) {

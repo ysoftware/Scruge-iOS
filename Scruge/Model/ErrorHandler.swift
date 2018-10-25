@@ -64,7 +64,9 @@ struct ErrorHandler {
 			switch authError {
 			case .incorrectEmailLength: return "Email should be longer than 5 and shorter than 254 symbols."
 			case .incorrectPasswordLength: return "Password should be longer than 5 and shorter than 50 symbols."
-			case .authenticationFailed: return "Bad request"//"Authentication failed. Please try logging out and back in again." // TO-DO: replace it back
+			case .authenticationFailed:
+				#warning("Replace back to: Authentication failed. Please try logging out and back in again.")
+				return "Bad request"
 			case .invalidEmail: return "Incorrectly formatted email"
 			case .accountBlocked: return "This account was blocked"
 			case .accountExists: return "User already exists"

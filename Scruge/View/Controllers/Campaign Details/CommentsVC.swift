@@ -40,7 +40,7 @@ final class CommentsViewController: UIViewController {
 				self.reloadData()
 			}
 			else {
-				// TO-DO: some error, did not send
+				#warning("some error, did not send")
 			}
 		}
 	}

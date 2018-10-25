@@ -111,7 +111,7 @@ struct Network:Networking {
 
 	private func log(_ response:Response?, _ string:String) {
 		if isLoggingEnabled {
-			let message = "RESPONSE: \(response?.URL?.path ?? "")\n\(string)"
+			let message = "\nRESPONSE: \(response?.URL?.path ?? "")\n\(string)"
 				.truncate(to: logLimit) + "\n"
 			print(message)
 		}
@@ -119,7 +119,7 @@ struct Network:Networking {
 
 	private func log(_ request:String, _ method:String, _ params:HTTPParameterProtocol?) {
 		if isLoggingEnabled {
-			let message = "\(request): /\(method)\n\(params ?? [:])"
+			let message = "\n\(request): /\(method)\n\(params ?? [:])"
 				.truncate(to: logLimit) + "\n"
 			print(message)
 		}

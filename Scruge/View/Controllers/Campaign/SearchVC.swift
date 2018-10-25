@@ -65,7 +65,8 @@ final class SearchViewController: UIViewController {
 	}
 
 	private func setupTable() {
-		loadingView.set(state: .ready) // TO-DO: remove after initially populating the table
+		loadingView.set(state: .ready)
+		#warning("remove after initially populating the table")
 
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableView.automaticDimension
