@@ -88,7 +88,7 @@ final class WalletViewController: UIViewController {
 		case .loading:
 			loadingView.set(state: .loading)
 		case .noAccounts:
-			loadingView.set(state: .error("No accounts are associated with imported private key."))
+			loadingView.set(state: .error(ErrorHandler.message(for: WalletError.noAccounts)))
 		case .noKey:
 			loadingView.set(state: .error("You can import your key or create a new one."))
 		case .ready:

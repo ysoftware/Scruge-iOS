@@ -71,7 +71,7 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	let documents:[Document]?
 
-	let rewards:[Reward]?
+//	let rewards:[Reward]?
 
 	let currentMilestone:Milestone?
 

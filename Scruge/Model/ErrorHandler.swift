@@ -62,28 +62,48 @@ struct ErrorHandler {
 		let error = extractError(error)
 		if let authError = error as? AuthError {
 			switch authError {
-			case .incorrectEmailLength: return "Email should be longer than 5 and shorter than 254 symbols."
-			case .incorrectPasswordLength: return "Password should be longer than 5 and shorter than 50 symbols."
+			case .incorrectEmailLength:
+				return "Email should be longer than 5 and shorter than 254 symbols."
+			case .incorrectPasswordLength:
+				return "Password should be longer than 5 and shorter than 50 symbols."
 			case .authenticationFailed:
-				#warning("Replace back to: Authentication failed. Please try logging out and back in again.")
-				return "Bad request"
-			case .invalidEmail: return "Incorrectly formatted email"
-			case .accountBlocked: return "This account was blocked"
-			case .accountExists: return "User already exists"
-			case .incorrectCredentials: return "Incorrect credentials"
+				return "Replace back to: Authentication failed. Please try logging out and back in again."
+			case .invalidEmail:
+				return "Incorrectly formatted email"
+			case .accountBlocked:
+				return "This account was blocked"
+			case .accountExists:
+				return "User already exists"
+			case .incorrectCredentials:
+				return "Incorrect credentials"
 			}
 		}
 		else if let networkError = error as? NetworkingError {
 			switch networkError {
-			case .connectionProblem: return "Unable to connect to the server"
-			case .unknown(let code): return "Error: \(code)"
+			case .connectionProblem:
+				return "Unable to connect to the server"
+			case .unknown(let code):
+				return "Error: \(code)"
 			}
 		}
 		else if let backendError = error as? BackendError {
 			switch backendError {
-			case .badRequest: return "Malformed request"
-			case .resourceNotFound: return "Nothing was found for this request"
-			case .parsingError: return "Unexpected server response"
+			case .badRequest:
+				return "Malformed request"
+			case .resourceNotFound:
+				return "Nothing was found for this request"
+			case .parsingError:
+				return "Unexpected server response"
+			}
+		}
+		else if let walletError = error as? WalletError {
+			switch walletError {
+			case .incorrectPasscode:
+				return "Incorrect passcode"
+			case .noAccounts:
+				return "No accounts are associated with imported public key"
+			case .noKey:
+				return "You have no keys in your wallet"
 			}
 		}
 		return "Unexpected Error"

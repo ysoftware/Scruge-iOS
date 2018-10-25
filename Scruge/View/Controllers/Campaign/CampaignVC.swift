@@ -15,7 +15,7 @@ final class CampaignViewController: UIViewController {
 	enum Block:Int {
 
 		case info = 0, milestone = 1, update = 2, comments = 3,
-		about = 4, faq = 5, documents = 6, rewards = 7
+		about = 4, faq = 5, technical = 6, documents = 7
 	}
 
 	// MARK: - Outlets
@@ -37,12 +37,7 @@ final class CampaignViewController: UIViewController {
 	@IBAction func contribute(_ sender: Any) {
 		switch vm.status {
 		case .contribute:
-			if shouldDisplay(.rewards) {
-				scrollToRewards()
-			}
-			else {
-				Service.presenter.presentContributeViewController(in: self, with: vm)
-			}
+			Service.presenter.presentContributeViewController(in: self, with: vm)
 		default: break
 		}
 	}
@@ -163,7 +158,7 @@ final class CampaignViewController: UIViewController {
 		case .faq:
 			return vm.faqVM?.numberOfItems ?? 0 > MAX_ELEMENTS
 		case .info, .milestone, .update, .comments: return true
-		case .rewards, .about: return false
+		case .technical, .about: return false
 		}
 	}
 
@@ -175,7 +170,7 @@ final class CampaignViewController: UIViewController {
 		case .about: return vm.about != nil
 		case .documents: return (vm.documentsVM?.numberOfItems) ?? 0 != 0
 		case .faq: return (vm.faqVM?.numberOfItems) ?? 0 != 0
-		case .rewards: return (vm.rewardsVM?.numberOfItems ?? 0) != 0
+		case .technical: return (vm.technicalVM?.numberOfItems ?? 0) != 0
 		}
 	}
 
@@ -193,23 +188,10 @@ final class CampaignViewController: UIViewController {
 		vm.lastUpdateVM?.delegate = self
 		vm.currentMilestoneVM?.delegate = self
 		vm.topCommentsVM?.delegate = self
-		vm.rewardsVM?.delegate = self
+		vm.technicalVM?.delegate = self
 
 		tableView.reloadData()
 		setupBottomButton()
-	}
-
-	private func showContributeButtonIfNeeded() {
-		switch vm.status {
-		case .contribute:
-			guard shouldDisplay(.rewards) else { return showContributeButton(true) }
-
-			let indexPath = IndexPath(row: 0, section: Block.rewards.rawValue)
-			let isHidden = tableView.indexPathsForVisibleRows?.contains(indexPath) ?? false
-			showContributeButton(!isHidden)
-		default:
-			showContributeButton(false)
-		}
 	}
 
 	private func showContributeButton(_ visible:Bool = true, duration:TimeInterval = 0.25) {
@@ -220,14 +202,6 @@ final class CampaignViewController: UIViewController {
 		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
 			self.view.layoutSubviews()
 		})
-	}
-
-	private func scrollToRewards() {
-		tableView.scrollToRow(at: IndexPath(row: 0, section: Block.rewards.rawValue),
-							  at: .top, animated: true)
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
-			self.tableView.reloadData()
-		}
 	}
 }
 
@@ -244,8 +218,8 @@ extension CampaignViewController: UITableViewDataSource {
 			return (shouldDisplay(b) ? 1 : 0)
 		case .comments:
 			return min(MAX_ELEMENTS, vm.topCommentsVM?.numberOfItems ?? 0)
-		case .rewards:
-			return vm.rewardsVM?.numberOfItems ?? 0
+		case .technical:
+			return vm.technicalVM?.numberOfItems ?? 0
 		case .faq:
 			return min(MAX_ELEMENTS, vm.faqVM?.numberOfItems ?? 0)
 		case .documents:
@@ -255,8 +229,6 @@ extension CampaignViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView,
 				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		showContributeButtonIfNeeded()
-
 		var cell:UITableViewCell!
 		switch block(for: indexPath.section) {
 		case .info:
@@ -285,9 +257,9 @@ extension CampaignViewController: UITableViewDataSource {
 				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell,
 													 for: indexPath)!.setup(with: vm)
 			}
-		case .rewards:
-			if let vm = vm.rewardsVM?.item(at: indexPath.row) {
-				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.rewardCell,
+		case .technical:
+			if let vm = vm.technicalVM?.item(at: indexPath.row) {
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.faqCell,
 													 for: indexPath)!.setup(with: vm)
 			}
 		case .faq:
@@ -321,8 +293,8 @@ extension CampaignViewController: UITableViewDataSource {
 				else {
 					header?.setup(as: "Comments", "0")
 				}
-			case .rewards:
-				if let vm = vm.rewardsVM, vm.numberOfItems > 0 { header?.setup(with: vm) }
+			case .technical:
+				if let vm = vm.technicalVM, vm.numberOfItems > 0 { header?.setup(with: vm) }
 			case .about:
 				header?.setup(as: "About the team")
 			case .faq:
@@ -371,7 +343,7 @@ extension CampaignViewController: UITableViewDataSource {
 		let b = block(for: section)
 		if shouldDisplay(b) {
 			switch b {
-			case .milestone, .update, .comments, .documents, .about, .rewards, .faq: return 50
+			case .milestone, .update, .comments, .documents, .about, .technical, .faq: return 50
 			case .info: break
 			}
 		}
@@ -383,7 +355,7 @@ extension CampaignViewController: UITableViewDataSource {
 		if shouldDisplayFooter(b) {
 			switch b {
 			case .info, .milestone, .update, .comments, .documents, .faq: return 55
-			case .rewards, .about: break
+			case .technical, .about: break
 			}
 		}
 		return .leastNormalMagnitude

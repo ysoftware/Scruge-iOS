@@ -155,6 +155,9 @@
 		71BE95C92163E879001CF853 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95C82163E879001CF853 /* ProgressView.swift */; };
 		71BE95CB21649C67001CF853 /* DateMilliseconds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95CA21649C67001CF853 /* DateMilliseconds.swift */; };
 		71BE95CD21649FF2001CF853 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95CC21649FF2001CF853 /* Constants.swift */; };
+		71C368972181F79200729C00 /* Technical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C368962181F79200729C00 /* Technical.swift */; };
+		71C3689A2181F80500729C00 /* TechnicalVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C368992181F80500729C00 /* TechnicalVM.swift */; };
+		71C3689C2181F81400729C00 /* TechnicalAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3689B2181F81400729C00 /* TechnicalAVM.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* EOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* EOS.swift */; };
 		71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8EB2159101B0078BD36 /* Campaign.swift */; };
@@ -348,6 +351,9 @@
 		71BE95C82163E879001CF853 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		71BE95CA21649C67001CF853 /* DateMilliseconds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMilliseconds.swift; sourceTree = "<group>"; };
 		71BE95CC21649FF2001CF853 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		71C368962181F79200729C00 /* Technical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Technical.swift; sourceTree = "<group>"; };
+		71C368992181F80500729C00 /* TechnicalVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalVM.swift; sourceTree = "<group>"; };
+		71C3689B2181F81400729C00 /* TechnicalAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalAVM.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* EOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOS.swift; sourceTree = "<group>"; };
 		71C8E8EB2159101B0078BD36 /* Campaign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Campaign.swift; sourceTree = "<group>"; };
@@ -793,6 +799,7 @@
 		71971CB32158E3F6004D28E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				71C368982181F7F100729C00 /* Technical */,
 				71345C192179C93600F28AF1 /* AccountVM */,
 				71AB7904216609330077D904 /* Profile */,
 				71BE95B921636F9D001CF853 /* Category */,
@@ -1041,6 +1048,7 @@
 				71A0C1AD216F9B9200C2ACF3 /* Social.swift */,
 				71BE95BA2163744E001CF853 /* Faq.swift */,
 				71A0C1BB21708AEC00C2ACF3 /* Document.swift */,
+				71C368962181F79200729C00 /* Technical.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1176,6 +1184,15 @@
 				71BE95BE216376A9001CF853 /* CategoryAVM.swift */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		71C368982181F7F100729C00 /* Technical */ = {
+			isa = PBXGroup;
+			children = (
+				71C368992181F80500729C00 /* TechnicalVM.swift */,
+				71C3689B2181F81400729C00 /* TechnicalAVM.swift */,
+			);
+			path = Technical;
 			sourceTree = "<group>";
 		};
 		71C8E8E621590F1E0078BD36 /* EOS */ = {
@@ -1474,6 +1491,7 @@
 				71B38D1D215BBBAA00929CC3 /* Reward.swift in Sources */,
 				71BE95C32163ABF5001CF853 /* CampaignProto.swift in Sources */,
 				71B38D14215B999400929CC3 /* Milestone.swift in Sources */,
+				71C3689A2181F80500729C00 /* TechnicalVM.swift in Sources */,
 				715DB15D217471980005B69D /* ContributeVC.swift in Sources */,
 				71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */,
 				71AB7906216609420077D904 /* ProfileVM.swift in Sources */,
@@ -1527,6 +1545,7 @@
 				71345C0E21773D2800F28AF1 /* AnyCodable.swift in Sources */,
 				71A0C1AE216F9B9200C2ACF3 /* Social.swift in Sources */,
 				71345C0021773D2400F28AF1 /* BaseRouter.swift in Sources */,
+				71C3689C2181F81400729C00 /* TechnicalAVM.swift in Sources */,
 				71BE95CB21649C67001CF853 /* DateMilliseconds.swift in Sources */,
 				71BE95AA2162603C001CF853 /* RewardCell.swift in Sources */,
 				71345C0321773D2400F28AF1 /* PrivateKey.swift in Sources */,
@@ -1543,6 +1562,7 @@
 				71BE958921621AF9001CF853 /* ContentVC.swift in Sources */,
 				71A0C1B1216FA6A300C2ACF3 /* SocialCell.swift in Sources */,
 				71345C182178AB5100F28AF1 /* ImportKeyVC.swift in Sources */,
+				71C368972181F79200729C00 /* Technical.swift in Sources */,
 				71C8E8F3215912A10078BD36 /* Settings.swift in Sources */,
 				71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */,
 				71BE957C215EA8E2001CF853 /* Tabbar.swift in Sources */,

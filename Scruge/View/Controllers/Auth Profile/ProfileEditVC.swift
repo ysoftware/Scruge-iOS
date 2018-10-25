@@ -82,8 +82,12 @@ final class ProfileEditViewController: UIViewController {
 		countryField.text = editingProfile?.country
 		descriptionField.text = editingProfile?.description
 
-		guard let imageURL = editingProfile?.imageUrl else { return }
-		profileImage.kf.setImage(with: imageURL)
+		if let imageURL = editingProfile?.imageUrl {
+			profileImage.kf.setImage(with: imageURL)
+		}
+		else {
+			profileImage.image = nil
+		}
 	}
 
 	private func setupNavigationBar() {

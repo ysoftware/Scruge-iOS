@@ -98,49 +98,58 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	private func resetViewModels() {
-		guard let model = model else { return }
-
-		if let update = model.lastUpdate {
+		if let update = model?.lastUpdate {
 			lastUpdateVM = UpdateVM(update)
 		}
 		else {
 			lastUpdateVM = nil
 		}
 
-		if let milestone = model.currentMilestone {
+		if let milestone = model?.currentMilestone {
 			currentMilestoneVM = MilestoneVM(milestone)
 		}
 		else {
 			currentMilestoneVM = nil
 		}
 
-		if let rewards = model.rewards {
-			rewardsVM = RewardAVM(rewards)
-		}
-		else {
-			rewardsVM = nil
-		}
-
-		if let comments = model.topComments {
+		if let model = model, let comments = model.topComments {
 			topCommentsVM = CommentAVM(comments, source: .campaign(model))
 		}
 		else {
 			topCommentsVM = nil
 		}
 
-		if let documents = model.documents {
+		if let documents = model?.documents {
 			documentsVM = DocumentAVM(documents)
 		}
 		else {
 			documentsVM = nil
 		}
 
-		if let faq = model.faq {
+		if let faq = model?.faq {
 			faqVM = FaqAVM(faq)
 		}
 		else {
 			faqVM = nil
 		}
+
+		// token economies
+
+		var items:[Technical] = []
+
+		if let inflation = model?.annualInflationPercent {
+			items.append(Technical(name: "Annual inflation rate",
+								   value: "\(inflation.start)% - \(inflation.end)%",
+				description: "Range of annual inflation rate"))
+		}
+
+		if let publicTokenPercent = model?.publicTokenPercent {
+			items.append(Technical(name: "Token public percent",
+								   value: "\(publicTokenPercent)%",
+				description: "Percent of all issued tokens to be sold to public"))
+		}
+
+		technicalVM = TechnicalAVM(items)
 	}
 
 	// MARK: - View Models
@@ -151,7 +160,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	private(set) var currentMilestoneVM:MilestoneVM?
 
-	private(set) var rewardsVM:RewardAVM?
+	private(set) var technicalVM:TechnicalAVM?
 
 	private(set) var documentsVM:DocumentAVM?
 

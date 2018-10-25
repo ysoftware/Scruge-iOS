@@ -18,4 +18,14 @@ final class FaqCell: UITableViewCell {
 		answerLabel.text = vm.answer
 		return self
 	}
+
+
+	#warning("temporal fix")
+	@discardableResult
+	func setup(with vm:TechnicalVM) -> Self {
+		questionLabel.text = vm.name
+		answerLabel.text = vm.value
+		return self
+	}
+
 }

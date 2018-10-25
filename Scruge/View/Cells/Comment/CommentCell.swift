@@ -25,6 +25,9 @@ final class CommentCell: UITableViewCell {
 		if let url = vm.authorPhoto {
 			profileImage.kf.setImage(with: url)
 		}
+		else {
+			profileImage.image = nil
+		}
 		return self
 	}
 }
