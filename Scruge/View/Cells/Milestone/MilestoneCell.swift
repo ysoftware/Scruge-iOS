@@ -12,11 +12,13 @@ final class MilestoneCell: UITableViewCell {
 
 	@IBOutlet weak var dateLabel:UILabel!
 	@IBOutlet weak var descriptionLabel:UILabel!
+	@IBOutlet weak var fundsReleaseLabel:UILabel!
 
 	@discardableResult
 	func setup(with vm:MilestoneVM) -> Self {
 		dateLabel.text = vm.date
 		descriptionLabel.text = vm.description
+		fundsReleaseLabel.text = vm.fundsRelease
 		return self
 	}
 }

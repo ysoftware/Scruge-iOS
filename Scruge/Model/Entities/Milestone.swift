@@ -17,4 +17,6 @@ struct Milestone: Equatable, Codable {
 	let endTimestamp:Int
 
 	let description:String
+
+	let fundsReleasePercent:Double?
 }

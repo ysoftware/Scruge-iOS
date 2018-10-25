@@ -18,4 +18,9 @@ final class MilestoneVM: ViewModel<Milestone> {
 		guard let model = model else { return "" }
 		return Date.present(model.endTimestamp, as: "d MMMM yyyy")
 	}
+
+	var fundsRelease:String {
+		let value = (model?.fundsReleasePercent ?? 0).formatRounding()
+		return "releasing next \(value)% of funds"
+	}
 }
