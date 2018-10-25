@@ -43,9 +43,11 @@ final class FeaturedViewController: UIViewController {
 	}
 
 	func addTitleButton() {
-		titleButton.setTitleColor(.black, for: .normal)
-		titleButton.addTarget(self, action: #selector(titleTapped), for: .touchUpInside)
-		navigationItem.titleView = titleButton
+		title = "Featured"
+		
+//		titleButton.setTitleColor(.black, for: .normal)
+//		titleButton.addTarget(self, action: #selector(titleTapped), for: .touchUpInside)
+//		navigationItem.titleView = titleButton
 	}
 
 	func setInitial() {
