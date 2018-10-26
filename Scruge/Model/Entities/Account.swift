@@ -10,9 +10,9 @@ import Foundation
 
 struct AccountModel: Equatable {
 
-	var name:String
+	let name:String
 
-	var wallet:SELocalAccount
+	let wallet:SELocalAccount
 }
 
 extension AccountModel: Comparable {
