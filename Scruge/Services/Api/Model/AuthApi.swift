@@ -10,11 +10,6 @@ import UIKit
 
 // MARK: - Response
 
-struct ResultResponse: Codable {
-
-	let result:Int
-}
-
 struct LoginResponse: Codable {
 
 	let result:Int

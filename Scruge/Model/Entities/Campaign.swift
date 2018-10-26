@@ -60,8 +60,6 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	// MARK: - Full campaign only
 
-	var isSubscribed:Bool?
-
 	let state:Int?
 
 	let publicTokenPercent:Double
@@ -81,8 +79,6 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 	let faq:[Faq]?
 
 	let documents:[Document]?
-
-//	let rewards:[Reward]?
 
 	let currentMilestone:Milestone?
 

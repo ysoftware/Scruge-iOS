@@ -10,6 +10,16 @@ import Foundation
 
 // MARK: - Request
 
+struct BoolResponse: Codable {
+
+	let value:Bool
+}
+
+struct ResultResponse: Codable {
+
+	let result:Int
+}
+
 struct AccountRequest: Codable {
 
 	let accountName:String

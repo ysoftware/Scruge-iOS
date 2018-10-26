@@ -26,6 +26,8 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	typealias Model = Campaign
 
 	private let id:String
+
+	private(set) var isSubscribed:Bool = false
 	private(set) var state:ViewState = .loading {
 		didSet {
 			notifyUpdated()
@@ -46,55 +48,6 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		self.arrayDelegate = arrayDelegate
 		self.model = model
 		state = .ready
-	}
-
-	func load() {
-		state = .loading
-		reloadData()
-	}
-
-	func reloadData() {
-		Service.api.getCampaign(with: id) { result in
-			switch result {
-			case .success(let response):
-				self.model = response.campaign
-				self.state = .ready
-			case .failure(let error):
-				self.model = nil
-				self.state = .error(ErrorHandler.message(for: error))
-			}
-			self.resetViewModels()
-		}
-	}
-
-	func loadDescription(_ completion: @escaping (String)->Void) {
-		guard let model = model else { return completion("") }
-		Service.api.getCampaignContent(for: model) { result in
-			if case let .success(response) = result {
-				completion(response.content)
-			}
-			else {
-				completion("")
-			}
-		}
-	}
-
-	func toggleSubscribing() {
-		guard let model = model else { return }
-
-		let newValue = !isSubscribed
-		Service.api.setSubscribing(newValue, to: model) { result in
-			switch result {
-			case .success(let response):
-				if response.result == 0 {
-					self.model?.isSubscribed = newValue
-					self.notifyUpdated()
-				}
-			case .failure(_):
-				// nothing
-				break
-			}
-		}
 	}
 
 	private func resetViewModels() {
@@ -158,6 +111,67 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		technicalVM = TechnicalAVM(items)
 	}
 
+	// MARK: - Actions
+
+	func load() {
+		state = .loading
+		reloadData()
+	}
+
+	func reloadData() {
+		Service.api.getCampaign(with: id) { result in
+			switch result {
+			case .success(let response):
+				self.model = response.campaign
+				self.reloadSubscribtionStatus()
+				self.state = .ready
+			case .failure(let error):
+				self.model = nil
+				self.state = .error(ErrorHandler.message(for: error))
+			}
+			self.resetViewModels()
+		}
+	}
+
+	func loadDescription(_ completion: @escaping (String)->Void) {
+		guard let model = model else { return completion("") }
+		Service.api.getCampaignContent(for: model) { result in
+			if case let .success(response) = result {
+				completion(response.content)
+			}
+			else {
+				completion("")
+			}
+		}
+	}
+
+	func reloadSubscribtionStatus() {
+		guard let model = model else { return }
+		Service.api.getSubscriptionStatus(for: model) { result in
+			switch result {
+			case .success(let response):
+				self.isSubscribed = response.value
+				self.notifyUpdated()
+			case .failure(_):
+				break
+			}
+		}
+	}
+
+	func toggleSubscribing() {
+		guard let model = model else { return }
+
+		let newValue = !isSubscribed
+		Service.api.setSubscribing(newValue, to: model) { result in
+			switch result {
+			case .success(_):
+				self.reloadSubscribtionStatus()
+			case .failure(_):
+				break
+			}
+		}
+	}
+
 	// MARK: - View Models
 
 	private(set) var lastUpdateVM:UpdateVM?
@@ -173,10 +187,6 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	private(set) var faqVM:FaqAVM?
 
 	// MARK: - Properties
-
-	var isSubscribed:Bool {
-		return model?.isSubscribed ?? false
-	}
 
 	var commentsCount:Int {
 		return model?.totalCommentsCount ?? 0
