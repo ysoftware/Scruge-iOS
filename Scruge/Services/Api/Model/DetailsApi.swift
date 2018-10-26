@@ -21,3 +21,10 @@ struct UpdateListResponse: Codable {
 
 	let updates:[Update]
 }
+
+struct ActivityListResponse: Codable {
+
+	let result:Int
+
+	let updates:[Activity]
+}

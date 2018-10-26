@@ -11,25 +11,49 @@ import Result
 
 final class UpdateAVM: SimpleArrayViewModel<Update, UpdateVM> {
 
-	private let campaign:Campaign
+	enum Source {
 
-	init(_ campaign:Campaign) {
-		self.campaign = campaign
+		case campaign(Campaign)
+
+		case activity
+	}
+
+	private let source:Source
+
+	init(_ source:Source) {
+		self.source = source
 	}
 
 	init(_ updates:[Update], for campaign:Campaign) {
-		self.campaign = campaign
+		self.source = .campaign(campaign)
 		super.init()
 		setData(updates.map { UpdateVM($0) })
 	}
 
 	override func fetchData(_ block: @escaping (Result<[Update], AnyError>) -> Void) {
-		Service.api.getUpdateList(for: campaign) { result in
-			switch result {
-			case .success(let response):
-				block(.success(response.updates))
-			case .failure(let error):
-				block(.failure(AnyError(error)))
+		switch source {
+		case .campaign(let campaign):
+			Service.api.getUpdateList(for: campaign) { result in
+				switch result {
+				case .success(let response):
+					block(.success(response.updates))
+				case .failure(let error):
+					block(.failure(AnyError(error)))
+				}
+			}
+		case .activity:
+			Service.api.getActivity { result in
+				switch result {
+				case .success(let response):
+					let updates = response.updates.map { activity -> Update in
+						var update = activity.update
+						update.campaignInfo = activity.campaign
+						return update
+					}
+					block(.success(updates))
+				case .failure(let error):
+					block(.failure(AnyError(error)))
+				}
 			}
 		}
 	}

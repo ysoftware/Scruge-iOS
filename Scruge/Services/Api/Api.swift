@@ -142,6 +142,14 @@ struct Api {
 		service.get("campaign/\(campaign.id)/updates", nil, completion)
 	}
 
+	func getActivity(_ completion: @escaping (Result<ActivityListResponse, AnyError>)->Void) {
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+		}
+
+		service.get("user/\(token)/campaign_updates", nil, completion)
+	}
+
 	// MARK: - HTML Description
 
 	func getUpdateDescription(for update:Update,

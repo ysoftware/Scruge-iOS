@@ -28,6 +28,22 @@ final class UpdateVM: ViewModel<Update> {
 		return model?.description ?? ""
 	}
 
+	// MARK: - Campaign Info (for Activity)
+
+	var campaignId:String {
+		return model?.campaignInfo?.id ?? ""
+	}
+
+	var campaignTitle:String {
+		return model?.campaignInfo?.title ?? ""
+	}
+
+	var campaignImageUrl:String {
+		return model?.campaignInfo?.imageUrl ?? ""
+	}
+
+	// MARK: - Actions
+
 	func loadDescription(_ completion: @escaping (String)->Void) {
 		guard let model = model else { return completion("") }
 		Service.api.getUpdateContent(for: model) { result in

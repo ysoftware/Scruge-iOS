@@ -19,4 +19,13 @@ struct Update: Equatable, Codable {
 	let description:String?
 
 	let imageUrl:String?
+
+	var campaignInfo:CampaignInfo?
+}
+
+struct Activity: Equatable, Codable {
+
+	let update:Update
+
+	let campaign:CampaignInfo
 }

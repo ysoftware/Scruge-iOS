@@ -8,6 +8,15 @@
 
 import Foundation
 
+struct CampaignInfo: Equatable, Codable {
+
+	let id:String
+
+	let title:String
+
+	let imageUrl:String
+}
+
 struct PartialCampaign: Equatable, Codable, PartialCampaignModel {
 
 	let id:String

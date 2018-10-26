@@ -103,7 +103,7 @@ struct Presenter {
 									  for campaignVM:CampaignVM) {
 		guard let model = campaignVM.model else { return }
 		let new = R.storyboard.details.updatesVC()!
-		new.vm = UpdateAVM(model)
+		new.vm = UpdateAVM(.campaign(model))
 		vc.show(new, sender: new)
 	}
 
