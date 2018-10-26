@@ -31,11 +31,7 @@ struct PartialCampaign: Equatable, Codable, PartialCampaignModel {
 
 	let endTimestamp:Int
 
-	let hardCap:Double
-
-	let softCap:Double
-
-	let raised:Double
+	let economics: Economics
 }
 
 struct Campaign: Equatable, Codable, PartialCampaignModel {
@@ -52,21 +48,11 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	let endTimestamp:Int
 
-	let hardCap:Double
-
-	let softCap:Double
-
-	let raised:Double
+	let economics: Economics
 
 	// MARK: - Full campaign only
 
 	let state:Int?
-
-	let publicTokenPercent:Double
-
-	let tokenSupply:Double?
-
-	let annualInflationPercent:Range?
 
 	let about:String?
 
@@ -101,9 +87,5 @@ protocol PartialCampaignModel {
 
 	var endTimestamp:Int { get }
 
-	var hardCap:Double { get }
-
-	var softCap:Double { get }
-
-	var raised:Double { get }
+	var economics:Economics { get }
 }

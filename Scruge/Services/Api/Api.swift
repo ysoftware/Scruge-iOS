@@ -126,13 +126,13 @@ struct Api {
 	// MARK: - Subscriptions
 
 	func getSubscriptionStatus(for campaign:Campaign,
-							   _ completion: @escaping (Result<BoolResponse, AnyError>)->Void) {
+							   _ completion: @escaping (Result<SubscriptionResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.authenticationFailed)))
 		}
 
 		let request = CampaignRequest(campaignId: campaign.id)
-		service.post("user/\(token)/is_subscribed", request.toDictionary(), completion)
+		service.get("user/\(token)/is_subscribed", request.toDictionary(), completion)
 	}
 
 	func setSubscribing(_ subscribing:Bool,

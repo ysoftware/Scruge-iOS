@@ -51,7 +51,8 @@ extension UpdatesViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
 											 for: indexPath)!
-			.setup(with: vm.item(at: indexPath.row), hideDate: false)
+			.setup(with: vm.item(at: indexPath.row))
+			.showDate(true)
 	}
 }
 

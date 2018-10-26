@@ -90,19 +90,19 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 		var items:[Technical] = []
 
-		if let supply = model?.tokenSupply {
+		if let supply = model?.economics.tokenSupply {
 			items.append(Technical(name: "Total token supply",
 								   value: supply.format(as: .decimal, separateWith: " "),
 				description: "Total amount of tokens to be issued"))
 		}
 
-		if let publicTokenPercent = model?.publicTokenPercent {
+		if let publicTokenPercent = model?.economics.publicTokenPercent {
 			items.append(Technical(name: "Token public percent",
 								   value: "\(publicTokenPercent)%",
 				description: "Percent of all issued tokens to be sold to public"))
 		}
 
-		if let inflation = model?.annualInflationPercent {
+		if let inflation = model?.economics.annualInflationPercent {
 			items.append(Technical(name: "Annual inflation rate",
 								   value: "\(inflation.start)% - \(inflation.end)%",
 				description: "Range of annual inflation rate"))
@@ -150,7 +150,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		Service.api.getSubscriptionStatus(for: model) { result in
 			switch result {
 			case .success(let response):
-				self.isSubscribed = response.value
+				self.isSubscribed = response.subscribed
 				self.notifyUpdated()
 			case .failure(_):
 				break

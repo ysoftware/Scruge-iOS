@@ -54,13 +54,15 @@ extension ActivityViewController: UITableViewDataSource {
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
 											 for: indexPath)!
 			.setup(with: vm.item(at: indexPath.row, shouldLoadMore: true))
+			.showDate(true)
+			.showCampaign(true)
 	}
 }
 
 extension ActivityViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
+
 	}
 }
 

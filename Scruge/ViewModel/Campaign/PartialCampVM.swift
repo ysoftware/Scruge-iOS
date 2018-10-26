@@ -35,17 +35,20 @@ extension PartialCampaignModelHolder {
 
 	var progress: Double { // 0 - 1
 		guard let model = model else { return 0 }
-		return model.raised / model.softCap
+		return model.economics.raised / model.economics.softCap
 	}
 
 	var progressString: String {  // 0% - 100%
 		guard let model = model else { return "0% raised" }
-		return "\((model.raised / model.softCap * 100).formatRounding())% raised"
+		let progress = (model.economics.raised / model.economics.softCap * 100).formatRounding()
+		return "\(progress)% raised"
 	}
 
 	var raisedString: String {
 		guard let model = model else { return "" }
-		return "\(model.raised.format(as: .decimal)) raised of \(model.softCap.format(as: .decimal))"
+		let raised = model.economics.raised.format(as: .decimal, separateWith: " ")
+		let total = model.economics.softCap.format(as: .decimal, separateWith: " ")
+		return "$\(raised) raised of $\(total)"
 	}
 
 	var daysLeft: String {

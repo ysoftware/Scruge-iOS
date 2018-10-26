@@ -408,5 +408,6 @@ extension CampaignViewController: ArrayViewModelDelegate {
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
 			self.tableView.reloadData()
+			self.setupNavigationBar()
 	}
 }
