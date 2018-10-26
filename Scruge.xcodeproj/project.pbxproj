@@ -852,6 +852,7 @@
 		71971CBA2158E44E004D28E7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				71C3689D21830DFE00729C00 /* Activity */,
 				71345C122177412D00F28AF1 /* Wallet */,
 				71BE95B521635A67001CF853 /* Main (Navigation) */,
 				71BE9563215E26CA001CF853 /* Auth Profile */,
@@ -1195,6 +1196,14 @@
 			path = Technical;
 			sourceTree = "<group>";
 		};
+		71C3689D21830DFE00729C00 /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				71DA7E972164AB6E0052EB8F /* ActivityVC.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 		71C8E8E621590F1E0078BD36 /* EOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -1219,7 +1228,6 @@
 		71DA7E922164AB2F0052EB8F /* Campaign Details */ = {
 			isa = PBXGroup;
 			children = (
-				71DA7E972164AB6E0052EB8F /* ActivityVC.swift */,
 				71DA7E932164AB420052EB8F /* UpdatesVC.swift */,
 				71DA7E952164AB510052EB8F /* MilestonesVC.swift */,
 				71AB79002164D2650077D904 /* CommentsVC.swift */,

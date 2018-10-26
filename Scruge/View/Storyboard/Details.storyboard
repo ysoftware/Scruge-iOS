@@ -378,20 +378,32 @@
                                     <outlet property="delegate" destination="pIz-sy-rpm" id="Cig-NU-e8T"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ozH-kp-QXD" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="dVB-8Q-m8V" firstAttribute="top" secondItem="enO-pM-uZK" secondAttribute="top" id="1z9-k3-fRR"/>
                             <constraint firstAttribute="trailing" secondItem="dVB-8Q-m8V" secondAttribute="trailing" id="37y-vL-sRi"/>
+                            <constraint firstItem="ozH-kp-QXD" firstAttribute="leading" secondItem="VZQ-rO-onQ" secondAttribute="leading" id="61o-aA-0mI"/>
                             <constraint firstAttribute="bottom" secondItem="dVB-8Q-m8V" secondAttribute="bottom" id="DKJ-7f-Q3h"/>
+                            <constraint firstItem="ozH-kp-QXD" firstAttribute="trailing" secondItem="VZQ-rO-onQ" secondAttribute="trailing" id="ExD-L8-UmM"/>
+                            <constraint firstAttribute="bottom" secondItem="ozH-kp-QXD" secondAttribute="bottom" id="oh1-db-wCz"/>
                             <constraint firstItem="dVB-8Q-m8V" firstAttribute="leading" secondItem="enO-pM-uZK" secondAttribute="leading" id="s7w-v1-uHo"/>
+                            <constraint firstItem="ozH-kp-QXD" firstAttribute="top" secondItem="enO-pM-uZK" secondAttribute="top" id="vO2-1F-xfY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VZQ-rO-onQ"/>
                     </view>
+                    <connections>
+                        <outlet property="loadingView" destination="ozH-kp-QXD" id="cKc-dJ-WGx"/>
+                        <outlet property="tableView" destination="dVB-8Q-m8V" id="WDP-jM-Psf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UPl-7u-Rdn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-81" y="-750"/>
+            <point key="canvasLocation" x="-81.159420289855078" y="-750"/>
         </scene>
     </scenes>
 </document>
