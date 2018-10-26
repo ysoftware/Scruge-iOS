@@ -143,7 +143,7 @@
         <!--Content View Controller-->
         <scene sceneID="lGH-Ic-Zop">
             <objects>
-                <viewController storyboardIdentifier="ContentVC" id="GGa-e6-Ml3" customClass="ContentViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContentVC" hidesBottomBarWhenPushed="YES" id="GGa-e6-Ml3" customClass="ContentViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N9Z-Nt-hvV">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

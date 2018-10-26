@@ -17,14 +17,16 @@ final class UpdateCell: UITableViewCell {
 	@IBOutlet weak var dateLabel: UILabel!
 
 	// campaign
-	@IBOutlet weak var campaignTitleLabel: UILabel!
-	@IBOutlet weak var campaignImageLabel: UIImageView!
+	@IBOutlet weak var campaignTitleLabel: UILabel?
+	@IBOutlet weak var campaignImageLabel: UIImageView?
 	
 	@discardableResult
 	func setup(with vm: UpdateVM) -> Self {
 		titleLabel.text = vm.title
 		descriptionLabel.text = vm.descsription
 		dateLabel.text = vm.date
+
+		campaignTitleLabel?.isHidden = true
 		campaignTitleLabel?.text = vm.campaignTitle
 
 		if let string = vm.imageUrl, let url = URL(string: string), url.isValidImageResource {
@@ -49,7 +51,7 @@ final class UpdateCell: UITableViewCell {
 
 	@discardableResult
 	func showCampaign(_ show:Bool) -> Self {
-		campaignTitleLabel.isHidden = !show
+		campaignTitleLabel?.isHidden = !show
 		return self
 	}
 }

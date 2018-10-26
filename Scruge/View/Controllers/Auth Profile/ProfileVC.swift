@@ -137,9 +137,10 @@ extension ProfileViewController: UITableViewDataSource {
 		.setup(with: campaignsVM.item(at: indexPath.row))
 	}
 
-	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return "Backed by you"
-	}
+	#warning("bring it back")
+//	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//		return "Backed by you"
+//	}
 }
 
 extension ProfileViewController: ViewModelDelegate {

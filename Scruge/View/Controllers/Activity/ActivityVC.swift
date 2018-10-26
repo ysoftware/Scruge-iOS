@@ -83,7 +83,9 @@ extension ActivityViewController: UITableViewDataSource {
 extension ActivityViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
 
+		Service.presenter.presentContentViewController(in: self, for: vm.item(at: indexPath.row))
 	}
 }
 
