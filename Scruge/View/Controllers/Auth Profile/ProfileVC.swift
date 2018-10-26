@@ -57,9 +57,20 @@ final class ProfileViewController: UIViewController {
 		super.viewDidAppear(animated)
 
 		profileVM.load()
+
+		switch campaignsVM.state {
+		case .ready, .error:
+			if campaignsVM.numberOfItems == 0 {
+				campaignsVM.reloadData()
+			}
+		default: break
+		}
 	}
 
 	private func setupTable() {
+		tableView.refreshControl = UIRefreshControl()
+		tableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+
 		tableView.estimatedRowHeight = 400
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.register(UINib(resource: R.nib.campaignSmallCell),
@@ -71,10 +82,14 @@ final class ProfileViewController: UIViewController {
 
 		campaignsVM.delegate = self
 		campaignsVM.query?.requestType = .backed
-		campaignsVM.reloadData()
+		reloadData()
 	}
 
 	// MARK: - Methods
+
+	@objc func reloadData() {
+		campaignsVM.reloadData()
+	}
 
 	private func refreshProfile() {
 		profileImage.kf.setImage(with: profileVM.imageUrl,
@@ -139,23 +154,24 @@ extension ProfileViewController: ArrayViewModelDelegate {
 	func didChangeState<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>,
 								  to state: ArrayViewModelState)
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
-			
-		switch campaignsVM.state {
-		case .error(_):
-			#warning("bring back the error")
-//			let message = ErrorHandler.message(for: error)
-			loadingView.set(state: .error("You haven't backed any campaigns yet."))
-		case .loading, .initial:
-			loadingView.set(state: .loading)
-		case .ready:
-			if campaignsVM.isEmpty {
-				loadingView.set(state: .error("You haven't backed any campaigns yet."))
+
+			switch campaignsVM.state {
+			case .error(let error):
+				tableView.refreshControl?.endRefreshing()
+				let message = ErrorHandler.message(for: error)
+				loadingView.set(state: .error(message))
+			case .loading, .initial:
+				loadingView.set(state: .loading)
+			case .ready:
+				tableView.refreshControl?.endRefreshing()
+				if campaignsVM.isEmpty {
+					loadingView.set(state: .error("You haven't backed any campaigns yet."))
+				}
+				else {
+					loadingView.set(state: .ready)
+				}
+			default: break
 			}
-			else {
-				loadingView.set(state: .ready)
-			}
-		default: break
-		}
 	}
 
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)

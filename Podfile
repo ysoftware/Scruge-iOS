@@ -18,9 +18,4 @@ target 'Scruge' do
     # Pods for testing
   end
 
-  target 'ScrugeUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end

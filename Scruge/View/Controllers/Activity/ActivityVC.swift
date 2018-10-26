@@ -30,7 +30,22 @@ final class ActivityViewController: UIViewController {
 		setupTableView()
 	}
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+
+		switch vm.state {
+		case .ready, .error:
+			if vm.numberOfItems == 0 {
+				vm.reloadData()
+			}
+		default: break
+		}
+	}
+
 	private func setupTableView() {
+		tableView.refreshControl = UIRefreshControl()
+		tableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.register(UINib(resource: R.nib.updateCell),
@@ -40,6 +55,12 @@ final class ActivityViewController: UIViewController {
 	private func setupVM() {
 		tableUpdateHandler = ArrayViewModelUpdateHandler(with: tableView)
 		vm.delegate = self
+		reloadData()
+	}
+
+	// MARK: - Methods
+
+	@objc func reloadData() {
 		vm.reloadData()
 	}
 }
@@ -80,11 +101,13 @@ extension ActivityViewController: ArrayViewModelDelegate {
 
 			switch vm.state {
 			case .error(let error):
+				tableView.refreshControl?.endRefreshing()
 				let message = ErrorHandler.message(for: error)
 				loadingView.set(state: .error(message))
 			case .loading, .initial:
 				loadingView.set(state: .loading)
 			case .ready:
+				tableView.refreshControl?.endRefreshing()
 				if vm.isEmpty {
 					loadingView.set(state: .error("No updates"))
 				}

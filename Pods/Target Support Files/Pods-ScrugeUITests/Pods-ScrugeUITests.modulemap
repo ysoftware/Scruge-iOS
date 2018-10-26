@@ -1,6 +1,0 @@
-framework module Pods_ScrugeUITests {
-  umbrella header "Pods-ScrugeUITests-umbrella.h"
-
-  export *
-  module * { export * }
-}
