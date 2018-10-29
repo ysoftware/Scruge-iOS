@@ -43,6 +43,7 @@ final class ActivityViewController: UIViewController {
 	}
 
 	private func setupTableView() {
+		tableView.delaysContentTouches = false
 		tableView.refreshControl = UIRefreshControl()
 		tableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
 
@@ -72,11 +73,17 @@ extension ActivityViewController: UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let vm = self.vm.item(at: indexPath.row, shouldLoadMore: true)
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
 											 for: indexPath)!
-			.setup(with: vm.item(at: indexPath.row, shouldLoadMore: true))
+			.setup(with: vm)
 			.showDate(true)
 			.showCampaign(true)
+			.setupTap(campaign: { [unowned self] in
+				Service.presenter.presentCampaignViewController(in: self, id: vm.campaignId)
+			}, update: { [unowned self] in
+				Service.presenter.presentContentViewController(in: self, for: vm)
+			})
 	}
 }
 
@@ -85,7 +92,6 @@ extension ActivityViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 
-		Service.presenter.presentContentViewController(in: self, for: vm.item(at: indexPath.row))
 	}
 }
 

@@ -53,9 +53,9 @@ struct Presenter {
 	// MARK: - Campaign
 
 	func presentCampaignViewController(in vc:UIViewController,
-											  with campaignVM:PartialCampaignVM) {
+											  id:String) {
 		let new = R.storyboard.campaign.campaignVC()!
-		new.vm = CampaignVM(campaignVM.id)
+		new.vm = CampaignVM(id)
 		vc.show(new, sender: new)
 	}
 

@@ -102,7 +102,8 @@ extension SearchViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
-		Service.presenter.presentCampaignViewController(in: self, with: campaignsVM.item(at: indexPath.row))
+		Service.presenter.presentCampaignViewController(in: self,
+														id: campaignsVM.item(at: indexPath.row).id)
 	}
 }
 

@@ -145,7 +145,7 @@ extension FeaturedViewController: UITableViewDelegate {
 		if tableView == campaignTableView {
 			return Service.presenter
 				.presentCampaignViewController(in: self,
-											   with: campaignVM.item(at: indexPath.row))
+											   id: campaignVM.item(at: indexPath.row).id)
 		}
 
 		showCategories(false)
