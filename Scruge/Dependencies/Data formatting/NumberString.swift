@@ -17,7 +17,6 @@ extension Double {
 		formatter.minimumFractionDigits = min
 		formatter.maximumFractionDigits = decimalPlaces
 		formatter.groupingSeparator = separator
-		formatter.groupingSize = 3
 		formatter.minimumIntegerDigits = 1
 		return formatter.string(for: self)!
 	}
@@ -27,7 +26,6 @@ extension Double {
 		let formatter = NumberFormatter()
 		formatter.numberStyle = style
 		formatter.groupingSeparator = separator
-		formatter.groupingSize = 3
 		formatter.maximumFractionDigits = 10
 		return formatter.string(for: self)!
 	}

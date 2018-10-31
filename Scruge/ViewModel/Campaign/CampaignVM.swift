@@ -238,9 +238,14 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	var contributionInformation:String {
 		guard let model = model else { return "" }
+		let min = model.economics.minUserContribution
+			.format(as: .decimal, separateWith: " ")
+		let max = model.economics.maxUserContribution
+			.format(as: .decimal, separateWith: " ")
+
 		return """
-		Minimum contribution: $\(model.economics.minUserContribution)
-		Maximum contribution: $\(model.economics.maxUserContribution)
+		Minimum contribution: $\(min)
+		Maximum contribution: $\(max)
 		"""
 	}
 

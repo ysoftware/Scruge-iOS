@@ -55,6 +55,7 @@ final class ContributeViewController: UIViewController {
 				}
 			}
 			let usd = self.convertToUSD(value)
+				.format(as: .decimal, separateWith: " ")
 			self.contributedLabel.text = "Already contributed: $\(usd)"
 		}
 

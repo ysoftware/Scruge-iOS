@@ -37,19 +37,19 @@ final class SearchViewController: UIViewController {
 		setupVM()
 	}
 
-	override func viewWillAppear(_ animated: Bool) {
-		super.viewWillAppear(animated)
-		// The following also "fixes" the problem without jumpiness after the view has already appeared.
-		DispatchQueue.main.async {
-			self.tagCollectionView.collectionViewLayout.invalidateLayout()
-		}
-	}
+//	override func viewWillAppear(_ animated: Bool) {
+//		super.viewWillAppear(animated)
+//		// The following also "fixes" the problem without jumpiness after the view has already appeared.
+//		DispatchQueue.main.async {
+//			self.tagCollectionView.collectionViewLayout.invalidateLayout()
+//		}
+//	}
 
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		// The following line makes cells size properly in iOS 12.
-		tagCollectionView.collectionViewLayout.invalidateLayout()
-	}
+//	override func viewDidAppear(_ animated: Bool) {
+//		super.viewDidAppear(animated)
+//		// The following line makes cells size properly in iOS 12.
+//		tagCollectionView.collectionViewLayout.invalidateLayout()
+//	}
 
 	private func setupVM() {
 		campaignsVM.delegate = self
@@ -57,7 +57,11 @@ final class SearchViewController: UIViewController {
 
 		Service.api.getTags { result in
 			guard case let .success(response) = result else { return }
-			self.tags = response.tags
+			self.tags = response.tags.map { $0.lowercased() }
+			self.tagCollectionView.reloadData()
+			DispatchQueue.main.async {
+				self.tagCollectionView.collectionViewLayout.invalidateLayout()
+			}
 		}
 	}
 
