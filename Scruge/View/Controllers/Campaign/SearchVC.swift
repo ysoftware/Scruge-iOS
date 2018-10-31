@@ -22,8 +22,8 @@ final class SearchViewController: UIViewController {
 	private var tableUpdateHandler:ArrayViewModelUpdateHandler!
 	private let searchController = UISearchController(searchResultsController: nil)
 	private let campaignsVM = CampaignAVM()
-	private let tags = ["social", "gaming", "gambling", "crowdfunding", "exchanges", "sharing services",
-						"social networks", "mining", "p2p marketplaces", "data", "ai"]
+
+	private var tags:[String] = []
 	private var selectedTags:[String] = []
 
 	// MARK: - Setup
@@ -54,6 +54,11 @@ final class SearchViewController: UIViewController {
 	private func setupVM() {
 		campaignsVM.delegate = self
 		tableUpdateHandler = ArrayViewModelUpdateHandler(with: tableView)
+
+		Service.api.getTags { result in
+			guard case let .success(response) = result else { return }
+			self.tags = response.tags
+		}
 	}
 
 	private func setupCollection() {
