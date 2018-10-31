@@ -746,8 +746,8 @@
 		716E625B2189D8D6002AC5DA /* Member */ = {
 			isa = PBXGroup;
 			children = (
-				716E62592189D8D3002AC5DA /* MemberCell.swift */,
 				716E625E2189DA01002AC5DA /* MemberCell.xib */,
+				716E62592189D8D3002AC5DA /* MemberCell.swift */,
 			);
 			path = Member;
 			sourceTree = "<group>";
