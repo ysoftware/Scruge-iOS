@@ -12,9 +12,9 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	enum Status: Int, Codable {
 
-		case idle = 1
+		case idle = 0
 
-		case contribute = 0
+		case contribute = 1
 
 		case voteDeadline = 2
 
