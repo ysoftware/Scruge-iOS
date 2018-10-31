@@ -8,6 +8,8 @@
 
 import Foundation
 
+#warning("убрать optional значения где они не нужны")
+
 struct Economics: Equatable, Codable {
 
 	let hardCap:Double
@@ -21,4 +23,8 @@ struct Economics: Equatable, Codable {
 	let tokenSupply:Double?
 
 	let annualInflationPercent:Range?
+
+	let minUserContribution:Double?
+
+	let maxUserContribution:Double?
 }

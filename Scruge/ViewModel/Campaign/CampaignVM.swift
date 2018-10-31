@@ -16,11 +16,9 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 		case contribute = 1
 
-		case contributeLimitReached = 2
+		case voteDeadline = 2
 
-		case voteDeadline = 3
-
-		case voteMilestone = 4
+		case voteMilestone = 3
 	}
 	
 	typealias Model = Campaign

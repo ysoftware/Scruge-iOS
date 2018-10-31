@@ -33,6 +33,8 @@ enum BackendError: Error {
 	case resourceNotFound
 
 	case badRequest
+
+	case notImplemented
 }
 
 enum NetworkingError: Error {
@@ -88,6 +90,8 @@ struct ErrorHandler {
 		}
 		else if let backendError = error as? BackendError {
 			switch backendError {
+			case .notImplemented:
+				return "Not implemented"
 			case .badRequest:
 				return "Malformed request"
 			case .resourceNotFound:
@@ -117,6 +121,7 @@ struct ErrorHandler {
 		case 10: return AuthError.authenticationFailed
 		case 11: return BackendError.badRequest
 		case 12: return BackendError.resourceNotFound
+
 		// auth
 		case 101: return AuthError.incorrectEmailLength
 		case 102: return AuthError.invalidEmail
@@ -125,6 +130,9 @@ struct ErrorHandler {
 		case 105: return AuthError.accountExists
 		case 106: return AuthError.incorrectCredentials
 		case 107: return AuthError.accountBlocked
+
+		// special
+		case 999: return BackendError.notImplemented
 
 		default: return NetworkingError.unknown(result)
 		}

@@ -187,6 +187,30 @@ struct Api {
 		service.get("campaign/\(campaign.id)/milestones", nil, completion)
 	}
 
+	// MARK: - Contributions
+
+	func notifyContribution(campaignId:String,
+							amount:Double,
+							transactionId:String,
+							_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+		}
+		let request = ContributionNotificationRequest(amount: amount,
+													  campaignId: campaignId,
+													  transactionId: transactionId)
+		service.post("user/\(token)/contributions", request.toDictionary(), completion)
+	}
+
+	func getContributionHistory(
+		_ completion: @escaping (Result<ContributionHistoryResponse, AnyError>)->Void) {
+
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+		}
+		service.get("user/\(token)/contributions", nil, completion)
+	}
+
 	// MARK: - Comments
 
 	func postComment(_ comment:String,

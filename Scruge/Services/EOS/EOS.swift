@@ -13,7 +13,6 @@ struct EOS {
 	fileprivate let chain = EOSRPC.sharedInstance
 
 	init() {
-//		EOSRPC.endpoint = "http://31.10.90.99:8888"
 		EOSRPC.endpoint = "http://35.242.241.205:7777"
 	}
 
@@ -36,7 +35,6 @@ struct EOS {
 	}
 
 	/// send money from this account
-	/// wallet has to be unlocked first
 	func sendMoney(from account:AccountModel,
 				   to recipient:String,
 				   amount:NSDecimalNumber,
@@ -52,7 +50,7 @@ struct EOS {
 
 		account.wallet.transferToken(transfer: transfer,
 									 code: "eosio.token",
-									 unlockOncePasscode: nil) { result, error in
+									 unlockOncePasscode: passcode) { result, error in
 										guard self.handleError(error) else {
 											return completion(false)
 										}
