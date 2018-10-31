@@ -12,9 +12,9 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	enum Status: Int, Codable {
 
-		case idle = 0
+		case idle = 1
 
-		case contribute = 1
+		case contribute = 0
 
 		case voteDeadline = 2
 
@@ -156,6 +156,56 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		}
 	}
 
+	func loadAmountContributed(_ completion: @escaping (Double?)->Void) {
+		guard let model = model else { return completion(nil) }
+
+		Service.api.getContributionHistory { response in
+			switch response {
+			case .failure:
+				completion(nil)
+			case .success(let result):
+				let contribution = result.contributions.first(where: { $0.campaignId == model.id })
+				completion(contribution?.amount ?? 0)
+			}
+		}
+	}
+
+	func contribute(_ amount:Double,
+					account:AccountVM,
+					passcode:String,
+					completion: @escaping (Bool)->Void) {
+
+		guard let model = model,
+			let account = account.model
+			else { return completion(false) }
+
+		Service.api.getProfile { profileResult in
+
+			guard case let .success(response) = profileResult,
+				let login = response.profile?.login
+				else { return completion(false) }
+
+			Service.eos.sendMoney(from: account,
+								  to: "addressbook1",
+								  amount: amount,
+								  symbol: "SCR",
+								  memo: login,
+								  passcode: passcode) { transactionId in
+
+									guard let transactionId = transactionId else { return completion(false) }
+
+									Service.api.notifyContribution(campaignId: model.id,
+																   amount: amount,
+																   transactionId: transactionId) { result in
+
+																	completion(true)
+																	// не удалось подтвердить транзакцию
+																	// если ошибка
+									}
+			}
+		}
+	}
+
 	func toggleSubscribing() {
 		guard let model = model else { return }
 
@@ -186,6 +236,15 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	// MARK: - Properties
 
+	#warning("magic numbers")
+	var contributionInformation:String {
+		guard let model = model else { return "" }
+		return """
+		Minimum contribution: \(model.economics.minUserContribution ?? 20)
+		Maximum contribution: \(model.economics.maxUserContribution ?? 100000)
+		"""
+	}
+
 	var commentsCount:Int {
 		return model?.totalCommentsCount ?? 0
 	}
@@ -199,7 +258,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	var status:Status {
-		guard let state = model?.state, let status = Status(rawValue: state)
+		guard let state = model?.status, let status = Status(rawValue: state)
 			else { return .idle }
 		return status
 	}

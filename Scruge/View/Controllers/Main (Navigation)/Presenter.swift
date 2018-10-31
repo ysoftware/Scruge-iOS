@@ -196,12 +196,20 @@ struct Presenter {
 		vc.show(new, sender: new)
 	}
 
+	func presentWalletPicker(in vc:UIViewController, _ completion: @escaping (AccountVM?)->Void) {
+		let new = R.storyboard.wallet.walletVC()!
+		new.pickerBlock = completion
+		vc.present(new.inNavigationController, animated: true)
+	}
+
 	func presentPasscodeViewController(in vc:UIViewController,
 											  message:String,
 											  _ completion: @escaping (String?)->Void) {
 		vc.askForInput("Passcode protection",
 					   question: message,
-					   placeholder: "Passcode...", keyboardType: .numberPad) { input in
+					   placeholder: "Passcode...",
+					   keyboardType: .numberPad,
+					   isSecure: true) { input in
 						completion(input)
 		}
 	}

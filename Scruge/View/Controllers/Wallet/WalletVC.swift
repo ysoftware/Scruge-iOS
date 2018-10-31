@@ -18,6 +18,9 @@ final class WalletViewController: UIViewController {
 
 	private let vm = AccountAVM()
 
+	// for wallet picking
+	var pickerBlock:((AccountVM)->Void)?
+
 	// MARK: - Setup
 
 	override func viewDidLoad() {
@@ -238,7 +241,16 @@ extension WalletViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		tableView.deselectRow(at: indexPath, animated: true)
 
-		
+		guard let block = pickerBlock else { return }
+		let wallet = vm.item(at: indexPath.row)
+
+		ask(question: "Use this wallet for contribution?") { response in
+			if response {
+				self.dismiss(animated: true) {
+					block(wallet)
+				}
+			}
+		}
 	}
 }
 

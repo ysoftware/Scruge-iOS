@@ -130,8 +130,6 @@ final class CampaignViewController: UIViewController {
 
 	private func setupBottomButton() {
 		switch vm.status {
-		case .contributeLimitReached:
-			showContributeButton(false, duration: 0)
 		case .idle:
 			showContributeButton(false, duration: 0)
 		case .voteMilestone, .voteDeadline:

@@ -37,25 +37,28 @@ struct EOS {
 	/// send money from this account
 	func sendMoney(from account:AccountModel,
 				   to recipient:String,
-				   amount:NSDecimalNumber,
+				   amount:Double,
 				   symbol:String,
+				   memo:String = "",
 				   passcode:String,
-				   _ completion: @escaping (Bool)->Void) {
+				   _ completion: @escaping (String?)->Void) {
 
+		let quantity = "\(amount.formatRounding(to: 4, min: 4)) \(symbol)"
+			.replacingOccurrences(of: ",", with: ".")
 		let transfer = Transfer()
 		transfer.from = account.name
 		transfer.to = recipient
-		transfer.quantity = "\(amount) \(symbol)"
-		transfer.memo = ""
+		transfer.quantity = quantity
+		transfer.memo = memo
 
 		account.wallet.transferToken(transfer: transfer,
 									 code: "eosio.token",
 									 unlockOncePasscode: passcode) { result, error in
 										guard self.handleError(error) else {
-											return completion(false)
+											return completion(nil)
 										}
 										print("Transaction id: \(result!.transactionId)")
-										completion(true)
+										completion(result!.transactionId)
 		}
 	}
 

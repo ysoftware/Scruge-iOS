@@ -659,6 +659,7 @@
 			children = (
 				71345C132177413700F28AF1 /* WalletVC.swift */,
 				71345C172178AB5100F28AF1 /* ImportKeyVC.swift */,
+				715DB15C217471980005B69D /* ContributeVC.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -1243,7 +1244,6 @@
 				71F68A4921709D8A00F7E728 /* FaqVC.swift */,
 				71F68A4B21709E2700F7E728 /* DocumentsVC.swift */,
 				715DB15A2174716E0005B69D /* VoteVC.swift */,
-				715DB15C217471980005B69D /* ContributeVC.swift */,
 			);
 			path = "Campaign Details";
 			sourceTree = "<group>";

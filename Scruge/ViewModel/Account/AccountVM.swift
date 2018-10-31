@@ -10,7 +10,7 @@ import MVVM
 
 final class AccountVM:ViewModel<AccountModel> {
 
-	let UNLOCK_DURATION:TimeInterval = 180
+	let UNLOCK_DURATION:TimeInterval = 30
 
 	private var balances:[Balance] = []
 
@@ -46,7 +46,7 @@ final class AccountVM:ViewModel<AccountModel> {
 		}
 	}
 
-	/// unlocks the wallet for 3 minutes
+	/// unlocks the wallet for UNLOCK_DURATION seconds
 	func unlock(_ passcode:String) -> Bool {
 		do {
 			try model!.wallet.timedUnlock(passcode: passcode, timeout: UNLOCK_DURATION)

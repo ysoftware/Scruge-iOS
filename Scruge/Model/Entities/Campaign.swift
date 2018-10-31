@@ -52,7 +52,7 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	// MARK: - Full campaign only
 
-	let state:Int?
+	let status:Int?
 
 	let about:String?
 
