@@ -70,14 +70,7 @@ final class CampaignCell: UITableViewCell {
 	private func setupImageView() {
 		topWebView?.isHidden = true
 		topImage.isHidden = false
-
-		if let url = imageUrl {
-			topImage.isHidden = false
-			topImage.kf.setImage(with: url)
-		}
-		else {
-			topImage.isHidden = true
-		}
+		topImage.setImage(url: imageUrl)
 	}
 }
 

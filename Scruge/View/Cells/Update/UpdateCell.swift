@@ -32,17 +32,7 @@ final class UpdateCell: UITableViewCell {
 		campaignTitleLabel?.isHidden = true
 		campaignTitleLabel?.text = vm.campaignTitle
 
-		if let string = vm.imageUrl, let url = URL(string: string), url.isValidImageResource {
-			updateImage.isHidden = false
-			updateImage.kf.setImage(with: url) { image, _, _, _ in
-				DispatchQueue.main.async {
-					self.updateImage.isHidden = image == nil
-				}
-			}
-		}
-		else {
-			updateImage.isHidden = true
-		}
+		updateImage.setImage(string: vm.imageUrl)
 		return self
 	}
 

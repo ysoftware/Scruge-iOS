@@ -179,6 +179,40 @@
             </objects>
             <point key="canvasLocation" x="733.33333333333337" y="37.5"/>
         </scene>
+        <!--Team-->
+        <scene sceneID="aDl-GU-1eZ">
+            <objects>
+                <viewController storyboardIdentifier="TeamVC" title="Team" id="yRb-ku-T49" customClass="TeamViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="W7I-Cn-fvn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ebt-e4-F1j">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="yRb-ku-T49" id="egf-X5-bC8"/>
+                                    <outlet property="delegate" destination="yRb-ku-T49" id="uOt-vR-rJ5"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="ebt-e4-F1j" secondAttribute="bottom" id="KzG-Ef-v3E"/>
+                            <constraint firstItem="ebt-e4-F1j" firstAttribute="top" secondItem="W7I-Cn-fvn" secondAttribute="top" id="Yvf-Hp-HbP"/>
+                            <constraint firstItem="ebt-e4-F1j" firstAttribute="trailing" secondItem="VwQ-jz-NWk" secondAttribute="trailing" id="afV-eq-fyI"/>
+                            <constraint firstItem="ebt-e4-F1j" firstAttribute="leading" secondItem="VwQ-jz-NWk" secondAttribute="leading" id="hIy-Ci-oZr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VwQ-jz-NWk"/>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ebt-e4-F1j" id="hZ5-bb-hV5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uxg-yD-tPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="733" y="744"/>
+        </scene>
         <!--Contribute View Controller-->
         <scene sceneID="s80-av-TwC">
             <objects>

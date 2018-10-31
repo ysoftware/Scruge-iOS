@@ -83,7 +83,7 @@ final class ProfileEditViewController: UIViewController {
 		descriptionField.text = editingProfile?.description
 
 		if let imageURL = editingProfile?.imageUrl {
-			profileImage.kf.setImage(with: imageURL)
+			profileImage.setImage(url: imageURL, hideOnFail: false)
 		}
 		else {
 			profileImage.image = nil

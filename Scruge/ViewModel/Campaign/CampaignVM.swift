@@ -236,6 +236,10 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	// MARK: - Properties
 
+	var team:[Member] {
+		return model?.team ?? []
+	}
+
 	var contributionInformation:String {
 		guard let model = model else { return "" }
 		let min = model.economics.minUserContribution

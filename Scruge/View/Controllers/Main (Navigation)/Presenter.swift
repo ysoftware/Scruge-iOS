@@ -40,14 +40,14 @@ struct Presenter {
 												  completion: ((Bool)->Void)?) {
 		let new = R.storyboard.authProfile.profileEditVC()!
 		new.authCompletionBlock = completion
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	func presentProfileEditViewController(in vc:UIViewController,
 												 with vm:ProfileVM) {
 		let new = R.storyboard.authProfile.profileEditVC()!
 		new.editingProfile = vm
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	// MARK: - Campaign
@@ -56,14 +56,14 @@ struct Presenter {
 											  id:String) {
 		let new = R.storyboard.campaign.campaignVC()!
 		new.vm = CampaignVM(id)
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	func presentContentViewController(in vc:UIViewController,
 											 for campaignVM:CampaignVM) {
 		let new = R.storyboard.campaign.contentVC()!
 		new.campaignVM = campaignVM
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	func presentMilestonesViewController(in vc:UIViewController,
@@ -71,7 +71,7 @@ struct Presenter {
 		guard let model = campaignVM.model else { return }
 		let new = R.storyboard.details.milestonesVC()!
 		new.vm = MilestoneAVM(model)
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	func presentDocumentsViewController(in vc:UIViewController,
@@ -79,7 +79,7 @@ struct Presenter {
 		guard let vm = vm.documentsVM else { return }
 		let new = R.storyboard.details.documentsVC()!
 		new.vm = vm
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	func presentFaqViewController(in vc:UIViewController,
@@ -87,7 +87,7 @@ struct Presenter {
 		guard let vm = vm.faqVM else { return }
 		let new = R.storyboard.details.faqVC()!
 		new.vm = vm
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	// MARK: - Updates
@@ -96,7 +96,7 @@ struct Presenter {
 									  for update:UpdateVM) {
 		let new = R.storyboard.campaign.contentVC()!
 		new.updateVM = update
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	func presentUpdatesViewController(in vc:UIViewController,
@@ -104,7 +104,7 @@ struct Presenter {
 		guard let model = campaignVM.model else { return }
 		let new = R.storyboard.details.updatesVC()!
 		new.vm = UpdateAVM(.campaign(model))
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	// MARK: - Comments
@@ -114,7 +114,7 @@ struct Presenter {
 		guard let model = campaignVM.model else { return }
 		let new = R.storyboard.details.commentsVC()!
 		new.vm = CommentAVM(source: .campaign(model))
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	func presentCommentsViewController(in vc:UIViewController,
@@ -122,14 +122,22 @@ struct Presenter {
 		guard let model = updateVM.model else { return }
 		let new = R.storyboard.details.commentsVC()!
 		new.vm = CommentAVM(source: .update(model))
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	// MARK: - Other
 
+	func presentTeamViewController(in vc:UIViewController,
+								   for campaignVM:CampaignVM) {
+		guard campaignVM.model != nil else { return }
+		let new = R.storyboard.details.teamVC()!
+		new.vm = campaignVM
+		vc.show(new, sender: self)
+	}
+
 	func presentSettingsViewController(in vc:UIViewController) {
 		let new = R.storyboard.main.settingsVC()!
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	// MARK: - General
@@ -168,32 +176,26 @@ struct Presenter {
 										 with vm:CampaignVM) {
 		let new = R.storyboard.details.contributeVC()!
 		new.vm = vm
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	func presentVoteViewController(in vc:UIViewController,
 								   with vm:CampaignVM) {
 		let new = R.storyboard.details.voteVC()!
 		new.vm = vm
-		vc.show(new, sender: new)
-	}
-
-	func presentContributeViewController(in vc:UIViewController,
-										 with vm:CampaignVM,
-										 for reward:Reward? = nil) {
-
+		vc.show(new, sender: self)
 	}
 
 	// MARK: - Wallet
 
 	func presentWallerViewController(in vc:UIViewController) {
 		let new = R.storyboard.wallet.walletVC()!
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	func presentImporKeyViewController(in vc:UIViewController) {
 		let new = R.storyboard.wallet.importKeyVC()!
-		vc.show(new, sender: new)
+		vc.show(new, sender: self)
 	}
 
 	func presentWalletPicker(in vc:UIViewController, _ completion: @escaping (AccountVM?)->Void) {

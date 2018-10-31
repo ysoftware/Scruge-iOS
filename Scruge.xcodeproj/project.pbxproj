@@ -16,7 +16,6 @@
 		71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A49216754BC00C5B633 /* LoadingView.swift */; };
 		71163A4C216754C400C5B633 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71163A4B216754C400C5B633 /* LoadingView.xib */; };
 		71345AF32176000000F28AF1 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF22176000000F28AF1 /* Range.swift */; };
-		71345AF721760E0100F28AF1 /* ImageURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF621760E0100F28AF1 /* ImageURL.swift */; };
 		71345AF92177336F00F28AF1 /* StringTruncate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF82177336F00F28AF1 /* StringTruncate.swift */; };
 		71345BF121773D2400F28AF1 /* ripemd160.c in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC621773D2400F28AF1 /* ripemd160.c */; };
 		71345BF221773D2400F28AF1 /* uECC.c in Sources */ = {isa = PBXBuildFile; fileRef = 71345BC721773D2400F28AF1 /* uECC.c */; };
@@ -66,6 +65,11 @@
 		716AE1CC215977470098882F /* CampaignAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE1CB215977470098882F /* CampaignAVM.swift */; };
 		716E62562189939D002AC5DA /* Contribution.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E62552189939D002AC5DA /* Contribution.swift */; };
 		716E625821899455002AC5DA /* ContribApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E625721899455002AC5DA /* ContribApi.swift */; };
+		716E625A2189D8D3002AC5DA /* MemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E62592189D8D3002AC5DA /* MemberCell.swift */; };
+		716E625D2189D94A002AC5DA /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E625C2189D94A002AC5DA /* Member.swift */; };
+		716E625F2189DA01002AC5DA /* MemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716E625E2189DA01002AC5DA /* MemberCell.xib */; };
+		716E62612189DCE3002AC5DA /* TeamVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E62602189DCE3002AC5DA /* TeamVC.swift */; };
+		716E62632189E13E002AC5DA /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E62622189E13E002AC5DA /* DownloadImage.swift */; };
 		718B2F29217BAD3C00831B34 /* DataFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F28217BAD3C00831B34 /* DataFormatting.swift */; };
 		718B2F2B217CA0EC00831B34 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F2A217CA0EC00831B34 /* Services.swift */; };
 		71971C812158E056004D28E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C802158E056004D28E7 /* AppDelegate.swift */; };
@@ -200,7 +204,6 @@
 		71163A49216754BC00C5B633 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		71163A4B216754C400C5B633 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		71345AF22176000000F28AF1 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
-		71345AF621760E0100F28AF1 /* ImageURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageURL.swift; sourceTree = "<group>"; };
 		71345AF82177336F00F28AF1 /* StringTruncate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTruncate.swift; sourceTree = "<group>"; };
 		71345BBC21773D2300F28AF1 /* uECC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = uECC.h; sourceTree = "<group>"; };
 		71345BBD21773D2400F28AF1 /* ripemd160.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ripemd160.h; sourceTree = "<group>"; };
@@ -260,6 +263,11 @@
 		716AE1CB215977470098882F /* CampaignAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignAVM.swift; sourceTree = "<group>"; };
 		716E62552189939D002AC5DA /* Contribution.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contribution.swift; sourceTree = "<group>"; };
 		716E625721899455002AC5DA /* ContribApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContribApi.swift; sourceTree = "<group>"; };
+		716E62592189D8D3002AC5DA /* MemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberCell.swift; sourceTree = "<group>"; };
+		716E625C2189D94A002AC5DA /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
+		716E625E2189DA01002AC5DA /* MemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCell.xib; sourceTree = "<group>"; };
+		716E62602189DCE3002AC5DA /* TeamVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamVC.swift; sourceTree = "<group>"; };
+		716E62622189E13E002AC5DA /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		718B2F28217BAD3C00831B34 /* DataFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatting.swift; sourceTree = "<group>"; };
 		718B2F2A217CA0EC00831B34 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		71971C7D2158E056004D28E7 /* Scruge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scruge.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -699,6 +707,7 @@
 				71BE9575215E7C8A001CF853 /* ConstraintMultiplier.swift */,
 				71971CC02158F076004D28E7 /* RoundedView.swift */,
 				71B38D03215AC1E800929CC3 /* Alert.swift */,
+				716E62622189E13E002AC5DA /* DownloadImage.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -710,7 +719,6 @@
 				71BE95CA21649C67001CF853 /* DateMilliseconds.swift */,
 				71345C152178714C00F28AF1 /* DatePresent.swift */,
 				71163A3F216642F400C5B633 /* EmailValidation.swift */,
-				71345AF621760E0100F28AF1 /* ImageURL.swift */,
 				71345AF82177336F00F28AF1 /* StringTruncate.swift */,
 			);
 			path = "Data formatting";
@@ -733,6 +741,15 @@
 				71387A98216CA73D00B24C67 /* TagCell.swift */,
 			);
 			path = Tag;
+			sourceTree = "<group>";
+		};
+		716E625B2189D8D6002AC5DA /* Member */ = {
+			isa = PBXGroup;
+			children = (
+				716E62592189D8D3002AC5DA /* MemberCell.swift */,
+				716E625E2189DA01002AC5DA /* MemberCell.xib */,
+			);
+			path = Member;
 			sourceTree = "<group>";
 		};
 		71971C742158E056004D28E7 = {
@@ -881,6 +898,8 @@
 				71BE9577215E7FC1001CF853 /* Campaign  */,
 				71A0C1AB216F93BA00C2ACF3 /* Header */,
 				71A0C1AC216F93C000C2ACF3 /* Footer */,
+				716E625B2189D8D6002AC5DA /* Member */,
+				71A0C1AF216FA69300C2ACF3 /* Social */,
 				71A0C1AA216F93AA00C2ACF3 /* About */,
 				71387A97216CA73000B24C67 /* Tag */,
 				71345C222179D25000F28AF1 /* Account */,
@@ -914,7 +933,6 @@
 		71A0C1AA216F93AA00C2ACF3 /* About */ = {
 			isa = PBXGroup;
 			children = (
-				71A0C1AF216FA69300C2ACF3 /* Social */,
 				71A0C1A8216F93A500C2ACF3 /* AboutCell.xib */,
 				71A0C1A6216F939900C2ACF3 /* AboutCell.swift */,
 			);
@@ -1060,6 +1078,7 @@
 				71345AF22176000000F28AF1 /* Range.swift */,
 				71C3689E2183463000729C00 /* Economics.swift */,
 				716E62552189939D002AC5DA /* Contribution.swift */,
+				716E625C2189D94A002AC5DA /* Member.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1244,6 +1263,7 @@
 				71F68A4921709D8A00F7E728 /* FaqVC.swift */,
 				71F68A4B21709E2700F7E728 /* DocumentsVC.swift */,
 				715DB15A2174716E0005B69D /* VoteVC.swift */,
+				716E62602189DCE3002AC5DA /* TeamVC.swift */,
 			);
 			path = "Campaign Details";
 			sourceTree = "<group>";
@@ -1369,6 +1389,7 @@
 				71163A4C216754C400C5B633 /* LoadingView.xib in Resources */,
 				71387A9B216CA74400B24C67 /* TagCell.xib in Resources */,
 				71971C862158E056004D28E7 /* Main.storyboard in Resources */,
+				716E625F2189DA01002AC5DA /* MemberCell.xib in Resources */,
 				71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */,
 				71345C112177412200F28AF1 /* Wallet.storyboard in Resources */,
 				71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */,
@@ -1499,6 +1520,7 @@
 				71AB79032165FC260077D904 /* ProfileVC.swift in Sources */,
 				71A0C1B821708A2B00C2ACF3 /* FaqAVM.swift in Sources */,
 				71BE95B421635A30001CF853 /* ViewState.swift in Sources */,
+				716E62612189DCE3002AC5DA /* TeamVC.swift in Sources */,
 				71B38D19215B9B0300929CC3 /* MilestoneAVM.swift in Sources */,
 				71B38D06215B871E00929CC3 /* Comment.swift in Sources */,
 				71345C0121773D2400F28AF1 /* KeyPair.swift in Sources */,
@@ -1549,6 +1571,7 @@
 				71BE9574215E7835001CF853 /* CampaignCell.swift in Sources */,
 				71BE9576215E7C8A001CF853 /* ConstraintMultiplier.swift in Sources */,
 				71345BFC21773D2400F28AF1 /* EOSRPC+Chain.swift in Sources */,
+				716E62632189E13E002AC5DA /* DownloadImage.swift in Sources */,
 				71387A9F216CD17300B24C67 /* Networking.swift in Sources */,
 				71B38D12215B998F00929CC3 /* MilestoneVM.swift in Sources */,
 				71345C1B2179C96600F28AF1 /* AccountVM.swift in Sources */,
@@ -1579,6 +1602,7 @@
 				71163A472167517E00C5B633 /* Wallet.swift in Sources */,
 				71BE958921621AF9001CF853 /* ContentVC.swift in Sources */,
 				71A0C1B1216FA6A300C2ACF3 /* SocialCell.swift in Sources */,
+				716E625D2189D94A002AC5DA /* Member.swift in Sources */,
 				71345C182178AB5100F28AF1 /* ImportKeyVC.swift in Sources */,
 				71C368972181F79200729C00 /* Technical.swift in Sources */,
 				71C8E8F3215912A10078BD36 /* Settings.swift in Sources */,
@@ -1598,10 +1622,10 @@
 				71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */,
 				71345BFD21773D2400F28AF1 /* EOSRPC+History.swift in Sources */,
 				71387A90216B6C6C00B24C67 /* CoreGraphicsTools.swift in Sources */,
-				71345AF721760E0100F28AF1 /* ImageURL.swift in Sources */,
 				71345C0521773D2400F28AF1 /* Error.swift in Sources */,
 				71163A40216642F400C5B633 /* EmailValidation.swift in Sources */,
 				71345C0F21773D2800F28AF1 /* AnyEncodable.swift in Sources */,
+				716E625A2189D8D3002AC5DA /* MemberCell.swift in Sources */,
 				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,
 				71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */,
 				71BE95BB2163744E001CF853 /* Faq.swift in Sources */,

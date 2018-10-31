@@ -66,6 +66,8 @@ final class CampaignViewController: UIViewController {
 			Service.presenter.presentDocumentsViewController(in: self, with: vm)
 		case .faq:
 			Service.presenter.presentFaqViewController(in: self, with: vm)
+		case .about:
+			Service.presenter.presentTeamViewController(in: self, for: vm)
 		default: break
 		}
 	}
@@ -147,6 +149,26 @@ final class CampaignViewController: UIViewController {
 		return Block(rawValue: section)!
 	}
 
+	private func shouldDisplay(_ block:Block) -> Bool {
+		switch block {
+		case .info, .comments, .about: return true
+		case .milestone: return vm.currentMilestoneVM != nil
+		case .update: return vm.lastUpdateVM != nil
+		case .documents: return (vm.documentsVM?.numberOfItems) ?? 0 != 0
+		case .faq: return (vm.faqVM?.numberOfItems) ?? 0 != 0
+		case .technical: return (vm.technicalVM?.numberOfItems ?? 0) != 0
+		}
+	}
+
+	private func shouldDisplayHeader(_ block:Block) -> Bool {
+		guard shouldDisplay(block) else { return false }
+
+		switch block {
+		case .milestone, .update, .comments, .documents, .about, .technical, .faq: return true
+		case .info: return false
+		}
+	}
+
 	private func shouldDisplayFooter(_ block:Block) -> Bool {
 		guard shouldDisplay(block) else { return false }
 
@@ -155,20 +177,8 @@ final class CampaignViewController: UIViewController {
 			return vm.documentsVM?.numberOfItems ?? 0 > MAX_ELEMENTS
 		case .faq:
 			return vm.faqVM?.numberOfItems ?? 0 > MAX_ELEMENTS
-		case .info, .milestone, .update, .comments: return true
-		case .technical, .about: return false
-		}
-	}
-
-	private func shouldDisplay(_ block:Block) -> Bool {
-		switch block {
-		case .info, .comments: return true
-		case .milestone: return vm.currentMilestoneVM != nil
-		case .update: return vm.lastUpdateVM != nil
-		case .about: return vm.about != nil
-		case .documents: return (vm.documentsVM?.numberOfItems) ?? 0 != 0
-		case .faq: return (vm.faqVM?.numberOfItems) ?? 0 != 0
-		case .technical: return (vm.technicalVM?.numberOfItems ?? 0) != 0
+		case .info, .milestone, .about, .update, .comments: return true
+		case .technical: return false
 		}
 	}
 
@@ -329,6 +339,8 @@ extension CampaignViewController: UITableViewDataSource {
 				title = "See all documents →"
 			case .faq:
 				title = "See all answers →"
+			case .about:
+				title = "Meet the team →"
 			default: footer = nil
 			}
 		}
@@ -339,11 +351,8 @@ extension CampaignViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 		let b = block(for: section)
-		if shouldDisplay(b) {
-			switch b {
-			case .milestone, .update, .comments, .documents, .about, .technical, .faq: return 50
-			case .info: break
-			}
+		if shouldDisplayHeader(b) {
+			return 50
 		}
 		return .leastNormalMagnitude
 	}
@@ -351,10 +360,7 @@ extension CampaignViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
 		let b = block(for: section)
 		if shouldDisplayFooter(b) {
-			switch b {
-			case .info, .milestone, .update, .comments, .documents, .faq: return 55
-			case .technical, .about: break
-			}
+			return 55
 		}
 		return .leastNormalMagnitude
 	}

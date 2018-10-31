@@ -92,12 +92,7 @@ final class ProfileViewController: UIViewController {
 	}
 
 	private func refreshProfile() {
-		profileImage.kf.setImage(with: profileVM.imageUrl,
-								 placeholder: nil,
-								 options: nil,
-								 progressBlock: nil) { image, _, _, _ in
-										self.profileImage.isHidden = image == nil
-		}
+		profileImage.setImage(url: profileVM.imageUrl)
 		nameLabel.text = profileVM.name
 		emailLabel.text = profileVM.email
 		descriptionLabel.text = profileVM.description

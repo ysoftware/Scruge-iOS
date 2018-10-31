@@ -45,6 +45,7 @@ final class ContributeViewController: UIViewController {
 
 	private func setupField() {
 		amountField.delegate = self
+		amountField.becomeFirstResponder()
 	}
 
 	private func setupInformation() {
