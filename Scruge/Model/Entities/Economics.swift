@@ -22,20 +22,20 @@ struct Economics: Equatable, Codable {
 	let raised:Double
 
 	/// процент токенов на публичную продажу
-	let publicTokenPercent:Double?
+	let publicTokenPercent:Double
 
 	/// полный объем токенов
-	let tokenSupply:Double?
+	let tokenSupply:Double
 
 	/// вариация годовой инфляции (0% - 4%)
 	let annualInflationPercent:Range?
 
 	/// минимальный лимит инвестиции
-	let minUserContribution:Double?
+	let minUserContribution:Double
 
 	/// макс лимит инвестиции на 1 пользователя
-	let maxUserContribution:Double?
+	let maxUserContribution:Double
 
 	/// изначальная выдача после завеершения сбора средств
-	let initialFundsReleasePercent:Double?
+	let initialFundsReleasePercent:Double
 }

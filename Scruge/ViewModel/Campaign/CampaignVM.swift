@@ -236,12 +236,11 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	// MARK: - Properties
 
-	#warning("magic numbers")
 	var contributionInformation:String {
 		guard let model = model else { return "" }
 		return """
-		Minimum contribution: \(model.economics.minUserContribution ?? 20)
-		Maximum contribution: \(model.economics.maxUserContribution ?? 100000)
+		Minimum contribution: $\(model.economics.minUserContribution)
+		Maximum contribution: $\(model.economics.maxUserContribution)
 		"""
 	}
 

@@ -49,13 +49,11 @@ final class ContributeViewController: UIViewController {
 
 	private func setupInformation() {
 		vm.loadAmountContributed { value in
-//			guard let value = value else {
-//				return self.alert("Could not load information.") {
-//					self.navigationController?.popViewController(animated: true)
-//				}
-//			}
-			#warning("for testing only")
-			let value = value ?? 0
+			guard let value = value else {
+				return self.alert("Could not load information.") {
+					self.navigationController?.popViewController(animated: true)
+				}
+			}
 			let usd = self.convertToUSD(value)
 			self.contributedLabel.text = "Already contributed: $\(usd)"
 		}
