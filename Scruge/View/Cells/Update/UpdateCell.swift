@@ -20,7 +20,8 @@ final class UpdateCell: UITableViewCell {
 	// campaign
 	@IBOutlet weak var campaignStackView: UIStackView!
 	@IBOutlet weak var campaignTitleLabel: UILabel?
-
+	@IBOutlet weak var campaignImageView: UIImageView!
+	
 	// MARK: - Setups
 
 	@discardableResult
@@ -31,6 +32,7 @@ final class UpdateCell: UITableViewCell {
 
 		campaignTitleLabel?.isHidden = true
 		campaignTitleLabel?.text = vm.campaignTitle
+		campaignImageView.setImage(string: vm.campaignImageUrl)
 
 		updateImage.setImage(string: vm.imageUrl)
 		return self

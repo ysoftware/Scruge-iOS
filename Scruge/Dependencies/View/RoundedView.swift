@@ -8,8 +8,8 @@
 
 import UIKit
 
-private let DEFAULT_RADIUS:CGFloat = 5
-private let DEFAULT_RELATIVE = false
+private let DEFAULT_RADIUS:CGFloat = 0.1
+private let DEFAULT_RELATIVE = true
 
 @IBDesignable
 public class RoundedView: UIView {
