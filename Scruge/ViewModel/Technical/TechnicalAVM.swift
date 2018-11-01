@@ -20,18 +20,23 @@ final class TechnicalAVM: SimpleArrayViewModel<Technical, TechnicalVM> {
 							   value: economics.tokenSupply.format(as: .decimal, separateWith: " "),
 							   description: "Total amount of tokens to be issued"))
 
+		let publicToken = economics.publicTokenPercent.format(as: .decimal)
 		items.append(Technical(name: "Token public percent",
-							   value: "\(economics.publicTokenPercent)%",
+							   value: "\(publicToken)%",
 			description: "Percent of all issued tokens to be sold to public"))
 
+		let initial = economics.initialFundsReleasePercent.format(as: .decimal)
 		items.append(Technical(name: "Initial release after successful funding",
-							   value: "\(economics.initialFundsReleasePercent)%",
+							   value: "\(initial)%",
 			description: "Percent of collected funds released to creators of the campaign immediately after successful funding"))
 
 		if let inflation = economics.annualInflationPercent {
+			let start = inflation.start.format(as: .decimal)
+			let end = inflation.end.format(as: .decimal)
+
 			let value = inflation.start != inflation.end
-				? "\(inflation.start)% - \(inflation.end)%"
-				: "\(inflation.start)%"
+				? "\(start)% - \(end)%"
+				: "\(start)%"
 
 			items.append(Technical(name: "Annual inflation rate", value: value,
 								   description: "Range of annual inflation rate"))
