@@ -8,6 +8,7 @@
 
 import Foundation
 
+/// State object to be used in a (singular) ViewModel.
 enum ViewState:Equatable {
 
 	case loading, ready, error(String)

@@ -393,16 +393,15 @@ extension CampaignViewController: ViewModelDelegate {
 			return
 		}
 
+		loadingView.set(state: vm.state)
+
 		switch self.vm.state {
-		case .loading:
-			loadingView.set(state: .loading)
-		case .error(let message):
-			loadingView.set(state: .error(message))
+		case .error:
 			tableView.refreshControl?.endRefreshing()
 		case .ready:
 			showData()
-			loadingView.set(state: .ready)
 			tableView.refreshControl?.endRefreshing()
+		case .loading: break
 		}
 	}
 }

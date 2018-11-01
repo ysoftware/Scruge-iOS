@@ -46,7 +46,7 @@ final class LoadingView: UIView {
 
 	// MARK: - Methods
 
-	func set(state:State) {
+	func set(state:ViewState) {
 		switch state {
 		case .loading:
 			isHidden = false
@@ -60,10 +60,5 @@ final class LoadingView: UIView {
 		case .ready:
 			isHidden = true
 		}
-	}
-
-	enum State {
-
-		case loading, error(String), ready
 	}
 }
