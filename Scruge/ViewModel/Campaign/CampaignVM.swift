@@ -49,64 +49,25 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	private func resetViewModels() {
-		if let update = model?.lastUpdate {
-			lastUpdateVM = UpdateVM(update)
-		}
-		else {
-			lastUpdateVM = nil
-		}
+		if let update = model?.lastUpdate { lastUpdateVM = UpdateVM(update) }
+		else { lastUpdateVM = nil }
 
-		if let milestone = model?.currentMilestone {
-			currentMilestoneVM = MilestoneVM(milestone)
-		}
-		else {
-			currentMilestoneVM = nil
-		}
+		if let milestone = model?.currentMilestone { currentMilestoneVM = MilestoneVM(milestone) }
+		else { currentMilestoneVM = nil }
 
 		if let model = model, let comments = model.topComments {
 			topCommentsVM = CommentAVM(comments, source: .campaign(model))
 		}
-		else {
-			topCommentsVM = nil
-		}
+		else { topCommentsVM = nil }
 
-		if let documents = model?.documents {
-			documentsVM = DocumentAVM(documents)
-		}
-		else {
-			documentsVM = nil
-		}
+		if let documents = model?.documents { documentsVM = DocumentAVM(documents) }
+		else { documentsVM = nil }
 
-		if let faq = model?.faq {
-			faqVM = FaqAVM(faq)
-		}
-		else {
-			faqVM = nil
-		}
+		if let faq = model?.faq { faqVM = FaqAVM(faq) }
+		else { faqVM = nil }
 
-		// token economies
-
-		var items:[Technical] = []
-
-		if let supply = model?.economics.tokenSupply {
-			items.append(Technical(name: "Total token supply",
-								   value: supply.format(as: .decimal, separateWith: " "),
-				description: "Total amount of tokens to be issued"))
-		}
-
-		if let publicTokenPercent = model?.economics.publicTokenPercent {
-			items.append(Technical(name: "Token public percent",
-								   value: "\(publicTokenPercent)%",
-				description: "Percent of all issued tokens to be sold to public"))
-		}
-
-		if let inflation = model?.economics.annualInflationPercent {
-			items.append(Technical(name: "Annual inflation rate",
-								   value: "\(inflation.start)% - \(inflation.end)%",
-				description: "Range of annual inflation rate"))
-		}
-
-		technicalVM = TechnicalAVM(items)
+		if let economics = model?.economics { technicalVM = TechnicalAVM(economics) }
+		else { technicalVM = nil }
 	}
 
 	// MARK: - Actions
@@ -150,7 +111,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			case .success(let response):
 				self.isSubscribed = response.subscribed
 				self.notifyUpdated()
-			case .failure(_):
+			case .failure:
 				break
 			}
 		}
@@ -212,9 +173,9 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		let newValue = !isSubscribed
 		Service.api.setSubscribing(newValue, to: model) { result in
 			switch result {
-			case .success(_):
+			case .success:
 				self.reloadSubscribtionStatus()
-			case .failure(_):
+			case .failure:
 				break
 			}
 		}
