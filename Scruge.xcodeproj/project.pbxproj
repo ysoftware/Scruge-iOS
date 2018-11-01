@@ -1074,6 +1074,7 @@
 		71B38D17215B9AD000929CC3 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				710FE991217F94F8009E51E5 /* Balance.swift */,
 				71345C1C2179CB2300F28AF1 /* Account.swift */,
 				71A0C1B921708AD000C2ACF3 /* Category.swift */,
 				71C8E8EB2159101B0078BD36 /* Campaign.swift */,
@@ -1248,7 +1249,6 @@
 			isa = PBXGroup;
 			children = (
 				71C8E8E721590F2A0078BD36 /* EOS.swift */,
-				710FE991217F94F8009E51E5 /* Balance.swift */,
 			);
 			path = EOS;
 			sourceTree = "<group>";

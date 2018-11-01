@@ -31,7 +31,7 @@ final class AccountVM:ViewModel<AccountModel> {
 
 	var balanceString:String {
 		return balances.reduce("") { result, balance in
-			let amount = balance.amount.doubleValue.formatRounding(to: 4, min: 4)
+			let amount = balance.amount.formatRounding(to: 4, min: 4)
 			let separator =  result.count > 0 ? "\n" : ""
 			return "\(result)\(separator)\(balance.symbol) \(amount)"
 		}

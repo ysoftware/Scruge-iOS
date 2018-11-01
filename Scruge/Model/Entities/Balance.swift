@@ -12,7 +12,7 @@ struct Balance {
 
 	let symbol:String
 
-	let amount:NSDecimalNumber
+	let amount:Double
 }
 
 extension Balance: Comparable {

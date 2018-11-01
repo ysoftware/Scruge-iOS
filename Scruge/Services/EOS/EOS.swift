@@ -74,8 +74,11 @@ struct EOS {
 									 code: "eosio.token") { number, error in
 
 										i += 1
-										balances.append(Balance(symbol: currency,
-																amount: number ?? 0))
+
+										if let number = number {
+											balances.append(Balance(symbol: currency,
+																	amount: Double(truncating: number)))
+										}
 
 										if i == currencies.count {
 											completion(balances)
