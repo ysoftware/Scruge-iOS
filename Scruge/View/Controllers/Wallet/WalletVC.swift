@@ -53,6 +53,13 @@ final class WalletViewController: UIViewController {
 
 	private func setupNavigationBar() {
 		title = "Accounts"
+
+		if pickerBlock != nil {
+			let cancelButton = UIBarButtonItem(title: "Cancel",
+										 style: .plain,
+										 target: self, action: #selector(cancel))
+			navigationItem.leftBarButtonItem = cancelButton
+		}
 	}
 
 	private func setupActions() {
@@ -80,6 +87,10 @@ final class WalletViewController: UIViewController {
 	}
 
 	// MARK: - Methods
+
+	@objc func cancel() {
+		dismiss(animated: true)
+	}
 
 	@objc func reloadData() {
 		vm.reloadData()
