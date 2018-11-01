@@ -26,11 +26,11 @@ struct EOS {
 		}
 
 		chain.getKeyAccounts(pub: key) { result, error in
-			guard self.handleError(error) else {
-				return completion(.failure(AnyError(error!)))
+			guard let accountNames = result?.accountNames else {
+				return completion(.failure(AnyError(error ?? EOSError.unknown)))
 			}
 
-			completion(.success(result!.accountNames))
+			completion(.success(accountNames))
 		}
 	}
 
@@ -41,7 +41,7 @@ struct EOS {
 				   symbol:String,
 				   memo:String = "",
 				   passcode:String,
-				   _ completion: @escaping (String?)->Void) {
+				   _ completion: @escaping (Result<String, AnyError>)->Void) {
 
 		let quantity = "\(amount.formatRounding(to: 4, min: 4)) \(symbol)"
 			.replacingOccurrences(of: ",", with: ".")
@@ -54,11 +54,10 @@ struct EOS {
 		account.wallet.transferToken(transfer: transfer,
 									 code: "eosio.token",
 									 unlockOncePasscode: passcode) { result, error in
-										guard self.handleError(error) else {
-											return completion(nil)
+										guard let transactionId = result?.transactionId else {
+											return completion(.failure(AnyError(error ?? EOSError.unknown)))
 										}
-										print("Transaction id: \(result!.transactionId)")
-										completion(result!.transactionId)
+										return completion(.success(transactionId))
 		}
 	}
 
@@ -73,7 +72,6 @@ struct EOS {
 			chain.getCurrencyBalance(account: account,
 									 symbol: currency,
 									 code: "eosio.token") { number, error in
-										self.handleError(error)
 
 										i += 1
 										balances.append(Balance(symbol: currency,
@@ -84,24 +82,5 @@ struct EOS {
 										}
 			}
 		}
-	}
-
-	// MARK: - Handle
-
-	@discardableResult
-	private func handleError(_ error: Error?) -> Bool {
-		if let error = error as NSError? {
-			if let error = (error.userInfo["RPCErrorResponse"] as? RPCErrorResponse)?.error {
-				print("EOS Response: \(error.name) (\(error.code)):\n\(error.what)")
-				if !error.details.isEmpty {
-					print(error.details)
-				}
-			}
-			else {
-				print("EOS Response: \(error)")
-			}
-			return false
-		}
-		return true
 	}
 }

@@ -26,6 +26,13 @@ enum AuthError: Error {
 	case incorrectPasswordLength // 5 to 50 symbols
 }
 
+enum EOSError: Error {
+
+	case overdrawnBalance
+
+	case unknown
+}
+
 enum BackendError: Error {
 
 	case parsingError
@@ -108,6 +115,14 @@ struct ErrorHandler {
 				return "No accounts are associated with imported public key"
 			case .noKey:
 				return "You have no keys in your wallet"
+			}
+		}
+		else if let eosError = error as? EOSError {
+			switch eosError {
+			case .overdrawnBalance:
+				return "Overdrawn balance"
+			case .unknown:
+				return "Unknown error"
 			}
 		}
 		return "Unexpected Error"

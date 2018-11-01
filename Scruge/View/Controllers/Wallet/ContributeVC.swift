@@ -87,14 +87,14 @@ final class ContributeViewController: UIViewController {
 					return
 				}
 
-				self.vm.contribute(amountSCR, account: account, passcode: passcode) { success in
-					if success {
+				self.vm.contribute(amountSCR, account: account, passcode: passcode) { error in
+					if let error = error {
+						self.alert(error)
+					}
+					else {
 						self.alert("Transaction was successful.") {
 							self.navigationController?.popViewController(animated: true)
 						}
-					}
-					else {
-						self.alert("An error occured.")
 					}
 				}
 			}

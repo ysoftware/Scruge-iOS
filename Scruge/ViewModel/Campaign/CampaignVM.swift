@@ -134,35 +134,44 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	func contribute(_ amount:Double,
 					account:AccountVM,
 					passcode:String,
-					completion: @escaping (Bool)->Void) {
+					completion: @escaping (Error?)->Void) {
 
 		guard let model = model,
 			let account = account.model
-			else { return completion(false) }
+			else { return completion(WalletError.noAccounts) }
 
 		Service.api.getProfile { profileResult in
 
 			guard case let .success(response) = profileResult,
 				let login = response.profile?.login
-				else { return completion(false) }
+				else { return completion(AuthError.authenticationFailed) }
 
-			Service.eos.sendMoney(from: account,
-								  to: "addressbook1",
-								  amount: amount,
-								  symbol: "SCR",
-								  memo: login,
-								  passcode: passcode) { transactionId in
+			Service.eos
+				.sendMoney(from: account,
+						   to: "addressbook1",
+						   amount: amount,
+						   symbol: "SCR",
+						   memo: login,
+						   passcode: passcode) { transactionResult in
 
-									guard let transactionId = transactionId else { return completion(false) }
+							switch transactionResult {
+							case .failure(let error):
+								completion(error)
+							case .success(let transactionId):
 
-									Service.api.notifyContribution(campaignId: model.id,
-																   amount: amount,
-																   transactionId: transactionId) { result in
+								Service.api
+									.notifyContribution(campaignId: model.id,
+														amount: amount,
+														transactionId: transactionId) { result in
 
-																	completion(true)
-																	// не удалось подтвердить транзакцию
-																	// если ошибка
-									}
+															// если ошибка
+															// не удалось подтвердить транзакцию
+															// но она прошла успешно
+															completion(nil)
+								}
+							}
+
+
 			}
 		}
 	}
