@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MVVM
 
 final class TabbarViewController: UITabBarController {
 

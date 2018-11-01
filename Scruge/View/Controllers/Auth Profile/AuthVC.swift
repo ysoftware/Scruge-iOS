@@ -50,7 +50,7 @@ final class AuthViewController: UIViewController {
 				}
 
 				guard let token = response.token else {
-					return self.alert(ErrorHandler.message(for: NetworkingError.unknown(999)))
+					return self.alert(ErrorHandler.message(for: NetworkingError.unknown))
 				}
 
 				Service.tokenManager.save(token)

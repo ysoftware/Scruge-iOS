@@ -290,7 +290,7 @@ extension CampaignViewController: UITableViewDataSource {
 		var header = tableView.dequeueReusableHeaderFooterView(
 			withIdentifier: R.reuseIdentifier.campaignHeader.identifier) as? CampaignHeader
 		let b = block(for: section)
-		if shouldDisplay(b) {
+		if shouldDisplayHeader(b) {
 			switch b {
 			case .milestone:
 				if let vm = vm.currentMilestoneVM { header?.setup(with: vm) }

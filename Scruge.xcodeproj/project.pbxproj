@@ -81,6 +81,7 @@
 		71971CB92158E445004D28E7 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CB82158E445004D28E7 /* R.generated.swift */; };
 		71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CBE2158E8AA004D28E7 /* Presenter.swift */; };
 		71971CC12158F076004D28E7 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CC02158F076004D28E7 /* RoundedView.swift */; };
+		7198C820218AFB2C009682E7 /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198C81F218AFB2C009682E7 /* ErrorTypes.swift */; };
 		71A0C1A7216F939900C2ACF3 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1A6216F939900C2ACF3 /* AboutCell.swift */; };
 		71A0C1A9216F93A500C2ACF3 /* AboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A0C1A8216F93A500C2ACF3 /* AboutCell.xib */; };
 		71A0C1AE216F9B9200C2ACF3 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1AD216F9B9200C2ACF3 /* Social.swift */; };
@@ -283,6 +284,7 @@
 		71971CB82158E445004D28E7 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = SOURCE_ROOT; };
 		71971CBE2158E8AA004D28E7 /* Presenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Presenter.swift; sourceTree = "<group>"; };
 		71971CC02158F076004D28E7 /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		7198C81F218AFB2C009682E7 /* ErrorTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorTypes.swift; sourceTree = "<group>"; };
 		71A0C1A6216F939900C2ACF3 /* AboutCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutCell.swift; sourceTree = "<group>"; };
 		71A0C1A8216F93A500C2ACF3 /* AboutCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AboutCell.xib; sourceTree = "<group>"; };
 		71A0C1AD216F9B9200C2ACF3 /* Social.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Social.swift; sourceTree = "<group>"; };
@@ -672,13 +674,13 @@
 			path = Wallet;
 			sourceTree = "<group>";
 		};
-		71345C192179C93600F28AF1 /* Account */ = {
+		71345C192179C93600F28AF1 /* Account-Wallet */ = {
 			isa = PBXGroup;
 			children = (
 				71345C1A2179C96600F28AF1 /* AccountVM.swift */,
 				71345C1E2179CB7F00F28AF1 /* AccountAVM.swift */,
 			);
-			path = Account;
+			path = "Account-Wallet";
 			sourceTree = "<group>";
 		};
 		71345C222179D25000F28AF1 /* Account */ = {
@@ -824,7 +826,7 @@
 			isa = PBXGroup;
 			children = (
 				71C368982181F7F100729C00 /* Technical */,
-				71345C192179C93600F28AF1 /* Account */,
+				71345C192179C93600F28AF1 /* Account-Wallet */,
 				71AB7904216609330077D904 /* Profile */,
 				71BE95B921636F9D001CF853 /* Category */,
 				71C8E8EF215910DD0078BD36 /* Campaign */,
@@ -842,8 +844,8 @@
 			isa = PBXGroup;
 			children = (
 				71B38D17215B9AD000929CC3 /* Entities */,
+				7198C81E218AFB0B009682E7 /* Errors */,
 				71BE95B321635A2F001CF853 /* ViewState.swift */,
-				71BE95B121635835001CF853 /* ErrorHandler.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -928,6 +930,15 @@
 				71345C102177412200F28AF1 /* Wallet.storyboard */,
 			);
 			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		7198C81E218AFB0B009682E7 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				7198C81F218AFB2C009682E7 /* ErrorTypes.swift */,
+				71BE95B121635835001CF853 /* ErrorHandler.swift */,
+			);
+			path = Errors;
 			sourceTree = "<group>";
 		};
 		71A0C1AA216F93AA00C2ACF3 /* About */ = {
@@ -1645,6 +1656,7 @@
 				710FE992217F94F8009E51E5 /* Balance.swift in Sources */,
 				71A0C1B6217089A700C2ACF3 /* FaqVM.swift in Sources */,
 				71345BF621773D2400F28AF1 /* Transaction.swift in Sources */,
+				7198C820218AFB2C009682E7 /* ErrorTypes.swift in Sources */,
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,
 				716E62562189939D002AC5DA /* Contribution.swift in Sources */,
 				71C8E8E821590F2A0078BD36 /* EOS.swift in Sources */,

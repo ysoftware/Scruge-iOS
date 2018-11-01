@@ -68,7 +68,7 @@ struct Mock: Networking {
 			case "campaign/1/milestones": json = self.milestones()
 			case "profile": json = self.profile()
 			case "campaign/1/comment", "profile/image": json = self.success()
-			default: return completion(.failure(AnyError(NetworkingError.unknown(999))))
+			default: return completion(.failure(AnyError(NetworkingError.unknown)))
 			}
 
 			guard let object = T.init(from: json.data(using: .utf8)!) else {

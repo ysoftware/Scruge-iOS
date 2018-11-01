@@ -8,6 +8,7 @@
 
 import UIKit
 import MVVM
+import Result
 
 final class WalletViewController: UIViewController {
 
@@ -55,19 +56,20 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func setupActions() {
-		switch vm.status {
-		case .noKey:
+		switch vm.state {
+		case .error(WalletError.noKey):
 			loadingView.errorView.setButtonTitle("Get started")
 			loadingView.errorViewDelegate = self
-		case .noAccounts:
+		case .error(WalletError.noAccounts):
 			loadingView.errorView.setButtonTitle("Create new account")
 			loadingView.errorViewDelegate = self
 		default:
 			loadingView.errorViewDelegate = nil
 		}
 
-		switch vm.status {
-		case .ready, .noAccounts:
+		switch vm.state {
+
+		case .ready, .error(WalletError.noAccounts):
 			navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Options",
 																style: .plain,
 																target: self,
@@ -84,19 +86,21 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func updateStatus() {
-		switch vm.status {
+		switch vm.state {
+		case .error(WalletError.noAccounts):
+			loadingView.set(state: .error(ErrorHandler.message(for: WalletError.noAccounts)))
+		case .error(WalletError.noKey):
+			loadingView.set(state: .error("You can import your key or create a new one."))
 		case .error(let error):
 			loadingView.set(state: .error(ErrorHandler.message(for: error)))
 			tableView.refreshControl?.endRefreshing()
+
 		case .loading:
 			loadingView.set(state: .loading)
-		case .noAccounts:
-			loadingView.set(state: .error(ErrorHandler.message(for: WalletError.noAccounts)))
-		case .noKey:
-			loadingView.set(state: .error("You can import your key or create a new one."))
 		case .ready:
 			loadingView.set(state: .ready)
 			tableView.refreshControl?.endRefreshing()
+		default: break
 		}
 
 		setupActions()
@@ -282,10 +286,10 @@ extension WalletViewController: ErrorViewDelegate {
 
 	// get started button click
 	func didTryAgain() {
-		switch vm.status {
-		case .noKey:
+		switch vm.state {
+		case .error(WalletError.noKey):
 			createWallet()
-		case .noAccounts:
+		case .error(WalletError.noAccounts):
 			createAccount()
 		default: break
 		}

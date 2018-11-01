@@ -9,57 +9,6 @@
 import Foundation
 import Result
 
-enum AuthError: Error {
-
-	case accountBlocked
-
-	case accountExists
-
-	case incorrectCredentials
-
-	case invalidEmail
-
-	case authenticationFailed // passed empty token
-
-	case incorrectEmailLength // 5 to 254 symbols
-
-	case incorrectPasswordLength // 5 to 50 symbols
-}
-
-enum EOSError: Error {
-
-	case overdrawnBalance
-
-	case unknown
-}
-
-enum BackendError: Error {
-
-	case parsingError
-
-	case resourceNotFound
-
-	case badRequest
-
-	case notImplemented
-}
-
-enum NetworkingError: Error {
-
-	case connectionProblem
-
-	case unknown(Int)
-}
-
-enum WalletError: Error {
-
-	case noAccounts
-
-	case noKey
-
-	case incorrectPasscode
-}
-
 struct ErrorHandler {
 
 	// extract Error from Result's AnyError
@@ -91,8 +40,8 @@ struct ErrorHandler {
 			switch networkError {
 			case .connectionProblem:
 				return "Unable to connect to the server"
-			case .unknown(let code):
-				return "Error: \(code)"
+			case .unknown:
+				return "Unknown error"
 			}
 		}
 		else if let backendError = error as? BackendError {
@@ -149,7 +98,7 @@ struct ErrorHandler {
 		// special
 		case 999: return BackendError.notImplemented
 
-		default: return NetworkingError.unknown(result)
+		default: return NetworkingError.unknown
 		}
 	}
 }

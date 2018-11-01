@@ -30,11 +30,11 @@ final class AccountVM:ViewModel<AccountModel> {
 	}
 
 	var balanceString:String {
-		return balances.reduce("", { result, balance in
+		return balances.reduce("") { result, balance in
 			let amount = balance.amount.doubleValue.formatRounding(to: 4, min: 4)
 			let separator =  result.count > 0 ? "\n" : ""
 			return "\(result)\(separator)\(balance.symbol) \(amount)"
-		})
+		}
 	}
 
 	// MARK: - Methods
@@ -43,17 +43,6 @@ final class AccountVM:ViewModel<AccountModel> {
 		Service.eos.getBalance(for: name, currencies: ["EOS", "SCR"]) { balances in
 			self.balances = balances.sorted()
 			self.notifyUpdated()
-		}
-	}
-
-	/// unlocks the wallet for UNLOCK_DURATION seconds
-	func unlock(_ passcode:String) -> Bool {
-		do {
-			try model!.wallet.timedUnlock(passcode: passcode, timeout: UNLOCK_DURATION)
-			return true
-		}
-		catch {
-			return false
 		}
 	}
 }

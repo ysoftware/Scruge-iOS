@@ -9,7 +9,8 @@
 import MVVM
 import SwiftDate
 
-final class PartialCampaignVM: ViewModel<PartialCampaign>, PartialCampaignModelHolder, PartialCampaignViewModel {
+final class PartialCampaignVM: ViewModel<PartialCampaign>,
+		PartialCampaignModelHolder, PartialCampaignViewModel {
 
 	typealias Model = PartialCampaign
 

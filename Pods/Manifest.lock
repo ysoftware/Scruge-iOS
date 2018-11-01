@@ -8,7 +8,7 @@ PODS:
     - R.swift.Library (~> 5.0.0.alpha.2)
   - R.swift.Library (5.0.0.alpha.2)
   - Result (4.0.0)
-  - SwiftDate (5.0.10)
+  - SwiftDate (5.0.13)
   - SwiftHTTP (3.0.1)
 
 DEPENDENCIES:
@@ -37,7 +37,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MVVM:
-    :commit: 35c315a4fdc11782d59fddb695f9a5de78e94bd7
+    :commit: 90543f846e3bb9c4fe79b3d24d79f0a47faaf52d
     :git: "https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git"
 
 SPEC CHECKSUMS:
@@ -48,7 +48,7 @@ SPEC CHECKSUMS:
   R.swift: 31fa1bd537fa81307815cc622122f33331f32174
   R.swift.Library: 3c21b823839bf5a6769dc7f96cb44479dab51b1b
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
-  SwiftDate: fcdaa7ca22a903faf6d7ed231239a88d174dcae3
+  SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
   SwiftHTTP: e94f1aa8cde58637dcc0100f6349de31a3337fde
 
 PODFILE CHECKSUM: a1c8deb3b16ae20f5249a30e4140c9cd9e8b172d
