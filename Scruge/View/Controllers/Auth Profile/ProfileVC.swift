@@ -100,15 +100,11 @@ final class ProfileViewController: UIViewController {
 	}
 
 	private func setupNavigationBarButtons() {
-		if Service.tokenManager.hasToken {
-			navigationItem.leftBarButtonItem = nil
-		}
-		else {
-			navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Sign Out",
-															   style: .plain,
-															   target: self,
-															   action: #selector(signOut))
-		}
+		let signOutButton = UIBarButtonItem(title: "Sign Out",
+											style: .plain,
+											target: self,
+											action: #selector(signOut))
+		navigationItem.leftBarButtonItem = Service.tokenManager.hasToken ? signOutButton : nil
 	}
 }
 

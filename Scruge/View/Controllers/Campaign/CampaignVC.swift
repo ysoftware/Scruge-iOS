@@ -95,6 +95,15 @@ final class CampaignViewController: UIViewController {
 		setupNavigationBar()
 	}
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+
+		if vm.state == .ready {
+			vm.reloadSubscribtionStatus()
+			setupBottomButton()
+		}
+	}
+
 	private func setupVM() {
 		vm.delegate = self
 		vm.load()
