@@ -99,7 +99,10 @@ struct Network:Networking {
 			guard let object = T.init(from: response.data) else {
 				let string = String(data: response.data, encoding: .utf8) ?? ""
 				self.log(response, "Could not parse object.\n\(string)")
-				return completion(.failure(AnyError(BackendError.parsingError)))
+
+				let error = self.handleResultError(response.data) ?? BackendError.parsingError
+
+				return completion(.failure(AnyError(error)))
 			}
 			
 			self.log(response, "\(object.toDictionary())")
@@ -123,5 +126,17 @@ struct Network:Networking {
 				.truncate(to: logLimit) + "\n"
 			print(message)
 		}
+	}
+
+	private func handleResultError(_ data:Data) -> Error? {
+		guard let result = ResultResponse(from: data),
+			let error = ErrorHandler.error(from: result.result)
+			else { return nil }
+		switch error {
+		case AuthError.noToken, AuthError.invalidToken, AuthError.userNotFound:
+			Service.tokenManager.removeToken()
+		default: break
+		}
+		return error
 	}
 }

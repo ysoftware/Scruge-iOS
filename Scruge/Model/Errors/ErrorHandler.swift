@@ -24,8 +24,8 @@ struct ErrorHandler {
 				return "Email should be longer than 5 and shorter than 254 symbols."
 			case .incorrectPasswordLength:
 				return "Password should be longer than 5 and shorter than 50 symbols."
-			case .authenticationFailed:
-				return "Replace back to: Authentication failed. Please try logging out and back in again."
+			case .noToken, .invalidToken, .userNotFound:
+				return "Authentication failed. Please try signing in again."
 			case .invalidEmail:
 				return "Incorrectly formatted email"
 			case .accountBlocked:
@@ -48,7 +48,7 @@ struct ErrorHandler {
 			switch backendError {
 			case .notImplemented:
 				return "Not implemented"
-			case .badRequest:
+			case .invalidResourceId:
 				return "Malformed request"
 			case .resourceNotFound:
 				return "Nothing was found for this request"
@@ -82,15 +82,16 @@ struct ErrorHandler {
 		case 0: return nil
 			
 		// common
-		case 10: return AuthError.authenticationFailed
-		case 11: return BackendError.badRequest
+		case 10: return AuthError.invalidToken
+		case 11: return BackendError.invalidResourceId
 		case 12: return BackendError.resourceNotFound
+		case 13: return AuthError.userNotFound
 
 		// auth
 		case 101: return AuthError.incorrectEmailLength
 		case 102: return AuthError.invalidEmail
 		case 103: return AuthError.incorrectPasswordLength
-		case 104: return AuthError.authenticationFailed
+		case 104: return AuthError.noToken
 		case 105: return AuthError.accountExists
 		case 106: return AuthError.incorrectCredentials
 		case 107: return AuthError.accountBlocked

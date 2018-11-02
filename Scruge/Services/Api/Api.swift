@@ -25,7 +25,7 @@ struct Api {
 					   publicKey: String,
 					   _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 		let request = AccountRequest(accountName: accountName, publicKey: publicKey)
 		service.post("create_eos_account/\(token)", request.toDictionary(), completion)
@@ -61,7 +61,7 @@ struct Api {
 			return completion(.failure(AnyError(BackendError.parsingError)))
 		}
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 		service.upload("avatar/\(token)",
 					   nil,
@@ -76,14 +76,14 @@ struct Api {
 					   _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		let request = ProfileRequest(name: name, country: country, description: description)
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 		service.put("profile/\(token)", request.toDictionary(), completion)
 	}
 
 	func getProfile(_ completion: @escaping (Result<ProfileResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 		service.get("profile/\(token)", nil, completion)
 	}
@@ -109,7 +109,7 @@ struct Api {
 						 _ completion: @escaping (Result<CampaignListResponse, AnyError>)->Void) {
 		if let query = query, query.requestType != .regular {
 			guard let token = Service.tokenManager.getToken() else {
-				return completion(.failure(AnyError(AuthError.authenticationFailed)))
+				return completion(.failure(AnyError(AuthError.noToken)))
 			}
 			switch query.requestType {
 			case .backed:
@@ -128,7 +128,7 @@ struct Api {
 	func getSubscriptionStatus(for campaign:Campaign,
 							   _ completion: @escaping (Result<SubscriptionResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 
 		let request = CampaignRequest(campaignId: campaign.id)
@@ -139,7 +139,7 @@ struct Api {
 						to campaign:Campaign,
 						_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 
 		let request = CampaignRequest(campaignId: campaign.id)
@@ -156,7 +156,7 @@ struct Api {
 
 	func getActivity(_ completion: @escaping (Result<ActivityListResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 
 		service.get("user/\(token)/campaign_updates", nil, completion)
@@ -194,7 +194,7 @@ struct Api {
 							transactionId:String,
 							_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 		let request = ContributionNotificationRequest(amount: amount,
 													  campaignId: campaignId,
@@ -204,9 +204,8 @@ struct Api {
 
 	func getContributionHistory(
 		_ completion: @escaping (Result<ContributionHistoryResponse, AnyError>)->Void) {
-
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.authenticationFailed)))
+			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 		service.get("user/\(token)/contributions", nil, completion)
 	}

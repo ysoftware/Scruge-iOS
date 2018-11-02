@@ -144,7 +144,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 			guard case let .success(response) = profileResult,
 				let login = response.profile?.login
-				else { return completion(AuthError.authenticationFailed) }
+				else { return completion(AuthError.noToken) }
 
 			Service.eos
 				.sendMoney(from: account,

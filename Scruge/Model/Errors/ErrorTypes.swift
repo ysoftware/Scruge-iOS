@@ -18,7 +18,11 @@ enum AuthError: Error, Equatable {
 
 	case invalidEmail
 
-	case authenticationFailed // passed empty token
+	case noToken // token not found but required
+
+	case invalidToken // invalid user token passed
+
+	case userNotFound // user not found for this token
 
 	case incorrectEmailLength // 5 to 254 symbols
 
@@ -38,7 +42,7 @@ enum BackendError: Error, Equatable {
 
 	case resourceNotFound
 
-	case badRequest
+	case invalidResourceId
 
 	case notImplemented
 }
