@@ -21,13 +21,9 @@ struct CommentListResponse: Codable {
 
 struct CommentRequest: Codable {
 
-	init(comment:String) {
-		self.comment = comment
-	}
-
 	let comment:String
 
-	let token = Service.tokenManager.getToken()
+	let token:String
 }
 
 struct CommentListRequest: Codable {

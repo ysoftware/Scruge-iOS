@@ -37,7 +37,14 @@ final class CampaignViewController: UIViewController {
 	@IBAction func contribute(_ sender: Any) {
 		switch vm.status {
 		case .contribute:
-			Service.presenter.presentContributeViewController(in: self, with: vm)
+			if Service.tokenManager.hasToken {
+				Service.presenter.presentContributeViewController(in: self, with: vm)
+			}
+			else {
+				Service.presenter.presentAuthViewController(in: self) { isLoggedIn in
+					self.vm.reloadData()
+				}
+			}
 		default: break
 		}
 	}
@@ -122,7 +129,12 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func setupNavigationBar() {
-		let title = vm.isSubscribed ? "Unsubscribe" : "Subscribe"
+		guard let isSubscribed = vm.isSubscribed else {
+			navigationItem.rightBarButtonItem = nil
+			return
+		}
+
+		let title = isSubscribed ? "Unsubscribe" : "Subscribe"
 		let subscribeButton = UIBarButtonItem(title: title,
 											  style: .plain,
 											  target: self,
@@ -139,9 +151,16 @@ final class CampaignViewController: UIViewController {
 			contributeView.backgroundColor = Service.constants.color.contributeBlue
 			contributeButton.setTitle("Vote", for: .normal)
 		case .contribute:
-			showContributeButton(true, duration: 0)
-			contributeView.backgroundColor = Service.constants.color.contributeGreen
-			contributeButton.setTitle("Contribute", for: .normal)
+			if Service.tokenManager.hasToken {
+				showContributeButton(true, duration: 0)
+				contributeView.backgroundColor = Service.constants.color.contributeGreen
+				contributeButton.setTitle("Contribute", for: .normal)
+			}
+			else {
+				showContributeButton(true, duration: 0)
+				contributeView.backgroundColor = Service.constants.color.contributeGreen
+				contributeButton.setTitle("Sign in to contribute", for: .normal)
+			}
 		}
 	}
 

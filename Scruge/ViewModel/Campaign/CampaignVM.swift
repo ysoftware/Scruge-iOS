@@ -21,16 +21,11 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		case voteMilestone = 3
 	}
 	
-	typealias Model = Campaign
+
 
 	private let id:String
-
-	private(set) var isSubscribed:Bool = false
-	private(set) var state:ViewState = .loading {
-		didSet {
-			notifyUpdated()
-		}
-	}
+	private(set) var isSubscribed:Bool? { didSet { notifyUpdated() }}
+	private(set) var state:ViewState = .loading  { didSet { notifyUpdated() }}
 
 	// MARK: - Setup
 
@@ -110,9 +105,8 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			switch result {
 			case .success(let response):
 				self.isSubscribed = response.subscribed
-				self.notifyUpdated()
 			case .failure:
-				break
+				self.isSubscribed = nil
 			}
 		}
 	}
@@ -177,7 +171,9 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	func toggleSubscribing() {
-		guard let model = model else { return }
+		guard let model = model,
+			let isSubscribed = isSubscribed
+			else { return }
 
 		let newValue = !isSubscribed
 		Service.api.setSubscribing(newValue, to: model) { result in

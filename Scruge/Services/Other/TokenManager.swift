@@ -29,4 +29,8 @@ struct TokenManager {
 	func getToken() -> String? {
 		return keychain.get(AUTH_TOKEN)
 	}
+
+	var hasToken:Bool {
+		return getToken() != nil
+	}
 }
