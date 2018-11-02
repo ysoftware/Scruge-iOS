@@ -30,8 +30,9 @@ extension TabbarViewController: UITabBarControllerDelegate {
 			Service.tokenManager.getToken() == nil {
 
 			Service.presenter.presentAuthViewController(in: self) { didLogIn in
-				// select profile tab after successful login
-				tabBarController.selectedIndex = 3
+				if didLogIn {
+					tabBarController.selectedIndex = 3
+				}
 			}
 			return false
 		}

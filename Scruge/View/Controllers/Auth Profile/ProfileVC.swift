@@ -133,10 +133,9 @@ extension ProfileViewController: UITableViewDataSource {
 		.setup(with: campaignsVM.item(at: indexPath.row))
 	}
 
-	#warning("bring it back")
-//	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//		return "Backed by you"
-//	}
+	func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return "Backed by you"
+	}
 }
 
 extension ProfileViewController: ViewModelDelegate {
@@ -157,6 +156,14 @@ extension ProfileViewController: ArrayViewModelDelegate {
 				tableView.refreshControl?.endRefreshing()
 				let message = ErrorHandler.message(for: error)
 				loadingView.set(state: .error(message))
+
+				if error.isAuthenticationFailureError {
+					Service.presenter.presentAuthViewController(in: self) { didLogIn in
+						if !didLogIn {
+							self.tabBarController?.selectedIndex = 0
+						}
+					}
+				}
 			case .loading, .initial:
 				loadingView.set(state: .loading)
 			case .ready:

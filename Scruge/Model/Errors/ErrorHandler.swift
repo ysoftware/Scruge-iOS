@@ -103,3 +103,16 @@ struct ErrorHandler {
 		}
 	}
 }
+
+extension Error {
+
+	var isAuthenticationFailureError: Bool {
+		if let error = self as? AuthError {
+			switch error {
+			case .userNotFound, .invalidToken, .noToken: return true
+			default: break
+			}
+		}
+		return false
+	}
+}
