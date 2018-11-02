@@ -100,7 +100,7 @@ final class ProfileViewController: UIViewController {
 	}
 
 	private func setupNavigationBarButtons() {
-		if Service.tokenManager.getToken() == nil {
+		if Service.tokenManager.hasToken {
 			navigationItem.leftBarButtonItem = nil
 		}
 		else {

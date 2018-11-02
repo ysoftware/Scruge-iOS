@@ -77,10 +77,7 @@ final class ProfileVM: ViewModel<Profile> {
 	private static func handleResponse(_ result: Result<ResultResponse, AnyError>) -> Error? {
 		switch result {
 		case .success(let response):
-			if let error = ErrorHandler.error(from: response.result) {
-				return error
-			}
-			return nil
+			return ErrorHandler.error(from: response.result) 
 		case .failure(let error):
 			return error
 		}

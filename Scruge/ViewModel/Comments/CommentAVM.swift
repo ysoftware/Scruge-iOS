@@ -38,12 +38,14 @@ final class CommentAVM: ArrayViewModel<Comment, CommentVM, CommentQuery> {
 
 	// MARK: - Methods
 
-	func postComment(_ comment:String, _ completion: @escaping (Bool)->Void) {
-		guard let source = query?.source else { return completion(false) }
+	func postComment(_ comment:String, _ completion: @escaping (Error?)->Void) {
+		guard let source = query?.source else { return completion(NetworkingError.unknown) }
 		Service.api.postComment(comment, source: source) { result in
 			switch result {
-			case .success: completion(true)
-			case .failure: completion(false)
+			case .success(let response):
+				completion(ErrorHandler.error(from: response.result))
+			case .failure(let error):
+				completion(error)
 			}
 		}
 	}

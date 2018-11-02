@@ -24,23 +24,31 @@ final class CommentsViewController: UIViewController {
 	// MARK: - Actions
 
 	@IBAction func sendComment(_ sender: Any) {
-		guard let comment = comment else { return alert("Message is too short") }
-		
-		commentActivity.isHidden = false
-		sendButton.isHidden = true
+		if Service.tokenManager.hasToken {
+			guard let comment = comment else { return alert("Message is too short") }
 
-		vm.postComment(comment) { success in
-			self.commentActivity.isHidden = true
-			self.sendButton.isHidden = false
+			commentActivity.isHidden = false
+			sendButton.isHidden = true
 
-			if success {
-				self.view.endEditing(true)
-				self.setKeyboard(height: 0)
-				self.commentField.text = ""
-				self.reloadData()
+			vm.postComment(comment) { error in
+				self.commentActivity.isHidden = true
+				self.sendButton.isHidden = false
+
+				if let error = error {
+					self.alert(error)
+				}
+				else {
+					self.view.endEditing(true)
+					self.setKeyboard(height: 0)
+					self.commentField.text = ""
+					self.reloadData()
+				}
 			}
-			else {
-				#warning("some error, did not send")
+		}
+		else {
+			Service.presenter.presentAuthViewController(in: self) { _ in
+				self.checkAuthentication()
+				self.view.endEditing(true)
 			}
 		}
 	}
@@ -139,6 +147,19 @@ final class CommentsViewController: UIViewController {
 	private func setKeyboard(height:CGFloat) {
 		inputBottomConstraint.constant = height
 	}
+
+	private func checkAuthentication() {
+		if Service.tokenManager.hasToken {
+			commentField.placeholder = "Add your comment…"
+			commentField.isEnabled = true
+			sendButton.setTitle("Send", for: .normal)
+		}
+		else {
+			commentField.placeholder = "Sign in to add comments"
+			commentField.isEnabled = false
+			sendButton.setTitle("Sign in", for: .normal)
+		}
+	}
 }
 
 extension CommentsViewController: UITableViewDataSource {
@@ -178,7 +199,6 @@ extension CommentsViewController: ArrayViewModelDelegate {
 		case .error(let error):
 			let message = ErrorHandler.message(for: error)
 			loadingView.set(state: .error(message))
-
 			tableView.refreshControl?.endRefreshing()
 		case .ready:
 			if vm.isEmpty {
@@ -187,6 +207,7 @@ extension CommentsViewController: ArrayViewModelDelegate {
 			else {
 				loadingView.set(state: .ready)
 			}
+			self.checkAuthentication()
 			tableView.refreshControl?.endRefreshing()
 		default: break
 		}

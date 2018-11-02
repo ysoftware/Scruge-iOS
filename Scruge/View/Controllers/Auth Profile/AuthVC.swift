@@ -60,6 +60,7 @@ final class AuthViewController: UIViewController {
 																completion: self.authCompletionBlock)
 				}
 				else {
+					self.view.endEditing(true)
 					self.navigationController?.dismiss(animated: true)
 					self.authCompletionBlock?(true)
 				}

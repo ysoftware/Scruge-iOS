@@ -27,7 +27,7 @@ extension TabbarViewController: UITabBarControllerDelegate {
 		// if opening profile but not logged in yet
 		if let nav = viewController as? UINavigationController,
 			nav.topViewController is ProfileViewController,
-			Service.tokenManager.getToken() == nil {
+			Service.tokenManager.hasToken {
 
 			Service.presenter.presentAuthViewController(in: self) { didLogIn in
 				if didLogIn {

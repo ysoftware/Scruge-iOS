@@ -351,7 +351,7 @@ extension CampaignViewController: UITableViewDataSource {
 				if vm.commentsCount > MAX_ELEMENTS {
 					title = "See all comments →"
 				}
-				else {
+				else if Service.tokenManager.hasToken {
 					title = "Add your comment →"
 				}
 			case .documents:
