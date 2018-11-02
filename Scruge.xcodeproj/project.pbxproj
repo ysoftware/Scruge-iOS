@@ -82,6 +82,7 @@
 		71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CBE2158E8AA004D28E7 /* Presenter.swift */; };
 		71971CC12158F076004D28E7 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CC02158F076004D28E7 /* RoundedView.swift */; };
 		7198C820218AFB2C009682E7 /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198C81F218AFB2C009682E7 /* ErrorTypes.swift */; };
+		7198C821218C68FE009682E7 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9582215F7945001CF853 /* Mock.swift */; };
 		71A0C1A7216F939900C2ACF3 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1A6216F939900C2ACF3 /* AboutCell.swift */; };
 		71A0C1A9216F93A500C2ACF3 /* AboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A0C1A8216F93A500C2ACF3 /* AboutCell.xib */; };
 		71A0C1AE216F9B9200C2ACF3 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1AD216F9B9200C2ACF3 /* Social.swift */; };
@@ -132,7 +133,6 @@
 		71BE957C215EA8E2001CF853 /* Tabbar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE957B215EA8E1001CF853 /* Tabbar.swift */; };
 		71BE957F215F5D3C001CF853 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE957E215F5D3C001CF853 /* CategoryCell.swift */; };
 		71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE9580215F5D49001CF853 /* CategoryCell.xib */; };
-		71BE9583215F7945001CF853 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9582215F7945001CF853 /* Mock.swift */; };
 		71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE958621620BE3001CF853 /* CampaignVC.swift */; };
 		71BE958921621AF9001CF853 /* ContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE958821621AF9001CF853 /* ContentVC.swift */; };
 		71BE958C21622C3F001CF853 /* PartialCampVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE958B21622C3F001CF853 /* PartialCampVM.swift */; };
@@ -1602,7 +1602,6 @@
 				71BE95AA2162603C001CF853 /* RewardCell.swift in Sources */,
 				71345C0321773D2400F28AF1 /* PrivateKey.swift in Sources */,
 				71A0C1BA21708AD000C2ACF3 /* Category.swift in Sources */,
-				71BE9583215F7945001CF853 /* Mock.swift in Sources */,
 				71345AF32176000000F28AF1 /* Range.swift in Sources */,
 				71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */,
 				71387A99216CA73D00B24C67 /* TagCell.swift in Sources */,
@@ -1626,6 +1625,7 @@
 				71345BFE21773D2400F28AF1 /* HistoryRouter.swift in Sources */,
 				71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */,
 				71345BF821773D2400F28AF1 /* ResourceUtil.swift in Sources */,
+				7198C821218C68FE009682E7 /* Mock.swift in Sources */,
 				71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */,
 				71AD0E2D21708DEB00077446 /* FaqCell.swift in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
