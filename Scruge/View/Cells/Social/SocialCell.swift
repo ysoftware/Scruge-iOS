@@ -29,6 +29,9 @@ extension Social {
 		case .vk: return #imageLiteral(resourceName: "vk.jpg")
 		case .website: return #imageLiteral(resourceName: "website.jpg")
 		case .youtube: return #imageLiteral(resourceName: "youtube.jpg")
+		case .linkedIn: return #imageLiteral(resourceName: "linkedIn")
+		case .telegram: return #imageLiteral(resourceName: "telegram")
+		case .slack: return #imageLiteral(resourceName: "slack")
 		}
 	}
 }

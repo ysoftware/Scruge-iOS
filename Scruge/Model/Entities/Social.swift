@@ -21,6 +21,12 @@ enum SocialNetwork:String, Codable {
 	case instagram = "instagram"
 
 	case youtube = "youtube"
+
+	case telegram = "telegram"
+
+	case slack = "slack"
+
+	case linkedIn = "linkedIn"
 }
 
 struct Social:Codable, Equatable {
