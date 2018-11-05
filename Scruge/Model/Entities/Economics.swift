@@ -8,8 +8,6 @@
 
 import Foundation
 
-#warning("убрать optional значения где они не нужны")
-
 struct Economics: Equatable, Codable {
 
 	/// максимальный лимит сбора инвестиций
@@ -28,7 +26,7 @@ struct Economics: Equatable, Codable {
 	let tokenSupply:Double
 
 	/// вариация годовой инфляции (0% - 4%)
-	let annualInflationPercent:Range?
+	let annualInflationPercent:Range
 
 	/// минимальный лимит инвестиции
 	let minUserContribution:Double

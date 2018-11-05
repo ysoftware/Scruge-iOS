@@ -30,17 +30,13 @@ final class TechnicalAVM: SimpleArrayViewModel<Technical, TechnicalVM> {
 							   value: "\(initial)%",
 			description: "Percent of collected funds released to creators of the campaign immediately after successful funding"))
 
-		if let inflation = economics.annualInflationPercent {
-			let start = inflation.start.format(as: .decimal)
-			let end = inflation.end.format(as: .decimal)
-
-			let value = inflation.start != inflation.end
-				? "\(start)% - \(end)%"
-				: "\(start)%"
-
-			items.append(Technical(name: "Annual inflation rate", value: value,
-								   description: "Range of annual inflation rate"))
-		}
+		let start = economics.annualInflationPercent.start.format(as: .decimal)
+		let end = economics.annualInflationPercent.end.format(as: .decimal)
+		let value = economics.annualInflationPercent.start != economics.annualInflationPercent.end
+			? "\(start)% - \(end)%"
+			: "\(start)%"
+		items.append(Technical(name: "Annual inflation rate", value: value,
+							   description: "Range of annual inflation rate"))
 
 		setData(items.map { TechnicalVM($0) })
 	}
