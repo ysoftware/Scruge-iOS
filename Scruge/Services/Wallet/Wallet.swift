@@ -36,7 +36,7 @@ struct Wallet {
 				   passcode: String,
 				   _ completion: @escaping (SELocalAccount?)->Void) {
 
-		guard privateKey.count == 51, privateKey.starts(with: "5") else {
+		guard privateKey.starts(with: "5") else {
 			return completion(nil)
 		}
 
