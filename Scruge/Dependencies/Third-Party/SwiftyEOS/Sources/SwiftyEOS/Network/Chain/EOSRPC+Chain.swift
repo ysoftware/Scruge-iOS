@@ -43,7 +43,7 @@ extension EOSRPC {
             }
             let balanceString = resultArray!.first
             let parts = balanceString!.components(separatedBy: " ")
-            if parts.count != 2 {
+            if parts.count != 2 || parts[1] != symbol {
                 completion(NSDecimalNumber.zero, nil)
                 return
             }
@@ -64,6 +64,11 @@ extension EOSRPC {
     func getTableRows<T: Codable>(scope: String, code: String, table: String, completion: @escaping (_ result: TableRowResponse<T>?, _ error: Error?) -> ()) {
         let param = TableRowRequestParam(scope: scope, code: code, table: table, json: true, lowerBound: nil, upperBound: nil, limit: nil)
         let router = ChainRouter(endpoint: .GetTableRows(param: param))
+        internalRequest(router: router, completion: completion)
+    }
+    
+    func getAbi(accountName: String, completion: @escaping (_ result: Abi?, _ error: Error?) -> ()) {
+        let router = ChainRouter(endpoint: .GetAbi(accountName: accountName))
         internalRequest(router: router, completion: completion)
     }
 }

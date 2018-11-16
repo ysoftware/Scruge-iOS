@@ -55,6 +55,25 @@ extension String {
         }
     }
     
+    func importAccount(mnemonic: String, passcode: String, succeed: ((_ account: SELocalAccount) -> Void)?, failed:((_ error: Error) -> Void)?) {
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let account = try self.keystore.importAccount(mnemonic: mnemonic, passcode: passcode)
+                if succeed != nil {
+                    DispatchQueue.main.async {
+                        succeed!(account)
+                    }
+                }
+            } catch {
+                if failed != nil {
+                    DispatchQueue.main.async {
+                        failed!(error)
+                    }
+                }
+            }
+        }
+    }
+    
     func newAccount(passcode: String, succeed: ((_ account: SELocalAccount) -> Void)?, failed:((_ error: Error) -> Void)?) {
         DispatchQueue.global(qos: .background).async {
             do {
@@ -62,6 +81,25 @@ extension String {
                 if succeed != nil {
                     DispatchQueue.main.async {
                         succeed!(account)
+                    }
+                }
+            } catch {
+                if failed != nil {
+                    DispatchQueue.main.async {
+                        failed!(error)
+                    }
+                }
+            }
+        }
+    }
+    
+    func newAccountAndMnemonic(passcode: String, succeed: ((_ account: SELocalAccount, _ mnemonic: String) -> Void)?, failed:((_ error: Error) -> Void)?) {
+        DispatchQueue.global(qos: .background).async {
+            do {
+                let (account, mnemonic) = try self.keystore.newLocalAccountAndMnemonic(passcode: passcode)
+                if succeed != nil {
+                    DispatchQueue.main.async {
+                        succeed!(account, mnemonic)
                     }
                 }
             } catch {
@@ -153,18 +191,31 @@ extension String {
         return account
     }
     
+    func importAccount(mnemonic: String, passcode: String) throws -> SELocalAccount {
+        let account = try SELocalAccount(mnemonic: mnemonic, passcode: passcode)
+        try account.write(to: keyUrl.appendingPathComponent(account.publicKey!))
+        return account
+    }
+    
     func newLocalAccount(passcode: String) throws -> SELocalAccount {
         let account = SELocalAccount(passcode: passcode)
         try account.write(to: keyUrl.appendingPathComponent(account.publicKey!))
         return account
     }
-
-	func deleteAccount(passcode: String, account: SELocalAccount) throws {
-		let _ = try account.decrypt(passcode: passcode)
-		try FileManager.default.removeItem(at: keyUrl.appendingPathComponent(account.publicKey!))
-		SELocalAccount.__account = nil
-	}
-
+    
+    func newLocalAccountAndMnemonic(passcode: String) throws -> (SELocalAccount, String) {
+        let account = SELocalAccount(passcode: passcode, needMnemonic: true)
+        let mnemonic = account.mnemonic!
+        try account.write(to: keyUrl.appendingPathComponent(account.publicKey!))
+        return (account, mnemonic)
+    }
+    
+    func deleteAccount(passcode: String, account: SELocalAccount) throws {
+        let _ = try account.decrypt(passcode: passcode)
+        try FileManager.default.removeItem(at: keyUrl.appendingPathComponent(account.publicKey!))
+        SELocalAccount.__account = nil
+    }
+    
     func changeAccountPasscode(oldcode: String, newcode: String, account: SELocalAccount) throws -> SELocalAccount {
         let pk = try account.decrypt(passcode: oldcode)
         try FileManager.default.removeItem(at: keyUrl.appendingPathComponent(account.publicKey!))
@@ -184,39 +235,24 @@ extension String {
                 let data = try Data(contentsOf: fileUrl!)
                 let account = try SELocalAccount(fileData: data)
                 return account
-            }
-			else {
+            } else {
                 return nil
             }
-        }
-		catch {
+        } catch {
             print("Error while enumerating files: \(error.localizedDescription)")
             return nil
         }
     }
-
-	func accounts() -> [SELocalAccount] {
-		var accounts:[SELocalAccount] = []
-		let fileManager = FileManager.default
-		do {
-			let fileURLs = try fileManager.contentsOfDirectory(at: keyUrl, includingPropertiesForKeys: nil)
-			// process files
-			fileURLs.forEach { fileUrl in
-				do {
-					let data = try Data(contentsOf: fileUrl)
-					let account = try SELocalAccount(fileData: data)
-					accounts.append(account)
-				}
-				catch {
-					print("Error while enumerating files: \(error.localizedDescription)")
-				}
-			}
-		}
-		catch {
-			print("Error while enumerating files: \(error.localizedDescription)")
-		}
-		return accounts
-	}
+    
+    //    func accounts() -> [SELocalAccount] {
+    //        let fileManager = FileManager.default
+    //        do {
+    //            let fileURLs = try fileManager.contentsOfDirectory(at: keyUrl, includingPropertiesForKeys: nil)
+    //            // process files
+    //        } catch {
+    //            print("Error while enumerating files: \(error.localizedDescription)")
+    //        }
+    //    }
 }
 
 struct RawKeystore: Codable {
@@ -265,6 +301,8 @@ struct RawKeystore: Codable {
         return SEKeystoreService.sharedInstance.keystore.defaultAccount()
     }
     
+    public var mnemonic: String?
+    
     //FIXME: Fill with your own iv.
     static let aesIv = "ReplaceWithYourIv"
     
@@ -285,8 +323,19 @@ struct RawKeystore: Codable {
         self.init(pk: pk!, passcode: passcode)
     }
     
+    convenience init(passcode: String, needMnemonic: Bool) {
+        let (pk, _, mn) = generateRandomKeyPair(enclave: .Secp256k1)
+        self.init(pk: pk!, passcode: passcode)
+        self.mnemonic = mn
+    }
+    
     convenience init(privateKey: String, passcode: String) throws {
         let pk = try PrivateKey(keyString: privateKey)
+        self.init(pk: pk!, passcode: passcode)
+    }
+    
+    convenience init(mnemonic: String, passcode: String) throws {
+        let pk = try PrivateKey(enclave: .Secp256k1, mnemonicString: mnemonic)
         self.init(pk: pk!, passcode: passcode)
     }
     
@@ -424,6 +473,23 @@ struct RawKeystore: Codable {
         }
         
         TransactionUtil.pushTransaction(abi: abi, account: account, pkString: pk.wif(), completion: completion)
+    }
+    
+    func pushTransaction(code: String, action: String, paramsJson: String, account: String, unlockOncePasscode: String?, completion: @escaping (_ result: TransactionResult?, _ error: Error?) -> ()) {
+        var pk: PrivateKey
+        
+        do {
+            if unlockOncePasscode != nil {
+                pk = try decrypt(passcode: unlockOncePasscode!)
+            } else {
+                pk = try retrievePrivateKey()
+            }
+        } catch let error as NSError {
+            completion(nil, error)
+            return
+        }
+        
+        TransactionUtil.pushTransaction(code: code, action: action, paramsJson: paramsJson, account: account, pkString: pk.wif(), completion: completion)
     }
     
     func stakeResource(account: String, net: Float, cpu: Float, unlockOncePasscode: String?, completion: @escaping (_ result: TransactionResult?, _ error: Error?) -> ()) {
