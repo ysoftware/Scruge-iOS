@@ -145,7 +145,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 						   to: "testaccount1",
 						   amount: amount,
 						   symbol: "SCR",
-						   memo: login,
+						   memo: "\(login)-\(model.id)",
 						   passcode: passcode) { transactionResult in
 
 							switch transactionResult {
