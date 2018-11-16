@@ -34,18 +34,19 @@ public extension Decodable {
 		}
 	}
 
-	var jsonString:String {
-		do {
-			let data = try JSONSerialization.data(withJSONObject: self,
-												  options: .prettyPrinted)
-			return String(data: data, encoding: .utf8) ?? "<Error: Could not convert json data to string.>"
-		} catch let error {
-			return "<Error: Could not encode this dictionary: (\(error)>"
-		}
-	}
 }
 
 public extension Encodable {
+
+	var jsonString:String {
+		do {
+			let data = try JSONEncoder().encode(self)
+			return String(data: data, encoding: .utf8) ?? "<Error: Could not convert json data to string.>"
+		}
+		catch {
+			return "<Error: Could not encode this dictionary: (\(error)>"
+		}
+	}
 
 	/// Преобразовать объект Encodable в Dictionary.
 	public func toDictionary() -> [String:Any] {

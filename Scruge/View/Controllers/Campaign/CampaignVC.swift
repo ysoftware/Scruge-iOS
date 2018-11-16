@@ -45,6 +45,8 @@ final class CampaignViewController: UIViewController {
 					self.vm.reloadData()
 				}
 			}
+		case .activeVote:
+			Service.presenter.presentVoteViewController(in: self, with: vm)
 		default: break
 		}
 	}

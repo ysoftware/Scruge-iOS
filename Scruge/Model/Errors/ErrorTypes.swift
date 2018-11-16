@@ -34,6 +34,8 @@ enum EOSError: Error, Equatable {
 	case overdrawnBalance
 
 	case unknown
+
+	case abiError
 }
 
 enum BackendError: Error, Equatable {

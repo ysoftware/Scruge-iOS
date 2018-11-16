@@ -72,6 +72,8 @@ struct ErrorHandler {
 				return "Overdrawn balance"
 			case .unknown:
 				return "Unknown error"
+			case .abiError:
+				return "Incorrect transaction format"
 			}
 		}
 		return "Unexpected Error"

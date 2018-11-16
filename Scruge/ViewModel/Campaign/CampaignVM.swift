@@ -175,6 +175,42 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		}
 	}
 
+	func vote(_ value:Bool,
+			  account:AccountVM,
+			  passcode:String,
+			  completion: @escaping (Error?)->Void) {
+
+		guard let model = model,
+			let account = account.model
+			else { return completion(WalletError.noAccounts) }
+
+		let vote = Vote(eosAccount: account.name, scrugeAccount: "-", campaignId: 1, vote: value)
+
+		Service.eos.sendAction("vote",
+							   contract: "testaccount1",
+							   from: account,
+							   data: vote.jsonString,
+							   passcode: passcode) { transactionResult in
+
+								switch transactionResult {
+								case .failure(let error):
+									completion(error)
+								case .success(let transactionId):
+									break
+
+//									Service.api
+//										.notifyVote(campaignId: model.id,
+//													transactionId: transactionId) { result in
+//														
+//														// если ошибка
+//														// не удалось подтвердить транзакцию
+//														// но она прошла успешно
+//														completion(nil)
+//									}
+								}
+		}
+	}
+
 	func toggleSubscribing() {
 		guard let model = model,
 			let isSubscribed = isSubscribed
@@ -237,6 +273,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	var status:Status {
+		return .activeVote
 		guard let state = model?.status, let status = Status(rawValue: state)
 			else { return .closed }
 		return status

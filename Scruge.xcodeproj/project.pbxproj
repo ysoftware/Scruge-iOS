@@ -194,6 +194,7 @@
 		71DA7E962164AB510052EB8F /* MilestonesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E952164AB510052EB8F /* MilestonesVC.swift */; };
 		71DA7E982164AB6E0052EB8F /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E972164AB6E0052EB8F /* ActivityVC.swift */; };
 		71DA7E9A2164ABBC0052EB8F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E992164ABBC0052EB8F /* SearchVC.swift */; };
+		71E09472219EE42C00281643 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E09471219EE42C00281643 /* Model.swift */; };
 		71F68A4A21709D8A00F7E728 /* FaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4921709D8A00F7E728 /* FaqVC.swift */; };
 		71F68A4C21709E2700F7E728 /* DocumentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4B21709E2700F7E728 /* DocumentsVC.swift */; };
 		8C8CD5C46C0D9A389DDD6F7B /* Pods_ScrugeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */; };
@@ -424,6 +425,7 @@
 		71DA7E952164AB510052EB8F /* MilestonesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestonesVC.swift; sourceTree = "<group>"; };
 		71DA7E972164AB6E0052EB8F /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
 		71DA7E992164ABBC0052EB8F /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
+		71E09471219EE42C00281643 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		71F68A4921709D8A00F7E728 /* FaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqVC.swift; sourceTree = "<group>"; };
 		71F68A4B21709E2700F7E728 /* DocumentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsVC.swift; sourceTree = "<group>"; };
 		825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scruge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1099,6 +1101,7 @@
 			isa = PBXGroup;
 			children = (
 				71C8E8E721590F2A0078BD36 /* EOS.swift */,
+				71E09471219EE42C00281643 /* Model.swift */,
 			);
 			path = EOS;
 			sourceTree = "<group>";
@@ -1655,6 +1658,7 @@
 				71BE9567215E2AD2001CF853 /* Service.swift in Sources */,
 				71D84CCF21995AD000E8DB88 /* Transaction.swift in Sources */,
 				71BE95B0216352F2001CF853 /* TableHeaderTap.swift in Sources */,
+				71E09472219EE42C00281643 /* Model.swift in Sources */,
 				71BE959E216258DE001CF853 /* UpdateCell.swift in Sources */,
 				71BE957F215F5D3C001CF853 /* CategoryCell.swift in Sources */,
 				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,

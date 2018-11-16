@@ -34,6 +34,28 @@ struct EOS {
 		}
 	}
 
+	func sendAction(_ action:String,
+					contract:String,
+					from account: AccountModel,
+					data: String,
+					passcode: String,
+					_ completion: @escaping (Result<String, AnyError>)->Void) {
+		
+		guard let params = try? AbiJson(code: contract, action: action, json: data) else {
+			return completion(.failure(AnyError(EOSError.abiError)))
+		}
+
+		account.wallet
+			.pushTransaction(abi: params,
+							 account: account.name,
+							 unlockOncePasscode: passcode) { result, error in
+								guard let transactionId = result?.transactionId else {
+									return completion(.failure(AnyError(error ?? EOSError.unknown)))
+								}
+								return completion(.success(transactionId))
+		}
+	}
+
 	/// send money from this account
 	func sendMoney(from account:AccountModel,
 				   to recipient:String,
@@ -51,13 +73,14 @@ struct EOS {
 		transfer.quantity = quantity
 		transfer.memo = memo
 
-		account.wallet.transferToken(transfer: transfer,
-									 code: "eosio.token",
-									 unlockOncePasscode: passcode) { result, error in
-										guard let transactionId = result?.transactionId else {
-											return completion(.failure(AnyError(error ?? EOSError.unknown)))
-										}
-										return completion(.success(transactionId))
+		account.wallet
+			.transferToken(transfer: transfer,
+						   code: "eosio.token",
+						   unlockOncePasscode: passcode) { result, error in
+							guard let transactionId = result?.transactionId else {
+								return completion(.failure(AnyError(error ?? EOSError.unknown)))
+							}
+							return completion(.success(transactionId))
 		}
 	}
 
