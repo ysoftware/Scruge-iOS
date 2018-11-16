@@ -9,14 +9,21 @@
 import Result
 import SwiftHTTP
 
-struct Api {
+final class Api {
+
+	enum Environment:String {
+
+		case test = "http://testapi.scruge.world/"
+
+		case prod = "http://api.scruge.world/"
+	}
 
 	// MARK: - Initialization
 
-	var service:Networking = Network()
+	private var service:Networking = Network(baseUrl: Environment.prod.rawValue)
 
-	mutating func setTestNetwork(_ value:Bool) {
-		service = value ? Mock() : Network()
+	func setEnvironment(_ environment:Environment) {
+		service = Network(baseUrl: environment.rawValue)
 	}
 
 	// MARK: - Wallet

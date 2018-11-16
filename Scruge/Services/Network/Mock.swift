@@ -12,7 +12,6 @@ import Result
 struct Mock: Networking {
 
 	private let activity = ActivityIndicatorController()
-	private let realNetwork = Network()
 
 	func upload(_ request:String,
 				_ params:[String:Any]?,

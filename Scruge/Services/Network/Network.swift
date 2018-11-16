@@ -11,21 +11,14 @@ import Result
 
 struct Network:Networking {
 
-	enum Environment:String {
-
-		case test = "http://35.234.94.19"
-
-		case prod = "http://api.scruge.world"
-	}
-
 	private let activity = ActivityIndicatorController()
-	private let baseUrl:String
+	var baseUrl:String
 
 	var isLoggingEnabled = true
 	var logLimit = 300
 
-	init(environment:Environment = .prod) {
-		self.baseUrl = environment.rawValue + "/"
+	init(baseUrl:String) {
+		self.baseUrl = baseUrl
 	}
 
 	func upload(_ request:String,
