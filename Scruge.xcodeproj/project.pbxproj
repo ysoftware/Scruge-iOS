@@ -513,14 +513,15 @@
 			path = AnyCodable;
 			sourceTree = "<group>";
 		};
-		71345C122177412D00F28AF1 /* Wallet */ = {
+		71345C122177412D00F28AF1 /* Contribute */ = {
 			isa = PBXGroup;
 			children = (
 				71345C132177413700F28AF1 /* WalletVC.swift */,
 				71345C172178AB5100F28AF1 /* ImportKeyVC.swift */,
 				715DB15C217471980005B69D /* ContributeVC.swift */,
+				715DB15A2174716E0005B69D /* VoteVC.swift */,
 			);
-			path = Wallet;
+			path = Contribute;
 			sourceTree = "<group>";
 		};
 		71345C192179C93600F28AF1 /* Account-Wallet */ = {
@@ -727,7 +728,7 @@
 			isa = PBXGroup;
 			children = (
 				71C3689D21830DFE00729C00 /* Activity */,
-				71345C122177412D00F28AF1 /* Wallet */,
+				71345C122177412D00F28AF1 /* Contribute */,
 				71BE95B521635A67001CF853 /* Main (Navigation) */,
 				71BE9563215E26CA001CF853 /* Auth Profile */,
 				71DA7E922164AB2F0052EB8F /* Campaign Details */,
@@ -1348,7 +1349,6 @@
 				71AB79002164D2650077D904 /* CommentsVC.swift */,
 				71F68A4921709D8A00F7E728 /* FaqVC.swift */,
 				71F68A4B21709E2700F7E728 /* DocumentsVC.swift */,
-				715DB15A2174716E0005B69D /* VoteVC.swift */,
 				716E62602189DCE3002AC5DA /* TeamVC.swift */,
 			);
 			path = "Campaign Details";

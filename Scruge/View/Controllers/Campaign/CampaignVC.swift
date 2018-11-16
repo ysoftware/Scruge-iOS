@@ -36,7 +36,7 @@ final class CampaignViewController: UIViewController {
 
 	@IBAction func contribute(_ sender: Any) {
 		switch vm.status {
-		case .contribute:
+		case .funding:
 			if Service.tokenManager.hasToken {
 				Service.presenter.presentContributeViewController(in: self, with: vm)
 			}
@@ -153,13 +153,11 @@ final class CampaignViewController: UIViewController {
 
 	private func setupBottomButton() {
 		switch vm.status {
-		case .idle:
-			showContributeButton(false, duration: 0)
-		case .voteMilestone, .voteDeadline:
+		case .activeVote:
 			showContributeButton(true, duration: 0)
 			contributeView.backgroundColor = Service.constants.color.contributeBlue
 			contributeButton.setTitle("Vote", for: .normal)
-		case .contribute:
+		case .funding:
 			if Service.tokenManager.hasToken {
 				showContributeButton(true, duration: 0)
 				contributeView.backgroundColor = Service.constants.color.contributeGreen
@@ -170,6 +168,8 @@ final class CampaignViewController: UIViewController {
 				contributeView.backgroundColor = Service.constants.color.contributeGreen
 				contributeButton.setTitle("Sign in to contribute", for: .normal)
 			}
+		default:
+			showContributeButton(false, duration: 0)
 		}
 	}
 

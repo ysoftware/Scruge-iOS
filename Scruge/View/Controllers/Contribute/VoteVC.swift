@@ -11,4 +11,6 @@ import UIKit
 final class VoteViewController: UIViewController {
 
 	var vm:CampaignVM!
+
+	
 }

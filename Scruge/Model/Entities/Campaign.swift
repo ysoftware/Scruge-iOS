@@ -54,7 +54,7 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	let team:[Member]
 
-	let status:Int?
+	let status:Int
 
 	let about:String?
 

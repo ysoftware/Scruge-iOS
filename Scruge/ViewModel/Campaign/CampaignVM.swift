@@ -12,16 +12,21 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	enum Status: Int, Codable {
 
-		case idle = 0
+		/// contributions allowed
+		case funding = 0
 
-		case contribute = 1
+		/// waiting for milestone
+		case milestone = 1
 
-		case voteDeadline = 2
+		/// ongoing vote
+		case activeVote = 2
 
-		case voteMilestone = 3
+		/// waiting for founder action
+		case waiting = 3
+
+		/// campaign done
+		case closed = 4
 	}
-	
-
 
 	private let id:String
 	private(set) var isSubscribed:Bool? { didSet { notifyUpdated() }}
@@ -233,7 +238,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	var status:Status {
 		guard let state = model?.status, let status = Status(rawValue: state)
-			else { return .idle }
+			else { return .closed }
 		return status
 	}
 
