@@ -62,6 +62,13 @@ final class Api {
 
 	// MARK: - Profile
 
+	func getUserId(_ completion: @escaping (Result<UserIdResponse, AnyError>)->Void) {
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.noToken)))
+		}
+		service.get("profile/\(token)/id", nil, completion)
+	}
+
 	func updateProfileImage(_ image:UIImage,
 							_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		guard let data = image.jpegData(compressionQuality: 0.8) else {
@@ -133,7 +140,7 @@ final class Api {
 	// MARK: - Subscriptions
 
 	func getSubscriptionStatus(for campaign:Campaign,
-							   _ completion: @escaping (Result<SubscriptionResponse, AnyError>)->Void) {
+							   _ completion: @escaping (Result<BoolResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}

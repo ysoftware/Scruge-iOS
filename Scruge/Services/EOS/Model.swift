@@ -12,7 +12,7 @@ struct Vote:Codable {
 
 	let eosAccount:String
 
-	let scrugeAccount:String
+	let userId:Int
 
 	let campaignId:Int
 

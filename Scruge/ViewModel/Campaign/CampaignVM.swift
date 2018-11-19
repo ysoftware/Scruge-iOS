@@ -109,7 +109,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		Service.api.getSubscriptionStatus(for: model) { result in
 			switch result {
 			case .success(let response):
-				self.isSubscribed = response.subscribed
+				self.isSubscribed = response.value
 			case .failure:
 				self.isSubscribed = nil
 			}
@@ -147,7 +147,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 			Service.eos
 				.sendMoney(from: account,
-						   to: "testaccount1",
+						   to: EOS.contractAccount,
 						   amount: amount,
 						   symbol: "SCR",
 						   memo: "\(login)-\(model.id)",
@@ -185,24 +185,23 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			else { return completion(WalletError.noAccounts) }
 
 		Service.api
-			.getProfile { profileResult in
+			.getUserId { userResult in
 
-				guard case let .success(profileResponse) = profileResult else {
-					return completion(profileResult.error!)
+				guard case let .success(response) = userResult else {
+						return completion(userResult.error!)
 				}
 
-				guard let profile = profileResponse.profile else {
-					return completion(ErrorHandler.error(from: profileResponse.result))
+				guard let userId = response.userId else {
+					return completion(ErrorHandler.error(from: response.result))
 				}
 
 				let vote = Vote(eosAccount: account.name,
-								scrugeAccount: profile.login,
+								userId: userId,
 								campaignId: model.id,
 								vote: value)
 
 				Service.eos
 					.sendAction("vote",
-								contract: "testaccount1",
 								from: account,
 								data: vote.jsonString,
 								passcode: passcode) { transactionResult in

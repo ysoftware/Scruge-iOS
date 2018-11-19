@@ -17,6 +17,13 @@ struct LoginResponse: Codable {
 	let token:String?
 }
 
+struct UserIdResponse: Codable {
+
+	let result:Int
+
+	let userId:Int?
+}
+
 struct ProfileResponse: Codable {
 
 	let result:Int

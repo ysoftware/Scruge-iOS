@@ -10,6 +10,8 @@ import Result
 
 struct EOS {
 
+	static let contractAccount = "testaccount1"
+
 	fileprivate let chain = EOSRPC.sharedInstance
 
 	init() {
@@ -35,7 +37,7 @@ struct EOS {
 	}
 
 	func sendAction(_ action:String,
-					contract:String,
+					contract:String = EOS.contractAccount,
 					from account: AccountModel,
 					data: String,
 					passcode: String,

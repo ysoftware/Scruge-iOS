@@ -10,9 +10,9 @@ import Foundation
 
 // MARK: - Request
 
-struct SubscriptionResponse: Codable {
+struct BoolResponse: Codable {
 
-	let subscribed:Bool
+	let value:Bool
 }
 
 struct ResultResponse: Codable {
