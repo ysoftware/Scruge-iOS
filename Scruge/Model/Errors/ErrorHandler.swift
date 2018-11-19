@@ -76,6 +76,13 @@ struct ErrorHandler {
 				return "Incorrect transaction format"
 			}
 		}
+		else if (error as NSError).domain == "SwiftyEOSErrorDomain" {
+			if let response = (error as NSError).userInfo["RPCErrorResponse"] as? RPCErrorResponse {
+				return response.error.details.reduce("", { result, element
+					in return result + "\n" + element.message })
+					.trimmingCharacters(in: .whitespacesAndNewlines)
+			}
+		}
 		return "Unexpected Error"
 	}
 

@@ -31,7 +31,7 @@ enum AuthError: Error, Equatable {
 
 enum EOSError: Error, Equatable {
 
-	case overdrawnBalance
+	case overdrawnBalance // TO-DO: use this maybe?
 
 	case unknown
 
