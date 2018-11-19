@@ -207,15 +207,15 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 								data: vote.jsonString,
 								passcode: passcode) { transactionResult in
 
-									//									Service.api
-									//										.notifyVote(campaignId: model.id,
-									//													transactionId: transactionId) { result in
-									//
-									//														// если ошибка
-									//														// не удалось подтвердить транзакцию
-									//														// но она прошла успешно
-									//														completion(nil)
-									//									}
+//									Service.api
+//										.notifyVote(campaignId: model.id,
+//													transactionId: transactionId) { result in
+//
+//														// если ошибка
+//														// не удалось подтвердить транзакцию
+//														// но она прошла успешно
+//														completion(nil)
+//									}
 				}
 		}
 	}
@@ -282,7 +282,6 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	var status:Status {
-		return .activeVote
 		guard let state = model?.status, let status = Status(rawValue: state)
 			else { return .closed }
 		return status
