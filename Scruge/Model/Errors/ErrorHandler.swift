@@ -78,8 +78,9 @@ struct ErrorHandler {
 		}
 		else if (error as NSError).domain == "SwiftyEOSErrorDomain" {
 			if let response = (error as NSError).userInfo["RPCErrorResponse"] as? RPCErrorResponse {
-				return response.error.details.reduce("", { result, element
-					in return result + "\n" + element.message })
+				return response.error.details.reduce("") { $0 + "\n" + $1.message }
+					.replacingOccurrences(of: "assertion failure with message:", with: "")
+					.replacingOccurrences(of: "pending console output:", with: "")
 					.trimmingCharacters(in: .whitespacesAndNewlines)
 			}
 		}

@@ -10,7 +10,7 @@ import Foundation
 
 struct Profile: Equatable, Codable {
 
-	let login:String?
+	let login:String
 
 	let name:String?
 

@@ -184,30 +184,39 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			let account = account.model
 			else { return completion(WalletError.noAccounts) }
 
-		let vote = Vote(eosAccount: account.name, scrugeAccount: "-", campaignId: 1, vote: value)
+		Service.api
+			.getProfile { profileResult in
 
-		Service.eos.sendAction("vote",
-							   contract: "testaccount1",
-							   from: account,
-							   data: vote.jsonString,
-							   passcode: passcode) { transactionResult in
+				guard case let .success(profileResponse) = profileResult else {
+					return completion(profileResult.error!)
+				}
 
-								switch transactionResult {
-								case .failure(let error):
-									completion(error)
-								case .success(let transactionId):
-									break
+				guard let profile = profileResponse.profile else {
+					return completion(ErrorHandler.error(from: profileResponse.result))
+				}
 
-//									Service.api
-//										.notifyVote(campaignId: model.id,
-//													transactionId: transactionId) { result in
-//														
-//														// если ошибка
-//														// не удалось подтвердить транзакцию
-//														// но она прошла успешно
-//														completion(nil)
-//									}
-								}
+				let vote = Vote(eosAccount: account.name,
+								scrugeAccount: profile.login,
+								campaignId: model.id,
+								vote: value)
+
+				Service.eos
+					.sendAction("vote",
+								contract: "testaccount1",
+								from: account,
+								data: vote.jsonString,
+								passcode: passcode) { transactionResult in
+
+									//									Service.api
+									//										.notifyVote(campaignId: model.id,
+									//													transactionId: transactionId) { result in
+									//
+									//														// если ошибка
+									//														// не удалось подтвердить транзакцию
+									//														// но она прошла успешно
+									//														completion(nil)
+									//									}
+				}
 		}
 	}
 
