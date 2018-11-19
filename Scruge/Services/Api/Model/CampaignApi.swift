@@ -12,7 +12,7 @@ import Foundation
 
 struct CampaignRequest: Codable {
 
-	let campaignId:String
+	let campaignId:Int
 }
 
 struct CampaignResponse: Codable {

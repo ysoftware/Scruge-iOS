@@ -10,7 +10,7 @@ import Foundation
 
 struct CampaignInfo: Equatable, Codable {
 
-	let id:String
+	let id:Int
 
 	let title:String
 
@@ -19,7 +19,7 @@ struct CampaignInfo: Equatable, Codable {
 
 struct PartialCampaign: Equatable, Codable, PartialCampaignModel {
 
-	let id:String
+	let id:Int
 
 	let title:String
 
@@ -36,7 +36,7 @@ struct PartialCampaign: Equatable, Codable, PartialCampaignModel {
 
 struct Campaign: Equatable, Codable, PartialCampaignModel {
 
-	let id:String
+	let id:Int
 
 	let title:String
 	
@@ -77,7 +77,7 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 protocol PartialCampaignModel {
 
-	var id:String { get }
+	var id:Int { get }
 
 	var title:String { get }
 

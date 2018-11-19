@@ -30,8 +30,8 @@ final class UpdateVM: ViewModel<Update> {
 
 	// MARK: - Campaign Info (for Activity)
 
-	var campaignId:String {
-		return model?.campaignInfo?.id ?? ""
+	var campaignId:Int {
+		return model?.campaignInfo?.id ?? 0
 	}
 
 	var campaignTitle:String {

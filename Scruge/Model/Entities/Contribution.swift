@@ -12,5 +12,5 @@ struct Contribution: Equatable, Codable {
 
 	let amount:Double
 
-	let campaignId:String
+	let campaignId:Int
 }

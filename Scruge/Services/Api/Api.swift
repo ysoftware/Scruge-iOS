@@ -107,7 +107,7 @@ final class Api {
 
 	// MARK: - Campaigns
 
-	func getCampaign(with id:String,
+	func getCampaign(with id:Int,
 					 _ completion: @escaping (Result<CampaignResponse, AnyError>)->Void) {
 		service.get("campaign/\(id)", nil, completion)
 	}
@@ -196,7 +196,7 @@ final class Api {
 
 	// MARK: - Contributions
 
-	func notifyContribution(campaignId:String,
+	func notifyContribution(campaignId:Int,
 							amount:Double,
 							transactionId:String,
 							_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {

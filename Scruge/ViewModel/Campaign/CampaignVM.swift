@@ -28,13 +28,13 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		case closed = 4
 	}
 
-	private let id:String
+	private let id:Int
 	private(set) var isSubscribed:Bool? { didSet { notifyUpdated() }}
 	private(set) var state:ViewState = .loading  { didSet { notifyUpdated() }}
 
 	// MARK: - Setup
 
-	init(_ id:String) {
+	init(_ id:Int) {
 		self.id = id
 		super.init()
 		load()

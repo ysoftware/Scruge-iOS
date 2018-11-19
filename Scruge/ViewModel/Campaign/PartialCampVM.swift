@@ -14,8 +14,8 @@ final class PartialCampaignVM: ViewModel<PartialCampaign>,
 
 	typealias Model = PartialCampaign
 
-	var id:String {
-		return model?.id ?? ""
+	var id:Int {
+		return model?.id ?? 0
 	}
 }
 

@@ -53,7 +53,7 @@ struct Presenter {
 	// MARK: - Campaign
 
 	func presentCampaignViewController(in vc:UIViewController,
-											  id:String) {
+									   id:Int) {
 		let new = R.storyboard.campaign.campaignVC()!
 		new.vm = CampaignVM(id)
 		vc.show(new, sender: self)

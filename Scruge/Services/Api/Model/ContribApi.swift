@@ -14,7 +14,7 @@ struct ContributionNotificationRequest: Codable {
 
 	let amount:Double
 
-	let campaignId:String
+	let campaignId:Int
 
 	let transactionId:String
 }
