@@ -42,6 +42,18 @@ final class FeaturedViewController: UIViewController {
 		setInitial()
 	}
 
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+
+		switch categoriesVM.state {
+		case .ready, .error:
+			if categoriesVM.numberOfItems == 0 {
+				categoriesVM.reloadData()
+			}
+		default: break
+		}
+	}
+
 	func addTitleButton() {
 		title = "Featured"
 		
@@ -65,6 +77,9 @@ final class FeaturedViewController: UIViewController {
 	}
 
 	func setupTableView() {
+		campaignTableView.refreshControl = UIRefreshControl()
+		campaignTableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+
 		campaignTableView.estimatedRowHeight = 400
 		campaignTableView.rowHeight = UITableView.automaticDimension
 		campaignTableView.register(UINib(resource: R.nib.campaignCell),
@@ -77,6 +92,14 @@ final class FeaturedViewController: UIViewController {
 	}
 
 	// MARK: - Methods
+
+	@objc func reloadData() {
+		campaignVM.reloadData()
+
+		if categoriesVM.isEmpty {
+			categoriesVM.reloadData()
+		}
+	}
 
 	func showCategories(_ value:Bool) {
 		guard isShowingCategories != value else { return }
@@ -124,9 +147,11 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 		case .error(let error):
 			let message = ErrorHandler.message(for: error)
 			loadingView.set(state: .error(message))
+			campaignTableView.refreshControl?.endRefreshing()
 		case .loading, .initial:
 			loadingView.set(state: .loading)
 		case .ready:
+			campaignTableView.refreshControl?.endRefreshing()
 			if campaignVM.isEmpty {
 				loadingView.set(state: .error("No campaigns were found for your request"))
 			}
