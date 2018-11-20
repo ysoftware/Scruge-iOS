@@ -54,15 +54,7 @@ extension PartialCampaignModelHolder {
 
 	var daysLeft: String {
 		guard let model = model else { return "" }
-
-		let d = Date(milliseconds: model.endTimestamp) - Date()
-		let diff = d.timeInterval.toString {
-			$0.maximumUnitCount = 1
-			$0.zeroFormattingBehavior = .dropAll
-			$0.allowedUnits = [ .month, .day, .hour, .minute]
-			$0.collapsesLargestUnit = true
-			$0.unitsStyle = .full
-		}
-		return "\(diff) left"
+		let end = Date(milliseconds: model.endTimestamp)
+		return end.toRelative(locale: Locales.english)
 	}
 }
