@@ -139,39 +139,40 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			let account = account.model
 			else { return completion(WalletError.noAccounts) }
 
-		Service.api.getProfile { profileResult in
+		Service.api
+			.getUserId { userResult in
 
-			guard case let .success(response) = profileResult,
-				let login = response.profile?.login
-				else { return completion(AuthError.noToken) }
+				guard case let .success(response) = userResult else {
+					return completion(userResult.error!)
+				}
 
-			Service.eos
-				.sendMoney(from: account,
-						   to: EOS.contractAccount,
-						   amount: amount,
-						   symbol: "SCR",
-						   memo: "\(login)-\(model.id)",
-						   passcode: passcode) { transactionResult in
+				guard let userId = response.userId else {
+					return completion(ErrorHandler.error(from: response.result))
+				}
 
-							switch transactionResult {
-							case .failure(let error):
-								completion(error)
-							case .success(let transactionId):
+				Service.eos
+					.sendMoney(from: account,
+							   to: EOS.contractAccount,
+							   amount: amount,
+							   symbol: "SCR",
+							   memo: "\(userId)-\(model.id)",
+					passcode: passcode) { transactionResult in
 
-								Service.api
-									.notifyContribution(campaignId: model.id,
-														amount: amount,
-														transactionId: transactionId) { result in
+						guard case let .success(transactionId) = transactionResult else {
+							return completion(transactionResult.error!)
+						}
 
-															// если ошибка
-															// не удалось подтвердить транзакцию
-															// но она прошла успешно
-															completion(nil)
-								}
-							}
+						Service.api
+							.notifyContribution(campaignId: model.id,
+												amount: amount,
+												transactionId: transactionId) { result in
 
-
-			}
+													// если ошибка
+													// не удалось подтвердить транзакцию
+													// но она прошла успешно
+													completion(nil)
+						}
+				}
 		}
 	}
 
@@ -188,7 +189,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			.getUserId { userResult in
 
 				guard case let .success(response) = userResult else {
-						return completion(userResult.error!)
+					return completion(userResult.error!)
 				}
 
 				guard let userId = response.userId else {
