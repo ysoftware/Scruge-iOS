@@ -227,11 +227,8 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 		let newValue = !isSubscribed
 		Service.api.setSubscribing(newValue, to: model) { result in
-			switch result {
-			case .success:
+			if case .success = result {
 				self.reloadSubscribtionStatus()
-			case .failure:
-				break
 			}
 		}
 	}
