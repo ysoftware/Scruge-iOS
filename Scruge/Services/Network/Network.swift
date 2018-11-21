@@ -92,7 +92,7 @@ struct Network:Networking {
 			}
 
 			if let error = response.error {
-				self.log(response, "Error: \(response.statusCode ?? -1)")
+				self.log(response, "Error: status code \(response.statusCode ?? -1)")
 				return completion(.failure(AnyError(error)))
 			}
 
