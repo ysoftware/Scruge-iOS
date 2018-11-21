@@ -28,8 +28,8 @@ final class FeaturedViewController: UIViewController {
 	private var titleButton = UIButton(type: .custom)
 	private var isShowingCategories = false
 	private let campaignVM = CampaignAVM()
-	private var tableUpdateHandler:ArrayViewModelUpdateHandler!
 	private let categoriesVM = CategoryAVM()
+	private var tableUpdateHandler:ArrayViewModelUpdateHandler!
 
 	// MARK: - Setup
 
@@ -49,6 +49,9 @@ final class FeaturedViewController: UIViewController {
 		case .ready, .error:
 			if categoriesVM.numberOfItems == 0 {
 				categoriesVM.reloadData()
+			}
+			if campaignVM.numberOfItems == 0 {
+				campaignVM.reloadData()
 			}
 		default: break
 		}

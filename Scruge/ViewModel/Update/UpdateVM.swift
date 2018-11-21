@@ -48,7 +48,7 @@ final class UpdateVM: ViewModel<Update> {
 		guard let model = model else { return completion("") }
 		Service.api.getUpdateContent(for: model) { result in
 			if case let .success(response) = result {
-				completion(response.content)
+				completion(response.content ?? "")
 			}
 			else {
 				completion("")

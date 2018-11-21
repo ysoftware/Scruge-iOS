@@ -97,7 +97,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		guard let model = model else { return completion("") }
 		Service.api.getCampaignContent(for: model) { result in
 			if case let .success(response) = result {
-				completion(response.content)
+				completion(response.content ?? "")
 			}
 			else {
 				completion("")

@@ -17,7 +17,7 @@ final class Api {
 
 		case prod = "http://api.scruge.world/"
 
-		case dev = " http://176.213.156.167"
+		case dev = " http://176.213.156.167/"
 	}
 
 	// MARK: - Initialization

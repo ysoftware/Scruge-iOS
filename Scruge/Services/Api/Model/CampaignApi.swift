@@ -10,11 +10,6 @@ import Foundation
 
 // MARK: - Response
 
-struct CampaignRequest: Codable {
-
-	let campaignId:Int
-}
-
 struct CampaignResponse: Codable {
 
 	let result:Int
@@ -30,6 +25,11 @@ struct CampaignListResponse: Codable {
 }
 
 // MARK: - Request
+
+struct CampaignRequest: Codable {
+
+	let campaignId:Int
+}
 
 struct CampaignListRequest: Codable {
 

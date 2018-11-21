@@ -10,18 +10,6 @@ import Foundation
 
 // MARK: - Request
 
-struct BoolResponse: Codable {
-
-	let value:Bool?
-
-	let result:Int
-}
-
-struct ResultResponse: Codable {
-
-	let result:Int
-}
-
 struct AccountRequest: Codable {
 
 	let accountName:String
@@ -31,23 +19,35 @@ struct AccountRequest: Codable {
 
 // MARK: - Response
 
+struct BoolResponse: Codable {
+
+	let result:Int
+
+	let value:Bool?
+}
+
+struct ResultResponse: Codable {
+
+	let result:Int
+}
+
 struct CategoriesResponse: Codable {
 
 	let result:Int
 
-	let data:[Category]
+	let data:[Category]?
 }
 
 struct TagsResponse: Codable {
 
 	let result:Int
 
-	let tags:[String]
+	let tags:[String]?
 }
 
 struct HTMLResponse: Codable {
 
 	let result:Int
 
-	let content:String
+	let content:String?
 }
