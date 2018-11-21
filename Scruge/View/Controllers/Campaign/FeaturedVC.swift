@@ -47,9 +47,9 @@ final class FeaturedViewController: UIViewController {
 
 		switch categoriesVM.state {
 		case .ready, .error:
-			if categoriesVM.numberOfItems == 0 {
-				categoriesVM.reloadData()
-			}
+//			if categoriesVM.numberOfItems == 0 {
+//				categoriesVM.reloadData()
+//			}
 			if campaignVM.numberOfItems == 0 {
 				campaignVM.reloadData()
 			}
@@ -76,7 +76,7 @@ final class FeaturedViewController: UIViewController {
 		// campaignVM.reloadData() in setInitial() -> selectCategory(nil)
 
 		categoriesVM.delegate = self
-		categoriesVM.reloadData()
+//		categoriesVM.reloadData()
 	}
 
 	func setupTableView() {
@@ -99,9 +99,9 @@ final class FeaturedViewController: UIViewController {
 	@objc func reloadData() {
 		campaignVM.reloadData()
 
-		if categoriesVM.isEmpty {
-			categoriesVM.reloadData()
-		}
+//		if categoriesVM.isEmpty {
+//			categoriesVM.reloadData()
+//		}
 	}
 
 	func showCategories(_ value:Bool) {
