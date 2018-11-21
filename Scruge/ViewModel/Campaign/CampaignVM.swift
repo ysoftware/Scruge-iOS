@@ -30,6 +30,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	private let id:Int
 	private(set) var isSubscribed:Bool? { didSet { notifyUpdated() }}
+	private(set) var canVote:Bool? { didSet { notifyUpdated() }}
 	private(set) var state:ViewState = .loading  { didSet { notifyUpdated() }}
 
 	// MARK: - Setup
@@ -116,6 +117,18 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		}
 	}
 
+	func reloadCanVote() {
+		guard let model = model else { return }
+		Service.api.getCanVote(campaignId: model.id) { result in
+			switch result {
+			case .success(let response):
+				self.canVote = response.value
+			case .failure:
+				self.canVote = nil
+			}
+		}
+	}
+
 	func loadAmountContributed(_ completion: @escaping (Double?)->Void) {
 		guard let model = model else { return completion(nil) }
 
@@ -168,7 +181,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 												transactionId: transactionId) { result in
 
 													// если ошибка
-													// не удалось подтвердить транзакцию
+													// не удалось уведомить сервер о транзакции
 													// но она прошла успешно
 													completion(nil)
 						}
@@ -207,15 +220,20 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 								data: vote.jsonString,
 								passcode: passcode) { transactionResult in
 
-//									Service.api
-//										.notifyVote(campaignId: model.id,
-//													transactionId: transactionId) { result in
-//
-//														// если ошибка
-//														// не удалось подтвердить транзакцию
-//														// но она прошла успешно
-//														completion(nil)
-//									}
+									guard case let .success(transactionId) = transactionResult else {
+										return completion(transactionResult.error!)
+									}
+
+									Service.api
+										.notifyVote(campaignId: model.id,
+													value: value,
+													transactionId: transactionId) { result in
+
+														// если ошибка
+														// не удалось уведомить сервер о транзакции
+														// но она прошла успешно
+														completion(nil)
+									}
 				}
 		}
 	}

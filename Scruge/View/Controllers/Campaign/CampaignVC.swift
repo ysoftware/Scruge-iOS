@@ -46,7 +46,9 @@ final class CampaignViewController: UIViewController {
 				}
 			}
 		case .activeVote:
-			Service.presenter.presentVoteViewController(in: self, with: vm)
+			if vm.canVote == true {
+				Service.presenter.presentVoteViewController(in: self, with: vm)
+			}
 		default: break
 		}
 	}
@@ -102,6 +104,7 @@ final class CampaignViewController: UIViewController {
 
 		if vm.state == .ready {
 			vm.reloadSubscribtionStatus()
+			vm.reloadCanVote()
 			setupBottomButton()
 		}
 	}
@@ -157,8 +160,14 @@ final class CampaignViewController: UIViewController {
 		switch vm.status {
 		case .activeVote:
 			showContributeButton(true, duration: 0)
-			contributeView.backgroundColor = Service.constants.color.contributeBlue
-			contributeButton.setTitle("Vote", for: .normal)
+			if vm.canVote == true {
+				contributeView.backgroundColor = Service.constants.color.contributeBlue
+				contributeButton.setTitle("Vote", for: .normal)
+			}
+			else {
+				contributeView.backgroundColor = Service.constants.color.contributeBlue
+				contributeButton.setTitle("You already voted", for: .normal)
+			}
 		case .funding:
 			if Service.tokenManager.hasToken {
 				showContributeButton(true, duration: 0)

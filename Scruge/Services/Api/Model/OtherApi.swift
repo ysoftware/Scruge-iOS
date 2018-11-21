@@ -12,7 +12,9 @@ import Foundation
 
 struct BoolResponse: Codable {
 
-	let value:Bool
+	let value:Bool?
+
+	let result:Int
 }
 
 struct ResultResponse: Codable {

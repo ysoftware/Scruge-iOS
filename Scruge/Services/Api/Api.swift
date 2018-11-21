@@ -16,6 +16,8 @@ final class Api {
 		case test = "http://testapi.scruge.world/"
 
 		case prod = "http://api.scruge.world/"
+
+		case dev = " http://176.213.156.167"
 	}
 
 	// MARK: - Initialization
@@ -202,6 +204,27 @@ final class Api {
 	}
 
 	// MARK: - Contributions
+
+	func getCanVote(campaignId:Int,
+					_ completion: @escaping (Result<BoolResponse, AnyError>)->Void) {
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.noToken)))
+		}
+		service.get("user/\(token)/can_vote", nil, completion)
+	}
+
+	func notifyVote(campaignId:Int,
+					value:Bool,
+					transactionId:String,
+					_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.noToken)))
+		}
+		let request = VoteNotificationRequest(value: value,
+											  campaignId: campaignId,
+											  transactionId: transactionId)
+		service.get("user/\(token)/can_vote", request.toDictionary(), completion)
+	}
 
 	func notifyContribution(campaignId:Int,
 							amount:Double,

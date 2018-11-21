@@ -19,6 +19,15 @@ struct ContributionNotificationRequest: Codable {
 	let transactionId:String
 }
 
+struct VoteNotificationRequest: Codable {
+
+	let value:Bool
+
+	let campaignId:Int
+
+	let transactionId:String
+}
+
 // MARK: - Response
 
 struct ContributionHistoryResponse: Codable {
