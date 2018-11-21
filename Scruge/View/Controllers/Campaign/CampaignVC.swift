@@ -103,8 +103,6 @@ final class CampaignViewController: UIViewController {
 		super.viewDidAppear(animated)
 
 		if vm.state == .ready {
-			vm.reloadSubscribtionStatus()
-			vm.reloadCanVote()
 			setupBottomButton()
 		}
 	}

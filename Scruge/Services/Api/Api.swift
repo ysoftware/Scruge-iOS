@@ -68,7 +68,7 @@ final class Api {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
-		service.get("profile/\(token)/id", nil, completion)
+		service.get("user/\(token)/id", nil, completion)
 	}
 
 	func updateProfileImage(_ image:UIImage,
@@ -210,7 +210,8 @@ final class Api {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
-		service.get("user/\(token)/can_vote", nil, completion)
+		let request = CampaignRequest(campaignId: campaignId)
+		service.get("user/\(token)/can_vote", request.toDictionary(), completion)
 	}
 
 	func notifyVote(campaignId:Int,

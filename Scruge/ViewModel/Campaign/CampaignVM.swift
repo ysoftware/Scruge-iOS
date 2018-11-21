@@ -84,6 +84,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			case .success(let response):
 				self.model = response.campaign
 				self.reloadSubscribtionStatus()
+				self.reloadCanVote()
 				self.state = .ready
 			case .failure(let error):
 				self.model = nil
@@ -101,30 +102,6 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			}
 			else {
 				completion("")
-			}
-		}
-	}
-
-	func reloadSubscribtionStatus() {
-		guard let model = model else { return }
-		Service.api.getSubscriptionStatus(for: model) { result in
-			switch result {
-			case .success(let response):
-				self.isSubscribed = response.value
-			case .failure:
-				self.isSubscribed = nil
-			}
-		}
-	}
-
-	func reloadCanVote() {
-		guard let model = model else { return }
-		Service.api.getCanVote(campaignId: model.id) { result in
-			switch result {
-			case .success(let response):
-				self.canVote = response.value
-			case .failure:
-				self.canVote = nil
 			}
 		}
 	}
@@ -247,6 +224,30 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		Service.api.setSubscribing(newValue, to: model) { result in
 			if case .success = result {
 				self.reloadSubscribtionStatus()
+			}
+		}
+	}
+
+	private func reloadSubscribtionStatus() {
+		guard let model = model else { return }
+		Service.api.getSubscriptionStatus(for: model) { result in
+			switch result {
+			case .success(let response):
+				self.isSubscribed = response.value
+			case .failure:
+				self.isSubscribed = nil
+			}
+		}
+	}
+
+	private func reloadCanVote() {
+		guard let model = model else { return }
+		Service.api.getCanVote(campaignId: model.id) { result in
+			switch result {
+			case .success(let response):
+				self.canVote = response.value
+			case .failure:
+				self.canVote = nil
 			}
 		}
 	}
