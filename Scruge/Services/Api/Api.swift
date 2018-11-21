@@ -221,10 +221,10 @@ final class Api {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
-		let request = VoteNotificationRequest(value: value,
+		let request = VoteNotificationRequest(vote: value,
 											  campaignId: campaignId,
 											  transactionId: transactionId)
-		service.get("user/\(token)/can_vote", request.toDictionary(), completion)
+		service.post("user/\(token)/vote", request.toDictionary(), completion)
 	}
 
 	func notifyContribution(campaignId:Int,

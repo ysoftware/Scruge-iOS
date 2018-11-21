@@ -21,7 +21,7 @@ struct ContributionNotificationRequest: Codable {
 
 struct VoteNotificationRequest: Codable {
 
-	let value:Bool
+	let vote:Bool
 
 	let campaignId:Int
 
