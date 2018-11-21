@@ -18,5 +18,5 @@ struct Milestone: Equatable, Codable {
 
 	let description:String
 
-	let fundsReleasePercent:Double?
+	let fundsReleasePercent:Double
 }
