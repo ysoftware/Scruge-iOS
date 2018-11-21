@@ -22,7 +22,11 @@ final class SocialCell: UICollectionViewCell {
 extension Social {
 
 	var image:UIImage {
-		switch name {
+		guard let network = network else {
+			return #imageLiteral(resourceName: "website.jpg")
+		}
+
+		switch network {
 		case .twitter: return #imageLiteral(resourceName: "twitter")
 		case .facebook: return #imageLiteral(resourceName: "facebook.jpg")
 		case .instagram: return #imageLiteral(resourceName: "instagram.jpg")
