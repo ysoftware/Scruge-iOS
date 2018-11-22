@@ -132,10 +132,8 @@ struct Network:Networking {
 		guard let result = ResultResponse(from: data),
 			let error = ErrorHandler.error(from: result.result)
 			else { return nil }
-		switch error {
-		case AuthError.noToken, AuthError.invalidToken, AuthError.userNotFound:
+		if error.isAuthenticationFailureError {
 			Service.tokenManager.removeToken()
-		default: break
 		}
 		return error
 	}

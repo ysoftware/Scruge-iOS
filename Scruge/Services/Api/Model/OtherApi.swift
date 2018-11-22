@@ -21,9 +21,7 @@ struct AccountRequest: Codable {
 
 struct BoolResponse: Codable {
 
-	let result:Int
-
-	let value:Bool?
+	let value:Bool
 }
 
 struct ResultResponse: Codable {
@@ -33,21 +31,15 @@ struct ResultResponse: Codable {
 
 struct CategoriesResponse: Codable {
 
-	let result:Int
-
-	let data:[Category]?
+	let data:[Category]
 }
 
 struct TagsResponse: Codable {
 
-	let result:Int
-
-	let tags:[String]?
+	let tags:[String]
 }
 
 struct HTMLResponse: Codable {
 
-	let result:Int
-
-	let content:String?
+	let content:String
 }

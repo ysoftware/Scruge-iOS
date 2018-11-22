@@ -12,23 +12,17 @@ import UIKit
 
 struct LoginResponse: Codable {
 
-	let result:Int
-
-	let token:String?
+	let token:String
 }
 
 struct UserIdResponse: Codable {
 
-	let result:Int
-
-	let userId:Int?
+	let userId:Int
 }
 
 struct ProfileResponse: Codable {
 
-	let result:Int
-
-	let profile:Profile?
+	let profile:Profile
 }
 
 // MARK: - Request

@@ -136,16 +136,12 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 					return completion(userResult.error!)
 				}
 
-				guard let userId = response.userId else {
-					return completion(ErrorHandler.error(from: response.result))
-				}
-
 				Service.eos
 					.sendMoney(from: account,
 							   to: EOS.contractAccount,
 							   amount: amount,
 							   symbol: "SCR",
-							   memo: "\(userId)-\(model.id)",
+							   memo: "\(response.userId)-\(model.id)",
 					passcode: passcode) { transactionResult in
 
 						guard case let .success(transactionId) = transactionResult else {
@@ -182,12 +178,8 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 					return completion(userResult.error!)
 				}
 
-				guard let userId = response.userId else {
-					return completion(ErrorHandler.error(from: response.result))
-				}
-
 				let vote = Vote(eosAccount: account.name,
-								userId: userId,
+								userId: response.userId,
 								campaignId: model.id,
 								vote: value)
 

@@ -12,8 +12,6 @@ import Foundation
 
 struct CommentListResponse: Codable {
 
-	let result:Int
-
 	let comments:[Comment]
 }
 

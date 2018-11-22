@@ -40,9 +40,7 @@ extension PartialCampaignModelHolder {
 	}
 
 	var progressString: String {  // 0% - 100%
-		guard let model = model else { return "0% raised" }
-		let progress = (model.economics.raised / model.economics.softCap * 100).formatRounding()
-		return "\(progress)% raised"
+		return "\((progress * 100).formatRounding())% raised"
 	}
 
 	var raisedString: String {

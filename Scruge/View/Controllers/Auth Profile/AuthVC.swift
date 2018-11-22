@@ -44,16 +44,7 @@ final class AuthViewController: UIViewController {
 
 			switch result {
 			case .success(let response):
-
-				if let error = ErrorHandler.error(from: response.result) {
-					return self.alert(error)
-				}
-
-				guard let token = response.token else {
-					return self.alert(ErrorHandler.message(for: NetworkingError.unknown))
-				}
-
-				Service.tokenManager.save(token)
+				Service.tokenManager.save(response.token)
 
 				if self.didSignUp {
 					Service.presenter.presentProfileSetupViewController(in: self,

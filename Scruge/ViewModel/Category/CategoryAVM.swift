@@ -15,13 +15,7 @@ final class CategoryAVM: SimpleArrayViewModel<Category, CategoryVM> {
 		Service.api.getCategories { result in
 			switch result {
 			case .success(let response):
-				if let data = response.data {
-					block(.success(data))
-				}
-				else {
-					let error = ErrorHandler.error(from: response.result)
-					block(.failure(AnyError(error ?? NetworkingError.unknown)))
-				}
+				block(.success(response.data))
 			case .failure(let error):
 				block(.failure(error))
 			}

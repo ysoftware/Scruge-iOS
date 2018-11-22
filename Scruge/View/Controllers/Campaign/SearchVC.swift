@@ -56,11 +56,10 @@ final class SearchViewController: UIViewController {
 		tableUpdateHandler = ArrayViewModelUpdateHandler(with: tableView)
 
 		Service.api.getTags { result in
-			guard case let .success(response) = result,
-				let tags = response.tags
+			guard case let .success(response) = result
 				else { return }
 
-			self.tags = tags.compactMap { $0.lowercased() }
+			self.tags = response.tags.compactMap { $0.lowercased() }
 			self.tagCollectionView.reloadData()
 			DispatchQueue.main.async {
 				self.tagCollectionView.collectionViewLayout.invalidateLayout()
