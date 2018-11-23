@@ -15,6 +15,9 @@
 		71163A472167517E00C5B633 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A462167517E00C5B633 /* Wallet.swift */; };
 		71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A49216754BC00C5B633 /* LoadingView.swift */; };
 		71163A4C216754C400C5B633 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71163A4B216754C400C5B633 /* LoadingView.xib */; };
+		712B3A7021A813E8003BB43A /* EconomiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712B3A6F21A813E8003BB43A /* EconomiesCell.xib */; };
+		712B3A7221A814AC003BB43A /* EconomiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712B3A7121A814AC003BB43A /* EconomiesCell.swift */; };
+		712B3A7521A81869003BB43A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712B3A7421A81869003BB43A /* CardView.swift */; };
 		71345AF32176000000F28AF1 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF22176000000F28AF1 /* Range.swift */; };
 		71345AF92177336F00F28AF1 /* StringTruncate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345AF82177336F00F28AF1 /* StringTruncate.swift */; };
 		71345C0D21773D2800F28AF1 /* AnyDecodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71345C0A21773D2800F28AF1 /* AnyDecodable.swift */; };
@@ -139,8 +142,7 @@
 		71BE95CB21649C67001CF853 /* DateMilliseconds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95CA21649C67001CF853 /* DateMilliseconds.swift */; };
 		71BE95CD21649FF2001CF853 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95CC21649FF2001CF853 /* Constants.swift */; };
 		71C368972181F79200729C00 /* Technical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C368962181F79200729C00 /* Technical.swift */; };
-		71C3689A2181F80500729C00 /* TechnicalVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C368992181F80500729C00 /* TechnicalVM.swift */; };
-		71C3689C2181F81400729C00 /* TechnicalAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3689B2181F81400729C00 /* TechnicalAVM.swift */; };
+		71C3689A2181F80500729C00 /* EconomiesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C368992181F80500729C00 /* EconomiesVM.swift */; };
 		71C3689F2183463000729C00 /* Economics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3689E2183463000729C00 /* Economics.swift */; };
 		71C8E8E5215907580078BD36 /* DismissSegue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E4215907580078BD36 /* DismissSegue.swift */; };
 		71C8E8E821590F2A0078BD36 /* EOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C8E8E721590F2A0078BD36 /* EOS.swift */; };
@@ -220,6 +222,10 @@
 		71163A462167517E00C5B633 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		71163A49216754BC00C5B633 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		71163A4B216754C400C5B633 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		712B3A6C21A80341003BB43A /* CampaignVC copy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CampaignVC copy.swift"; sourceTree = "<group>"; };
+		712B3A6F21A813E8003BB43A /* EconomiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EconomiesCell.xib; sourceTree = "<group>"; };
+		712B3A7121A814AC003BB43A /* EconomiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EconomiesCell.swift; sourceTree = "<group>"; };
+		712B3A7421A81869003BB43A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		71345AF22176000000F28AF1 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
 		71345AF82177336F00F28AF1 /* StringTruncate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringTruncate.swift; sourceTree = "<group>"; };
 		71345C0A21773D2800F28AF1 /* AnyDecodable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnyDecodable.swift; sourceTree = "<group>"; };
@@ -349,8 +355,7 @@
 		71BE95CA21649C67001CF853 /* DateMilliseconds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMilliseconds.swift; sourceTree = "<group>"; };
 		71BE95CC21649FF2001CF853 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71C368962181F79200729C00 /* Technical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Technical.swift; sourceTree = "<group>"; };
-		71C368992181F80500729C00 /* TechnicalVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalVM.swift; sourceTree = "<group>"; };
-		71C3689B2181F81400729C00 /* TechnicalAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TechnicalAVM.swift; sourceTree = "<group>"; };
+		71C368992181F80500729C00 /* EconomiesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EconomiesVM.swift; sourceTree = "<group>"; };
 		71C3689E2183463000729C00 /* Economics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Economics.swift; sourceTree = "<group>"; };
 		71C8E8E4215907580078BD36 /* DismissSegue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissSegue.swift; sourceTree = "<group>"; };
 		71C8E8E721590F2A0078BD36 /* EOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOS.swift; sourceTree = "<group>"; };
@@ -485,6 +490,23 @@
 				71163A49216754BC00C5B633 /* LoadingView.swift */,
 			);
 			path = "Loading View";
+			sourceTree = "<group>";
+		};
+		712B3A6E21A813D3003BB43A /* Economies */ = {
+			isa = PBXGroup;
+			children = (
+				712B3A6F21A813E8003BB43A /* EconomiesCell.xib */,
+				712B3A7121A814AC003BB43A /* EconomiesCell.swift */,
+			);
+			path = Economies;
+			sourceTree = "<group>";
+		};
+		712B3A7321A81854003BB43A /* CardView */ = {
+			isa = PBXGroup;
+			children = (
+				712B3A7421A81869003BB43A /* CardView.swift */,
+			);
+			path = CardView;
 			sourceTree = "<group>";
 		};
 		71345BA221773CEC00F28AF1 /* Third-Party */ = {
@@ -677,7 +699,7 @@
 		71971CB32158E3F6004D28E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				71C368982181F7F100729C00 /* Technical */,
+				71C368982181F7F100729C00 /* Economies */,
 				71345C192179C93600F28AF1 /* Account-Wallet */,
 				71AB7904216609330077D904 /* Profile */,
 				71BE95B921636F9D001CF853 /* Category */,
@@ -742,6 +764,7 @@
 		71971CBB2158E454004D28E7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				712B3A6E21A813D3003BB43A /* Economies */,
 				71AD0E2E2170918900077446 /* Document */,
 				71AD0E2921708DCD00077446 /* Faq */,
 				71BE95A621626023001CF853 /* Reward */,
@@ -764,6 +787,7 @@
 		71971CBC2158E45B004D28E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				712B3A7321A81854003BB43A /* CardView */,
 				71163A48216754A600C5B633 /* Loading View */,
 				71BE95B621636236001CF853 /* Error */,
 				71BE95C82163E879001CF853 /* ProgressView.swift */,
@@ -1010,6 +1034,7 @@
 			children = (
 				71BE9579215EA75B001CF853 /* FeaturedVC.swift */,
 				71BE958621620BE3001CF853 /* CampaignVC.swift */,
+				712B3A6C21A80341003BB43A /* CampaignVC copy.swift */,
 				71DA7E992164ABBC0052EB8F /* SearchVC.swift */,
 				71BE958821621AF9001CF853 /* ContentVC.swift */,
 			);
@@ -1080,13 +1105,12 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		71C368982181F7F100729C00 /* Technical */ = {
+		71C368982181F7F100729C00 /* Economies */ = {
 			isa = PBXGroup;
 			children = (
-				71C368992181F80500729C00 /* TechnicalVM.swift */,
-				71C3689B2181F81400729C00 /* TechnicalAVM.swift */,
+				71C368992181F80500729C00 /* EconomiesVM.swift */,
 			);
-			path = Technical;
+			path = Economies;
 			sourceTree = "<group>";
 		};
 		71C3689D21830DFE00729C00 /* Activity */ = {
@@ -1471,6 +1495,7 @@
 				71BE95A0216258E7001CF853 /* UpdateCell.xib in Resources */,
 				71BE9572215E777A001CF853 /* CampaignCell.xib in Resources */,
 				71BE95A821626034001CF853 /* RewardCell.xib in Resources */,
+				712B3A7021A813E8003BB43A /* EconomiesCell.xib in Resources */,
 				71BE95A321625E5B001CF853 /* CommentCell.xib in Resources */,
 				71971C882158E058004D28E7 /* Assets.xcassets in Resources */,
 				71AD0E2B21708DD800077446 /* FaqCell.xib in Resources */,
@@ -1624,7 +1649,7 @@
 				71B38D14215B999400929CC3 /* Milestone.swift in Sources */,
 				71D84CC321995AD000E8DB88 /* curves.c in Sources */,
 				716E625821899455002AC5DA /* ContribApi.swift in Sources */,
-				71C3689A2181F80500729C00 /* TechnicalVM.swift in Sources */,
+				71C3689A2181F80500729C00 /* EconomiesVM.swift in Sources */,
 				715DB15D217471980005B69D /* ContributeVC.swift in Sources */,
 				71D84CD421995AD000E8DB88 /* Signature.swift in Sources */,
 				71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */,
@@ -1640,6 +1665,7 @@
 				71D84CDD21995AD000E8DB88 /* PrivateKey.swift in Sources */,
 				71D84CDE21995AD000E8DB88 /* ChainModels.swift in Sources */,
 				71BE9591216233E3001CF853 /* CampFooter.swift in Sources */,
+				712B3A7521A81869003BB43A /* CardView.swift in Sources */,
 				71BE9560215E1B36001CF853 /* AuthApi.swift in Sources */,
 				71BE95B221635835001CF853 /* ErrorHandler.swift in Sources */,
 				71387A8E216B6C2200B24C67 /* ImageTools.swift in Sources */,
@@ -1686,7 +1712,6 @@
 				71BE958F216233CF001CF853 /* CampHeader.swift in Sources */,
 				71345C0E21773D2800F28AF1 /* AnyCodable.swift in Sources */,
 				71A0C1AE216F9B9200C2ACF3 /* Social.swift in Sources */,
-				71C3689C2181F81400729C00 /* TechnicalAVM.swift in Sources */,
 				71D84CE021995AD000E8DB88 /* BigInt.swift in Sources */,
 				71BE95CB21649C67001CF853 /* DateMilliseconds.swift in Sources */,
 				71BE95AA2162603C001CF853 /* RewardCell.swift in Sources */,
@@ -1747,6 +1772,7 @@
 				71C8E8EC2159101B0078BD36 /* Campaign.swift in Sources */,
 				71B38D22215BBEC400929CC3 /* RewardAVM.swift in Sources */,
 				710FE992217F94F8009E51E5 /* Balance.swift in Sources */,
+				712B3A7221A814AC003BB43A /* EconomiesCell.swift in Sources */,
 				71A0C1B6217089A700C2ACF3 /* FaqVM.swift in Sources */,
 				7198C820218AFB2C009682E7 /* ErrorTypes.swift in Sources */,
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,

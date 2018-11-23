@@ -67,8 +67,8 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		if let faq = model?.faq { faqVM = FaqAVM(faq) }
 		else { faqVM = nil }
 
-		if let economics = model?.economics { technicalVM = TechnicalAVM(economics) }
-		else { technicalVM = nil }
+		if let economics = model?.economics { economiesVM = EconomiesVM(economics) }
+		else { economiesVM = nil }
 	}
 
 	// MARK: - Actions
@@ -252,7 +252,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	private(set) var currentMilestoneVM:MilestoneVM?
 
-	private(set) var technicalVM:TechnicalAVM?
+	private(set) var economiesVM:EconomiesVM?
 
 	private(set) var documentsVM:DocumentAVM?
 

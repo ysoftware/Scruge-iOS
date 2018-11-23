@@ -42,13 +42,6 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 	}
 
 	@discardableResult
-	func setup(with vm:TechnicalAVM) -> Self {
-		titleLabel.text = "Token economies"
-		rightLabel.text = ""
-		return self
-	}
-
-	@discardableResult
 	func setup(with vm:DocumentAVM) -> Self {
 		titleLabel.text = "Documents"
 		rightLabel.text = "\(vm.numberOfItems)"
