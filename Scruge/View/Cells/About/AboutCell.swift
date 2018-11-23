@@ -11,7 +11,6 @@ import UIKit
 final class AboutCell: UITableViewCell {
 
 	@IBOutlet weak var collectionHeightConstraint: NSLayoutConstraint!
-	@IBOutlet weak var marginConstraint: NSLayoutConstraint!
 	
 	@IBOutlet weak var collectionView:UICollectionView!
 	@IBOutlet weak var aboutLabel:UILabel!
@@ -28,7 +27,7 @@ final class AboutCell: UITableViewCell {
 		collectionView.register(UINib(resource: R.nib.socialCell),
 								forCellWithReuseIdentifier: R.nib.socialCell.identifier)
 		collectionHeightConstraint.constant = social.count > 0 ? 35 : 0
-		marginConstraint.constant = social.count > 0 ? 20 : 0
+		collectionView.isHidden = social.count == 0
 		collectionView.reloadData()
 		return self
 	}

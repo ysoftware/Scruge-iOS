@@ -286,7 +286,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	var about:String? {
-		return model?.about
+		return "Me.guided is the social network for audio guides on blockchain. Users will create new audio tours and sell them on our platform. Me.guided is the new way of exploring world"/// model?.about
 	}
 
 	var status:Status {

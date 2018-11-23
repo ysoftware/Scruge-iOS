@@ -148,6 +148,7 @@ final class CampaignViewController: UIViewController {
 		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 		navigationController?.navigationBar.shadowImage = UIImage()
 		navigationController?.navigationBar.tintColor = .white
+		navigationController?.navigationBar.isTranslucent = true
 	}
 
 	private func makeNavigationBarNormal() {
@@ -240,6 +241,11 @@ extension CampaignViewController: UITableViewDataSource {
 				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		var cell:UITableViewCell!
 		switch block(for: indexPath.row) {
+		case .about:
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.aboutCell,
+												 for: indexPath)!.setup(with: vm) { social in
+													self.openSocialPage(social)
+			}
 		case .info:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
 												 for: indexPath)!.setup(with: vm)
@@ -250,6 +256,7 @@ extension CampaignViewController: UITableViewDataSource {
 		default: break
 		}
 		if cell == nil { cell = UITableViewCell() }
+		cell.selectionStyle = .none
 		return cell
 	}
 }
