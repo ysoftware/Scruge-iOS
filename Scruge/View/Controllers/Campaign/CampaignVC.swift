@@ -61,6 +61,10 @@ final class CampaignViewController: UIViewController {
 
 	// MARK: - Setup
 
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -77,6 +81,16 @@ final class CampaignViewController: UIViewController {
 		}
 	}
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		makeNavigationBarTranslarent()
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		makeNavigationBarNormal()
+	}
+
 	private func setupVM() {
 		vm.delegate = self
 		vm.load()
@@ -89,6 +103,12 @@ final class CampaignViewController: UIViewController {
 		tableView.delaysContentTouches = false
 		tableView.estimatedRowHeight = 400
 		tableView.rowHeight = UITableView.automaticDimension
+
+		// make table view go under the navigation bar
+		if #available(iOS 11.0, *) {
+			tableView.contentInsetAdjustmentBehavior = .never
+		}
+		automaticallyAdjustsScrollViewInsets = false
 
 		tableView.register(UINib(resource: R.nib.campaignCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.campaignCell.identifier)
@@ -111,17 +131,29 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func setupNavigationBar() {
-		guard let isSubscribed = vm.isSubscribed else {
-			navigationItem.rightBarButtonItem = nil
-			return
+		if let isSubscribed = vm.isSubscribed {
+			let title = isSubscribed ? "Unsubscribe" : "Subscribe"
+			let subscribeButton = UIBarButtonItem(title: title,
+												  style: .plain,
+												  target: self,
+												  action: #selector(toggleSubscription))
+			navigationItem.rightBarButtonItem = subscribeButton
 		}
+		else {
+			navigationItem.rightBarButtonItem = nil
+		}
+	}
 
-		let title = isSubscribed ? "Unsubscribe" : "Subscribe"
-		let subscribeButton = UIBarButtonItem(title: title,
-											  style: .plain,
-											  target: self,
-											  action: #selector(toggleSubscription))
-		navigationItem.rightBarButtonItem = subscribeButton
+	private func makeNavigationBarTranslarent() {
+		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+		navigationController?.navigationBar.shadowImage = UIImage()
+		navigationController?.navigationBar.tintColor = .white
+	}
+
+	private func makeNavigationBarNormal() {
+		navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+		navigationController?.navigationBar.shadowImage = nil
+		navigationController?.navigationBar.tintColor = view.tintColor
 	}
 
 	private func setupBottomButton() {
@@ -208,6 +240,9 @@ extension CampaignViewController: UITableViewDataSource {
 				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		var cell:UITableViewCell!
 		switch block(for: indexPath.row) {
+		case .info:
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
+												 for: indexPath)!.setup(with: vm)
 		case .economies:
 			guard let vm = vm.economiesVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.economiesCell,

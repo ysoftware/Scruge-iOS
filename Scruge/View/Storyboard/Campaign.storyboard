@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,7 +39,7 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="PcP-tl-sxr" firstAttribute="leading" secondItem="f29-8i-jOR" secondAttribute="leading" id="4QM-NN-w3a"/>
                             <constraint firstItem="RmF-Tu-4YV" firstAttribute="leading" secondItem="1dJ-qR-SG6" secondAttribute="leading" id="7Um-mR-zwq"/>
@@ -64,7 +64,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C0p-gb-O8b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1498" y="-976"/>
+            <point key="canvasLocation" x="-1498.4000000000001" y="-976.10837438423653"/>
         </scene>
         <!--Campaign View Controller-->
         <scene sceneID="7Mq-h4-r2N">
@@ -74,9 +74,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="50" sectionFooterHeight="55" translatesAutoresizingMaskIntoConstraints="NO" id="hdg-Pb-D1I">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8IH-VN-7Bs">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
+                                <color key="backgroundColor" white="0.12" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="267" id="x4T-0l-TZ8"/>
+                                </constraints>
+                            </view>
+                            <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="hdg-Pb-D1I">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="728"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="bSn-68-QGz" id="wYc-0i-ihr"/>
                                     <outlet property="delegate" destination="bSn-68-QGz" id="Tdb-iK-cuP"/>
@@ -116,6 +123,8 @@
                             <constraint firstAttribute="bottom" secondItem="o18-DA-2UC" secondAttribute="bottom" id="5WP-Jm-dOk"/>
                             <constraint firstItem="DNJ-yh-Lww" firstAttribute="top" secondItem="O95-fJ-muX" secondAttribute="top" id="758-iW-kj0"/>
                             <constraint firstItem="o18-DA-2UC" firstAttribute="top" secondItem="hdg-Pb-D1I" secondAttribute="bottom" id="AQC-Jq-HOS"/>
+                            <constraint firstItem="8IH-VN-7Bs" firstAttribute="leading" secondItem="O95-fJ-muX" secondAttribute="leading" id="H2G-vA-XKP"/>
+                            <constraint firstAttribute="top" secondItem="8IH-VN-7Bs" secondAttribute="top" id="Hg8-WL-YKE"/>
                             <constraint firstAttribute="trailing" secondItem="hdg-Pb-D1I" secondAttribute="trailing" id="Lb3-5o-yGH"/>
                             <constraint firstItem="FAl-fi-C3i" firstAttribute="trailing" secondItem="DNJ-yh-Lww" secondAttribute="trailing" id="MDy-PB-915"/>
                             <constraint firstItem="hdg-Pb-D1I" firstAttribute="top" secondItem="O95-fJ-muX" secondAttribute="top" id="Y6T-rh-hBl"/>
@@ -123,6 +132,7 @@
                             <constraint firstItem="FAl-fi-C3i" firstAttribute="trailing" secondItem="o18-DA-2UC" secondAttribute="trailing" id="amh-0R-b8R"/>
                             <constraint firstItem="DNJ-yh-Lww" firstAttribute="leading" secondItem="FAl-fi-C3i" secondAttribute="leading" id="cm5-mE-nCh"/>
                             <constraint firstItem="o18-DA-2UC" firstAttribute="leading" secondItem="FAl-fi-C3i" secondAttribute="leading" id="eVm-YX-74c"/>
+                            <constraint firstItem="FAl-fi-C3i" firstAttribute="trailing" secondItem="8IH-VN-7Bs" secondAttribute="trailing" id="f2L-dQ-tWt"/>
                             <constraint firstAttribute="bottom" secondItem="DNJ-yh-Lww" secondAttribute="bottom" id="oMY-Lz-ItI"/>
                             <constraint firstAttribute="bottom" secondItem="o18-DA-2UC" secondAttribute="top" constant="84" id="sra-bh-yLQ"/>
                         </constraints>
@@ -138,7 +148,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Y2-md-9p2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-722.39999999999998" y="-976.46176911544239"/>
+            <point key="canvasLocation" x="-722.39999999999998" y="-976.84729064039414"/>
         </scene>
         <!--Content View Controller-->
         <scene sceneID="lGH-Ic-Zop">

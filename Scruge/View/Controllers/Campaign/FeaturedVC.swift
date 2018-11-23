@@ -85,7 +85,7 @@ final class FeaturedViewController: UIViewController {
 
 		campaignTableView.estimatedRowHeight = 400
 		campaignTableView.rowHeight = UITableView.automaticDimension
-		campaignTableView.register(UINib(resource: R.nib.campaignCell),
+		campaignTableView.register(UINib(resource: R.nib.campaignSmallCell),
 								   forCellReuseIdentifier: R.reuseIdentifier.campaignCell.identifier)
 
 		categoriesTableView.estimatedRowHeight = 80
