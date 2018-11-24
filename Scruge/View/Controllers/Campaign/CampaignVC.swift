@@ -128,6 +128,8 @@ final class CampaignViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.documentCell.identifier)
 		tableView.register(UINib(resource: R.nib.economiesCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.economiesCell.identifier)
+		tableView.register(UINib(resource: R.nib.pagingCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.pagingCell.identifier)
 	}
 
 	private func setupNavigationBar() {
@@ -252,6 +254,10 @@ extension CampaignViewController: UITableViewDataSource {
 		case .economies:
 			guard let vm = vm.economiesVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.economiesCell,
+												 for: indexPath)!.setup(with: vm)
+		case .faq:
+			guard let vm = vm.faqVM else { break }
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
 												 for: indexPath)!.setup(with: vm)
 		default: break
 		}

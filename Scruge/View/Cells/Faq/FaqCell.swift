@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FaqCell: UITableViewCell {
+final class FaqCell: UICollectionViewCell {
 
 	@IBOutlet weak var questionLabel:UILabel!
 	@IBOutlet weak var answerLabel:UILabel!
