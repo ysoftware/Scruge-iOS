@@ -11,30 +11,30 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PagingCell" rowHeight="193" id="zHM-Jr-Sn3" customClass="PagingCell" customModule="Scruge" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="395" height="193"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PagingCell" rowHeight="212" id="zHM-Jr-Sn3" customClass="PagingCell" customModule="Scruge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="395" height="212"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zHM-Jr-Sn3" id="O9e-cJ-Jwg">
-                <rect key="frame" x="0.0" y="0.0" width="395" height="192.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="395" height="211.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="83G-jr-8Hp" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                        <rect key="frame" x="10" y="10" width="375" height="172.5"/>
+                        <rect key="frame" x="15" y="5" width="365" height="196.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="pYU-eL-lWe">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="172.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="365" height="196.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Milestone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DE1-q4-KEQ">
-                                        <rect key="frame" x="10" y="10" width="355" height="17.5"/>
+                                        <rect key="frame" x="15" y="15" width="335" height="31.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYh-hk-bnC" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
-                                        <rect key="frame" x="10" y="37.5" width="355" height="125"/>
+                                        <rect key="frame" x="15" y="56.5" width="335" height="125"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xoH-iJ-rgX">
-                                                <rect key="frame" x="0.0" y="0.0" width="355" height="125"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="125"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="BVF-ZW-1ER">
                                                     <size key="itemSize" width="50" height="50"/>
@@ -48,7 +48,7 @@
                                                 </connections>
                                             </collectionView>
                                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="5tH-z5-oZe">
-                                                <rect key="frame" x="134" y="98" width="87" height="37"/>
+                                                <rect key="frame" x="124" y="98" width="87" height="37"/>
                                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="currentPageIndicatorTintColor" red="0.58431372549019611" green="0.792156862745098" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </pageControl>
@@ -68,7 +68,7 @@
                                                 <real key="value" value="1"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
-                                                <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <color key="value" red="0.76862745098039209" green="0.792156862745098" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </userDefinedRuntimeAttribute>
                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="NO"/>
                                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
@@ -77,7 +77,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                 </subviews>
-                                <directionalEdgeInsets key="directionalLayoutMargins" top="10" leading="10" bottom="10" trailing="10"/>
+                                <directionalEdgeInsets key="directionalLayoutMargins" top="15" leading="15" bottom="15" trailing="15"/>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -91,10 +91,10 @@
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstItem="83G-jr-8Hp" firstAttribute="leading" secondItem="O9e-cJ-Jwg" secondAttribute="leading" constant="10" id="2PP-qk-soA"/>
+                    <constraint firstItem="83G-jr-8Hp" firstAttribute="leading" secondItem="O9e-cJ-Jwg" secondAttribute="leading" constant="15" id="2PP-qk-soA"/>
                     <constraint firstAttribute="bottom" secondItem="83G-jr-8Hp" secondAttribute="bottom" constant="10" id="bsE-c6-hcd"/>
-                    <constraint firstItem="83G-jr-8Hp" firstAttribute="top" secondItem="O9e-cJ-Jwg" secondAttribute="top" constant="10" id="cXZ-Hb-ib6"/>
-                    <constraint firstAttribute="trailing" secondItem="83G-jr-8Hp" secondAttribute="trailing" constant="10" id="elU-uf-cjz"/>
+                    <constraint firstItem="83G-jr-8Hp" firstAttribute="top" secondItem="O9e-cJ-Jwg" secondAttribute="top" constant="5" id="cXZ-Hb-ib6"/>
+                    <constraint firstAttribute="trailing" secondItem="83G-jr-8Hp" secondAttribute="trailing" constant="15" id="elU-uf-cjz"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
@@ -102,7 +102,7 @@
                 <outlet property="pageControl" destination="5tH-z5-oZe" id="Ysd-ck-2lh"/>
                 <outlet property="titleLabel" destination="DE1-q4-KEQ" id="dtg-Hd-fdZ"/>
             </connections>
-            <point key="canvasLocation" x="112.8" y="139.880059970015"/>
+            <point key="canvasLocation" x="112.8" y="147.52623688155924"/>
         </tableViewCell>
     </objects>
 </document>

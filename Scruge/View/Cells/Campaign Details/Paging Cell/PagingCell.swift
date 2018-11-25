@@ -21,6 +21,7 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 			   _ tap: ((Int)->Void)? = nil) -> PagingCell {
 		faqVM = vm
 		tapBlock = tap
+		titleLabel.text = "Frequently asked questions"
 		collectionView.register(UINib(resource: R.nib.faqCell),
 								forCellWithReuseIdentifier: R.nib.faqCell.identifier)
 		pageControl.numberOfPages = vm.numberOfItems

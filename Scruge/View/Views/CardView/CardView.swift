@@ -19,7 +19,7 @@ final class CardView: UIView {
 		layer.shadowColor = UIColor.black.cgColor
 		layer.shadowOffset = CGSize(width: 0.0, height: 2.5)
 		layer.shadowOpacity = 0.15
-		layer.shadowRadius = 10
+		layer.shadowRadius = 5
 		layer.shadowPath = shadowPath.cgPath
 	}
 }

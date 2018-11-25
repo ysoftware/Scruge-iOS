@@ -41,16 +41,16 @@
                         <rect key="frame" x="0.0" y="134" width="254" height="227.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kcQ-6j-ZZv">
-                                <rect key="frame" x="10" y="10" width="234" height="43.5"/>
+                                <rect key="frame" x="15" y="15" width="224" height="43.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="6 DAYS LEFT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eCN-hh-Ryc">
-                                        <rect key="frame" x="0.0" y="0.0" width="234" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Me.guided" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eRk-gT-blG">
-                                        <rect key="frame" x="0.0" y="19.5" width="234" height="24"/>
+                                        <rect key="frame" x="0.0" y="19.5" width="224" height="24"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -58,19 +58,19 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nay-u4-QVd" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                <rect key="frame" x="10" y="63.5" width="234" height="154"/>
+                                <rect key="frame" x="15" y="68.5" width="224" height="144"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zkt-yF-qY5">
-                                        <rect key="frame" x="0.0" y="0.0" width="234" height="154"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="144"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Our goal is to install a water pump in Malawi to empower villagers to build a better future for themselves." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzM-D5-xiI">
-                                                <rect key="frame" x="10" y="10" width="214" height="109"/>
+                                                <rect key="frame" x="15" y="15" width="194" height="89"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjQ-ee-ffD" customClass="ProgressView" customModule="Scruge" customModuleProvider="target">
-                                                <rect key="frame" x="10" y="129" width="214" height="15"/>
+                                                <rect key="frame" x="15" y="114" width="194" height="15"/>
                                                 <color key="backgroundColor" white="0.86048719620000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="dzs-cH-xuS"/>
@@ -89,7 +89,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
-                                        <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                                        <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -102,7 +102,7 @@
                             </view>
                         </subviews>
                         <gestureRecognizers/>
-                        <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                        <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
                     </stackView>
                 </subviews>
                 <constraints>
