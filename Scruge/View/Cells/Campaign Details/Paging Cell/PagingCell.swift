@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class PagingCell: UITableViewCell {
+final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var collectionView: UICollectionView!
@@ -23,8 +23,15 @@ final class PagingCell: UITableViewCell {
 		tapBlock = tap
 		collectionView.register(UINib(resource: R.nib.faqCell),
 								forCellWithReuseIdentifier: R.nib.faqCell.identifier)
+		pageControl.numberOfPages = vm.numberOfItems
 		collectionView.reloadData()
 		return self
+	}
+
+	func collectionView(_ collectionView: UICollectionView,
+						layout collectionViewLayout: UICollectionViewLayout,
+						sizeForItemAt indexPath: IndexPath) -> CGSize {
+		return collectionView.bounds.size
 	}
 }
 
@@ -41,15 +48,15 @@ extension PagingCell: UICollectionViewDataSource {
 												  for: indexPath)!
 			.setup(with: faqVM.item(at: indexPath.item))
 	}
+
+	func collectionView(_ collectionView: UICollectionView,
+						willDisplay cell: UICollectionViewCell,
+						forItemAt indexPath: IndexPath) {
+		pageControl.currentPage = indexPath.item
+	}
 }
 
 extension PagingCell: UICollectionViewDelegate {
-
-	func collectionView(_ collectionView: UICollectionView,
-						layout collectionViewLayout: UICollectionViewLayout,
-						sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return collectionView.bounds.size
-	}
 
 	func collectionView(_ collectionView: UICollectionView,
 						didSelectItemAt indexPath: IndexPath) {

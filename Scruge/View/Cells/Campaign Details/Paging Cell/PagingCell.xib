@@ -26,17 +26,17 @@
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Current Milestone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DE1-q4-KEQ">
                                         <rect key="frame" x="10" y="10" width="355" height="17.5"/>
-                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pYh-hk-bnC" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                         <rect key="frame" x="10" y="37.5" width="355" height="125"/>
                                         <subviews>
-                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xoH-iJ-rgX">
+                                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xoH-iJ-rgX">
                                                 <rect key="frame" x="0.0" y="0.0" width="355" height="125"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="BVF-ZW-1ER">
+                                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="BVF-ZW-1ER">
                                                     <size key="itemSize" width="50" height="50"/>
                                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -48,7 +48,7 @@
                                                 </connections>
                                             </collectionView>
                                             <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="5tH-z5-oZe">
-                                                <rect key="frame" x="134" y="88" width="87" height="37"/>
+                                                <rect key="frame" x="134" y="98" width="87" height="37"/>
                                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="currentPageIndicatorTintColor" red="0.58431372549019611" green="0.792156862745098" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </pageControl>
@@ -59,7 +59,7 @@
                                             <constraint firstItem="xoH-iJ-rgX" firstAttribute="top" secondItem="pYh-hk-bnC" secondAttribute="top" id="Gc9-Wm-Nay"/>
                                             <constraint firstAttribute="bottom" secondItem="xoH-iJ-rgX" secondAttribute="bottom" id="NDB-jg-gmR"/>
                                             <constraint firstAttribute="trailing" secondItem="xoH-iJ-rgX" secondAttribute="trailing" id="TdN-DP-Tgq"/>
-                                            <constraint firstAttribute="bottom" secondItem="5tH-z5-oZe" secondAttribute="bottom" id="b5H-Jg-eYW"/>
+                                            <constraint firstAttribute="bottom" secondItem="5tH-z5-oZe" secondAttribute="bottom" constant="-10" id="b5H-Jg-eYW"/>
                                             <constraint firstAttribute="height" constant="125" id="qzo-t1-2xT"/>
                                             <constraint firstItem="5tH-z5-oZe" firstAttribute="centerX" secondItem="pYh-hk-bnC" secondAttribute="centerX" id="zKS-Q9-0zK"/>
                                         </constraints>

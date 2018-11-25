@@ -18,6 +18,12 @@ final class FaqAVM: SimpleArrayViewModel<Faq, FaqVM> {
 		// TO-DO: remove this
 		append(FaqVM(Faq(question: "How long will this go for?", answer: "We don't know yet but probably for a very long time.")))
 
+		append(FaqVM(Faq(question: "How long will this go for?", answer: "We don't know yet but probably for a very long time.")))
+
+		append(FaqVM(Faq(question: "How long will this go for?", answer: "We don't know yet but probably for a very long time.")))
+
+		append(FaqVM(Faq(question: "How long will this go for?", answer: "We don't know yet but probably for a very long time.")))
+
 
 	}
 

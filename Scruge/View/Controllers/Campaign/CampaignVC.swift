@@ -258,7 +258,9 @@ extension CampaignViewController: UITableViewDataSource {
 		case .faq:
 			guard let vm = vm.faqVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
-												 for: indexPath)!.setup(with: vm)
+												 for: indexPath)!.setup(with: vm) { index in
+													// open faq
+			}
 		default: break
 		}
 		if cell == nil { cell = UITableViewCell() }
