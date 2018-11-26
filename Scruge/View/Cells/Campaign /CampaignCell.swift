@@ -74,7 +74,7 @@ final class CampaignCell: UITableViewCell {
 	private func setupImageView() {
 		topWebView?.isHidden = true
 		topImage?.isHidden = false
-		topImage?.setImage(url: imageUrl)
+		topImage?.setImage(url: imageUrl, hideOnFail: false)
 	}
 }
 

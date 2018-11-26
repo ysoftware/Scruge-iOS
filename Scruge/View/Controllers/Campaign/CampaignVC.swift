@@ -146,6 +146,9 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func makeNavigationBarTransparent() {
+		if #available(iOS 11.0, *) {
+			navigationController?.navigationBar.prefersLargeTitles = false
+		}
 		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 		navigationController?.navigationBar.shadowImage = UIImage()
 		navigationController?.navigationBar.tintColor = .white

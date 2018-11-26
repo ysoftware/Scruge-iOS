@@ -37,13 +37,17 @@ final class FeaturedViewController: UIViewController {
 		super.viewDidLoad()
 
 		setupVM()
-		addTitleButton()
+		setupNavigationBar()
 		setupTableView()
 		setInitial()
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
+
+		if #available(iOS 11.0, *) {
+			navigationController?.navigationBar.prefersLargeTitles = true
+		}
 
 		switch campaignVM.state {
 		case .ready, .error:
@@ -54,12 +58,8 @@ final class FeaturedViewController: UIViewController {
 		}
 	}
 
-	func addTitleButton() {
+	func setupNavigationBar() {
 		title = "Featured"
-		
-//		titleButton.setTitleColor(.black, for: .normal)
-//		titleButton.addTarget(self, action: #selector(titleTapped), for: .touchUpInside)
-//		navigationItem.titleView = titleButton
 	}
 
 	func setInitial() {
@@ -80,7 +80,9 @@ final class FeaturedViewController: UIViewController {
 		campaignTableView.refreshControl = UIRefreshControl()
 		campaignTableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
 
-		campaignTableView.estimatedRowHeight = 400
+		campaignTableView.contentInset.top = 15
+
+		campaignTableView.estimatedRowHeight = 148
 		campaignTableView.rowHeight = UITableView.automaticDimension
 		campaignTableView.register(UINib(resource: R.nib.campaignSmallCell),
 								   forCellReuseIdentifier: R.reuseIdentifier.campaignCell.identifier)

@@ -15,13 +15,17 @@ extension UIImageView {
 		if let url = url {
 			self.isHidden = false
 			self.kf.setImage(with: url) { image, _, _, _ in
-				DispatchQueue.main.async {
-					self.isHidden = image == nil
+				if hideOnFail {
+					DispatchQueue.main.async {
+						self.isHidden = image == nil
+					}
 				}
 			}
 		}
 		else {
-			self.isHidden = true
+			if hideOnFail {
+				self.isHidden = true
+			}
 		}
 	}
 
