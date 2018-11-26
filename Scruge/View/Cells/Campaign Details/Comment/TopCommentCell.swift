@@ -18,9 +18,9 @@ final class TopCommentCell: UITableViewCell {
 	@IBOutlet weak var likesLabel: UILabel!
 
 	@discardableResult
-	func setup(with vm:CommentAVM) -> Self {
-
-		if vm.numberOfItems > 0 {
+	func setup(with vm:CommentAVM? = nil) -> Self {
+		
+		if let vm = vm, vm.numberOfItems > 0 {
 			let comment = vm.item(at: 0)
 
 			usernameLabel.text = comment.authorName

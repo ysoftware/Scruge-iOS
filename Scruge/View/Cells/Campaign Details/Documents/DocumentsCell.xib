@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DocumentsCell" rowHeight="236" id="cQq-YY-4kl" customClass="DocumentsCell" customModule="Scruge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="390" height="236"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cQq-YY-4kl" id="4PL-ep-vBV">
+                <rect key="frame" x="0.0" y="0.0" width="390" height="235.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Sx-oI-VMW" customClass="CardView" customModule="Scruge" customModuleProvider="target">
+                        <rect key="frame" x="15" y="5" width="360" height="220.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Documents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsB-N3-ahw">
+                                <rect key="frame" x="15" y="15" width="87" height="20"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nST-aY-xW7">
+                                <rect key="frame" x="15" y="50" width="330" height="155.5"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="155.5" id="7SU-vl-2dg"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="dataSource" destination="cQq-YY-4kl" id="qPh-tj-0xR"/>
+                                    <outlet property="delegate" destination="cQq-YY-4kl" id="9Oz-1D-iRz"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="nST-aY-xW7" secondAttribute="bottom" constant="15" id="3mo-nH-ERY"/>
+                            <constraint firstItem="nST-aY-xW7" firstAttribute="top" secondItem="RsB-N3-ahw" secondAttribute="bottom" constant="15" id="PHY-8p-t31"/>
+                            <constraint firstItem="RsB-N3-ahw" firstAttribute="top" secondItem="8Sx-oI-VMW" secondAttribute="top" constant="15" id="Vyk-qs-n7g"/>
+                            <constraint firstItem="nST-aY-xW7" firstAttribute="leading" secondItem="RsB-N3-ahw" secondAttribute="leading" id="iDu-YT-Bin"/>
+                            <constraint firstAttribute="trailing" secondItem="nST-aY-xW7" secondAttribute="trailing" constant="15" id="x7w-A6-EiF"/>
+                            <constraint firstItem="RsB-N3-ahw" firstAttribute="leading" secondItem="8Sx-oI-VMW" secondAttribute="leading" constant="15" id="ycf-lO-X2O"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="8Sx-oI-VMW" secondAttribute="trailing" constant="15" id="9Cy-ef-0il"/>
+                    <constraint firstItem="8Sx-oI-VMW" firstAttribute="top" secondItem="4PL-ep-vBV" secondAttribute="top" constant="5" id="Jun-0i-VQn"/>
+                    <constraint firstAttribute="bottom" secondItem="8Sx-oI-VMW" secondAttribute="bottom" constant="10" id="e3f-g8-qn1"/>
+                    <constraint firstItem="8Sx-oI-VMW" firstAttribute="leading" secondItem="4PL-ep-vBV" secondAttribute="leading" constant="15" id="fp9-XE-3Dq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="tableView" destination="nST-aY-xW7" id="b3O-Ph-jhQ"/>
+                <outlet property="tableViewHeightConstraint" destination="7SU-vl-2dg" id="UrU-w4-1L1"/>
+            </connections>
+            <point key="canvasLocation" x="89.599999999999994" y="89.955022488755631"/>
+        </tableViewCell>
+    </objects>
+</document>

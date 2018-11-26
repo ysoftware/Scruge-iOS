@@ -145,6 +145,8 @@
 		71BE95CD21649FF2001CF853 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95CC21649FF2001CF853 /* Constants.swift */; };
 		71C2C5B821AC0CCC0040C85A /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2C5B721AC0CCC0040C85A /* Button.swift */; };
 		71C2C5BA21AC0CDB0040C85A /* Button.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C2C5B921AC0CDB0040C85A /* Button.xib */; };
+		71C2C5BD21AC20FE0040C85A /* DocumentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C2C5BC21AC20FE0040C85A /* DocumentsCell.xib */; };
+		71C2C5BF21AC210D0040C85A /* DocumentsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2C5BE21AC210D0040C85A /* DocumentsCell.swift */; };
 		71C368972181F79200729C00 /* Technical.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C368962181F79200729C00 /* Technical.swift */; };
 		71C3689A2181F80500729C00 /* EconomiesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C368992181F80500729C00 /* EconomiesVM.swift */; };
 		71C3689F2183463000729C00 /* Economics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C3689E2183463000729C00 /* Economics.swift */; };
@@ -361,6 +363,8 @@
 		71BE95CC21649FF2001CF853 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		71C2C5B721AC0CCC0040C85A /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		71C2C5B921AC0CDB0040C85A /* Button.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Button.xib; sourceTree = "<group>"; };
+		71C2C5BC21AC20FE0040C85A /* DocumentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentsCell.xib; sourceTree = "<group>"; };
+		71C2C5BE21AC210D0040C85A /* DocumentsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsCell.swift; sourceTree = "<group>"; };
 		71C368962181F79200729C00 /* Technical.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Technical.swift; sourceTree = "<group>"; };
 		71C368992181F80500729C00 /* EconomiesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EconomiesVM.swift; sourceTree = "<group>"; };
 		71C3689E2183463000729C00 /* Economics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Economics.swift; sourceTree = "<group>"; };
@@ -629,6 +633,8 @@
 		713EF3AD21A84C3D009BA9D5 /* Campaign Details */ = {
 			isa = PBXGroup;
 			children = (
+				71C2C5BB21AC20E20040C85A /* Documents */,
+				71AD0E2E2170918900077446 /* Document */,
 				71BE95A121625E4D001CF853 /* Comment */,
 				71BE959C216258D4001CF853 /* Update */,
 				71AD0E2921708DCD00077446 /* Faq */,
@@ -794,7 +800,6 @@
 		71971CBB2158E454004D28E7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				71AD0E2E2170918900077446 /* Document */,
 				71BE95A621626023001CF853 /* Reward */,
 				71BE957D215F5D31001CF853 /* Category */,
 				71BE9577215E7FC1001CF853 /* Campaign  */,
@@ -1137,6 +1142,15 @@
 				71C2C5B721AC0CCC0040C85A /* Button.swift */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		71C2C5BB21AC20E20040C85A /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				71C2C5BC21AC20FE0040C85A /* DocumentsCell.xib */,
+				71C2C5BE21AC210D0040C85A /* DocumentsCell.swift */,
+			);
+			path = Documents;
 			sourceTree = "<group>";
 		};
 		71C368982181F7F100729C00 /* Economies */ = {
@@ -1537,6 +1551,7 @@
 				71163A4C216754C400C5B633 /* LoadingView.xib in Resources */,
 				71387A9B216CA74400B24C67 /* TagCell.xib in Resources */,
 				71C2C5BA21AC0CDB0040C85A /* Button.xib in Resources */,
+				71C2C5BD21AC20FE0040C85A /* DocumentsCell.xib in Resources */,
 				71971C862158E056004D28E7 /* Main.storyboard in Resources */,
 				716E625F2189DA01002AC5DA /* MemberCell.xib in Resources */,
 				71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */,
@@ -1720,6 +1735,7 @@
 				71D84CC421995AD000E8DB88 /* secp256k1.c in Sources */,
 				71BE9567215E2AD2001CF853 /* Service.swift in Sources */,
 				71D84CCF21995AD000E8DB88 /* Transaction.swift in Sources */,
+				71C2C5BF21AC210D0040C85A /* DocumentsCell.swift in Sources */,
 				71BE95B0216352F2001CF853 /* TableHeaderTap.swift in Sources */,
 				71E09472219EE42C00281643 /* Model.swift in Sources */,
 				71BE959E216258DE001CF853 /* UpdateCell.swift in Sources */,

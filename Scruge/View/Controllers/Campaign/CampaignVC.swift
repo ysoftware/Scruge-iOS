@@ -24,7 +24,6 @@ final class CampaignViewController: UIViewController {
 	@IBOutlet weak var tableView: UITableView!
 
 	@IBOutlet weak var contributeButton: Button!
-	@IBOutlet weak var contributeViewTopConstraint: NSLayoutConstraint!
 
 	// MARK: - Actions
 
@@ -123,8 +122,8 @@ final class CampaignViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.aboutCell.identifier)
 		tableView.register(UINib(resource: R.nib.faqCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.faqCell.identifier)
-		tableView.register(UINib(resource: R.nib.documentCell),
-						   forCellReuseIdentifier: R.reuseIdentifier.documentCell.identifier)
+		tableView.register(UINib(resource: R.nib.documentsCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.documentsCell.identifier)
 		tableView.register(UINib(resource: R.nib.economiesCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.economiesCell.identifier)
 		tableView.register(UINib(resource: R.nib.pagingCell),
@@ -230,12 +229,8 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func showContributeButton(_ visible:Bool = true, duration:TimeInterval = 0.25) {
-		var offset:CGFloat = 60
-		if #available(iOS 11, *) { offset += view.safeAreaInsets.bottom }
-		contributeViewTopConstraint.constant = visible ? offset : 0
-
-		let inset = offset + 30
-		tableView.contentInset.bottom = visible ? 15 : 0
+		let inset = contributeButton.frame.height + 15
+		tableView.contentInset.bottom = visible ? inset : 0
 		tableView.scrollIndicatorInsets.bottom = visible ? inset : 0
 
 		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
@@ -283,12 +278,17 @@ extension CampaignViewController: UITableViewDataSource {
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
 												 for: indexPath)!.setup(with: vm)
 		case .comments:
-			guard let vm = vm.topCommentsVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.topCommentCell,
+												 for: indexPath)!.setup(with: vm.topCommentsVM)
+		case .documents:
+			guard let vm = vm.documentsVM else { break }
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.documentsCell,
 												 for: indexPath)!.setup(with: vm)
-		default: break
 		}
-		if cell == nil { cell = UITableViewCell() }
+		if cell == nil {
+			print("weird shit")
+			cell = UITableViewCell()
+		}
 		cell.selectionStyle = .none
 		return cell
 	}
