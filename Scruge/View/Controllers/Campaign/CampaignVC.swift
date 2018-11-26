@@ -188,15 +188,8 @@ final class CampaignViewController: UIViewController {
 		}
 	}
 
-	private func block(for row:Int) -> Block { // ugly code
-		var i = 0
-		for _ in 0..<Block.allCases.count {
-			if i >= row, shouldDisplay(Block(rawValue: i)!) {
-				break
-			}
-			i += 1
-		}
-		return Block(rawValue: i)!
+	private func block(for row:Int) -> Block {
+		return Block.allCases.filter { shouldDisplay($0) }[row]
 	}
 
 	private func shouldDisplay(_ block:Block) -> Bool {
