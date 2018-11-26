@@ -15,6 +15,7 @@ final class TabbarViewController: UITabBarController {
 		super.viewDidLoad()
 
 		viewControllers = Service.presenter.setupMainTabs()
+		tabBar.tintColor = Service.constants.color.purple
 		delegate = self
 	}
 }

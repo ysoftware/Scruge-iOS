@@ -13,18 +13,18 @@ struct Presenter {
 
 	func setupMainTabs() -> [UIViewController] {
 		let featured = R.storyboard.campaign.featuredVC()!.inNavigationController
-		featured.tabBarItem = UITabBarItem(title: "Campaigns", image: nil, tag: 0)
+		featured.tabBarItem = UITabBarItem(title: "Campaigns", image: #imageLiteral(resourceName: "featured"), tag: 0)
 
 		let activity = R.storyboard.details.activityVC()!.inNavigationController
-		activity.tabBarItem = UITabBarItem(title: "Updates", image: nil, tag: 1)
+		activity.tabBarItem = UITabBarItem(title: "Activity", image: #imageLiteral(resourceName: "bell"), tag: 1)
 
-		let search = R.storyboard.campaign.searchVC()!.inNavigationController
-		search.tabBarItem = UITabBarItem(title: "Search", image: nil, tag: 2)
+		let wallet = R.storyboard.wallet.walletVC()!.inNavigationController
+		wallet.tabBarItem = UITabBarItem(title: "Wallet", image: #imageLiteral(resourceName: "wallet"), tag: 2)
 
 		let profile = R.storyboard.authProfile.profileVC()!.inNavigationController
-		profile.tabBarItem = UITabBarItem(title: "Profile", image: nil, tag: 3)
+		profile.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "tabprofile"), tag: 3)
 
-		return [featured, activity, search, profile]
+		return [featured, activity, wallet, profile]
 	}
 
 	// MARK: - Auth
