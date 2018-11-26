@@ -125,8 +125,8 @@
 		71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE959A216255C1001CF853 /* MilestoneCell.swift */; };
 		71BE959E216258DE001CF853 /* UpdateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE959D216258DE001CF853 /* UpdateCell.swift */; };
 		71BE95A0216258E7001CF853 /* UpdateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE959F216258E7001CF853 /* UpdateCell.xib */; };
-		71BE95A321625E5B001CF853 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95A221625E5B001CF853 /* CommentCell.xib */; };
-		71BE95A521625E64001CF853 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95A421625E64001CF853 /* CommentCell.swift */; };
+		71BE95A321625E5B001CF853 /* TopCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95A221625E5B001CF853 /* TopCommentCell.xib */; };
+		71BE95A521625E64001CF853 /* TopCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95A421625E64001CF853 /* TopCommentCell.swift */; };
 		71BE95A821626034001CF853 /* RewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95A721626034001CF853 /* RewardCell.xib */; };
 		71BE95AA2162603C001CF853 /* RewardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95A92162603C001CF853 /* RewardCell.swift */; };
 		71BE95AC21626610001CF853 /* NumberString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95AB21626610001CF853 /* NumberString.swift */; };
@@ -340,8 +340,8 @@
 		71BE959A216255C1001CF853 /* MilestoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneCell.swift; sourceTree = "<group>"; };
 		71BE959D216258DE001CF853 /* UpdateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCell.swift; sourceTree = "<group>"; };
 		71BE959F216258E7001CF853 /* UpdateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateCell.xib; sourceTree = "<group>"; };
-		71BE95A221625E5B001CF853 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
-		71BE95A421625E64001CF853 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		71BE95A221625E5B001CF853 /* TopCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopCommentCell.xib; sourceTree = "<group>"; };
+		71BE95A421625E64001CF853 /* TopCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCommentCell.swift; sourceTree = "<group>"; };
 		71BE95A721626034001CF853 /* RewardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RewardCell.xib; sourceTree = "<group>"; };
 		71BE95A92162603C001CF853 /* RewardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardCell.swift; sourceTree = "<group>"; };
 		71BE95AB21626610001CF853 /* NumberString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NumberString.swift; sourceTree = "<group>"; };
@@ -1084,8 +1084,8 @@
 		71BE95A121625E4D001CF853 /* Comment */ = {
 			isa = PBXGroup;
 			children = (
-				71BE95A221625E5B001CF853 /* CommentCell.xib */,
-				71BE95A421625E64001CF853 /* CommentCell.swift */,
+				71BE95A221625E5B001CF853 /* TopCommentCell.xib */,
+				71BE95A421625E64001CF853 /* TopCommentCell.swift */,
 			);
 			path = Comment;
 			sourceTree = "<group>";
@@ -1518,7 +1518,7 @@
 				71BE9572215E777A001CF853 /* CampaignCell.xib in Resources */,
 				71BE95A821626034001CF853 /* RewardCell.xib in Resources */,
 				712B3A7021A813E8003BB43A /* EconomiesCell.xib in Resources */,
-				71BE95A321625E5B001CF853 /* CommentCell.xib in Resources */,
+				71BE95A321625E5B001CF853 /* TopCommentCell.xib in Resources */,
 				71971C882158E058004D28E7 /* Assets.xcassets in Resources */,
 				71AD0E2B21708DD800077446 /* FaqCell.xib in Resources */,
 				71BE959521623448001CF853 /* CampFooter.xib in Resources */,
@@ -1780,7 +1780,7 @@
 				71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */,
 				71BE95BB2163744E001CF853 /* Faq.swift in Sources */,
 				71D84CD221995AD000E8DB88 /* ResourceUtil.swift in Sources */,
-				71BE95A521625E64001CF853 /* CommentCell.swift in Sources */,
+				71BE95A521625E64001CF853 /* TopCommentCell.swift in Sources */,
 				71D84CBC21995ACF00E8DB88 /* asm_arm.inc in Sources */,
 				715DB15B2174716E0005B69D /* VoteVC.swift in Sources */,
 				71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */,

@@ -15,7 +15,7 @@ final class CampaignViewController: UIViewController {
 	enum Block:Int, CaseIterable {
 
 		case info = 0, economies = 1, update = 2, comments = 3,
-		about = 4, faq = 5,  milestone = 6, documents = 7
+		about = 4, faq = 5, milestone = 6, documents = 7
 	}
 
 	// MARK: - Outlets
@@ -116,8 +116,8 @@ final class CampaignViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.milestoneCell.identifier)
 		tableView.register(UINib(resource: R.nib.updateCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.updateCell.identifier)
-		tableView.register(UINib(resource: R.nib.commentCell),
-						   forCellReuseIdentifier: R.reuseIdentifier.commentCell.identifier)
+		tableView.register(UINib(resource: R.nib.topCommentCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.topCommentCell.identifier)
 		tableView.register(UINib(resource: R.nib.rewardCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.rewardCell.identifier)
 		tableView.register(UINib(resource: R.nib.aboutCell),
@@ -188,14 +188,15 @@ final class CampaignViewController: UIViewController {
 		}
 	}
 
-	private func block(for row:Int) -> Block {
-		for i in row..<Block.allCases.count {
-			let block = Block(rawValue: i)!
-			if shouldDisplay(block) {
-				return block
+	private func block(for row:Int) -> Block { // ugly code
+		var i = 0
+		for _ in 0..<Block.allCases.count {
+			if i >= row, shouldDisplay(Block(rawValue: i)!) {
+				break
 			}
+			i += 1
 		}
-		return Block(rawValue: row)!
+		return Block(rawValue: i)!
 	}
 
 	private func shouldDisplay(_ block:Block) -> Bool {
@@ -278,6 +279,10 @@ extension CampaignViewController: UITableViewDataSource {
 		case .update:
 			guard let vm = vm.lastUpdateVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
+												 for: indexPath)!.setup(with: vm)
+		case .comments:
+			guard let vm = vm.topCommentsVM else { break }
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.topCommentCell,
 												 for: indexPath)!.setup(with: vm)
 		default: break
 		}
