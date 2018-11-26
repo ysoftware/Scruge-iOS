@@ -69,16 +69,16 @@
         <!--Campaign View Controller-->
         <scene sceneID="7Mq-h4-r2N">
             <objects>
-                <viewController storyboardIdentifier="CampaignVC" hidesBottomBarWhenPushed="YES" id="bSn-68-QGz" customClass="CampaignViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CampaignVC" automaticallyAdjustsScrollViewInsets="NO" hidesBottomBarWhenPushed="YES" id="bSn-68-QGz" customClass="CampaignViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O95-fJ-muX">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8IH-VN-7Bs">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
-                                <color key="backgroundColor" white="0.12" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dJ2-qU-Jqx">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="267" id="x4T-0l-TZ8"/>
+                                    <constraint firstAttribute="height" constant="200" id="hNj-ZR-kAt"/>
                                 </constraints>
                             </view>
                             <tableView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="hdg-Pb-D1I">
@@ -91,7 +91,7 @@
                                     <outlet property="delegate" destination="bSn-68-QGz" id="Tdb-iK-cuP"/>
                                 </connections>
                             </tableView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o18-DA-2UC" customClass="Button" customModule="Scruge" customModuleProvider="target">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o18-DA-2UC" customClass="Button" customModule="Scruge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="703" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -105,19 +105,19 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="dJ2-qU-Jqx" firstAttribute="top" secondItem="O95-fJ-muX" secondAttribute="top" id="0uD-3d-eG8"/>
                             <constraint firstItem="DNJ-yh-Lww" firstAttribute="top" secondItem="O95-fJ-muX" secondAttribute="top" id="758-iW-kj0"/>
-                            <constraint firstItem="8IH-VN-7Bs" firstAttribute="leading" secondItem="fcg-6e-ATC" secondAttribute="leading" id="H2G-vA-XKP"/>
-                            <constraint firstAttribute="top" secondItem="8IH-VN-7Bs" secondAttribute="top" id="Hg8-WL-YKE"/>
                             <constraint firstItem="fcg-6e-ATC" firstAttribute="bottom" secondItem="o18-DA-2UC" secondAttribute="bottom" constant="15" id="JJt-cF-n3B"/>
                             <constraint firstItem="fcg-6e-ATC" firstAttribute="trailing" secondItem="hdg-Pb-D1I" secondAttribute="trailing" id="Lb3-5o-yGH"/>
                             <constraint firstItem="fcg-6e-ATC" firstAttribute="trailing" secondItem="DNJ-yh-Lww" secondAttribute="trailing" id="MDy-PB-915"/>
+                            <constraint firstItem="dJ2-qU-Jqx" firstAttribute="leading" secondItem="fcg-6e-ATC" secondAttribute="leading" id="SEO-Sg-cr8"/>
                             <constraint firstItem="hdg-Pb-D1I" firstAttribute="top" secondItem="O95-fJ-muX" secondAttribute="top" id="Y6T-rh-hBl"/>
                             <constraint firstItem="hdg-Pb-D1I" firstAttribute="leading" secondItem="fcg-6e-ATC" secondAttribute="leading" id="a7n-Wb-Wdx"/>
                             <constraint firstItem="fcg-6e-ATC" firstAttribute="trailing" secondItem="o18-DA-2UC" secondAttribute="trailing" id="amh-0R-b8R"/>
                             <constraint firstItem="DNJ-yh-Lww" firstAttribute="leading" secondItem="fcg-6e-ATC" secondAttribute="leading" id="cm5-mE-nCh"/>
                             <constraint firstItem="o18-DA-2UC" firstAttribute="leading" secondItem="fcg-6e-ATC" secondAttribute="leading" id="eVm-YX-74c"/>
-                            <constraint firstItem="fcg-6e-ATC" firstAttribute="trailing" secondItem="8IH-VN-7Bs" secondAttribute="trailing" id="f2L-dQ-tWt"/>
                             <constraint firstAttribute="bottom" secondItem="DNJ-yh-Lww" secondAttribute="bottom" id="oMY-Lz-ItI"/>
+                            <constraint firstItem="fcg-6e-ATC" firstAttribute="trailing" secondItem="dJ2-qU-Jqx" secondAttribute="trailing" id="okr-Ts-kcO"/>
                             <constraint firstAttribute="bottom" secondItem="hdg-Pb-D1I" secondAttribute="bottom" id="wqy-Ns-rL8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fcg-6e-ATC"/>

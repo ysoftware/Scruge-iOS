@@ -102,9 +102,10 @@ final class CampaignViewController: UIViewController {
 		tableView.estimatedRowHeight = 400
 		tableView.rowHeight = UITableView.automaticDimension
 
-		// make table view go under the navigation bar
+//		 make table view go under the navigation bar
 		if #available(iOS 11.0, *) {
 			tableView.contentInsetAdjustmentBehavior = .never
+			tableView.contentInset.top = -35
 		}
 		automaticallyAdjustsScrollViewInsets = false
 
@@ -228,10 +229,15 @@ final class CampaignViewController: UIViewController {
 		setupBottomButton()
 	}
 
-	private func showContributeButton(_ visible:Bool = true, duration:TimeInterval = 0.25) {
+	private func showContributeButton(_ visible:Bool = true,
+									  duration:TimeInterval = 0.25) {
 		let inset = contributeButton.frame.height + 15
-		tableView.contentInset.bottom = visible ? inset : 0
-		tableView.scrollIndicatorInsets.bottom = visible ? inset : 0
+		let value = visible ? inset : 0
+
+		if #available(iOS 11.0, *) {
+			tableView.contentInset.bottom = value
+			tableView.scrollIndicatorInsets.bottom = value
+		}
 
 		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
 			self.view.layoutSubviews()

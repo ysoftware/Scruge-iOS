@@ -35,6 +35,18 @@ final class Button:UIView {
 		self.backgroundColor = .clear
 	}
 
+	override func layoutSubviews() {
+		super.layoutSubviews()
+
+		let shadowPath = UIBezierPath(rect: backgroundView.bounds)
+		backgroundView.layer.masksToBounds = false
+		backgroundView.layer.shadowColor = UIColor.black.cgColor
+		backgroundView.layer.shadowOffset = CGSize(width: 0.0, height: 2.5)
+		backgroundView.layer.shadowOpacity = 0.15
+		backgroundView.layer.shadowRadius = 5
+		backgroundView.layer.shadowPath = shadowPath.cgPath
+	}
+
 	public var text:String = "" {
 		didSet {
 			button.setTitle(text, for: .normal)
