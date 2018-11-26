@@ -83,7 +83,7 @@ final class CampaignViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		makeNavigationBarTranslarent()
+		makeNavigationBarTransparent()
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
@@ -146,17 +146,18 @@ final class CampaignViewController: UIViewController {
 		}
 	}
 
-	private func makeNavigationBarTranslarent() {
+	private func makeNavigationBarTransparent() {
 		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 		navigationController?.navigationBar.shadowImage = UIImage()
 		navigationController?.navigationBar.tintColor = .white
-		navigationController?.navigationBar.isTranslucent = true
+		title = ""
 	}
 
 	private func makeNavigationBarNormal() {
 		navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
 		navigationController?.navigationBar.shadowImage = nil
 		navigationController?.navigationBar.tintColor = view.tintColor
+		title = vm.title
 	}
 
 	private func setupBottomButton() {
@@ -304,5 +305,17 @@ extension CampaignViewController: ArrayViewModelDelegate {
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
 			self.tableView.reloadData()
 			self.setupNavigationBar()
+	}
+}
+
+extension CampaignViewController: UIScrollViewDelegate {
+
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		if scrollView.contentOffset.y > 350 {
+			makeNavigationBarNormal()
+		}
+		else {
+			makeNavigationBarTransparent()
+		}
 	}
 }
