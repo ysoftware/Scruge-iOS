@@ -14,8 +14,8 @@ struct Constants {
 
 	struct Color {
 
-		let contributeGreen = #colorLiteral(red: 0.3019607843, green: 0.7921568627, blue: 0.3019607843, alpha: 1)
+		let purple = #colorLiteral(red: 0.4745098039, green: 0.2470588235, blue: 0.7568627451, alpha: 1)
 
-		let contributeBlue = #colorLiteral(red: 0.3019607843, green: 0.6666666667, blue: 0.7921568627, alpha: 1)
+		let gray = #colorLiteral(red: 0.8549019608, green: 0.8509803922, blue: 0.8862745098, alpha: 1)
 	}
 }

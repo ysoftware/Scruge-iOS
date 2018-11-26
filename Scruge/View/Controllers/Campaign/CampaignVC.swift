@@ -161,27 +161,33 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func setupBottomButton() {
+		contributeButton.titleLabel?.font = .systemFont(ofSize: 12, weight: .bold)
+
 		switch vm.status {
 		case .activeVote:
 			showContributeButton(true, duration: 0)
 			if vm.canVote == true {
-				contributeView.backgroundColor = Service.constants.color.contributeBlue
-				contributeButton.setTitle("Vote", for: .normal)
+				contributeView.backgroundColor = Service.constants.color.purple
+				contributeButton.setTitle("Vote".uppercased(), for: .normal)
 			}
 			else {
-				contributeView.backgroundColor = Service.constants.color.contributeBlue
-				contributeButton.setTitle("You already voted", for: .normal)
+				contributeView.backgroundColor = Service.constants.color.gray
+				contributeButton.setTitle("You already voted".uppercased(), for: .normal)
 			}
+		case .closed:
+			showContributeButton(true, duration: 0)
+			contributeView.backgroundColor = Service.constants.color.gray
+			contributeButton.setTitle("Campaign over".uppercased(), for: .normal)
 		case .funding:
 			if Service.tokenManager.hasToken {
 				showContributeButton(true, duration: 0)
-				contributeView.backgroundColor = Service.constants.color.contributeGreen
-				contributeButton.setTitle("Contribute", for: .normal)
+				contributeView.backgroundColor = Service.constants.color.purple
+				contributeButton.setTitle("Contribute".uppercased(), for: .normal)
 			}
 			else {
 				showContributeButton(true, duration: 0)
-				contributeView.backgroundColor = Service.constants.color.contributeGreen
-				contributeButton.setTitle("Sign in to contribute", for: .normal)
+				contributeView.backgroundColor = Service.constants.color.purple
+				contributeButton.setTitle("Sign in to contribute".uppercased(), for: .normal)
 			}
 		default:
 			showContributeButton(false, duration: 0)
@@ -225,9 +231,13 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func showContributeButton(_ visible:Bool = true, duration:TimeInterval = 0.25) {
-		var offset:CGFloat = 50
+		var offset:CGFloat = 80
 		if #available(iOS 11, *) { offset += view.safeAreaInsets.bottom }
 		contributeViewTopConstraint.constant = visible ? offset : 0
+
+		let inset = offset + 30
+		tableView.contentInset.bottom = visible ? 15 : 0
+		tableView.scrollIndicatorInsets.bottom = visible ? inset : 0
 
 		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
 			self.view.layoutSubviews()
