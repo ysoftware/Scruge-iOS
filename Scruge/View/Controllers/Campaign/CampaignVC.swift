@@ -133,8 +133,8 @@ final class CampaignViewController: UIViewController {
 
 	private func setupNavigationBar() {
 		if let isSubscribed = vm.isSubscribed {
-			let title = isSubscribed ? "Unsubscribe" : "Subscribe"
-			let subscribeButton = UIBarButtonItem(title: title,
+			let icon = isSubscribed ? #imageLiteral(resourceName: "subscribe") : #imageLiteral(resourceName: "subscribe")
+			let subscribeButton = UIBarButtonItem(image: icon,
 												  style: .plain,
 												  target: self,
 												  action: #selector(toggleSubscription))
