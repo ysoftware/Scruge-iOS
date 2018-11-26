@@ -77,13 +77,11 @@ extension ActivityViewController: UITableViewDataSource {
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
 											 for: indexPath)!
 			.setup(with: vm)
-			.showDate(true)
-			.showCampaign(true)
-			.setupTap(campaign: { [unowned self] in
-				Service.presenter.presentCampaignViewController(in: self, id: vm.campaignId)
-			}, update: { [unowned self] in
-				Service.presenter.presentContentViewController(in: self, for: vm)
-			})
+//			.setupTap(campaign: { [unowned self] in
+//				Service.presenter.presentCampaignViewController(in: self, id: vm.campaignId)
+//			}, update: { [unowned self] in
+//				Service.presenter.presentContentViewController(in: self, for: vm)
+//			})
 	}
 }
 

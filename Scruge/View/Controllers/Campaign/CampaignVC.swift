@@ -188,8 +188,14 @@ final class CampaignViewController: UIViewController {
 		}
 	}
 
-	private func block(for section:Int) -> Block {
-		return Block(rawValue: section)!
+	private func block(for row:Int) -> Block {
+		for i in row..<Block.allCases.count {
+			let block = Block(rawValue: i)!
+			if shouldDisplay(block) {
+				return block
+			}
+		}
+		return Block(rawValue: row)!
 	}
 
 	private func shouldDisplay(_ block:Block) -> Bool {
@@ -269,6 +275,10 @@ extension CampaignViewController: UITableViewDataSource {
 												 for: indexPath)!.setup(with: vm, cvm) { index in
 													// open milestone?
 			}
+		case .update:
+			guard let vm = vm.lastUpdateVM else { break }
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
+												 for: indexPath)!.setup(with: vm)
 		default: break
 		}
 		if cell == nil { cell = UITableViewCell() }

@@ -52,7 +52,6 @@ extension UpdatesViewController: UITableViewDataSource {
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
 											 for: indexPath)!
 			.setup(with: vm.item(at: indexPath.row))
-			.showDate(true)
 	}
 }
 

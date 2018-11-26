@@ -21,6 +21,6 @@ final class MilestoneVM: ViewModel<Milestone> {
 
 	var fundsRelease:String {
 		let value = (model?.fundsReleasePercent ?? 0).formatRounding()
-		return "releasing next \(value)% of funds"
+		return "Releasing next \(value)% of funds"
 	}
 }

@@ -15,12 +15,7 @@ final class UpdateCell: UITableViewCell {
 	@IBOutlet weak var updateImage: UIImageView!
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
-	@IBOutlet weak var dateLabel: UILabel!
-
-	// campaign
-	@IBOutlet weak var campaignStackView: UIStackView!
-	@IBOutlet weak var campaignTitleLabel: UILabel?
-	@IBOutlet weak var campaignImageView: UIImageView!
+	@IBOutlet weak var sectionTitleLabel: UILabel!
 	
 	// MARK: - Setups
 
@@ -28,25 +23,9 @@ final class UpdateCell: UITableViewCell {
 	func setup(with vm: UpdateVM) -> Self {
 		titleLabel.text = vm.title
 		descriptionLabel.text = vm.descsription
-		dateLabel.text = vm.date
-
-		campaignTitleLabel?.isHidden = true
-		campaignTitleLabel?.text = vm.campaignTitle
-		campaignImageView.setImage(string: vm.campaignImageUrl)
+		sectionTitleLabel.text = "Last update: \(vm.date)"
 
 		updateImage.setImage(string: vm.imageUrl)
-		return self
-	}
-
-	@discardableResult
-	func showDate(_ show:Bool) -> Self {
-		dateLabel.isHidden = !show
-		return self
-	}
-
-	@discardableResult
-	func showCampaign(_ show:Bool) -> Self {
-		campaignTitleLabel?.isHidden = !show
 		return self
 	}
 
@@ -56,19 +35,11 @@ final class UpdateCell: UITableViewCell {
 	private var updateBlock:(()->Void)?
 
 	@discardableResult
-	func setupTap(campaign: @escaping ()->Void,
-				  update: @escaping ()->Void) -> Self {
+	func setupTap(update: @escaping ()->Void) -> Self {
 		updateStackView.gestureRecognizers = [UITapGestureRecognizer(target: self,
 																	 action: #selector(updateTapped))]
-		campaignStackView.gestureRecognizers = [UITapGestureRecognizer(target: self,
-																	 action: #selector(campaignTapped))]
-		campaignBlock = campaign
 		updateBlock = update
 		return self
-	}
-
-	@objc func campaignTapped() {
-		campaignBlock?()
 	}
 
 	@objc func updateTapped() {

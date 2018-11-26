@@ -54,8 +54,9 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 
 		if vm.numberOfItems > currentIndex {
 			collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0),
-										at: .centeredHorizontally,
+										at: .left,
 										animated: false)
+			collectionView.collectionViewLayout.invalidateLayout()
 		}
 		return self
 	}

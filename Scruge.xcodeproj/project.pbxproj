@@ -53,6 +53,7 @@
 		716E62632189E13E002AC5DA /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E62622189E13E002AC5DA /* DownloadImage.swift */; };
 		718B2F29217BAD3C00831B34 /* DataFormatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F28217BAD3C00831B34 /* DataFormatting.swift */; };
 		718B2F2B217CA0EC00831B34 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F2A217CA0EC00831B34 /* Services.swift */; };
+		71925E2021ABE079006A6889 /* FaqCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71925E1F21ABE079006A6889 /* FaqCell.swift */; };
 		71971C812158E056004D28E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C802158E056004D28E7 /* AppDelegate.swift */; };
 		71971C832158E056004D28E7 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C822158E056004D28E7 /* AuthVC.swift */; };
 		71971C862158E056004D28E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71971C842158E056004D28E7 /* Main.storyboard */; };
@@ -79,7 +80,6 @@
 		71AD0E2721708BD000077446 /* DocumentVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0E2621708B2400077446 /* DocumentVM.swift */; };
 		71AD0E2821708BD000077446 /* DocumentAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0E2521708B2400077446 /* DocumentAVM.swift */; };
 		71AD0E2B21708DD800077446 /* FaqCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71AD0E2A21708DD800077446 /* FaqCell.xib */; };
-		71AD0E2D21708DEB00077446 /* FaqCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0E2C21708DEB00077446 /* FaqCell.swift */; };
 		71AD0E302170919A00077446 /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0E2F2170919A00077446 /* DocumentCell.swift */; };
 		71AD0E32217091BD00077446 /* DocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71AD0E31217091BD00077446 /* DocumentCell.xib */; };
 		71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF2215A9DF700929CC3 /* Codable.swift */; };
@@ -263,6 +263,7 @@
 		716E62622189E13E002AC5DA /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		718B2F28217BAD3C00831B34 /* DataFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatting.swift; sourceTree = "<group>"; };
 		718B2F2A217CA0EC00831B34 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
+		71925E1F21ABE079006A6889 /* FaqCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqCell.swift; sourceTree = "<group>"; };
 		71971C7D2158E056004D28E7 /* Scruge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scruge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71971C802158E056004D28E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		71971C822158E056004D28E7 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
@@ -292,7 +293,6 @@
 		71AD0E2521708B2400077446 /* DocumentAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentAVM.swift; sourceTree = "<group>"; };
 		71AD0E2621708B2400077446 /* DocumentVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentVM.swift; sourceTree = "<group>"; };
 		71AD0E2A21708DD800077446 /* FaqCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FaqCell.xib; sourceTree = "<group>"; };
-		71AD0E2C21708DEB00077446 /* FaqCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FaqCell.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/View/Cells/Faq/FaqCell.swift"; sourceTree = "<absolute>"; };
 		71AD0E2F2170919A00077446 /* DocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
 		71AD0E31217091BD00077446 /* DocumentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentCell.xib; sourceTree = "<group>"; };
 		71B38CF2215A9DF700929CC3 /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
@@ -626,6 +626,10 @@
 		713EF3AD21A84C3D009BA9D5 /* Campaign Details */ = {
 			isa = PBXGroup;
 			children = (
+				71BE95A121625E4D001CF853 /* Comment */,
+				71BE959C216258D4001CF853 /* Update */,
+				71AD0E2921708DCD00077446 /* Faq */,
+				71BE959721625575001CF853 /* Milestone */,
 				713EF3AE21A98DDC009BA9D5 /* Paging Cell */,
 				712B3A6E21A813D3003BB43A /* Economies */,
 				71A0C1AA216F93AA00C2ACF3 /* About */,
@@ -788,11 +792,7 @@
 			isa = PBXGroup;
 			children = (
 				71AD0E2E2170918900077446 /* Document */,
-				71AD0E2921708DCD00077446 /* Faq */,
 				71BE95A621626023001CF853 /* Reward */,
-				71BE95A121625E4D001CF853 /* Comment */,
-				71BE959C216258D4001CF853 /* Update */,
-				71BE959721625575001CF853 /* Milestone */,
 				71BE957D215F5D31001CF853 /* Category */,
 				71BE9577215E7FC1001CF853 /* Campaign  */,
 				713EF3AD21A84C3D009BA9D5 /* Campaign Details */,
@@ -905,7 +905,7 @@
 			isa = PBXGroup;
 			children = (
 				71AD0E2A21708DD800077446 /* FaqCell.xib */,
-				71AD0E2C21708DEB00077446 /* FaqCell.swift */,
+				71925E1F21ABE079006A6889 /* FaqCell.swift */,
 			);
 			path = Faq;
 			sourceTree = "<group>";
@@ -1703,6 +1703,7 @@
 				71D84CCD21995AD000E8DB88 /* Crypto.swift in Sources */,
 				71AD0E2821708BD000077446 /* DocumentAVM.swift in Sources */,
 				71D84CD021995AD000E8DB88 /* Contract.swift in Sources */,
+				71925E2021ABE079006A6889 /* FaqCell.swift in Sources */,
 				71D84CC421995AD000E8DB88 /* secp256k1.c in Sources */,
 				71BE9567215E2AD2001CF853 /* Service.swift in Sources */,
 				71D84CCF21995AD000E8DB88 /* Transaction.swift in Sources */,
@@ -1765,7 +1766,6 @@
 				71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */,
 				7198C821218C68FE009682E7 /* Mock.swift in Sources */,
 				71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */,
-				71AD0E2D21708DEB00077446 /* FaqCell.swift in Sources */,
 				71D84CCA21995AD000E8DB88 /* base58.c in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
 				71D84CD621995AD000E8DB88 /* EOSRPC+Chain.swift in Sources */,

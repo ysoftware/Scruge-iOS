@@ -34,7 +34,7 @@
                                         <rect key="frame" x="15" y="56.5" width="335" height="125"/>
                                         <subviews>
                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="xoH-iJ-rgX">
-                                                <rect key="frame" x="0.0" y="0.0" width="335" height="125"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="335" height="108"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="BVF-ZW-1ER">
                                                     <size key="itemSize" width="50" height="50"/>
@@ -47,7 +47,7 @@
                                                     <outlet property="delegate" destination="zHM-Jr-Sn3" id="6BM-XQ-vKi"/>
                                                 </connections>
                                             </collectionView>
-                                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="5tH-z5-oZe">
+                                            <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="6" translatesAutoresizingMaskIntoConstraints="NO" id="5tH-z5-oZe">
                                                 <rect key="frame" x="124" y="98" width="87" height="37"/>
                                                 <color key="pageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="currentPageIndicatorTintColor" red="0.58431372549019611" green="0.792156862745098" blue="0.12941176470588234" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -56,8 +56,8 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="xoH-iJ-rgX" firstAttribute="leading" secondItem="pYh-hk-bnC" secondAttribute="leading" id="2sJ-TU-meP"/>
+                                            <constraint firstItem="5tH-z5-oZe" firstAttribute="top" secondItem="xoH-iJ-rgX" secondAttribute="bottom" constant="-10" id="F4z-Ul-anw"/>
                                             <constraint firstItem="xoH-iJ-rgX" firstAttribute="top" secondItem="pYh-hk-bnC" secondAttribute="top" id="Gc9-Wm-Nay"/>
-                                            <constraint firstAttribute="bottom" secondItem="xoH-iJ-rgX" secondAttribute="bottom" id="NDB-jg-gmR"/>
                                             <constraint firstAttribute="trailing" secondItem="xoH-iJ-rgX" secondAttribute="trailing" id="TdN-DP-Tgq"/>
                                             <constraint firstAttribute="bottom" secondItem="5tH-z5-oZe" secondAttribute="bottom" constant="-10" id="b5H-Jg-eYW"/>
                                             <constraint firstAttribute="height" constant="125" id="qzo-t1-2xT"/>

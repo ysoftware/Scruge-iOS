@@ -19,13 +19,13 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sq3-PB-9in">
-                        <rect key="frame" x="0.0" y="0.0" width="254" height="254"/>
+                        <rect key="frame" x="0.0" y="0.0" width="254" height="211.5"/>
                         <subviews>
                             <webView hidden="YES" opaque="NO" alpha="0.5" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVW-Zz-ybR">
-                                <rect key="frame" x="0.0" y="0.0" width="254" height="254"/>
+                                <rect key="frame" x="0.0" y="0.0" width="254" height="211.5"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="IVW-Zz-ybR" secondAttribute="height" id="lSM-Ng-YZT"/>
+                                    <constraint firstAttribute="width" secondItem="IVW-Zz-ybR" secondAttribute="height" multiplier="1.2" id="lSM-Ng-YZT"/>
                                 </constraints>
                             </webView>
                         </subviews>
@@ -38,7 +38,7 @@
                         </constraints>
                     </view>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="z1I-Au-E0o">
-                        <rect key="frame" x="0.0" y="134" width="254" height="227.5"/>
+                        <rect key="frame" x="0.0" y="91.5" width="254" height="270"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="kcQ-6j-ZZv">
                                 <rect key="frame" x="15" y="15" width="224" height="43.5"/>
@@ -58,19 +58,19 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nay-u4-QVd" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                <rect key="frame" x="15" y="68.5" width="224" height="144"/>
+                                <rect key="frame" x="15" y="68.5" width="224" height="186.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Zkt-yF-qY5">
-                                        <rect key="frame" x="0.0" y="0.0" width="224" height="144"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="224" height="186.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Our goal is to install a water pump in Malawi to empower villagers to build a better future for themselves." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kzM-D5-xiI">
-                                                <rect key="frame" x="15" y="15" width="194" height="89"/>
+                                                <rect key="frame" x="15" y="15" width="194" height="131.5"/>
                                                 <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
                                                 <color key="textColor" red="0.37254901960784315" green="0.36470588235294116" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qjQ-ee-ffD" customClass="ProgressView" customModule="Scruge" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="114" width="194" height="15"/>
+                                                <rect key="frame" x="15" y="156.5" width="194" height="15"/>
                                                 <color key="backgroundColor" white="0.86048719620000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="15" id="dzs-cH-xuS"/>
