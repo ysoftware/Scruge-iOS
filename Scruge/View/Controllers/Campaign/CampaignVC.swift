@@ -23,8 +23,7 @@ final class CampaignViewController: UIViewController {
 	@IBOutlet weak var loadingView: LoadingView!
 	@IBOutlet weak var tableView: UITableView!
 
-	@IBOutlet weak var contributeView: UIView!
-	@IBOutlet weak var contributeButton: UIButton!
+	@IBOutlet weak var contributeButton: Button!
 	@IBOutlet weak var contributeViewTopConstraint: NSLayoutConstraint!
 
 	// MARK: - Actions
@@ -161,33 +160,33 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func setupBottomButton() {
-		contributeButton.titleLabel?.font = .systemFont(ofSize: 12, weight: .bold)
+		contributeButton.addClick(self, action: #selector(contribute))
 
 		switch vm.status {
 		case .activeVote:
 			showContributeButton(true, duration: 0)
 			if vm.canVote == true {
-				contributeView.backgroundColor = Service.constants.color.purple
-				contributeButton.setTitle("Vote".uppercased(), for: .normal)
+				contributeButton.color = Service.constants.color.purple
+				contributeButton.text = "Vote".uppercased()
 			}
 			else {
-				contributeView.backgroundColor = Service.constants.color.gray
-				contributeButton.setTitle("You already voted".uppercased(), for: .normal)
+				contributeButton.color = Service.constants.color.gray
+				contributeButton.text = "You already voted".uppercased()
 			}
 		case .closed:
 			showContributeButton(true, duration: 0)
-			contributeView.backgroundColor = Service.constants.color.gray
-			contributeButton.setTitle("Campaign over".uppercased(), for: .normal)
+			contributeButton.color = Service.constants.color.gray
+			contributeButton.text = "Campaign over".uppercased()
 		case .funding:
 			if Service.tokenManager.hasToken {
 				showContributeButton(true, duration: 0)
-				contributeView.backgroundColor = Service.constants.color.purple
-				contributeButton.setTitle("Contribute".uppercased(), for: .normal)
+				contributeButton.color = Service.constants.color.purple
+				contributeButton.text = "Contribute".uppercased()
 			}
 			else {
 				showContributeButton(true, duration: 0)
-				contributeView.backgroundColor = Service.constants.color.purple
-				contributeButton.setTitle("Sign in to contribute".uppercased(), for: .normal)
+				contributeButton.color = Service.constants.color.purple
+				contributeButton.text = "Sign in to contribute".uppercased()
 			}
 		default:
 			showContributeButton(false, duration: 0)
@@ -231,7 +230,7 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func showContributeButton(_ visible:Bool = true, duration:TimeInterval = 0.25) {
-		var offset:CGFloat = 80
+		var offset:CGFloat = 60
 		if #available(iOS 11, *) { offset += view.safeAreaInsets.bottom }
 		contributeViewTopConstraint.constant = visible ? offset : 0
 

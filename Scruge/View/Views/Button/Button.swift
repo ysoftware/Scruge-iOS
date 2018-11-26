@@ -1,0 +1,53 @@
+//
+//  Button.swift
+//  Scruge
+//
+//  Created by ysoftware on 26/11/2018.
+//  Copyright © 2018 Ysoftware. All rights reserved.
+//
+
+import UIKit
+
+final class Button:UIView {
+
+	@IBOutlet var contentView: UIView!
+	@IBOutlet weak var button: UIButton!
+	@IBOutlet weak var backgroundView: RoundedView!
+
+	// MARK: - Init
+
+	override init(frame: CGRect) {
+		super.init(frame: frame)
+		setup()
+	}
+
+	required init?(coder aDecoder: NSCoder) {
+		super.init(coder: aDecoder)
+		setup()
+	}
+
+	private func setup() {
+		Bundle.main.loadNibNamed("Button", owner: self, options: nil)
+		addSubview(contentView)
+		contentView.frame = self.bounds
+		contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+		contentView.backgroundColor = .clear
+		self.backgroundColor = .clear
+	}
+
+	public var text:String = "" {
+		didSet {
+			button.setTitle(text, for: .normal)
+		}
+	}
+
+	public var color:UIColor = .black {
+		didSet {
+			backgroundView.backgroundColor = color
+		}
+	}
+
+	public func addClick(_ target:Any?, action: Selector) {
+		button.addTarget(target, action: action, for: .touchUpInside)
+	}
+}

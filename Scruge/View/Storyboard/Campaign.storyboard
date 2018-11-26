@@ -89,46 +89,8 @@
                                     <outlet property="delegate" destination="bSn-68-QGz" id="Tdb-iK-cuP"/>
                                 </connections>
                             </tableView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o18-DA-2UC">
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o18-DA-2UC" customClass="Button" customModule="Scruge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="728" width="375" height="84"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gH7-yo-Ovs" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="10" width="345" height="60"/>
-                                        <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EXt-23-vnW">
-                                                <rect key="frame" x="0.0" y="0.0" width="345" height="60"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="9Fz-c9-ppP"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                <state key="normal" title="Contribute">
-                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="contribute:" destination="bSn-68-QGz" eventType="touchUpInside" id="bL6-tB-LqR"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                        <color key="backgroundColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstItem="EXt-23-vnW" firstAttribute="centerY" secondItem="gH7-yo-Ovs" secondAttribute="centerY" id="JW5-PP-QjY"/>
-                                            <constraint firstItem="EXt-23-vnW" firstAttribute="centerX" secondItem="gH7-yo-Ovs" secondAttribute="centerX" id="fHJ-w9-89e"/>
-                                            <constraint firstItem="EXt-23-vnW" firstAttribute="top" secondItem="gH7-yo-Ovs" secondAttribute="top" id="fpB-QO-3Pb"/>
-                                            <constraint firstItem="EXt-23-vnW" firstAttribute="leading" secondItem="gH7-yo-Ovs" secondAttribute="leading" id="xES-dy-8vd"/>
-                                        </constraints>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="YES"/>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                <real key="value" value="0.25"/>
-                                            </userDefinedRuntimeAttribute>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstItem="gH7-yo-Ovs" firstAttribute="top" secondItem="o18-DA-2UC" secondAttribute="top" constant="10" id="OSx-v1-Hdr"/>
-                                    <constraint firstAttribute="trailing" secondItem="gH7-yo-Ovs" secondAttribute="trailing" constant="15" id="eAu-u5-Usw"/>
-                                    <constraint firstItem="gH7-yo-Ovs" firstAttribute="leading" secondItem="o18-DA-2UC" secondAttribute="leading" constant="15" id="joo-DF-5tw"/>
-                                </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DNJ-yh-Lww" userLabel="Error" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -156,8 +118,7 @@
                         <viewLayoutGuide key="safeArea" id="fcg-6e-ATC"/>
                     </view>
                     <connections>
-                        <outlet property="contributeButton" destination="EXt-23-vnW" id="yRc-0j-sfo"/>
-                        <outlet property="contributeView" destination="gH7-yo-Ovs" id="gt8-KM-tq7"/>
+                        <outlet property="contributeButton" destination="o18-DA-2UC" id="dpp-pS-IQ7"/>
                         <outlet property="contributeViewTopConstraint" destination="gU4-H4-Ih7" id="D30-50-zkr"/>
                         <outlet property="loadingView" destination="DNJ-yh-Lww" id="QEO-tN-dlw"/>
                         <outlet property="tableView" destination="hdg-Pb-D1I" id="USs-u0-xTM"/>
