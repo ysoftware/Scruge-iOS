@@ -218,6 +218,7 @@ final class CampaignViewController: UIViewController {
 		vm.currentMilestoneVM?.delegate = self
 		vm.topCommentsVM?.delegate = self
 		vm.economiesVM?.delegate = self
+		vm.milestonesVM?.delegate = self
 
 		tableView.reloadData()
 		setupBottomButton()
@@ -261,6 +262,12 @@ extension CampaignViewController: UITableViewDataSource {
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
 												 for: indexPath)!.setup(with: vm) { index in
 													// open faq
+			}
+		case .milestone:
+			guard let vm = vm.milestonesVM, let cvm = self.vm.currentMilestoneVM else { break }
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
+												 for: indexPath)!.setup(with: vm, cvm) { index in
+													// open milestone?
 			}
 		default: break
 		}

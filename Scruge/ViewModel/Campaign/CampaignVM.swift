@@ -56,6 +56,12 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		if let milestone = model?.currentMilestone { currentMilestoneVM = MilestoneVM(milestone) }
 		else { currentMilestoneVM = nil }
 
+		if let model = model {
+			milestonesVM = MilestoneAVM(model)
+			milestonesVM?.reloadData()
+		}
+		else { milestonesVM = nil }
+
 		if let model = model, let comments = model.topComments {
 			topCommentsVM = CommentAVM(comments, source: .campaign(model))
 		}
@@ -98,7 +104,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		guard let model = model else { return completion("") }
 		Service.api.getCampaignContent(for: model) { result in
 			if case let .success(response) = result {
-				completion(response.content ?? "")
+				completion(response.content)
 			}
 			else {
 				completion("")
@@ -251,6 +257,8 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	private(set) var topCommentsVM:CommentAVM?
 
 	private(set) var currentMilestoneVM:MilestoneVM?
+
+	private(set) var milestonesVM:MilestoneAVM?
 
 	private(set) var economiesVM:EconomiesVM?
 

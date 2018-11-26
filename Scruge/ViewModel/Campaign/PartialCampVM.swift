@@ -22,7 +22,7 @@ final class PartialCampaignVM: ViewModel<PartialCampaign>,
 extension PartialCampaignModelHolder {
 
 	var description: String {
-		return "Me.guided is the social network for audio guides on blockchain. Users will create new audio tours and sell them on our platform. Me.guided is the new way of exploring world"//model?.description ?? ""
+		return model?.description ?? ""
 	}
 
 	var title: String {

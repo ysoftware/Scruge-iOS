@@ -45,11 +45,8 @@ final class FeaturedViewController: UIViewController {
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
 
-		switch categoriesVM.state {
+		switch campaignVM.state {
 		case .ready, .error:
-//			if categoriesVM.numberOfItems == 0 {
-//				categoriesVM.reloadData()
-//			}
 			if campaignVM.numberOfItems == 0 {
 				campaignVM.reloadData()
 			}
