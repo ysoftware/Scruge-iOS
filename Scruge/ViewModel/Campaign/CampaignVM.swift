@@ -67,7 +67,20 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		}
 		else { topCommentsVM = nil }
 
-		if let documents = model?.documents { documentsVM = DocumentAVM(documents) }
+		if let model = model {
+			var documents:[Document] = []
+			if let pitch = model.pitchUrl {
+				documents.append(Document(name: "Pitch", url: pitch))
+			}
+			else {
+				let url = Service.api.service.baseUrl + "campaign/\(model.id)/content"
+				documents.append(Document(name: "Pitch", url: url))
+			}
+			if let otherDocs = model.documents {
+				documents.append(contentsOf: otherDocs)
+			}
+			documentsVM = DocumentAVM(documents)
+		}
 		else { documentsVM = nil }
 
 		if let faq = model?.faq { faqVM = FaqAVM(faq) }

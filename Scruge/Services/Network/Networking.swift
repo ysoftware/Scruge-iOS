@@ -11,6 +11,8 @@ import Result
 
 protocol Networking {
 
+	var baseUrl:String { get }
+
 	func get<T:Codable>(_ request:String,
 						_ params:HTTPParameterProtocol?,
 						_ completion: @escaping (Result<T, AnyError>)->Void)

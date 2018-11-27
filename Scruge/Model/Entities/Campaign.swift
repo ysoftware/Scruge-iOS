@@ -73,6 +73,8 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 	let lastUpdate:Update?
 
 	let topComments:[Comment]?
+
+	let pitchUrl:String?
 }
 
 protocol PartialCampaignModel {

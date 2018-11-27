@@ -11,6 +11,10 @@ import Result
 
 struct Mock: Networking {
 
+	var baseUrl: String {
+		return "http://localhost/"
+	}
+
 	private let activity = ActivityIndicatorController()
 
 	func upload(_ request:String,

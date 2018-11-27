@@ -22,7 +22,7 @@ final class Api {
 
 	// MARK: - Initialization
 
-	private var service:Networking = Network(baseUrl: Environment.prod.rawValue)
+	private(set) var service:Networking = Network(baseUrl: Environment.prod.rawValue)
 
 	func setEnvironment(_ environment:Environment) {
 		service = Network(baseUrl: environment.rawValue)
