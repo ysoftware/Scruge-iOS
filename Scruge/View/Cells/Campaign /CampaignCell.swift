@@ -17,7 +17,6 @@ final class CampaignCell: UITableViewCell {
 	@IBOutlet weak var descriptionLabel: UILabel?
 	@IBOutlet weak var topImage: UIImageView?
 	@IBOutlet weak var titleLabel: UILabel!
-	@IBOutlet weak var raisedLabel: UILabel?
 	@IBOutlet weak var leftLabel: UILabel?
 	@IBOutlet weak var rightLabel: UILabel?
 	@IBOutlet weak var progressView: ProgressView!
@@ -32,16 +31,14 @@ final class CampaignCell: UITableViewCell {
 		self.imageUrl = vm.imageUrl
 
 		selectionStyle = .none
-		progressView.isRelativeRadius = false
-		progressView.cornerRadius = 3
-		progressView.clipsToBounds = true
 
-		titleLabel.text = vm.title
+		titleLabel!.text = vm.title
 		descriptionLabel?.text = vm.description
-		leftLabel?.text = vm.progressString
-		raisedLabel?.text = vm.raisedString
 		rightLabel?.text = vm.daysLeft
-		progressView.progress = vm.progress
+
+		progressView.value = vm.raised
+		progressView.total = vm.hardCap
+		progressView.firstGoal = vm.softCap
 
 		if let vm = vm as? CampaignVM, let videoUrl = vm.videoUrl {
 			setupWebView(with: videoUrl)

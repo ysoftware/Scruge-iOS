@@ -14,11 +14,11 @@ protocol PartialCampaignViewModel {
 
 	var title:String { get }
 
-	var progress:Double { get }
+	var raised:Double { get }
 
-	var progressString:String { get }
+	var hardCap:Double { get }
 
-	var raisedString:String { get }
+	var softCap:Double { get }
 
 	var daysLeft:String { get }
 

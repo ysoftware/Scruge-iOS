@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		512EE954BDA3136818C75BF7 /* Pods_Scruge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */; };
+		7105C35521AD2C89008AAB1E /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7105C35421AD2C89008AAB1E /* ProgressView.xib */; };
 		710FE992217F94F8009E51E5 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710FE991217F94F8009E51E5 /* Balance.swift */; };
 		71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3D21663B8900C5B633 /* ProfileEditVC.swift */; };
 		71163A40216642F400C5B633 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3F216642F400C5B633 /* EmailValidation.swift */; };
@@ -221,6 +222,7 @@
 /* Begin PBXFileReference section */
 		38208ECDA13EC24E9D2BEB36 /* Pods-ScrugeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeTests/Pods-ScrugeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7105C35421AD2C89008AAB1E /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		710FE991217F94F8009E51E5 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		71163A3D21663B8900C5B633 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
 		71163A3F216642F400C5B633 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
@@ -484,6 +486,15 @@
 				E8B5E6BDB93E01D5E3313BF5 /* Pods-ScrugeUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		7105C35321AD2C59008AAB1E /* Progress View */ = {
+			isa = PBXGroup;
+			children = (
+				7105C35421AD2C89008AAB1E /* ProgressView.xib */,
+				71BE95C82163E879001CF853 /* ProgressView.swift */,
+			);
+			path = "Progress View";
 			sourceTree = "<group>";
 		};
 		71163A452167517400C5B633 /* Wallet */ = {
@@ -817,11 +828,11 @@
 		71971CBC2158E45B004D28E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7105C35321AD2C59008AAB1E /* Progress View */,
 				71C2C5B621AC0CC00040C85A /* Button */,
 				712B3A7321A81854003BB43A /* CardView */,
 				71163A48216754A600C5B633 /* Loading View */,
 				71BE95B621636236001CF853 /* Error */,
-				71BE95C82163E879001CF853 /* ProgressView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1553,6 +1564,7 @@
 				71C2C5BA21AC0CDB0040C85A /* Button.xib in Resources */,
 				71C2C5BD21AC20FE0040C85A /* DocumentsCell.xib in Resources */,
 				71971C862158E056004D28E7 /* Main.storyboard in Resources */,
+				7105C35521AD2C89008AAB1E /* ProgressView.xib in Resources */,
 				716E625F2189DA01002AC5DA /* MemberCell.xib in Resources */,
 				71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */,
 				71345C112177412200F28AF1 /* Wallet.storyboard in Resources */,
