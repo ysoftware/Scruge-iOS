@@ -10,9 +10,15 @@ import UIKit
 
 final class SettingsViewController: UIViewController {
 
+	var profileVM:ProfileVM!
+
 	@IBAction func signOut(_ sender: Any) {
 		tabBarController?.selectedIndex = 0
 		navigationController?.popViewController(animated: false)
 		Service.tokenManager.removeToken()
+	}
+
+	@IBAction func editProfile(_ sender:Any) {
+		Service.presenter.presentProfileEditViewController(in: self, with: profileVM)
 	}
 }

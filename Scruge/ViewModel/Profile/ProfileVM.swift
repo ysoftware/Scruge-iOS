@@ -40,8 +40,8 @@ final class ProfileVM: ViewModel<Profile> {
 		return model?.name ?? "Anonymous"
 	}
 
-	var country:String? {
-		return model?.country
+	var country:String {
+		return model?.country ?? ""
 	}
 
 	// MARK: - Update profile

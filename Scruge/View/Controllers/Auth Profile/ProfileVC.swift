@@ -17,27 +17,15 @@ final class ProfileViewController: UIViewController {
 //	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var profileImage:UIImageView!
 	@IBOutlet weak var nameLabel:UILabel!
+	@IBOutlet weak var countryLabel:UILabel!
 	@IBOutlet weak var emailLabel:UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 
 	// MARK: - Actions
 
-//	@objc func signOut(_ sender:Any) {
-//		Service.tokenManager.removeToken()
-//		tabBarController?.selectedIndex = 0
-//	}
-//
-//	@IBAction func openWallet(_ sender: Any) {
-//		Service.presenter.presentWallerViewController(in: self)
-//	}
-
 	@IBAction func openSettings(_ sender:Any) {
-		Service.presenter.presentSettingsViewController(in: self)
+		Service.presenter.presentSettingsViewController(in: self, with: profileVM)
 	}
-
-//	@IBAction func editProfile(_ sender:Any) {
-//		Service.presenter.presentProfileEditViewController(in: self, with: profileVM)
-//	}
 
 	// MARK: - Properties
 
@@ -110,7 +98,14 @@ final class ProfileViewController: UIViewController {
 		profileImage.setImage(url: profileVM.imageUrl)
 		nameLabel.text = profileVM.name
 		emailLabel.text = profileVM.email
-		descriptionLabel.text = profileVM.description
+		countryLabel.text = profileVM.country.uppercased()
+
+		if profileVM.description.count > 0 {
+			descriptionLabel.text = profileVM.description
+		}
+		else {
+			descriptionLabel.text = "No information provided"
+		}
 	}
 }
 

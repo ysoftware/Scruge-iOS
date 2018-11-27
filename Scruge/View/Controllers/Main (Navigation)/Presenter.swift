@@ -149,8 +149,10 @@ struct Presenter {
 		vc.show(new, sender: self)
 	}
 
-	func presentSettingsViewController(in vc:UIViewController) {
+	func presentSettingsViewController(in vc:UIViewController,
+									   with vm:ProfileVM) {
 		let new = R.storyboard.main.settingsVC()!
+		new.profileVM = vm
 		vc.show(new, sender: self)
 	}
 

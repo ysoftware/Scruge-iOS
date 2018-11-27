@@ -33,11 +33,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-iN-8ty">
-                                <rect key="frame" x="157" y="135" width="60" height="30"/>
+                                <rect key="frame" x="150" y="135" width="75" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Edit Profile"/>
+                                <connections>
+                                    <action selector="editProfile:" destination="x5R-sF-vTp" eventType="touchUpInside" id="ibL-m9-J1Q"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrN-RX-ljO">
+                                <rect key="frame" x="157" y="188" width="60" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Out"/>
                                 <connections>
-                                    <action selector="signOut:" destination="x5R-sF-vTp" eventType="touchUpInside" id="Aq9-K2-CWH"/>
+                                    <action selector="signOut:" destination="x5R-sF-vTp" eventType="touchUpInside" id="9SY-Jy-DFT"/>
                                 </connections>
                             </button>
                         </subviews>

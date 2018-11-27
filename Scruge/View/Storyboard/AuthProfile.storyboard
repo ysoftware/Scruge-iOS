@@ -556,7 +556,7 @@
                                                                 <rect key="frame" x="0.0" y="80" width="335" height="30"/>
                                                                 <nil key="textColor"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" textContentType="organization-title"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" textContentType="organization-title"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -654,8 +654,8 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="upw-DS-tNY">
-                                <rect key="frame" x="0.0" y="95.000000000000028" width="375" height="501.66666666666674"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="upw-DS-tNY">
+                                <rect key="frame" x="0.0" y="85" width="375" height="516.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="6qn-8d-8uM">
                                         <rect key="frame" x="15" y="15" width="345" height="195.66666666666666"/>
@@ -693,15 +693,28 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7IX-Gi-YER" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="225.66666666666669" width="345" height="261"/>
+                                        <rect key="frame" x="15" y="240.66666666666669" width="345" height="261"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="O3H-qi-wBb">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="O3H-qi-wBb">
                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="261"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cga-9X-T4j">
-                                                        <rect key="frame" x="15" y="15" width="315" height="231"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                        <nil key="textColor"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mXu-Wt-4Hv">
+                                                        <rect key="frame" x="15" y="15" width="315" height="193"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <view alpha="0.20000000000000001" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sEU-JA-dNS">
+                                                        <rect key="frame" x="15" y="217.99999999999994" width="315" height="1"/>
+                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="1" id="cSk-S4-hkZ"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cga-9X-T4j">
+                                                        <rect key="frame" x="15" y="228.99999999999994" width="315" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.27058823529411763" green="0.31764705882352939" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                 </subviews>
@@ -722,7 +735,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="upw-DS-tNY" firstAttribute="top" secondItem="sYZ-qB-rjo" secondAttribute="centerY" constant="-80" id="5PB-yZ-ymC"/>
+                            <constraint firstItem="upw-DS-tNY" firstAttribute="top" secondItem="sYZ-qB-rjo" secondAttribute="centerY" constant="-90" id="5PB-yZ-ymC"/>
                             <constraint firstItem="sYZ-qB-rjo" firstAttribute="trailing" secondItem="57H-uU-X4G" secondAttribute="trailing" id="8iK-WU-Jhw"/>
                             <constraint firstItem="sYZ-qB-rjo" firstAttribute="leading" secondItem="57H-uU-X4G" secondAttribute="leading" id="GvC-90-QxK"/>
                             <constraint firstItem="57H-uU-X4G" firstAttribute="trailing" secondItem="upw-DS-tNY" secondAttribute="trailing" id="ZSz-90-saF"/>
@@ -739,8 +752,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="countryLabel" destination="X9z-iz-acO" id="U0D-qG-H4B"/>
                         <outlet property="descriptionLabel" destination="cga-9X-T4j" id="6Ig-hA-OAd"/>
-                        <outlet property="emailLabel" destination="X9z-iz-acO" id="rio-fL-Eqi"/>
+                        <outlet property="emailLabel" destination="mXu-Wt-4Hv" id="zAn-sE-i7w"/>
                         <outlet property="nameLabel" destination="4hY-I1-XRs" id="nEV-yQ-VlG"/>
                         <outlet property="profileImage" destination="bY6-Uh-eq9" id="pgh-0s-nxv"/>
                     </connections>
