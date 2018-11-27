@@ -29,11 +29,25 @@ struct Presenter {
 
 	// MARK: - Auth
 
-	func presentAuthViewController(in vc:UIViewController,
-										  completion: @escaping (Bool)->Void) {
-		let new = R.storyboard.authProfile.authVC()!
+	func presentLoginViewController(in vc:UIViewController,
+									completion: @escaping (Bool)->Void) {
+		let new = R.storyboard.authProfile.loginVC()!
 		new.authCompletionBlock = completion
 		vc.present(new.inNavigationController, animated: true)
+	}
+
+	func replaceWithLoginViewController(in vc:UIViewController,
+										completion: @escaping (Bool)->Void) {
+		let new = R.storyboard.authProfile.loginVC()!
+		new.authCompletionBlock = completion
+		vc.navigationController?.setViewControllers([new], animated: true)
+	}
+
+	func replaceWithRegisterViewController(in vc:UIViewController,
+										   completion: @escaping (Bool)->Void) {
+		let new = R.storyboard.authProfile.registerVC()!
+		new.authCompletionBlock = completion
+		vc.navigationController?.setViewControllers([new], animated: true)
 	}
 
 	func presentProfileSetupViewController(in vc:UIViewController,

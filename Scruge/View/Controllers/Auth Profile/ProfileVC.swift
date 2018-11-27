@@ -154,7 +154,7 @@ extension ProfileViewController: ArrayViewModelDelegate {
 				loadingView.set(state: .error(message))
 
 				if error.isAuthenticationFailureError {
-					Service.presenter.presentAuthViewController(in: self) { didLogIn in
+					Service.presenter.presentLoginViewController(in: self) { didLogIn in
 						if !didLogIn {
 							self.tabBarController?.selectedIndex = 0
 						}

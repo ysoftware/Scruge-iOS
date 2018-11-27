@@ -46,7 +46,7 @@ final class CommentsViewController: UIViewController {
 			}
 		}
 		else {
-			Service.presenter.presentAuthViewController(in: self) { _ in
+			Service.presenter.presentLoginViewController(in: self) { _ in
 				self.checkAuthentication()
 				self.view.endEditing(true)
 			}

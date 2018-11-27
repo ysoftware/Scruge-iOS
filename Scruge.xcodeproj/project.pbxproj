@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		512EE954BDA3136818C75BF7 /* Pods_Scruge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */; };
 		7105C35521AD2C89008AAB1E /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7105C35421AD2C89008AAB1E /* ProgressView.xib */; };
+		7105C35721AD554D008AAB1E /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105C35621AD554D008AAB1E /* RegisterVC.swift */; };
 		710FE992217F94F8009E51E5 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710FE991217F94F8009E51E5 /* Balance.swift */; };
 		71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3D21663B8900C5B633 /* ProfileEditVC.swift */; };
 		71163A40216642F400C5B633 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3F216642F400C5B633 /* EmailValidation.swift */; };
@@ -56,7 +57,7 @@
 		718B2F2B217CA0EC00831B34 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 718B2F2A217CA0EC00831B34 /* Services.swift */; };
 		71925E2021ABE079006A6889 /* FaqCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71925E1F21ABE079006A6889 /* FaqCell.swift */; };
 		71971C812158E056004D28E7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C802158E056004D28E7 /* AppDelegate.swift */; };
-		71971C832158E056004D28E7 /* AuthVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C822158E056004D28E7 /* AuthVC.swift */; };
+		71971C832158E056004D28E7 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971C822158E056004D28E7 /* LoginVC.swift */; };
 		71971C862158E056004D28E7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71971C842158E056004D28E7 /* Main.storyboard */; };
 		71971C882158E058004D28E7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71971C872158E058004D28E7 /* Assets.xcassets */; };
 		71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71971C892158E058004D28E7 /* LaunchScreen.storyboard */; };
@@ -223,6 +224,7 @@
 		38208ECDA13EC24E9D2BEB36 /* Pods-ScrugeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeTests/Pods-ScrugeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7105C35421AD2C89008AAB1E /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
+		7105C35621AD554D008AAB1E /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		710FE991217F94F8009E51E5 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		71163A3D21663B8900C5B633 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
 		71163A3F216642F400C5B633 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
@@ -271,7 +273,7 @@
 		71925E1F21ABE079006A6889 /* FaqCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqCell.swift; sourceTree = "<group>"; };
 		71971C7D2158E056004D28E7 /* Scruge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scruge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		71971C802158E056004D28E7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		71971C822158E056004D28E7 /* AuthVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthVC.swift; sourceTree = "<group>"; };
+		71971C822158E056004D28E7 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		71971C852158E056004D28E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		71971C872158E058004D28E7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71971C8A2158E058004D28E7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -1025,7 +1027,8 @@
 		71BE9563215E26CA001CF853 /* Auth Profile */ = {
 			isa = PBXGroup;
 			children = (
-				71971C822158E056004D28E7 /* AuthVC.swift */,
+				71971C822158E056004D28E7 /* LoginVC.swift */,
+				7105C35621AD554D008AAB1E /* RegisterVC.swift */,
 				71AB79022165FC260077D904 /* ProfileVC.swift */,
 				71163A3D21663B8900C5B633 /* ProfileEditVC.swift */,
 			);
@@ -1735,7 +1738,7 @@
 				71DA7E982164AB6E0052EB8F /* ActivityVC.swift in Sources */,
 				71BE95AC21626610001CF853 /* NumberString.swift in Sources */,
 				71D84CE221995AD000E8DB88 /* SEWallet.swift in Sources */,
-				71971C832158E056004D28E7 /* AuthVC.swift in Sources */,
+				71971C832158E056004D28E7 /* LoginVC.swift in Sources */,
 				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,
 				71345C162178714C00F28AF1 /* DatePresent.swift in Sources */,
 				71D84CC921995AD000E8DB88 /* sha3.c in Sources */,
@@ -1805,6 +1808,7 @@
 				71DA7E9A2164ABBC0052EB8F /* SearchVC.swift in Sources */,
 				71BE958C21622C3F001CF853 /* PartialCampVM.swift in Sources */,
 				71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */,
+				7105C35721AD554D008AAB1E /* RegisterVC.swift in Sources */,
 				7198C821218C68FE009682E7 /* Mock.swift in Sources */,
 				71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */,
 				71D84CCA21995AD000E8DB88 /* base58.c in Sources */,

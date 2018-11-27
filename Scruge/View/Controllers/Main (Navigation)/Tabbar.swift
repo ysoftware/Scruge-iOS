@@ -30,7 +30,7 @@ extension TabbarViewController: UITabBarControllerDelegate {
 			nav.topViewController is ProfileViewController,
 			!Service.tokenManager.hasToken {
 
-			Service.presenter.presentAuthViewController(in: self) { didLogIn in
+			Service.presenter.presentLoginViewController(in: self) { didLogIn in
 				if didLogIn {
 					tabBarController.selectedIndex = 3
 				}

@@ -1,19 +1,21 @@
 //
-//  ViewController.swift
+//  RegisterVC.swift
 //  Scruge
 //
-//  Created by ysoftware on 24.09.2018.
+//  Created by ysoftware on 27/11/2018.
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
 import UIKit
 
-final class AuthViewController: UIViewController {
+final class RegisterViewController: UIViewController {
 
 	// MARK: - Outlets
 
+	@IBOutlet weak var registerButton: Button!
 	@IBOutlet weak var emailField: UITextField!
 	@IBOutlet weak var passwordField: UITextField!
+	@IBOutlet weak var confirmPasswordField: UITextField!
 	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
 	// MARK: - Setup
@@ -22,6 +24,7 @@ final class AuthViewController: UIViewController {
 		super.viewDidLoad()
 
 		navigationController?.navigationBar.isHidden = true
+		registerButton.addClick(self, action: #selector(signUp))
 	}
 
 	// MARK: - Actions
@@ -33,8 +36,10 @@ final class AuthViewController: UIViewController {
 	}
 
 	@IBAction func login(_ sender: Any) {
-		guard validate() else { return }
+		Service.presenter.replaceWithLoginViewController(in: self, completion: authCompletionBlock)
+	}
 
+	func finishLogin(email:String, password:String) {
 		isWorking = true
 		Service.api.logIn(email: email, password: password) { result in
 			self.isWorking = false
@@ -45,22 +50,25 @@ final class AuthViewController: UIViewController {
 
 				if self.didSignUp {
 					Service.presenter.presentProfileSetupViewController(in: self,
-																completion: self.authCompletionBlock)
+																		completion: self.authCompletionBlock)
 				}
 				else {
 					self.view.endEditing(true)
 					self.navigationController?.dismiss(animated: true)
 					self.authCompletionBlock?(true)
 				}
-				
+
 			case .failure(let error):
 				self.alert(error)
 			}
 		}
 	}
 
-	@IBAction func signUp(_ sender: Any) {
+	@objc func signUp(_ sender: Any) {
 		guard validate() else { return }
+
+		let email = self.email
+		let password = self.password
 
 		isWorking = true
 		Service.api.signUp(email: email, password: password) { result in
@@ -74,7 +82,7 @@ final class AuthViewController: UIViewController {
 				}
 
 				self.didSignUp = true
-				self.login(self)
+				self.finishLogin(email: email, password: password)
 
 			case .failure(let error):
 				self.alert(error)
@@ -92,7 +100,7 @@ final class AuthViewController: UIViewController {
 
 	// MARK: - Properties
 
-	var authCompletionBlock:((Bool)->Void)?
+	var authCompletionBlock:((Bool)->Void)!
 
 	private var didSignUp = false
 
@@ -110,6 +118,10 @@ final class AuthViewController: UIViewController {
 		return passwordField.text ?? ""
 	}
 
+	private var confirmPassword:String {
+		return confirmPasswordField.text ?? ""
+	}
+
 	// MARK: - Methods
 
 	private func validate() -> Bool {
@@ -121,6 +133,11 @@ final class AuthViewController: UIViewController {
 
 		guard password.count > 0 else {
 			alert("Enter your password")
+			return false
+		}
+
+		guard password == confirmPassword else {
+			alert("Passwords do not match")
 			return false
 		}
 
@@ -138,11 +155,11 @@ final class AuthViewController: UIViewController {
 	}
 }
 
-extension AuthViewController: UITextFieldDelegate {
+extension RegisterViewController: UITextFieldDelegate {
 
 	func textField(_ textField: UITextField,
-				shouldChangeCharactersIn range: NSRange,
-				replacementString string: String) -> Bool {
+				   shouldChangeCharactersIn range: NSRange,
+				   replacementString string: String) -> Bool {
 
 		guard let text = textField.text else { return true }
 		let newLength = text.count + string.count - range.length

@@ -39,7 +39,7 @@ final class CampaignViewController: UIViewController {
 				Service.presenter.presentContributeViewController(in: self, with: vm)
 			}
 			else {
-				Service.presenter.presentAuthViewController(in: self) { isLoggedIn in
+				Service.presenter.presentLoginViewController(in: self) { isLoggedIn in
 					self.vm.reloadData()
 				}
 			}
