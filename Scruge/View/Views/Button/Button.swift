@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 final class Button:UIView {
 
 	@IBOutlet var contentView: UIView!
@@ -47,6 +48,7 @@ final class Button:UIView {
 		backgroundView.layer.shadowPath = shadowPath.cgPath
 	}
 
+	@IBInspectable
 	public var text:String = "" {
 		didSet {
 			button.setTitle(text, for: .normal)

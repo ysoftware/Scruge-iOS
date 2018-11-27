@@ -21,10 +21,7 @@ final class AuthViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Continue without login",
-															style: .plain,
-															target: self,
-															action: #selector(cancel))
+		navigationController?.navigationBar.isHidden = true
 	}
 
 	// MARK: - Actions
