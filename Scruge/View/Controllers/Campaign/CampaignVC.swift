@@ -58,10 +58,10 @@ final class CampaignViewController: UIViewController {
 	
 	var offset:CGFloat = 0 {
 		didSet {
+			setNeedsStatusBarAppearanceUpdate()
 			if offset > 200 {
 				navigationController?.navigationBar.makeNormal(with: vm.title,
 															   tint: view.tintColor)
-
 			}
 			else { navigationController?.navigationBar.makeTransparent() }
 		}
@@ -70,7 +70,7 @@ final class CampaignViewController: UIViewController {
 	// MARK: - Setup
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
+		return offset > 200 ? .default : .lightContent
 	}
 
 	override func viewDidLoad() {

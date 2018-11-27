@@ -15,10 +15,10 @@ final class ProfileViewController: UIViewController {
 	
 //	@IBOutlet weak var loadingView: LoadingView!
 //	@IBOutlet weak var tableView: UITableView!
-//	@IBOutlet weak var profileImage:UIImageView!
-//	@IBOutlet weak var nameLabel:UILabel!
-//	@IBOutlet weak var emailLabel:UILabel!
-//	@IBOutlet weak var descriptionLabel: UILabel!
+	@IBOutlet weak var profileImage:UIImageView!
+	@IBOutlet weak var nameLabel:UILabel!
+	@IBOutlet weak var emailLabel:UILabel!
+	@IBOutlet weak var descriptionLabel: UILabel!
 
 	// MARK: - Actions
 
@@ -46,6 +46,10 @@ final class ProfileViewController: UIViewController {
 //
 	// MARK: - Setup
 
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -53,10 +57,10 @@ final class ProfileViewController: UIViewController {
 		setupVM()
 	}
 //
-//	override func viewDidAppear(_ animated: Bool) {
-//		super.viewDidAppear(animated)
-//
-//		profileVM.load()
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+
+		profileVM.load()
 //
 //		switch campaignsVM.state {
 //		case .ready, .error:
@@ -65,7 +69,7 @@ final class ProfileViewController: UIViewController {
 //			}
 //		default: break
 //		}
-//	}
+	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -74,7 +78,7 @@ final class ProfileViewController: UIViewController {
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		navigationController?.navigationBar.makeNormal()
+		navigationController?.navigationBar.makeNormal(tint: view.tintColor)
 	}
 
 
@@ -103,10 +107,10 @@ final class ProfileViewController: UIViewController {
 //	}
 //
 	private func refreshProfile() {
-//		profileImage.setImage(url: profileVM.imageUrl)
-//		nameLabel.text = profileVM.name
-//		emailLabel.text = profileVM.email
-//		descriptionLabel.text = profileVM.description
+		profileImage.setImage(url: profileVM.imageUrl)
+		nameLabel.text = profileVM.name
+		emailLabel.text = profileVM.email
+		descriptionLabel.text = profileVM.description
 	}
 }
 
