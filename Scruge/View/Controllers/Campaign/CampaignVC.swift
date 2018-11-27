@@ -54,8 +54,14 @@ final class CampaignViewController: UIViewController {
 	// MARK: - Properties
 
 	var vm:CampaignVM!
-
 	private let MAX_ELEMENTS = 3
+	
+	var offset:CGFloat = 0 {
+		didSet {
+			if offset > 200 { makeNavigationBarNormal() }
+			else { makeNavigationBarTransparent() }
+		}
+	}
 
 	// MARK: - Setup
 
@@ -81,7 +87,9 @@ final class CampaignViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		makeNavigationBarTransparent()
+		if offset < 200 {
+			makeNavigationBarTransparent()
+		}
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
@@ -345,11 +353,6 @@ extension CampaignViewController: ArrayViewModelDelegate {
 extension CampaignViewController: UIScrollViewDelegate {
 
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		if scrollView.contentOffset.y > 200 {
-			makeNavigationBarNormal()
-		}
-		else {
-			makeNavigationBarTransparent()
-		}
+		offset = scrollView.contentOffset.y
 	}
 }
