@@ -286,6 +286,8 @@ extension CampaignViewController: UITableViewDataSource {
 			guard let vm = vm.lastUpdateVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
 												 for: indexPath)!.setup(with: vm)
+				.updateTap { Service.presenter.presentContentViewController(in: self, for: vm) }
+				.allUpdatesTap { Service.presenter.presentUpdatesViewController(in: self, for: self.vm) }
 		case .comments:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.topCommentCell,
 												 for: indexPath)!.setup(with: vm.topCommentsVM)
@@ -295,7 +297,6 @@ extension CampaignViewController: UITableViewDataSource {
 												 for: indexPath)!.setup(with: vm)
 		}
 		if cell == nil {
-			print("weird shit")
 			cell = UITableViewCell()
 		}
 		cell.selectionStyle = .none
@@ -344,7 +345,7 @@ extension CampaignViewController: ArrayViewModelDelegate {
 extension CampaignViewController: UIScrollViewDelegate {
 
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		if scrollView.contentOffset.y > 350 {
+		if scrollView.contentOffset.y > 200 {
 			makeNavigationBarNormal()
 		}
 		else {

@@ -22,13 +22,13 @@
                         <rect key="frame" x="15" y="5" width="360" height="220.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Documents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RsB-N3-ahw">
-                                <rect key="frame" x="15" y="15" width="87" height="20"/>
+                                <rect key="frame" x="15" y="15" width="87" height="35"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nST-aY-xW7">
-                                <rect key="frame" x="15" y="50" width="330" height="155.5"/>
+                                <rect key="frame" x="15" y="65" width="330" height="155.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="155.5" id="7SU-vl-2dg"/>
@@ -41,7 +41,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="nST-aY-xW7" secondAttribute="bottom" constant="15" id="3mo-nH-ERY"/>
+                            <constraint firstAttribute="bottom" secondItem="nST-aY-xW7" secondAttribute="bottom" id="3mo-nH-ERY"/>
                             <constraint firstItem="nST-aY-xW7" firstAttribute="top" secondItem="RsB-N3-ahw" secondAttribute="bottom" constant="15" id="PHY-8p-t31"/>
                             <constraint firstItem="RsB-N3-ahw" firstAttribute="top" secondItem="8Sx-oI-VMW" secondAttribute="top" constant="15" id="Vyk-qs-n7g"/>
                             <constraint firstItem="nST-aY-xW7" firstAttribute="leading" secondItem="RsB-N3-ahw" secondAttribute="leading" id="iDu-YT-Bin"/>

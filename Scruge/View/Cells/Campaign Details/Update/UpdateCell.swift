@@ -31,18 +31,28 @@ final class UpdateCell: UITableViewCell {
 
 	// MARK: - Tap
 
-	private var campaignBlock:(()->Void)?
+	private var allUpdatesBlock:(()->Void)?
 	private var updateBlock:(()->Void)?
 
 	@discardableResult
-	func setupTap(update: @escaping ()->Void) -> Self {
+	func updateTap(block: @escaping ()->Void) -> Self {
 		updateStackView.gestureRecognizers = [UITapGestureRecognizer(target: self,
 																	 action: #selector(updateTapped))]
-		updateBlock = update
+		updateBlock = block
+		return self
+	}
+
+	@discardableResult
+	func allUpdatesTap(block: @escaping ()->Void) -> Self {
+		allUpdatesBlock = block
 		return self
 	}
 
 	@objc func updateTapped() {
 		updateBlock?()
+	}
+
+	@IBAction func allUpdatesTapped() {
+		allUpdatesBlock?()
 	}
 }
