@@ -54,12 +54,13 @@ final class CampaignViewController: UIViewController {
 	// MARK: - Properties
 
 	var vm:CampaignVM!
-	private let MAX_ELEMENTS = 3
-	
+
+	private let NAVBAR_LIMIT:CGFloat = 240
+
 	var offset:CGFloat = 0 {
 		didSet {
 			setNeedsStatusBarAppearanceUpdate()
-			if offset > 200 {
+			if offset > NAVBAR_LIMIT {
 				navigationController?.navigationBar.makeNormal(with: vm.title,
 															   tint: view.tintColor)
 			}
@@ -70,7 +71,7 @@ final class CampaignViewController: UIViewController {
 	// MARK: - Setup
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return offset > 200 ? .default : .lightContent
+		return offset > NAVBAR_LIMIT ? .default : .lightContent
 	}
 
 	override func viewDidLoad() {
@@ -91,7 +92,7 @@ final class CampaignViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		if offset < 200 {
+		if offset < NAVBAR_LIMIT {
 			navigationController?.navigationBar.makeTransparent()
 		}
 	}
