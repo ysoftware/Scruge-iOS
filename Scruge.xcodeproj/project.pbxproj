@@ -10,6 +10,8 @@
 		512EE954BDA3136818C75BF7 /* Pods_Scruge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */; };
 		7105C35521AD2C89008AAB1E /* ProgressView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7105C35421AD2C89008AAB1E /* ProgressView.xib */; };
 		7105C35721AD554D008AAB1E /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105C35621AD554D008AAB1E /* RegisterVC.swift */; };
+		7105C35921AD63F8008AAB1E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105C35821AD63F8008AAB1E /* GradientView.swift */; };
+		7105C35B21AD6580008AAB1E /* TransparentNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105C35A21AD6580008AAB1E /* TransparentNavBar.swift */; };
 		710FE992217F94F8009E51E5 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710FE991217F94F8009E51E5 /* Balance.swift */; };
 		71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3D21663B8900C5B633 /* ProfileEditVC.swift */; };
 		71163A40216642F400C5B633 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3F216642F400C5B633 /* EmailValidation.swift */; };
@@ -225,6 +227,8 @@
 		5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ScrugeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7105C35421AD2C89008AAB1E /* ProgressView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProgressView.xib; sourceTree = "<group>"; };
 		7105C35621AD554D008AAB1E /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		7105C35821AD63F8008AAB1E /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		7105C35A21AD6580008AAB1E /* TransparentNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentNavBar.swift; sourceTree = "<group>"; };
 		710FE991217F94F8009E51E5 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		71163A3D21663B8900C5B633 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
 		71163A3F216642F400C5B633 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
@@ -602,12 +606,14 @@
 		71387A92216B6C8400B24C67 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7105C35821AD63F8008AAB1E /* GradientView.swift */,
 				71C8E8E4215907580078BD36 /* DismissSegue.swift */,
 				71BE95AF216352F2001CF853 /* TableHeaderTap.swift */,
 				71BE9575215E7C8A001CF853 /* ConstraintMultiplier.swift */,
 				71971CC02158F076004D28E7 /* RoundedView.swift */,
 				71B38D03215AC1E800929CC3 /* Alert.swift */,
 				716E62622189E13E002AC5DA /* DownloadImage.swift */,
+				7105C35A21AD6580008AAB1E /* TransparentNavBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1726,6 +1732,7 @@
 				716AE1CC215977470098882F /* CampaignAVM.swift in Sources */,
 				71BE9565215E2A22001CF853 /* TokenManager.swift in Sources */,
 				71D84CBD21995ACF00E8DB88 /* platform-specific.inc in Sources */,
+				7105C35921AD63F8008AAB1E /* GradientView.swift in Sources */,
 				71AB79012164D2650077D904 /* CommentsVC.swift in Sources */,
 				71C8E8F1215912690078BD36 /* Api.swift in Sources */,
 				71D84CDD21995AD000E8DB88 /* PrivateKey.swift in Sources */,
@@ -1816,6 +1823,7 @@
 				71D84CD621995AD000E8DB88 /* EOSRPC+Chain.swift in Sources */,
 				71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */,
 				71387A90216B6C6C00B24C67 /* CoreGraphicsTools.swift in Sources */,
+				7105C35B21AD6580008AAB1E /* TransparentNavBar.swift in Sources */,
 				71163A40216642F400C5B633 /* EmailValidation.swift in Sources */,
 				71D84CBB21995ACF00E8DB88 /* curve-specific.inc in Sources */,
 				71345C0F21773D2800F28AF1 /* AnyEncodable.swift in Sources */,

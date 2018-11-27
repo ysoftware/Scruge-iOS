@@ -58,8 +58,12 @@ final class CampaignViewController: UIViewController {
 	
 	var offset:CGFloat = 0 {
 		didSet {
-			if offset > 200 { makeNavigationBarNormal() }
-			else { makeNavigationBarTransparent() }
+			if offset > 200 {
+				navigationController?.navigationBar.makeNormal(with: vm.title,
+															   tint: view.tintColor)
+
+			}
+			else { navigationController?.navigationBar.makeTransparent() }
 		}
 	}
 
@@ -88,13 +92,13 @@ final class CampaignViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		if offset < 200 {
-			makeNavigationBarTransparent()
+			navigationController?.navigationBar.makeTransparent()
 		}
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		makeNavigationBarNormal()
+		navigationController?.navigationBar.makeNormal()
 	}
 
 	private func setupVM() {
@@ -151,23 +155,6 @@ final class CampaignViewController: UIViewController {
 		else {
 			navigationItem.rightBarButtonItem = nil
 		}
-	}
-
-	private func makeNavigationBarTransparent() {
-		if #available(iOS 11.0, *) {
-			navigationController?.navigationBar.prefersLargeTitles = false
-		}
-		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-		navigationController?.navigationBar.shadowImage = UIImage()
-		navigationController?.navigationBar.tintColor = .white
-		title = ""
-	}
-
-	private func makeNavigationBarNormal() {
-		navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
-		navigationController?.navigationBar.shadowImage = nil
-		navigationController?.navigationBar.tintColor = view.tintColor
-		title = vm.title
 	}
 
 	private func setupBottomButton() {
