@@ -56,8 +56,7 @@ final class FeaturedViewController: UIViewController {
 	}
 
 	func setupNavigationBar() {
-		title = "Featured"
-		navigationController?.navigationBar.preferLarge()
+		navigationController?.navigationBar.makeNormal(with: "Featured").preferLarge()
 	}
 
 	func setInitial() {

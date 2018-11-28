@@ -34,8 +34,7 @@ final class ImportKeyViewController: UIViewController {
 	}
 
 	private func setupNavigationBar() {
-		title = "Import key"
-		navigationController?.navigationBar.preferSmall()
+		navigationController?.navigationBar.makeNormal(with: "Import key").preferSmall()
 	}
 
 	@IBAction func hideKeyboard(_ sender: Any) {

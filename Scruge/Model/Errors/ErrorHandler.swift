@@ -64,6 +64,10 @@ struct ErrorHandler {
 				return "No accounts are associated with imported public key"
 			case .noKey:
 				return "You have no keys in your wallet"
+			case .noSelectedAccount:
+				return "You did not verify any EOS accounts"
+			case .selectedAccountMissing:
+				return "Your verified account is not accessible with imported EOS key"
 			}
 		}
 		else if let eosError = error as? EOSError {

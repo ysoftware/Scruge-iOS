@@ -43,8 +43,7 @@ final class CreateAccountViewController: UIViewController {
 	}
 
 	private func setupNavigationBar() {
-		title = "Create account"
-		navigationController?.navigationBar.preferSmall()
+		navigationController?.navigationBar.makeNormal(with: "Create account").preferSmall()
 	}
 
 	@IBAction func save(_ sender:Any) {

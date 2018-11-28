@@ -63,4 +63,8 @@ enum WalletError: Error, Equatable {
 	case noKey
 
 	case incorrectPasscode
+
+	case noSelectedAccount
+
+	case selectedAccountMissing
 }

@@ -47,9 +47,7 @@ extension UINavigationBar {
 			tintColor = color
 		}
 
-		if let title = title {
-			topItem?.title = title
-		}
+		topItem?.title = title ?? ""
 		return self
 	}
 }
