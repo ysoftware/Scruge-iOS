@@ -23,18 +23,15 @@ final class ImportKeyViewController: UIViewController {
 		setupNavigationBar()
 	}
 
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		scrollView.invalidateIntrinsicContentSize()
-	}
-
 	private func setupKeyboard() {
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
 	}
 
 	private func setupNavigationBar() {
-		navigationController?.navigationBar.makeNormal(with: "Import key").preferSmall()
+		title = "Import key"
+		makeNavbarNormal(with: "Import key", tint: view.tintColor)
+		preferSmallNavbar()
 	}
 
 	@IBAction func hideKeyboard(_ sender: Any) {

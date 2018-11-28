@@ -24,11 +24,6 @@ final class CreateAccountViewController: UIViewController {
 		setupNavigationBar()
 	}
 
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-		scrollView.invalidateIntrinsicContentSize()
-	}
-
 	@IBAction func hideKeyboard(_ sender: Any) {
 		view.endEditing(true)
 	}
@@ -43,7 +38,8 @@ final class CreateAccountViewController: UIViewController {
 	}
 
 	private func setupNavigationBar() {
-		navigationController?.navigationBar.makeNormal(with: "Create account").preferSmall()
+		makeNavbarNormal(with: "Create account")
+		preferSmallNavbar()
 	}
 
 	@IBAction func save(_ sender:Any) {

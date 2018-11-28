@@ -62,14 +62,17 @@ final class ProfileViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		navigationController?.navigationBar.makeTransparent().preferLarge()
+		
+		makeNavbarTransparent()
+		preferLargeNavbar()
 		navigationController?.navigationBar.titleTextAttributes = AttributesBuilder()
 			.color(.white).build()
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		navigationController?.navigationBar.makeNormal(tint: view.tintColor)
+
+		makeNavbarNormal(tint: view.tintColor)
 		navigationController?.navigationBar.titleTextAttributes = AttributesBuilder()
 			.color(view.tintColor).build()
 	}

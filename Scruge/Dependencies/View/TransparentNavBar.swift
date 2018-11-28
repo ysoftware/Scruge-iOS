@@ -8,46 +8,46 @@
 
 import UIKit
 
-extension UINavigationBar {
+extension UIViewController {
 
 	@discardableResult
-	func preferLarge() -> UINavigationBar {
+	func preferLargeNavbar() -> UIViewController {
 		if #available(iOS 11.0, *) {
-			prefersLargeTitles = true
+			navigationController?.navigationBar.prefersLargeTitles = true
 		}
 		return self
 	}
 
 	@discardableResult
-	func preferSmall() -> UINavigationBar {
+	func preferSmallNavbar() -> UIViewController {
 		if #available(iOS 11.0, *) {
-			prefersLargeTitles = false
+			navigationController?.navigationBar.prefersLargeTitles = false
 		}
 		return self
 	}
 
 	@discardableResult
-	func makeTransparent(keepTitle:Bool = false) -> UINavigationBar {
-		setBackgroundImage(UIImage(), for: .default)
-		shadowImage = UIImage()
-		tintColor = .white
+	func makeNavbarTransparent(keepTitle:Bool = false) -> UIViewController {
+		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+		navigationController?.navigationBar.shadowImage = UIImage()
+		navigationController?.navigationBar.tintColor = .white
 		
 		if !keepTitle {
-			topItem?.title = ""
+			self.title = ""
 		}
 		return self
 	}
 
 	@discardableResult
-	func makeNormal(with title:String? = nil, tint:UIColor? = nil) -> UINavigationBar {
-		setBackgroundImage(nil, for: .default)
-		shadowImage = nil
+	func makeNavbarNormal(with title:String? = nil, tint:UIColor? = nil) -> UIViewController {
+		navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
+		navigationController?.navigationBar.shadowImage = nil
 
 		if let color = tint {
-			tintColor = color
+			navigationController?.navigationBar.tintColor = color
 		}
 
-		topItem?.title = title ?? ""
+		self.title = title ?? ""
 		return self
 	}
 }

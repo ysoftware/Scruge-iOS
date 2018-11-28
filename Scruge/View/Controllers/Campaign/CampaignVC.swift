@@ -61,11 +61,12 @@ final class CampaignViewController: UIViewController {
 		didSet {
 			setNeedsStatusBarAppearanceUpdate()
 			if offset > NAVBAR_LIMIT {
-				navigationController?.navigationBar.preferSmall()
-					.makeNormal(with: vm.title, tint: view.tintColor)
+				preferSmallNavbar()
+				makeNavbarNormal(with: vm.title, tint: view.tintColor)
 			}
 			else {
-				navigationController?.navigationBar.preferSmall().makeTransparent()
+				preferSmallNavbar()
+				makeNavbarTransparent()
 			}
 		}
 	}
@@ -95,13 +96,14 @@ final class CampaignViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		if offset < NAVBAR_LIMIT {
-			navigationController?.navigationBar.preferSmall().makeTransparent()
+			preferSmallNavbar()
+			makeNavbarTransparent()
 		}
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
-		navigationController?.navigationBar.makeNormal()
+		makeNavbarNormal()
 	}
 
 	private func setupVM() {

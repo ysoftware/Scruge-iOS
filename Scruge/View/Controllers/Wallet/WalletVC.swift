@@ -57,10 +57,12 @@ final class WalletViewController: UIViewController {
 
 	private func setupNavigationBar() {
 		if case .ready = vm.state {
-			navigationController?.navigationBar.makeTransparent().preferSmall()
+			makeNavbarTransparent()
+			preferSmallNavbar()
 		}
 		else {
-			navigationController?.navigationBar.makeNormal(with: "Wallet").preferLarge()
+			makeNavbarNormal(with: "Wallet")
+			preferLargeNavbar()
 		}
 
 		if pickerBlock != nil {

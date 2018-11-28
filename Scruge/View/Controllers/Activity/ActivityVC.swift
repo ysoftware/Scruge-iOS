@@ -44,7 +44,8 @@ final class ActivityViewController: UIViewController {
 	}
 
 	func setupNavigationBar() {
-		navigationController?.navigationBar.makeNormal(with: "Activity").preferLarge()
+		makeNavbarNormal(with: "Activity")
+		preferLargeNavbar()
 	}
 
 	private func setupTableView() {
