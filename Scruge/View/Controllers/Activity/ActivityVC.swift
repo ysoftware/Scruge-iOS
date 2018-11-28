@@ -45,10 +45,7 @@ final class ActivityViewController: UIViewController {
 
 	func setupNavigationBar() {
 		title = "Activity"
-
-		if #available(iOS 11.0, *) {
-			navigationController?.navigationBar.prefersLargeTitles = true
-		}
+		navigationController?.navigationBar.preferLarge()
 	}
 
 	private func setupTableView() {
@@ -57,6 +54,8 @@ final class ActivityViewController: UIViewController {
 		tableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
 
 		tableView.contentInset.top = 15
+		tableView.contentInset.bottom = 15
+		
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.register(UINib(resource: R.nib.activityUpdateCell),

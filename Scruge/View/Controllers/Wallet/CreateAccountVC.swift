@@ -44,10 +44,7 @@ final class CreateAccountViewController: UIViewController {
 
 	private func setupNavigationBar() {
 		title = "Create account"
-
-		if #available(iOS 11.0, *) {
-			navigationController?.navigationBar.prefersLargeTitles = false
-		}
+		navigationController?.navigationBar.preferSmall()
 	}
 
 	@IBAction func save(_ sender:Any) {

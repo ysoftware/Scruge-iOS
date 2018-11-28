@@ -57,10 +57,7 @@ final class FeaturedViewController: UIViewController {
 
 	func setupNavigationBar() {
 		title = "Featured"
-
-		if #available(iOS 11.0, *) {
-			navigationController?.navigationBar.prefersLargeTitles = true
-		}
+		navigationController?.navigationBar.preferLarge()
 	}
 
 	func setInitial() {
@@ -82,6 +79,7 @@ final class FeaturedViewController: UIViewController {
 		campaignTableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
 
 		campaignTableView.contentInset.top = 15
+		campaignTableView.contentInset.bottom = 15
 
 		campaignTableView.estimatedRowHeight = 148
 		campaignTableView.rowHeight = UITableView.automaticDimension

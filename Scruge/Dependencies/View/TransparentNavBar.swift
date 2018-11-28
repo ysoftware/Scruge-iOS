@@ -10,17 +10,36 @@ import UIKit
 
 extension UINavigationBar {
 
-	func makeTransparent() {
+	@discardableResult
+	func preferLarge() -> UINavigationBar {
+		if #available(iOS 11.0, *) {
+			prefersLargeTitles = true
+		}
+		return self
+	}
+
+	@discardableResult
+	func preferSmall() -> UINavigationBar {
 		if #available(iOS 11.0, *) {
 			prefersLargeTitles = false
 		}
+		return self
+	}
+
+	@discardableResult
+	func makeTransparent(keepTitle:Bool = false) -> UINavigationBar {
 		setBackgroundImage(UIImage(), for: .default)
 		shadowImage = UIImage()
 		tintColor = .white
-		topItem?.title = ""
+		
+		if !keepTitle {
+			topItem?.title = ""
+		}
+		return self
 	}
 
-	func makeNormal(with title:String? = nil, tint:UIColor? = nil) {
+	@discardableResult
+	func makeNormal(with title:String? = nil, tint:UIColor? = nil) -> UINavigationBar {
 		setBackgroundImage(nil, for: .default)
 		shadowImage = nil
 
@@ -31,5 +50,6 @@ extension UINavigationBar {
 		if let title = title {
 			topItem?.title = title
 		}
+		return self
 	}
 }

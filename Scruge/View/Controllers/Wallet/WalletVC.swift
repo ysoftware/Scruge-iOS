@@ -12,7 +12,6 @@ import Result
 
 final class WalletViewController: UIViewController {
 
-	@IBOutlet weak var tableView: UITableView!
 	@IBOutlet weak var loadingView: LoadingView!
 
 	// MARK: - Property
@@ -24,10 +23,13 @@ final class WalletViewController: UIViewController {
 
 	// MARK: - Setup
 
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		setupTable()
 		setupActions()
 	}
 
@@ -42,25 +44,13 @@ final class WalletViewController: UIViewController {
 		setupNavigationBar()
 	}
 
-	private func setupTable() {
-		tableView.refreshControl = UIRefreshControl()
-		tableView.refreshControl!.addTarget(self, action: #selector(reloadData), for: .valueChanged)
-
-		tableView.register(UINib(resource: R.nib.accountCell),
-						   forCellReuseIdentifier: R.reuseIdentifier.accountCell.identifier)
-	}
-
 	private func setupVM() {
 		vm.delegate = self
 		reloadData()
 	}
 
 	private func setupNavigationBar() {
-		title = "Wallet"
-
-		if #available(iOS 11.0, *) {
-			navigationController?.navigationBar.prefersLargeTitles = true
-		}
+		navigationController?.navigationBar.makeTransparent(keepTitle: true).preferSmall()
 
 		if pickerBlock != nil {
 			let cancelButton = UIBarButtonItem(title: "Cancel",
@@ -80,17 +70,6 @@ final class WalletViewController: UIViewController {
 			loadingView.errorViewDelegate = self
 		default:
 			loadingView.errorViewDelegate = nil
-		}
-
-		switch vm.state {
-
-		case .ready, .error(WalletError.noAccounts):
-			navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Options",
-																style: .plain,
-																target: self,
-																action: #selector(showSettings))
-		default:
-			navigationItem.rightBarButtonItem = nil
 		}
 	}
 
@@ -112,20 +91,18 @@ final class WalletViewController: UIViewController {
 			loadingView.set(state: .error("You have no blockchain accounts added."))
 		case .error(let error):
 			loadingView.set(state: .error(ErrorHandler.message(for: error)))
-			tableView.refreshControl?.endRefreshing()
 
 		case .loading:
 			loadingView.set(state: .loading)
 		case .ready:
 			loadingView.set(state: .ready)
-			tableView.refreshControl?.endRefreshing()
 		default: break
 		}
 
 		setupActions()
 	}
 
-	@objc func showSettings() {
+	@IBAction func showSettings() {
 		let showPublic = UIAlertAction(title: "Show public key",
 									  style: .default) { _ in
 										self.showPublicKey()
@@ -193,45 +170,12 @@ final class WalletViewController: UIViewController {
 	}
 }
 
-extension WalletViewController: UITableViewDelegate {
-
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
-
-		guard let block = pickerBlock else { return }
-		let wallet = vm.item(at: indexPath.row)
-
-		ask(question: "Use this wallet for contribution?") { response in
-			if response {
-				self.dismiss(animated: true) {
-					block(wallet)
-				}
-			}
-		}
-	}
-}
-
-extension WalletViewController: UITableViewDataSource {
-
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return vm.numberOfItems
-	}
-
-	func tableView(_ tableView: UITableView,
-				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.accountCell,
-											 for: indexPath)!
-			.setup(with: vm.item(at: indexPath.row))
-	}
-}
-
 extension WalletViewController: ArrayViewModelDelegate {
 
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>,
 								 _ update: MVVM.Update)
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
 
-			tableView.reloadData()
 			updateStatus()
 	}
 }

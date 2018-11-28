@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import appendAttributedString
 import MVVM
 
 final class ProfileViewController: UIViewController {
@@ -61,12 +62,16 @@ final class ProfileViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		navigationController?.navigationBar.makeTransparent()
+		navigationController?.navigationBar.makeTransparent().preferLarge()
+		navigationController?.navigationBar.titleTextAttributes = AttributesBuilder()
+			.color(.white).build()
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		navigationController?.navigationBar.makeNormal(tint: view.tintColor)
+		navigationController?.navigationBar.titleTextAttributes = AttributesBuilder()
+			.color(view.tintColor).build()
 	}
 
 

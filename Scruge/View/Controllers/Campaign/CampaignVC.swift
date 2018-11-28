@@ -64,7 +64,9 @@ final class CampaignViewController: UIViewController {
 				navigationController?.navigationBar.makeNormal(with: vm.title,
 															   tint: view.tintColor)
 			}
-			else { navigationController?.navigationBar.makeTransparent() }
+			else {
+				navigationController?.navigationBar.makeTransparent().preferLarge()
+			}
 		}
 	}
 
@@ -93,7 +95,7 @@ final class CampaignViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		if offset < NAVBAR_LIMIT {
-			navigationController?.navigationBar.makeTransparent()
+			navigationController?.navigationBar.makeTransparent().preferLarge()
 		}
 	}
 
