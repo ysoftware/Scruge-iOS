@@ -8,6 +8,7 @@
 
 import UIKit
 
+@IBDesignable
 final class CardView: UIView {
 
 	override func layoutSubviews() {
