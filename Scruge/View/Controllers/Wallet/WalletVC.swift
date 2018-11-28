@@ -73,6 +73,7 @@ final class WalletViewController: UIViewController {
 		}
 
 		setNeedsStatusBarAppearanceUpdate()
+		tabBarItem.title = "Wallet"
 	}
 
 	private func setupActions() {
