@@ -17,7 +17,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
 		#if DEBUG
-		Service.api.setEnvironment(.test)
+		Service.api.setEnvironment(.prod)
 		#else
 		Service.api.setEnvironment(.prod)
 		#endif

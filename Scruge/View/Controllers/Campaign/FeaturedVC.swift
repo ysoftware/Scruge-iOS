@@ -44,10 +44,7 @@ final class FeaturedViewController: UIViewController {
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-
-		if #available(iOS 11.0, *) {
-			navigationController?.navigationBar.prefersLargeTitles = true
-		}
+		setupNavigationBar()
 
 		switch campaignVM.state {
 		case .ready, .error:
@@ -60,6 +57,10 @@ final class FeaturedViewController: UIViewController {
 
 	func setupNavigationBar() {
 		title = "Featured"
+
+		if #available(iOS 11.0, *) {
+			navigationController?.navigationBar.prefersLargeTitles = true
+		}
 	}
 
 	func setInitial() {

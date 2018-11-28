@@ -32,6 +32,7 @@ final class ActivityViewController: UIViewController {
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
+		setupNavigationBar()
 
 		switch vm.state {
 		case .ready, .error:
@@ -42,15 +43,24 @@ final class ActivityViewController: UIViewController {
 		}
 	}
 
+	func setupNavigationBar() {
+		title = "Activity"
+
+		if #available(iOS 11.0, *) {
+			navigationController?.navigationBar.prefersLargeTitles = true
+		}
+	}
+
 	private func setupTableView() {
 		tableView.delaysContentTouches = false
 		tableView.refreshControl = UIRefreshControl()
 		tableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
 
+		tableView.contentInset.top = 15
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableView.automaticDimension
-		tableView.register(UINib(resource: R.nib.updateCell),
-						   forCellReuseIdentifier: R.reuseIdentifier.updateCell.identifier)
+		tableView.register(UINib(resource: R.nib.activityUpdateCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.activityUpdateCell.identifier)
 	}
 
 	private func setupVM() {
@@ -74,7 +84,7 @@ extension ActivityViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let vm = self.vm.item(at: indexPath.row, shouldLoadMore: true)
-		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
+		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.activityUpdateCell,
 											 for: indexPath)!
 			.setup(with: vm)
 //			.setupTap(campaign: { [unowned self] in

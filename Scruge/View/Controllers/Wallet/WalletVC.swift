@@ -27,7 +27,6 @@ final class WalletViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		setupNavigationBar()
 		setupTable()
 		setupActions()
 	}
@@ -36,6 +35,7 @@ final class WalletViewController: UIViewController {
 		super.viewDidAppear(animated)
 
 		setupVM()
+		setupNavigationBar()
 	}
 
 	private func setupTable() {
@@ -52,7 +52,11 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func setupNavigationBar() {
-		title = "Accounts"
+		title = "Wallet"
+
+		if #available(iOS 11.0, *) {
+			navigationController?.navigationBar.prefersLargeTitles = true
+		}
 
 		if pickerBlock != nil {
 			let cancelButton = UIBarButtonItem(title: "Cancel",
@@ -65,7 +69,7 @@ final class WalletViewController: UIViewController {
 	private func setupActions() {
 		switch vm.state {
 		case .error(WalletError.noKey):
-			loadingView.errorView.setButtonTitle("Get started")
+			loadingView.errorView.setButtonTitle("Create new account")
 			loadingView.errorViewDelegate = self
 		case .error(WalletError.noAccounts):
 			loadingView.errorView.setButtonTitle("Create new account")
@@ -101,7 +105,7 @@ final class WalletViewController: UIViewController {
 		case .error(WalletError.noAccounts):
 			loadingView.set(state: .error(ErrorHandler.message(for: WalletError.noAccounts)))
 		case .error(WalletError.noKey):
-			loadingView.set(state: .error("You can import your key or create a new one."))
+			loadingView.set(state: .error("You have no blockchain accounts added."))
 		case .error(let error):
 			loadingView.set(state: .error(ErrorHandler.message(for: error)))
 			tableView.refreshControl?.endRefreshing()
@@ -150,56 +154,6 @@ final class WalletViewController: UIViewController {
 		}
 	}
 
-	private func createWallet() {
-		let createKey = UIAlertAction(title: "Create new key",
-									  style: .default) { _ in
-										self.openCreateKey()
-		}
-
-		let importKey = UIAlertAction(title: "Import existing key",
-									  style: .default) { _ in
-										self.openImportKey()
-		}
-
-		let cancel = UIAlertAction(title: "Cancel",
-								   style: .cancel) { _ in
-		}
-
-		Service.presenter.presentActions(in: self,
-										 title: "Select action",
-										 message: "", actions: [createKey, importKey, cancel])
-	}
-
-	private func createAccount() {
-		let message = "Enter your passcode to unlock the wallet."
-		Service.presenter.presentPasscodeViewController(in: self, message: message) { input in
-			guard let passcode = input else { return }
-			
-			self.createAccount(passcode: passcode)
-		}
-	}
-
-	private func createAccount(passcode:String) {
-		self.askForInput(question: "Enter new account name (12 symbols)") { name in
-			guard let accountName = name else { return }
-
-			guard accountName.count == 12 else {
-				return self.alert("Account name has to be 12 symbols long.")  {
-					self.createAccount(passcode: passcode)
-				}
-			}
-
-			self.vm.createAccount(withName: accountName, passcode: passcode) { error in
-				if let error = error {
-					self.alert(error)
-				}
-				else {
-					self.alert("Will send message to the backend. Not implemented.")
-				}
-			}
-		}
-	}
-
 	private func showPublicKey() {
 		Service.presenter.presentPasscodeViewController(in: self, message: "") { input in
 			guard let passcode = input else { return }
@@ -233,22 +187,6 @@ final class WalletViewController: UIViewController {
 	private func openImportKey() {
 		Service.presenter.presentImporKeyViewController(in: self)
 	}
-
-	private func openCreateKey() {
-		let message = "Enter passcode for this wallet."
-		Service.presenter.presentPasscodeViewController(in: self, message: message) { input in
-			guard let passcode = input else { return }
-
-			Service.wallet.createKey(passcode) { account in
-				if account != nil {
-					self.vm.reloadData()
-				}
-				else {
-					self.alert("There was an error while creating wallet.")
-				}
-			}
-		}
-	}
 }
 
 extension WalletViewController: UITableViewDelegate {
@@ -275,7 +213,8 @@ extension WalletViewController: UITableViewDataSource {
 		return vm.numberOfItems
 	}
 
-	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+	func tableView(_ tableView: UITableView,
+				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.accountCell,
 											 for: indexPath)!
 			.setup(with: vm.item(at: indexPath.row))
@@ -299,9 +238,7 @@ extension WalletViewController: ErrorViewDelegate {
 	func didTryAgain() {
 		switch vm.state {
 		case .error(WalletError.noKey):
-			createWallet()
-		case .error(WalletError.noAccounts):
-			createAccount()
+			Service.presenter.presentImporKeyViewController(in: self)
 		default: break
 		}
 	}

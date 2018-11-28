@@ -17,7 +17,7 @@ final class UpdateCell: UITableViewCell {
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var sectionTitleLabel: UILabel!
 	
-	// MARK: - Setups
+	// MARK: - Setup
 
 	@discardableResult
 	func setup(with vm: UpdateVM) -> Self {
