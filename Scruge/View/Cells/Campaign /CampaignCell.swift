@@ -34,7 +34,7 @@ final class CampaignCell: UITableViewCell {
 
 		titleLabel!.text = vm.title
 		descriptionLabel?.text = vm.description
-		rightLabel?.text = vm.daysLeft
+		rightLabel?.text = vm.daysLeft.uppercased()
 
 		progressView.value = vm.raised
 		progressView.total = vm.hardCap

@@ -112,13 +112,13 @@ final class CommentsViewController: UIViewController {
 	}
 
 	private func setupTableView() {
-//		tableView.refreshControl = UIRefreshControl()
-//		tableView.refreshControl!.addTarget(self, action: #selector(reloadData), for: .valueChanged)
-//
-//		tableView.estimatedRowHeight = 80
-//		tableView.rowHeight = UITableView.automaticDimension
-//		tableView.register(UINib(resource: R.nib.commentCell),
-//						   forCellReuseIdentifier: R.reuseIdentifier.commentCell.identifier)
+		tableView.refreshControl = UIRefreshControl()
+		tableView.refreshControl!.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+
+		tableView.estimatedRowHeight = 80
+		tableView.rowHeight = UITableView.automaticDimension
+		tableView.register(UINib(resource: R.nib.commentCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.commentCell.identifier)
 	}
 
 	@objc func reloadData() {
@@ -162,18 +162,18 @@ final class CommentsViewController: UIViewController {
 	}
 }
 
-//extension CommentsViewController: UITableViewDataSource {
-//
-//	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//		return vm.numberOfItems
-//	}
-//
-//	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell,
-//											 for: indexPath)!
-//			.setup(with: vm.item(at: indexPath.row, shouldLoadMore: true))
-//	}
-//}
+extension CommentsViewController: UITableViewDataSource {
+
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return vm.numberOfItems
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell,
+											 for: indexPath)!
+			.setup(with: vm.item(at: indexPath.row, shouldLoadMore: true))
+	}
+}
 
 extension CommentsViewController: UITableViewDelegate {
 

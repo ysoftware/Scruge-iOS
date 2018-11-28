@@ -21,6 +21,8 @@
 		71163A472167517E00C5B633 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A462167517E00C5B633 /* Wallet.swift */; };
 		71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A49216754BC00C5B633 /* LoadingView.swift */; };
 		71163A4C216754C400C5B633 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71163A4B216754C400C5B633 /* LoadingView.xib */; };
+		712508B821AECC33008E3A5C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712508B721AECC33008E3A5C /* CommentCell.swift */; };
+		712508BA21AECC3C008E3A5C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712508B921AECC3C008E3A5C /* CommentCell.xib */; };
 		712B3A7021A813E8003BB43A /* EconomiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712B3A6F21A813E8003BB43A /* EconomiesCell.xib */; };
 		712B3A7221A814AC003BB43A /* EconomiesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712B3A7121A814AC003BB43A /* EconomiesCell.swift */; };
 		712B3A7521A81869003BB43A /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712B3A7421A81869003BB43A /* CardView.swift */; };
@@ -242,6 +244,8 @@
 		71163A462167517E00C5B633 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		71163A49216754BC00C5B633 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		71163A4B216754C400C5B633 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		712508B721AECC33008E3A5C /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		712508B921AECC3C008E3A5C /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		712B3A6F21A813E8003BB43A /* EconomiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EconomiesCell.xib; sourceTree = "<group>"; };
 		712B3A7121A814AC003BB43A /* EconomiesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EconomiesCell.swift; sourceTree = "<group>"; };
 		712B3A7421A81869003BB43A /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
@@ -526,6 +530,15 @@
 				71163A49216754BC00C5B633 /* LoadingView.swift */,
 			);
 			path = "Loading View";
+			sourceTree = "<group>";
+		};
+		712508B621AECC23008E3A5C /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				712508B921AECC3C008E3A5C /* CommentCell.xib */,
+				712508B721AECC33008E3A5C /* CommentCell.swift */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 		712B3A6E21A813D3003BB43A /* Economies */ = {
@@ -829,6 +842,7 @@
 		71971CBB2158E454004D28E7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				712508B621AECC23008E3A5C /* Comment */,
 				71FF085821AE763500D9F3A3 /* Activity */,
 				71BE95A621626023001CF853 /* Reward */,
 				71BE957D215F5D31001CF853 /* Category */,
@@ -1611,6 +1625,7 @@
 				71D84CBE21995ACF00E8DB88 /* secp256k1.table in Resources */,
 				71A0C1A9216F93A500C2ACF3 /* AboutCell.xib in Resources */,
 				71BE95932162343F001CF853 /* CampHeader.xib in Resources */,
+				712508BA21AECC3C008E3A5C /* CommentCell.xib in Resources */,
 				71AD0E32217091BD00077446 /* DocumentCell.xib in Resources */,
 				71163A422166499200C5B633 /* CampaignSmallCell.xib in Resources */,
 			);
@@ -1824,6 +1839,7 @@
 				71345AF32176000000F28AF1 /* Range.swift in Sources */,
 				71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */,
 				71387A99216CA73D00B24C67 /* TagCell.swift in Sources */,
+				712508B821AECC33008E3A5C /* CommentCell.swift in Sources */,
 				713EF3B221A98E6F009BA9D5 /* PagingCell.swift in Sources */,
 				71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */,
 				71D84CC121995AD000E8DB88 /* sha2.c in Sources */,

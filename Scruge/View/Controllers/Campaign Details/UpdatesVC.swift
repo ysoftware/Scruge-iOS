@@ -35,6 +35,9 @@ final class UpdatesViewController: UIViewController {
 	}
 
 	private func setupTableView() {
+		tableView.contentInset.bottom = 15
+		tableView.contentInset.top = 15
+
 		tableView.estimatedRowHeight = 400
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.register(UINib(resource: R.nib.updateCell),
