@@ -20,10 +20,8 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 	private var tapBlock:((Int)->Void)?
 
 	@discardableResult
-	func setup(with vm:FaqAVM,
-			   _ tap: ((Int)->Void)? = nil) -> PagingCell {
+	func setup(with vm:FaqAVM) -> PagingCell {
 		faqVM = vm
-		tapBlock = tap
 		titleLabel.text = "Frequently asked questions"
 		collectionView.register(UINib(resource: R.nib.faqCell),
 								forCellWithReuseIdentifier: R.nib.faqCell.identifier)
@@ -33,12 +31,16 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 	}
 
 	@discardableResult
+	func tap(_ tap: @escaping (Int)->Void) -> PagingCell {
+		tapBlock = tap
+		return self
+	}
+
+	@discardableResult
 	func setup(with vm:MilestoneAVM,
-			   _ currentMilestone:MilestoneVM,
-			   _ tap: ((Int)->Void)? = nil) -> PagingCell {
+			   _ currentMilestone:MilestoneVM) -> PagingCell {
 		milestoneVM = vm
 		self.currentMilestone = currentMilestone
-		tapBlock = tap
 		titleLabel.text = "Milestones"
 		collectionView.register(UINib(resource: R.nib.milestoneCell),
 								forCellWithReuseIdentifier: R.nib.milestoneCell.identifier)

@@ -19,8 +19,13 @@ final class AboutCell: UITableViewCell {
 	var block:((Social)->Void)?
 
 	@discardableResult
-	func setup(with vm:CampaignVM, _ block: ((Social)->Void)?) -> Self {
-		self.block = block
+	func tap(_ tap: @escaping (Social)->Void) -> Self {
+		self.block = tap
+		return self
+	}
+
+	@discardableResult
+	func setup(with vm:CampaignVM) -> Self {
 		social = vm.social
 		aboutLabel.text = vm.about
 

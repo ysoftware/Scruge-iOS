@@ -16,6 +16,7 @@ final class TopCommentCell: UITableViewCell {
 	@IBOutlet weak var usernameLabel: UILabel!
 	@IBOutlet weak var commentLabel: UILabel!
 	@IBOutlet weak var likesLabel: UILabel!
+	@IBOutlet weak var allCommentsStack: UIStackView!
 
 	@discardableResult
 	func setup(with vm:CommentAVM? = nil) -> Self {
@@ -39,5 +40,19 @@ final class TopCommentCell: UITableViewCell {
 
 		}
 		return self
+	}
+
+	private var tapBlock:(()->Void)!
+
+	@discardableResult
+	func allComments(_ tap: @escaping ()->Void) -> TopCommentCell {
+		tapBlock = tap
+		let tap = UITapGestureRecognizer(target: self, action: #selector(openAll))
+		allCommentsStack.gestureRecognizers = [tap]
+		return self
+	}
+
+	@objc func openAll() {
+		tapBlock?()
 	}
 }

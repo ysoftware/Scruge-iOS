@@ -21,7 +21,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iw9-Gg-xF8" customClass="CardView" customModule="Scruge" customModuleProvider="target">
                         <rect key="frame" x="15" y="10" width="441" height="158.5"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ihb-S7-k2U">
+                            <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ihb-S7-k2U">
                                 <rect key="frame" x="0.0" y="0.0" width="441" height="158.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wZ4-9K-5lZ">
@@ -120,7 +120,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="vVd-m8-oK7">
-                                        <rect key="frame" x="15" y="118" width="411" height="25.5"/>
+                                        <rect key="frame" x="15" y="118" width="154" height="25.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="comments" translatesAutoresizingMaskIntoConstraints="NO" id="lES-VX-YgV">
                                                 <rect key="frame" x="0.0" y="5.5" width="15" height="15"/>
@@ -130,7 +130,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="See all 5 comments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xqi-94-LWu">
-                                                <rect key="frame" x="20" y="4.5" width="391" height="17"/>
+                                                <rect key="frame" x="20" y="4.5" width="134" height="17"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                 <color key="textColor" red="0.27058823529411763" green="0.31764705882352939" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -158,6 +158,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="allCommentsStack" destination="vVd-m8-oK7" id="rji-vU-MrC"/>
                 <outlet property="commentLabel" destination="Ufl-Sw-zBF" id="GY4-xL-Kw9"/>
                 <outlet property="dateLabel" destination="4wo-RC-dAz" id="Fxv-we-mso"/>
                 <outlet property="likesLabel" destination="Ark-de-Rve" id="IWP-nb-Uva"/>

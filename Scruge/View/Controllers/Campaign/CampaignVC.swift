@@ -64,9 +64,7 @@ final class CampaignViewController: UIViewController {
 				navigationController?.navigationBar.makeNormal(with: vm.title,
 															   tint: view.tintColor)
 			}
-			else {
-				navigationController?.navigationBar.makeTransparent().preferSmall()
-			}
+			else { navigationController?.navigationBar.makeTransparent() }
 		}
 	}
 
@@ -95,7 +93,7 @@ final class CampaignViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		if offset < NAVBAR_LIMIT {
-			navigationController?.navigationBar.makeTransparent().preferSmall()
+			navigationController?.navigationBar.makeTransparent()
 		}
 	}
 
@@ -258,8 +256,9 @@ extension CampaignViewController: UITableViewDataSource {
 		switch block(for: indexPath.row) {
 		case .about:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.aboutCell,
-												 for: indexPath)!.setup(with: vm) { social in
-													self.openSocialPage(social)
+												 for: indexPath)!.setup(with: vm)
+				.tap { [unowned self] social in
+					self.openSocialPage(social)
 			}
 		case .info:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
@@ -271,24 +270,33 @@ extension CampaignViewController: UITableViewDataSource {
 		case .faq:
 			guard let vm = vm.faqVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
-												 for: indexPath)!.setup(with: vm) { index in
-													// open faq
+												 for: indexPath)!.setup(with: vm)
+				.tap { [unowned self] index in
+					// open faq
 			}
 		case .milestone:
 			guard let vm = vm.milestonesVM, let cvm = self.vm.currentMilestoneVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
-												 for: indexPath)!.setup(with: vm, cvm) { index in
-													// open milestone?
+												 for: indexPath)!.setup(with: vm, cvm)
+				.tap { [unowned self] index in
+					// open milestone?
 			}
 		case .update:
 			guard let vm = vm.lastUpdateVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
 												 for: indexPath)!.setup(with: vm)
-				.updateTap { Service.presenter.presentContentViewController(in: self, for: vm) }
-				.allUpdatesTap { Service.presenter.presentUpdatesViewController(in: self, for: self.vm) }
+				.updateTap { [unowned self] in
+					Service.presenter.presentContentViewController(in: self, for: vm)
+				}
+				.allUpdatesTap { [unowned self] in
+					Service.presenter.presentUpdatesViewController(in: self, for: self.vm)
+			}
 		case .comments:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.topCommentCell,
 												 for: indexPath)!.setup(with: vm.topCommentsVM)
+				.allComments { [unowned self] in
+					Service.presenter.presentCommentsViewController(in: self, for: self.vm)
+			}
 		case .documents:
 			guard let vm = vm.documentsVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.documentsCell,
