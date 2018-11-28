@@ -12,6 +12,9 @@ import Result
 
 final class WalletViewController: UIViewController {
 
+	@IBOutlet weak var accountNameLabel: UILabel!
+	@IBOutlet weak var balanceLabel: UILabel!
+
 	@IBOutlet weak var loadingView: LoadingView!
 
 	// MARK: - Property
@@ -24,7 +27,10 @@ final class WalletViewController: UIViewController {
 	// MARK: - Setup
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
+		if case .ready = vm.state {
+			return .lightContent
+		}
+		return .default
 	}
 
 	override func viewDidLoad() {
@@ -50,7 +56,12 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func setupNavigationBar() {
-		navigationController?.navigationBar.makeTransparent(keepTitle: true).preferSmall()
+		if case .ready = vm.state {
+			navigationController?.navigationBar.makeTransparent().preferSmall()
+		}
+		else {
+			navigationController?.navigationBar.makeNormal(with: "Wallet").preferLarge()
+		}
 
 		if pickerBlock != nil {
 			let cancelButton = UIBarButtonItem(title: "Cancel",
@@ -58,6 +69,8 @@ final class WalletViewController: UIViewController {
 										 target: self, action: #selector(cancel))
 			navigationItem.leftBarButtonItem = cancelButton
 		}
+
+		setNeedsStatusBarAppearanceUpdate()
 	}
 
 	private func setupActions() {
@@ -100,6 +113,14 @@ final class WalletViewController: UIViewController {
 		}
 
 		setupActions()
+		setupNavigationBar()
+		updateView()
+	}
+
+	private func updateView() {
+		let acc = vm.numberOfItems > 0 ? vm.item(at: 0) : nil
+		accountNameLabel.text = acc?.name ?? ""
+		balanceLabel.text = acc?.balanceString ?? "0.0000 EOS\n0.0000 SCR"
 	}
 
 	@IBAction func showSettings() {
