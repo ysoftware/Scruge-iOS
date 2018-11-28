@@ -760,4 +760,5 @@
         <image name="lock" width="11" height="14"/>
         <image name="wallet_small" width="18" height="14"/>
     </resources>
+    <color key="tintColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
 </document>
