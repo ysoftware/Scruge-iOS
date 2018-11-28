@@ -56,25 +56,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KEs-dl-UZt">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="297.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="325"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="z1t-Zi-89D">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="297.5"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="z1t-Zi-89D">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="325"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eJm-Ya-Q5B" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="74" width="384" height="208.5"/>
+                                                        <rect key="frame" x="15" y="74" width="384" height="236"/>
                                                         <subviews>
-                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Pve-Ts-Yhq">
-                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="208.5"/>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Pve-Ts-Yhq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="384" height="236"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do you want this project to continue and release next portion of funds to the founder?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92k-xh-kw8">
-                                                                        <rect key="frame" x="23.5" y="15" width="337.5" height="38.5"/>
+                                                                        <rect key="frame" x="15" y="15" width="354" height="38.5"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                                                         <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HTe-tE-yXY" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
-                                                                        <rect key="frame" x="19.5" y="68.5" width="345" height="60"/>
+                                                                        <rect key="frame" x="15" y="68.5" width="354" height="60"/>
                                                                         <subviews>
                                                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="Ur2-Ze-P4S">
                                                                                 <rect key="frame" x="15" y="22.5" width="15" height="15"/>
@@ -84,7 +84,7 @@
                                                                                 </constraints>
                                                                             </imageView>
                                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wallet password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1yL-Sb-OyO">
-                                                                                <rect key="frame" x="45" y="0.0" width="285" height="60"/>
+                                                                                <rect key="frame" x="45" y="0.0" width="294" height="60"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
@@ -107,67 +107,72 @@
                                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="NO"/>
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
-                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PU8-g2-A6w">
-                                                                        <rect key="frame" x="127" y="143.5" width="130" height="50"/>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="64R-Mu-39k">
+                                                                        <rect key="frame" x="15" y="143.5" width="354" height="77.5"/>
                                                                         <subviews>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTY-eb-ZgQ" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="PU8-g2-A6w">
+                                                                                <rect key="frame" x="112" y="0.0" width="130" height="77.5"/>
                                                                                 <subviews>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8m-gQ-2RO">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                                        <state key="normal" image="cross"/>
-                                                                                        <connections>
-                                                                                            <action selector="vote:" destination="ayX-0W-Zr1" eventType="touchUpInside" id="ZaP-rg-eVI"/>
-                                                                                        </connections>
-                                                                                    </button>
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QTY-eb-ZgQ" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
+                                                                                        <rect key="frame" x="0.0" y="14" width="50" height="50"/>
+                                                                                        <subviews>
+                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l8m-gQ-2RO">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                                                <state key="normal" image="cross"/>
+                                                                                                <connections>
+                                                                                                    <action selector="vote:" destination="ayX-0W-Zr1" eventType="touchUpInside" id="ZaP-rg-eVI"/>
+                                                                                                </connections>
+                                                                                            </button>
+                                                                                        </subviews>
+                                                                                        <color key="backgroundColor" white="0.95029787385844733" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="width" secondItem="QTY-eb-ZgQ" secondAttribute="height" id="G6N-TI-umC"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="l8m-gQ-2RO" secondAttribute="trailing" id="HEP-pp-RTg"/>
+                                                                                            <constraint firstAttribute="bottom" secondItem="l8m-gQ-2RO" secondAttribute="bottom" id="HZ0-H7-BoU"/>
+                                                                                            <constraint firstAttribute="height" constant="50" id="MZ5-0O-UlR"/>
+                                                                                            <constraint firstItem="l8m-gQ-2RO" firstAttribute="leading" secondItem="QTY-eb-ZgQ" secondAttribute="leading" id="QQk-pC-04w"/>
+                                                                                            <constraint firstItem="l8m-gQ-2RO" firstAttribute="top" secondItem="QTY-eb-ZgQ" secondAttribute="top" id="h4K-VD-Fyf"/>
+                                                                                        </constraints>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                <real key="value" value="0.5"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </view>
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDQ-Dg-gZV" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
+                                                                                        <rect key="frame" x="80" y="14" width="50" height="50"/>
+                                                                                        <subviews>
+                                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yH9-ZB-yOz">
+                                                                                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                                                                <state key="normal" image="check"/>
+                                                                                                <connections>
+                                                                                                    <action selector="vote:" destination="ayX-0W-Zr1" eventType="touchUpInside" id="cQI-2N-Tcj"/>
+                                                                                                </connections>
+                                                                                            </button>
+                                                                                        </subviews>
+                                                                                        <color key="backgroundColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="trailing" secondItem="yH9-ZB-yOz" secondAttribute="trailing" id="4QQ-mj-yEg"/>
+                                                                                            <constraint firstAttribute="bottom" secondItem="yH9-ZB-yOz" secondAttribute="bottom" id="PLU-O3-ruI"/>
+                                                                                            <constraint firstAttribute="width" secondItem="fDQ-Dg-gZV" secondAttribute="height" id="aeN-gY-zGD"/>
+                                                                                            <constraint firstAttribute="height" constant="50" id="bMY-st-2xM"/>
+                                                                                            <constraint firstItem="yH9-ZB-yOz" firstAttribute="leading" secondItem="fDQ-Dg-gZV" secondAttribute="leading" id="e6t-ed-gpa"/>
+                                                                                            <constraint firstItem="yH9-ZB-yOz" firstAttribute="top" secondItem="fDQ-Dg-gZV" secondAttribute="top" id="wKk-CP-DQP"/>
+                                                                                        </constraints>
+                                                                                        <userDefinedRuntimeAttributes>
+                                                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                <real key="value" value="0.5"/>
+                                                                                            </userDefinedRuntimeAttribute>
+                                                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="YES"/>
+                                                                                        </userDefinedRuntimeAttributes>
+                                                                                    </view>
                                                                                 </subviews>
-                                                                                <color key="backgroundColor" white="0.95029787385844733" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="width" secondItem="QTY-eb-ZgQ" secondAttribute="height" id="G6N-TI-umC"/>
-                                                                                    <constraint firstAttribute="trailing" secondItem="l8m-gQ-2RO" secondAttribute="trailing" id="HEP-pp-RTg"/>
-                                                                                    <constraint firstAttribute="bottom" secondItem="l8m-gQ-2RO" secondAttribute="bottom" id="HZ0-H7-BoU"/>
-                                                                                    <constraint firstAttribute="height" constant="50" id="MZ5-0O-UlR"/>
-                                                                                    <constraint firstItem="l8m-gQ-2RO" firstAttribute="leading" secondItem="QTY-eb-ZgQ" secondAttribute="leading" id="QQk-pC-04w"/>
-                                                                                    <constraint firstItem="l8m-gQ-2RO" firstAttribute="top" secondItem="QTY-eb-ZgQ" secondAttribute="top" id="h4K-VD-Fyf"/>
+                                                                                    <constraint firstItem="fDQ-Dg-gZV" firstAttribute="width" secondItem="fDQ-Dg-gZV" secondAttribute="height" id="HQl-Pt-tMv"/>
                                                                                 </constraints>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                        <real key="value" value="0.5"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="YES"/>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                            </view>
-                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fDQ-Dg-gZV" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
-                                                                                <rect key="frame" x="80" y="0.0" width="50" height="50"/>
-                                                                                <subviews>
-                                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yH9-ZB-yOz">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                                                                        <state key="normal" image="check"/>
-                                                                                        <connections>
-                                                                                            <action selector="vote:" destination="ayX-0W-Zr1" eventType="touchUpInside" id="cQI-2N-Tcj"/>
-                                                                                        </connections>
-                                                                                    </button>
-                                                                                </subviews>
-                                                                                <color key="backgroundColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
-                                                                                <constraints>
-                                                                                    <constraint firstAttribute="trailing" secondItem="yH9-ZB-yOz" secondAttribute="trailing" id="4QQ-mj-yEg"/>
-                                                                                    <constraint firstAttribute="bottom" secondItem="yH9-ZB-yOz" secondAttribute="bottom" id="PLU-O3-ruI"/>
-                                                                                    <constraint firstAttribute="width" secondItem="fDQ-Dg-gZV" secondAttribute="height" id="aeN-gY-zGD"/>
-                                                                                    <constraint firstAttribute="height" constant="50" id="bMY-st-2xM"/>
-                                                                                    <constraint firstItem="yH9-ZB-yOz" firstAttribute="leading" secondItem="fDQ-Dg-gZV" secondAttribute="leading" id="e6t-ed-gpa"/>
-                                                                                    <constraint firstItem="yH9-ZB-yOz" firstAttribute="top" secondItem="fDQ-Dg-gZV" secondAttribute="top" id="wKk-CP-DQP"/>
-                                                                                </constraints>
-                                                                                <userDefinedRuntimeAttributes>
-                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                                        <real key="value" value="0.5"/>
-                                                                                    </userDefinedRuntimeAttribute>
-                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="YES"/>
-                                                                                </userDefinedRuntimeAttributes>
-                                                                            </view>
+                                                                            </stackView>
                                                                         </subviews>
-                                                                        <constraints>
-                                                                            <constraint firstItem="fDQ-Dg-gZV" firstAttribute="width" secondItem="fDQ-Dg-gZV" secondAttribute="height" id="HQl-Pt-tMv"/>
-                                                                        </constraints>
                                                                     </stackView>
                                                                 </subviews>
                                                                 <directionalEdgeInsets key="directionalLayoutMargins" top="15" leading="15" bottom="15" trailing="15"/>
