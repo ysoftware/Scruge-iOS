@@ -35,6 +35,10 @@ final class WalletViewController: UIViewController {
 		super.viewDidAppear(animated)
 
 		setupVM()
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		setupNavigationBar()
 	}
 

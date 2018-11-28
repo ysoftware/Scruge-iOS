@@ -62,10 +62,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sDe-Mc-sP9">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="364"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="399"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="hZQ-wY-K5j">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="364"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="399"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1aR-IX-ojY">
                                                         <rect key="frame" x="15" y="50" width="345" height="125"/>
@@ -172,7 +172,7 @@
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <directionalEdgeInsets key="directionalLayoutMargins" top="30" leading="15" bottom="15" trailing="15"/>
+                                                <directionalEdgeInsets key="directionalLayoutMargins" top="30" leading="15" bottom="50" trailing="15"/>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -194,6 +194,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="coc-NG-kzN" firstAttribute="bottom" secondItem="a9K-Tb-jMN" secondAttribute="bottom" id="gR4-FY-Gj1"/>
                             <constraint firstItem="coc-NG-kzN" firstAttribute="leading" secondItem="a9K-Tb-jMN" secondAttribute="leading" id="kGH-lR-Ojt"/>
@@ -201,14 +202,23 @@
                             <constraint firstItem="coc-NG-kzN" firstAttribute="trailing" secondItem="a9K-Tb-jMN" secondAttribute="trailing" id="oI3-Cj-e2T"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="a9K-Tb-jMN"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PR3-Jy-iqw" appends="YES" id="3B0-hS-PdZ"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="button" destination="FYL-1u-i8T" id="czA-Af-4oC"/>
                         <outlet property="keyField" destination="INK-Hd-VAt" id="iQH-j7-KAI"/>
                         <outlet property="passcodeField" destination="B4q-bi-j3Z" id="1Su-AU-3ku"/>
+                        <outlet property="scrollView" destination="coc-NG-kzN" id="t9i-Uh-LSL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t2X-xU-i8K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="PR3-Jy-iqw">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="Fi0-gV-QGp" id="icE-BS-rjv"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="856.79999999999995" y="121.88905547226388"/>
         </scene>
@@ -224,10 +234,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rMt-T4-nhg">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="429"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="464"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Z4l-Jl-L3y">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="429"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="464"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1mf-Cb-L8B">
                                                         <rect key="frame" x="15" y="50" width="345" height="190"/>
@@ -361,11 +371,14 @@
                                                                 <state key="normal" title="Import your key">
                                                                     <color key="titleColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
+                                                                <connections>
+                                                                    <action selector="importKey:" destination="3VL-qr-IGs" eventType="touchUpInside" id="Omy-E9-G5T"/>
+                                                                </connections>
                                                             </button>
                                                         </subviews>
                                                     </stackView>
                                                 </subviews>
-                                                <directionalEdgeInsets key="directionalLayoutMargins" top="30" leading="15" bottom="15" trailing="15"/>
+                                                <directionalEdgeInsets key="directionalLayoutMargins" top="30" leading="15" bottom="50" trailing="15"/>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -387,6 +400,7 @@
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="FCq-4t-bW1" firstAttribute="bottom" secondItem="NQm-zJ-GnH" secondAttribute="bottom" id="Osc-Nh-QhS"/>
                             <constraint firstItem="FCq-4t-bW1" firstAttribute="trailing" secondItem="NQm-zJ-GnH" secondAttribute="trailing" id="UbI-9B-NNz"/>
@@ -394,9 +408,24 @@
                             <constraint firstItem="FCq-4t-bW1" firstAttribute="top" secondItem="orZ-eq-UI6" secondAttribute="top" id="x5Q-tY-VR2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NQm-zJ-GnH"/>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="dj3-CV-ftC" appends="YES" id="XCV-VR-x3R"/>
+                        </connections>
                     </view>
+                    <connections>
+                        <outlet property="accountNameField" destination="H1b-eD-Dhp" id="5rJ-Vs-sAj"/>
+                        <outlet property="button" destination="f9G-jL-CMv" id="1Vo-Nh-rmr"/>
+                        <outlet property="passcodeConfirmField" destination="8bO-oY-cTA" id="5dX-NQ-65b"/>
+                        <outlet property="passcodeField" destination="Sir-18-AZX" id="zW8-KT-r0V"/>
+                        <outlet property="scrollView" destination="FCq-4t-bW1" id="III-g5-45y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yFP-wm-pol" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dj3-CV-ftC">
+                    <connections>
+                        <action selector="hideKeyboard:" destination="3VL-qr-IGs" id="6mZ-OP-SOg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1646" y="122"/>
         </scene>

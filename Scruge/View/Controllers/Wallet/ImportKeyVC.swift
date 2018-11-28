@@ -10,6 +10,7 @@ import UIKit
 
 final class ImportKeyViewController: UIViewController {
 
+	@IBOutlet weak var scrollView:UIScrollView!
 	@IBOutlet weak var passcodeField:UITextField!
 	@IBOutlet weak var keyField:UITextField!
 	@IBOutlet weak var button:Button!
@@ -17,17 +18,31 @@ final class ImportKeyViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		keyField.becomeFirstResponder()
-		button.addClick(self, action: #selector(createAccount))
+		button.addClick(self, action: #selector(save))
+		setupKeyboard()
 		setupNavigationBar()
 	}
 
-	func setupNavigationBar() {
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		scrollView.invalidateIntrinsicContentSize()
+	}
+
+	private func setupKeyboard() {
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+	}
+
+	private func setupNavigationBar() {
 		title = "Import key"
 
 		if #available(iOS 11.0, *) {
 			navigationController?.navigationBar.prefersLargeTitles = false
 		}
+	}
+
+	@IBAction func hideKeyboard(_ sender: Any) {
+		view.endEditing(true)
 	}
 
 	@IBAction func createAccount(_ sender:Any) {
@@ -51,5 +66,20 @@ final class ImportKeyViewController: UIViewController {
 				self.alert("Error: Could not import this key")
 			}
 		}
+	}
+}
+
+extension ImportKeyViewController {
+
+	@objc func keyboardWillShow(notification:NSNotification) {
+		guard let userInfo = notification.userInfo else { return }
+		let keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+		let convertedFrame = view.convert(keyboardFrame, from: nil)
+		scrollView.contentInset.bottom = convertedFrame.size.height
+		scrollView.scrollIndicatorInsets.bottom = convertedFrame.size.height
+	}
+
+	@objc func keyboardWillHide(notification:NSNotification) {
+		scrollView.contentInset.bottom = 0
 	}
 }

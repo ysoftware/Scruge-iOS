@@ -216,12 +216,16 @@ struct Presenter {
 
 	func replaceWithImporKeyViewController(with vc:UIViewController) {
 		let new = R.storyboard.wallet.importKeyVC()!
-		vc.navigationController?.setViewControllers([new], animated: true)
+		var vcs = Array(vc.navigationController?.viewControllers.dropLast() ?? [])
+		vcs.append(new)
+		vc.navigationController?.setViewControllers(vcs, animated: true)
 	}
 
 	func replaceWithCreateAccountViewController(with vc:UIViewController) {
 		let new = R.storyboard.wallet.createAccountVC()!
-		vc.navigationController?.setViewControllers([new], animated: true)
+		var vcs = Array(vc.navigationController?.viewControllers.dropLast() ?? [])
+		vcs.append(new)
+		vc.navigationController?.setViewControllers(vcs, animated: true)
 	}
 
 	func presentWalletPicker(in vc:UIViewController, _ completion: @escaping (AccountVM?)->Void) {
