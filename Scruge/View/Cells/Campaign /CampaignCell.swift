@@ -49,7 +49,7 @@ final class CampaignCell: UITableViewCell {
 		return self
 	}
 
-	func setupWebView(with url:URL) {
+	private func setupWebView(with url:URL) {
 		guard !didLoadMedia, let topWebView = topWebView else {
 			return
 		}

@@ -51,7 +51,7 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 			if s.model?.id == currentMilestone.model?.id { currentIndex = i }
 		}
 
-		pageControl.currentPage = currentIndex
+//		pageControl.currentPage = currentIndex
 		collectionView.reloadData()
 
 		if vm.numberOfItems > currentIndex {
@@ -117,5 +117,16 @@ extension PagingCell: UICollectionViewDelegate {
 	func collectionView(_ collectionView: UICollectionView,
 						didSelectItemAt indexPath: IndexPath) {
 		tapBlock?(indexPath.item)
+	}
+}
+
+extension PagingCell: UIScrollViewDelegate {
+
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		// TO-DO: this doesn't work as good
+		let visiblePoint = CGPoint(x: collectionView.bounds.midX, y: collectionView.bounds.midY)
+		if let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint) {
+			pageControl.currentPage = visibleIndexPath.row
+		}
 	}
 }
