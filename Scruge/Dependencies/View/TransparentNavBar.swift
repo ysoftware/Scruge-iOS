@@ -31,10 +31,7 @@ extension UIViewController {
 		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 		navigationController?.navigationBar.shadowImage = UIImage()
 		navigationController?.navigationBar.tintColor = .white
-		
-		if !keepTitle {
-			self.title = ""
-		}
+		if !keepTitle { self.title = "" }
 		return self
 	}
 
@@ -42,11 +39,7 @@ extension UIViewController {
 	func makeNavbarNormal(with title:String? = nil, tint:UIColor? = nil) -> UIViewController {
 		navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
 		navigationController?.navigationBar.shadowImage = nil
-
-		if let color = tint {
-			navigationController?.navigationBar.tintColor = color
-		}
-
+		navigationController?.navigationBar.tintColor = view.tintColor
 		self.title = title ?? ""
 		return self
 	}
