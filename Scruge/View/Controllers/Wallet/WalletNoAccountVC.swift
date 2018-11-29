@@ -29,7 +29,7 @@ final class WalletNoAccountViewController: UIViewController {
 
 	@IBAction func importKey(_ sender:Any) {
 		Service.wallet.deleteWallet()
-		Service.presenter.replaceWithWalletStartViewController(with: self)
+		Service.presenter.replaceWithImporKeyViewController(with: self)
 	}
 
 	@IBAction func openPrivacy(_ sender:Any) {

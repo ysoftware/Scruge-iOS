@@ -43,16 +43,28 @@ final class ImportKeyViewController: UIViewController {
 	}
 
 	@IBAction func save(_ sender:Any) {
-		let accountName = keyField.text ?? ""
+		let key = keyField.text ?? ""
 		let passcode = passcodeField.text ?? ""
+
+		guard key.count > 0 else {
+			return alert("Enter your private key")
+		}
+
+		guard key.count == 51, key.starts(with: "5") else {
+			return alert("Incorrect format of private key")
+		}
+
+		guard passcode.count > 0 else {
+			return alert("Enter your new passcode")
+		}
 
 		// if existed
 		Service.wallet.deleteWallet()
 
-		Service.wallet.importKey(accountName, passcode: passcode) { account in
+		Service.wallet.importKey(key, passcode: passcode) { account in
 			if account != nil {
 				DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-					self.navigationController?.popViewController(animated: true)
+					Service.presenter.replaceWithWalletViewController(with: self)
 				}
 			}
 			else {

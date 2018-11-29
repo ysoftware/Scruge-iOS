@@ -506,7 +506,7 @@
                                                                         <rect key="frame" x="45" y="0.0" width="285" height="60"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                        <textInputTraits key="textInputTraits" keyboardType="ASCIICapableNumberPad"/>
+                                                                        <textInputTraits key="textInputTraits"/>
                                                                     </textField>
                                                                 </subviews>
                                                                 <color key="backgroundColor" red="0.98431372549999996" green="0.98039215690000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -536,7 +536,7 @@
                                                                             <constraint firstAttribute="width" secondItem="Hds-Pf-V4A" secondAttribute="height" id="Vez-q4-Tr3"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B4q-bi-j3Z">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="B4q-bi-j3Z">
                                                                         <rect key="frame" x="45" y="0.0" width="285" height="60"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -708,7 +708,7 @@
                                                                             <constraint firstAttribute="height" constant="15" id="xm7-Gi-bKe"/>
                                                                         </constraints>
                                                                     </imageView>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sir-18-AZX">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Sir-18-AZX">
                                                                         <rect key="frame" x="45" y="0.0" width="285" height="60"/>
                                                                         <nil key="textColor"/>
                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
