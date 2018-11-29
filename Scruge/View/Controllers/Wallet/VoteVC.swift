@@ -25,6 +25,7 @@ final class VoteViewController: UIViewController {
 
 	@IBAction func vote(_ sender:UIButton) {
 		guard let account = accountVM.selectedAccount else {
+			// TO-DO: check if maybe should open wallet picker right there?
 			return alert("You don't have your blockchain account setup")
 		}
 
