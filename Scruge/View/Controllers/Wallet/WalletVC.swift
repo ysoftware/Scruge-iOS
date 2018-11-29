@@ -33,21 +33,18 @@ final class WalletViewController: UIViewController {
 		return .default
 	}
 
-	override func viewDidLoad() {
-		super.viewDidLoad()
-
-		setupActions()
-	}
-
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-
 		setupVM()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+
 		setupNavigationBar()
+		if Service.wallet.getWallet() == nil {
+			Service.presenter.replaceWithWalletStartViewController(with: self)
+		}
 	}
 
 	private func setupVM() {
@@ -73,20 +70,6 @@ final class WalletViewController: UIViewController {
 		}
 
 		setNeedsStatusBarAppearanceUpdate()
-		tabBarItem.title = "Wallet"
-	}
-
-	private func setupActions() {
-		switch vm.state {
-		case .error(WalletError.noKey):
-			loadingView.errorView.setButtonTitle("Create new account")
-			loadingView.errorViewDelegate = self
-		case .error(WalletError.noAccounts):
-			loadingView.errorView.setButtonTitle("Create new account")
-			loadingView.errorViewDelegate = self
-		default:
-			loadingView.errorViewDelegate = nil
-		}
 	}
 
 	// MARK: - Methods
@@ -101,10 +84,10 @@ final class WalletViewController: UIViewController {
 
 	private func updateStatus() {
 		switch vm.state {
-		case .error(WalletError.noAccounts):
-			loadingView.set(state: .error(ErrorHandler.message(for: WalletError.noAccounts)))
 		case .error(WalletError.noKey):
-			loadingView.set(state: .error("You have no blockchain accounts added."))
+			Service.presenter.replaceWithWalletStartViewController(with: self)
+		case .error(WalletError.noAccounts):
+			Service.presenter.replaceWithWalletNoAccountController(with: self)
 		case .error(let error):
 			loadingView.set(state: .error(ErrorHandler.message(for: error)))
 
@@ -115,7 +98,6 @@ final class WalletViewController: UIViewController {
 		default: break
 		}
 
-		setupActions()
 		setupNavigationBar()
 		updateView()
 	}
@@ -155,38 +137,33 @@ final class WalletViewController: UIViewController {
 		self.ask(question: "Are you sure?") { response in
 			if response {
 				self.vm.deleteWallet()
+				Service.presenter.replaceWithWalletStartViewController(with: self)
 			}
 		}
 	}
 
 	private func showPublicKey() {
-		Service.presenter.presentPasscodeViewController(in: self, message: "") { input in
-			guard let passcode = input else { return }
-
-			self.vm.getPublicKey(passcode: passcode) { result in
-				switch result {
-				case .success(let key):
-					self.alert(key)
-				case .failure(let error):
-					self.alert(error)
-				}
-			}
-		}
+//		self.vm.getPublicKey(passcode: passcode) { result in
+//			switch result {
+//			case .success(let key):
+//				self.alert(key)
+//			case .failure(let error):
+//				self.alert(error)
+//			}
+//		}
 	}
 
 	private func exportPrivateKey() {
-		Service.presenter.presentPasscodeViewController(in: self, message: "") { input in
-			guard let passcode = input else { return }
-
-			self.vm.exportPrivateKey(passcode: passcode) { result in
-				switch result {
-				case .success(let key):
-					self.alert(key)
-				case .failure(let error):
-					self.alert(error)
-				}
-			}
-		}
+//		guard let passcode = input else { return }
+//
+//		self.vm.exportPrivateKey(passcode: passcode) { result in
+//			switch result {
+//			case .success(let key):
+//				self.alert(key)
+//			case .failure(let error):
+//				self.alert(error)
+//			}
+//		}
 	}
 
 	private func openImportKey() {
@@ -201,17 +178,5 @@ extension WalletViewController: ArrayViewModelDelegate {
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
 
 			updateStatus()
-	}
-}
-
-extension WalletViewController: ErrorViewDelegate {
-
-	// get started button click
-	func didTryAgain() {
-		switch vm.state {
-		case .error(WalletError.noKey):
-			Service.presenter.presentImporKeyViewController(in: self)
-		default: break
-		}
 	}
 }

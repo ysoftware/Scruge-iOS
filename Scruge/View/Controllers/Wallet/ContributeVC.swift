@@ -76,29 +76,16 @@ final class ContributeViewController: UIViewController {
 	private func contribute() {
 		guard let amountSCR = amountSCR else { return alert("Enter valid contribution amount") }
 
-		Service.presenter.presentWalletPicker(in: self) { [unowned self] account in
-			guard let account = account else {
-				return
-			}
-
-			let message = "Unlock the wallet to make contribution."
-			Service.presenter.presentPasscodeViewController(in: self, message: message) { passcode in
-				guard let passcode = passcode else {
-					return
-				}
-
-				self.vm.contribute(amountSCR, account: account, passcode: passcode) { error in
-					if let error = error {
-						self.alert(error)
-					}
-					else {
-						self.alert("Transaction was successful.") {
-							self.navigationController?.popViewController(animated: true)
-						}
-					}
-				}
-			}
-		}
+//		self.vm.contribute(amountSCR, account: account, passcode: passcode) { error in
+//			if let error = error {
+//				self.alert(error)
+//			}
+//			else {
+//				self.alert("Transaction was successful.") {
+//					self.navigationController?.popViewController(animated: true)
+//				}
+//			}
+//		}
 	}
 }
 

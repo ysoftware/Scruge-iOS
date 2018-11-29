@@ -10,6 +10,107 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Wallet-->
+        <scene sceneID="E3f-8i-Em4">
+            <objects>
+                <viewController storyboardIdentifier="WalletStartVC" title="Wallet" id="SZh-4N-0nd" customClass="WalletStartViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="g1M-xn-z9g">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="Vi0-Yj-z9H">
+                                <rect key="frame" x="0.0" y="129" width="375" height="397"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="Iz2-bj-NNh">
+                                        <rect key="frame" x="30" y="15" width="315" height="199.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AoO-xE-m55">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="64.5"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add your existing EOS blockchain account or create a new one to invest in projects!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKh-bd-mG2">
+                                                        <rect key="frame" x="15" y="0.0" width="285" height="64.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="0.37254901960784315" green="0.36470588235294116" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="0.0" left="15" bottom="0.0" right="15"/>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Pdp-Sy-DIb" customClass="Button" customModule="Scruge" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="139.5" width="315" height="60"/>
+                                                <color key="backgroundColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="wIx-Ru-AvY"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="ADD ACCOUNT"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="FeD-lg-lUw">
+                                        <rect key="frame" x="39" y="264.5" width="297" height="117.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Ge2-tu-Iwz">
+                                                <rect key="frame" x="15" y="0.0" width="267" height="54"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't have a blockchain account?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qgy-k3-B6a">
+                                                        <rect key="frame" x="25.5" y="0.0" width="216.5" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.60784313729999995" green="0.59999999999999998" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PN6-WB-Hoz">
+                                                        <rect key="frame" x="75.5" y="22" width="116" height="32"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <state key="normal" title="Create Account">
+                                                            <color key="titleColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="createAccount:" destination="SZh-4N-0nd" eventType="touchUpInside" id="qRt-9T-SW7"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All sensitive information is protected and follows the privacy policy." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UnC-pc-QGw">
+                                                <rect key="frame" x="15" y="84" width="267" height="33.5"/>
+                                                <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.60784313729999995" green="0.59999999999999998" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="ixd-Hi-Aqy" appends="YES" id="SZQ-Pp-sfU"/>
+                                                </connections>
+                                            </label>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="15" bottom="0.0" right="15"/>
+                                    </stackView>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="15" left="30" bottom="15" right="30"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="Pdp-Sy-DIb" firstAttribute="bottom" secondItem="exS-5z-EJn" secondAttribute="centerY" id="4Sd-Re-wyx"/>
+                            <constraint firstAttribute="trailing" secondItem="Vi0-Yj-z9H" secondAttribute="trailing" id="MoF-e9-T6b"/>
+                            <constraint firstItem="Vi0-Yj-z9H" firstAttribute="leading" secondItem="g1M-xn-z9g" secondAttribute="leading" id="gc8-kj-43z"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="exS-5z-EJn"/>
+                    </view>
+                    <connections>
+                        <outlet property="addButton" destination="Pdp-Sy-DIb" id="A1N-tw-tgh"/>
+                        <outlet property="privacyLabel" destination="UnC-pc-QGw" id="8uT-1F-thI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tQe-lm-KPq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ixd-Hi-Aqy" userLabel="privacy tap">
+                    <connections>
+                        <action selector="openPrivacy:" destination="SZh-4N-0nd" id="WsA-p8-5fS"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-639.20000000000005" y="121.88905547226388"/>
+        </scene>
         <!--Wallet View Controller-->
         <scene sceneID="OlO-4C-wpq">
             <objects>
@@ -19,10 +120,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvH-iY-h5K" customClass="GradientView" customModule="Scruge" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="334"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="350"/>
                                 <color key="backgroundColor" red="0.89411764709999997" green="0.2666666667" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="334" id="1J3-Fi-eph"/>
+                                    <constraint firstAttribute="height" constant="350" id="1J3-Fi-eph"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -748,7 +849,108 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1646" y="122"/>
+            <point key="canvasLocation" x="1585" y="122"/>
+        </scene>
+        <!--Wallet-->
+        <scene sceneID="2uE-PA-y6v">
+            <objects>
+                <viewController storyboardIdentifier="WalletNoAccountVC" title="Wallet" id="o8h-U7-vBz" customClass="WalletNoAccountViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="rrk-Iu-XaC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="igR-E0-KAv">
+                                <rect key="frame" x="0.0" y="150.5" width="375" height="375.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="tYh-DQ-tLh">
+                                        <rect key="frame" x="30" y="15" width="315" height="178"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IEa-Rx-Rzn">
+                                                <rect key="frame" x="0.0" y="0.0" width="315" height="43"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The key you imported does not have access to any EOS accounts." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wiC-xR-jEh">
+                                                        <rect key="frame" x="15" y="0.0" width="285" height="43"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                        <color key="textColor" red="0.37254901959999998" green="0.36470588240000001" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <edgeInsets key="layoutMargins" top="0.0" left="15" bottom="0.0" right="15"/>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qzM-jf-QRX" customClass="Button" customModule="Scruge" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="118" width="315" height="60"/>
+                                                <color key="backgroundColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="YtM-in-1Jq"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="CREATE ACCOUNT"/>
+                                                </userDefinedRuntimeAttributes>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="8p1-uI-nC3">
+                                        <rect key="frame" x="39" y="243" width="297" height="117.5"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JBz-WS-xfl">
+                                                <rect key="frame" x="15" y="0.0" width="267" height="54"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Want to add another key?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ysu-vN-3ib">
+                                                        <rect key="frame" x="51" y="0.0" width="165.5" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" red="0.60784313729999995" green="0.59999999999999998" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UaK-wY-IBY">
+                                                        <rect key="frame" x="35" y="22" width="197" height="32"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="16"/>
+                                                        <state key="normal" title="Remove key and start over">
+                                                            <color key="titleColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="importKey:" destination="o8h-U7-vBz" eventType="touchUpInside" id="Yu4-oU-YaV"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All sensitive information is protected and follows the privacy policy." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LiC-GK-3BU">
+                                                <rect key="frame" x="15" y="84" width="267" height="33.5"/>
+                                                <gestureRecognizers/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.60784313729999995" green="0.59999999999999998" blue="0.66274509800000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="KUk-fS-OZt" appends="YES" id="Zlw-Da-dyo"/>
+                                                </connections>
+                                            </label>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="0.0" left="15" bottom="0.0" right="15"/>
+                                    </stackView>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="15" left="30" bottom="15" right="30"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="igR-E0-KAv" firstAttribute="leading" secondItem="rrk-Iu-XaC" secondAttribute="leading" id="35b-Zb-Wqy"/>
+                            <constraint firstAttribute="trailing" secondItem="igR-E0-KAv" secondAttribute="trailing" id="8QA-L2-2h8"/>
+                            <constraint firstItem="qzM-jf-QRX" firstAttribute="bottom" secondItem="FSE-ef-iIL" secondAttribute="centerY" id="jkU-vV-Etz"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FSE-ef-iIL"/>
+                    </view>
+                    <connections>
+                        <outlet property="createButton" destination="qzM-jf-QRX" id="tHp-aP-Bud"/>
+                        <outlet property="privacyLabel" destination="LiC-GK-3BU" id="b8j-x1-6x2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xKT-gq-MBi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="KUk-fS-OZt" userLabel="privacy tap">
+                    <connections>
+                        <action selector="openPrivacy:" destination="o8h-U7-vBz" id="ZfH-PA-W4c"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="-1401" y="122"/>
         </scene>
     </scenes>
     <resources>

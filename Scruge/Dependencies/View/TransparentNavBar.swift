@@ -31,7 +31,10 @@ extension UIViewController {
 		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 		navigationController?.navigationBar.shadowImage = UIImage()
 		navigationController?.navigationBar.tintColor = .white
-		if !keepTitle { self.title = "" }
+
+		if !keepTitle {
+			self.navigationItem.title = ""
+		}
 		return self
 	}
 
@@ -40,7 +43,10 @@ extension UIViewController {
 		navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
 		navigationController?.navigationBar.shadowImage = nil
 		navigationController?.navigationBar.tintColor = view.tintColor
-		self.title = title ?? ""
+
+		if let title = title {
+			self.title = title
+		}
 		return self
 	}
 }

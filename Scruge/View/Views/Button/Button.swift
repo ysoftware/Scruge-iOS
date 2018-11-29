@@ -8,7 +8,7 @@
 
 import UIKit
 
-@IBDesignable
+@IBDesignable 
 final class Button:UIView {
 
 	@IBOutlet var contentView: UIView!

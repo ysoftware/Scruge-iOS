@@ -214,6 +214,11 @@ struct Presenter {
 		vc.show(new, sender: self)
 	}
 
+	func presentCreateAccountViewController(in vc:UIViewController) {
+		let new = R.storyboard.wallet.createAccountVC()!
+		vc.show(new, sender: self)
+	}
+
 	func replaceWithImporKeyViewController(with vc:UIViewController) {
 		let new = R.storyboard.wallet.importKeyVC()!
 		var vcs = Array(vc.navigationController?.viewControllers.dropLast() ?? [])
@@ -228,22 +233,25 @@ struct Presenter {
 		vc.navigationController?.setViewControllers(vcs, animated: true)
 	}
 
-	func presentWalletPicker(in vc:UIViewController, _ completion: @escaping (AccountVM?)->Void) {
+//	func presentWalletPicker(in vc:UIViewController, _ completion: @escaping (AccountVM?)->Void) {
+//		let new = R.storyboard.wallet.walletVC()!
+//		new.pickerBlock = completion
+//		vc.present(new.inNavigationController, animated: true)
+//	}
+
+	func replaceWithWalletViewController(with vc:UIViewController) {
 		let new = R.storyboard.wallet.walletVC()!
-		new.pickerBlock = completion
-		vc.present(new.inNavigationController, animated: true)
+		vc.navigationController?.setViewControllers([new], animated: false)
 	}
 
-	func presentPasscodeViewController(in vc:UIViewController,
-											  message:String,
-											  _ completion: @escaping (String?)->Void) {
-		vc.askForInput("Passcode protection",
-					   question: message,
-					   placeholder: "Passcode...",
-					   keyboardType: .numberPad,
-					   isSecure: true) { input in
-						completion(input)
-		}
+	func replaceWithWalletStartViewController(with vc:UIViewController) {
+		let new = R.storyboard.wallet.walletStartVC()!
+		vc.navigationController?.setViewControllers([new], animated: false)
+	}
+
+	func replaceWithWalletNoAccountController(with vc:UIViewController) {
+		let new = R.storyboard.wallet.walletNoAccountVC()!
+		vc.navigationController?.setViewControllers([new], animated: false)
 	}
 }
 
