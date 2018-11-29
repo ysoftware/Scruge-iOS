@@ -14,11 +14,6 @@ final class AccountVM:ViewModel<AccountModel> {
 
 	private var balances:[Balance] = []
 
-	required init(_ model: AccountModel, arrayDelegate: ViewModelDelegate?) {
-		super.init(model, arrayDelegate: arrayDelegate)
-		updateBalance()
-	}
-
 	// MARK: - View Properties
 
 	var name:String {
@@ -29,10 +24,10 @@ final class AccountVM:ViewModel<AccountModel> {
 		return model!.wallet.isLocked()
 	}
 
-	var balanceString:String {
+	func balanceString(_ separator:String = "\n") -> String {
 		return balances.reduce("") { result, balance in
 			let amount = balance.amount.formatRounding(to: 4, min: 4)
-			let separator =  result.count > 0 ? "\n" : ""
+			let separator =  result.count > 0 ? separator : ""
 			return "\(result)\(separator)\(balance.symbol) \(amount)"
 		}
 	}

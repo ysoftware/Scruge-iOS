@@ -1,40 +1,69 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountCell" rowHeight="129" id="fIc-Xm-yBZ" customClass="AccountCell" customModule="Scruge" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="392" height="129"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AccountCell" rowHeight="65" id="fIc-Xm-yBZ" customClass="AccountCell" customModule="Scruge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="392" height="65"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fIc-Xm-yBZ" id="cQ8-0A-EAX">
-                <rect key="frame" x="0.0" y="0.0" width="392" height="128.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="392" height="64.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Go-e9-MjI">
-                        <rect key="frame" x="0.0" y="0.0" width="392" height="128.5"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="9Go-e9-MjI">
+                        <rect key="frame" x="0.0" y="0.0" width="392" height="64.5"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="default" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hAU-d3-Spj">
-                                <rect key="frame" x="10" y="10" width="372" height="21.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <nil key="textColor"/>
+                                <rect key="frame" x="15" y="24" width="191.5" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text="1.000 EOS" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xed-44-YmV">
-                                <rect key="frame" x="10" y="41.5" width="372" height="77"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" text="0.0000 EOS, 0.0000 SCR" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xed-44-YmV">
+                                <rect key="frame" x="216.5" y="25.5" width="132.5" height="13.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.85098039219999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aYw-5H-9RM" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
+                                <rect key="frame" x="359" y="23.5" width="18" height="18"/>
+                                <subviews>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="a19-sV-hrR">
+                                        <rect key="frame" x="5" y="5" width="8" height="8"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="a19-sV-hrR" firstAttribute="leading" secondItem="aYw-5H-9RM" secondAttribute="leading" constant="5" id="Bew-Ua-EWc"/>
+                                    <constraint firstItem="a19-sV-hrR" firstAttribute="top" secondItem="aYw-5H-9RM" secondAttribute="top" constant="5" id="KDG-aK-idf"/>
+                                    <constraint firstAttribute="bottom" secondItem="a19-sV-hrR" secondAttribute="bottom" constant="5" id="NEO-XD-qIZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="a19-sV-hrR" secondAttribute="trailing" constant="5" id="cEh-mG-5qg"/>
+                                    <constraint firstAttribute="width" secondItem="aYw-5H-9RM" secondAttribute="height" id="fOZ-y6-6SH"/>
+                                    <constraint firstAttribute="height" constant="18" id="oiu-Cr-pGX"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.20000000000000001"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="0.5"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                         </subviews>
-                        <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                        <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
                     </stackView>
                 </subviews>
                 <constraints>
@@ -46,9 +75,14 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="balanceLabel" destination="xed-44-YmV" id="6yF-Xy-9Zw"/>
+                <outlet property="checkboxImage" destination="a19-sV-hrR" id="IUH-gS-1OX"/>
+                <outlet property="checkboxView" destination="aYw-5H-9RM" id="QG6-IN-WCi"/>
                 <outlet property="nameLabel" destination="hAU-d3-Spj" id="nLT-YX-sh6"/>
             </connections>
-            <point key="canvasLocation" x="27.199999999999999" y="98.50074962518741"/>
+            <point key="canvasLocation" x="27.199999999999999" y="69.715142428785612"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="check" width="14" height="11"/>
+    </resources>
 </document>

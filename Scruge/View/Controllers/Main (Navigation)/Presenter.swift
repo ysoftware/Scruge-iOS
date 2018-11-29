@@ -233,11 +233,14 @@ struct Presenter {
 		vc.navigationController?.setViewControllers(vcs, animated: true)
 	}
 
-//	func presentWalletPicker(in vc:UIViewController, _ completion: @escaping (AccountVM?)->Void) {
-//		let new = R.storyboard.wallet.walletVC()!
-//		new.pickerBlock = completion
-//		vc.present(new.inNavigationController, animated: true)
-//	}
+	func presentWalletPicker(in vc:UIViewController,
+							 title:String,
+							 _ completion: @escaping (AccountVM?)->Void) {
+		let new = R.storyboard.wallet.walletPickerVC()!
+		new.block = completion
+		new.string = title
+		vc.present(new.inNavigationController, animated: true)
+	}
 
 	func replaceWithWalletViewController(with vc:UIViewController) {
 		let new = R.storyboard.wallet.walletVC()!

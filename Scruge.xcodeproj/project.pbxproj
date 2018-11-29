@@ -212,6 +212,7 @@
 		71DA7E9A2164ABBC0052EB8F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E992164ABBC0052EB8F /* SearchVC.swift */; };
 		71DC1A9921AFDACB001D5575 /* WalletStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC1A9821AFDACB001D5575 /* WalletStartVC.swift */; };
 		71DC1A9B21AFE3A9001D5575 /* WalletNoAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */; };
+		71DC1A9D21B00ACF001D5575 /* WalletPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */; };
 		71E09472219EE42C00281643 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E09471219EE42C00281643 /* Model.swift */; };
 		71F68A4A21709D8A00F7E728 /* FaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4921709D8A00F7E728 /* FaqVC.swift */; };
 		71F68A4C21709E2700F7E728 /* DocumentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4B21709E2700F7E728 /* DocumentsVC.swift */; };
@@ -463,6 +464,7 @@
 		71DA7E992164ABBC0052EB8F /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		71DC1A9821AFDACB001D5575 /* WalletStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletStartVC.swift; sourceTree = "<group>"; };
 		71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNoAccountVC.swift; sourceTree = "<group>"; };
+		71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPickerVC.swift; sourceTree = "<group>"; };
 		71E09471219EE42C00281643 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		71F68A4921709D8A00F7E728 /* FaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqVC.swift; sourceTree = "<group>"; };
 		71F68A4B21709E2700F7E728 /* DocumentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsVC.swift; sourceTree = "<group>"; };
@@ -600,6 +602,7 @@
 				715DB15A2174716E0005B69D /* VoteVC.swift */,
 				71DC1A9821AFDACB001D5575 /* WalletStartVC.swift */,
 				71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */,
+				71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -1909,6 +1912,7 @@
 				7198C820218AFB2C009682E7 /* ErrorTypes.swift in Sources */,
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,
 				716E62562189939D002AC5DA /* Contribution.swift in Sources */,
+				71DC1A9D21B00ACF001D5575 /* WalletPickerVC.swift in Sources */,
 				71D84CD821995AD000E8DB88 /* HistoryRouter.swift in Sources */,
 				71DC1A9B21AFE3A9001D5575 /* WalletNoAccountVC.swift in Sources */,
 				71C8E8E821590F2A0078BD36 /* EOS.swift in Sources */,

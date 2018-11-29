@@ -19,4 +19,21 @@ struct Settings {
 	}
 
 	private let defaults:UserDefaults = .standard
+
+	enum Setting:String {
+
+		case selectedAccount = "selectedAccount"
+	}
+
+	func get<T>(_ setting:Setting) -> T? {
+		return defaults.object(forKey: setting.rawValue) as? T
+	}
+
+	func set<T>(_ setting:Setting, value:T?) {
+		defaults.set(value, forKey: setting.rawValue)
+	}
+
+	func remove(_ setting:Setting) {
+		defaults.removeObject(forKey: setting.rawValue)
+	}
 }

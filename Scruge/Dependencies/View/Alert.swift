@@ -25,7 +25,7 @@ extension UIViewController {
 		present(alert, animated: true, completion: nil)
 	}
 
-	func ask(_ title: String = "Attention!", question:String,
+	func ask(title: String = "Attention!", question:String,
 			 waitFor completion: @escaping (Bool) -> Void) {
 
 		let alert = UIAlertController(title: title, message: question, preferredStyle: .alert)

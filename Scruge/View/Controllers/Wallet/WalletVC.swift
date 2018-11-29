@@ -20,6 +20,7 @@ final class WalletViewController: UIViewController {
 	// MARK: - Property
 
 	private let vm = AccountAVM()
+	private var accountVM:AccountVM?
 
 	// MARK: - Setup
 
@@ -27,15 +28,21 @@ final class WalletViewController: UIViewController {
 		return .lightContent
 	}
 
+	override func viewDidLoad() {
+		super.viewDidLoad()
+
+		setupNavigationBar()
+	}
+
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
+
 		setupVM()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
-		setupNavigationBar()
 		if Service.wallet.getWallet() == nil {
 			Service.presenter.replaceWithWalletStartViewController(with: self)
 		}
@@ -43,7 +50,7 @@ final class WalletViewController: UIViewController {
 
 	private func setupVM() {
 		vm.delegate = self
-		reloadData()
+		vm.reloadData()
 	}
 
 	private func setupNavigationBar() {
@@ -55,10 +62,6 @@ final class WalletViewController: UIViewController {
 
 	@objc func cancel() {
 		dismiss(animated: true)
-	}
-
-	@objc func reloadData() {
-		vm.reloadData()
 	}
 
 	private func updateStatus() {
@@ -76,34 +79,79 @@ final class WalletViewController: UIViewController {
 			loadingView.set(state: .ready)
 		default: break
 		}
-
-		setupNavigationBar()
-		updateView()
 	}
 
 	private func updateView() {
-		let acc = vm.numberOfItems > 0 ? vm.item(at: 0) : nil
-		accountNameLabel.text = acc?.name ?? ""
-		balanceLabel.text = acc?.balanceString ?? "0.0000 EOS\n0.0000 SCR"
+		accountNameLabel.text = accountVM?.name ?? ""
+		balanceLabel.text = accountVM?.balanceString() ?? ""
+	}
+
+	private func selectVM() {
+		guard
+			let selectedAccount:String = Service.settings.get(.selectedAccount),
+			let account = vm.array.first(where: { $0.name == selectedAccount })
+			else { return presentWalletPicker() }
+
+		accountVM = account
+		accountVM?.delegate = self
+		accountVM?.updateBalance()
 	}
 
 	@IBAction func showSettings() {
 		let delete = UIAlertAction(title: "Delete wallet",
-									  style: .destructive) { _ in
-										self.deleteWallet()
+								   style: .destructive) { _ in
+									self.deleteWallet()
+		}
+
+		let change = UIAlertAction(title: "Switch account",
+								   style: .default) { _ in
+									self.presentWalletPicker()
 		}
 
 		let cancel = UIAlertAction(title: "Cancel",
 								   style: .cancel) { _ in
 		}
 
+		let actions = vm.numberOfItems == 1 ? [delete, cancel] : [change, delete, cancel]
+
 		Service.presenter.presentActions(in: self,
 										 title: "Select action",
-										 message: "", actions: [delete, cancel])
+										 message: "", actions: actions)
+	}
+
+	private func presentWalletPicker() {
+
+		guard vm.numberOfItems > 0 else {
+			return
+		}
+
+		// auto select the 1st account
+		if vm.numberOfItems == 1 {
+			Service.settings.set(.selectedAccount, value: vm.item(at: 0).name)
+			vm.reloadData()
+			return
+		}
+
+		let title = """
+Select an account that you want to make investments with and receive ICO tokens on.
+
+You will not be able to change it after you make first investment.
+"""
+
+		return Service.presenter.presentWalletPicker(in: self, title: title) { [unowned self] account in
+			guard let account = account else {
+				return self.presentWalletPicker()
+			}
+
+			Service.settings.set(.selectedAccount, value: account.name)
+			self.vm.reloadData()
+		}
 	}
 
 	private func deleteWallet() {
-		self.ask(question: "Are you sure?") { response in
+		let t = "Are you sure to delete your wallet information?"
+		let q = "Make sure to export your private key because there is no way it can be retrieved later."
+		self.ask(title: t, question: q) { response in
 			if response {
 				self.vm.deleteWallet()
 				Service.presenter.replaceWithWalletStartViewController(with: self)
@@ -123,5 +171,19 @@ extension WalletViewController: ArrayViewModelDelegate {
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
 
 			updateStatus()
+
+			switch update {
+			case .reload:
+				selectVM()
+			default: break
+			}
+	}
+}
+
+extension WalletViewController: ViewModelDelegate {
+
+	func didUpdateData<M>(_ viewModel: ViewModel<M>) where M : Equatable {
+
+		updateView()
 	}
 }
