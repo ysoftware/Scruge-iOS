@@ -35,8 +35,9 @@ final class ContributeViewController: UIViewController {
 	}
 
 	@IBAction func checkmarkTapped(_ sender:Any) {
-		checkmarkView.backgroundColor = !isChecked ? Service.constants.color.purple : .white
-		button.color = !isChecked ? Service.constants.color.purple : Service.constants.color.gray
+		let newValue = !isChecked
+		checkmarkView.backgroundColor = newValue ? Service.constants.color.purple : .white
+		button.color = newValue ? Service.constants.color.purple : Service.constants.color.gray
 	}
 
 	// MARK: - Properties
@@ -60,6 +61,7 @@ final class ContributeViewController: UIViewController {
 
 		setupInformation()
 		setupField()
+		accountVM.reloadData()
 		button.addClick(self, action: #selector(contributeTapped))
 		checkmarkView.backgroundColor = .white
 		button.color = Service.constants.color.gray
@@ -84,7 +86,7 @@ final class ContributeViewController: UIViewController {
 					self.navigationController?.popViewController(animated: true)
 				}
 			}
-			let usd = self.convertToUSD(value)
+			let usd = self.convertToUSD(value).rounded()
 				.format(as: .decimal, separateWith: " ")
 			self.contributedLabel.text = "You have already contributed $\(usd) in this project"
 			self.contributedLabel.isHidden = value == 0
