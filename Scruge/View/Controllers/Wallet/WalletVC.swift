@@ -21,9 +21,6 @@ final class WalletViewController: UIViewController {
 
 	private let vm = AccountAVM()
 
-	// for wallet picking
-	var pickerBlock:((AccountVM)->Void)?
-
 	// MARK: - Setup
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
@@ -52,13 +49,6 @@ final class WalletViewController: UIViewController {
 	private func setupNavigationBar() {
 		makeNavbarTransparent()
 		preferSmallNavbar()
-
-		if pickerBlock != nil {
-			let cancelButton = UIBarButtonItem(title: "Cancel",
-										 style: .plain,
-										 target: self, action: #selector(cancel))
-			navigationItem.leftBarButtonItem = cancelButton
-		}
 	}
 
 	// MARK: - Methods
@@ -98,16 +88,6 @@ final class WalletViewController: UIViewController {
 	}
 
 	@IBAction func showSettings() {
-		let showPublic = UIAlertAction(title: "Show public key",
-									  style: .default) { _ in
-										self.showPublicKey()
-		}
-
-		let export = UIAlertAction(title: "Export private key",
-									  style: .destructive) { _ in
-										self.exportPrivateKey()
-		}
-
 		let delete = UIAlertAction(title: "Delete wallet",
 									  style: .destructive) { _ in
 										self.deleteWallet()
@@ -119,7 +99,7 @@ final class WalletViewController: UIViewController {
 
 		Service.presenter.presentActions(in: self,
 										 title: "Select action",
-										 message: "", actions: [showPublic, export, delete, cancel])
+										 message: "", actions: [delete, cancel])
 	}
 
 	private func deleteWallet() {
@@ -129,30 +109,6 @@ final class WalletViewController: UIViewController {
 				Service.presenter.replaceWithWalletStartViewController(with: self)
 			}
 		}
-	}
-
-	private func showPublicKey() {
-//		self.vm.getPublicKey(passcode: passcode) { result in
-//			switch result {
-//			case .success(let key):
-//				self.alert(key)
-//			case .failure(let error):
-//				self.alert(error)
-//			}
-//		}
-	}
-
-	private func exportPrivateKey() {
-//		guard let passcode = input else { return }
-//
-//		self.vm.exportPrivateKey(passcode: passcode) { result in
-//			switch result {
-//			case .success(let key):
-//				self.alert(key)
-//			case .failure(let error):
-//				self.alert(error)
-//			}
-//		}
 	}
 
 	private func openImportKey() {
