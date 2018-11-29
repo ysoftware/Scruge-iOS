@@ -89,6 +89,7 @@ final class ContributeViewController: UIViewController {
 			self.contributedLabel.text = "You have already contributed $\(usd) in this project"
 			self.contributedLabel.isHidden = value == 0
 		}
+		titleLabel.text = "Investing in \(vm.title)"
 	}
 
 	// MARK: - Methods
