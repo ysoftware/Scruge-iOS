@@ -62,7 +62,11 @@ extension WalletPickerViewController: ArrayViewModelDelegate {
 								 _ update: MVVM.Update)
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
 
-		tableView.reloadData()
-		tableViewHeightConstraint.constant = tableView.contentSize.height
+			switch update {
+			case .reload:
+				tableView.reloadData()
+				tableViewHeightConstraint.constant = tableView.contentSize.height
+			default: break
+			}
 	}
 }

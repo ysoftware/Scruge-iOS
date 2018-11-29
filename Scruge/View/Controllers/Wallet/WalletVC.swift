@@ -87,10 +87,7 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func selectVM() {
-		guard
-			let selectedAccount:String = Service.settings.get(.selectedAccount),
-			let account = vm.array.first(where: { $0.name == selectedAccount })
-			else { return presentWalletPicker() }
+		guard let account = vm.selectedAccount else { return presentWalletPicker() }
 
 		accountVM = account
 		accountVM?.delegate = self

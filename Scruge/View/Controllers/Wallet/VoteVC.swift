@@ -24,7 +24,7 @@ final class VoteViewController: UIViewController {
 	}
 
 	@IBAction func vote(_ sender:UIButton) {
-		guard accountVM.numberOfItems > 0 else {
+		guard let account = accountVM.selectedAccount else {
 			return alert("You don't have your blockchain account setup")
 		}
 
@@ -32,7 +32,6 @@ final class VoteViewController: UIViewController {
 			return alert("Enter your wallet passcode")
 		}
 
-		let account = accountVM.item(at: 0)
 		let value = sender == yesButton
 
 		self.vm.vote(value, account: account, passcode: passcode) { error in

@@ -34,6 +34,12 @@ final class AccountAVM:SimpleArrayViewModel<AccountModel, AccountVM> {
 
 	// MARK: - Methods
 
+	var selectedAccount:AccountVM? {
+		guard let selectedAccount:String = Service.settings.get(.selectedAccount)
+			else { return nil }
+		return array.first(where: { $0.name == selectedAccount })
+	}
+
 	func getWallet() -> SELocalAccount? {
 		return Service.wallet.getWallet()
 	}
