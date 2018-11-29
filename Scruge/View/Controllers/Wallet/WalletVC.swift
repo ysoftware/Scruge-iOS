@@ -27,10 +27,7 @@ final class WalletViewController: UIViewController {
 	// MARK: - Setup
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
-		if case .ready = vm.state {
-			return .lightContent
-		}
-		return .default
+		return .lightContent
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -53,14 +50,8 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func setupNavigationBar() {
-		if case .ready = vm.state {
-			makeNavbarTransparent()
-			preferSmallNavbar()
-		}
-		else {
-			makeNavbarNormal(with: "Wallet")
-			preferLargeNavbar()
-		}
+		makeNavbarTransparent()
+		preferSmallNavbar()
 
 		if pickerBlock != nil {
 			let cancelButton = UIBarButtonItem(title: "Cancel",
@@ -68,8 +59,6 @@ final class WalletViewController: UIViewController {
 										 target: self, action: #selector(cancel))
 			navigationItem.leftBarButtonItem = cancelButton
 		}
-
-		setNeedsStatusBarAppearanceUpdate()
 	}
 
 	// MARK: - Methods

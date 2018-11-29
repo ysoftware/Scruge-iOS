@@ -197,13 +197,21 @@
                                                                 </subviews>
                                                                 <directionalEdgeInsets key="directionalLayoutMargins" top="15" leading="15" bottom="15" trailing="15"/>
                                                             </stackView>
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZyX-Gt-tbs" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
+                                                                <rect key="frame" x="15" y="15" width="315" height="107"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </view>
                                                         </subviews>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
+                                                            <constraint firstAttribute="bottom" secondItem="ZyX-Gt-tbs" secondAttribute="bottom" constant="15" id="Adi-hM-Q6t"/>
                                                             <constraint firstAttribute="bottom" secondItem="pUf-Wn-vtl" secondAttribute="bottom" id="AeY-Bc-nTe"/>
+                                                            <constraint firstAttribute="trailing" secondItem="ZyX-Gt-tbs" secondAttribute="trailing" constant="15" id="FwO-HR-d6X"/>
                                                             <constraint firstItem="pUf-Wn-vtl" firstAttribute="leading" secondItem="gUJ-Mb-4pY" secondAttribute="leading" id="Rtk-M9-xzD"/>
+                                                            <constraint firstItem="ZyX-Gt-tbs" firstAttribute="leading" secondItem="gUJ-Mb-4pY" secondAttribute="leading" constant="15" id="Xx1-fX-UuR"/>
                                                             <constraint firstAttribute="trailing" secondItem="pUf-Wn-vtl" secondAttribute="trailing" id="XxW-AT-Wda"/>
                                                             <constraint firstItem="pUf-Wn-vtl" firstAttribute="top" secondItem="gUJ-Mb-4pY" secondAttribute="top" id="a9A-I4-b4p"/>
+                                                            <constraint firstItem="ZyX-Gt-tbs" firstAttribute="top" secondItem="gUJ-Mb-4pY" secondAttribute="top" constant="15" id="yo0-Bd-dGC"/>
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8Wi-Uk-38T">
@@ -444,11 +452,6 @@
                                     <constraint firstItem="who-1H-QDH" firstAttribute="top" secondItem="qg9-vN-7HK" secondAttribute="top" id="yaj-QL-K3C"/>
                                 </constraints>
                             </scrollView>
-                            <view hidden="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZyX-Gt-tbs" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
