@@ -598,11 +598,11 @@
 				71345C132177413700F28AF1 /* WalletVC.swift */,
 				71345C172178AB5100F28AF1 /* ImportKeyVC.swift */,
 				710BDE7B21AE90DA0021B498 /* CreateAccountVC.swift */,
-				715DB15C217471980005B69D /* ContributeVC.swift */,
 				715DB15A2174716E0005B69D /* VoteVC.swift */,
 				71DC1A9821AFDACB001D5575 /* WalletStartVC.swift */,
 				71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */,
 				71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */,
+				715DB15C217471980005B69D /* ContributeVC.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";

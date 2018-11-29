@@ -285,19 +285,6 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		return model?.team ?? []
 	}
 
-	var contributionInformation:String {
-		guard let model = model else { return "" }
-		let min = model.economics.minUserContribution
-			.format(as: .decimal, separateWith: " ")
-		let max = model.economics.maxUserContribution
-			.format(as: .decimal, separateWith: " ")
-
-		return """
-		Minimum contribution: $\(min)
-		Maximum contribution: $\(max)
-		"""
-	}
-
 	var commentsCount:Int {
 		return model?.totalCommentsCount ?? 0
 	}
