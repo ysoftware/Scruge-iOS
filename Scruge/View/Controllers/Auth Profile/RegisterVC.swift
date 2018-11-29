@@ -35,6 +35,10 @@ final class RegisterViewController: UIViewController {
 		authCompletionBlock?(false)
 	}
 
+	@IBAction func close(_ sender: Any) {
+		self.navigationController?.dismiss(animated: true)
+	}
+
 	@IBAction func login(_ sender: Any) {
 		Service.presenter.replaceWithLoginViewController(in: self, completion: authCompletionBlock)
 	}

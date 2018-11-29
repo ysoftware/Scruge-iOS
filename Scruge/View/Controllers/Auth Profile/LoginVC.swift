@@ -28,6 +28,10 @@ final class LoginViewController: UIViewController {
 
 	// MARK: - Actions
 
+	@IBAction func close(_ sender: Any) {
+		self.navigationController?.dismiss(animated: true)
+	}
+
 	@objc func cancel(_ sender:Any) {
 		view.endEditing(true)
 		dismiss(animated: true)
