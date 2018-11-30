@@ -131,8 +131,8 @@
 		71BE959521623448001CF853 /* CampFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE959421623448001CF853 /* CampFooter.xib */; };
 		71BE959921625582001CF853 /* MilestoneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE959821625582001CF853 /* MilestoneCell.xib */; };
 		71BE959B216255C1001CF853 /* MilestoneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE959A216255C1001CF853 /* MilestoneCell.swift */; };
-		71BE959E216258DE001CF853 /* UpdateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE959D216258DE001CF853 /* UpdateCell.swift */; };
-		71BE95A0216258E7001CF853 /* UpdateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE959F216258E7001CF853 /* UpdateCell.xib */; };
+		71BE959E216258DE001CF853 /* LastUpdateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE959D216258DE001CF853 /* LastUpdateCell.swift */; };
+		71BE95A0216258E7001CF853 /* LastUpdateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE959F216258E7001CF853 /* LastUpdateCell.xib */; };
 		71BE95A321625E5B001CF853 /* TopCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95A221625E5B001CF853 /* TopCommentCell.xib */; };
 		71BE95A521625E64001CF853 /* TopCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95A421625E64001CF853 /* TopCommentCell.swift */; };
 		71BE95A821626034001CF853 /* RewardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71BE95A721626034001CF853 /* RewardCell.xib */; };
@@ -203,6 +203,8 @@
 		71D84CDF21995AD000E8DB88 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D84CB521995ACF00E8DB88 /* Error.swift */; };
 		71D84CE021995AD000E8DB88 /* BigInt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D84CB621995ACF00E8DB88 /* BigInt.swift */; };
 		71D84CE221995AD000E8DB88 /* SEWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D84CBA21995ACF00E8DB88 /* SEWallet.swift */; };
+		71D9C1DF21B132A60043B15E /* UpdateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D9C1DB21B12A7D0043B15E /* UpdateCell.swift */; };
+		71D9C1E021B132AC0043B15E /* UpdateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71D9C1DC21B12A7D0043B15E /* UpdateCell.xib */; };
 		71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */; };
 		71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */; };
 		71DA7E912164AAF90052EB8F /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E902164AAF90052EB8F /* Details.storyboard */; };
@@ -362,8 +364,8 @@
 		71BE959421623448001CF853 /* CampFooter.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CampFooter.xib; sourceTree = "<group>"; };
 		71BE959821625582001CF853 /* MilestoneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MilestoneCell.xib; sourceTree = "<group>"; };
 		71BE959A216255C1001CF853 /* MilestoneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MilestoneCell.swift; sourceTree = "<group>"; };
-		71BE959D216258DE001CF853 /* UpdateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCell.swift; sourceTree = "<group>"; };
-		71BE959F216258E7001CF853 /* UpdateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateCell.xib; sourceTree = "<group>"; };
+		71BE959D216258DE001CF853 /* LastUpdateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastUpdateCell.swift; sourceTree = "<group>"; };
+		71BE959F216258E7001CF853 /* LastUpdateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LastUpdateCell.xib; sourceTree = "<group>"; };
 		71BE95A221625E5B001CF853 /* TopCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TopCommentCell.xib; sourceTree = "<group>"; };
 		71BE95A421625E64001CF853 /* TopCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopCommentCell.swift; sourceTree = "<group>"; };
 		71BE95A721626034001CF853 /* RewardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RewardCell.xib; sourceTree = "<group>"; };
@@ -455,6 +457,8 @@
 		71D84CB521995ACF00E8DB88 /* Error.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		71D84CB621995ACF00E8DB88 /* BigInt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BigInt.swift; sourceTree = "<group>"; };
 		71D84CBA21995ACF00E8DB88 /* SEWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEWallet.swift; sourceTree = "<group>"; };
+		71D9C1DB21B12A7D0043B15E /* UpdateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCell.swift; sourceTree = "<group>"; };
+		71D9C1DC21B12A7D0043B15E /* UpdateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateCell.xib; sourceTree = "<group>"; };
 		71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Campaign.storyboard; sourceTree = "<group>"; };
 		71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthProfile.storyboard; sourceTree = "<group>"; };
 		71DA7E902164AAF90052EB8F /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
@@ -687,7 +691,7 @@
 				71C2C5BB21AC20E20040C85A /* Documents */,
 				71AD0E2E2170918900077446 /* Document */,
 				71BE95A121625E4D001CF853 /* Comment */,
-				71BE959C216258D4001CF853 /* Update */,
+				71BE959C216258D4001CF853 /* LastUpdate */,
 				71AD0E2921708DCD00077446 /* Faq */,
 				71BE959721625575001CF853 /* Milestone */,
 				713EF3AE21A98DDC009BA9D5 /* Paging Cell */,
@@ -855,6 +859,7 @@
 				71FF085821AE763500D9F3A3 /* Activity */,
 				71BE95A621626023001CF853 /* Reward */,
 				71BE957D215F5D31001CF853 /* Category */,
+				71D9C1DA21B12A6F0043B15E /* Update */,
 				71BE9577215E7FC1001CF853 /* Campaign  */,
 				713EF3AD21A84C3D009BA9D5 /* Campaign Details */,
 				71A0C1AB216F93BA00C2ACF3 /* Header */,
@@ -1134,13 +1139,13 @@
 			path = Milestone;
 			sourceTree = "<group>";
 		};
-		71BE959C216258D4001CF853 /* Update */ = {
+		71BE959C216258D4001CF853 /* LastUpdate */ = {
 			isa = PBXGroup;
 			children = (
-				71BE959F216258E7001CF853 /* UpdateCell.xib */,
-				71BE959D216258DE001CF853 /* UpdateCell.swift */,
+				71BE959F216258E7001CF853 /* LastUpdateCell.xib */,
+				71BE959D216258DE001CF853 /* LastUpdateCell.swift */,
 			);
-			path = Update;
+			path = LastUpdate;
 			sourceTree = "<group>";
 		};
 		71BE95A121625E4D001CF853 /* Comment */ = {
@@ -1470,6 +1475,15 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
+		71D9C1DA21B12A6F0043B15E /* Update */ = {
+			isa = PBXGroup;
+			children = (
+				71D9C1DC21B12A7D0043B15E /* UpdateCell.xib */,
+				71D9C1DB21B12A7D0043B15E /* UpdateCell.swift */,
+			);
+			path = Update;
+			sourceTree = "<group>";
+		};
 		71DA7E922164AB2F0052EB8F /* Campaign Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -1606,12 +1620,13 @@
 			files = (
 				71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */,
 				71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */,
+				71D9C1E021B132AC0043B15E /* UpdateCell.xib in Resources */,
 				71A0C1B3216FA6CD00C2ACF3 /* SocialCell.xib in Resources */,
 				71DA7E912164AAF90052EB8F /* Details.storyboard in Resources */,
 				71BE959921625582001CF853 /* MilestoneCell.xib in Resources */,
 				71345C212179D24C00F28AF1 /* AccountCell.xib in Resources */,
 				71BE95B821636245001CF853 /* ErrorView.xib in Resources */,
-				71BE95A0216258E7001CF853 /* UpdateCell.xib in Resources */,
+				71BE95A0216258E7001CF853 /* LastUpdateCell.xib in Resources */,
 				71BE9572215E777A001CF853 /* CampaignCell.xib in Resources */,
 				71BE95A821626034001CF853 /* RewardCell.xib in Resources */,
 				712B3A7021A813E8003BB43A /* EconomiesCell.xib in Resources */,
@@ -1814,13 +1829,14 @@
 				71C2C5BF21AC210D0040C85A /* DocumentsCell.swift in Sources */,
 				71BE95B0216352F2001CF853 /* TableHeaderTap.swift in Sources */,
 				71E09472219EE42C00281643 /* Model.swift in Sources */,
-				71BE959E216258DE001CF853 /* UpdateCell.swift in Sources */,
+				71BE959E216258DE001CF853 /* LastUpdateCell.swift in Sources */,
 				71BE957F215F5D3C001CF853 /* CategoryCell.swift in Sources */,
 				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,
 				71BE95BD2163768A001CF853 /* CategoryVM.swift in Sources */,
 				71D84CD721995AD000E8DB88 /* EOSRPC+History.swift in Sources */,
 				71B38D02215ABE6E00929CC3 /* UpdateAVM.swift in Sources */,
 				71D84CCB21995AD000E8DB88 /* ecdsa.c in Sources */,
+				71D9C1DF21B132A60043B15E /* UpdateCell.swift in Sources */,
 				71AD0E2721708BD000077446 /* DocumentVM.swift in Sources */,
 				71B38D04215AC1E800929CC3 /* Alert.swift in Sources */,
 				71BE9574215E7835001CF853 /* CampaignCell.swift in Sources */,

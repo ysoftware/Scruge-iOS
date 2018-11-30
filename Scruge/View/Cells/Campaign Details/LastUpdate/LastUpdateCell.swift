@@ -9,7 +9,7 @@
 import UIKit
 import Kingfisher
 
-final class UpdateCell: UITableViewCell {
+final class LastUpdateCell: UITableViewCell {
 
 	@IBOutlet weak var updateStackView: UIStackView!
 	@IBOutlet weak var updateImage: UIImageView!

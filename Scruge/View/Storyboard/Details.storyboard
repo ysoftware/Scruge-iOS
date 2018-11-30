@@ -279,7 +279,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xxz-ck-5dg">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="xxz-ck-5dg">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -403,13 +403,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Wy-4w-gaR">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="445.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="435.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="vm0-Zw-VWf">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="445.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="435.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="38j-pZ-cWj">
-                                                        <rect key="frame" x="10" y="54" width="394" height="381.5"/>
+                                                        <rect key="frame" x="10" y="54" width="394" height="371.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GXd-RZ-2PS">
                                                                 <rect key="frame" x="30" y="30" width="334" height="5"/>
@@ -429,7 +429,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="v45-VR-BT8">
-                                                                <rect key="frame" x="30" y="65" width="334" height="135"/>
+                                                                <rect key="frame" x="30" y="65" width="334" height="125"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I8j-Qi-Ofo" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="334" height="60"/>
@@ -466,7 +466,7 @@
                                                                         </userDefinedRuntimeAttributes>
                                                                     </view>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="eIO-Dq-bKn">
-                                                                        <rect key="frame" x="0.0" y="75" width="334" height="60"/>
+                                                                        <rect key="frame" x="0.0" y="65" width="334" height="60"/>
                                                                         <subviews>
                                                                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="UaA-Ta-BwW" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="139.5" height="60"/>
@@ -523,7 +523,7 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RCO-Pn-rTE">
-                                                                <rect key="frame" x="30" y="230" width="334" height="31.5"/>
+                                                                <rect key="frame" x="30" y="220" width="334" height="31.5"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="14w-Ct-xRs">
                                                                         <rect key="frame" x="7.5" y="0.0" width="319" height="31.5"/>
@@ -576,7 +576,7 @@
                                                                 </connections>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGr-To-Qgl" customClass="Button" customModule="Scruge" customModuleProvider="target">
-                                                                <rect key="frame" x="30" y="291.5" width="334" height="60"/>
+                                                                <rect key="frame" x="30" y="281.5" width="334" height="60"/>
                                                                 <color key="backgroundColor" red="0.85490196080000003" green="0.85098039219999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="thU-Qs-G4z"/>
@@ -610,7 +610,7 @@
                                 </constraints>
                             </scrollView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="=" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MkU-kj-BLl">
-                                <rect key="frame" x="179.5" y="212" width="55" height="24"/>
+                                <rect key="frame" x="179.5" y="202" width="55" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.85490196080000003" green="0.85098039219999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>

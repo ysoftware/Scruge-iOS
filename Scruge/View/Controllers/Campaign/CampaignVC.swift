@@ -130,8 +130,8 @@ final class CampaignViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.campaignCell.identifier)
 		tableView.register(UINib(resource: R.nib.milestoneCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.milestoneCell.identifier)
-		tableView.register(UINib(resource: R.nib.updateCell),
-						   forCellReuseIdentifier: R.reuseIdentifier.updateCell.identifier)
+		tableView.register(UINib(resource: R.nib.lastUpdateCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.lastUpdateCell.identifier)
 		tableView.register(UINib(resource: R.nib.topCommentCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.topCommentCell.identifier)
 		tableView.register(UINib(resource: R.nib.rewardCell),
@@ -287,7 +287,7 @@ extension CampaignViewController: UITableViewDataSource {
 			}
 		case .update:
 			guard let vm = vm.lastUpdateVM else { break }
-			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.updateCell,
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.lastUpdateCell,
 												 for: indexPath)!.setup(with: vm)
 				.updateTap { [unowned self] in
 					Service.presenter.presentContentViewController(in: self, for: vm)
