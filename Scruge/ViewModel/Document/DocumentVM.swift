@@ -11,7 +11,7 @@ import MVVM
 final class DocumentVM: ViewModel<Document> {
 
 	var name:String {
-		return model?.name ?? ""
+		return model?.name.capitalized ?? ""
 	}
 
 	var documentUrl:URL? {

@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <edgeInsets key="layoutMargins" top="5" left="0.0" bottom="10" right="0.0"/>
+                        <edgeInsets key="layoutMargins" top="10" left="0.0" bottom="15" right="0.0"/>
                     </stackView>
                 </subviews>
                 <constraints>

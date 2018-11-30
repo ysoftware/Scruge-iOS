@@ -687,7 +687,6 @@
 			isa = PBXGroup;
 			children = (
 				71C2C5BB21AC20E20040C85A /* Documents */,
-				71AD0E2E2170918900077446 /* Document */,
 				71BE95A121625E4D001CF853 /* Comment */,
 				71BE959C216258D4001CF853 /* LastUpdate */,
 				71AD0E2921708DCD00077446 /* Faq */,
@@ -1204,6 +1203,7 @@
 		71C2C5BB21AC20E20040C85A /* Documents */ = {
 			isa = PBXGroup;
 			children = (
+				71AD0E2E2170918900077446 /* Document */,
 				71C2C5BC21AC20FE0040C85A /* DocumentsCell.xib */,
 				71C2C5BE21AC210D0040C85A /* DocumentsCell.swift */,
 			);

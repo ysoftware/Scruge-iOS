@@ -299,6 +299,9 @@ extension CampaignViewController: UITableViewDataSource {
 			guard let vm = vm.documentsVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.documentsCell,
 												 for: indexPath)!.setup(with: vm)
+				.tap { doc in
+					guard let url = doc.documentUrl else { return }
+					Service.presenter.presentSafariViewController(in: self, url: url) }
 		}
 		if cell == nil {
 			cell = UITableViewCell()

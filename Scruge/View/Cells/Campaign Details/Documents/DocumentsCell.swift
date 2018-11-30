@@ -14,6 +14,7 @@ final class DocumentsCell: UITableViewCell {
 	@IBOutlet weak var tableViewHeightConstraint: NSLayoutConstraint!
 
 	private var vm:DocumentAVM!
+	private var block:((DocumentVM)->Void)?
 
 	@discardableResult
 	func setup(with vm:DocumentAVM) -> DocumentsCell {
@@ -23,6 +24,12 @@ final class DocumentsCell: UITableViewCell {
 		tableView.reloadData()
 		tableViewHeightConstraint.constant = tableView.contentSize.height
 		layoutSubviews()
+		return self
+	}
+
+	@discardableResult
+	func tap(_ block: @escaping (DocumentVM)->Void) -> DocumentsCell {
+		self.block = block
 		return self
 	}
 }
@@ -43,4 +50,7 @@ extension DocumentsCell: UITableViewDataSource {
 
 extension DocumentsCell: UITableViewDelegate {
 
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		block?(vm.item(at: indexPath.row))
+	}
 }
