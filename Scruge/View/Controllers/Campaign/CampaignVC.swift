@@ -167,7 +167,7 @@ final class CampaignViewController: UIViewController {
 
 		switch vm.status {
 		case .activeVote:
-			guard vm.isBacker == false else {
+			guard vm.isBacker == true else {
 				return showContributeButton(false, duration: 0)
 			}
 
@@ -245,6 +245,8 @@ final class CampaignViewController: UIViewController {
 			tableView.contentInset.bottom = value
 			tableView.scrollIndicatorInsets.bottom = value
 		}
+
+		contributeButton.isHidden = !visible
 
 		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
 			self.view.layoutSubviews()
