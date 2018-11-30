@@ -11,10 +11,10 @@ import Foundation
 struct Economics: Equatable, Codable {
 
 	/// максимальный лимит сбора инвестиций
-	let hardCap:Double
+	let hardCap:Int
 
 	/// минимальный лимит для успешного завершения кампании
-	let softCap:Double
+	let softCap:Int
 
 	/// количество собранных средств
 	let raised:Double
@@ -23,7 +23,7 @@ struct Economics: Equatable, Codable {
 	let publicTokenPercent:Double
 
 	/// полный объем токенов
-	let tokenSupply:Double
+	let tokenSupply:Int
 
 	/// вариация годовой инфляции (0% - 4%)
 	let annualInflationPercent:Range

@@ -16,9 +16,9 @@ protocol PartialCampaignViewModel {
 
 	var raised:Double { get }
 
-	var hardCap:Double { get }
+	var hardCap:Int { get }
 
-	var softCap:Double { get }
+	var softCap:Int { get }
 
 	var daysLeft:String { get }
 

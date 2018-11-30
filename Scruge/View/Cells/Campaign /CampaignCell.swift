@@ -37,8 +37,8 @@ final class CampaignCell: UITableViewCell {
 		rightLabel?.text = vm.daysLeft.uppercased()
 
 		progressView.value = vm.raised
-		progressView.total = vm.hardCap
-		progressView.firstGoal = vm.softCap
+		progressView.total = Double(vm.hardCap)
+		progressView.firstGoal = Double(vm.softCap)
 
 		if let vm = vm as? CampaignVM, let videoUrl = vm.videoUrl {
 			setupWebView(with: videoUrl)

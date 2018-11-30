@@ -30,3 +30,14 @@ extension Double {
 		return formatter.string(for: self)!
 	}
 }
+
+extension Int {
+
+	func format(as style:NumberFormatter.Style,
+				separateWith separator:String? = "") -> String {
+		let formatter = NumberFormatter()
+		formatter.numberStyle = style
+		formatter.groupingSeparator = separator
+		return formatter.string(for: self)!
+	}
+}
