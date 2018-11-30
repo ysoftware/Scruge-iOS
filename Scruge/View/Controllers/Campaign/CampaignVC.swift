@@ -167,6 +167,10 @@ final class CampaignViewController: UIViewController {
 
 		switch vm.status {
 		case .activeVote:
+			guard vm.isBacker == false else {
+				return showContributeButton(false, duration: 0)
+			}
+
 			showContributeButton(true, duration: 0)
 			if vm.canVote == true {
 				contributeButton.color = Service.constants.color.purple

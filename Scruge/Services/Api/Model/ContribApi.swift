@@ -34,3 +34,15 @@ struct ContributionHistoryResponse: Codable {
 
 	let contributions:[Contribution]
 }
+
+struct VotesResultsResponse: Codable {
+
+	let votings:[VoteResults]
+}
+
+struct VoteInfoResponse: Codable {
+
+	let voteId:Int?
+
+	let votingStatus:Int
+}

@@ -31,6 +31,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	private let id:Int
 	private(set) var isSubscribed:Bool? { didSet { notifyUpdated() }}
 	private(set) var canVote:Bool? { didSet { notifyUpdated() }}
+	private(set) var isBacker:Bool? { didSet { notifyUpdated() }}
 	private(set) var state:ViewState = .loading  { didSet { notifyUpdated() }}
 
 	// MARK: - Setup
@@ -255,10 +256,13 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		guard let model = model else { return }
 		Service.api.getDidContribute(campaignId: model.id) { didContributeResult in
 			guard
-				case let .success(contributeResponse) = didContributeResult, contributeResponse.value else {
+				case let .success(contributeResponse) = didContributeResult else {
 				self.canVote = false // not an investor
+				self.isBacker = false
 				return
 			}
+
+			self.isBacker = contributeResponse.value
 
 			// check if voted already
 			Service.api.getDidVote(campaignId: model.id) { didVoteResult in

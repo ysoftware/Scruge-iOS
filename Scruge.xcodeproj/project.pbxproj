@@ -204,6 +204,7 @@
 		71D84CE221995AD000E8DB88 /* SEWallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D84CBA21995ACF00E8DB88 /* SEWallet.swift */; };
 		71D9C1DF21B132A60043B15E /* UpdateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D9C1DB21B12A7D0043B15E /* UpdateCell.swift */; };
 		71D9C1E021B132AC0043B15E /* UpdateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71D9C1DC21B12A7D0043B15E /* UpdateCell.xib */; };
+		71D9C1E221B16EA00043B15E /* Vote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71D9C1E121B16EA00043B15E /* Vote.swift */; };
 		71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */; };
 		71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */; };
 		71DA7E912164AAF90052EB8F /* Details.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71DA7E902164AAF90052EB8F /* Details.storyboard */; };
@@ -457,6 +458,7 @@
 		71D84CBA21995ACF00E8DB88 /* SEWallet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SEWallet.swift; sourceTree = "<group>"; };
 		71D9C1DB21B12A7D0043B15E /* UpdateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateCell.swift; sourceTree = "<group>"; };
 		71D9C1DC21B12A7D0043B15E /* UpdateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UpdateCell.xib; sourceTree = "<group>"; };
+		71D9C1E121B16EA00043B15E /* Vote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vote.swift; sourceTree = "<group>"; };
 		71DA7E8B2164A67C0052EB8F /* Campaign.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Campaign.storyboard; sourceTree = "<group>"; };
 		71DA7E8E2164A6CB0052EB8F /* AuthProfile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AuthProfile.storyboard; sourceTree = "<group>"; };
 		71DA7E902164AAF90052EB8F /* Details.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Details.storyboard; sourceTree = "<group>"; };
@@ -1053,6 +1055,7 @@
 				71C3689E2183463000729C00 /* Economics.swift */,
 				716E62552189939D002AC5DA /* Contribution.swift */,
 				716E625C2189D94A002AC5DA /* Member.swift */,
+				71D9C1E121B16EA00043B15E /* Vote.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1887,6 +1890,7 @@
 				7105C35721AD554D008AAB1E /* RegisterVC.swift in Sources */,
 				7198C821218C68FE009682E7 /* Mock.swift in Sources */,
 				71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */,
+				71D9C1E221B16EA00043B15E /* Vote.swift in Sources */,
 				71D84CCA21995AD000E8DB88 /* base58.c in Sources */,
 				71971CB92158E445004D28E7 /* R.generated.swift in Sources */,
 				71D84CD621995AD000E8DB88 /* EOSRPC+Chain.swift in Sources */,

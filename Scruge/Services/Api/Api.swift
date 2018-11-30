@@ -37,7 +37,7 @@ final class Api {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 		let request = AccountRequest(accountName: accountName, publicKey: publicKey)
-		service.post("create_eos_account/\(token)", request.toDictionary(), completion)
+		service.post("user/\(token)/create_eos_account", request.toDictionary(), completion)
 	}
 
 	// MARK: - Auth
@@ -255,6 +255,16 @@ final class Api {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 		service.get("user/\(token)/contributions", nil, completion)
+	}
+
+	func getVotingStatus(campaignId:Int,
+						 _ completion: @escaping (Result<VoteInfoResponse, AnyError>)->Void) {
+		service.get("campaign/\(campaignId)/vote", nil, completion)
+	}
+
+	func getVoteResult(campaignId:Int,
+					   _ completion: @escaping (Result<VotesResultsResponse, AnyError>)->Void) {
+		service.get("campaign/\(campaignId)/vote_results", nil, completion)
 	}
 
 	// MARK: - Comments
