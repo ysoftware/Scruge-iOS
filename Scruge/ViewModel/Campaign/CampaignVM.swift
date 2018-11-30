@@ -117,12 +117,21 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	func loadDescription(_ completion: @escaping (String)->Void) {
 		guard let model = model else { return completion("") }
 		Service.api.getCampaignContent(for: model) { result in
-			if case let .success(response) = result {
-				completion(response.content)
+			guard case let .success(response) = result else {
+				return completion("")
+
 			}
-			else {
-				completion("")
+			completion(response.content)
+		}
+	}
+
+	func loadVoteResults(_ completion: @escaping (VoteResults?)->Void) {
+		guard let model = model else { return completion(nil) }
+		Service.api.getVoteResult(campaignId: model.id) { result in
+			guard case let .success(response) = result else {
+				return completion(nil)
 			}
+			completion(response.votings.first)
 		}
 	}
 

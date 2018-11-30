@@ -47,6 +47,9 @@ final class CampaignViewController: UIViewController {
 			if vm.canVote == true {
 				Service.presenter.presentVoteViewController(in: self, with: vm)
 			}
+			else {
+				Service.presenter.presentVoteResultsViewController(in: self, with: vm)
+			}
 		default: break
 		}
 	}
@@ -177,8 +180,8 @@ final class CampaignViewController: UIViewController {
 				contributeButton.text = "Vote".uppercased()
 			}
 			else {
-				contributeButton.color = Service.constants.color.gray
-				contributeButton.text = "You already voted".uppercased()
+				contributeButton.color = Service.constants.color.green
+				contributeButton.text = "View Voting Progress".uppercased()
 			}
 		case .closed:
 			showContributeButton(true, duration: 0)

@@ -194,6 +194,13 @@ struct Presenter {
 		vc.show(new, sender: self)
 	}
 
+	func presentVoteResultsViewController(in vc:UIViewController,
+										  with vm:CampaignVM) {
+		let new = R.storyboard.details.voteResultsVC()!
+		new.vm = vm
+		vc.show(new, sender: self)
+	}
+
 	// MARK: - Wallet
 
 	func presentWallerViewController(in vc:UIViewController) {

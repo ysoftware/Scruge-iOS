@@ -14,7 +14,7 @@ struct VoteResults: Codable {
 
 	let positiveVotes:Int
 
-	let backers:Int
+	let backersCount:Int
 
 	let voters:Int
 
