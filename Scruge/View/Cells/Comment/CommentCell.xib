@@ -44,22 +44,22 @@
                                 <rect key="frame" x="62" y="15" width="363" height="112.5"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hig-cz-QUu" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="363" height="68.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="363" height="69"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Dna-A7-dO9">
-                                                <rect key="frame" x="0.0" y="0.0" width="363" height="68.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="363" height="69"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4ct-YO-tAD">
-                                                        <rect key="frame" x="15" y="15" width="333" height="16.5"/>
+                                                        <rect key="frame" x="15" y="15" width="333" height="17"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="Darius X" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kRe-I4-LW6">
-                                                                <rect key="frame" x="0.0" y="0.0" width="164" height="16.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="164" height="17"/>
                                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                                 <nil key="textColor"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-K5-bcx">
-                                                                <rect key="frame" x="169" y="0.0" width="164" height="16.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="750" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2NQ-K5-bcx">
+                                                                <rect key="frame" x="169" y="0.0" width="164" height="17"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                                 <color key="textColor" red="0.58823529409999997" green="0.62352941179999999" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
@@ -67,7 +67,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="Just pledged for one of each. Good luck." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="keQ-yN-RG8">
-                                                        <rect key="frame" x="15" y="36.5" width="333" height="17"/>
+                                                        <rect key="frame" x="15" y="37" width="333" height="17"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <color key="textColor" red="0.58823529409999997" green="0.62352941179999999" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -91,7 +91,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="krA-ST-cbC">
-                                        <rect key="frame" x="0.0" y="73.5" width="363" height="39"/>
+                                        <rect key="frame" x="0.0" y="74" width="363" height="38.5"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="6iu-Lw-SUZ">
                                                 <rect key="frame" x="15" y="14.5" width="10" height="10"/>
@@ -101,7 +101,7 @@
                                                 </constraints>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLt-77-ZSf">
-                                                <rect key="frame" x="30" y="12.5" width="333" height="14.5"/>
+                                                <rect key="frame" x="30" y="12" width="333" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                 <color key="textColor" red="0.58823529409999997" green="0.62352941179999999" blue="0.63529411759999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -134,6 +134,6 @@
     </objects>
     <resources>
         <image name="like" width="14" height="13"/>
-        <image name="profile" width="270" height="300"/>
+        <image name="profile" width="14" height="16"/>
     </resources>
 </document>

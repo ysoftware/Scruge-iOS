@@ -297,7 +297,8 @@ extension CampaignViewController: UITableViewDataSource {
 			}
 		case .comments:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.topCommentCell,
-												 for: indexPath)!.setup(with: vm.topCommentsVM)
+												 for: indexPath)!
+				.setup(with: vm.topCommentsVM, allCommentsCount: vm.commentsCount)
 				.allComments { [unowned self] in
 					Service.presenter.presentCommentsViewController(in: self, for: self.vm)
 			}

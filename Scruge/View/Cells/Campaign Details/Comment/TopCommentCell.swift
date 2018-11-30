@@ -11,15 +11,18 @@ import Kingfisher
 
 final class TopCommentCell: UITableViewCell {
 
+	@IBOutlet weak var topCommentStack: UIStackView!
+	@IBOutlet weak var noCommentsStack: UIStackView!
 	@IBOutlet weak var dateLabel: UILabel!
 	@IBOutlet weak var profileImage: RoundedImageView!
 	@IBOutlet weak var usernameLabel: UILabel!
 	@IBOutlet weak var commentLabel: UILabel!
 	@IBOutlet weak var likesLabel: UILabel!
 	@IBOutlet weak var allCommentsStack: UIStackView!
+	@IBOutlet weak var allCommentsLabel: UILabel!
 
 	@discardableResult
-	func setup(with vm:CommentAVM? = nil) -> Self {
+	func setup(with vm:CommentAVM? = nil, allCommentsCount:Int) -> Self {
 		
 		if let vm = vm, vm.numberOfItems > 0 {
 			let comment = vm.item(at: 0)
@@ -34,10 +37,20 @@ final class TopCommentCell: UITableViewCell {
 			else {
 				profileImage.image = nil
 			}
+
+			if allCommentsCount == 1 {
+				allCommentsLabel.text = "Add your comment"
+			}
+			else {
+				allCommentsLabel.text = "See all \(allCommentsCount) comments"
+			}
+			noCommentsStack.isHidden = true
+			topCommentStack.isHidden = false
 		}
 		else {
-			// no comments
-
+			allCommentsLabel.text = "Add your comment"
+			noCommentsStack.isHidden = false
+			topCommentStack.isHidden = true
 		}
 		return self
 	}
