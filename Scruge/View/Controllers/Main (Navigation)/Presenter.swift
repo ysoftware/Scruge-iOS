@@ -141,14 +141,6 @@ struct Presenter {
 
 	// MARK: - Other
 
-	func presentTeamViewController(in vc:UIViewController,
-								   for campaignVM:CampaignVM) {
-		guard campaignVM.model != nil else { return }
-		let new = R.storyboard.details.teamVC()!
-		new.vm = campaignVM
-		vc.show(new, sender: self)
-	}
-
 	func presentSettingsViewController(in vc:UIViewController,
 									   with vm:ProfileVM) {
 		let new = R.storyboard.main.settingsVC()!

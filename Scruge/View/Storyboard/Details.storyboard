@@ -357,40 +357,6 @@
             </objects>
             <point key="canvasLocation" x="733.33333333333337" y="37.5"/>
         </scene>
-        <!--Team-->
-        <scene sceneID="aDl-GU-1eZ">
-            <objects>
-                <viewController storyboardIdentifier="TeamVC" title="Team" id="yRb-ku-T49" customClass="TeamViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="W7I-Cn-fvn">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ebt-e4-F1j">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="yRb-ku-T49" id="egf-X5-bC8"/>
-                                    <outlet property="delegate" destination="yRb-ku-T49" id="uOt-vR-rJ5"/>
-                                </connections>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="bottom" secondItem="ebt-e4-F1j" secondAttribute="bottom" id="KzG-Ef-v3E"/>
-                            <constraint firstItem="ebt-e4-F1j" firstAttribute="top" secondItem="W7I-Cn-fvn" secondAttribute="top" id="Yvf-Hp-HbP"/>
-                            <constraint firstItem="ebt-e4-F1j" firstAttribute="trailing" secondItem="VwQ-jz-NWk" secondAttribute="trailing" id="afV-eq-fyI"/>
-                            <constraint firstItem="ebt-e4-F1j" firstAttribute="leading" secondItem="VwQ-jz-NWk" secondAttribute="leading" id="hIy-Ci-oZr"/>
-                        </constraints>
-                        <viewLayoutGuide key="safeArea" id="VwQ-jz-NWk"/>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="ebt-e4-F1j" id="hZ5-bb-hV5"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="uxg-yD-tPx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="733" y="744"/>
-        </scene>
         <!--Payment-->
         <scene sceneID="s80-av-TwC">
             <objects>
@@ -533,10 +499,19 @@
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gWF-ei-98l" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="4" width="20" height="20"/>
+                                                                                        <subviews>
+                                                                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="check" translatesAutoresizingMaskIntoConstraints="NO" id="Kgk-hM-zAT">
+                                                                                                <rect key="frame" x="5" y="5" width="10" height="10"/>
+                                                                                            </imageView>
+                                                                                        </subviews>
                                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <gestureRecognizers/>
                                                                                         <constraints>
+                                                                                            <constraint firstItem="Kgk-hM-zAT" firstAttribute="leading" secondItem="gWF-ei-98l" secondAttribute="leading" constant="5" id="0tX-LM-cJ5"/>
+                                                                                            <constraint firstAttribute="trailing" secondItem="Kgk-hM-zAT" secondAttribute="trailing" constant="5" id="Dxc-NU-CZx"/>
                                                                                             <constraint firstAttribute="height" constant="20" id="TZd-Be-Qbi"/>
+                                                                                            <constraint firstAttribute="bottom" secondItem="Kgk-hM-zAT" secondAttribute="bottom" constant="5" id="TdI-Ak-Zh1"/>
+                                                                                            <constraint firstItem="Kgk-hM-zAT" firstAttribute="top" secondItem="gWF-ei-98l" secondAttribute="top" constant="5" id="iV5-qf-V46"/>
                                                                                             <constraint firstAttribute="width" secondItem="gWF-ei-98l" secondAttribute="height" id="j7s-34-f2B"/>
                                                                                         </constraints>
                                                                                         <userDefinedRuntimeAttributes>

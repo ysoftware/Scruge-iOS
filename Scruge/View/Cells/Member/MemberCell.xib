@@ -18,96 +18,25 @@
                 <rect key="frame" x="0.0" y="0.0" width="429" height="312.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gEK-5m-bx5">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hF2-Cs-hbk" customClass="RoundedImageView" customModule="Scruge" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="429" height="312.5"/>
-                        <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="wvw-dL-Uuz">
-                                <rect key="frame" x="10" y="10" width="409" height="247.5"/>
-                                <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="baL-9h-d96">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="143"/>
-                                        <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="BlA-g1-vrH">
-                                                <rect key="frame" x="0.0" y="21.5" width="100" height="100"/>
-                                                <subviews>
-                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5xB-dU-2vU" customClass="RoundedImageView" customModule="Scruge" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="width" constant="100" id="s2W-Va-LL3"/>
-                                                            <constraint firstAttribute="width" secondItem="5xB-dU-2vU" secondAttribute="height" id="ycI-Ka-Pl8"/>
-                                                        </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="YES"/>
-                                                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                                                <real key="value" value="0.5"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </imageView>
-                                                </subviews>
-                                            </stackView>
-                                        </subviews>
-                                    </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="fET-te-3Bp">
-                                        <rect key="frame" x="0.0" y="153" width="378" height="94.5"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sergey Moskalenko" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lol-NE-Sek">
-                                                <rect key="frame" x="0.0" y="0.0" width="378" height="24"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Senior Scala Developer" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QV0-DE-1Ll">
-                                                <rect key="frame" x="0.0" y="31" width="378" height="18"/>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Applicant for the position of grinder pencils of great architect of the universe" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cx6-XN-Hcf">
-                                                <rect key="frame" x="0.0" y="56" width="378" height="38.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="fEH-e3-9PH">
-                                <rect key="frame" x="10" y="267.5" width="409" height="35"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="OQ8-Jc-M8A"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CeY-lg-aBw">
-                                    <size key="itemSize" width="35" height="35"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <connections>
-                                    <outlet property="dataSource" destination="bdn-yu-XWK" id="OTp-2I-x4s"/>
-                                    <outlet property="delegate" destination="bdn-yu-XWK" id="3Zw-8d-9fo"/>
-                                </connections>
-                            </collectionView>
-                        </subviews>
-                        <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
-                    </stackView>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="NO"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="4"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="bottom" secondItem="gEK-5m-bx5" secondAttribute="bottom" id="Ebl-Qh-y4Q"/>
-                    <constraint firstItem="gEK-5m-bx5" firstAttribute="top" secondItem="3U4-EK-Q0W" secondAttribute="top" id="O8L-JH-Tn7"/>
-                    <constraint firstItem="gEK-5m-bx5" firstAttribute="leading" secondItem="3U4-EK-Q0W" secondAttribute="leading" id="c8R-tE-tht"/>
-                    <constraint firstAttribute="trailing" secondItem="gEK-5m-bx5" secondAttribute="trailing" id="vHm-TO-6tP"/>
+                    <constraint firstItem="hF2-Cs-hbk" firstAttribute="leading" secondItem="3U4-EK-Q0W" secondAttribute="leading" id="0A0-Ws-lGT"/>
+                    <constraint firstAttribute="bottom" secondItem="hF2-Cs-hbk" secondAttribute="bottom" id="ChI-cK-Ueh"/>
+                    <constraint firstItem="hF2-Cs-hbk" firstAttribute="top" secondItem="3U4-EK-Q0W" secondAttribute="top" id="f5U-RX-ZbH"/>
+                    <constraint firstAttribute="trailing" secondItem="hF2-Cs-hbk" secondAttribute="trailing" id="vau-pt-2Mm"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="avatarImage" destination="5xB-dU-2vU" id="7YB-Cg-j1t"/>
-                <outlet property="collectionHeightConstraint" destination="OQ8-Jc-M8A" id="Izk-0D-0xI"/>
-                <outlet property="collectionView" destination="fEH-e3-9PH" id="SAJ-5I-vft"/>
-                <outlet property="descriptionLabel" destination="Cx6-XN-Hcf" id="Of0-ga-zlF"/>
-                <outlet property="nameLabel" destination="Lol-NE-Sek" id="RHs-j4-czP"/>
-                <outlet property="positionLabel" destination="QV0-DE-1Ll" id="H1j-no-9At"/>
+                <outlet property="avatarImage" destination="hF2-Cs-hbk" id="m5v-jF-XMa"/>
             </connections>
             <point key="canvasLocation" x="-236" y="314.39280359820094"/>
         </tableViewCell>

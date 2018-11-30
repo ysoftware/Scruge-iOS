@@ -11,18 +11,18 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutCell" rowHeight="164" id="hxI-dR-H84" customClass="AboutCell" customModule="Scruge" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="499" height="164"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutCell" rowHeight="227" id="hxI-dR-H84" customClass="AboutCell" customModule="Scruge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="499" height="227"/>
             <autoresizingMask key="autoresizingMask"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hxI-dR-H84" id="Cjx-Jn-SxF">
-                <rect key="frame" x="0.0" y="0.0" width="499" height="163.5"/>
+                <rect key="frame" x="0.0" y="0.0" width="499" height="226.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PgP-Xv-tSc" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                        <rect key="frame" x="15" y="5" width="469" height="148.5"/>
+                        <rect key="frame" x="15" y="5" width="469" height="211.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="wDo-j2-6yO">
-                                <rect key="frame" x="0.0" y="0.0" width="469" height="148.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="469" height="211.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="About the team" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x9s-uq-81E">
                                         <rect key="frame" x="15" y="15" width="439" height="19.5"/>
@@ -31,13 +31,30 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="999" verticalCompressionResistancePriority="999" insetsLayoutMarginsFromSafeArea="NO" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7HA-1w-5X6">
-                                        <rect key="frame" x="15" y="49.5" width="439" height="34"/>
+                                        <rect key="frame" x="15" y="49.5" width="439" height="12"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="QN3-Bi-xJL" userLabel="Members">
+                                        <rect key="frame" x="15" y="76.5" width="439" height="70"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="70" id="V3O-sn-gge"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="15" minimumInteritemSpacing="15" id="MqQ-jG-dyv">
+                                            <size key="itemSize" width="60" height="60"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <connections>
+                                            <outlet property="dataSource" destination="hxI-dR-H84" id="Bfl-eR-sHm"/>
+                                            <outlet property="delegate" destination="hxI-dR-H84" id="0i3-Wc-Z3T"/>
+                                        </connections>
+                                    </collectionView>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="3Xb-C7-fEQ">
-                                        <rect key="frame" x="15" y="98.5" width="439" height="35"/>
+                                        <rect key="frame" x="15" y="161.5" width="439" height="35"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="Gcm-Jo-6eK"/>
@@ -77,8 +94,10 @@
                 <outlet property="aboutLabel" destination="7HA-1w-5X6" id="8JU-fw-iBc"/>
                 <outlet property="collectionHeightConstraint" destination="Gcm-Jo-6eK" id="HUp-SO-xQK"/>
                 <outlet property="collectionView" destination="3Xb-C7-fEQ" id="5n8-vz-Bax"/>
+                <outlet property="membersCollectionView" destination="QN3-Bi-xJL" id="HoA-G3-OAu"/>
+                <outlet property="membersCollectionViewHeightConstraint" destination="V3O-sn-gge" id="ak2-3G-qEp"/>
             </connections>
-            <point key="canvasLocation" x="-114.40000000000001" y="71.064467766116948"/>
+            <point key="canvasLocation" x="-114.40000000000001" y="99.400299850074973"/>
         </tableViewCell>
     </objects>
 </document>

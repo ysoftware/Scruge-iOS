@@ -260,10 +260,10 @@ extension CampaignViewController: UITableViewDataSource {
 		switch block(for: indexPath.row) {
 		case .about:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.aboutCell,
-												 for: indexPath)!.setup(with: vm)
-				.tap { [unowned self] social in
-					self.openSocialPage(social)
-			}
+												 for: indexPath)!
+				.setup(with: vm)
+				.socialTap { [unowned self] social in self.openSocialPage(social) }
+				.memberTap { [unowned self] member in }
 		case .info:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
 												 for: indexPath)!.setup(with: vm)
@@ -275,33 +275,26 @@ extension CampaignViewController: UITableViewDataSource {
 			guard let vm = vm.faqVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
 												 for: indexPath)!.setup(with: vm)
-				.tap { [unowned self] index in
-					// open faq
-			}
+				.tap { [unowned self] index in } // open faq
 		case .milestone:
 			guard let vm = vm.milestonesVM, let cvm = self.vm.currentMilestoneVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
 												 for: indexPath)!.setup(with: vm, cvm)
-				.tap { [unowned self] index in
-					// open milestone?
-			}
+				.tap { [unowned self] index in } // open milestone?
 		case .update:
 			guard let vm = vm.lastUpdateVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.lastUpdateCell,
 												 for: indexPath)!.setup(with: vm)
 				.updateTap { [unowned self] in
-					Service.presenter.presentContentViewController(in: self, for: vm)
-				}
+					Service.presenter.presentContentViewController(in: self, for: vm) }
 				.allUpdatesTap { [unowned self] in
-					Service.presenter.presentUpdatesViewController(in: self, for: self.vm)
-			}
+					Service.presenter.presentUpdatesViewController(in: self, for: self.vm) }
 		case .comments:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.topCommentCell,
 												 for: indexPath)!
 				.setup(with: vm.topCommentsVM, allCommentsCount: vm.commentsCount)
 				.allComments { [unowned self] in
-					Service.presenter.presentCommentsViewController(in: self, for: self.vm)
-			}
+					Service.presenter.presentCommentsViewController(in: self, for: self.vm) }
 		case .documents:
 			guard let vm = vm.documentsVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.documentsCell,
