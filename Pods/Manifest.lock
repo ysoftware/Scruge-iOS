@@ -1,10 +1,10 @@
 PODS:
   - appendAttributedString (0.2)
   - KeychainSwift (12.0.0)
-  - Kingfisher (4.10.0)
+  - Kingfisher (4.10.1)
   - MVVM (0.1):
     - Result
-  - R.swift (5.0.0.alpha.2):
+  - R.swift (5.0.0.alpha.3):
     - R.swift.Library (~> 5.0.0.alpha.2)
   - R.swift.Library (5.0.0.alpha.2)
   - Result (4.0.0)
@@ -37,15 +37,15 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MVVM:
-    :commit: 90543f846e3bb9c4fe79b3d24d79f0a47faaf52d
+    :commit: 0b536008b8bc91646dbc3eb647280a98587478ce
     :git: "https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git"
 
 SPEC CHECKSUMS:
   appendAttributedString: 2e0ba3b3871fde5e9869c21bf7e5357ebb748fc5
   KeychainSwift: d5e776578587ee5958ce36601df22f168f65138a
-  Kingfisher: 43c4b802d8b5256cf1f4379e9cd10b329be6d3e2
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MVVM: 586bab0227d6fa43271f656535373e539a886575
-  R.swift: 31fa1bd537fa81307815cc622122f33331f32174
+  R.swift: ca4207ecc94545a1611ca0b2ae1197458b6ba30a
   R.swift.Library: 3c21b823839bf5a6769dc7f96cb44479dab51b1b
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
