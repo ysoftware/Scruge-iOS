@@ -41,7 +41,7 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 			   _ currentMilestone:MilestoneVM) -> PagingCell {
 		milestoneVM = vm
 		self.currentMilestone = currentMilestone
-		titleLabel.text = "Milestones"
+		titleLabel.text = "Current milestone"
 		collectionView.register(UINib(resource: R.nib.milestoneCell),
 								forCellWithReuseIdentifier: R.nib.milestoneCell.identifier)
 		pageControl.numberOfPages = vm.numberOfItems
@@ -51,7 +51,7 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 			if s.model?.id == currentMilestone.model?.id { currentIndex = i }
 		}
 
-//		pageControl.currentPage = currentIndex
+		pageControl.currentPage = currentIndex
 		collectionView.reloadData()
 
 		if vm.numberOfItems > currentIndex {
@@ -90,26 +90,6 @@ extension PagingCell: UICollectionViewDataSource {
 				.setup(with: milestoneVM.item(at: indexPath.item))
 		}
 	}
-
-	func collectionView(_ collectionView: UICollectionView,
-						willDisplay cell: UICollectionViewCell,
-						forItemAt indexPath: IndexPath) {
-		let index = indexPath.item
-		pageControl.currentPage = index
-
-		if milestoneVM != nil {
-			switch index {
-			case 0..<currentIndex:
-				titleLabel.text = "Previous milestone"
-			case currentIndex:
-				titleLabel.text = "Current milestone"
-			case currentIndex + 1:
-				titleLabel.text = "Next milestone"
-			default:
-				titleLabel.text = "Future milestone"
-			}
-		}
-	}
 }
 
 extension PagingCell: UICollectionViewDelegate {
@@ -126,7 +106,21 @@ extension PagingCell: UIScrollViewDelegate {
 		// TO-DO: this doesn't work as good
 		let visiblePoint = CGPoint(x: collectionView.bounds.midX, y: collectionView.bounds.midY)
 		if let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint) {
-			pageControl.currentPage = visibleIndexPath.row
+			let index = visibleIndexPath.row
+			pageControl.currentPage = index
+
+			if milestoneVM != nil {
+				switch index {
+				case 0..<currentIndex:
+					titleLabel.text = "Previous milestone"
+				case currentIndex:
+					titleLabel.text = "Current milestone"
+				case currentIndex + 1:
+					titleLabel.text = "Next milestone"
+				default:
+					titleLabel.text = "Future milestone"
+				}
+			}
 		}
 	}
 }
