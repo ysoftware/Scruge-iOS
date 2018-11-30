@@ -718,16 +718,16 @@
                                 <blurEffect style="extraLight"/>
                             </visualEffectView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zug-ir-djO" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="807"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Ujg-Aa-MEa" firstAttribute="leading" secondItem="vmc-pa-hxr" secondAttribute="leading" id="2Fn-aR-xM3"/>
-                            <constraint firstAttribute="bottom" secondItem="zug-ir-djO" secondAttribute="bottom" id="4Xo-og-F5b"/>
                             <constraint firstItem="vmc-pa-hxr" firstAttribute="trailing" secondItem="Ujg-Aa-MEa" secondAttribute="trailing" id="BGQ-CS-1ZN"/>
                             <constraint firstItem="ckR-M0-yWJ" firstAttribute="leading" secondItem="vmc-pa-hxr" secondAttribute="leading" id="Ho8-sP-eZv"/>
+                            <constraint firstItem="ckR-M0-yWJ" firstAttribute="top" secondItem="zug-ir-djO" secondAttribute="bottom" id="JWB-fo-Ftw"/>
                             <constraint firstItem="Ujg-Aa-MEa" firstAttribute="top" secondItem="auQ-eU-KvA" secondAttribute="top" id="KZZ-eT-7eG"/>
                             <constraint firstItem="zug-ir-djO" firstAttribute="top" secondItem="auQ-eU-KvA" secondAttribute="top" id="SvM-6s-zIb"/>
                             <constraint firstItem="zug-ir-djO" firstAttribute="leading" secondItem="vmc-pa-hxr" secondAttribute="leading" id="ZnP-fO-UZV"/>

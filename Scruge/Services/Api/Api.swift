@@ -205,13 +205,22 @@ final class Api {
 
 	// MARK: - Contributions
 
-	func getCanVote(campaignId:Int,
-					_ completion: @escaping (Result<BoolResponse, AnyError>)->Void) {
+	func getDidContribute(campaignId:Int,
+						  _ completion: @escaping (Result<BoolResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 		let request = CampaignRequest(campaignId: campaignId)
-		service.get("user/\(token)/can_vote", request.toDictionary(), completion)
+		service.get("user/\(token)/did_contribute", request.toDictionary(), completion)
+	}
+
+	func getDidVote(campaignId:Int,
+						  _ completion: @escaping (Result<BoolResponse, AnyError>)->Void) {
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.noToken)))
+		}
+		let request = CampaignRequest(campaignId: campaignId)
+		service.get("user/\(token)/did_vote", request.toDictionary(), completion)
 	}
 
 	func notifyVote(campaignId:Int,

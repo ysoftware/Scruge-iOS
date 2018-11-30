@@ -253,12 +253,21 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	private func reloadCanVote() {
 		guard let model = model else { return }
-		Service.api.getCanVote(campaignId: model.id) { result in
-			switch result {
-			case .success(let response):
-				self.canVote = response.value
-			case .failure:
-				self.canVote = nil
+		Service.api.getDidContribute(campaignId: model.id) { didContributeResult in
+			guard
+				case let .success(contributeResponse) = didContributeResult, contributeResponse.value else {
+				self.canVote = false // not an investor
+				return
+			}
+
+			// check if voted already
+			Service.api.getDidVote(campaignId: model.id) { didVoteResult in
+				guard case let .success(voteResponse) = didVoteResult else {
+					self.canVote = false
+					return
+				}
+
+				self.canVote = !voteResponse.value
 			}
 		}
 	}
