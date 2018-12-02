@@ -15,7 +15,11 @@ final class WalletNoAccountViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		createButton.addClick(self, action: #selector(createAccount))
+		setupButton()
+	}
+
+	private func setupButton() {
+		createButton.addClick(self, action: #selector(importKey))
 	}
 
 	override func viewWillAppear(_ animated: Bool) {

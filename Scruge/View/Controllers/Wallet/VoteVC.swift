@@ -20,19 +20,24 @@ final class VoteViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
-		accountVM.reloadData()
+		setupVM()
 	}
 
-	@IBAction func hideKeyboard(_ sender: Any) {
-		view.endEditing(true)
+	private func setupVM() {
+		accountVM.reloadData()
 	}
 
 	private func setupKeyboard() {
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
 		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
 	}
-	
+
+	// MARK: - Actions
+
+	@IBAction func hideKeyboard(_ sender: Any) {
+		view.endEditing(true)
+	}
+
 	@IBAction func vote(_ sender:UIButton) {
 		guard let account = accountVM.selectedAccount else {
 			// TO-DO: check if maybe should open wallet picker right there?

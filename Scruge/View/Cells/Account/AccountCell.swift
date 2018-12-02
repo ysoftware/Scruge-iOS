@@ -36,6 +36,6 @@ extension AccountCell: ViewModelDelegate {
 		guard let vm = viewModel as? AccountVM else { return }
 
 		nameLabel.text = vm.name
-		balanceLabel.text = vm.balanceString(", ")
+		balanceLabel.text = "" // vm.balanceString(", ")
 	}
 }

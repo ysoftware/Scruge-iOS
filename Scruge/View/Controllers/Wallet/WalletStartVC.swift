@@ -15,6 +15,10 @@ final class WalletStartViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		setupButton()
+	}
+
+	private func setupButton() {
 		addButton.addClick(self, action: #selector(importKey))
 	}
 

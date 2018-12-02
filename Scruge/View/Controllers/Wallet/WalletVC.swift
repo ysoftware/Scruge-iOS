@@ -30,13 +30,11 @@ final class WalletViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
 		setupNavigationBar()
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-
 		setupVM()
 	}
 
@@ -58,7 +56,12 @@ final class WalletViewController: UIViewController {
 		preferSmallNavbar()
 	}
 
-	// MARK: - Methods
+	private func updateView() {
+		accountNameLabel.text = accountVM?.name ?? ""
+		balanceLabel.text = accountVM?.balanceString() ?? ""
+	}
+
+	// MARK: - Actions
 
 	@objc func cancel() {
 		dismiss(animated: true)
@@ -81,19 +84,6 @@ final class WalletViewController: UIViewController {
 		}
 	}
 
-	private func updateView() {
-		accountNameLabel.text = accountVM?.name ?? ""
-		balanceLabel.text = accountVM?.balanceString() ?? ""
-	}
-
-	private func selectVM() {
-		guard let account = vm.selectedAccount else { return presentWalletPicker() }
-
-		accountVM = account
-		accountVM?.delegate = self
-		accountVM?.updateBalance()
-	}
-
 	@IBAction func showSettings() {
 		let delete = UIAlertAction(title: "Delete wallet",
 								   style: .destructive) { _ in
@@ -114,6 +104,16 @@ final class WalletViewController: UIViewController {
 		Service.presenter.presentActions(in: self,
 										 title: "Select action",
 										 message: "", actions: actions)
+	}
+
+	// MARK: - Methods
+
+	private func selectVM() {
+		guard let account = vm.selectedAccount else { return presentWalletPicker() }
+
+		accountVM = account
+		accountVM?.delegate = self
+		accountVM?.updateBalance()
 	}
 
 	private func presentWalletPicker() {

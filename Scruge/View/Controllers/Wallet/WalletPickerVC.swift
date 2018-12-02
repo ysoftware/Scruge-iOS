@@ -24,11 +24,19 @@ final class WalletPickerViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		titleLabel.text = string
-		saveButton.addClick(self, action: #selector(save))
 		tableView.register(UINib(resource: R.nib.accountCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.accountCell.identifier)
 		setupVM()
+		setupButton()
+		setupView()
+	}
+
+	private func setupView() {
+		titleLabel.text = string
+	}
+
+	private func setupButton() {
+		saveButton.addClick(self, action: #selector(save))
 	}
 
 	private func setupVM() {

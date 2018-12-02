@@ -16,12 +16,18 @@ final class CreateAccountViewController: UIViewController {
 	@IBOutlet weak var accountNameField:UITextField!
 	@IBOutlet weak var button:Button!
 
+	// MARK: - Setup
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		button.addClick(self, action: #selector(save))
+		setupButton()
 		setupKeyboard()
 		setupNavigationBar()
+	}
+
+	private func setupButton() {
+		button.addClick(self, action: #selector(save))
 	}
 
 	@IBAction func hideKeyboard(_ sender: Any) {

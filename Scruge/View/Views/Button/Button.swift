@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable 
-final class Button:UIView {
+final class Button: UIView {
 
 	@IBOutlet var contentView: UIView!
 	@IBOutlet weak var button: UIButton!

@@ -26,10 +26,6 @@ final class ContributeViewController: UIViewController {
 
 	// MARK: - Actions
 
-	@objc func contributeTapped(_ sender: Any) {
-		contribute()
-	}
-
 	@IBAction func hideKeyboard(_ sender: Any) {
 		view.endEditing(true)
 	}
@@ -61,11 +57,23 @@ final class ContributeViewController: UIViewController {
 
 		setupInformation()
 		setupField()
-		accountVM.reloadData()
-		button.addClick(self, action: #selector(contributeTapped))
+		setupVM()
+		setupButton()
+		setupKeyboard()
+		setupView()
+	}
+
+	private func setupView() {
 		checkmarkView.backgroundColor = .white
 		button.color = Service.constants.color.gray
-		setupKeyboard()
+	}
+
+	private func setupVM() {
+		accountVM.reloadData()
+	}
+
+	private func setupButton() {
+		button.addClick(self, action: #selector(contribute))
 	}
 
 	private func setupKeyboard() {
@@ -104,7 +112,7 @@ final class ContributeViewController: UIViewController {
 		return amount / conversionRate
 	}
 
-	private func contribute() {
+	@objc private func contribute() {
 		guard isChecked else { return }
 
 		guard let account = accountVM.selectedAccount else {

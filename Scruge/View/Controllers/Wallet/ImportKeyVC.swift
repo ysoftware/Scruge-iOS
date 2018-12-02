@@ -15,12 +15,18 @@ final class ImportKeyViewController: UIViewController {
 	@IBOutlet weak var keyField:UITextField!
 	@IBOutlet weak var button:Button!
 
+	// MARK: - Setup
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		button.addClick(self, action: #selector(save))
+		setupButton()
 		setupKeyboard()
 		setupNavigationBar()
+	}
+
+	private func setupButton() {
+		button.addClick(self, action: #selector(save))
 	}
 
 	private func setupKeyboard() {
@@ -33,6 +39,8 @@ final class ImportKeyViewController: UIViewController {
 		makeNavbarNormal(with: "Import key", tint: view.tintColor)
 		preferSmallNavbar()
 	}
+
+	// MARK: - Actions
 
 	@IBAction func hideKeyboard(_ sender: Any) {
 		view.endEditing(true)

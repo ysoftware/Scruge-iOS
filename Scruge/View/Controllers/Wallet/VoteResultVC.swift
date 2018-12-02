@@ -16,7 +16,6 @@ final class VoteResultsViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-
 		setupView()
 	}
 
