@@ -51,9 +51,28 @@
                     <view key="view" contentMode="scaleToFill" id="bSo-dL-qeJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pzS-Ch-liy">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="f2F-bl-Kz9" id="0Ic-Bh-maj"/>
+                                    <outlet property="delegate" destination="f2F-bl-Kz9" id="oq7-lv-vxY"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="pzS-Ch-liy" secondAttribute="bottom" id="NEu-6L-CRb"/>
+                            <constraint firstItem="pzS-Ch-liy" firstAttribute="leading" secondItem="aZ3-hX-gc2" secondAttribute="leading" id="U1q-Ng-la0"/>
+                            <constraint firstItem="pzS-Ch-liy" firstAttribute="trailing" secondItem="aZ3-hX-gc2" secondAttribute="trailing" id="Y2W-fx-as9"/>
+                            <constraint firstItem="pzS-Ch-liy" firstAttribute="top" secondItem="bSo-dL-qeJ" secondAttribute="top" id="xm4-Wp-Sxf"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aZ3-hX-gc2"/>
                     </view>
+                    <connections>
+                        <outlet property="tableView" destination="pzS-Ch-liy" id="TeM-r2-1Ez"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Z6c-8Z-8gE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -67,7 +86,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ukt-Wb-b4A">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ukt-Wb-b4A">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>

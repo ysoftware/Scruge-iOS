@@ -18,5 +18,10 @@ struct VoteResults: Codable {
 
 	let voters:Int
 
-	let kind:Int
+	let kind:VoteKind
+}
+
+enum VoteKind:Int, Codable {
+
+	case extend = 0, milestone = 1
 }

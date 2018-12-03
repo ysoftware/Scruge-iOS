@@ -10,7 +10,7 @@ import UIKit
 
 final class VoteResultsViewController: UIViewController {
 
-	@IBOutlet weak var testLabel: UILabel!
+	@IBOutlet weak var tableView: UITableView!
 
 	var vm:CampaignVM!
 
@@ -26,11 +26,7 @@ final class VoteResultsViewController: UIViewController {
 				return
 			}
 
-			self.testLabel.text = """
-			Voted: \(result.voters) out of \(result.backersCount)
-			Positive: \(result.positiveVotes)
-			Negative: \(result.voters - result.positiveVotes)
-			"""
+			
 		}
 	}
 }

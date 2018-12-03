@@ -43,6 +43,7 @@ final class VoteViewController: UIViewController {
 		super.viewDidLoad()
 
 		setupVM()
+		setupKeyboard()
 		setupTable()
 	}
 
@@ -134,7 +135,7 @@ extension VoteViewController: UITableViewDataSource {
 		switch Block(rawValue: indexPath.row)! {
 		case .info:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteInfoCell,
-												 for: indexPath)!.setup(with: vm)
+												 for: indexPath)!.setup(with: vm, kind: .milestone) // TO-DO:
 		case .countdown:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.countdownCell,
 												 for: indexPath)!
@@ -145,6 +146,11 @@ extension VoteViewController: UITableViewDataSource {
 				.vote { [unowned self] passcode, value in
 					self.vote(value, passcode)
 				}
+		case .milestone:
+			guard let vm = vm.milestonesVM, let cvm = self.vm.currentMilestoneVM else { break }
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
+												 for: indexPath)!.setup(with: vm, cvm)
+				.tap { [unowned self] index in } // open milestone?
 		default: break
 		}
 		if cell == nil { cell = UITableViewCell() }

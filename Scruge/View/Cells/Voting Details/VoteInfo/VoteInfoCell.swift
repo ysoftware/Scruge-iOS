@@ -22,13 +22,19 @@ final class VoteInfoCell: UITableViewCell {
 	// MARK: - Setup
 
 	@discardableResult
-	func setup(with vm:PartialCampaignViewModel) -> Self {
+	func setup(with vm:PartialCampaignViewModel, kind:VoteKind) -> Self {
 		self.imageUrl = vm.imageUrl
 
 		selectionStyle = .none
 		titleLabel!.text = vm.title
-		descriptionLabel?.text = vm.description
 		rightLabel?.text = vm.daysLeft
+
+		if kind == .extend {
+			descriptionLabel?.text = "Voting whether to extend deadlines of the milestone."
+		}
+		else {
+			descriptionLabel?.text = "Voting to accept milestone results and release next portions of funds to the founders of the campaign or to return remaining funds to backers and close the campaign."
+		}
 
 		if let vm = vm as? CampaignVM, let videoUrl = vm.videoUrl {
 			setupWebView(with: videoUrl)
