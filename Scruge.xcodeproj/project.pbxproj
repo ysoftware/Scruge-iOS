@@ -1085,6 +1085,7 @@
 		71B8461621B54E9400F6D708 /* Voting Details */ = {
 			isa = PBXGroup;
 			children = (
+				71B8462A21B56F5B00F6D708 /* VoteResult */,
 				71B8462521B5611E00F6D708 /* VoteControls */,
 				71B8461D21B54EE200F6D708 /* VoteInfo */,
 				71B8462421B5508800F6D708 /* Countdown */,
@@ -1117,6 +1118,13 @@
 				71B8462621B5613500F6D708 /* VoteControlsCell.swift */,
 			);
 			path = VoteControls;
+			sourceTree = "<group>";
+		};
+		71B8462A21B56F5B00F6D708 /* VoteResult */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = VoteResult;
 			sourceTree = "<group>";
 		};
 		71BE9563215E26CA001CF853 /* Auth Profile */ = {

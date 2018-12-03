@@ -19,19 +19,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4r4-GT-iPz" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                        <rect key="frame" x="15" y="15" width="334" height="129.5"/>
+                        <rect key="frame" x="15" y="5" width="334" height="144.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="gK9-Pc-3B3">
-                                <rect key="frame" x="0.0" y="0.0" width="334" height="129.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="334" height="144.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="Vote ends in:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="awi-cX-zKM">
-                                        <rect key="frame" x="15" y="15" width="304" height="19.5"/>
+                                        <rect key="frame" x="15" y="15" width="304" height="34.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="jeu-Pv-Qay">
-                                        <rect key="frame" x="15" y="49.5" width="304" height="65"/>
+                                        <rect key="frame" x="15" y="64.5" width="304" height="65"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FDt-nP-BWY">
                                                 <rect key="frame" x="0.0" y="0.0" width="91.5" height="65"/>
@@ -124,10 +124,10 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="4r4-GT-iPz" firstAttribute="top" secondItem="hKY-0d-YkO" secondAttribute="top" constant="15" id="5Ia-Aq-8ne"/>
+                    <constraint firstItem="4r4-GT-iPz" firstAttribute="top" secondItem="hKY-0d-YkO" secondAttribute="top" constant="5" id="5Ia-Aq-8ne"/>
                     <constraint firstItem="4r4-GT-iPz" firstAttribute="leading" secondItem="hKY-0d-YkO" secondAttribute="leading" constant="15" id="BeI-bP-sv8"/>
                     <constraint firstAttribute="trailing" secondItem="4r4-GT-iPz" secondAttribute="trailing" constant="15" id="CXT-py-DeO"/>
-                    <constraint firstAttribute="bottom" secondItem="4r4-GT-iPz" secondAttribute="bottom" constant="15" id="hog-Gs-fRB"/>
+                    <constraint firstAttribute="bottom" secondItem="4r4-GT-iPz" secondAttribute="bottom" constant="10" id="hog-Gs-fRB"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

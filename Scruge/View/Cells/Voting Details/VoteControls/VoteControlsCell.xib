@@ -19,19 +19,19 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fdz-F5-iN4" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                        <rect key="frame" x="15" y="15" width="506" height="198.5"/>
+                        <rect key="frame" x="15" y="5" width="506" height="213.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="k7I-rF-mwg">
-                                <rect key="frame" x="0.0" y="0.0" width="506" height="198.5"/>
+                                <rect key="frame" x="0.0" y="0.0" width="506" height="213.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="Place your vote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLi-Im-jr5">
-                                        <rect key="frame" x="15" y="15" width="476" height="18.5"/>
+                                        <rect key="frame" x="15" y="15" width="476" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DD2-vW-8P3" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="48.5" width="476" height="60"/>
+                                        <rect key="frame" x="15" y="63.5" width="476" height="60"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lock" translatesAutoresizingMaskIntoConstraints="NO" id="QL4-xu-8Mz">
                                                 <rect key="frame" x="15" y="22.5" width="15" height="15"/>
@@ -65,7 +65,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="1fe-5w-BMt">
-                                        <rect key="frame" x="15" y="123.5" width="476" height="60"/>
+                                        <rect key="frame" x="15" y="138.5" width="476" height="60"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rAn-eE-3lV" customClass="Button" customModule="Scruge" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="230.5" height="60"/>
@@ -103,9 +103,9 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="fdz-F5-iN4" firstAttribute="top" secondItem="5fR-kj-qhd" secondAttribute="top" constant="15" id="jzY-SP-YuR"/>
+                    <constraint firstItem="fdz-F5-iN4" firstAttribute="top" secondItem="5fR-kj-qhd" secondAttribute="top" constant="5" id="jzY-SP-YuR"/>
                     <constraint firstAttribute="trailing" secondItem="fdz-F5-iN4" secondAttribute="trailing" constant="15" id="peW-SP-Xed"/>
-                    <constraint firstAttribute="bottom" secondItem="fdz-F5-iN4" secondAttribute="bottom" constant="15" id="ryz-aF-2eb"/>
+                    <constraint firstAttribute="bottom" secondItem="fdz-F5-iN4" secondAttribute="bottom" constant="10" id="ryz-aF-2eb"/>
                     <constraint firstItem="fdz-F5-iN4" firstAttribute="leading" secondItem="5fR-kj-qhd" secondAttribute="leading" constant="15" id="xhy-cx-fxP"/>
                 </constraints>
             </tableViewCellContentView>
