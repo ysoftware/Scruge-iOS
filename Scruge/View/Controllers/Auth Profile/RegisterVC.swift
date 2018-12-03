@@ -43,31 +43,6 @@ final class RegisterViewController: UIViewController {
 		Service.presenter.replaceWithLoginViewController(in: self, completion: authCompletionBlock)
 	}
 
-	func finishLogin(email:String, password:String) {
-		isWorking = true
-		Service.api.logIn(email: email, password: password) { result in
-			self.isWorking = false
-
-			switch result {
-			case .success(let response):
-				Service.tokenManager.save(response.token)
-
-				if self.didSignUp {
-					Service.presenter.presentProfileSetupViewController(in: self,
-																		completion: self.authCompletionBlock)
-				}
-				else {
-					self.view.endEditing(true)
-					self.navigationController?.dismiss(animated: true)
-					self.authCompletionBlock?(true)
-				}
-
-			case .failure(let error):
-				self.alert(error)
-			}
-		}
-	}
-
 	@objc func signUp(_ sender: Any) {
 		guard validate() else { return }
 
@@ -100,6 +75,31 @@ final class RegisterViewController: UIViewController {
 
 	@IBAction func hideKeyboard(_ sender: Any) {
 		view.endEditing(true)
+	}
+
+	private func finishLogin(email:String, password:String) {
+		isWorking = true
+		Service.api.logIn(email: email, password: password) { result in
+			self.isWorking = false
+
+			switch result {
+			case .success(let response):
+				Service.tokenManager.save(response.token)
+
+				if self.didSignUp {
+					Service.presenter.presentProfileSetupViewController(in: self,
+																		completion: self.authCompletionBlock)
+				}
+				else {
+					self.view.endEditing(true)
+					self.navigationController?.dismiss(animated: true)
+					self.authCompletionBlock?(true)
+				}
+
+			case .failure(let error):
+				self.alert(error)
+			}
+		}
 	}
 
 	// MARK: - Properties
