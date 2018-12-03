@@ -112,6 +112,8 @@
 		71B8461F21B54F1100F6D708 /* VoteInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B8461E21B54F1100F6D708 /* VoteInfoCell.swift */; };
 		71B8462121B5507700F6D708 /* CountdownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8462021B5507700F6D708 /* CountdownCell.xib */; };
 		71B8462321B5508400F6D708 /* CountdownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B8462221B5508400F6D708 /* CountdownCell.swift */; };
+		71B8462721B5613500F6D708 /* VoteControlsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B8462621B5613500F6D708 /* VoteControlsCell.swift */; };
+		71B8462921B5613F00F6D708 /* VoteControlsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8462821B5613F00F6D708 /* VoteControlsCell.xib */; };
 		71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1042215A1EBD004753EC /* CampaignQ.swift */; };
 		71BE1046215A2020004753EC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1045215A2020004753EC /* Network.swift */; };
 		71BE9560215E1B36001CF853 /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE955F215E1B36001CF853 /* AuthApi.swift */; };
@@ -348,6 +350,8 @@
 		71B8461E21B54F1100F6D708 /* VoteInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteInfoCell.swift; sourceTree = "<group>"; };
 		71B8462021B5507700F6D708 /* CountdownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownCell.xib; sourceTree = "<group>"; };
 		71B8462221B5508400F6D708 /* CountdownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownCell.swift; sourceTree = "<group>"; };
+		71B8462621B5613500F6D708 /* VoteControlsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteControlsCell.swift; sourceTree = "<group>"; };
+		71B8462821B5613F00F6D708 /* VoteControlsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteControlsCell.xib; sourceTree = "<group>"; };
 		71BE1042215A1EBD004753EC /* CampaignQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignQ.swift; sourceTree = "<group>"; };
 		71BE1045215A2020004753EC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		71BE955F215E1B36001CF853 /* AuthApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApi.swift; sourceTree = "<group>"; };
@@ -1081,6 +1085,7 @@
 		71B8461621B54E9400F6D708 /* Voting Details */ = {
 			isa = PBXGroup;
 			children = (
+				71B8462521B5611E00F6D708 /* VoteControls */,
 				71B8461D21B54EE200F6D708 /* VoteInfo */,
 				71B8462421B5508800F6D708 /* Countdown */,
 			);
@@ -1103,6 +1108,15 @@
 				71B8462221B5508400F6D708 /* CountdownCell.swift */,
 			);
 			path = Countdown;
+			sourceTree = "<group>";
+		};
+		71B8462521B5611E00F6D708 /* VoteControls */ = {
+			isa = PBXGroup;
+			children = (
+				71B8462821B5613F00F6D708 /* VoteControlsCell.xib */,
+				71B8462621B5613500F6D708 /* VoteControlsCell.swift */,
+			);
+			path = VoteControls;
 			sourceTree = "<group>";
 		};
 		71BE9563215E26CA001CF853 /* Auth Profile */ = {
@@ -1687,6 +1701,7 @@
 				71345C112177412200F28AF1 /* Wallet.storyboard in Resources */,
 				713EF3B021A98DF4009BA9D5 /* PagingCell.xib in Resources */,
 				71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */,
+				71B8462921B5613F00F6D708 /* VoteControlsCell.xib in Resources */,
 				71D84CBE21995ACF00E8DB88 /* secp256k1.table in Resources */,
 				71A0C1A9216F93A500C2ACF3 /* AboutCell.xib in Resources */,
 				71BE95932162343F001CF853 /* CampHeader.xib in Resources */,
@@ -1898,6 +1913,7 @@
 				71387A9D216CCC4800B24C67 /* SettingsVC.swift in Sources */,
 				71D84CC221995AD000E8DB88 /* rand.c in Sources */,
 				71BE958F216233CF001CF853 /* CampHeader.swift in Sources */,
+				71B8462721B5613500F6D708 /* VoteControlsCell.swift in Sources */,
 				71345C0E21773D2800F28AF1 /* AnyCodable.swift in Sources */,
 				71A0C1AE216F9B9200C2ACF3 /* Social.swift in Sources */,
 				71D84CE021995AD000E8DB88 /* BigInt.swift in Sources */,

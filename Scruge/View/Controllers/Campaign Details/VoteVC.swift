@@ -88,10 +88,10 @@ final class VoteViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.countdownCell.identifier)
 		tableView.register(UINib(resource: R.nib.lastUpdateCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.lastUpdateCell.identifier)
-		tableView.register(UINib(resource: R.nib.voteInfoCell),
-						   forCellReuseIdentifier: R.reuseIdentifier.voteInfoCell.identifier)
-		tableView.register(UINib(resource: R.nib.voteInfoCell),
-						   forCellReuseIdentifier: R.reuseIdentifier.voteInfoCell.identifier)
+		tableView.register(UINib(resource: R.nib.pagingCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.pagingCell.identifier)
+		tableView.register(UINib(resource: R.nib.voteControlsCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.voteControlsCell.identifier)
 	}
 
 	// MARK: - Actions
@@ -100,7 +100,7 @@ final class VoteViewController: UIViewController {
 		view.endEditing(true)
 	}
 
-	private func vote(_ value:Bool, _ sender:UIButton, _ passcode:String) {
+	private func vote(_ value:Bool, _ passcode:String) {
 		guard let account = accountVM.selectedAccount else {
 			// TO-DO: check if maybe should open wallet picker right there?
 			return alert("You don't have your blockchain account setup")
@@ -139,6 +139,12 @@ extension VoteViewController: UITableViewDataSource {
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.countdownCell,
 												 for: indexPath)!
 				.setup(title: "This vote ends in:", timestamp: 0)
+		case .controls:
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteControlsCell,
+												 for: indexPath)!
+				.vote { [unowned self] passcode, value in
+					self.vote(value, passcode)
+				}
 		default: break
 		}
 		if cell == nil { cell = UITableViewCell() }
@@ -161,7 +167,7 @@ extension VoteViewController {
 	}
 }
 
-extension VoteViewController: UIScrollViewDelegate {
+extension VoteViewController: UITableViewDelegate {
 
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		offset = scrollView.contentOffset.y
