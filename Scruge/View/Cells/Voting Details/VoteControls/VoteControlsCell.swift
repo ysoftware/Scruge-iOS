@@ -21,6 +21,7 @@ final class VoteControlsCell: UITableViewCell {
 		self.block = block
 		yesButton.addClick(self, action: #selector(click))
 		noButton.addClick(self, action: #selector(click))
+		yesButton.color = Service.constants.color.green
 		return self
 	}
 
