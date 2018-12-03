@@ -1,25 +1,20 @@
 //
-//  CampaignCell.swift
+//  VoteInfoCell.swift
 //  Scruge
 //
-//  Created by ysoftware on 28/09/2018.
+//  Created by ysoftware on 03/12/2018.
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
 import UIKit
-import Kingfisher
 
-final class CampaignCell: UITableViewCell {
+final class VoteInfoCell: UITableViewCell {
 
-	// MARK: - Outlets
-
-	@IBOutlet weak var topWebView: UIWebView?
-	@IBOutlet weak var descriptionLabel: UILabel?
-	@IBOutlet weak var topImage: UIImageView?
+	@IBOutlet weak var topWebView: UIWebView!
+	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var titleLabel: UILabel!
-	@IBOutlet weak var leftLabel: UILabel?
 	@IBOutlet weak var rightLabel: UILabel?
-	@IBOutlet weak var progressView: ProgressView!
+	@IBOutlet weak var topImage: UIImageView?
 
 	private var didLoadMedia = false
 	private var imageUrl:URL?
@@ -27,18 +22,13 @@ final class CampaignCell: UITableViewCell {
 	// MARK: - Setup
 
 	@discardableResult
-	func setup(with vm:PartialCampaignViewModel) -> CampaignCell {
+	func setup(with vm:PartialCampaignViewModel) -> Self {
 		self.imageUrl = vm.imageUrl
 
 		selectionStyle = .none
-
 		titleLabel!.text = vm.title
 		descriptionLabel?.text = vm.description
 		rightLabel?.text = vm.daysLeft
-
-		progressView.value = vm.raised
-		progressView.total = Double(vm.hardCap)
-		progressView.firstGoal = Double(vm.softCap)
 
 		if let vm = vm as? CampaignVM, let videoUrl = vm.videoUrl {
 			setupWebView(with: videoUrl)
@@ -75,7 +65,7 @@ final class CampaignCell: UITableViewCell {
 	}
 }
 
-extension CampaignCell: UIWebViewDelegate {
+extension VoteInfoCell: UIWebViewDelegate {
 
 	func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
 		setupImageView()

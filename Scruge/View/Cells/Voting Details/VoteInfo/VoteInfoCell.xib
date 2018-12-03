@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="VoteInfoCell" rowHeight="356" id="v3P-I1-0uc" customClass="VoteInfoCell" customModule="Scruge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="327" height="423"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v3P-I1-0uc" id="r56-kw-toV">
+                <rect key="frame" x="0.0" y="0.0" width="327" height="422.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fr1-lC-HVT">
+                        <rect key="frame" x="0.0" y="0.0" width="327" height="272.5"/>
+                        <subviews>
+                            <webView hidden="YES" opaque="NO" alpha="0.5" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" scalesPageToFit="YES" allowsInlineMediaPlayback="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDS-SG-dQs">
+                                <rect key="frame" x="0.0" y="0.0" width="327" height="272.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dDS-SG-dQs" secondAttribute="height" multiplier="1.2" id="z5S-Bj-VIc"/>
+                                </constraints>
+                            </webView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="dDS-SG-dQs" secondAttribute="bottom" id="D9r-F3-oF8"/>
+                            <constraint firstItem="dDS-SG-dQs" firstAttribute="top" secondItem="fr1-lC-HVT" secondAttribute="top" id="Heg-SS-wFj"/>
+                            <constraint firstAttribute="trailing" secondItem="dDS-SG-dQs" secondAttribute="trailing" id="gOY-Fy-7H4"/>
+                            <constraint firstItem="dDS-SG-dQs" firstAttribute="leading" secondItem="fr1-lC-HVT" secondAttribute="leading" id="wst-KH-2B2"/>
+                        </constraints>
+                    </view>
+                    <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pCj-J1-ezb">
+                        <rect key="frame" x="15" y="189" width="100" height="53.5"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="6 DAYS LEFT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wj2-R2-Hi9">
+                                <rect key="frame" x="0.0" y="0.0" width="100" height="14.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Me.guided" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L65-kr-v0J">
+                                <rect key="frame" x="0.0" y="29.5" width="100" height="24"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7id-Ir-Iaz" customClass="CardView" customModule="Scruge" customModuleProvider="target">
+                        <rect key="frame" x="15" y="257.5" width="297" height="150"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="w81-wv-P2H">
+                                <rect key="frame" x="0.0" y="0.0" width="297" height="150"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Our goal is to install a water pump in Malawi to empower villagers to build a better future for themselves." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1BG-RS-A3E">
+                                        <rect key="frame" x="15" y="15" width="267" height="120"/>
+                                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="15"/>
+                                        <color key="textColor" red="0.37254901959999998" green="0.36470588240000001" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="w81-wv-P2H" firstAttribute="leading" secondItem="7id-Ir-Iaz" secondAttribute="leading" id="Fk2-5J-Hzw"/>
+                            <constraint firstItem="w81-wv-P2H" firstAttribute="top" secondItem="7id-Ir-Iaz" secondAttribute="top" id="efK-CO-XXN"/>
+                            <constraint firstAttribute="bottom" secondItem="w81-wv-P2H" secondAttribute="bottom" id="j2x-Xp-L2S"/>
+                            <constraint firstAttribute="trailing" secondItem="w81-wv-P2H" secondAttribute="trailing" id="leR-PO-aLM"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="fr1-lC-HVT" secondAttribute="trailing" id="AeU-tt-UUP"/>
+                    <constraint firstItem="fr1-lC-HVT" firstAttribute="leading" secondItem="r56-kw-toV" secondAttribute="leading" id="BmK-Ku-vu2"/>
+                    <constraint firstAttribute="bottom" secondItem="7id-Ir-Iaz" secondAttribute="bottom" constant="15" id="IBD-hz-C9T"/>
+                    <constraint firstAttribute="trailing" secondItem="7id-Ir-Iaz" secondAttribute="trailing" constant="15" id="ILt-Ne-fTJ"/>
+                    <constraint firstItem="7id-Ir-Iaz" firstAttribute="top" secondItem="pCj-J1-ezb" secondAttribute="bottom" constant="15" id="Ib1-2o-Qbx"/>
+                    <constraint firstItem="7id-Ir-Iaz" firstAttribute="leading" secondItem="r56-kw-toV" secondAttribute="leading" constant="15" id="QGy-yl-jvc"/>
+                    <constraint firstItem="pCj-J1-ezb" firstAttribute="leading" secondItem="7id-Ir-Iaz" secondAttribute="leading" id="kdG-vT-Q7e"/>
+                    <constraint firstItem="7id-Ir-Iaz" firstAttribute="top" secondItem="fr1-lC-HVT" secondAttribute="bottom" constant="-15" id="ojL-Tn-e7R"/>
+                    <constraint firstItem="fr1-lC-HVT" firstAttribute="top" secondItem="r56-kw-toV" secondAttribute="top" id="zHS-L9-Cz5"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="descriptionLabel" destination="1BG-RS-A3E" id="AUj-5U-ldn"/>
+                <outlet property="rightLabel" destination="wj2-R2-Hi9" id="kU3-wH-nQd"/>
+                <outlet property="titleLabel" destination="L65-kr-v0J" id="Wd9-Bb-7SG"/>
+                <outlet property="topWebView" destination="dDS-SG-dQs" id="sQI-CA-wKi"/>
+            </connections>
+            <point key="canvasLocation" x="279.19999999999999" y="184.85757121439281"/>
+        </tableViewCell>
+    </objects>
+</document>

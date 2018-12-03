@@ -33,7 +33,7 @@ extension UIViewController {
 		navigationController?.navigationBar.tintColor = .white
 
 		if !keepTitle {
-			self.navigationItem.title = ""
+			navigationItem.title = ""
 		}
 		return self
 	}
@@ -45,7 +45,7 @@ extension UIViewController {
 		navigationController?.navigationBar.tintColor = view.tintColor
 
 		if let title = title {
-			self.title = title
+			navigationItem.title = title
 		}
 		return self
 	}

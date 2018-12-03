@@ -21,7 +21,7 @@ final class ActivityUpdateCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm: UpdateVM) -> Self {
-		dateLabel.text = vm.date.uppercased()
+		dateLabel.text = vm.date
 		updateTitleLabel.text = vm.title
 		updateDescriptionLabel.text = vm.descsription
 		updateImage.setImage(string: vm.imageUrl)

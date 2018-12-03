@@ -108,6 +108,10 @@
 		71B38D1D215BBBAA00929CC3 /* Reward.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38D1C215BBBAA00929CC3 /* Reward.swift */; };
 		71B38D20215BBE8200929CC3 /* RewardVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38D1F215BBE8200929CC3 /* RewardVM.swift */; };
 		71B38D22215BBEC400929CC3 /* RewardAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38D21215BBEC400929CC3 /* RewardAVM.swift */; };
+		71B8461C21B54ED900F6D708 /* VoteInfoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8461B21B54ED900F6D708 /* VoteInfoCell.xib */; };
+		71B8461F21B54F1100F6D708 /* VoteInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B8461E21B54F1100F6D708 /* VoteInfoCell.swift */; };
+		71B8462121B5507700F6D708 /* CountdownCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8462021B5507700F6D708 /* CountdownCell.xib */; };
+		71B8462321B5508400F6D708 /* CountdownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B8462221B5508400F6D708 /* CountdownCell.swift */; };
 		71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1042215A1EBD004753EC /* CampaignQ.swift */; };
 		71BE1046215A2020004753EC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1045215A2020004753EC /* Network.swift */; };
 		71BE9560215E1B36001CF853 /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE955F215E1B36001CF853 /* AuthApi.swift */; };
@@ -340,6 +344,10 @@
 		71B38D1C215BBBAA00929CC3 /* Reward.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reward.swift; sourceTree = "<group>"; };
 		71B38D1F215BBE8200929CC3 /* RewardVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardVM.swift; sourceTree = "<group>"; };
 		71B38D21215BBEC400929CC3 /* RewardAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RewardAVM.swift; sourceTree = "<group>"; };
+		71B8461B21B54ED900F6D708 /* VoteInfoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteInfoCell.xib; sourceTree = "<group>"; };
+		71B8461E21B54F1100F6D708 /* VoteInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteInfoCell.swift; sourceTree = "<group>"; };
+		71B8462021B5507700F6D708 /* CountdownCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CountdownCell.xib; sourceTree = "<group>"; };
+		71B8462221B5508400F6D708 /* CountdownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownCell.swift; sourceTree = "<group>"; };
 		71BE1042215A1EBD004753EC /* CampaignQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignQ.swift; sourceTree = "<group>"; };
 		71BE1045215A2020004753EC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		71BE955F215E1B36001CF853 /* AuthApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApi.swift; sourceTree = "<group>"; };
@@ -607,9 +615,6 @@
 				71DC1A9821AFDACB001D5575 /* WalletStartVC.swift */,
 				71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */,
 				71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */,
-				715DB15C217471980005B69D /* ContributeVC.swift */,
-				715DB15A2174716E0005B69D /* VoteVC.swift */,
-				71D9C1E321B177310043B15E /* VoteResultVC.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -857,6 +862,7 @@
 		71971CBB2158E454004D28E7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				71B8461621B54E9400F6D708 /* Voting Details */,
 				712508B621AECC23008E3A5C /* Comment */,
 				71FF085821AE763500D9F3A3 /* Activity */,
 				71BE95A621626023001CF853 /* Reward */,
@@ -1070,6 +1076,33 @@
 				71B38D21215BBEC400929CC3 /* RewardAVM.swift */,
 			);
 			path = Reward;
+			sourceTree = "<group>";
+		};
+		71B8461621B54E9400F6D708 /* Voting Details */ = {
+			isa = PBXGroup;
+			children = (
+				71B8461D21B54EE200F6D708 /* VoteInfo */,
+				71B8462421B5508800F6D708 /* Countdown */,
+			);
+			path = "Voting Details";
+			sourceTree = "<group>";
+		};
+		71B8461D21B54EE200F6D708 /* VoteInfo */ = {
+			isa = PBXGroup;
+			children = (
+				71B8461B21B54ED900F6D708 /* VoteInfoCell.xib */,
+				71B8461E21B54F1100F6D708 /* VoteInfoCell.swift */,
+			);
+			path = VoteInfo;
+			sourceTree = "<group>";
+		};
+		71B8462421B5508800F6D708 /* Countdown */ = {
+			isa = PBXGroup;
+			children = (
+				71B8462021B5507700F6D708 /* CountdownCell.xib */,
+				71B8462221B5508400F6D708 /* CountdownCell.swift */,
+			);
+			path = Countdown;
 			sourceTree = "<group>";
 		};
 		71BE9563215E26CA001CF853 /* Auth Profile */ = {
@@ -1496,6 +1529,9 @@
 				71AB79002164D2650077D904 /* CommentsVC.swift */,
 				71F68A4921709D8A00F7E728 /* FaqVC.swift */,
 				71F68A4B21709E2700F7E728 /* DocumentsVC.swift */,
+				715DB15C217471980005B69D /* ContributeVC.swift */,
+				715DB15A2174716E0005B69D /* VoteVC.swift */,
+				71D9C1E321B177310043B15E /* VoteResultVC.swift */,
 			);
 			path = "Campaign Details";
 			sourceTree = "<group>";
@@ -1624,10 +1660,12 @@
 				71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */,
 				71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */,
 				71D9C1E021B132AC0043B15E /* UpdateCell.xib in Resources */,
+				71B8462121B5507700F6D708 /* CountdownCell.xib in Resources */,
 				71A0C1B3216FA6CD00C2ACF3 /* SocialCell.xib in Resources */,
 				71DA7E912164AAF90052EB8F /* Details.storyboard in Resources */,
 				71BE959921625582001CF853 /* MilestoneCell.xib in Resources */,
 				71345C212179D24C00F28AF1 /* AccountCell.xib in Resources */,
+				71B8461C21B54ED900F6D708 /* VoteInfoCell.xib in Resources */,
 				71BE95B821636245001CF853 /* ErrorView.xib in Resources */,
 				71BE95A0216258E7001CF853 /* LastUpdateCell.xib in Resources */,
 				71BE9572215E777A001CF853 /* CampaignCell.xib in Resources */,
@@ -1808,6 +1846,7 @@
 				71C8E8F1215912690078BD36 /* Api.swift in Sources */,
 				71D84CDD21995AD000E8DB88 /* PrivateKey.swift in Sources */,
 				71D84CDE21995AD000E8DB88 /* ChainModels.swift in Sources */,
+				71B8462321B5508400F6D708 /* CountdownCell.swift in Sources */,
 				71BE9591216233E3001CF853 /* CampFooter.swift in Sources */,
 				712B3A7521A81869003BB43A /* CardView.swift in Sources */,
 				71BE9560215E1B36001CF853 /* AuthApi.swift in Sources */,
@@ -1933,6 +1972,7 @@
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,
 				716E62562189939D002AC5DA /* Contribution.swift in Sources */,
 				71DC1A9D21B00ACF001D5575 /* WalletPickerVC.swift in Sources */,
+				71B8461F21B54F1100F6D708 /* VoteInfoCell.swift in Sources */,
 				71D84CD821995AD000E8DB88 /* HistoryRouter.swift in Sources */,
 				71DC1A9B21AFE3A9001D5575 /* WalletNoAccountVC.swift in Sources */,
 				71C8E8E821590F2A0078BD36 /* EOS.swift in Sources */,
