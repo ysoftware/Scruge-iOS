@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct VoteResults: Codable {
+struct VoteResult: Codable {
 
 	let voteId:Int
 

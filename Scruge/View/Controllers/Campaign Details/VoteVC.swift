@@ -40,6 +40,10 @@ final class VoteViewController: UIViewController {
 
 	// MARK: - Setup
 
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return offset > NAVBAR_LIMIT ? .default : .lightContent
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 

@@ -37,7 +37,7 @@ struct ContributionHistoryResponse: Codable {
 
 struct VotesResultsResponse: Codable {
 
-	let votings:[VoteResults]
+	let votings:[VoteResult]
 }
 
 struct VoteInfoResponse: Codable {

@@ -114,6 +114,8 @@
 		71B8462321B5508400F6D708 /* CountdownCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B8462221B5508400F6D708 /* CountdownCell.swift */; };
 		71B8462721B5613500F6D708 /* VoteControlsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B8462621B5613500F6D708 /* VoteControlsCell.swift */; };
 		71B8462921B5613F00F6D708 /* VoteControlsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8462821B5613F00F6D708 /* VoteControlsCell.xib */; };
+		71B8462C21B6670900F6D708 /* VoteResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B8462B21B6670900F6D708 /* VoteResultCell.swift */; };
+		71B8462E21B667B600F6D708 /* VoteResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8462D21B667B600F6D708 /* VoteResultCell.xib */; };
 		71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1042215A1EBD004753EC /* CampaignQ.swift */; };
 		71BE1046215A2020004753EC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1045215A2020004753EC /* Network.swift */; };
 		71BE9560215E1B36001CF853 /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE955F215E1B36001CF853 /* AuthApi.swift */; };
@@ -352,6 +354,8 @@
 		71B8462221B5508400F6D708 /* CountdownCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountdownCell.swift; sourceTree = "<group>"; };
 		71B8462621B5613500F6D708 /* VoteControlsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteControlsCell.swift; sourceTree = "<group>"; };
 		71B8462821B5613F00F6D708 /* VoteControlsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteControlsCell.xib; sourceTree = "<group>"; };
+		71B8462B21B6670900F6D708 /* VoteResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResultCell.swift; sourceTree = "<group>"; };
+		71B8462D21B667B600F6D708 /* VoteResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteResultCell.xib; sourceTree = "<group>"; };
 		71BE1042215A1EBD004753EC /* CampaignQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignQ.swift; sourceTree = "<group>"; };
 		71BE1045215A2020004753EC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		71BE955F215E1B36001CF853 /* AuthApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApi.swift; sourceTree = "<group>"; };
@@ -1123,6 +1127,8 @@
 		71B8462A21B56F5B00F6D708 /* VoteResult */ = {
 			isa = PBXGroup;
 			children = (
+				71B8462D21B667B600F6D708 /* VoteResultCell.xib */,
+				71B8462B21B6670900F6D708 /* VoteResultCell.swift */,
 			);
 			path = VoteResult;
 			sourceTree = "<group>";
@@ -1679,6 +1685,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B8462E21B667B600F6D708 /* VoteResultCell.xib in Resources */,
 				71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */,
 				71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */,
 				71D9C1E021B132AC0043B15E /* UpdateCell.xib in Resources */,
@@ -1920,6 +1927,7 @@
 				71BE95CD21649FF2001CF853 /* Constants.swift in Sources */,
 				71387A9D216CCC4800B24C67 /* SettingsVC.swift in Sources */,
 				71D84CC221995AD000E8DB88 /* rand.c in Sources */,
+				71B8462C21B6670900F6D708 /* VoteResultCell.swift in Sources */,
 				71BE958F216233CF001CF853 /* CampHeader.swift in Sources */,
 				71B8462721B5613500F6D708 /* VoteControlsCell.swift in Sources */,
 				71345C0E21773D2800F28AF1 /* AnyCodable.swift in Sources */,

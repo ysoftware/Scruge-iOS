@@ -21,6 +21,7 @@ final class VoteResultsViewController: UIViewController {
 
 	private let NAVBAR_LIMIT:CGFloat = 240
 	var vm:CampaignVM!
+	private var result:VoteResult?
 	private let accountVM = AccountAVM()
 
 	var offset:CGFloat = 0 {
@@ -39,9 +40,14 @@ final class VoteResultsViewController: UIViewController {
 
 	// MARK: - Setup
 
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return offset > NAVBAR_LIMIT ? .default : .lightContent
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		loadResult()
 		setupVM()
 		setupKeyboard()
 		setupTable()
@@ -62,6 +68,13 @@ final class VoteResultsViewController: UIViewController {
 
 	private func setupVM() {
 		accountVM.reloadData()
+	}
+
+	private func loadResult() {
+		vm.loadVoteResults { result in
+			self.result = result
+			self.tableView.reloadData()
+		}
 	}
 
 	private func setupKeyboard() {
@@ -87,8 +100,8 @@ final class VoteResultsViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.voteInfoCell.identifier)
 		tableView.register(UINib(resource: R.nib.countdownCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.countdownCell.identifier)
-//		tableView.register(UINib(resource: R.nib.voteResultsCell),
-//						   forCellReuseIdentifier: R.reuseIdentifier.voteResultsCell.identifier)
+		tableView.register(UINib(resource: R.nib.voteResultCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.voteResultCell.identifier)
 	}
 
 	// MARK: - Actions
@@ -136,6 +149,10 @@ extension VoteResultsViewController: UITableViewDataSource {
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.countdownCell,
 												 for: indexPath)!
 				.setup(title: "This vote ends in:", timestamp: 0)
+		case .result:
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteResultCell,
+												 for: indexPath)!
+				.setup(with: VoteResult.init(voteId: 0, positiveVotes: 150, backersCount: 300, voters: 200, kind: .extend))
 		default: break
 		}
 		if cell == nil { cell = UITableViewCell() }

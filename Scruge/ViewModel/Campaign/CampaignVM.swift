@@ -125,7 +125,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		}
 	}
 
-	func loadVoteResults(_ completion: @escaping (VoteResults?)->Void) {
+	func loadVoteResults(_ completion: @escaping (VoteResult?)->Void) {
 		guard let model = model else { return completion(nil) }
 		Service.api.getVoteResult(campaignId: model.id) { result in
 			guard case let .success(response) = result else {
