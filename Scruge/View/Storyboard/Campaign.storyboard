@@ -83,6 +83,26 @@
                                     <outlet property="delegate" destination="bSn-68-QGz" id="Tdb-iK-cuP"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JKR-vf-XhJ">
+                                <rect key="frame" x="0.0" y="702" width="375" height="110"/>
+                                <subviews>
+                                    <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TSC-1f-K4A">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="nQT-Ej-01c">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="110"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </view>
+                                        <blurEffect style="light"/>
+                                    </visualEffectView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="TSC-1f-K4A" secondAttribute="trailing" id="9C5-Ak-42X"/>
+                                    <constraint firstItem="TSC-1f-K4A" firstAttribute="leading" secondItem="JKR-vf-XhJ" secondAttribute="leading" id="MG2-Fx-L05"/>
+                                    <constraint firstAttribute="bottom" secondItem="TSC-1f-K4A" secondAttribute="bottom" id="loX-F9-c5j"/>
+                                    <constraint firstItem="TSC-1f-K4A" firstAttribute="top" secondItem="JKR-vf-XhJ" secondAttribute="top" id="wJs-Od-HTk"/>
+                                </constraints>
+                            </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o18-DA-2UC" customClass="Button" customModule="Scruge" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="703" width="375" height="60"/>
                                 <color key="backgroundColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
@@ -98,6 +118,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DNJ-yh-Lww" firstAttribute="top" secondItem="O95-fJ-muX" secondAttribute="top" id="758-iW-kj0"/>
+                            <constraint firstItem="JKR-vf-XhJ" firstAttribute="leading" secondItem="fcg-6e-ATC" secondAttribute="leading" id="Byl-cO-00e"/>
                             <constraint firstItem="fcg-6e-ATC" firstAttribute="bottom" secondItem="o18-DA-2UC" secondAttribute="bottom" constant="15" id="JJt-cF-n3B"/>
                             <constraint firstItem="fcg-6e-ATC" firstAttribute="trailing" secondItem="hdg-Pb-D1I" secondAttribute="trailing" id="Lb3-5o-yGH"/>
                             <constraint firstItem="fcg-6e-ATC" firstAttribute="trailing" secondItem="DNJ-yh-Lww" secondAttribute="trailing" id="MDy-PB-915"/>
@@ -107,12 +128,16 @@
                             <constraint firstItem="DNJ-yh-Lww" firstAttribute="leading" secondItem="fcg-6e-ATC" secondAttribute="leading" id="cm5-mE-nCh"/>
                             <constraint firstItem="o18-DA-2UC" firstAttribute="leading" secondItem="fcg-6e-ATC" secondAttribute="leading" id="eVm-YX-74c"/>
                             <constraint firstAttribute="bottom" secondItem="DNJ-yh-Lww" secondAttribute="bottom" id="oMY-Lz-ItI"/>
+                            <constraint firstItem="o18-DA-2UC" firstAttribute="top" secondItem="JKR-vf-XhJ" secondAttribute="top" constant="1" id="r1u-sr-RKa"/>
+                            <constraint firstItem="JKR-vf-XhJ" firstAttribute="trailing" secondItem="fcg-6e-ATC" secondAttribute="trailing" id="syr-TB-6Ib"/>
                             <constraint firstAttribute="bottom" secondItem="hdg-Pb-D1I" secondAttribute="bottom" id="wqy-Ns-rL8"/>
+                            <constraint firstAttribute="bottom" secondItem="JKR-vf-XhJ" secondAttribute="bottom" id="zjm-Zo-oMn"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fcg-6e-ATC"/>
                     </view>
                     <connections>
                         <outlet property="contributeButton" destination="o18-DA-2UC" id="dpp-pS-IQ7"/>
+                        <outlet property="contributeButtonBackgroundView" destination="JKR-vf-XhJ" id="TlE-Jn-RSu"/>
                         <outlet property="loadingView" destination="DNJ-yh-Lww" id="QEO-tN-dlw"/>
                         <outlet property="tableView" destination="hdg-Pb-D1I" id="USs-u0-xTM"/>
                     </connections>

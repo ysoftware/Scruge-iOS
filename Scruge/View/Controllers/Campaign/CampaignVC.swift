@@ -22,7 +22,7 @@ final class CampaignViewController: UIViewController {
 
 	@IBOutlet weak var loadingView: LoadingView!
 	@IBOutlet weak var tableView: UITableView!
-
+	@IBOutlet weak var contributeButtonBackgroundView: UIView!
 	@IBOutlet weak var contributeButton: Button!
 
 	// MARK: - Actions
@@ -240,7 +240,7 @@ final class CampaignViewController: UIViewController {
 
 	private func showContributeButton(_ visible:Bool = true,
 									  duration:TimeInterval = 0.25) {
-		let inset = contributeButton.frame.height + 15
+		let inset = contributeButton.frame.height + 20
 		let value = visible ? inset : 0
 
 		if #available(iOS 11.0, *) {
@@ -248,6 +248,7 @@ final class CampaignViewController: UIViewController {
 			tableView.scrollIndicatorInsets.bottom = value
 		}
 
+		contributeButtonBackgroundView.isHidden = !visible
 		contributeButton.isHidden = !visible
 
 		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
