@@ -705,7 +705,7 @@
 			isa = PBXGroup;
 			children = (
 				71C2C5BB21AC20E20040C85A /* Documents */,
-				71BE95A121625E4D001CF853 /* Comment */,
+				71BE95A121625E4D001CF853 /* TopComment */,
 				71BE959C216258D4001CF853 /* LastUpdate */,
 				71AD0E2921708DCD00077446 /* Faq */,
 				71BE959721625575001CF853 /* Milestone */,
@@ -1212,13 +1212,13 @@
 			path = LastUpdate;
 			sourceTree = "<group>";
 		};
-		71BE95A121625E4D001CF853 /* Comment */ = {
+		71BE95A121625E4D001CF853 /* TopComment */ = {
 			isa = PBXGroup;
 			children = (
 				71BE95A221625E5B001CF853 /* TopCommentCell.xib */,
 				71BE95A421625E64001CF853 /* TopCommentCell.swift */,
 			);
-			path = Comment;
+			path = TopComment;
 			sourceTree = "<group>";
 		};
 		71BE95A621626023001CF853 /* Reward */ = {

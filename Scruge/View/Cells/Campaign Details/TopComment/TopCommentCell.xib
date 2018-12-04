@@ -11,15 +11,15 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopCommentCell" rowHeight="140" id="VLg-BJ-vy2" customClass="TopCommentCell" customModule="Scruge" customModuleProvider="target">
+        <tableViewCell opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TopCommentCell" rowHeight="140" id="VLg-BJ-vy2" customClass="TopCommentCell" customModule="Scruge" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="471" height="121"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VLg-BJ-vy2" id="BXE-xS-Gjn">
+            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VLg-BJ-vy2" id="BXE-xS-Gjn">
                 <rect key="frame" x="0.0" y="0.0" width="471" height="120.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iw9-Gg-xF8" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                        <rect key="frame" x="15" y="10" width="441" height="105.5"/>
+                        <rect key="frame" x="15" y="5" width="441" height="105.5"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" alignment="top" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ihb-S7-k2U">
                                 <rect key="frame" x="0.0" y="0.0" width="441" height="105.5"/>
@@ -163,9 +163,9 @@
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Iw9-Gg-xF8" firstAttribute="top" secondItem="BXE-xS-Gjn" secondAttribute="top" constant="10" id="Dju-cB-3ho"/>
+                    <constraint firstItem="Iw9-Gg-xF8" firstAttribute="top" secondItem="BXE-xS-Gjn" secondAttribute="top" constant="5" id="Dju-cB-3ho"/>
                     <constraint firstAttribute="trailing" secondItem="Iw9-Gg-xF8" secondAttribute="trailing" constant="15" id="F18-gs-Odt"/>
-                    <constraint firstAttribute="bottom" secondItem="Iw9-Gg-xF8" secondAttribute="bottom" constant="5" id="XVg-fP-zYc"/>
+                    <constraint firstAttribute="bottom" secondItem="Iw9-Gg-xF8" secondAttribute="bottom" constant="10" id="XVg-fP-zYc"/>
                     <constraint firstItem="Iw9-Gg-xF8" firstAttribute="leading" secondItem="BXE-xS-Gjn" secondAttribute="leading" constant="15" id="q5Z-aC-4hI"/>
                 </constraints>
             </tableViewCellContentView>

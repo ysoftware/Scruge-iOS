@@ -11,10 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="PagingCell" rowHeight="212" id="zHM-Jr-Sn3" customClass="PagingCell" customModule="Scruge" customModuleProvider="target">
+        <tableViewCell opaque="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="PagingCell" rowHeight="212" id="zHM-Jr-Sn3" customClass="PagingCell" customModule="Scruge" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="395" height="212"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zHM-Jr-Sn3" id="O9e-cJ-Jwg">
+            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zHM-Jr-Sn3" id="O9e-cJ-Jwg">
                 <rect key="frame" x="0.0" y="0.0" width="395" height="211.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
