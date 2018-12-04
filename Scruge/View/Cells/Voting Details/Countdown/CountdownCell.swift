@@ -43,10 +43,10 @@ final class CountdownCell: UITableViewCell {
 	}
 
 	func beginRefreshing() {
-		// TO-DO: timer
+		#warning("timer")
 	}
 
 	func endRefreshing() {
-		// TO-DO: timer
+		#warning("timer")
 	}
 }

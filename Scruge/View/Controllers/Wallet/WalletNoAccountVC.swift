@@ -37,6 +37,6 @@ final class WalletNoAccountViewController: UIViewController {
 	}
 
 	@IBAction func openPrivacy(_ sender:Any) {
-		// TO-DO: open privacy
+		#warning("open privacy")
 	}
 }

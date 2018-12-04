@@ -112,7 +112,7 @@ final class VoteResultsViewController: UIViewController {
 
 	private func vote(_ value:Bool, _ passcode:String) {
 		guard let account = accountVM.selectedAccount else {
-			// TO-DO: check if maybe should open wallet picker right there?
+			#warning("check if maybe should open wallet picker right there?")
 			return alert("You don't have your blockchain account setup")
 		}
 
@@ -144,7 +144,8 @@ extension VoteResultsViewController: UITableViewDataSource {
 		switch Block(rawValue: indexPath.row)! {
 		case .info:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteInfoCell,
-												 for: indexPath)!.setup(with: vm, kind: .milestone) // TO-DO:
+												 for: indexPath)!.setup(with: vm, kind: .milestone)
+			#warning("vote kind")
 		case .countdown:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.countdownCell,
 												 for: indexPath)!

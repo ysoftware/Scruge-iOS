@@ -103,7 +103,6 @@ extension PagingCell: UICollectionViewDelegate {
 extension PagingCell: UIScrollViewDelegate {
 
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
-		// TO-DO: this doesn't work as good
 		let visiblePoint = CGPoint(x: collectionView.bounds.midX, y: collectionView.bounds.midY)
 		if let visibleIndexPath = collectionView.indexPathForItem(at: visiblePoint) {
 			let index = visibleIndexPath.row

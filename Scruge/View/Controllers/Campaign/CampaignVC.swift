@@ -310,7 +310,14 @@ extension CampaignViewController: UITableViewDataSource {
 												 for: indexPath)!.setup(with: vm)
 				.tap { doc in
 					guard let url = doc.documentUrl else { return }
-					Service.presenter.presentSafariViewController(in: self, url: url) }
+					#warning("check this")
+					if url.absoluteString.contains("/content") {
+						Service.presenter.presentContentViewController(in: self, for: self.vm)
+					}
+					else {
+						Service.presenter.presentSafariViewController(in: self, url: url)
+					}
+				}
 		}
 		if cell == nil {
 			cell = UITableViewCell()
