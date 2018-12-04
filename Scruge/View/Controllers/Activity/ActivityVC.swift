@@ -103,7 +103,7 @@ extension ActivityViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		if indexPath.section == 0 {
 			return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteNotificationCell,
-												 for: indexPath)!
+												 for: indexPath)!.setup(with: activeVoting[indexPath.row])
 		}
 
 		let vm = self.vm.item(at: indexPath.row, shouldLoadMore: true)
