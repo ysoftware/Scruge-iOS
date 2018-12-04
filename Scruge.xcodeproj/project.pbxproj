@@ -116,6 +116,7 @@
 		71B8462921B5613F00F6D708 /* VoteControlsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8462821B5613F00F6D708 /* VoteControlsCell.xib */; };
 		71B8462C21B6670900F6D708 /* VoteResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B8462B21B6670900F6D708 /* VoteResultCell.swift */; };
 		71B8462E21B667B600F6D708 /* VoteResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8462D21B667B600F6D708 /* VoteResultCell.xib */; };
+		71B8463021B6866000F6D708 /* ActivityUpdateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8462F21B6866000F6D708 /* ActivityUpdateCell.xib */; };
 		71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1042215A1EBD004753EC /* CampaignQ.swift */; };
 		71BE1046215A2020004753EC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1045215A2020004753EC /* Network.swift */; };
 		71BE9560215E1B36001CF853 /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE955F215E1B36001CF853 /* AuthApi.swift */; };
@@ -228,7 +229,6 @@
 		71F68A4A21709D8A00F7E728 /* FaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4921709D8A00F7E728 /* FaqVC.swift */; };
 		71F68A4C21709E2700F7E728 /* DocumentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4B21709E2700F7E728 /* DocumentsVC.swift */; };
 		71FF085B21AE766800D9F3A3 /* ActivityUpdateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF085A21AE766800D9F3A3 /* ActivityUpdateCell.swift */; };
-		71FF085D21AE854300D9F3A3 /* ActivityUpdateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71FF085C21AE76A400D9F3A3 /* ActivityUpdateCell.xib */; };
 		8C8CD5C46C0D9A389DDD6F7B /* Pods_ScrugeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -356,6 +356,7 @@
 		71B8462821B5613F00F6D708 /* VoteControlsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteControlsCell.xib; sourceTree = "<group>"; };
 		71B8462B21B6670900F6D708 /* VoteResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResultCell.swift; sourceTree = "<group>"; };
 		71B8462D21B667B600F6D708 /* VoteResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteResultCell.xib; sourceTree = "<group>"; };
+		71B8462F21B6866000F6D708 /* ActivityUpdateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityUpdateCell.xib; sourceTree = "<group>"; };
 		71BE1042215A1EBD004753EC /* CampaignQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignQ.swift; sourceTree = "<group>"; };
 		71BE1045215A2020004753EC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		71BE955F215E1B36001CF853 /* AuthApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApi.swift; sourceTree = "<group>"; };
@@ -491,7 +492,6 @@
 		71F68A4921709D8A00F7E728 /* FaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqVC.swift; sourceTree = "<group>"; };
 		71F68A4B21709E2700F7E728 /* DocumentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsVC.swift; sourceTree = "<group>"; };
 		71FF085A21AE766800D9F3A3 /* ActivityUpdateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityUpdateCell.swift; sourceTree = "<group>"; };
-		71FF085C21AE76A400D9F3A3 /* ActivityUpdateCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = ActivityUpdateCell.xib; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/View/Cells/Activity/Update/ActivityUpdateCell.xib"; sourceTree = "<absolute>"; };
 		825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scruge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8AEF28830A2E790AC6CB0B01 /* Pods-ScrugeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeTests/Pods-ScrugeTests.release.xcconfig"; sourceTree = "<group>"; };
 		91B9FC9C0CACF2FAFAA009DB /* Pods-ScrugeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ScrugeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ScrugeUITests/Pods-ScrugeUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -871,13 +871,13 @@
 			isa = PBXGroup;
 			children = (
 				71B8461621B54E9400F6D708 /* Voting Details */,
+				713EF3AD21A84C3D009BA9D5 /* Campaign Details */,
+				71FF085821AE763500D9F3A3 /* Activity Cells */,
 				712508B621AECC23008E3A5C /* Comment */,
-				71FF085821AE763500D9F3A3 /* Activity */,
 				71BE95A621626023001CF853 /* Reward */,
 				71BE957D215F5D31001CF853 /* Category */,
 				71D9C1DA21B12A6F0043B15E /* Update */,
 				71BE9577215E7FC1001CF853 /* Campaign  */,
-				713EF3AD21A84C3D009BA9D5 /* Campaign Details */,
 				71A0C1AB216F93BA00C2ACF3 /* Header */,
 				71A0C1AC216F93C000C2ACF3 /* Footer */,
 				716E625B2189D8D6002AC5DA /* Member */,
@@ -1564,18 +1564,18 @@
 			path = "Campaign Details";
 			sourceTree = "<group>";
 		};
-		71FF085821AE763500D9F3A3 /* Activity */ = {
+		71FF085821AE763500D9F3A3 /* Activity Cells */ = {
 			isa = PBXGroup;
 			children = (
 				71FF085921AE764D00D9F3A3 /* Update */,
 			);
-			path = Activity;
+			path = "Activity Cells";
 			sourceTree = "<group>";
 		};
 		71FF085921AE764D00D9F3A3 /* Update */ = {
 			isa = PBXGroup;
 			children = (
-				71FF085C21AE76A400D9F3A3 /* ActivityUpdateCell.xib */,
+				71B8462F21B6866000F6D708 /* ActivityUpdateCell.xib */,
 				71FF085A21AE766800D9F3A3 /* ActivityUpdateCell.swift */,
 			);
 			path = Update;
@@ -1702,6 +1702,7 @@
 				712B3A7021A813E8003BB43A /* EconomiesCell.xib in Resources */,
 				71BE95A321625E5B001CF853 /* TopCommentCell.xib in Resources */,
 				71971C882158E058004D28E7 /* Assets.xcassets in Resources */,
+				71B8463021B6866000F6D708 /* ActivityUpdateCell.xib in Resources */,
 				71AD0E2B21708DD800077446 /* FaqCell.xib in Resources */,
 				71BE959521623448001CF853 /* CampFooter.xib in Resources */,
 				71163A4C216754C400C5B633 /* LoadingView.xib in Resources */,
@@ -1712,7 +1713,6 @@
 				7105C35521AD2C89008AAB1E /* ProgressView.xib in Resources */,
 				716E625F2189DA01002AC5DA /* MemberCell.xib in Resources */,
 				71DA7E8C2164A67C0052EB8F /* Campaign.storyboard in Resources */,
-				71FF085D21AE854300D9F3A3 /* ActivityUpdateCell.xib in Resources */,
 				71345C112177412200F28AF1 /* Wallet.storyboard in Resources */,
 				713EF3B021A98DF4009BA9D5 /* PagingCell.xib in Resources */,
 				71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */,

@@ -49,7 +49,6 @@ final class VoteResultsViewController: UIViewController {
 
 		loadResult()
 		setupVM()
-		setupKeyboard()
 		setupTable()
 	}
 
@@ -77,15 +76,7 @@ final class VoteResultsViewController: UIViewController {
 		}
 	}
 
-	private func setupKeyboard() {
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
-											   name:UIResponder.keyboardWillShowNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
-											   name:UIResponder.keyboardWillHideNotification, object: nil)
-	}
-
 	private func setupTable() {
-		//		 make table view go under the navigation bar
 		if #available(iOS 11.0, *) {
 			tableView.contentInsetAdjustmentBehavior = .never
 			tableView.contentInset.top = -35
@@ -93,7 +84,7 @@ final class VoteResultsViewController: UIViewController {
 		automaticallyAdjustsScrollViewInsets = false
 
 		tableView.delaysContentTouches = false
-		tableView.estimatedRowHeight = 100
+		tableView.estimatedRowHeight = 150
 		tableView.rowHeight = UITableView.automaticDimension
 
 		tableView.register(UINib(resource: R.nib.voteInfoCell),
@@ -143,36 +134,21 @@ extension VoteResultsViewController: UITableViewDataSource {
 		var cell:UITableViewCell!
 		switch Block(rawValue: indexPath.row)! {
 		case .info:
+			guard let kind = result?.kind else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteInfoCell,
-												 for: indexPath)!.setup(with: vm, kind: .milestone)
-			#warning("vote kind")
+												 for: indexPath)!.setup(with: vm, kind: kind)
 		case .countdown:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.countdownCell,
 												 for: indexPath)!
 				.setup(title: "This vote ends in:", timestamp: 0)
 		case .result:
+			guard let result = result else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteResultCell,
 												 for: indexPath)!
-				.setup(with: VoteResult.init(voteId: 0, positiveVotes: 150, backersCount: 300, voters: 200, kind: .extend))
-		default: break
+				.setup(with: result)
 		}
 		if cell == nil { cell = UITableViewCell() }
 		return cell
-	}
-}
-
-extension VoteResultsViewController {
-
-	@objc func keyboardWillShow(notification:NSNotification) {
-		guard let userInfo = notification.userInfo else { return }
-		let keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
-		let convertedFrame = view.convert(keyboardFrame, from: nil)
-		tableView.contentInset.bottom = convertedFrame.size.height
-		tableView.scrollIndicatorInsets.bottom = convertedFrame.size.height
-	}
-
-	@objc func keyboardWillHide(notification:NSNotification) {
-		tableView.contentInset.bottom = 0
 	}
 }
 

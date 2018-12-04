@@ -26,7 +26,8 @@ extension Double {
 		let formatter = NumberFormatter()
 		formatter.numberStyle = style
 		formatter.groupingSeparator = separator
-		formatter.maximumFractionDigits = 10
+		formatter.maximumFractionDigits = 4
+		formatter.minimumFractionDigits = 0
 		return formatter.string(for: self)!
 	}
 }

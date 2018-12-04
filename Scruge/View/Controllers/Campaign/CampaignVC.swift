@@ -180,7 +180,7 @@ final class CampaignViewController: UIViewController {
 				contributeButton.text = "Vote".uppercased()
 			}
 			else {
-				contributeButton.color = Service.constants.color.green
+				contributeButton.color = Service.constants.color.purple
 				contributeButton.text = "View Voting Progress".uppercased()
 			}
 		case .closed:
