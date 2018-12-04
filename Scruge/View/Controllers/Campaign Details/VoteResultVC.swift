@@ -79,7 +79,7 @@ final class VoteResultsViewController: UIViewController {
 	private func setupTable() {
 		if #available(iOS 11.0, *) {
 			tableView.contentInsetAdjustmentBehavior = .never
-			tableView.contentInset.top = -35
+//			tableView.contentInset.top = -35
 		}
 		automaticallyAdjustsScrollViewInsets = false
 

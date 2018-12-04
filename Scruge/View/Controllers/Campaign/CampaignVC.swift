@@ -125,7 +125,6 @@ final class CampaignViewController: UIViewController {
 //		 make table view go under the navigation bar
 		if #available(iOS 11.0, *) {
 			tableView.contentInsetAdjustmentBehavior = .never
-			tableView.contentInset.top = -35
 		}
 		automaticallyAdjustsScrollViewInsets = false
 
