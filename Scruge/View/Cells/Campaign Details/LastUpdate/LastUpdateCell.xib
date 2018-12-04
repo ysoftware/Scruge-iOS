@@ -25,12 +25,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="371" height="252.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" text="Last update" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nlQ-wg-j2B">
-                                        <rect key="frame" x="15" y="15" width="341" height="19.5"/>
+                                        <rect key="frame" x="15" y="15" width="341" height="66.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <view contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jnF-4Y-yHv" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="49.5" width="341" height="141"/>
+                                        <rect key="frame" x="15" y="96.5" width="341" height="141"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Gs4-EO-bZZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="341" height="141"/>
@@ -79,8 +79,8 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1g-hR-e1K">
-                                        <rect key="frame" x="15" y="205.5" width="341" height="32"/>
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n1g-hR-e1K">
+                                        <rect key="frame" x="15" y="237.5" width="341" height="0.0"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <state key="normal" title="See all updates">
                                             <color key="titleColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
@@ -110,6 +110,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
+                <outlet property="allUpdatesButton" destination="n1g-hR-e1K" id="wuy-gH-3rl"/>
                 <outlet property="descriptionLabel" destination="ExC-oU-hRb" id="YMA-Po-6LN"/>
                 <outlet property="sectionTitleLabel" destination="nlQ-wg-j2B" id="g1h-QV-4i9"/>
                 <outlet property="titleLabel" destination="b3t-ND-X2P" id="qCo-rd-P7D"/>

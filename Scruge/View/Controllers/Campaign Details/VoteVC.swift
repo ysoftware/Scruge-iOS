@@ -22,6 +22,7 @@ final class VoteViewController: UIViewController {
 	private let NAVBAR_LIMIT:CGFloat = 240
 	var vm:CampaignVM!
 	private let accountVM = AccountAVM()
+	private var updateVM = UpdateVM()
 
 	var offset:CGFloat = 0 {
 		didSet {
@@ -133,6 +134,12 @@ extension VoteViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		var cell:UITableViewCell!
 		switch Block(rawValue: indexPath.row)! {
+		case .update:
+			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.lastUpdateCell,
+												 for: indexPath)!.setup(with: updateVM, title: "Rationale: ")
+				.updateTap {
+					// open update in full
+				}
 		case .info:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteInfoCell,
 												 for: indexPath)!.setup(with: vm, kind: .milestone) // TO-DO:

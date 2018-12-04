@@ -21,6 +21,7 @@ final class CommentCell: UITableViewCell {
 		usernameLabel.text = vm.authorName
 		commentLabel.text = vm.comment
 		dateLabel.text = vm.date
+		likesLabel.text = vm.likes
 
 		if let imageURL = vm.authorPhoto {
 			profileImage.setImage(url: imageURL, hideOnFail: false)

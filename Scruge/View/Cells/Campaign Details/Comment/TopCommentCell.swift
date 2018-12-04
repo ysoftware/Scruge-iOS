@@ -30,6 +30,7 @@ final class TopCommentCell: UITableViewCell {
 			usernameLabel.text = comment.authorName
 			commentLabel.text = comment.comment
 			dateLabel.text = comment.date
+			likesLabel.text = comment.likes
 
 			if let imageURL = comment.authorPhoto {
 				profileImage.setImage(url: imageURL, hideOnFail: false)

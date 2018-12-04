@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Kingfisher
 
 final class LastUpdateCell: UITableViewCell {
 
@@ -16,15 +15,15 @@ final class LastUpdateCell: UITableViewCell {
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var descriptionLabel: UILabel!
 	@IBOutlet weak var sectionTitleLabel: UILabel!
+	@IBOutlet weak var allUpdatesButton: UIButton!
 	
 	// MARK: - Setup
 
 	@discardableResult
-	func setup(with vm: UpdateVM) -> Self {
+	func setup(with vm: UpdateVM, title:String = "Last update: ") -> Self {
 		titleLabel.text = vm.title
 		descriptionLabel.text = vm.descsription
-		sectionTitleLabel.text = "Last update: \(vm.date)"
-
+		sectionTitleLabel.text = "\(title)\(vm.date)"
 		updateImage.setImage(string: vm.imageUrl)
 		return self
 	}
@@ -45,6 +44,7 @@ final class LastUpdateCell: UITableViewCell {
 	@discardableResult
 	func allUpdatesTap(block: @escaping ()->Void) -> Self {
 		allUpdatesBlock = block
+		allUpdatesButton.isHidden = false
 		return self
 	}
 

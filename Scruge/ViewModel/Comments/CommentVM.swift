@@ -29,4 +29,8 @@ final class CommentVM: ViewModel<Comment> {
 		guard let model = model else { return "" }
 		return Date.present(model.timestamp, as: "d MMMM, H:mm")
 	}
+
+	var likes:String {
+		return model?.likesCount?.string ?? ""
+	}
 }

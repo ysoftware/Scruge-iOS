@@ -40,4 +40,8 @@ extension Int {
 		formatter.groupingSeparator = separator
 		return formatter.string(for: self)!
 	}
+
+	var string:String {
+		return "\(self)"
+	}
 }
