@@ -22,7 +22,7 @@ final class VoteNotificationCell: UITableViewCell {
 		let voteKindText = vote.voting.kind == .extend ? "extend deadline" : "continue campaign"
 		titleLabel.text = "Voting to \(voteKindText) for \(vote.campaign.title)"
 		let date = Date(milliseconds: vote.voting.endTimestamp)
-		dateLabel.text = date.toRelative(locale: Locales.english)
+		dateLabel.text = "ends " + date.toRelative(locale: Locales.english)
 
 		return self
 	}

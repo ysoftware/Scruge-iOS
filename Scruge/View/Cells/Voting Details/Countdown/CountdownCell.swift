@@ -23,7 +23,7 @@ final class CountdownCell: UITableViewCell {
 	func setup(title:String, timestamp:Int) -> Self {
 		selectionStyle = .none
 		titleLabel.text = title
-		self.timestamp = 1544014745000 // timestamp
+		self.timestamp = timestamp
 		refresh()
 		return self
 	}
