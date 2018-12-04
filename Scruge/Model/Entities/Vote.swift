@@ -12,6 +12,8 @@ struct VoteResult: Codable {
 
 	let voteId:Int
 
+	let active:Bool
+
 	let positiveVotes:Int
 
 	let backersCount:Int
@@ -19,6 +21,17 @@ struct VoteResult: Codable {
 	let voters:Int
 
 	let kind:VoteKind
+
+	let endTimestamp:Int
+}
+
+struct VoteInfo: Codable {
+
+	let kind:VoteKind
+
+	let voteId:Int
+
+	let endTimestamp:Int
 }
 
 enum VoteKind:Int, Codable {

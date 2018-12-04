@@ -42,7 +42,5 @@ struct VotesResultsResponse: Codable {
 
 struct VoteInfoResponse: Codable {
 
-	let voteId:Int?
-
-	let votingStatus:Int
+	let voting:VoteInfo
 }

@@ -21,6 +21,7 @@ final class VoteViewController: UIViewController {
 
 	private let NAVBAR_LIMIT:CGFloat = 240
 	var vm:CampaignVM!
+	private var voting:VoteInfo?
 	private let accountVM = AccountAVM()
 	private var updateVM = UpdateVM()
 
@@ -67,6 +68,13 @@ final class VoteViewController: UIViewController {
 
 	private func setupVM() {
 		accountVM.reloadData()
+	}
+
+	private func loadVote() {
+		vm.loadVoteInfo { voting in
+			self.voting = voting
+			self.tableView.reloadData()
+		}
 	}
 
 	private func setupKeyboard() {
@@ -140,17 +148,18 @@ extension VoteViewController: UITableViewDataSource {
 		case .update:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.lastUpdateCell,
 												 for: indexPath)!.setup(with: updateVM, title: "Rationale: ")
-				.updateTap {
-					// open update in full
+				.updateTap { [unowned self] in
+					Service.presenter.presentContentViewController(in: self, for: self.updateVM)
 				}
 		case .info:
+			guard let voting = self.voting else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteInfoCell,
-												 for: indexPath)!.setup(with: vm, kind: .milestone)
-		#warning("vote kind")
+												 for: indexPath)!.setup(with: vm, kind: voting.kind)
 		case .countdown:
+			guard let voting = self.voting else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.countdownCell,
 												 for: indexPath)!
-				.setup(title: "This vote ends in:", timestamp: 0)
+				.setup(title: "This vote ends in:", timestamp: voting.endTimestamp)
 		case .controls:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteControlsCell,
 												 for: indexPath)!

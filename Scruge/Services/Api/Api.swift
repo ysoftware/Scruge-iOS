@@ -267,6 +267,11 @@ final class Api {
 		service.get("campaign/\(campaignId)/vote_results", nil, completion)
 	}
 
+	func getVoteInfo(campaignId:Int,
+					   _ completion: @escaping (Result<VoteInfoResponse, AnyError>)->Void) {
+		service.get("campaign/\(campaignId)/votes", nil, completion)
+	}
+
 	// MARK: - Comments
 
 	func postComment(_ comment:String,

@@ -79,7 +79,6 @@ final class VoteResultsViewController: UIViewController {
 	private func setupTable() {
 		if #available(iOS 11.0, *) {
 			tableView.contentInsetAdjustmentBehavior = .never
-//			tableView.contentInset.top = -35
 		}
 		automaticallyAdjustsScrollViewInsets = false
 
@@ -131,18 +130,17 @@ extension VoteResultsViewController: UITableViewDataSource {
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		guard let result = result else { return UITableViewCell() }
 		var cell:UITableViewCell!
 		switch Block(rawValue: indexPath.row)! {
 		case .info:
-			guard let kind = result?.kind else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteInfoCell,
-												 for: indexPath)!.setup(with: vm, kind: kind)
+												 for: indexPath)!.setup(with: vm, kind: result.kind)
 		case .countdown:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.countdownCell,
 												 for: indexPath)!
-				.setup(title: "This vote ends in:", timestamp: 0)
+				.setup(title: "This vote ends in:", timestamp: result.endTimestamp)
 		case .result:
-			guard let result = result else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteResultCell,
 												 for: indexPath)!
 				.setup(with: result)

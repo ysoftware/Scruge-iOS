@@ -68,7 +68,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b71-ct-4jU">
-                    <rect key="frame" x="369" y="5" width="30" height="29"/>
+                    <rect key="frame" x="369" y="0.0" width="30" height="34"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                     <color key="textColor" red="0.64705882349999999" green="0.67450980390000004" blue="0.72941176470000002" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -84,7 +84,7 @@
             <constraints>
                 <constraint firstItem="MMv-1X-3xC" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0cs-uV-MWI" secondAttribute="trailing" id="01P-dm-qOJ"/>
                 <constraint firstItem="Cf3-OH-x2y" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="0Rw-fx-4UD"/>
-                <constraint firstItem="b71-ct-4jU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="5" id="93L-Cm-XQK"/>
+                <constraint firstItem="b71-ct-4jU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="93L-Cm-XQK"/>
                 <constraint firstItem="MMv-1X-3xC" firstAttribute="centerY" secondItem="bxn-jn-ClJ" secondAttribute="centerY" id="9B3-Dd-um8"/>
                 <constraint firstAttribute="trailing" secondItem="0cs-uV-MWI" secondAttribute="trailing" id="9TV-a5-gRI"/>
                 <constraint firstItem="bxn-jn-ClJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0cs-uV-MWI" secondAttribute="leading" id="DHR-0a-z4U"/>
