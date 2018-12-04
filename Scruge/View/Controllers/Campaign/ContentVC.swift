@@ -17,6 +17,7 @@ final class ContentViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		preferSmallNavbar()
 
 		if let vm = campaignVM?.lastUpdateVM {
 			vm.loadDescription { body in
