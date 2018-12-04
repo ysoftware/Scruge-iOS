@@ -11,10 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampaignCell" rowHeight="217" id="a0h-AV-ZSh" customClass="CampaignCell" customModule="Scruge" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CampaignCell" rowHeight="217" id="a0h-AV-ZSh" customClass="CampaignCell" customModule="Scruge" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="377" height="175"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a0h-AV-ZSh" id="S6X-9s-xHF">
+            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="a0h-AV-ZSh" id="S6X-9s-xHF">
                 <rect key="frame" x="0.0" y="0.0" width="377" height="174.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -42,7 +42,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="9O1-BE-e41">
-                                                <rect key="frame" x="80" y="0.0" width="237" height="74.5"/>
+                                                <rect key="frame" x="80" y="0.0" width="237" height="84.5"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="mht-ll-voJ">
                                                         <rect key="frame" x="0.0" y="0.0" width="237" height="19.5"/>
@@ -62,7 +62,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1BJ-5c-LCh" customClass="ProgressView" customModule="Scruge" customModuleProvider="target">
-                                                        <rect key="frame" x="0.0" y="24.5" width="237" height="50"/>
+                                                        <rect key="frame" x="0.0" y="34.5" width="237" height="50"/>
                                                         <color key="backgroundColor" white="0.86048719620000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="NO"/>
