@@ -25,6 +25,7 @@ final class ActivityUpdateCell: UITableViewCell {
 		updateTitleLabel.text = vm.title
 		updateDescriptionLabel.text = vm.descsription
 		updateImage.setImage(string: vm.imageUrl)
+		selectionStyle = .none
 
 		let font = UIFont.systemFont(ofSize: 14, weight: .semibold)
 		activityLabel.attributedText = NSMutableAttributedString()

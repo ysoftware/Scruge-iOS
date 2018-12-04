@@ -17,6 +17,7 @@ final class VoteNotificationCell: UITableViewCell {
 	@discardableResult
 	func setup(with vote:Voting) -> Self {
 
+		selectionStyle = .none
 		#warning("refactor to view model")
 
 		let voteKindText = vote.voting.kind == .extend ? "extend deadline" : "continue campaign"

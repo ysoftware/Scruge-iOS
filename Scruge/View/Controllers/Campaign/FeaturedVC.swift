@@ -169,9 +169,10 @@ extension FeaturedViewController: UITableViewDelegate {
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
 		if tableView == campaignTableView {
-			return Service.presenter
+			Service.presenter
 				.presentCampaignViewController(in: self,
 											   id: campaignVM.item(at: indexPath.row).id)
+			return
 		}
 
 		showCategories(false)

@@ -66,11 +66,13 @@ struct Presenter {
 
 	// MARK: - Campaign
 
+	@discardableResult
 	func presentCampaignViewController(in vc:UIViewController,
-									   id:Int) {
+									   id:Int) -> CampaignViewController {
 		let new = R.storyboard.campaign.campaignVC()!
 		new.vm = CampaignVM(id)
 		vc.show(new, sender: self)
+		return new
 	}
 
 	func presentContentViewController(in vc:UIViewController,
@@ -192,6 +194,13 @@ struct Presenter {
 		let new = R.storyboard.details.voteVC()!
 		new.vm = vm
 		vc.show(new, sender: self)
+	}
+
+	/// push campaignid and then push vote vc
+	func presentVoteViewController(in vc:UIViewController,
+								   with campaignId:Int) {
+		let campVC = presentCampaignViewController(in: vc, id: campaignId)
+		presentVoteViewController(in: vc, with: campVC.vm)
 	}
 
 	func presentVoteResultsViewController(in vc:UIViewController,
