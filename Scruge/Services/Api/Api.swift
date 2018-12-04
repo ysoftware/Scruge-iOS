@@ -174,8 +174,14 @@ final class Api {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
-
 		service.get("user/\(token)/campaign_updates", nil, completion)
+	}
+
+	func getVoteNotifications(_ completion: @escaping (Result<ActiveVotesResponse, AnyError>)->Void) {
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.noToken)))
+		}
+		service.get("user/\(token)/votes", nil, completion)
 	}
 
 	// MARK: - HTML Description
@@ -255,11 +261,6 @@ final class Api {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 		service.get("user/\(token)/contributions", nil, completion)
-	}
-
-	func getVotingStatus(campaignId:Int,
-						 _ completion: @escaping (Result<VoteInfoResponse, AnyError>)->Void) {
-		service.get("campaign/\(campaignId)/vote", nil, completion)
 	}
 
 	func getVoteResult(campaignId:Int,

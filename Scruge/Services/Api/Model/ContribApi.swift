@@ -44,3 +44,8 @@ struct VoteInfoResponse: Codable {
 
 	let voting:VoteInfo
 }
+
+struct ActiveVotesResponse: Codable {
+
+	let votings:[Voting]
+}

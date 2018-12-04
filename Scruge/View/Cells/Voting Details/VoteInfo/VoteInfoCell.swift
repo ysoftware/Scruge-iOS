@@ -21,6 +21,8 @@ final class VoteInfoCell: UITableViewCell {
 
 	// MARK: - Setup
 
+	#warning("refactor to view model")
+
 	@discardableResult
 	func setup(with vm:PartialCampaignViewModel, kind:VoteKind) -> Self {
 		self.imageUrl = vm.imageUrl

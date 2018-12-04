@@ -51,6 +51,7 @@ final class VoteViewController: UIViewController {
 		setupVM()
 		setupKeyboard()
 		setupTable()
+		loadVote()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {

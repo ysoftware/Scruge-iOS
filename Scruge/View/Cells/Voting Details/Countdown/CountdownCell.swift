@@ -17,6 +17,8 @@ final class CountdownCell: UITableViewCell {
 
 	private var timestamp:Int = 0
 
+	#warning("refactor to view model")
+
 	@discardableResult
 	func setup(title:String, timestamp:Int) -> Self {
 		selectionStyle = .none

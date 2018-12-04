@@ -25,6 +25,13 @@ struct VoteResult: Codable {
 	let endTimestamp:Int
 }
 
+struct Voting: Codable {
+
+	let campaign:CampaignInfo
+
+	let voting:VoteInfo
+}
+
 struct VoteInfo: Codable {
 
 	let kind:VoteKind

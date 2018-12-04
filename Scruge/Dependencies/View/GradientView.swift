@@ -77,6 +77,8 @@ private extension GradientView {
     /// Настройка
     func configure() {
         self.gradientLayer?.colors = [self.startColor.cgColor, self.endColor.cgColor]
+		self.gradientLayer?.startPoint = startPoint
+		self.gradientLayer?.endPoint = endPoint
     }
     
 }

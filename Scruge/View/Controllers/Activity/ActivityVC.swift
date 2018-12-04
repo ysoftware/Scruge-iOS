@@ -18,6 +18,7 @@ final class ActivityViewController: UIViewController {
 	
 	// MARK: - Properties
 
+	private var activeVoting:[Voting] = []
 	private let vm = UpdateAVM(.activity)
 	private var tableUpdateHandler:ArrayViewModelUpdateHandler!
 
@@ -37,7 +38,7 @@ final class ActivityViewController: UIViewController {
 		switch vm.state {
 		case .ready, .error:
 			if vm.numberOfItems == 0 {
-				vm.reloadData()
+				reloadData()
 			}
 		default: break
 		}
@@ -58,8 +59,11 @@ final class ActivityViewController: UIViewController {
 
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableView.automaticDimension
+		
 		tableView.register(UINib(resource: R.nib.activityUpdateCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.activityUpdateCell.identifier)
+		tableView.register(UINib(resource: R.nib.voteNotificationCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.voteNotificationCell.identifier)
 	}
 
 	private func setupVM() {
@@ -72,16 +76,36 @@ final class ActivityViewController: UIViewController {
 
 	@objc func reloadData() {
 		vm.reloadData()
+
+		#warning("refactor to view model")
+		Service.api.getVoteNotifications { result in
+			switch result {
+			case .success(let response):
+				self.activeVoting = response.votings
+			case .failure:
+				self.activeVoting = []
+			}
+			self.tableView.reloadSections(IndexSet(arrayLiteral: 0), with: .automatic)
+		}
 	}
 }
 
 extension ActivityViewController: UITableViewDataSource {
 
+	func numberOfSections(in tableView: UITableView) -> Int {
+		return 2
+	}
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return vm.numberOfItems
+		return section == 0 ? activeVoting.count : vm.numberOfItems
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		if indexPath.section == 0 {
+			return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteNotificationCell,
+												 for: indexPath)!
+		}
+
 		let vm = self.vm.item(at: indexPath.row, shouldLoadMore: true)
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.activityUpdateCell,
 											 for: indexPath)!

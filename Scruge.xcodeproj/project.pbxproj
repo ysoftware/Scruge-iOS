@@ -117,6 +117,8 @@
 		71B8462C21B6670900F6D708 /* VoteResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B8462B21B6670900F6D708 /* VoteResultCell.swift */; };
 		71B8462E21B667B600F6D708 /* VoteResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8462D21B667B600F6D708 /* VoteResultCell.xib */; };
 		71B8463021B6866000F6D708 /* ActivityUpdateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8462F21B6866000F6D708 /* ActivityUpdateCell.xib */; };
+		71B8463321B6AB0600F6D708 /* VoteNotificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B8463221B6AB0600F6D708 /* VoteNotificationCell.swift */; };
+		71B8463521B6AB1100F6D708 /* VoteNotificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71B8463421B6AB1100F6D708 /* VoteNotificationCell.xib */; };
 		71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1042215A1EBD004753EC /* CampaignQ.swift */; };
 		71BE1046215A2020004753EC /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE1045215A2020004753EC /* Network.swift */; };
 		71BE9560215E1B36001CF853 /* AuthApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE955F215E1B36001CF853 /* AuthApi.swift */; };
@@ -357,6 +359,8 @@
 		71B8462B21B6670900F6D708 /* VoteResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteResultCell.swift; sourceTree = "<group>"; };
 		71B8462D21B667B600F6D708 /* VoteResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteResultCell.xib; sourceTree = "<group>"; };
 		71B8462F21B6866000F6D708 /* ActivityUpdateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ActivityUpdateCell.xib; sourceTree = "<group>"; };
+		71B8463221B6AB0600F6D708 /* VoteNotificationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteNotificationCell.swift; sourceTree = "<group>"; };
+		71B8463421B6AB1100F6D708 /* VoteNotificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteNotificationCell.xib; sourceTree = "<group>"; };
 		71BE1042215A1EBD004753EC /* CampaignQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignQ.swift; sourceTree = "<group>"; };
 		71BE1045215A2020004753EC /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		71BE955F215E1B36001CF853 /* AuthApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthApi.swift; sourceTree = "<group>"; };
@@ -1133,6 +1137,15 @@
 			path = VoteResult;
 			sourceTree = "<group>";
 		};
+		71B8463121B6AAF700F6D708 /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				71B8463421B6AB1100F6D708 /* VoteNotificationCell.xib */,
+				71B8463221B6AB0600F6D708 /* VoteNotificationCell.swift */,
+			);
+			path = Vote;
+			sourceTree = "<group>";
+		};
 		71BE9563215E26CA001CF853 /* Auth Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -1567,6 +1580,7 @@
 		71FF085821AE763500D9F3A3 /* Activity Cells */ = {
 			isa = PBXGroup;
 			children = (
+				71B8463121B6AAF700F6D708 /* Vote */,
 				71FF085921AE764D00D9F3A3 /* Update */,
 			);
 			path = "Activity Cells";
@@ -1686,6 +1700,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				71B8462E21B667B600F6D708 /* VoteResultCell.xib in Resources */,
+				71B8463521B6AB1100F6D708 /* VoteNotificationCell.xib in Resources */,
 				71BE9581215F5D49001CF853 /* CategoryCell.xib in Resources */,
 				71971C8B2158E058004D28E7 /* LaunchScreen.storyboard in Resources */,
 				71D9C1E021B132AC0043B15E /* UpdateCell.xib in Resources */,
@@ -2000,6 +2015,7 @@
 				710FE992217F94F8009E51E5 /* Balance.swift in Sources */,
 				712B3A7221A814AC003BB43A /* EconomiesCell.swift in Sources */,
 				71A0C1B6217089A700C2ACF3 /* FaqVM.swift in Sources */,
+				71B8463321B6AB0600F6D708 /* VoteNotificationCell.swift in Sources */,
 				7198C820218AFB2C009682E7 /* ErrorTypes.swift in Sources */,
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,
 				716E62562189939D002AC5DA /* Contribution.swift in Sources */,
