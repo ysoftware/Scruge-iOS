@@ -8,9 +8,12 @@
 
 import UIKit
 import Result
+import appendAttributedString
 
 final class ProfileEditViewController: UIViewController {
 
+	@IBOutlet weak var scrollView: UIScrollView!
+	@IBOutlet weak var saveButton: Button!
 	@IBOutlet weak var profileImage: RoundedImageView!
 	@IBOutlet weak var nameField: UITextField!
 	@IBOutlet weak var countryField: UITextField!
@@ -70,11 +73,41 @@ final class ProfileEditViewController: UIViewController {
 	
 	// MARK: - Setup
 
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
 		setupNavigationBar()
 		setupEditing()
+		setupButton()
+		setupKeyboard()
+	}
+
+	private func setupKeyboard() {
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+	}
+
+	private func setupButton() {
+		saveButton.addClick(self, action: #selector(save))
+	}
+
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		makeNavbarTransparent()
+		preferSmallNavbar()
+		navBarTitleColor(.white)
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+
+		makeNavbarNormal()
+		navBarTitleColor()
 	}
 
 	private func setupEditing() {
@@ -95,7 +128,7 @@ final class ProfileEditViewController: UIViewController {
 		title = isEditing ? "Update Profile" : "Create Profile"
 
 		guard !isEditing else { return }
-		
+
 		navigationItem.setHidesBackButton(true, animated: false)
 		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel",
 															style: .plain,
@@ -122,5 +155,20 @@ extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigati
 
 	func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
 		picker.dismiss(animated: true)
+	}
+}
+
+extension ProfileEditViewController {
+
+	@objc func keyboardWillShow(notification:NSNotification) {
+		guard let userInfo = notification.userInfo else { return }
+		let keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+		let convertedFrame = view.convert(keyboardFrame, from: nil)
+		scrollView.contentInset.bottom = convertedFrame.size.height
+		scrollView.scrollIndicatorInsets.bottom = convertedFrame.size.height
+	}
+
+	@objc func keyboardWillHide(notification:NSNotification) {
+		scrollView.contentInset.bottom = 0
 	}
 }

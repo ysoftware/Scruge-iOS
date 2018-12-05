@@ -32,31 +32,91 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-iN-8ty">
-                                <rect key="frame" x="150" y="135" width="75" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Edit Profile"/>
-                                <connections>
-                                    <action selector="editProfile:" destination="x5R-sF-vTp" eventType="touchUpInside" id="ibL-m9-J1Q"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrN-RX-ljO">
-                                <rect key="frame" x="157" y="188" width="60" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Sign Out"/>
-                                <connections>
-                                    <action selector="signOut:" destination="x5R-sF-vTp" eventType="touchUpInside" id="9SY-Jy-DFT"/>
-                                </connections>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="CTJ-Jg-9NF">
+                                <rect key="frame" x="0.0" y="44" width="375" height="121"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="XqR-yo-JNv">
+                                        <rect key="frame" x="15" y="15" width="345" height="30"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="szo-GJ-1WJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="edit" translatesAutoresizingMaskIntoConstraints="NO" id="phL-Lc-iAV">
+                                                        <rect key="frame" x="0.0" y="7" width="16" height="16"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="phL-Lc-iAV" secondAttribute="height" id="b7g-jv-B4v"/>
+                                                            <constraint firstAttribute="height" constant="16" id="x4n-aj-S5o"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-iN-8ty">
+                                                        <rect key="frame" x="31" y="0.0" width="314" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <state key="normal" title="Edit Profile">
+                                                            <color key="titleColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="editProfile:" destination="x5R-sF-vTp" eventType="touchUpInside" id="ibL-m9-J1Q"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                    <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2L-e7-5oG">
+                                        <rect key="frame" x="15" y="60" width="345" height="1"/>
+                                        <color key="backgroundColor" red="0.72549019607843135" green="0.75294117647058822" blue="0.7803921568627451" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="5nV-qZ-ret"/>
+                                        </constraints>
+                                    </view>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fQA-23-Dhs">
+                                        <rect key="frame" x="15" y="76" width="345" height="30"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="fCL-t7-F5a">
+                                                <rect key="frame" x="0.0" y="0.0" width="345" height="30"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exit" translatesAutoresizingMaskIntoConstraints="NO" id="VEa-FZ-l5U">
+                                                        <rect key="frame" x="0.0" y="7" width="16" height="16"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="16" id="R6a-YZ-qN8"/>
+                                                            <constraint firstAttribute="width" secondItem="VEa-FZ-l5U" secondAttribute="height" id="T1F-dE-fdj"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrN-RX-ljO">
+                                                        <rect key="frame" x="31" y="0.0" width="314" height="30"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                        <state key="normal" title="Sign Out">
+                                                            <color key="titleColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="signOut:" destination="x5R-sF-vTp" eventType="touchUpInside" id="9SY-Jy-DFT"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="p1s-zN-jCV" firstAttribute="trailing" secondItem="CTJ-Jg-9NF" secondAttribute="trailing" id="0jU-zD-Nwq"/>
+                            <constraint firstItem="CTJ-Jg-9NF" firstAttribute="leading" secondItem="p1s-zN-jCV" secondAttribute="leading" id="ba4-kU-Log"/>
+                            <constraint firstItem="CTJ-Jg-9NF" firstAttribute="top" secondItem="p1s-zN-jCV" secondAttribute="top" id="zUz-Ph-7im"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="p1s-zN-jCV"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GhW-ik-MPl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1586" y="-260"/>
+            <point key="canvasLocation" x="-1586.4000000000001" y="-260.09852216748772"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="edit" width="16" height="16"/>
+        <image name="exit" width="16" height="16"/>
+    </resources>
     <color key="tintColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import appendAttributedString
 
 extension UIViewController {
 
@@ -27,6 +28,13 @@ extension UIViewController {
 	}
 
 	@discardableResult
+	func navBarTitleColor(_ color:UIColor? = nil) -> UIViewController {
+		navigationController?.navigationBar.titleTextAttributes = AttributesBuilder()
+			.color(color ?? .black).build()
+		return self
+	}
+
+	@discardableResult
 	func makeNavbarTransparent(keepTitle:Bool = false) -> UIViewController {
 		navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
 		navigationController?.navigationBar.shadowImage = UIImage()
@@ -42,7 +50,7 @@ extension UIViewController {
 	func makeNavbarNormal(with title:String? = nil, tint:UIColor? = nil) -> UIViewController {
 		navigationController?.navigationBar.setBackgroundImage(nil, for: .default)
 		navigationController?.navigationBar.shadowImage = nil
-		navigationController?.navigationBar.tintColor = view.tintColor
+		navigationController?.navigationBar.tintColor = tint ?? view.tintColor
 
 		if let title = title {
 			navigationItem.title = title

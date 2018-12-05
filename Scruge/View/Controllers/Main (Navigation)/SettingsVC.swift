@@ -12,6 +12,13 @@ final class SettingsViewController: UIViewController {
 
 	var profileVM:ProfileVM!
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		
+		preferSmallNavbar()
+		makeNavbarNormal()
+	}
+
 	@IBAction func signOut(_ sender: Any) {
 		tabBarController?.selectedIndex = 0
 		navigationController?.popViewController(animated: false)

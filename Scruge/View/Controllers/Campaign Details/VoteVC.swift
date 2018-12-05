@@ -30,7 +30,7 @@ final class VoteViewController: UIViewController {
 			setNeedsStatusBarAppearanceUpdate()
 			if offset > NAVBAR_LIMIT {
 				preferSmallNavbar()
-				makeNavbarNormal(with: vm.title, tint: view.tintColor)
+				makeNavbarNormal(with: vm.title)
 			}
 			else {
 				preferSmallNavbar()

@@ -36,7 +36,7 @@ final class ImportKeyViewController: UIViewController {
 
 	private func setupNavigationBar() {
 		title = "Import key"
-		makeNavbarNormal(with: "Import key", tint: view.tintColor)
+		makeNavbarNormal(with: "Import key")
 		preferSmallNavbar()
 	}
 
