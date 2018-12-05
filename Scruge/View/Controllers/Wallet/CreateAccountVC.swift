@@ -49,7 +49,42 @@ final class CreateAccountViewController: UIViewController {
 	}
 
 	@IBAction func save(_ sender:Any) {
-		
+		let passcode = passcodeField.text!
+		let confirm = passcodeConfirmField.text!
+		let name = accountNameField.text!
+
+		guard name.count == 12 else {
+			return alert("Account name should be exactly 12 symbols long.")
+		}
+
+		guard passcode == confirm else {
+			return alert("Passwords do not match!")
+		}
+
+		let (_key, _mnemonic) = PrivateKey.randomPrivateKeyAndMnemonic()
+		guard let key = _key, let mnemonic = _mnemonic else {
+			return alert("Something went wrong. Please, try again")
+		}
+
+		Service.wallet.importKey(key.rawPrivateKey(), passcode: passcode) { account in
+
+			let publicKey = PublicKey(privateKey: key).rawPublicKey()
+
+			// create account
+			Service.api.createAccount(withName: name, publicKey: publicKey) { result in
+				switch result {
+				case .success(let response):
+					if response.result == 0 {
+						Service.presenter.replaceWithWalletViewController(with: self)
+					}
+					else {
+						self.alert(ErrorHandler.error(from: response.result) ?? NetworkingError.unknown)
+					}
+				case .failure(let error):
+					self.alert(ErrorHandler.message(for: error))
+				}
+			}
+		}
 	}
 }
 

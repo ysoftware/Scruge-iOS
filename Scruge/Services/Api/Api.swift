@@ -36,7 +36,7 @@ final class Api {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
-		let request = AccountRequest(accountName: accountName, publicKey: publicKey)
+		let request = AccountRequest(name: accountName, publicKey: publicKey)
 		service.post("user/\(token)/create_eos_account", request.toDictionary(), completion)
 	}
 

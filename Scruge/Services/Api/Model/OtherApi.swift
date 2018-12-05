@@ -12,7 +12,7 @@ import Foundation
 
 struct AccountRequest: Codable {
 
-	let accountName:String
+	let name:String
 
 	let publicKey:String
 }
