@@ -126,7 +126,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="610.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvH-iY-h5K" customClass="GradientView" customModule="Scruge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="317.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="332.66666666666669"/>
                                                 <color key="backgroundColor" red="0.89411764709999997" green="0.2666666667" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -439,7 +439,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Eo3-b9-PYR" secondAttribute="trailing" id="1Le-ZC-zGo"/>
                                             <constraint firstItem="bvH-iY-h5K" firstAttribute="leading" secondItem="who-1H-QDH" secondAttribute="leading" id="3Zu-k1-s5W"/>
-                                            <constraint firstItem="E9L-W8-gGH" firstAttribute="top" secondItem="bvH-iY-h5K" secondAttribute="bottom" constant="-15" id="6GS-zv-RnP"/>
+                                            <constraint firstItem="E9L-W8-gGH" firstAttribute="top" secondItem="bvH-iY-h5K" secondAttribute="bottom" constant="-30" id="6GS-zv-RnP"/>
                                             <constraint firstItem="bvH-iY-h5K" firstAttribute="top" secondItem="who-1H-QDH" secondAttribute="top" id="MIv-ec-Zm5"/>
                                             <constraint firstAttribute="bottom" secondItem="Eo3-b9-PYR" secondAttribute="bottom" constant="15" id="TRY-dn-mQn"/>
                                             <constraint firstItem="Eo3-b9-PYR" firstAttribute="top" secondItem="who-1H-QDH" secondAttribute="top" id="fdw-gm-Enn"/>

@@ -519,7 +519,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZR0-yP-Qqt" customClass="GradientView" customModule="Scruge" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="209"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="224"/>
                                 <color key="backgroundColor" red="0.89411764709999997" green="0.2666666667" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -719,7 +719,7 @@
                             <constraint firstItem="Pfp-9o-GPI" firstAttribute="bottom" secondItem="0B3-XL-ehc" secondAttribute="bottom" id="5e1-vJ-5uw"/>
                             <constraint firstItem="Pfp-9o-GPI" firstAttribute="trailing" secondItem="0B3-XL-ehc" secondAttribute="trailing" id="EnA-1V-sE0"/>
                             <constraint firstItem="ZR0-yP-Qqt" firstAttribute="leading" secondItem="Pfp-9o-GPI" secondAttribute="leading" id="U9K-fq-gTj"/>
-                            <constraint firstItem="ZR0-yP-Qqt" firstAttribute="bottom" secondItem="hGX-93-uQm" secondAttribute="top" constant="15" id="ZQJ-En-lsm"/>
+                            <constraint firstItem="ZR0-yP-Qqt" firstAttribute="bottom" secondItem="hGX-93-uQm" secondAttribute="top" constant="30" id="ZQJ-En-lsm"/>
                             <constraint firstItem="ZR0-yP-Qqt" firstAttribute="top" secondItem="09a-Hb-N4c" secondAttribute="top" id="aLJ-Q7-thH"/>
                             <constraint firstItem="0B3-XL-ehc" firstAttribute="top" secondItem="09a-Hb-N4c" secondAttribute="top" id="bdn-SE-neb"/>
                             <constraint firstItem="0B3-XL-ehc" firstAttribute="leading" secondItem="09a-Hb-N4c" secondAttribute="leading" id="u0R-KD-qTI"/>
@@ -762,7 +762,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sYZ-qB-rjo" customClass="GradientView" customModule="Scruge" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="299.66666666666669"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="314.66666666666669"/>
                                 <color key="backgroundColor" red="0.89411764709999997" green="0.2666666667" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -866,7 +866,7 @@
                             <constraint firstItem="upw-DS-tNY" firstAttribute="leading" secondItem="57H-uU-X4G" secondAttribute="leading" id="jiv-99-BRr"/>
                             <constraint firstItem="sYZ-qB-rjo" firstAttribute="top" secondItem="UV8-sK-CKQ" secondAttribute="top" id="kRM-yv-Fnl"/>
                             <constraint firstItem="upw-DS-tNY" firstAttribute="top" secondItem="57H-uU-X4G" secondAttribute="top" id="lcN-FT-heH"/>
-                            <constraint firstItem="7IX-Gi-YER" firstAttribute="top" secondItem="sYZ-qB-rjo" secondAttribute="bottom" constant="-15" id="vPe-as-fuF"/>
+                            <constraint firstItem="7IX-Gi-YER" firstAttribute="top" secondItem="sYZ-qB-rjo" secondAttribute="bottom" constant="-30" id="vPe-as-fuF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="57H-uU-X4G"/>
                     </view>
