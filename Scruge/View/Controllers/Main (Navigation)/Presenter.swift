@@ -106,10 +106,22 @@ struct Presenter {
 	}
 
 	func presentFaqViewController(in vc:UIViewController,
-										 with vm:CampaignVM) {
+								  with vm:CampaignVM) {
 		guard let vm = vm.faqVM else { return }
 		let new = R.storyboard.details.faqVC()!
 		new.vm = vm
+		vc.show(new, sender: self)
+	}
+
+	func presentDetailViewController(in vc:UIViewController, faq:FaqVM) {
+		let new = R.storyboard.details.detailVC()!
+		new.faq = faq
+		vc.show(new, sender: self)
+	}
+
+	func presentDetailViewController(in vc:UIViewController, milestone:MilestoneVM) {
+		let new = R.storyboard.details.detailVC()!
+		new.milestone = milestone
 		vc.show(new, sender: self)
 	}
 

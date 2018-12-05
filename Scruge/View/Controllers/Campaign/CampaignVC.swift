@@ -286,12 +286,14 @@ extension CampaignViewController: UITableViewDataSource {
 			guard let vm = vm.faqVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
 												 for: indexPath)!.setup(with: vm)
-				.tap { [unowned self] index in } // open faq
+				.tap { [unowned self] index in
+					Service.presenter.presentDetailViewController(in: self, faq: vm.item(at: index)) }
 		case .milestone:
 			guard let vm = vm.milestonesVM, let cvm = self.vm.currentMilestoneVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
 												 for: indexPath)!.setup(with: vm, cvm)
-				.tap { [unowned self] index in } // open milestone?
+				.tap { [unowned self] index in
+					Service.presenter.presentDetailViewController(in: self, milestone: vm.item(at: index)) }
 		case .update:
 			guard let vm = vm.lastUpdateVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.lastUpdateCell,

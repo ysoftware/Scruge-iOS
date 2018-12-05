@@ -636,6 +636,62 @@
             </objects>
             <point key="canvasLocation" x="1511.5942028985507" y="37.5"/>
         </scene>
+        <!--Detail View Controller-->
+        <scene sceneID="j4q-j0-YJs">
+            <objects>
+                <viewController storyboardIdentifier="DetailVC" id="lPd-zF-SRY" customClass="DetailViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2vU-Ln-ng7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5k-Zy-2xC" customClass="CardView" customModule="Scruge" customModuleProvider="target">
+                                <rect key="frame" x="15" y="74" width="384" height="124.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5W3-rB-o9U">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="124.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What happens if ICO didn’t reach its minimum CAP?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGe-72-smA">
+                                                <rect key="frame" x="15" y="15" width="354" height="38.5"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                                <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In most cases the money is refunded into the investor’s account." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vk-E7-qxQ">
+                                                <rect key="frame" x="15" y="68.5" width="354" height="41"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="5W3-rB-o9U" secondAttribute="bottom" id="EZ3-Wo-CRj"/>
+                                    <constraint firstItem="5W3-rB-o9U" firstAttribute="leading" secondItem="y5k-Zy-2xC" secondAttribute="leading" id="gmH-j8-Fg7"/>
+                                    <constraint firstAttribute="trailing" secondItem="5W3-rB-o9U" secondAttribute="trailing" id="lYZ-EV-Uqh"/>
+                                    <constraint firstItem="5W3-rB-o9U" firstAttribute="top" secondItem="y5k-Zy-2xC" secondAttribute="top" id="rkz-Io-e0b"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="y5k-Zy-2xC" firstAttribute="leading" secondItem="T0P-WD-RaU" secondAttribute="leading" constant="15" id="4eM-Dt-xZf"/>
+                            <constraint firstItem="y5k-Zy-2xC" firstAttribute="top" secondItem="T0P-WD-RaU" secondAttribute="top" constant="30" id="TNa-va-fqt"/>
+                            <constraint firstItem="T0P-WD-RaU" firstAttribute="trailing" secondItem="y5k-Zy-2xC" secondAttribute="trailing" constant="15" id="Ws3-IM-LOB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="T0P-WD-RaU"/>
+                    </view>
+                    <connections>
+                        <outlet property="contentLabel" destination="8Vk-E7-qxQ" id="tk2-tw-788"/>
+                        <outlet property="titleLabel" destination="DGe-72-smA" id="bSU-wQ-JZp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fQ5-zT-VKo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1022" y="-762"/>
+        </scene>
         <!--Activity-->
         <scene sceneID="f94-LG-TQz">
             <objects>

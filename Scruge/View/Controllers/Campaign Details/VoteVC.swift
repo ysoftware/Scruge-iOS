@@ -171,7 +171,8 @@ extension VoteViewController: UITableViewDataSource {
 			guard let vm = vm.milestonesVM, let cvm = self.vm.currentMilestoneVM else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
 												 for: indexPath)!.setup(with: vm, cvm)
-				.tap { [unowned self] index in } // open milestone?
+				.tap { [unowned self] index in
+					Service.presenter.presentDetailViewController(in: self, milestone: vm.item(at: index)) }
 		default: break
 		}
 		if cell == nil { cell = UITableViewCell() }
