@@ -75,7 +75,6 @@ final class ProfileViewController: UIViewController {
 		navBarTitleColor()
 	}
 
-
 	private func setupTable() {
 //		tableView.refreshControl = UIRefreshControl()
 //		tableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
@@ -99,9 +98,9 @@ final class ProfileViewController: UIViewController {
 //	@objc func reloadData() {
 //		campaignsVM.reloadData()
 //	}
-//
+
 	private func refreshProfile() {
-		profileImage.setImage(url: profileVM.imageUrl)
+		profileImage.setImage(url: profileVM.imageUrl, hideOnFail: false)
 		nameLabel.text = profileVM.name
 		emailLabel.text = profileVM.email
 		countryLabel.text = profileVM.country.uppercased()

@@ -21,7 +21,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		#else
 		Service.api.setEnvironment(.prod)
 		#endif
-		
+
 		return true
 	}
 }

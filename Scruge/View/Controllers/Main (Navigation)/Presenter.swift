@@ -64,6 +64,13 @@ struct Presenter {
 		vc.show(new, sender: self)
 	}
 
+	func presentMemberProfileViewController(in vc:UIViewController,
+											with member:Member) {
+		let new = R.storyboard.authProfile.memberProfileVC()!
+		new.member = member
+		vc.show(new, sender: self)
+	}
+
 	// MARK: - Campaign
 
 	@discardableResult

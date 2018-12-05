@@ -271,8 +271,10 @@ extension CampaignViewController: UITableViewDataSource {
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.aboutCell,
 												 for: indexPath)!
 				.setup(with: vm)
-				.socialTap { [unowned self] social in self.openSocialPage(social) }
-				.memberTap { [unowned self] member in }
+				.socialTap { [unowned self] social in
+					self.openSocialPage(social) }
+				.memberTap { [unowned self] member in
+					Service.presenter.presentMemberProfileViewController(in: self, with: member) }
 		case .info:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
 												 for: indexPath)!.setup(with: vm)
