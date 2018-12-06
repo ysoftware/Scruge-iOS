@@ -72,6 +72,7 @@ final class VoteViewController: UIViewController {
 	}
 
 	private func loadVote() {
+		#warning("refactor to view model")
 		vm.loadVoteInfo { voting in
 			self.voting = voting
 			self.tableView.reloadData()

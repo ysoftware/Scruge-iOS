@@ -16,7 +16,6 @@ final class DetailViewController: UIViewController {
 	var faq:FaqVM?
 	var milestone:MilestoneVM?
 
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		setup()

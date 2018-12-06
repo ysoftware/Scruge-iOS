@@ -94,6 +94,7 @@ final class CampaignViewController: UIViewController {
 		if vm.state == .ready {
 			setupBottomButton()
 		}
+		reloadData()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -111,7 +112,6 @@ final class CampaignViewController: UIViewController {
 
 	private func setupVM() {
 		vm.delegate = self
-		vm.load()
 	}
 
 	private func setupTableView() {
