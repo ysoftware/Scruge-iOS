@@ -11,9 +11,9 @@ import SafariServices
 
 struct Presenter {
 
-	func setupMainTabs() -> [UIViewController] {
+	func setupMainTabs(in vc:TabbarViewController) {
 		let featured = R.storyboard.campaign.featuredVC()!.inNavigationController
-		featured.tabBarItem = UITabBarItem(title: "Campaigns", image: #imageLiteral(resourceName: "featured"), tag: 0)
+		featured.tabBarItem = UITabBarItem(title: "Featured", image: #imageLiteral(resourceName: "featured"), tag: 0)
 
 		let activity = R.storyboard.details.activityVC()!.inNavigationController
 		activity.tabBarItem = UITabBarItem(title: "Activity", image: #imageLiteral(resourceName: "bell"), tag: 1)
@@ -24,7 +24,7 @@ struct Presenter {
 		let profile = R.storyboard.authProfile.profileVC()!.inNavigationController
 		profile.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "tabprofile"), tag: 3)
 
-		return [featured, activity, wallet, profile]
+		vc.viewControllers = [featured, activity, wallet, profile]
 	}
 
 	// MARK: - Auth
