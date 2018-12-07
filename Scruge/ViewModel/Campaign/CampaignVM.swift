@@ -44,9 +44,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	required init(_ model: Campaign, arrayDelegate: ViewModelDelegate?) {
 		id = model.id
-		super.init()
-		self.arrayDelegate = arrayDelegate
-		self.model = model
+		super.init(model, arrayDelegate: arrayDelegate)
 		state = .ready
 	}
 
@@ -91,28 +89,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		else { economiesVM = nil }
 	}
 
-	// MARK: - Actions
-
-	func load() {
-		state = .loading
-		reloadData()
-	}
-
-	func reloadData() {
-		Service.api.getCampaign(with: id) { result in
-			switch result {
-			case .success(let response):
-				self.model = response.campaign
-				self.reloadSubscribtionStatus()
-				self.reloadCanVote()
-				self.state = .ready
-			case .failure(let error):
-				self.model = nil
-				self.state = .error(ErrorHandler.message(for: error))
-			}
-			self.resetViewModels()
-		}
-	}
+	// MARK: - Methods
 
 	func loadDescription(_ completion: @escaping (String)->Void) {
 		guard let model = model else { return completion("") }
@@ -156,6 +133,29 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 				let contribution = result.contributions.first(where: { $0.campaignId == model.id })
 				completion(contribution?.amount ?? 0)
 			}
+		}
+	}
+
+	// MARK: - Actions
+
+	func load() {
+		state = .loading
+		reloadData()
+	}
+
+	func reloadData() {
+		Service.api.getCampaign(with: id) { result in
+			switch result {
+			case .success(let response):
+				self.model = response.campaign
+				self.reloadSubscribtionStatus()
+				self.reloadCanVote()
+				self.state = .ready
+			case .failure(let error):
+				self.model = nil
+				self.state = .error(ErrorHandler.message(for: error))
+			}
+			self.resetViewModels()
 		}
 	}
 
@@ -325,19 +325,17 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		return model?.social ?? []
 	}
 
-	var about:String? {
-		return model?.about 
+	var about:String {
+		return model?.about ?? ""
 	}
 
 	var status:Status {
-		guard let state = model?.status, let status = Status(rawValue: state)
-			else { return .closed }
-		return status
+		return model.flatMap { Status(rawValue: $0.status) } ?? .closed
 	}
 
 	var videoUrl:URL? {
-		guard let model = model else { return nil }
-		return URL(string: model.videoUrl
-			.replacingOccurrences(of: "controls=0", with: ""))
+		return model.flatMap {
+			URL(string: $0.videoUrl.replacingOccurrences(of: "controls=0", with: ""))
+		}
 	}
 }

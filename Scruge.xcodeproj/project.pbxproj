@@ -742,6 +742,13 @@
 			path = Member;
 			sourceTree = "<group>";
 		};
+		71724CC621BAC786005C520D /* Convenience */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Convenience;
+			sourceTree = "<group>";
+		};
 		71971C742158E056004D28E7 = {
 			isa = PBXGroup;
 			children = (
@@ -841,6 +848,7 @@
 		71971CB52158E402004D28E7 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				71724CC621BAC786005C520D /* Convenience */,
 				71345BA221773CEC00F28AF1 /* Third-Party */,
 				71387A92216B6C8400B24C67 /* View */,
 				71B38CF6215A9E1400929CC3 /* Serialization */,
