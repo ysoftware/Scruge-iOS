@@ -15,15 +15,11 @@ final class EconomiesVM: ViewModel<Economics> {
 	}
 
 	var publicPercent:String {
-		guard let publicToken = model?.publicTokenPercent.format(as: .decimal)
-			else { return "" }
-		return "\(publicToken)%"
+		return model.flatMap { "\($0.publicTokenPercent.format(as: .decimal))%" } ?? ""
 	}
 
 	var initialRelease:String {
-		guard let initialRelease = model?.initialFundsReleasePercent.format(as: .decimal)
-			else { return "" }
-		return "\(initialRelease)%"
+		return model.flatMap { "\($0.initialFundsReleasePercent.format(as: .decimal))%" } ?? ""
 	}
 
 	var inflationRate:String {

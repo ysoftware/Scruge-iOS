@@ -49,24 +49,19 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	private func resetViewModels() {
-		if let update = model?.lastUpdate { lastUpdateVM = UpdateVM(update) }
-		else { lastUpdateVM = nil }
+		lastUpdateVM = model?.lastUpdate.flatMap { UpdateVM($0) }
+		currentMilestoneVM = model?.currentMilestone.flatMap { MilestoneVM($0) }
+		faqVM = model?.faq.flatMap { FaqAVM($0) }
+		economiesVM = model.flatMap { EconomiesVM($0.economics) }
 
-		if let milestone = model?.currentMilestone { currentMilestoneVM = MilestoneVM(milestone) }
-		else { currentMilestoneVM = nil }
+		milestonesVM = model.flatMap { MilestoneAVM($0) }
+		milestonesVM?.reloadData()
 
-		if let model = model {
-			milestonesVM = MilestoneAVM(model)
-			milestonesVM?.reloadData()
-		}
-		else { milestonesVM = nil }
+		topCommentsVM = model.flatMap { m in
+			return m.topComments.flatMap { CommentAVM($0, source:.campaign(m)) }}
 
-		if let model = model, let comments = model.topComments {
-			topCommentsVM = CommentAVM(comments, source: .campaign(model))
-		}
-		else { topCommentsVM = nil }
 
-		if let model = model {
+		documentsVM = model.flatMap { model in
 			var documents:[Document] = []
 			if let pitch = model.pitchUrl {
 				documents.append(Document(name: "Pitch", url: pitch))
@@ -78,15 +73,8 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			if let otherDocs = model.documents {
 				documents.append(contentsOf: otherDocs)
 			}
-			documentsVM = DocumentAVM(documents)
+			return DocumentAVM(documents)
 		}
-		else { documentsVM = nil }
-
-		if let faq = model?.faq { faqVM = FaqAVM(faq) }
-		else { faqVM = nil }
-
-		if let economics = model?.economics { economiesVM = EconomiesVM(economics) }
-		else { economiesVM = nil }
 	}
 
 	// MARK: - Methods

@@ -38,8 +38,8 @@ final class UpdateVM: ViewModel<Update> {
 		return model?.campaignInfo?.title ?? ""
 	}
 
-	var campaignImageUrl:String {
-		return model?.campaignInfo?.imageUrl ?? ""
+	var campaignImageUrl:String? {
+		return model?.campaignInfo?.imageUrl
 	}
 
 	// MARK: - Actions

@@ -83,7 +83,7 @@ struct Presenter {
 	}
 
 	func presentContentViewController(in vc:UIViewController,
-											 for campaignVM:CampaignVM) {
+									  for campaignVM:CampaignVM) {
 		let new = R.storyboard.campaign.contentVC()!
 		new.campaignVM = campaignVM
 		vc.show(new, sender: self)
