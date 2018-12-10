@@ -24,7 +24,7 @@ final class TopCommentCell: UITableViewCell {
 	@discardableResult
 	func setup(with vm:CommentAVM? = nil, allCommentsCount:Int) -> Self {
 		
-		if let vm = vm, vm.numberOfItems > 0 {
+		if let vm = vm, !vm.isEmpty {
 			let comment = vm.item(at: 0)
 
 			usernameLabel.text = comment.authorName
