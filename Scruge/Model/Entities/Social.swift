@@ -34,8 +34,4 @@ struct Social:Codable, Equatable {
 	let url:String
 
 	let name:String
-
-	var network:SocialNetwork? {
-		return SocialNetwork(rawValue: name)
-	}
 }

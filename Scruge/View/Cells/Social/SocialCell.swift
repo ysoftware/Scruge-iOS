@@ -22,7 +22,7 @@ final class SocialCell: UICollectionViewCell {
 extension Social {
 
 	var image:UIImage {
-		guard let network = network else {
+		guard let network = SocialNetwork(rawValue: name) else {
 			return #imageLiteral(resourceName: "website.jpg")
 		}
 
