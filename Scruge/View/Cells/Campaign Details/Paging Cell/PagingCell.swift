@@ -48,7 +48,9 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 
 		for i in 0..<vm.numberOfItems {
 			let s = vm.item(at: i)
-			if s.model?.id == currentMilestone.model?.id { currentIndex = i }
+			if s.model?.id == currentMilestone.model?.id {
+				currentIndex = i
+			}
 		}
 
 		pageControl.currentPage = currentIndex

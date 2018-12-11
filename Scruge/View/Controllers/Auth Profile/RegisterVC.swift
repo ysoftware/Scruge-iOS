@@ -44,7 +44,7 @@ final class RegisterViewController: UIViewController {
 	}
 
 	@objc func signUp(_ sender: Any) {
-		guard validate() else { return }
+		guard isWorking, validate() else { return }
 
 		let email = self.email
 		let password = self.password
@@ -55,14 +55,10 @@ final class RegisterViewController: UIViewController {
 
 			switch result {
 			case .success(let response):
-
 				if let error = ErrorHandler.error(from: response.result) {
 					return self.alert(error)
 				}
-
-				self.didSignUp = true
 				self.finishLogin(email: email, password: password)
-
 			case .failure(let error):
 				self.alert(error)
 			}
@@ -85,17 +81,8 @@ final class RegisterViewController: UIViewController {
 			switch result {
 			case .success(let response):
 				Service.tokenManager.save(response.token)
-
-				if self.didSignUp {
-					Service.presenter.presentProfileSetupViewController(in: self,
-																		completion: self.authCompletionBlock)
-				}
-				else {
-					self.view.endEditing(true)
-					self.navigationController?.dismiss(animated: true)
-					self.authCompletionBlock?(true)
-				}
-
+				Service.presenter.presentProfileSetupViewController(in: self,
+																	completion: self.authCompletionBlock)
 			case .failure(let error):
 				self.alert(error)
 			}
@@ -105,8 +92,6 @@ final class RegisterViewController: UIViewController {
 	// MARK: - Properties
 
 	var authCompletionBlock:((Bool)->Void)!
-
-	private var didSignUp = false
 
 	private var isWorking:Bool = false {
 		didSet {

@@ -39,7 +39,7 @@ final class LoginViewController: UIViewController {
 	}
 
 	@objc func login(_ sender: Any) {
-		guard validate() else { return }
+		guard !isWorking, validate() else { return }
 
 		isWorking = true
 		Service.api.logIn(email: email, password: password) { result in
@@ -48,16 +48,10 @@ final class LoginViewController: UIViewController {
 			switch result {
 			case .success(let response):
 				Service.tokenManager.save(response.token)
-
-				if self.didSignUp {
-					Service.presenter.presentProfileSetupViewController(in: self,
-																completion: self.authCompletionBlock)
-				}
-				else {
-					self.view.endEditing(true)
-					self.navigationController?.dismiss(animated: true)
-					self.authCompletionBlock?(true)
-				}
+				
+				self.view.endEditing(true)
+				self.navigationController?.dismiss(animated: true)
+				self.authCompletionBlock?(true)
 				
 			case .failure(let error):
 				self.alert(error)
@@ -81,8 +75,6 @@ final class LoginViewController: UIViewController {
 	// MARK: - Properties
 
 	var authCompletionBlock:((Bool)->Void)!
-
-	private var didSignUp = false
 
 	private var isWorking:Bool = false {
 		didSet {
