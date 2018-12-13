@@ -13,18 +13,13 @@ final class ProfileVM: ViewModel<Profile> {
 
 	func load() {
 		Service.api.getProfile { result in
-			switch result {
-			case .success(let response):
-				self.model = response.profile
-			case .failure:
-				self.model = nil
-			}
+			self.model = result.value?.profile
 			self.notifyUpdated()
 		}
 	}
 
-	var email:String? {
-		return model?.login
+	var email:String {
+		return model?.login ?? ""
 	}
 
 	var imageUrl:URL? {
@@ -36,8 +31,8 @@ final class ProfileVM: ViewModel<Profile> {
 		return model?.description ?? ""
 	}
 
-	var name:String {
-		return model?.name ?? "Anonymous"
+	var name:String? {
+		return model?.name
 	}
 
 	var country:String {

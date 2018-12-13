@@ -742,13 +742,6 @@
 			path = Member;
 			sourceTree = "<group>";
 		};
-		71724CC621BAC786005C520D /* Convenience */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Convenience;
-			sourceTree = "<group>";
-		};
 		71971C742158E056004D28E7 = {
 			isa = PBXGroup;
 			children = (
@@ -848,7 +841,6 @@
 		71971CB52158E402004D28E7 /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				71724CC621BAC786005C520D /* Convenience */,
 				71345BA221773CEC00F28AF1 /* Third-Party */,
 				71387A92216B6C8400B24C67 /* View */,
 				71B38CF6215A9E1400929CC3 /* Serialization */,
@@ -1839,13 +1831,15 @@
 			files = (
 			);
 			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
 			);
 			name = R.Swift;
 			outputPaths = (
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT\"\n";
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
 		71BE958A2162284E001CF853 /* Increment build number */ = {
 			isa = PBXShellScriptBuildPhase;

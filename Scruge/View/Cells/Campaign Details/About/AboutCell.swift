@@ -45,8 +45,8 @@ final class AboutCell: UITableViewCell {
 		membersCollectionView.register(UINib(resource: R.nib.memberCell),
 								forCellWithReuseIdentifier: R.nib.memberCell.identifier)
 
-		collectionView.isHidden = social.count == 0
-		membersCollectionView.isHidden = members.count == 0
+		collectionView.isHidden = social.isEmpty
+		membersCollectionView.isHidden = members.isEmpty
 
 		collectionView.reloadData()
 		membersCollectionView.reloadData()

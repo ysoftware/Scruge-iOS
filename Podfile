@@ -11,7 +11,7 @@ target 'Scruge' do
   pod 'appendAttributedString'
   pod 'KeychainSwift', '~> 12.0'
 
-  pod 'MVVM', :git=>'https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git'
+  pod 'MVVM', :git=>'https://github.com/ysoftware/MVVM-iOS.git'
 
   target 'ScrugeTests' do
     inherit! :search_paths

@@ -52,13 +52,13 @@ open class ViewModel<M:Equatable> {
 extension ViewModel: Equatable {
 
 	public static func == (lhs: ViewModel<M>, rhs: ViewModel<M>) -> Bool {
-		return lhs.model == rhs.model
+		return lhs === rhs
 	}
 }
 
 extension ViewModel: CustomDebugStringConvertible {
 
 	public var debugDescription: String {
-		return model.debugDescription
+		return "View model: \(model.debugDescription)"
 	}
 }

@@ -4,9 +4,9 @@ PODS:
   - Kingfisher (4.10.1)
   - MVVM (0.1):
     - Result
-  - R.swift (5.0.0.alpha.3):
-    - R.swift.Library (~> 5.0.0.alpha.2)
-  - R.swift.Library (5.0.0.alpha.2)
+  - R.swift (5.0.0.rc.1):
+    - R.swift.Library (~> 5.0.0)
+  - R.swift.Library (5.0.0)
   - Result (4.0.0)
   - SwiftDate (5.0.13)
   - SwiftHTTP (3.0.1)
@@ -15,7 +15,7 @@ DEPENDENCIES:
   - appendAttributedString
   - KeychainSwift (~> 12.0)
   - Kingfisher (~> 4)
-  - "MVVM (from `https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git`)"
+  - MVVM (from `https://github.com/ysoftware/MVVM-iOS.git`)
   - R.swift (~> 5.0.0.alpha.2)
   - SwiftDate (~> 5)
   - SwiftHTTP (~> 3)
@@ -33,24 +33,24 @@ SPEC REPOS:
 
 EXTERNAL SOURCES:
   MVVM:
-    :git: "https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git"
+    :git: https://github.com/ysoftware/MVVM-iOS.git
 
 CHECKOUT OPTIONS:
   MVVM:
-    :commit: 0b536008b8bc91646dbc3eb647280a98587478ce
-    :git: "https://profitprojectsbot:12345678@bitbucket.org/ysoftware/mvvm.git"
+    :commit: cde91f8ed8f59f496b8c54c29d4c8e4b95b2094f
+    :git: https://github.com/ysoftware/MVVM-iOS.git
 
 SPEC CHECKSUMS:
   appendAttributedString: 2e0ba3b3871fde5e9869c21bf7e5357ebb748fc5
   KeychainSwift: d5e776578587ee5958ce36601df22f168f65138a
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MVVM: 586bab0227d6fa43271f656535373e539a886575
-  R.swift: ca4207ecc94545a1611ca0b2ae1197458b6ba30a
-  R.swift.Library: 3c21b823839bf5a6769dc7f96cb44479dab51b1b
+  R.swift: 955ff62be636bd61102ea12792fefe7e99d8805e
+  R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
   SwiftHTTP: e94f1aa8cde58637dcc0100f6349de31a3337fde
 
-PODFILE CHECKSUM: a1c8deb3b16ae20f5249a30e4140c9cd9e8b172d
+PODFILE CHECKSUM: 10b7107150b69324d3c260598e834b4cc902eb7c
 
 COCOAPODS: 1.5.2

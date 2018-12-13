@@ -165,7 +165,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 				Service.eos
 					.sendMoney(from: account,
-							   to: EOS.contractAccount,
+							   to: Service.eos.contractAccount,
 							   amount: amount,
 							   symbol: "SCR",
 							   memo: "\(response.userId)-\(model.id)",

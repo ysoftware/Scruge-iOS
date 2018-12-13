@@ -171,12 +171,12 @@ extension FeaturedViewController: UITableViewDelegate {
 		if tableView == campaignTableView {
 			Service.presenter
 				.presentCampaignViewController(in: self,
-											   id: campaignVM.item(at: indexPath.row).id)
+											   id: campaignVM[indexPath.row].id)
 			return
 		}
 
 		showCategories(false)
-		selectCategory(categoriesVM.item(at: indexPath.row))
+		selectCategory(categoriesVM[indexPath.row])
 	}
 }
 
@@ -201,6 +201,6 @@ extension FeaturedViewController: UITableViewDataSource {
 
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.categoryCell,
 											 for: indexPath)!
-			.setup(with: categoriesVM.item(at: indexPath.row))
+			.setup(with: categoriesVM[indexPath.row])
 	}
 }

@@ -10,7 +10,7 @@ import Result
 
 struct EOS {
 
-	static let contractAccount = "testaccount1"
+	let contractAccount = "testaccount1"
 
 	fileprivate let chain = EOSRPC.sharedInstance
 
@@ -37,13 +37,15 @@ struct EOS {
 	}
 
 	func sendAction(_ action:String,
-					contract:String = EOS.contractAccount,
+					contract:String? = nil,
 					from account: AccountModel,
 					data: String,
 					passcode: String,
 					_ completion: @escaping (Result<String, AnyError>)->Void) {
-		
-		guard let params = try? AbiJson(code: contract, action: action, json: data) else {
+
+		guard let params = try? AbiJson(code: contract ?? contractAccount,
+										action: action,
+										json: data) else {
 			return completion(.failure(AnyError(EOSError.abiError)))
 		}
 

@@ -51,14 +51,14 @@ struct Presenter {
 	}
 
 	func presentProfileSetupViewController(in vc:UIViewController,
-												  completion: ((Bool)->Void)?) {
+										   completion: ((Bool)->Void)?) {
 		let new = R.storyboard.authProfile.profileEditVC()!
 		new.authCompletionBlock = completion
 		vc.show(new, sender: self)
 	}
 
 	func presentProfileEditViewController(in vc:UIViewController,
-												 with vm:ProfileVM) {
+										  with vm:ProfileVM) {
 		let new = R.storyboard.authProfile.profileEditVC()!
 		new.editingProfile = vm
 		vc.show(new, sender: self)
@@ -90,7 +90,7 @@ struct Presenter {
 	}
 
 	func presentMilestonesViewController(in vc:UIViewController,
-												for campaignVM:CampaignVM) {
+										 for campaignVM:CampaignVM) {
 		guard let model = campaignVM.model else { return }
 		let new = R.storyboard.details.milestonesVC()!
 		new.vm = MilestoneAVM(model)
@@ -98,7 +98,7 @@ struct Presenter {
 	}
 
 	func presentDocumentsViewController(in vc:UIViewController,
-											   with vm:CampaignVM) {
+										with vm:CampaignVM) {
 		guard let vm = vm.documentsVM else { return }
 		let new = R.storyboard.details.documentsVC()!
 		new.vm = vm
