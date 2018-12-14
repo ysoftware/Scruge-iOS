@@ -75,11 +75,11 @@ final class CreateAccountViewController: UIViewController {
 			Service.api.createAccount(withName: name, publicKey: publicKey) { result in
 				switch result {
 				case .success(let response):
-					if response.result == 0 {
-						Service.presenter.replaceWithWalletViewController(with: self)
+					if let error = ErrorHandler.error(from: response.result) {
+						self.alert(error)
 					}
 					else {
-						self.alert(ErrorHandler.error(from: response.result) ?? BackendError.unknown)
+						Service.presenter.replaceWithWalletViewController(with: self)
 					}
 				case .failure(let error):
 					self.alert(ErrorHandler.message(for: error))
