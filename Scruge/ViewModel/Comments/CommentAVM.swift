@@ -39,7 +39,7 @@ final class CommentAVM: ArrayViewModel<Comment, CommentVM, CommentQuery> {
 	// MARK: - Methods
 
 	func postComment(_ comment:String, _ completion: @escaping (Error?)->Void) {
-		guard let source = query?.source else { return completion(NetworkingError.unknown) }
+		guard let source = query?.source else { return completion(GeneralError.unknown) }
 		Service.api.postComment(comment, source: source) { result in
 			switch result {
 			case .success(let response):

@@ -8,6 +8,11 @@
 
 import Foundation
 
+enum GeneralError: Error, Equatable {
+
+	case unknown
+}
+
 enum AuthError: Error, Equatable {
 
 	case accountBlocked
@@ -48,6 +53,8 @@ enum BackendError: Error, Equatable {
 	case invalidResourceId
 
 	case notImplemented
+
+	case unknown
 }
 
 enum NetworkingError: Error, Equatable {
@@ -68,4 +75,6 @@ enum WalletError: Error, Equatable {
 	case noSelectedAccount
 
 	case selectedAccountMissing
+
+	case unknown
 }

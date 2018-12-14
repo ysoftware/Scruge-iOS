@@ -54,20 +54,22 @@ final class CreateAccountViewController: UIViewController {
 		let name = accountNameField.text!
 
 		guard name.count == 12 else {
-			return alert("Account name should be exactly 12 symbols long.")
+			return alert("Account name should be exactly 12 symbols long")
+		}
+
+		guard passcode.count > 0 else {
+			return alert("Enter your new passcode")
 		}
 
 		guard passcode == confirm else {
-			return alert("Passwords do not match!")
+			return alert("Passwords do not match")
 		}
 
-		guard let key = PrivateKey.randomPrivateKey() else {
-			return alert("Something went wrong. Please, try again")
-		}
-
-		Service.wallet.importKey(key.rawPrivateKey(), passcode: passcode) { account in
-
-			let publicKey = PublicKey(privateKey: key).rawPublicKey()
+		#warning("refactor to view model")
+		Service.wallet.createKey(passcode: passcode) { account in
+			guard let publicKey = account?.rawPublicKey else {
+				return self.alert(WalletError.unknown)
+			}
 
 			// create account
 			Service.api.createAccount(withName: name, publicKey: publicKey) { result in
@@ -77,7 +79,7 @@ final class CreateAccountViewController: UIViewController {
 						Service.presenter.replaceWithWalletViewController(with: self)
 					}
 					else {
-						self.alert(ErrorHandler.error(from: response.result) ?? NetworkingError.unknown)
+						self.alert(ErrorHandler.error(from: response.result) ?? BackendError.unknown)
 					}
 				case .failure(let error):
 					self.alert(ErrorHandler.message(for: error))

@@ -21,7 +21,7 @@ struct Wallet {
 		try? service.deleteAccount(account: account)
 	}
 
-	func createKey(_ passcode:String,
+	func createKey(passcode:String,
 				   _ completion: @escaping (SELocalAccount?)->Void) {
 
 		deleteWallet()
@@ -40,6 +40,7 @@ struct Wallet {
 			return completion(nil)
 		}
 
+		deleteWallet()
 		service.importAccount(privateKey: privateKey, passcode: passcode, succeed: { account in
 			completion(account)
 		}) { error in

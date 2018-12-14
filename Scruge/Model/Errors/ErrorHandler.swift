@@ -41,7 +41,7 @@ struct ErrorHandler {
 			case .connectionProblem:
 				return "Unable to connect to the server"
 			case .unknown:
-				return "Unknown error"
+				return "Unknown network error"
 			}
 		}
 		else if let backendError = error as? BackendError {
@@ -54,6 +54,8 @@ struct ErrorHandler {
 				return "Nothing was found for this request"
 			case .parsingError:
 				return "Unexpected server response"
+			case .unknown:
+				return "Unexpected server error"
 			}
 		}
 		else if let walletError = error as? WalletError {
@@ -68,6 +70,8 @@ struct ErrorHandler {
 				return "You did not verify any EOS accounts"
 			case .selectedAccountMissing:
 				return "Your verified account is not accessible with imported EOS key"
+			case .unknown:
+				return "Unknown wallet error"
 			}
 		}
 		else if let eosError = error as? EOSError {
@@ -75,7 +79,7 @@ struct ErrorHandler {
 			case .overdrawnBalance:
 				return "Overdrawn balance"
 			case .unknown:
-				return "Unknown error"
+				return "Unknown blockchain error"
 			case .abiError:
 				return "Incorrect transaction format"
 			}
@@ -86,6 +90,11 @@ struct ErrorHandler {
 					.replacingOccurrences(of: "assertion failure with message:", with: "")
 					.replacingOccurrences(of: "pending console output:", with: "")
 					.trimmingCharacters(in: .whitespacesAndNewlines)
+			}
+		}
+		else if let generalError = error as? GeneralError {
+			switch generalError {
+			case .unknown: break
 			}
 		}
 		return "Unexpected Error"
@@ -113,7 +122,7 @@ struct ErrorHandler {
 		// special
 		case 999: return BackendError.notImplemented
 
-		default: return NetworkingError.unknown
+		default: return GeneralError.unknown
 		}
 	}
 }
