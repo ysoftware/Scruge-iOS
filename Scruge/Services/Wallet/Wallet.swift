@@ -19,6 +19,7 @@ struct Wallet {
 	func deleteWallet() {
 		guard let account = getWallet() else { return }
 		try? service.deleteAccount(account: account)
+		Service.settings.remove(.selectedAccount)
 	}
 
 	func createKey(passcode:String,

@@ -10,18 +10,12 @@ import MVVM
 
 final class AccountVM:ViewModel<AccountModel> {
 
-	let UNLOCK_DURATION:TimeInterval = 30
-
 	private var balances:[Balance] = []
 
 	// MARK: - View Properties
 
 	var name:String {
-		return model!.name
-	}
-
-	var isLocked:Bool {
-		return model!.wallet.isLocked()
+		return model?.name ?? ""
 	}
 
 	func balanceString(_ separator:String = "\n") -> String {

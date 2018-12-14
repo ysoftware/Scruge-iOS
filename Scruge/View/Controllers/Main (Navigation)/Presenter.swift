@@ -231,11 +231,6 @@ struct Presenter {
 
 	// MARK: - Wallet
 
-	func presentWallerViewController(in vc:UIViewController) {
-		let new = R.storyboard.wallet.walletVC()!
-		vc.show(new, sender: self)
-	}
-
 	func presentImporKeyViewController(in vc:UIViewController) {
 		let new = R.storyboard.wallet.importKeyVC()!
 		vc.show(new, sender: self)

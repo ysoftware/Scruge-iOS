@@ -66,6 +66,9 @@ final class CreateAccountViewController: UIViewController {
 		}
 
 		#warning("refactor to view model")
+
+		#warning("check if key exists")
+
 		Service.wallet.createKey(passcode: passcode) { account in
 			guard let publicKey = account?.rawPublicKey else {
 				return self.alert(WalletError.unknown)
