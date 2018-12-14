@@ -41,6 +41,10 @@ final class WalletViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 
+		verifyWallet()
+	}
+
+	private func verifyWallet() {
 		if Service.wallet.getWallet() == nil {
 			Service.presenter.replaceWithWalletStartViewController(with: self)
 		}

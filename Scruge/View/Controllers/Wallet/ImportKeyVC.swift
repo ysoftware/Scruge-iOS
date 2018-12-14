@@ -76,7 +76,7 @@ final class ImportKeyViewController: UIViewController {
 				}
 			}
 			else {
-				self.alert("Error: Could not import this key")
+				self.alert("Could not import this key")
 			}
 		}
 	}

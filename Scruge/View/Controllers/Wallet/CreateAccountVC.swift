@@ -61,8 +61,7 @@ final class CreateAccountViewController: UIViewController {
 			return alert("Passwords do not match!")
 		}
 
-		let (_key, _mnemonic) = PrivateKey.randomPrivateKeyAndMnemonic()
-		guard let key = _key, let mnemonic = _mnemonic else {
+		guard let key = PrivateKey.randomPrivateKey() else {
 			return alert("Something went wrong. Please, try again")
 		}
 
