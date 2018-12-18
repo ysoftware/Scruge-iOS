@@ -34,6 +34,8 @@ struct ErrorHandler {
 				return "User already exists"
 			case .incorrectCredentials:
 				return "Incorrect credentials"
+			case .denied:
+				return "Access is restricted"
 			}
 		}
 		else if let networkError = error as? NetworkingError {
@@ -109,6 +111,7 @@ struct ErrorHandler {
 		case 11: return BackendError.invalidResourceId
 		case 12: return BackendError.resourceNotFound
 		case 13: return AuthError.userNotFound
+		case 14: return AuthError.denied
 
 		// auth
 		case 101: return AuthError.incorrectEmailLength

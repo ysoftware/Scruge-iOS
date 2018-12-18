@@ -32,6 +32,8 @@ enum AuthError: Error, Equatable {
 	case incorrectEmailLength // 5 to 254 symbols
 
 	case incorrectPasswordLength // 5 to 50 symbols
+
+	case denied // banned?
 }
 
 enum EOSError: Error, Equatable {

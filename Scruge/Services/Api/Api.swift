@@ -15,7 +15,7 @@ final class Api {
 
 		case test = "http://testapi.scruge.world/"
 
-		case prod = "http://api.scruge.world/"
+		case prod = "https://api.scruge.world/"
 
 		case dev = "http://176.213.156.167/"
 	}
@@ -275,6 +275,16 @@ final class Api {
 
 	// MARK: - Comments
 
+	func likeComment(_ comment:CommentVM,
+					 value:Bool,
+					 _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.noToken)))
+		}
+		let request = CommentLikeRequest(token: token, value: value)
+		service.post("comment\(comment.id)/like", request.toDictionary(), completion)
+	}
+
 	func postComment(_ comment:String,
 					 source: CommentSource,
 					 _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
@@ -284,9 +294,9 @@ final class Api {
 		let method:String
 		switch source {
 		case .campaign(let campaign):
-			method = "campaign/\(campaign.id)/comment"
+			method = "campaign/\(campaign.id)/comments"
 		case .update(let update):
-			method = "update/\(update.id)/comment"
+			method = "update/\(update.id)/comments"
 		}
 		let request = CommentRequest(comment: comment, token: token)
 		service.post(method, request.toDictionary(), completion)

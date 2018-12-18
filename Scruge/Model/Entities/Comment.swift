@@ -20,5 +20,5 @@ struct Comment:Equatable, Codable {
 
 	let authorAvatar:String?
 
-	let likesCount:Int? 
+	let likeCount:Int? 
 }

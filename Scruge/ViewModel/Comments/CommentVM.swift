@@ -31,6 +31,8 @@ final class CommentVM: ViewModel<Comment> {
 	}
 
 	var likes:String {
-		return model?.likesCount.flatMap { "\($0)" } ?? ""
+		return model?.likeCount.flatMap { "\($0)" } ?? ""
 	}
+
+	var id:String { return model?.id ?? "" }
 }

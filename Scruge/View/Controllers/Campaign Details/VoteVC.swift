@@ -105,7 +105,7 @@ final class VoteViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.lastUpdateCell.identifier)
 		tableView.register(UINib(resource: R.nib.pagingCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.pagingCell.identifier)
-		tableView.register(UINib(resource: R.nib.g),
+		tableView.register(UINib(resource: R.nib.voteControlsCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.voteControlsCell.identifier)
 	}
 

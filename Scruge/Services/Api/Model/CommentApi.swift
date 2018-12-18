@@ -17,6 +17,13 @@ struct CommentListResponse: Codable {
 
 // MARK: - Request
 
+struct CommentLikeRequest:Codable {
+
+	let token:String
+
+	let value:Bool
+}
+
 struct CommentRequest: Codable {
 
 	let comment:String
