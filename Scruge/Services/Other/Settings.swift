@@ -29,7 +29,7 @@ struct Settings {
 		return defaults.object(forKey: setting.rawValue) as? T
 	}
 
-	func set<T>(_ setting:Setting, value:T?) {
+	func set(_ setting:Setting, value:Any?) {
 		defaults.set(value, forKey: setting.rawValue)
 	}
 

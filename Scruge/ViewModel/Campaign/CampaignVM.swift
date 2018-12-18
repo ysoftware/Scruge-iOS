@@ -29,9 +29,9 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	private let id:Int
-	private(set) var isSubscribed:Bool? { didSet { notifyUpdated() }}
-	private(set) var canVote:Bool? { didSet { notifyUpdated() }}
-	private(set) var isBacker:Bool? { didSet { notifyUpdated() }}
+	private(set) var isSubscribed = false { didSet { notifyUpdated() }}
+	private(set) var canVote = false { didSet { notifyUpdated() }}
+	private(set) var isBacker = false { didSet { notifyUpdated() }}
 	private(set) var state:ViewState = .loading  { didSet { notifyUpdated() }}
 
 	// MARK: - Setup
@@ -133,6 +133,10 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	func reloadData() {
 		Service.api.getCampaign(with: id) { result in
+			self.isBacker = false
+			self.isSubscribed = false
+			self.canVote = false
+
 			switch result {
 			case .success(let response):
 				self.model = response.campaign

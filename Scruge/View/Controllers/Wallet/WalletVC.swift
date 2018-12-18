@@ -67,10 +67,6 @@ final class WalletViewController: UIViewController {
 
 	// MARK: - Actions
 
-	@objc func cancel() {
-		dismiss(animated: true)
-	}
-
 	private func updateStatus() {
 		switch vm.state {
 		case .error(WalletError.noKey):
@@ -139,7 +135,7 @@ Select an account that you want to make investments with and receive ICO tokens 
 You will not be able to change it after you make first investment.
 """
 
-		return Service.presenter.presentWalletPicker(in: self, title: title) { [unowned self] account in
+		Service.presenter.presentWalletPicker(in: self, title: title) { [unowned self] account in
 			guard let account = account else {
 				return self.presentWalletPicker()
 			}

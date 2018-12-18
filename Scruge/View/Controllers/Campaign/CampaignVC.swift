@@ -151,8 +151,8 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func setupNavigationBar() {
-		if let isSubscribed = vm.isSubscribed {
-			let icon = isSubscribed ? #imageLiteral(resourceName: "subscribe") : #imageLiteral(resourceName: "subscribe")
+		if Service.tokenManager.hasToken {
+			let icon = vm.isSubscribed ? #imageLiteral(resourceName: "subscribe") : #imageLiteral(resourceName: "subscribe")
 			let subscribeButton = UIBarButtonItem(image: icon,
 												  style: .plain,
 												  target: self,
@@ -166,39 +166,34 @@ final class CampaignViewController: UIViewController {
 
 	private func setupBottomButton() {
 		contributeButton.addClick(self, action: #selector(contribute))
+		contributeButton.color = Service.constants.color.purple
+		showContributeButton(true)
 
 		switch vm.status {
 		case .activeVote:
-			guard vm.isBacker == true else {
-				return showContributeButton(false, duration: 0)
+			guard vm.isBacker else {
+				return showContributeButton(false)
 			}
 
-			showContributeButton(true, duration: 0)
-			if vm.canVote == true {
-				contributeButton.color = Service.constants.color.purple
+			if vm.canVote {
 				contributeButton.text = "Vote".uppercased()
 			}
 			else {
-				contributeButton.color = Service.constants.color.purple
 				contributeButton.text = "View Voting Progress".uppercased()
 			}
 		case .closed:
-			showContributeButton(true, duration: 0)
 			contributeButton.color = Service.constants.color.gray
 			contributeButton.text = "Campaign over".uppercased()
 		case .funding:
+
 			if Service.tokenManager.hasToken {
-				showContributeButton(true, duration: 0)
-				contributeButton.color = Service.constants.color.purple
 				contributeButton.text = "Contribute".uppercased()
 			}
 			else {
-				showContributeButton(true, duration: 0)
-				contributeButton.color = Service.constants.color.purple
 				contributeButton.text = "Sign in to contribute".uppercased()
 			}
 		default:
-			showContributeButton(false, duration: 0)
+			showContributeButton(false)
 		}
 	}
 
@@ -238,8 +233,7 @@ final class CampaignViewController: UIViewController {
 		setupBottomButton()
 	}
 
-	private func showContributeButton(_ visible:Bool = true,
-									  duration:TimeInterval = 0.25) {
+	private func showContributeButton(_ visible:Bool = true) {
 		let inset = contributeButton.frame.height + 20
 		let value = visible ? inset : 0
 
@@ -250,10 +244,6 @@ final class CampaignViewController: UIViewController {
 
 		contributeButtonBackgroundView.isHidden = !visible
 		contributeButton.isHidden = !visible
-
-		UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
-			self.view.layoutSubviews()
-		})
 	}
 }
 
