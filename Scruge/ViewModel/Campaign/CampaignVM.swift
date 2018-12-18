@@ -82,45 +82,30 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	func loadDescription(_ completion: @escaping (String)->Void) {
 		guard let model = model else { return completion("") }
 		Service.api.getCampaignContent(for: model) { result in
-			guard case let .success(response) = result else {
-				return completion("")
-
-			}
-			completion(response.content)
+			completion(result.value?.content ?? "")
 		}
 	}
 
 	func loadVoteInfo(_ completion: @escaping (VoteInfo?)->Void) {
 		guard let model = model else { return completion(nil) }
 		Service.api.getVoteInfo(campaignId: model.id) { result in
-			guard case let .success(response) = result else {
-				return completion(nil)
-			}
-			completion(response.voting)
+			completion(result.value?.voting)
 		}
 	}
 
 	func loadVoteResults(_ completion: @escaping (VoteResult?)->Void) {
 		guard let model = model else { return completion(nil) }
 		Service.api.getVoteResult(campaignId: model.id) { result in
-			guard case let .success(response) = result else {
-				return completion(nil)
-			}
-			completion(response.votings.first(where: { $0.active }))
+			completion(result.value?.votings.first(where: { $0.active }))
 		}
 	}
 
 	func loadAmountContributed(_ completion: @escaping (Double?)->Void) {
 		guard let model = model else { return completion(nil) }
 
-		Service.api.getContributionHistory { response in
-			switch response {
-			case .failure:
-				completion(nil)
-			case .success(let result):
-				let contribution = result.contributions.first(where: { $0.campaignId == model.id })
-				completion(contribution?.amount ?? 0)
-			}
+		Service.api.getContributionHistory { result in
+			let contribution = result.value?.contributions.first(where: { $0.campaignId == model.id })
+			completion(contribution?.amount)
 		}
 	}
 
@@ -239,13 +224,11 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	func toggleSubscribing() {
-		guard let model = model,
-			let isSubscribed = isSubscribed
-			else { return }
+		guard let model = model else { return }
 
 		let newValue = !isSubscribed
 		Service.api.setSubscribing(newValue, to: model) { result in
-			if case .success = result {
+			if case .success(let response) = result, response.result == 0 {
 				self.reloadSubscribtionStatus()
 			}
 		}
@@ -258,7 +241,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			case .success(let response):
 				self.isSubscribed = response.value
 			case .failure:
-				self.isSubscribed = nil
+				self.isSubscribed = false
 			}
 		}
 	}
@@ -274,6 +257,11 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			}
 
 			self.isBacker = contributeResponse.value
+
+			guard self.isBacker else {
+				self.canVote = false
+				return
+			}
 
 			// check if voted already
 			Service.api.getDidVote(campaignId: model.id) { didVoteResult in

@@ -105,7 +105,7 @@ final class VoteViewController: UIViewController {
 						   forCellReuseIdentifier: R.reuseIdentifier.lastUpdateCell.identifier)
 		tableView.register(UINib(resource: R.nib.pagingCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.pagingCell.identifier)
-		tableView.register(UINib(resource: R.nib.voteControlsCell),
+		tableView.register(UINib(resource: R.nib.g),
 						   forCellReuseIdentifier: R.reuseIdentifier.voteControlsCell.identifier)
 	}
 
@@ -130,7 +130,7 @@ final class VoteViewController: UIViewController {
 				self.alert(error)
 			}
 			else {
-				self.alert("Transaction was successful.") {
+				self.alert("Transaction was successful") {
 					self.navigationController?.popViewController(animated: true)
 				}
 			}

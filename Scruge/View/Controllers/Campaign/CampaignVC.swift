@@ -44,7 +44,7 @@ final class CampaignViewController: UIViewController {
 				}
 			}
 		case .activeVote:
-			if vm.canVote == true {
+			if vm.canVote {
 				Service.presenter.presentVoteViewController(in: self, with: vm)
 			}
 			else {

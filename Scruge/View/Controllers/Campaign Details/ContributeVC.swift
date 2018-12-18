@@ -10,7 +10,7 @@ import UIKit
 
 final class ContributeViewController: UIViewController {
 
-	let conversionRate = 1.5 // $ for 1 SCR
+	private let conversionRate = 1.5 // $ for 1 SCR
 
 	// MARK: - Outlets
 
@@ -90,7 +90,7 @@ final class ContributeViewController: UIViewController {
 	private func setupInformation() {
 		vm.loadAmountContributed { value in
 			guard let value = value else {
-				return self.alert("Could not load information.") {
+				return self.alert("Could not load information") {
 					self.navigationController?.popViewController(animated: true)
 				}
 			}
@@ -130,7 +130,7 @@ final class ContributeViewController: UIViewController {
 				self.alert(error)
 			}
 			else {
-				self.alert("Transaction was successful.") {
+				self.alert("Transaction was successful") {
 					self.navigationController?.popViewController(animated: true)
 				}
 			}
