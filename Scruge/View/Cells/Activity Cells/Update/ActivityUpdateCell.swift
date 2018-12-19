@@ -19,8 +19,12 @@ final class ActivityUpdateCell: UITableViewCell {
 	
 	// MARK: - Setup
 
+	private var vm:UpdateVM!
+
 	@discardableResult
 	func setup(with vm: UpdateVM) -> Self {
+		self.vm = vm
+
 		dateLabel.text = vm.date
 		updateTitleLabel.text = vm.title
 		updateDescriptionLabel.text = vm.descsription
@@ -36,11 +40,11 @@ final class ActivityUpdateCell: UITableViewCell {
 
 	// MARK: - Tap
 
-	private var campaignBlock:(()->Void)?
-	private var updateBlock:(()->Void)?
+	private var campaignBlock:((UpdateVM)->Void)?
+	private var updateBlock:((UpdateVM)->Void)?
 
 	@discardableResult
-	func updateTap(block: @escaping ()->Void) -> Self {
+	func updateTap(block: @escaping (UpdateVM)->Void) -> Self {
 		updateBlock = block
 		updateDescriptionLabel.gestureRecognizers = [
 			UITapGestureRecognizer(target: self,
@@ -49,7 +53,7 @@ final class ActivityUpdateCell: UITableViewCell {
 	}
 
 	@discardableResult
-	func campaignTap(block: @escaping ()->Void) -> Self {
+	func campaignTap(block: @escaping (UpdateVM)->Void) -> Self {
 		campaignBlock = block
 		activityLabel.gestureRecognizers = [
 			UITapGestureRecognizer(target: self,
@@ -59,10 +63,10 @@ final class ActivityUpdateCell: UITableViewCell {
 	}
 
 	@objc func updateTapped() {
-		updateBlock?()
+		updateBlock?(vm)
 	}
 
 	@IBAction func campaignTapped() {
-		campaignBlock?()
+		campaignBlock?(vm)
 	}
 }

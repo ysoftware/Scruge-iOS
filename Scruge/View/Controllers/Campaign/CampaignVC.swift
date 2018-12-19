@@ -152,7 +152,7 @@ final class CampaignViewController: UIViewController {
 
 	private func setupNavigationBar() {
 		if Service.tokenManager.hasToken {
-			let icon = vm.isSubscribed ? #imageLiteral(resourceName: "subscribe") : #imageLiteral(resourceName: "subscribe")
+			let icon = vm.isSubscribed ? #imageLiteral(resourceName: "subscribe") : #imageLiteral(resourceName: "unsubscribe")
 			let subscribeButton = UIBarButtonItem(image: icon,
 												  style: .plain,
 												  target: self,
@@ -337,6 +337,7 @@ extension CampaignViewController: ViewModelDelegate {
 			return
 		}
 
+		self.setupNavigationBar()
 		loadingView.set(state: vm.state)
 
 		switch self.vm.state {
@@ -355,7 +356,6 @@ extension CampaignViewController: ArrayViewModelDelegate {
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
 			self.tableView.reloadData()
-			self.setupNavigationBar()
 	}
 }
 

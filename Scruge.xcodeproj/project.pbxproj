@@ -1569,7 +1569,6 @@
 		71DA7E922164AB2F0052EB8F /* Campaign Details */ = {
 			isa = PBXGroup;
 			children = (
-				71DA7E932164AB420052EB8F /* UpdatesVC.swift */,
 				71DA7E952164AB510052EB8F /* MilestonesVC.swift */,
 				71AB79002164D2650077D904 /* CommentsVC.swift */,
 				71F68A4921709D8A00F7E728 /* FaqVC.swift */,
@@ -1578,6 +1577,7 @@
 				715DB15A2174716E0005B69D /* VoteVC.swift */,
 				71D9C1E321B177310043B15E /* VoteResultVC.swift */,
 				71724CC221B7EB6C005C520D /* MemberProfileVC.swift */,
+				71DA7E932164AB420052EB8F /* UpdatesVC.swift */,
 				71724CC421B81495005C520D /* DetailVC.swift */,
 			);
 			path = "Campaign Details";

@@ -110,10 +110,10 @@ extension ActivityViewController: UITableViewDataSource {
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.activityUpdateCell,
 											 for: indexPath)!
 			.setup(with: vm)
-			.campaignTap { [unowned self] in
-				Service.presenter.presentCampaignViewController(in: self, id: vm.campaignId)
+			.campaignTap { [unowned self] update in
+				Service.presenter.presentCampaignViewController(in: self, id: update.campaignId)
 			}
-			.updateTap { [unowned self] in
+			.updateTap { [unowned self] update in
 				Service.presenter.presentContentViewController(in: self, for: vm)
 			}
 	}
