@@ -546,7 +546,7 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uvO-bd-R6Y">
-                                                            <rect key="frame" x="10" y="10" width="180.5" height="35"/>
+                                                            <rect key="frame" x="15" y="10" width="170.5" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="eiy-iC-iTe"/>
                                                             </constraints>
@@ -555,7 +555,7 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done"/>
                                                         </textField>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7v-Je-yXj">
-                                                            <rect key="frame" x="200.5" y="10" width="203.5" height="35"/>
+                                                            <rect key="frame" x="195.5" y="10" width="203.5" height="35"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-85-lzY">
                                                                     <rect key="frame" x="0.0" y="0.0" width="203.5" height="35"/>
@@ -580,7 +580,7 @@
                                                             </constraints>
                                                         </view>
                                                     </subviews>
-                                                    <edgeInsets key="layoutMargins" top="10" left="10" bottom="10" right="10"/>
+                                                    <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
                                                 </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

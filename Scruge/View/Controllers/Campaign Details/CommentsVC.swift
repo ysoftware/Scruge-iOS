@@ -157,7 +157,7 @@ final class CommentsViewController: UIViewController {
 		else {
 			commentField.placeholder = "Sign in to add comments"
 			commentField.isEnabled = false
-			sendButton.setTitle("Sign in", for: .normal)
+			sendButton.setTitle("Sign In", for: .normal)
 		}
 	}
 }
@@ -194,7 +194,7 @@ extension CommentsViewController: ArrayViewModelDelegate {
 		where M : Equatable, VM : ViewModel<M>, Q : Query {
 		
 		switch state {
-		case .initial:
+		case .loading, .initial:
 			loadingView.set(state: .loading)
 		case .error(let error):
 			let message = ErrorHandler.message(for: error)

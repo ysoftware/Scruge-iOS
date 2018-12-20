@@ -82,13 +82,6 @@ struct Presenter {
 		return new
 	}
 
-	func presentContentViewController(in vc:UIViewController,
-									  for campaignVM:CampaignVM) {
-		let new = R.storyboard.campaign.contentVC()!
-		new.campaignVM = campaignVM
-		vc.show(new, sender: self)
-	}
-
 	func presentMilestonesViewController(in vc:UIViewController,
 										 for campaignVM:CampaignVM) {
 		guard let model = campaignVM.model else { return }
@@ -126,6 +119,13 @@ struct Presenter {
 	}
 
 	// MARK: - Updates
+
+	func presentContentViewController(in vc:UIViewController,
+									  for campaignVM:CampaignVM) {
+		let new = R.storyboard.campaign.contentVC()!
+		new.campaignVM = campaignVM
+		vc.show(new, sender: self)
+	}
 
 	func presentContentViewController(in vc:UIViewController,
 									  for update:UpdateVM) {
