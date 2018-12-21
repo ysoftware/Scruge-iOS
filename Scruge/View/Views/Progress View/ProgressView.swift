@@ -56,9 +56,9 @@ final class ProgressView: UIView {
 		let showLeftLabel = progress > 0.5
 		trailingConstraint.constant = bounds.width * CGFloat(progress)
 
-		totalLabel.text = "\(prefix)\(total.format(as: .decimal, separateWith: " "))\(suffix)"
-		currentLabel.text = "\(prefix)\(value.format(as: .decimal, separateWith: " "))\(suffix)"
-		currentLabelRight.text = "\(prefix)\(value.format(as: .decimal, separateWith: " "))\(suffix)"
+		totalLabel.text = "\(prefix)\(total.formatDecimal(separateWith: " "))\(suffix)"
+		currentLabel.text = "\(prefix)\(value.formatDecimal(separateWith: " "))\(suffix)"
+		currentLabelRight.text = "\(prefix)\(value.formatDecimal(separateWith: " "))\(suffix)"
 
 		if reachedGoal {
 			totalLabel.textColor = Service.constants.color.greenLight

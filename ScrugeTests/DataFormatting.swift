@@ -19,9 +19,9 @@ final class DataFormattingTests: XCTestCase {
 		XCTAssertEqual("1\(sym)000001", 1.000001.formatRounding(to: 10, min: 4))
 
 		// format(as:)
-		XCTAssertEqual("1", 1.0.format(as: .decimal))
-		XCTAssertEqual("1\(sym)1", 1.1.format(as: .decimal))
-		XCTAssertEqual("1\(sym)01", 1.0100.format(as: .decimal))
+		XCTAssertEqual("1", 1.0.formatDecimal())
+		XCTAssertEqual("1\(sym)1", 1.1.formatDecimal())
+		XCTAssertEqual("1\(sym)01", 1.0100.formatDecimal())
 	}
 
 	func testDateMilliseconds() {
@@ -52,9 +52,10 @@ final class DataFormattingTests: XCTestCase {
 """.components(separatedBy: "\n").map { $0.trimmingCharacters(in: .whitespaces) }
 
 		var failedValid = 0
-		validEmails.forEach { if !$0.isValidEmail() {
-			print("Should be valid: \($0)")
-			failedValid += 1
+		validEmails.forEach {
+			if !$0.isValidEmail() {
+				print("Should be valid: \($0)")
+				failedValid += 1
 			}
 		}
 
@@ -80,9 +81,10 @@ final class DataFormattingTests: XCTestCase {
 """.components(separatedBy: "\n").map { $0.trimmingCharacters(in: .whitespaces) }
 
 		var failedInvalid = 0
-		invalidEmails.forEach { if $0.isValidEmail() {
-			print("Should be invalid: \($0)")
-			failedInvalid += 1
+		invalidEmails.forEach {
+			if $0.isValidEmail() {
+				print("Should be invalid: \($0)")
+				failedInvalid += 1
 			}
 		}
 		print("invalid emails \(invalidEmails.count - failedInvalid)/\(invalidEmails.count)")

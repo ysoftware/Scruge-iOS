@@ -30,28 +30,22 @@ extension PartialCampaignModelHolder {
 	}
 
 	var imageUrl:URL? {
-		guard let string = model?.imageUrl else { return nil }
-		return URL(string: string)
+		return model.flatMap { URL(string: $0.imageUrl) }
 	}
 
 	var raised: Double {
-		guard let model = model else { return 0 }
-		return model.economics.raised.rounded()
+		return model.flatMap { $0.economics.raised.rounded() } ?? 0
 	}
 
 	var hardCap: Int {
-		guard let model = model else { return 0 }
-		return model.economics.hardCap
+		return model.flatMap { $0.economics.hardCap } ?? 0
 	}
 
 	var softCap: Int {
-		guard let model = model else { return 0 }
-		return model.economics.softCap
+		return model.flatMap { $0.economics.softCap } ?? 0
 	}
 
 	var daysLeft: String {
-		guard let model = model else { return "" }
-		let end = Date(milliseconds: model.endTimestamp)
-		return end.toRelative(locale: Locales.english)
+		return model.flatMap { Date.presentRelative($0.endTimestamp) } ?? ""
 	}
 }

@@ -21,10 +21,9 @@ extension Double {
 		return formatter.string(for: self)!
 	}
 
-	func format(as style:NumberFormatter.Style,
-				separateWith separator:String? = "") -> String {
+	func formatDecimal(separateWith separator:String? = "") -> String {
 		let formatter = NumberFormatter()
-		formatter.numberStyle = style
+		formatter.numberStyle = .decimal
 		formatter.groupingSeparator = separator
 		formatter.maximumFractionDigits = 4
 		formatter.minimumFractionDigits = 0
@@ -34,11 +33,7 @@ extension Double {
 
 extension Int {
 
-	func format(as style:NumberFormatter.Style,
-				separateWith separator:String? = "") -> String {
-		let formatter = NumberFormatter()
-		formatter.numberStyle = style
-		formatter.groupingSeparator = separator
-		return formatter.string(for: self)!
+	func formatDecimal(separateWith separator:String? = "") -> String {
+		return Double(self).formatDecimal(separateWith: separator)
 	}
 }
