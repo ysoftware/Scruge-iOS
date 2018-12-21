@@ -48,7 +48,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2Q-ja-eoK">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S2Q-ja-eoK" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                     <rect key="frame" x="98" y="26" width="4" height="19"/>
                     <color key="backgroundColor" red="0.47450980392156861" green="0.24705882352941178" blue="0.75686274509803919" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>

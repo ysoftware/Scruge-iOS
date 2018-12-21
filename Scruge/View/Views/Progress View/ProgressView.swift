@@ -75,6 +75,5 @@ final class ProgressView: UIView {
 
 		updateConstraintsIfNeeded()
 		layoutIfNeeded()
-		totalLabel.isHidden = currentLabel.frame.intersects(totalLabel.frame)
 	}
 }
