@@ -34,7 +34,7 @@ extension PartialCampaignModelHolder {
 	}
 
 	var raised: Double {
-		return model.flatMap { $0.economics.raised.rounded() } ?? 0
+		return model?.economics.raised.rounded() ?? 0
 	}
 
 	var hardCap: Int {
