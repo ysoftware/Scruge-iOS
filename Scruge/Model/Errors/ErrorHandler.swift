@@ -96,10 +96,10 @@ struct ErrorHandler {
 		}
 		else if let generalError = error as? GeneralError {
 			switch generalError {
-			case .unknown: break
+			case .unknown: return "Unexpected error"
 			}
 		}
-		return "Unexpected Error"
+		return error.localizedDescription
 	}
 
 	static func error(from result:Int) -> Error? {
