@@ -7,6 +7,7 @@
 //
 
 import MVVM
+import appendAttributedString
 
 final class AccountVM:ViewModel<AccountModel> {
 
@@ -18,12 +19,23 @@ final class AccountVM:ViewModel<AccountModel> {
 		return model?.name ?? ""
 	}
 
-	func balanceString(_ separator:String = "\n") -> String {
-		return balances.reduce("") { result, balance in
+	func balanceString(_ separator:String = "\n") -> NSAttributedString {
+		let currencyAtt = AttributesBuilder()
+			.color(Service.constants.color.purple)
+			.font(.systemFont(ofSize: 18, weight: .semibold)).build()
+		let balanceAtt = AttributesBuilder()
+			.color(.black)
+			.font(.systemFont(ofSize: 16, weight: .medium)).build()
+
+		let att = NSMutableAttributedString()
+		balances.forEach { balance in
 			let amount = balance.amount.formatRounding(to: 4, min: 4)
-			let separator =  result.count > 0 ? separator : ""
-			return "\(result)\(separator)\(balance.symbol) \(amount)"
+			if att.length > 0 { att.append(separator) }
+			att.append(balance.symbol, withAttributes: currencyAtt)
+				.append("  ")
+				.append(amount, withAttributes: balanceAtt)
 		}
+		return att
 	}
 
 	// MARK: - Methods

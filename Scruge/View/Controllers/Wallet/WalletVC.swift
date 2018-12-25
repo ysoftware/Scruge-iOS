@@ -62,7 +62,12 @@ final class WalletViewController: UIViewController {
 
 	private func updateView() {
 		accountNameLabel.text = accountVM?.name ?? ""
-		balanceLabel.text = accountVM?.balanceString() ?? ""
+		if let str = accountVM?.balanceString() {
+			balanceLabel.attributedText = str
+		}
+		else {
+			balanceLabel.text = ""
+		}
 	}
 
 	// MARK: - Actions

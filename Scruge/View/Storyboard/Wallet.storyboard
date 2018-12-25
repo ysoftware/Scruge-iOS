@@ -123,10 +123,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="who-1H-QDH">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="610.66666666666663"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="625.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvH-iY-h5K" customClass="GradientView" customModule="Scruge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="332.66666666666669"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="347.33333333333331"/>
                                                 <color key="backgroundColor" red="0.89411764709999997" green="0.2666666667" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -144,7 +144,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Eo3-b9-PYR">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="595.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="610.33333333333337"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="G8Y-qP-XdL">
                                                         <rect key="frame" x="15" y="65" width="345" height="40.666666666666657"/>
@@ -169,22 +169,22 @@
                                                         </subviews>
                                                     </stackView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gUJ-Mb-4pY" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="135.66666666666666" width="345" height="136.99999999999997"/>
+                                                        <rect key="frame" x="15" y="135.66666666666669" width="345" height="151.66666666666669"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="pUf-Wn-vtl">
-                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="137"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="151.66666666666666"/>
                                                                 <subviews>
                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="testaccount1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="p3t-Ze-lJ0">
-                                                                        <rect key="frame" x="15" y="15" width="315" height="44"/>
+                                                                        <rect key="frame" x="30" y="30" width="285" height="28.666666666666671"/>
                                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
                                                                         <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bE9-4Q-mbg">
-                                                                        <rect key="frame" x="15" y="74" width="315" height="48"/>
+                                                                        <rect key="frame" x="30" y="73.666666666666686" width="285" height="48"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2.0002 EOS 1.0000 SCR" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cm1-v5-8f3">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="315" height="48"/>
+                                                                                <rect key="frame" x="0.0" y="0.0" width="285" height="48"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="48" id="4Nc-fk-NIQ"/>
                                                                                 </constraints>
@@ -195,10 +195,10 @@
                                                                         </subviews>
                                                                     </stackView>
                                                                 </subviews>
-                                                                <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
+                                                                <edgeInsets key="layoutMargins" top="30" left="30" bottom="30" right="30"/>
                                                             </stackView>
                                                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZyX-Gt-tbs" customClass="LoadingView" customModule="Scruge" customModuleProvider="target">
-                                                                <rect key="frame" x="15" y="15" width="315" height="107"/>
+                                                                <rect key="frame" x="15" y="15.000000000000007" width="315" height="121.66666666666669"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </view>
                                                         </subviews>
@@ -215,7 +215,7 @@
                                                         </constraints>
                                                     </view>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="8Wi-Uk-38T">
-                                                        <rect key="frame" x="15" y="302.66666666666669" width="345" height="293.00000000000006"/>
+                                                        <rect key="frame" x="15" y="317.33333333333331" width="345" height="292.99999999999994"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jen-zA-2j8" customClass="CardView" customModule="Scruge" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="62"/>
@@ -377,7 +377,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ERt-rM-DKv" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="230.99999999999994" width="345" height="62"/>
+                                                                <rect key="frame" x="0.0" y="231.00000000000006" width="345" height="62"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="d9B-dx-uHz">
                                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="62"/>

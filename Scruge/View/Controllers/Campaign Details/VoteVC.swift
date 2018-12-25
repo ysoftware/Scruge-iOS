@@ -174,7 +174,6 @@ extension VoteViewController: UITableViewDataSource {
 												 for: indexPath)!.setup(with: vm, cvm)
 				.tap { [unowned self] index in
 					Service.presenter.presentDetailViewController(in: self, milestone: vm.item(at: index)) }
-		default: break
 		}
 		if cell == nil { cell = UITableViewCell() }
 		return cell
