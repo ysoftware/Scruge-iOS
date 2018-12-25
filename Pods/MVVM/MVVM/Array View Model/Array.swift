@@ -50,9 +50,14 @@ open class ArrayViewModel<M, VM:ViewModel<M>, Q:Query> {
 		return array.count
 	}
 
-	/// `true` if there are no elements added.
+	/// `true` if there are no view models added.
 	public var isEmpty:Bool {
-		return array.count == 0
+		return array.isEmpty
+	}
+
+	/// `true` if there are some view models added.
+	public var isNotEmpty:Bool {
+		return !isEmpty
 	}
 
 	// MARK: - Private properties
@@ -181,8 +186,8 @@ open class ArrayViewModel<M, VM:ViewModel<M>, Q:Query> {
 			self.array = data
 			data.forEach { $0.arrayDelegate = self }
 
-			self.delegate?.didUpdateData(self, .reload)
 			self.state.setReady(true)
+			self.delegate?.didUpdateData(self, .reload)
 		}
 	}
 

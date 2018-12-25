@@ -4,7 +4,7 @@ PODS:
   - Kingfisher (4.10.1)
   - MVVM (0.1):
     - Result
-  - R.swift (5.0.0.rc.1):
+  - R.swift (5.0.0):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.0)
   - Result (4.0.0)
@@ -37,7 +37,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MVVM:
-    :commit: cde91f8ed8f59f496b8c54c29d4c8e4b95b2094f
+    :commit: 45ed7cd390a6fa3fe021e068a12f52ca76c2b0f4
     :git: https://github.com/ysoftware/MVVM-iOS.git
 
 SPEC CHECKSUMS:
@@ -45,7 +45,7 @@ SPEC CHECKSUMS:
   KeychainSwift: d5e776578587ee5958ce36601df22f168f65138a
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MVVM: 586bab0227d6fa43271f656535373e539a886575
-  R.swift: 955ff62be636bd61102ea12792fefe7e99d8805e
+  R.swift: f88c7d7d48a2be4dffa132dde1b3d389620310eb
   R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee

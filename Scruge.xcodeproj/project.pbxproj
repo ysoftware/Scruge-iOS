@@ -57,6 +57,8 @@
 		716E625D2189D94A002AC5DA /* Member.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E625C2189D94A002AC5DA /* Member.swift */; };
 		716E625F2189DA01002AC5DA /* MemberCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716E625E2189DA01002AC5DA /* MemberCell.xib */; };
 		716E62632189E13E002AC5DA /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E62622189E13E002AC5DA /* DownloadImage.swift */; };
+		716F05FF21D2170900561162 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F05FE21D2170900561162 /* AlertVC.swift */; };
+		716F060121D219D900561162 /* UIButton+AddTargetClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060021D219D800561162 /* UIButton+AddTargetClosure.swift */; };
 		71724CC321B7EB6C005C520D /* MemberProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71724CC221B7EB6C005C520D /* MemberProfileVC.swift */; };
 		71724CC521B81495005C520D /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71724CC421B81495005C520D /* DetailVC.swift */; };
 		71894B8C21C3B5B00050F705 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71894B8B21C3B5B00050F705 /* AccountModel.swift */; };
@@ -298,6 +300,8 @@
 		716E625C2189D94A002AC5DA /* Member.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Member.swift; sourceTree = "<group>"; };
 		716E625E2189DA01002AC5DA /* MemberCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemberCell.xib; sourceTree = "<group>"; };
 		716E62622189E13E002AC5DA /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
+		716F05FE21D2170900561162 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
+		716F060021D219D800561162 /* UIButton+AddTargetClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+AddTargetClosure.swift"; sourceTree = "<group>"; };
 		71724CC221B7EB6C005C520D /* MemberProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileVC.swift; sourceTree = "<group>"; };
 		71724CC421B81495005C520D /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		71894B8B21C3B5B00050F705 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountModel.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/Services/Wallet/AccountModel.swift"; sourceTree = "<absolute>"; };
@@ -666,6 +670,7 @@
 		71387A92216B6C8400B24C67 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				716F060021D219D800561162 /* UIButton+AddTargetClosure.swift */,
 				7105C35821AD63F8008AAB1E /* GradientView.swift */,
 				71C8E8E4215907580078BD36 /* DismissSegue.swift */,
 				71BE95AF216352F2001CF853 /* TableHeaderTap.swift */,
@@ -1253,6 +1258,7 @@
 				71BE957B215EA8E1001CF853 /* Tabbar.swift */,
 				71971CBE2158E8AA004D28E7 /* Presenter.swift */,
 				71387A9C216CCC4800B24C67 /* SettingsVC.swift */,
+				716F05FE21D2170900561162 /* AlertVC.swift */,
 			);
 			path = "Main (Navigation)";
 			sourceTree = "<group>";
@@ -1887,6 +1893,7 @@
 				71C3689A2181F80500729C00 /* EconomiesVM.swift in Sources */,
 				715DB15D217471980005B69D /* ContributeVC.swift in Sources */,
 				71D84CD421995AD000E8DB88 /* Signature.swift in Sources */,
+				716F05FF21D2170900561162 /* AlertVC.swift in Sources */,
 				71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */,
 				71AB7906216609420077D904 /* ProfileVM.swift in Sources */,
 				71AD0E302170919A00077446 /* DocumentCell.swift in Sources */,
@@ -1903,6 +1910,7 @@
 				71B8462321B5508400F6D708 /* CountdownCell.swift in Sources */,
 				71BE9591216233E3001CF853 /* CampFooter.swift in Sources */,
 				712B3A7521A81869003BB43A /* CardView.swift in Sources */,
+				716F060121D219D900561162 /* UIButton+AddTargetClosure.swift in Sources */,
 				71BE9560215E1B36001CF853 /* AuthApi.swift in Sources */,
 				71BE95B221635835001CF853 /* ErrorHandler.swift in Sources */,
 				71387A8E216B6C2200B24C67 /* ImageTools.swift in Sources */,

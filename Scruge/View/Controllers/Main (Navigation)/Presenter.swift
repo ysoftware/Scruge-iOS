@@ -171,6 +171,30 @@ struct Presenter {
 
 	// MARK: - General
 
+	private func setupPopover(_ new:UIViewController) {
+		new.providesPresentationContextTransitionStyle = true
+		new.definesPresentationContext = true
+		new.modalPresentationStyle = .overCurrentContext
+		new.modalTransitionStyle = .crossDissolve
+	}
+
+	func presentAlert(in vc:UIViewController, _ message:String, _ completion: (()->Void)? = nil) {
+		let new = R.storyboard.main.alertVC()!
+		setupPopover(new)
+		new.makeAlert(message: message) { completion?() }
+		vc.present(new, animated: true)
+	}
+
+	func presentDialog(in vc:UIViewController,
+					   title:String,
+					   question:String,
+					   completion: @escaping (Bool)->Void) {
+		let new = R.storyboard.main.alertVC()!
+		setupPopover(new)
+		new.makeDialog(title: title, message: question, block: completion)
+		vc.present(new, animated: true)
+	}
+
 	func presentActions(in vc:UIViewController,
 						title:String,
 						message:String,

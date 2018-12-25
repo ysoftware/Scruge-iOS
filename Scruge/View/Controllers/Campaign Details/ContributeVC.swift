@@ -90,9 +90,7 @@ final class ContributeViewController: UIViewController {
 	private func setupInformation() {
 		vm.loadAmountContributed { value in
 			guard let value = value else {
-				return self.alert("Could not load information") {
-					self.navigationController?.popViewController(animated: true)
-				}
+				return self.alert("Could not load information")
 			}
 			let usd = self.convertToUSD(value).rounded()
 				.formatDecimal(separateWith: " ")

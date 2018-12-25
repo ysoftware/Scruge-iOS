@@ -105,7 +105,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 		Service.api.getContributionHistory { result in
 			let contribution = result.value?.contributions.first(where: { $0.campaignId == model.id })
-			completion(contribution?.amount)
+			completion(contribution?.amount ?? 0)
 		}
 	}
 

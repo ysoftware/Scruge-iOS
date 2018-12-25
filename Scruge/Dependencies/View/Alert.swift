@@ -16,27 +16,14 @@ extension UIViewController {
 	}
 
 	func alert(_ message:String, _ completion: (()->Void)? = nil) {
-		let alert = UIAlertController(title: "Attention!", message: message, preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: "OK", style: .default) { _ in
-			alert.dismiss(animated: true)
-			completion?()
-		})
-		present(alert, animated: true, completion: nil)
+		Service.presenter.presentAlert(in: self, message, completion)
 	}
 
-	func ask(title: String = "Attention!", question:String,
-			 waitFor completion: @escaping (Bool) -> Void) {
-
-		let alert = UIAlertController(title: title, message: question, preferredStyle: .alert)
-		alert.addAction(UIAlertAction(title: "Yes", style: .default) { _ in
-			completion(true)
-			alert.dismiss(animated: true)
-		})
-		alert.addAction(UIAlertAction(title: "No", style: .default) { _ in
-			completion(false)
-			alert.dismiss(animated: true)
-		})
-		present(alert, animated: true, completion: nil)
+	func ask(title: String = "", question:String, waitFor completion: @escaping (Bool) -> Void) {
+		Service.presenter.presentDialog(in: self,
+										title: title,
+										question: question,
+										completion: completion)
 	}
 
 	func askForInput(_ title:String = "Attention!",
