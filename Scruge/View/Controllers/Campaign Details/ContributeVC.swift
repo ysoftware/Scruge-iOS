@@ -10,8 +10,6 @@ import UIKit
 
 final class ContributeViewController: UIViewController {
 
-	private let conversionRate = 1.5 // $ for 1 SCR
-
 	// MARK: - Outlets
 
 	@IBOutlet weak var scrollView: UIScrollView!
@@ -43,7 +41,7 @@ final class ContributeViewController: UIViewController {
 
 	var amountSCR:Double? {
 		guard let usd = Double(usdField.text!) else { return nil }
-		return convertToSCR(usd)
+		return Service.exchangeRates.convert(Quantity(usd, .usd), to: .scr)?.amount
 	}
 
 	var isChecked:Bool {
@@ -92,8 +90,10 @@ final class ContributeViewController: UIViewController {
 			guard let value = value else {
 				return self.alert("Could not load information")
 			}
-			let usd = self.convertToUSD(value).rounded()
+
+			let usd = (Service.exchangeRates.convert(Quantity(value, .scr), to: .usd)?.amount ?? 0)
 				.formatDecimal(separateWith: " ")
+
 			self.contributedLabel.text = "You have already contributed $\(usd) in this project"
 			self.contributedLabel.isHidden = value == 0
 		}
@@ -101,14 +101,6 @@ final class ContributeViewController: UIViewController {
 	}
 
 	// MARK: - Methods
-
-	private func convertToSCR(_ amount:Double) -> Double {
-		return amount * conversionRate
-	}
-
-	private func convertToUSD(_ amount:Double) -> Double {
-		return amount / conversionRate
-	}
 
 	@objc private func contribute() {
 		guard isChecked else { return }
@@ -147,8 +139,8 @@ extension ContributeViewController: UITextFieldDelegate {
 		let updatedText = text.replacingCharacters(in: textRange,
 												   with: string.replacingOccurrences(of: ",", with: "."))
 
-		if let usd = Double(updatedText) {
-			let scr = convertToSCR(usd)
+		if let usd = Double(updatedText),
+			let scr = Service.exchangeRates.convert(Quantity(usd, .usd), to: .scr)?.amount {
 			scrField.text = "\(scr) SCR"
 		}
 		else {

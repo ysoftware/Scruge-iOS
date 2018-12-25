@@ -35,14 +35,19 @@ final class AccountVM:ViewModel<AccountModel> {
 		let att = NSMutableAttributedString()
 		balances.forEach { balance in
 			let amount = balance.amount.formatRounding(to: 4, min: 4)
-			let usd = (balance.amount / 5).formatRounding(to: 2)
 
 			if att.length > 0 { att.append(separator) }
 			att.append(balance.symbol, withAttributes: currencyAtt)
 				.append("  ")
 				.append(amount, withAttributes: balanceAtt)
-				.append("  ")
-				.append("($\(usd))", withAttributes: fiatAtt)
+
+			if let symbol = Asset(rawValue: balance.symbol),
+				let usd = Service.exchangeRates.convert(Quantity(balance.amount, symbol),
+														to: .usd) {
+				let usdString = usd.amount.formatRounding(to: 2)
+				att.append("  ")
+					.append("($\(usdString))", withAttributes: fiatAtt)
+			}
 		}
 		return att
 	}

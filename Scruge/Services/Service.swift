@@ -23,4 +23,6 @@ struct Service {
 	static let wallet = Wallet()
 
 	static let presenter = Presenter()
+
+	static let exchangeRates = ExchangeRates()
 }

@@ -59,6 +59,8 @@
 		716E62632189E13E002AC5DA /* DownloadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716E62622189E13E002AC5DA /* DownloadImage.swift */; };
 		716F05FF21D2170900561162 /* AlertVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F05FE21D2170900561162 /* AlertVC.swift */; };
 		716F060121D219D900561162 /* UIButton+AddTargetClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060021D219D800561162 /* UIButton+AddTargetClosure.swift */; };
+		716F060421D255FB00561162 /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060221D2535600561162 /* ExchangeRates.swift */; };
+		716F060721D2561400561162 /* ExchangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060621D2561400561162 /* ExchangeModel.swift */; };
 		71724CC321B7EB6C005C520D /* MemberProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71724CC221B7EB6C005C520D /* MemberProfileVC.swift */; };
 		71724CC521B81495005C520D /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71724CC421B81495005C520D /* DetailVC.swift */; };
 		71894B8C21C3B5B00050F705 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71894B8B21C3B5B00050F705 /* AccountModel.swift */; };
@@ -302,6 +304,8 @@
 		716E62622189E13E002AC5DA /* DownloadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadImage.swift; sourceTree = "<group>"; };
 		716F05FE21D2170900561162 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
 		716F060021D219D800561162 /* UIButton+AddTargetClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+AddTargetClosure.swift"; sourceTree = "<group>"; };
+		716F060221D2535600561162 /* ExchangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
+		716F060621D2561400561162 /* ExchangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExchangeModel.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/Services/Exchange/ExchangeModel.swift"; sourceTree = "<absolute>"; };
 		71724CC221B7EB6C005C520D /* MemberProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileVC.swift; sourceTree = "<group>"; };
 		71724CC421B81495005C520D /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		71894B8B21C3B5B00050F705 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountModel.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/Services/Wallet/AccountModel.swift"; sourceTree = "<absolute>"; };
@@ -699,8 +703,8 @@
 		71387A96216B74E000B24C67 /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				71C8E8F2215912A10078BD36 /* Settings.swift */,
 				71BE9564215E2A22001CF853 /* TokenManager.swift */,
+				71C8E8F2215912A10078BD36 /* Settings.swift */,
 				71BE95CC21649FF2001CF853 /* Constants.swift */,
 			);
 			path = Other;
@@ -746,6 +750,15 @@
 				716E62592189D8D3002AC5DA /* MemberCell.swift */,
 			);
 			path = Member;
+			sourceTree = "<group>";
+		};
+		716F060521D2560300561162 /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				716F060621D2561400561162 /* ExchangeModel.swift */,
+				716F060221D2535600561162 /* ExchangeRates.swift */,
+			);
+			path = Exchange;
 			sourceTree = "<group>";
 		};
 		71971C742158E056004D28E7 = {
@@ -800,6 +813,7 @@
 				71C8E8E621590F1E0078BD36 /* EOS */,
 				71BE956B215E3CD9001CF853 /* Network */,
 				71BE956E215E5D11001CF853 /* Api */,
+				716F060521D2560300561162 /* Exchange */,
 				71387A96216B74E000B24C67 /* Other */,
 			);
 			path = Services;
@@ -1997,6 +2011,7 @@
 				71BE958C21622C3F001CF853 /* PartialCampVM.swift in Sources */,
 				71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */,
 				7105C35721AD554D008AAB1E /* RegisterVC.swift in Sources */,
+				716F060721D2561400561162 /* ExchangeModel.swift in Sources */,
 				7198C821218C68FE009682E7 /* Mock.swift in Sources */,
 				71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */,
 				71D9C1E221B16EA00043B15E /* Vote.swift in Sources */,
@@ -2036,6 +2051,7 @@
 				71A0C1B6217089A700C2ACF3 /* FaqVM.swift in Sources */,
 				71B8463321B6AB0600F6D708 /* VoteNotificationCell.swift in Sources */,
 				7198C820218AFB2C009682E7 /* ErrorTypes.swift in Sources */,
+				716F060421D255FB00561162 /* ExchangeRates.swift in Sources */,
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,
 				716E62562189939D002AC5DA /* Contribution.swift in Sources */,
 				71DC1A9D21B00ACF001D5575 /* WalletPickerVC.swift in Sources */,
