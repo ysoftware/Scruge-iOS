@@ -185,6 +185,18 @@ struct Presenter {
 		vc.present(new, animated: true)
 	}
 
+	func presentAction(in vc:UIViewController,
+					   title:String,
+					   action:String,
+					   message:String,
+					   block: @escaping ()->Void) {
+		let new = R.storyboard.main.alertVC()!
+		setupPopover(new)
+		new.makeAlert(title: title, message: message, buttonTitle: action,
+					  showCloseButton: true, block: block)
+		vc.present(new, animated: true)
+	}
+
 	func presentDialog(in vc:UIViewController,
 					   title:String,
 					   question:String,

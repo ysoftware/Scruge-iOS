@@ -23,17 +23,26 @@ final class AccountVM:ViewModel<AccountModel> {
 		let currencyAtt = AttributesBuilder()
 			.color(Service.constants.color.purple)
 			.font(.systemFont(ofSize: 18, weight: .semibold)).build()
+
 		let balanceAtt = AttributesBuilder()
-			.color(.black)
+			.color(Service.constants.color.grayTitle)
 			.font(.systemFont(ofSize: 16, weight: .medium)).build()
+
+		let fiatAtt = AttributesBuilder()
+			.color(Service.constants.color.gray)
+			.font(.systemFont(ofSize: 15, weight: .semibold)).build()
 
 		let att = NSMutableAttributedString()
 		balances.forEach { balance in
 			let amount = balance.amount.formatRounding(to: 4, min: 4)
+			let usd = (balance.amount / 5).formatRounding(to: 2)
+
 			if att.length > 0 { att.append(separator) }
 			att.append(balance.symbol, withAttributes: currencyAtt)
 				.append("  ")
 				.append(amount, withAttributes: balanceAtt)
+				.append("  ")
+				.append("($\(usd))", withAttributes: fiatAtt)
 		}
 		return att
 	}
