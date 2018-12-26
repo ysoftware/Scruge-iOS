@@ -17,6 +17,7 @@ final class WalletViewController: UIViewController {
 
 	@IBOutlet weak var walletDataView: WalletDataView!
 	@IBOutlet weak var loadingView: LoadingView!
+	@IBOutlet weak var scrollView: UIScrollView!
 
 	// MARK: - Property
 
@@ -34,6 +35,7 @@ final class WalletViewController: UIViewController {
 
 		setupNavigationBar()
 		setupActions()
+		setupScrollView()
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -45,6 +47,14 @@ final class WalletViewController: UIViewController {
 		super.viewWillAppear(animated)
 
 		verifyWallet()
+	}
+
+	private func setupScrollView() {
+		if #available(iOS 11.0, *) {
+			scrollView.contentInsetAdjustmentBehavior = .never
+			scrollView.contentInset.bottom = tabBarController?.tabBar.frame.height ?? 0
+		}
+		automaticallyAdjustsScrollViewInsets = false
 	}
 
 	private func setupActions() {

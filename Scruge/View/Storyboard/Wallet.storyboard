@@ -119,7 +119,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qg9-vN-7HK">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qg9-vN-7HK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="who-1H-QDH">
@@ -618,6 +618,7 @@
                         <outlet property="accountNameLabel" destination="p3t-Ze-lJ0" id="YJm-zW-cbL"/>
                         <outlet property="balanceLabel" destination="cm1-v5-8f3" id="yQb-E3-UWj"/>
                         <outlet property="loadingView" destination="ZyX-Gt-tbs" id="3xP-Pm-ltZ"/>
+                        <outlet property="scrollView" destination="qg9-vN-7HK" id="pia-5M-OBC"/>
                         <outlet property="walletDataView" destination="nof-Dl-hXT" id="q9y-cs-EbK"/>
                     </connections>
                 </viewController>

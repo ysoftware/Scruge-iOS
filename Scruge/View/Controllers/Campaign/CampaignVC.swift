@@ -122,7 +122,7 @@ final class CampaignViewController: UIViewController {
 		tableView.estimatedRowHeight = 400
 		tableView.rowHeight = UITableView.automaticDimension
 
-//		 make table view go under the navigation bar
+		// make table view go under the navigation bar
 		if #available(iOS 11.0, *) {
 			tableView.contentInsetAdjustmentBehavior = .never
 		}
