@@ -1,6 +1,6 @@
 PODS:
   - appendAttributedString (0.2)
-  - KeychainSwift (12.0.0)
+  - KeychainSwift (13.0.0)
   - Kingfisher (4.10.1)
   - MVVM (0.1):
     - Result
@@ -10,15 +10,19 @@ PODS:
   - Result (4.0.0)
   - SwiftDate (5.0.13)
   - SwiftHTTP (3.0.1)
+  - SwiftyRSA (1.5.0):
+    - SwiftyRSA/ObjC (= 1.5.0)
+  - SwiftyRSA/ObjC (1.5.0)
 
 DEPENDENCIES:
   - appendAttributedString
-  - KeychainSwift (~> 12.0)
+  - KeychainSwift (~> 13)
   - Kingfisher (~> 4)
   - MVVM (from `https://github.com/ysoftware/MVVM-iOS.git`)
-  - R.swift (~> 5.0.0.alpha.2)
+  - R.swift (~> 5)
   - SwiftDate (~> 5)
   - SwiftHTTP (~> 3)
+  - SwiftyRSA (~> 1)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -30,6 +34,7 @@ SPEC REPOS:
     - Result
     - SwiftDate
     - SwiftHTTP
+    - SwiftyRSA
 
 EXTERNAL SOURCES:
   MVVM:
@@ -42,7 +47,7 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   appendAttributedString: 2e0ba3b3871fde5e9869c21bf7e5357ebb748fc5
-  KeychainSwift: d5e776578587ee5958ce36601df22f168f65138a
+  KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MVVM: 586bab0227d6fa43271f656535373e539a886575
   R.swift: f88c7d7d48a2be4dffa132dde1b3d389620310eb
@@ -50,7 +55,8 @@ SPEC CHECKSUMS:
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
   SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
   SwiftHTTP: e94f1aa8cde58637dcc0100f6349de31a3337fde
+  SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
 
-PODFILE CHECKSUM: 10b7107150b69324d3c260598e834b4cc902eb7c
+PODFILE CHECKSUM: 13a1877182c2c219ab1542d85163926ffeb0a78c
 
 COCOAPODS: 1.5.2

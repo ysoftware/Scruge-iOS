@@ -61,6 +61,7 @@
 		716F060121D219D900561162 /* UIButton+AddTargetClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060021D219D800561162 /* UIButton+AddTargetClosure.swift */; };
 		716F060421D255FB00561162 /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060221D2535600561162 /* ExchangeRates.swift */; };
 		716F060721D2561400561162 /* ExchangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060621D2561400561162 /* ExchangeModel.swift */; };
+		716F060921D3628D00561162 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060821D3628D00561162 /* Testing.swift */; };
 		71724CC321B7EB6C005C520D /* MemberProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71724CC221B7EB6C005C520D /* MemberProfileVC.swift */; };
 		71724CC521B81495005C520D /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71724CC421B81495005C520D /* DetailVC.swift */; };
 		71894B8C21C3B5B00050F705 /* AccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71894B8B21C3B5B00050F705 /* AccountModel.swift */; };
@@ -306,6 +307,7 @@
 		716F060021D219D800561162 /* UIButton+AddTargetClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+AddTargetClosure.swift"; sourceTree = "<group>"; };
 		716F060221D2535600561162 /* ExchangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
 		716F060621D2561400561162 /* ExchangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExchangeModel.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/Services/Exchange/ExchangeModel.swift"; sourceTree = "<absolute>"; };
+		716F060821D3628D00561162 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		71724CC221B7EB6C005C520D /* MemberProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileVC.swift; sourceTree = "<group>"; };
 		71724CC421B81495005C520D /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
 		71894B8B21C3B5B00050F705 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountModel.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/Services/Wallet/AccountModel.swift"; sourceTree = "<absolute>"; };
@@ -878,6 +880,7 @@
 				71971CB82158E445004D28E7 /* R.generated.swift */,
 				71971C872158E058004D28E7 /* Assets.xcassets */,
 				71971C8C2158E058004D28E7 /* Info.plist */,
+				716F060821D3628D00561162 /* Testing.swift */,
 			);
 			name = Support;
 			sourceTree = "<group>";
@@ -1827,6 +1830,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftHTTP/SwiftHTTP.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework",
 				"${BUILT_PRODUCTS_DIR}/appendAttributedString/appendAttributedString.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -1838,6 +1842,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHTTP.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyRSA.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/appendAttributedString.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1984,6 +1989,7 @@
 				71BE95CB21649C67001CF853 /* DateMilliseconds.swift in Sources */,
 				71BE95AA2162603C001CF853 /* RewardCell.swift in Sources */,
 				71A0C1BA21708AD000C2ACF3 /* Category.swift in Sources */,
+				716F060921D3628D00561162 /* Testing.swift in Sources */,
 				71345AF32176000000F28AF1 /* Range.swift in Sources */,
 				71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */,
 				71387A99216CA73D00B24C67 /* TagCell.swift in Sources */,

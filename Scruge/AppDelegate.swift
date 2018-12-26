@@ -18,9 +18,11 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		#if DEBUG
 		Service.api.setEnvironment(.prod)
+		Test.run()
 		#else
 		Service.api.setEnvironment(.prod)
 		#endif
+
 
 		return true
 	}
