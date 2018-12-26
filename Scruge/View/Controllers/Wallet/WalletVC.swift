@@ -15,6 +15,7 @@ final class WalletViewController: UIViewController {
 	@IBOutlet weak var accountNameLabel: UILabel!
 	@IBOutlet weak var balanceLabel: UILabel!
 
+	@IBOutlet weak var walletDataView: WalletDataView!
 	@IBOutlet weak var loadingView: LoadingView!
 
 	// MARK: - Property
@@ -30,7 +31,9 @@ final class WalletViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
 		setupNavigationBar()
+		setupActions()
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -42,6 +45,15 @@ final class WalletViewController: UIViewController {
 		super.viewWillAppear(animated)
 
 		verifyWallet()
+	}
+
+	private func setupActions() {
+		walletDataView.exportPrivateKeyTap = { [unowned self] wallet in
+			self.alert("not implemented yet")
+		}
+		walletDataView.copyPublicKeyTap = { wallet in
+			UIPasteboard.general.string = wallet?.rawPublicKey
+		}
 	}
 
 	private func verifyWallet() {
@@ -61,6 +73,7 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func updateView() {
+		walletDataView.updateViews()
 		accountNameLabel.text = accountVM?.name ?? ""
 		if let str = accountVM?.balanceString() {
 			balanceLabel.attributedText = str
