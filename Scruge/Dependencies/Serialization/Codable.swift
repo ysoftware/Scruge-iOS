@@ -62,7 +62,7 @@ public extension Encodable {
 			}
 		}
 		catch let error {
-			print("encodable.asDict: \(error)")
+			print("toDictionary(): \(error)")
 			return [:]
 		}
 	}
@@ -75,11 +75,15 @@ extension Dictionary where Key == String {
 	/// - Parameter class: класс объекта.
 	func parse<T:Decodable>(object class:T.Type = T.self) -> T? {
 		do {
-			let data = try JSONSerialization.data(withJSONObject: self)
+			var dict = self as [String:Any]
+			if let dd = self as? [String: AnyCodable] {
+				dict = Dictionary<String, Any>(uniqueKeysWithValues: dd.map { ($0, $1.value) })
+			}
+			let data = try JSONSerialization.data(withJSONObject: dict)
 			return try JSONDecoder().decode(T.self, from: data)
 		}
 		catch {
-			print("search: parse \(T.self): \(error)")
+			print("parse: parse \(T.self): \(error)")
 			return nil
 		}
 	}
@@ -96,7 +100,7 @@ extension Array where Element == Dictionary<String, Any> {
 			return try JSONDecoder().decode([T].self, from: data)
 		}
 		catch {
-			print("search: parse arrayOf \(T.self): \(error)")
+			print("parse: parse arrayOf \(T.self): \(error)")
 			return []
 		}
 	}

@@ -11,7 +11,7 @@ import Result
 
 final class ActionsAVM: ArrayViewModel<ActionReceipt, ActionVM, ActionsQuery> {
 
-	private let accountName:String
+	let accountName:String
 
 	init(accountName:String) {
 		self.accountName = accountName

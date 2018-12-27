@@ -17,7 +17,7 @@ public struct AnyCodable: Codable {
     public let value: Any
     
     public init<T>(_ value: T?) {
-        self.value = value ?? ()
+         self.value = value ?? NSNull()
     }
 }
 

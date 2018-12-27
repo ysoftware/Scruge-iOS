@@ -72,23 +72,26 @@ func customDateFormatter(_ decoder: Decoder) throws -> Date {
             
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
-                    completion(nil, NSError(domain: errorDomain, code: 1,
-                                            userInfo: [NSLocalizedDescriptionKey: "Networking error \(String(describing: error)) \(String(describing: response))"]))
+                    completion(nil, NSError(domain: errorDomain,
+											code: 1,
+                                            userInfo: [NSLocalizedDescriptionKey:
+												"Networking error \(String(describing: error)) \(String(describing: response))"]))
                     return
                 }
-                
+
                 let decoder = self.decoder
-                guard let responseObject = try? decoder.decode(T.self, from: data) else {
-                    guard let errorResponse = try? decoder.decode(RPCErrorResponse.self, from: data) else {
-                        completion(nil, NSError(domain: errorDomain, code: 1, userInfo: [NSLocalizedDescriptionKey: "Decoding error \(String(describing: error))"]))
-                        return
-                    }
-                    completion(nil, NSError(domain: errorDomain, code: RPCErrorResponse.ErrorCode, userInfo: [RPCErrorResponse.ErrorKey: errorResponse]))
-                    return
-                }
-                completion(responseObject, error)
+				do {
+					let responseObject = try decoder.decode(T.self, from: data)
+					completion(responseObject, error)
+				}
+				catch (let error) {
+					let errorResponse = try? decoder.decode(RPCErrorResponse.self, from: data)
+					completion(nil, NSError(domain: errorDomain,
+											code: 1,
+											userInfo: [NSLocalizedDescriptionKey:
+												"Decoding error \(String(describing: errorResponse ?? error))"]))
+				}
             }
-            
         }
         
         dataTask.resume()

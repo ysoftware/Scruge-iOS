@@ -41,7 +41,9 @@ struct EOS {
 		chain.getActions(accountName: account,
 						 position: query?.position ?? -1,
 						 offset: query?.offset ?? -10) { result, error in
-			guard let actions = result?.actions else {
+			guard let actions = result?.actions
+				.sorted(by: { $0.globalActionSeq > $1.globalActionSeq })
+			else {
 				return completion(.failure(AnyError(error ?? EOSError.unknown)))
 			}
 			completion(.success(actions))

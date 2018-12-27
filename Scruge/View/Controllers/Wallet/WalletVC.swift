@@ -15,6 +15,7 @@ final class WalletViewController: UIViewController {
 	@IBOutlet weak var accountNameLabel: UILabel!
 	@IBOutlet weak var balanceLabel: UILabel!
 
+	@IBOutlet weak var walletActionsView: WalletTransactionsView!
 	@IBOutlet weak var walletDataView: WalletDataView!
 	@IBOutlet weak var loadingView: LoadingView!
 	@IBOutlet weak var scrollView: UIScrollView!
@@ -83,8 +84,12 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func updateView() {
+		walletActionsView.accountName = accountVM?.name
 		walletDataView.updateViews()
 		accountNameLabel.text = accountVM?.name ?? ""
+	}
+
+	private func updateBalance() {
 		if let str = accountVM?.balanceString() {
 			balanceLabel.attributedText = str
 		}
@@ -200,6 +205,7 @@ extension WalletViewController: ArrayViewModelDelegate {
 			switch update {
 			case .reload:
 				selectVM()
+				updateView()
 			default: break
 			}
 	}
@@ -208,7 +214,6 @@ extension WalletViewController: ArrayViewModelDelegate {
 extension WalletViewController: ViewModelDelegate {
 
 	func didUpdateData<M>(_ viewModel: ViewModel<M>) where M : Equatable {
-
-		updateView()
+		updateBalance()
 	}
 }

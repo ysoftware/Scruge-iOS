@@ -278,11 +278,13 @@
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S7N-NN-qpg" customClass="WalletTransactionsView" customModule="Scruge" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="0.0"/>
                                                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" placeholder="YES" id="aXa-tm-ktm"/>
+                                                                                        </constraints>
                                                                                     </view>
                                                                                 </subviews>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
-                                                                                    <constraint firstAttribute="height" placeholder="YES" id="Dr3-FP-krd"/>
                                                                                     <constraint firstAttribute="bottom" secondItem="S7N-NN-qpg" secondAttribute="bottom" id="M9u-7o-FWd"/>
                                                                                     <constraint firstItem="S7N-NN-qpg" firstAttribute="leading" secondItem="9Lx-3g-MFV" secondAttribute="leading" id="OKA-Sc-12S"/>
                                                                                     <constraint firstItem="S7N-NN-qpg" firstAttribute="top" secondItem="9Lx-3g-MFV" secondAttribute="top" id="ZDD-pY-nYG"/>
@@ -629,6 +631,7 @@
                         <outlet property="balanceLabel" destination="cm1-v5-8f3" id="yQb-E3-UWj"/>
                         <outlet property="loadingView" destination="ZyX-Gt-tbs" id="3xP-Pm-ltZ"/>
                         <outlet property="scrollView" destination="qg9-vN-7HK" id="pia-5M-OBC"/>
+                        <outlet property="walletActionsView" destination="S7N-NN-qpg" id="t7K-IK-UOT"/>
                         <outlet property="walletDataView" destination="nof-Dl-hXT" id="q9y-cs-EbK"/>
                     </connections>
                 </viewController>

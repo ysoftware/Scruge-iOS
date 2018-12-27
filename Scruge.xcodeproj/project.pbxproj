@@ -176,6 +176,8 @@
 		71C2439321D4C36000E86F64 /* ActionsAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2439221D4C36000E86F64 /* ActionsAVM.swift */; };
 		71C2439521D4C37900E86F64 /* ActionQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2439421D4C37900E86F64 /* ActionQ.swift */; };
 		71C2439D21D4E04900E86F64 /* ActionModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2439C21D4E04800E86F64 /* ActionModels.swift */; };
+		71C243A121D4E3D600E86F64 /* TransactionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C243A021D4E3D600E86F64 /* TransactionCell.swift */; };
+		71C243A321D4E3DE00E86F64 /* TransactionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C243A221D4E3DE00E86F64 /* TransactionCell.xib */; };
 		71C2C5B821AC0CCC0040C85A /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2C5B721AC0CCC0040C85A /* Button.swift */; };
 		71C2C5BA21AC0CDB0040C85A /* Button.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C2C5B921AC0CDB0040C85A /* Button.xib */; };
 		71C2C5BD21AC20FE0040C85A /* DocumentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C2C5BC21AC20FE0040C85A /* DocumentsCell.xib */; };
@@ -435,6 +437,8 @@
 		71C2439221D4C36000E86F64 /* ActionsAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionsAVM.swift; sourceTree = "<group>"; };
 		71C2439421D4C37900E86F64 /* ActionQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionQ.swift; sourceTree = "<group>"; };
 		71C2439C21D4E04800E86F64 /* ActionModels.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ActionModels.swift; sourceTree = "<group>"; };
+		71C243A021D4E3D600E86F64 /* TransactionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionCell.swift; sourceTree = "<group>"; };
+		71C243A221D4E3DE00E86F64 /* TransactionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionCell.xib; sourceTree = "<group>"; };
 		71C2C5B721AC0CCC0040C85A /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		71C2C5B921AC0CDB0040C85A /* Button.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Button.xib; sourceTree = "<group>"; };
 		71C2C5BC21AC20FE0040C85A /* DocumentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentsCell.xib; sourceTree = "<group>"; };
@@ -928,6 +932,7 @@
 		71971CBB2158E454004D28E7 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				71C2439E21D4E3C700E86F64 /* Wallet */,
 				71B8461621B54E9400F6D708 /* Voting Details */,
 				713EF3AD21A84C3D009BA9D5 /* Campaign Details */,
 				71FF085821AE763500D9F3A3 /* Activity Cells */,
@@ -1351,6 +1356,23 @@
 				71C2439421D4C37900E86F64 /* ActionQ.swift */,
 			);
 			path = Transaction;
+			sourceTree = "<group>";
+		};
+		71C2439E21D4E3C700E86F64 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				71C2439F21D4E3CC00E86F64 /* Action */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		71C2439F21D4E3CC00E86F64 /* Action */ = {
+			isa = PBXGroup;
+			children = (
+				71C243A221D4E3DE00E86F64 /* TransactionCell.xib */,
+				71C243A021D4E3D600E86F64 /* TransactionCell.swift */,
+			);
+			path = Action;
 			sourceTree = "<group>";
 		};
 		71C2C5B621AC0CC00040C85A /* Button */ = {
@@ -1795,6 +1817,7 @@
 				71DA7E912164AAF90052EB8F /* Details.storyboard in Resources */,
 				71BE959921625582001CF853 /* MilestoneCell.xib in Resources */,
 				71345C212179D24C00F28AF1 /* AccountCell.xib in Resources */,
+				71C243A321D4E3DE00E86F64 /* TransactionCell.xib in Resources */,
 				71B8461C21B54ED900F6D708 /* VoteInfoCell.xib in Resources */,
 				71BE95B821636245001CF853 /* ErrorView.xib in Resources */,
 				71BE95A0216258E7001CF853 /* LastUpdateCell.xib in Resources */,
@@ -1985,6 +2008,7 @@
 				71D84CDD21995AD000E8DB88 /* PrivateKey.swift in Sources */,
 				71D84CDE21995AD000E8DB88 /* ChainModels.swift in Sources */,
 				71B8462321B5508400F6D708 /* CountdownCell.swift in Sources */,
+				71C243A121D4E3D600E86F64 /* TransactionCell.swift in Sources */,
 				71BE9591216233E3001CF853 /* CampFooter.swift in Sources */,
 				712B3A7521A81869003BB43A /* CardView.swift in Sources */,
 				716F060121D219D900561162 /* UIButton+AddTargetClosure.swift in Sources */,
@@ -2315,6 +2339,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.MVP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENABLE_BATCH_MODE = NO;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Scruge/Dependencies/Third-Party/SwiftyEOS/Libraries/include/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -2338,6 +2363,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.MVP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ENABLE_BATCH_MODE = NO;
+				SWIFT_INSTALL_OBJC_HEADER = NO;
 				SWIFT_OBJC_BRIDGING_HEADER = "Scruge/Dependencies/Third-Party/SwiftyEOS/Libraries/include/Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;

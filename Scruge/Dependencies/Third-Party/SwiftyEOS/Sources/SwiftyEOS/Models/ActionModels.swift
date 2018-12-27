@@ -30,7 +30,7 @@ struct ActionTrace: Codable {
 	let trxId:String
 	let blockNum:Int
 	let blockTime:String
-	let producerBlockId:String
+	let producerBlockId:String?
 	let accountRamDeltas:[ActionRamDelta]
 	// TO-DO: unknown types for these fields
 //	let except:Int?
