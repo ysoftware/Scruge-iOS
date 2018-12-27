@@ -171,6 +171,11 @@
 		71BE95C92163E879001CF853 /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95C82163E879001CF853 /* ProgressView.swift */; };
 		71BE95CB21649C67001CF853 /* DateMilliseconds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95CA21649C67001CF853 /* DateMilliseconds.swift */; };
 		71BE95CD21649FF2001CF853 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE95CC21649FF2001CF853 /* Constants.swift */; };
+		71C2438C21D4BD8F00E86F64 /* WalletTransactionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2438B21D4BD8F00E86F64 /* WalletTransactionsView.swift */; };
+		71C2438F21D4C33200E86F64 /* TransactionVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2438E21D4C33200E86F64 /* TransactionVM.swift */; };
+		71C2439121D4C34700E86F64 /* TransactionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2439021D4C34700E86F64 /* TransactionModel.swift */; };
+		71C2439321D4C36000E86F64 /* TransactionAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2439221D4C36000E86F64 /* TransactionAVM.swift */; };
+		71C2439521D4C37900E86F64 /* TransactionQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2439421D4C37900E86F64 /* TransactionQ.swift */; };
 		71C2C5B821AC0CCC0040C85A /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71C2C5B721AC0CCC0040C85A /* Button.swift */; };
 		71C2C5BA21AC0CDB0040C85A /* Button.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C2C5B921AC0CDB0040C85A /* Button.xib */; };
 		71C2C5BD21AC20FE0040C85A /* DocumentsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71C2C5BC21AC20FE0040C85A /* DocumentsCell.xib */; };
@@ -425,6 +430,11 @@
 		71BE95C82163E879001CF853 /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		71BE95CA21649C67001CF853 /* DateMilliseconds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateMilliseconds.swift; sourceTree = "<group>"; };
 		71BE95CC21649FF2001CF853 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		71C2438B21D4BD8F00E86F64 /* WalletTransactionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTransactionsView.swift; sourceTree = "<group>"; };
+		71C2438E21D4C33200E86F64 /* TransactionVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionVM.swift; sourceTree = "<group>"; };
+		71C2439021D4C34700E86F64 /* TransactionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionModel.swift; sourceTree = "<group>"; };
+		71C2439221D4C36000E86F64 /* TransactionAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAVM.swift; sourceTree = "<group>"; };
+		71C2439421D4C37900E86F64 /* TransactionQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionQ.swift; sourceTree = "<group>"; };
 		71C2C5B721AC0CCC0040C85A /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		71C2C5B921AC0CDB0040C85A /* Button.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Button.xib; sourceTree = "<group>"; };
 		71C2C5BC21AC20FE0040C85A /* DocumentsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentsCell.xib; sourceTree = "<group>"; };
@@ -752,13 +762,13 @@
 			path = "Paging Cell";
 			sourceTree = "<group>";
 		};
-		716AE1E421D39BFB005EF68B /* Wallet Data */ = {
+		716AE1E421D39BFB005EF68B /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				716AE1E721D39C13005EF68B /* WalletDataView.xib */,
 				716AE1E521D39C09005EF68B /* WalletDataView.swift */,
 			);
-			path = "Wallet Data";
+			path = Data;
 			sourceTree = "<group>";
 		};
 		716E625B2189D8D6002AC5DA /* Member */ = {
@@ -851,6 +861,7 @@
 		71971CB32158E3F6004D28E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				71C2438D21D4C31C00E86F64 /* Transaction */,
 				71C368982181F7F100729C00 /* Economies */,
 				71345C192179C93600F28AF1 /* Account-Wallet */,
 				71AB7904216609330077D904 /* Profile */,
@@ -938,7 +949,7 @@
 		71971CBC2158E45B004D28E7 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				716AE1E421D39BFB005EF68B /* Wallet Data */,
+				71C2438A21D4BD7100E86F64 /* Wallet */,
 				7105C35321AD2C59008AAB1E /* Progress View */,
 				71C2C5B621AC0CC00040C85A /* Button */,
 				712B3A7321A81854003BB43A /* CardView */,
@@ -1120,6 +1131,7 @@
 				716E62552189939D002AC5DA /* Contribution.swift */,
 				716E625C2189D94A002AC5DA /* Member.swift */,
 				71D9C1E121B16EA00043B15E /* Vote.swift */,
+				71C2439021D4C34700E86F64 /* TransactionModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1313,6 +1325,33 @@
 				71BE95BE216376A9001CF853 /* CategoryAVM.swift */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		71C2438921D4BD6600E86F64 /* Transactions */ = {
+			isa = PBXGroup;
+			children = (
+				71C2438B21D4BD8F00E86F64 /* WalletTransactionsView.swift */,
+			);
+			path = Transactions;
+			sourceTree = "<group>";
+		};
+		71C2438A21D4BD7100E86F64 /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+				71C2438921D4BD6600E86F64 /* Transactions */,
+				716AE1E421D39BFB005EF68B /* Data */,
+			);
+			path = Wallet;
+			sourceTree = "<group>";
+		};
+		71C2438D21D4C31C00E86F64 /* Transaction */ = {
+			isa = PBXGroup;
+			children = (
+				71C2438E21D4C33200E86F64 /* TransactionVM.swift */,
+				71C2439221D4C36000E86F64 /* TransactionAVM.swift */,
+				71C2439421D4C37900E86F64 /* TransactionQ.swift */,
+			);
+			path = Transaction;
 			sourceTree = "<group>";
 		};
 		71C2C5B621AC0CC00040C85A /* Button */ = {
@@ -1928,6 +1967,7 @@
 				71D84CC321995AD000E8DB88 /* curves.c in Sources */,
 				716E625821899455002AC5DA /* ContribApi.swift in Sources */,
 				71C3689A2181F80500729C00 /* EconomiesVM.swift in Sources */,
+				71C2438F21D4C33200E86F64 /* TransactionVM.swift in Sources */,
 				715DB15D217471980005B69D /* ContributeVC.swift in Sources */,
 				71D84CD421995AD000E8DB88 /* Signature.swift in Sources */,
 				716F05FF21D2170900561162 /* AlertVC.swift in Sources */,
@@ -1989,6 +2029,7 @@
 				71FF085B21AE766800D9F3A3 /* ActivityUpdateCell.swift in Sources */,
 				716E62632189E13E002AC5DA /* DownloadImage.swift in Sources */,
 				71D84CDF21995AD000E8DB88 /* Error.swift in Sources */,
+				71C2439321D4C36000E86F64 /* TransactionAVM.swift in Sources */,
 				71387A9F216CD17300B24C67 /* Networking.swift in Sources */,
 				71B38D12215B998F00929CC3 /* MilestoneVM.swift in Sources */,
 				71345C1B2179C96600F28AF1 /* AccountVM.swift in Sources */,
@@ -2021,6 +2062,7 @@
 				71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */,
 				71163A472167517E00C5B633 /* Wallet.swift in Sources */,
 				71BE958921621AF9001CF853 /* ContentVC.swift in Sources */,
+				71C2439121D4C34700E86F64 /* TransactionModel.swift in Sources */,
 				71A0C1B1216FA6A300C2ACF3 /* SocialCell.swift in Sources */,
 				716E625D2189D94A002AC5DA /* Member.swift in Sources */,
 				71D84CCC21995AD000E8DB88 /* pbkdf2.c in Sources */,
@@ -2039,6 +2081,7 @@
 				7105C35721AD554D008AAB1E /* RegisterVC.swift in Sources */,
 				716F060721D2561400561162 /* ExchangeModel.swift in Sources */,
 				7198C821218C68FE009682E7 /* Mock.swift in Sources */,
+				71C2439521D4C37900E86F64 /* TransactionQ.swift in Sources */,
 				71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */,
 				71D9C1E221B16EA00043B15E /* Vote.swift in Sources */,
 				71D84CCA21995AD000E8DB88 /* base58.c in Sources */,
@@ -2080,6 +2123,7 @@
 				716F060421D255FB00561162 /* ExchangeRates.swift in Sources */,
 				71B38D0D215B87A500929CC3 /* CommentAVM.swift in Sources */,
 				716E62562189939D002AC5DA /* Contribution.swift in Sources */,
+				71C2438C21D4BD8F00E86F64 /* WalletTransactionsView.swift in Sources */,
 				71DC1A9D21B00ACF001D5575 /* WalletPickerVC.swift in Sources */,
 				71B8461F21B54F1100F6D708 /* VoteInfoCell.swift in Sources */,
 				71D84CD821995AD000E8DB88 /* HistoryRouter.swift in Sources */,
