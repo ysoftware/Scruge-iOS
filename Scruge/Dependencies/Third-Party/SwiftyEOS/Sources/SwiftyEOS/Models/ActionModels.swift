@@ -54,8 +54,8 @@ struct Receipt: Codable {
 
 struct ActionDetails: Codable {
 	let authorization: [Authorization]
-	let data: [String:AnyCodable]
+	let data: AnyCodable
 	let account: String
 	let name: String
-	let hexData: String
+	let hexData: String?
 }

@@ -12,17 +12,10 @@ final class ActionsQuery:MVVM.Query {
 
 	var position:Int = -1
 
-	var offset:Int = -21
+	var offset:Int = -100
 
-	var size: UInt = 20
+	var size: UInt = 100
 
 	func resetPosition() {
-		position = -1
-		offset = -21
-	}
-
-	func advance() {
-		position -= 20
-		offset -= 20
 	}
 }

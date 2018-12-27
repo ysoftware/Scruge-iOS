@@ -81,6 +81,7 @@ final class WalletViewController: UIViewController {
 	private func setupNavigationBar() {
 		makeNavbarTransparent()
 		preferSmallNavbar()
+		navigationController?.navigationBar.isHidden = true
 	}
 
 	private func updateView() {

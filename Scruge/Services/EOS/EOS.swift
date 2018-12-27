@@ -40,7 +40,7 @@ struct EOS {
 					completion: @escaping (Result<[ActionReceipt], AnyError>)->Void) {
 		chain.getActions(accountName: account,
 						 position: query?.position ?? -1,
-						 offset: query?.offset ?? -10) { result, error in
+						 offset: query?.offset ?? -100) { result, error in
 			guard let actions = result?.actions
 				.sorted(by: { $0.globalActionSeq > $1.globalActionSeq })
 			else {

@@ -74,6 +74,9 @@ extension WalletTransactionsView: ArrayViewModelDelegate {
 
 extension WalletTransactionsView: UITableViewDelegate {
 
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		tableView.deselectRow(at: indexPath, animated: true)
+	}
 }
 
 extension WalletTransactionsView: UITableViewDataSource {
@@ -84,7 +87,7 @@ extension WalletTransactionsView: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let vm = vm else { return UITableViewCell() }
-		let item = vm.item(at: indexPath.row, shouldLoadMore: true)
+		let item = vm.item(at: indexPath.row)
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.transactionCell,
 											 for: indexPath)!.setup(item)
 	}

@@ -79,6 +79,8 @@ func customDateFormatter(_ decoder: Decoder) throws -> Date {
                     return
                 }
 
+				print(String(data: data, encoding: .utf8))
+
                 let decoder = self.decoder
 				do {
 					let responseObject = try decoder.decode(T.self, from: data)
