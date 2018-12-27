@@ -11,6 +11,7 @@ import UIKit
 final class WalletTransactionsView: UIView {
 
 	private let tableView = UITableView(frame: .zero)
+	var vm:ActionsAVM?
 
 	override init(frame: CGRect) {
 		super.init(frame: frame)
@@ -40,4 +41,11 @@ extension WalletTransactionsView: UITableViewDelegate {
 
 extension WalletTransactionsView: UITableViewDataSource {
 
+	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return vm?.numberOfItems ?? 0
+	}
+
+	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		return UITableViewCell()
+	}
 }

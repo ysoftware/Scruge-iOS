@@ -8,6 +8,13 @@
 
 import MVVM
 
-final class TransactionQuery:MVVM.Query {
+final class ActionsQuery:MVVM.Query {
 
+	var position:Int = -1
+
+	var offset:Int = -10
+
+	func resetPosition() {
+		
+	}
 }

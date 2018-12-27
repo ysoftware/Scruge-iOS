@@ -31,8 +31,20 @@ struct EOS {
 			guard let accountNames = result?.accountNames else {
 				return completion(.failure(AnyError(error ?? EOSError.unknown)))
 			}
-
 			completion(.success(accountNames))
+		}
+	}
+
+	func getActions(for account:String,
+					query:ActionsQuery?,
+					completion: @escaping (Result<[ActionReceipt], AnyError>)->Void) {
+		chain.getActions(accountName: account,
+						 position: query?.position ?? -1,
+						 offset: query?.offset ?? -10) { result, error in
+			guard let actions = result?.actions else {
+				return completion(.failure(AnyError(error ?? EOSError.unknown)))
+			}
+			completion(.success(actions))
 		}
 	}
 
