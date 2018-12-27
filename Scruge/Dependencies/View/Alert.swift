@@ -16,11 +16,13 @@ extension UIViewController {
 	}
 
 	func alert(_ message:String, _ completion: (()->Void)? = nil) {
-		Service.presenter.presentAlert(in: self, message, completion)
+		let vc = (tabBarController ?? navigationController ?? self)
+		Service.presenter.presentAlert(in: vc, message, completion)
 	}
 
 	func ask(title: String = "", question:String, waitFor completion: @escaping (Bool) -> Void) {
-		Service.presenter.presentDialog(in: self,
+		let vc = (tabBarController ?? navigationController ?? self)
+		Service.presenter.presentDialog(in: vc,
 										title: title,
 										question: question,
 										completion: completion)
@@ -32,6 +34,8 @@ extension UIViewController {
 					 keyboardType:UIKeyboardType = .default,
 					 isSecure:Bool = false,
 					 waitFor completion: @escaping (String?) -> Void) {
+
+		let vc = (tabBarController ?? navigationController ?? self)
 
 		let alertController = UIAlertController(title: title, message: question, preferredStyle: .alert)
 		alertController.addTextField { textField in
@@ -46,6 +50,6 @@ extension UIViewController {
 		alertController.addAction(UIAlertAction(title: "Cancel", style: .default) { action in
 			completion(nil)
 		})
-		present(alertController, animated: true, completion: nil)
+		vc.present(alertController, animated: true, completion: nil)
 	}
 }

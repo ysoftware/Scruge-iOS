@@ -123,8 +123,8 @@ extension ExpandableViewDelegate {
 
     /// Time of animation for change of state.
     ///
-    /// Measured in seconds. Default is `0.3`.
-    var animationTime:TimeInterval = 0.3
+    /// Measured in seconds. Default is `0.5`.
+    var animationTime:TimeInterval = 0.5
 
     /// Delay before animation.
     ///
