@@ -38,7 +38,6 @@ struct EOS {
 	func getActions(for account:String,
 					query:ActionsQuery?,
 					completion: @escaping (Result<[ActionReceipt], AnyError>)->Void) {
-		print("\(query!.position), \(query!.offset)")
 		chain.getActions(accountName: account,
 						 position: query?.position ?? -1,
 						 offset: query?.offset ?? -100) { result, error in
@@ -51,8 +50,6 @@ struct EOS {
 			if !actions.isEmpty, query?.position == -1 {
 				query?.set(limit: actions[0].accountActionSeq)
 			}
-
-			print("loaded: \(actions.count)")
 			completion(.success(actions))
 		}
 	}
