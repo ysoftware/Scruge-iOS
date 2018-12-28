@@ -105,7 +105,7 @@ final class ProfileViewController: UIViewController {
 		emailLabel.text = profileVM.email
 		countryLabel.text = profileVM.country.uppercased()
 
-		if profileVM.description.isEmpty {
+		if !profileVM.description.isEmpty {
 			descriptionLabel.text = profileVM.description
 		}
 		else {
