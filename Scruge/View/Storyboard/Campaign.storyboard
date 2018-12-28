@@ -135,6 +135,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fcg-6e-ATC"/>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <connections>
                         <outlet property="contributeButton" destination="o18-DA-2UC" id="dpp-pS-IQ7"/>
                         <outlet property="contributeButtonBackgroundView" destination="JKR-vf-XhJ" id="TlE-Jn-RSu"/>

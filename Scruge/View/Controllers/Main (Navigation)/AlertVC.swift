@@ -12,6 +12,7 @@ final class AlertViewController: UIViewController {
 
 	// MARK: - Properties
 
+	@IBOutlet var viewTap: UITapGestureRecognizer!
 	@IBOutlet weak var topStack: UIStackView!
 	@IBOutlet weak var titleLabel: UILabel!
 	@IBOutlet weak var closeButton: UIButton!
@@ -70,11 +71,14 @@ final class AlertViewController: UIViewController {
 				block()
 				self.dismiss(animated: true)
 			}
+			
+			let closure:(Any)->Void = { [unowned self] _ in
+				self.dismiss(animated: true)
+			}
+			self.viewTap.addTargetClosure(closure: closure)
 
 			if showCloseButton {
-				self.closeButton.addTargetClosure { [unowned self] _ in
-					self.dismiss(animated: true)
-				}
+				self.closeButton.addTargetClosure(closure: closure)
 			}
 			else {
 				self.closeButton.isHidden = true
