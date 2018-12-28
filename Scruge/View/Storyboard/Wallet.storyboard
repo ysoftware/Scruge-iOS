@@ -628,7 +628,11 @@
                     </view>
                     <connections>
                         <outlet property="accountNameLabel" destination="p3t-Ze-lJ0" id="YJm-zW-cbL"/>
+                        <outlet property="actionsExpandable" destination="vXy-3G-YZL" id="VP5-Zg-R3x"/>
                         <outlet property="balanceLabel" destination="cm1-v5-8f3" id="yQb-E3-UWj"/>
+                        <outlet property="dataExpandable" destination="GXx-eh-xCK" id="JVp-tP-Ciq"/>
+                        <outlet property="exchangeExpandable" destination="xNq-6q-u8D" id="0Lm-PE-h5B"/>
+                        <outlet property="investmentsExpandable" destination="ANU-F7-xcy" id="N7p-Il-lDk"/>
                         <outlet property="loadingView" destination="ZyX-Gt-tbs" id="3xP-Pm-ltZ"/>
                         <outlet property="scrollView" destination="qg9-vN-7HK" id="pia-5M-OBC"/>
                         <outlet property="walletActionsView" destination="S7N-NN-qpg" id="t7K-IK-UOT"/>

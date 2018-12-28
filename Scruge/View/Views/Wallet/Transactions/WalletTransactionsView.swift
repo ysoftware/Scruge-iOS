@@ -87,7 +87,7 @@ extension WalletTransactionsView: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let vm = vm else { return UITableViewCell() }
-		let item = vm.item(at: indexPath.row)
+		let item = vm.item(at: indexPath.row, shouldLoadMore: true)
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.transactionCell,
 											 for: indexPath)!.setup(item)
 	}

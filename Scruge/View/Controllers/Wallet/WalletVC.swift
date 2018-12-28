@@ -12,13 +12,22 @@ import Result
 
 final class WalletViewController: UIViewController {
 
+	@IBOutlet weak var scrollView: UIScrollView!
+
+	// top view
+	@IBOutlet weak var loadingView: LoadingView!
 	@IBOutlet weak var accountNameLabel: UILabel!
 	@IBOutlet weak var balanceLabel: UILabel!
 
+	// expandable views
+	@IBOutlet weak var exchangeExpandable: ExpandableView!
+	@IBOutlet weak var dataExpandable: ExpandableView!
+	@IBOutlet weak var investmentsExpandable: ExpandableView!
+	@IBOutlet weak var actionsExpandable: ExpandableView!
+
+	// contents
 	@IBOutlet weak var walletActionsView: WalletTransactionsView!
 	@IBOutlet weak var walletDataView: WalletDataView!
-	@IBOutlet weak var loadingView: LoadingView!
-	@IBOutlet weak var scrollView: UIScrollView!
 
 	// MARK: - Property
 
@@ -36,6 +45,7 @@ final class WalletViewController: UIViewController {
 
 		setupNavigationBar()
 		setupActions()
+		setupExpandableViews()
 		setupScrollView()
 	}
 
@@ -56,6 +66,13 @@ final class WalletViewController: UIViewController {
 			scrollView.contentInset.bottom = tabBarController?.tabBar.frame.height ?? 0
 		}
 		automaticallyAdjustsScrollViewInsets = false
+	}
+
+	private func setupExpandableViews() {
+		exchangeExpandable.delegate = self
+		dataExpandable.delegate = self
+		investmentsExpandable.delegate = self
+		actionsExpandable.delegate = self
 	}
 
 	private func setupActions() {
@@ -85,8 +102,6 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func updateView() {
-		walletActionsView.accountName = accountVM?.name
-		walletDataView.updateViews()
 		accountNameLabel.text = accountVM?.name ?? ""
 	}
 
@@ -209,6 +224,25 @@ extension WalletViewController: ArrayViewModelDelegate {
 				updateView()
 			default: break
 			}
+	}
+}
+
+extension WalletViewController: ExpandableViewDelegate {
+
+	func expandableView(_ sender: ExpandableView, didChangeTo state: ExpandableViewState) {
+		guard state == .expanded else { return }
+		
+		switch sender {
+		case exchangeExpandable:
+			break
+		case dataExpandable:
+			walletDataView.updateViews()
+		case investmentsExpandable:
+			break
+		case actionsExpandable:
+			walletActionsView.accountName = accountVM?.name
+		default: break
+		}
 	}
 }
 

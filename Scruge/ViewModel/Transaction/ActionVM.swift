@@ -75,7 +75,7 @@ final class ActionVM: ViewModel<ActionReceipt> {
 		case .other(let action):
 			str.append("\(action.data)", color: gray, font: .systemFont(ofSize: 12))
 		}
-		
+		 
 		return str
 	}
 }
@@ -110,7 +110,7 @@ enum ActionType {
 	static func from(_ action:ActionDetails, accountName:String?) -> ActionType {
 		if action.name == "transfer", let data = action.transferData {
 			if accountName == data.from {
-				if action.account == Service.eos.contractAccount {
+				if data.to == Service.eos.contractAccount {
 					return .invested(campaignTitle: "-campaign-", amount: data.quantity) // todo
 				}
 				return .sent(data)
