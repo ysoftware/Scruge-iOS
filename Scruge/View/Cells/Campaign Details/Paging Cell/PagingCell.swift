@@ -18,6 +18,7 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 	private var currentMilestone:MilestoneVM!
 	private var faqVM:FaqAVM!
 	private var tapBlock:((Int)->Void)?
+	private var didScroll = false
 
 	@discardableResult
 	func setup(with vm:FaqAVM) -> PagingCell {
@@ -56,11 +57,12 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 		pageControl.currentPage = currentIndex
 		collectionView.reloadData()
 
-		if vm.numberOfItems > currentIndex {
-			collectionView.scrollToItem(at: IndexPath(item: currentIndex, section: 0),
-										at: .left,
-										animated: false)
-			collectionView.collectionViewLayout.invalidateLayout()
+		if vm.numberOfItems > currentIndex, !didScroll {
+			DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+				self.collectionView.scrollToItem(at: IndexPath(item: self.currentIndex, section: 0),
+												 at: .left,
+												 animated: false)
+			}
 		}
 		return self
 	}
@@ -69,6 +71,11 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 						layout collectionViewLayout: UICollectionViewLayout,
 						sizeForItemAt indexPath: IndexPath) -> CGSize {
 		return collectionView.bounds.size
+	}
+
+	override func didMoveToWindow() {
+		super.didMoveToWindow()
+
 	}
 }
 
