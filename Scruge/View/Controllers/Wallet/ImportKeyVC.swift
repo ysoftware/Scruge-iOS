@@ -38,6 +38,7 @@ final class ImportKeyViewController: UIViewController {
 		title = "Import key"
 		makeNavbarNormal(with: "Import key")
 		preferSmallNavbar()
+		navigationController?.navigationBar.isHidden = false
 	}
 
 	// MARK: - Actions

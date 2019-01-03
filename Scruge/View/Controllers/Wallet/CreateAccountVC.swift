@@ -46,6 +46,7 @@ final class CreateAccountViewController: UIViewController {
 	private func setupNavigationBar() {
 		makeNavbarNormal(with: "Create account")
 		preferSmallNavbar()
+		navigationController?.navigationBar.isHidden = false
 	}
 
 	@IBAction func save(_ sender:Any) {
