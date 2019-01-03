@@ -28,11 +28,12 @@ extension UIViewController {
 										completion: completion)
 	}
 
-	func askForInput(_ title:String = "Attention!",
+	func askForInput(_ title:String = "",
 					 question:String,
 					 placeholder:String = "",
 					 keyboardType:UIKeyboardType = .default,
 					 isSecure:Bool = false,
+					 actionTitle:String = "Send",
 					 waitFor completion: @escaping (String?) -> Void) {
 
 		let vc = (tabBarController ?? navigationController ?? self)
@@ -43,12 +44,12 @@ extension UIViewController {
 			textField.keyboardType = keyboardType
 			textField.isSecureTextEntry = isSecure
 		}
-		alertController.addAction(UIAlertAction(title: "Send", style: .default) { alert in
-			let textField = alertController.textFields![0] as UITextField
-			completion(textField.text)
-		})
 		alertController.addAction(UIAlertAction(title: "Cancel", style: .default) { action in
 			completion(nil)
+		})
+		alertController.addAction(UIAlertAction(title: actionTitle, style: .default) { alert in
+			let textField = alertController.textFields![0] as UITextField
+			completion(textField.text)
 		})
 		vc.present(alertController, animated: true, completion: nil)
 	}
