@@ -54,11 +54,11 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 			}
 		}
 
-		pageControl.currentPage = currentIndex
-		collectionView.reloadData()
+		updateViews()
 
-		if vm.numberOfItems > currentIndex, !didScroll {
-			DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+			self.updateViews()
+			if self.milestoneVM.numberOfItems > self.currentIndex, !self.didScroll {
 				self.collectionView.scrollToItem(at: IndexPath(item: self.currentIndex, section: 0),
 												 at: .left,
 												 animated: false)
@@ -73,9 +73,11 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 		return collectionView.bounds.size
 	}
 
-	override func didMoveToWindow() {
-		super.didMoveToWindow()
-
+	private func updateViews() {
+		guard let vm = milestoneVM else { return }
+		pageControl.numberOfPages = vm.numberOfItems
+		pageControl.currentPage = currentIndex
+		collectionView.reloadData()
 	}
 }
 

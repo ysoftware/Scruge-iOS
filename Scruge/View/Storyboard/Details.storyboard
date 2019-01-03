@@ -81,7 +81,7 @@
         <!--Vote-->
         <scene sceneID="5f0-Cf-lGJ">
             <objects>
-                <viewController storyboardIdentifier="VoteVC" title="Vote" id="ayX-0W-Zr1" customClass="VoteViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VoteVC" title="Vote" hidesBottomBarWhenPushed="YES" id="ayX-0W-Zr1" customClass="VoteViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Haa-zm-Khs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

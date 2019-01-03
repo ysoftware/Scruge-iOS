@@ -73,13 +73,10 @@ struct Presenter {
 
 	// MARK: - Campaign
 
-	@discardableResult
-	func presentCampaignViewController(in vc:UIViewController,
-									   id:Int) -> CampaignViewController {
+	func presentCampaignViewController(in vc:UIViewController, id:Int) {
 		let new = R.storyboard.campaign.campaignVC()!
 		new.vm = CampaignVM(id)
 		vc.show(new, sender: self)
-		return new
 	}
 
 	func presentMilestonesViewController(in vc:UIViewController,
@@ -254,8 +251,14 @@ struct Presenter {
 	/// push campaignid and then push vote vc
 	func presentVoteViewController(in vc:UIViewController,
 								   with campaignId:Int) {
-		let campVC = presentCampaignViewController(in: vc, id: campaignId)
-		presentVoteViewController(in: vc, with: campVC.vm)
+		let vm = CampaignVM(campaignId)
+		presentVoteViewController(in: vc, with: vm)
+
+		vc.navigationController.flatMap { nav in
+			let new = R.storyboard.campaign.campaignVC()!
+			new.vm = vm
+			nav.viewControllers.insert(new, at: nav.viewControllers.count - 1)
+		}
 	}
 
 	func presentVoteResultsViewController(in vc:UIViewController,

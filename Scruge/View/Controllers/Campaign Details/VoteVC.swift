@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MVVM
 
 final class VoteViewController: UIViewController {
 
@@ -56,10 +57,12 @@ final class VoteViewController: UIViewController {
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+
 		if offset < NAVBAR_LIMIT {
 			preferSmallNavbar()
 			makeNavbarTransparent()
 		}
+		vm.delegate = self
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
@@ -68,6 +71,7 @@ final class VoteViewController: UIViewController {
 	}
 
 	private func setupVM() {
+		vm.reloadData()
 		accountVM.reloadData()
 	}
 
@@ -199,5 +203,13 @@ extension VoteViewController: UITableViewDelegate {
 
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		offset = scrollView.contentOffset.y
+	}
+}
+
+extension VoteViewController: ViewModelDelegate {
+
+	func didUpdateData<M>(_ viewModel: ViewModel<M>) where M : Equatable {
+		tableView.reloadData()
+		loadVote()
 	}
 }

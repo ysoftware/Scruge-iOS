@@ -94,11 +94,14 @@ final class CampaignViewController: UIViewController {
 		if vm.state == .ready {
 			setupBottomButton()
 		}
+		
+		vm.delegate = self
 		reloadData()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
+
 		if offset < NAVBAR_LIMIT {
 			preferSmallNavbar()
 			makeNavbarTransparent()
