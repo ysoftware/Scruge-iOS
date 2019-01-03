@@ -18,7 +18,8 @@ final class CommentCell: UITableViewCell {
 	@IBOutlet weak var replyButton: UIButton!
 	@IBOutlet weak var seeAllView: UIStackView!
 	@IBOutlet weak var seeAllButton: UIButton!
-	@IBOutlet weak var likesButton: UIButton!
+	@IBOutlet weak var likeTapView: UIView!
+	@IBOutlet weak var likesImage: UIImageView!
 
 	private var vm:CommentVM!
 
@@ -39,11 +40,11 @@ final class CommentCell: UITableViewCell {
 
 		seeAllButton.setTitle(vm.repliesText, for: .normal)
 		seeAllView.isHidden = !vm.canReply
-		// TO-DO: ever show reply button?
+		replyButton.isHidden = !vm.canReply
 
-		let image = vm.isLiking ? R.image.like_active()! : R.image.like()!
-		likesButton.setImage(image, for: .normal)
-
+		likesImage.image = vm.isLiking ? R.image.like_active()! : R.image.like()!
+		likeTapView.gestureRecognizers = [UITapGestureRecognizer(target: self,
+																 action: #selector(likeClicked))]
 		return self
 	}
 

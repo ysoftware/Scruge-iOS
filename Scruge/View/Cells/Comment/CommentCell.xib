@@ -93,17 +93,13 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="krA-ST-cbC">
                                         <rect key="frame" x="0.0" y="74" width="363" height="39.5"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nPt-Ad-tlt">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like" translatesAutoresizingMaskIntoConstraints="NO" id="DVu-DA-wZi">
                                                 <rect key="frame" x="15" y="15" width="10" height="10"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" secondItem="nPt-Ad-tlt" secondAttribute="height" id="RF3-K1-eZh"/>
-                                                    <constraint firstAttribute="height" constant="10" id="UWV-6C-Wmz"/>
+                                                    <constraint firstAttribute="width" secondItem="DVu-DA-wZi" secondAttribute="height" id="jkJ-qk-3A1"/>
+                                                    <constraint firstAttribute="height" constant="10" id="qfA-5w-OS9"/>
                                                 </constraints>
-                                                <state key="normal" image="like"/>
-                                                <connections>
-                                                    <action selector="likeClicked:" destination="95h-tt-m1F" eventType="touchUpInside" id="8Lm-9Y-jDK"/>
-                                                </connections>
-                                            </button>
+                                            </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zLt-77-ZSf">
                                                 <rect key="frame" x="30" y="12.5" width="318" height="14.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -144,18 +140,29 @@
                         </subviews>
                         <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
                     </stackView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rqf-sq-S5C">
+                        <rect key="frame" x="32" y="84" width="100" height="50"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="100" id="4X6-kp-0hx"/>
+                            <constraint firstAttribute="height" constant="50" id="nPe-gU-8xl"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Hlp-ib-s62" firstAttribute="leading" secondItem="L80-bK-l3U" secondAttribute="leading" id="2De-A4-bGU"/>
+                    <constraint firstItem="rqf-sq-S5C" firstAttribute="centerY" secondItem="DVu-DA-wZi" secondAttribute="centerY" id="5sF-1F-Wb3"/>
                     <constraint firstAttribute="bottom" secondItem="Hlp-ib-s62" secondAttribute="bottom" id="Olr-BQ-dex"/>
                     <constraint firstAttribute="trailing" secondItem="Hlp-ib-s62" secondAttribute="trailing" id="Zd2-1l-6bv"/>
+                    <constraint firstItem="rqf-sq-S5C" firstAttribute="centerX" secondItem="DVu-DA-wZi" secondAttribute="centerX" id="f64-7G-Inp"/>
                     <constraint firstItem="Hlp-ib-s62" firstAttribute="top" secondItem="L80-bK-l3U" secondAttribute="top" id="hPi-MI-hcK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="commentLabel" destination="keQ-yN-RG8" id="X1i-i2-tod"/>
                 <outlet property="dateLabel" destination="2NQ-K5-bcx" id="1lw-Sh-Ao1"/>
-                <outlet property="likesButton" destination="nPt-Ad-tlt" id="DmV-i6-mza"/>
+                <outlet property="likeTapView" destination="rqf-sq-S5C" id="x66-0N-cTX"/>
+                <outlet property="likesImage" destination="DVu-DA-wZi" id="Szk-q3-8ZB"/>
                 <outlet property="likesLabel" destination="zLt-77-ZSf" id="Wp0-Ea-NUr"/>
                 <outlet property="profileImage" destination="OT6-I4-eN7" id="LUX-lo-G7q"/>
                 <outlet property="replyButton" destination="jdI-4v-T7Y" id="OpZ-sR-Yq6"/>

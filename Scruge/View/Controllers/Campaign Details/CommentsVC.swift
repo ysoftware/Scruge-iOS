@@ -173,18 +173,15 @@ extension CommentsViewController: UITableViewDataSource {
 											 for: indexPath)!
 			.setup(with: vm.item(at: indexPath.row, shouldLoadMore: true))
 			.like { [unowned self] item in
-//				item.like()
+				item.like()
 			}
 			.seeAll { [unowned self] item in
 //				Service.presenter.presentCommentsViewController(in: self, for: item)
 			}
-	}
-}
-
-extension CommentsViewController: UITableViewDelegate {
-
-	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		tableView.deselectRow(at: indexPath, animated: true)
+			.reply { [unowned self] item in
+					// and open keyboard
+//				Service.presenter.presentCommentsViewController(in: self, for: item)
+			}
 	}
 }
 

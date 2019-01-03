@@ -51,4 +51,12 @@ final class CommentVM: ViewModel<Comment> {
 			return "See \(number) \(replies)"
 		} ?? ""
 	}
+
+	func like() {
+		Service.api.likeComment(self, value: !isLiking) { result in
+			if case .success = result {
+				self.notifyUpdated()
+			}
+		}
+	}
 }
