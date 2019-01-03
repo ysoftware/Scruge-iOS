@@ -23,4 +23,6 @@ struct Comment:Equatable, Codable {
 	let likeCount:Int?
 
 	let repliesCount:Int?
+
+	let isLiking:Bool?
 }

@@ -35,9 +35,9 @@ struct CommentRequest: Codable {
 
 struct CommentListRequest: Codable {
 
-	init(from q: CommentQuery?) {
-		page = q?.page ?? 0
-	}
+	let page:Int?
 
-	let page:Int
+	let parentId:String?
+
+	let token:String?
 }

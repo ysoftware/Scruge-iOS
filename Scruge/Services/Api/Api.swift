@@ -287,6 +287,7 @@ final class Api {
 
 	func postComment(_ comment:String,
 					 source: CommentSource,
+					 replyingTo parentId: String? = nil,
 					 _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
@@ -298,12 +299,14 @@ final class Api {
 		case .update(let update):
 			method = "update/\(update.id)/comments"
 		}
-		let request = CommentRequest(comment: comment, token: token)
+		let request = CommentRequest(text: comment, parentCommentId: parentId, token: token)
 		service.post(method, request.toDictionary(), completion)
 	}
 
 	func getComments(for query:CommentQuery,
+					 parent parentId:String? = nil,
 					 _ completion: @escaping (Result<CommentListResponse, AnyError>)->Void) {
+		let token = Service.tokenManager.getToken()
 		let method:String
 		switch query.source {
 		case .campaign(let campaign):
@@ -311,7 +314,7 @@ final class Api {
 		case .update(let update):
 			method = "update/\(update.id)/comments"
 		}
-		let request = CommentListRequest(from: query)
+		let request = CommentListRequest.init(page: query.page, parentId: parentId, token: token)
 		service.get(method, request.toDictionary(), completion)
 	}
 }

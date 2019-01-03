@@ -155,6 +155,7 @@
             <connections>
                 <outlet property="commentLabel" destination="keQ-yN-RG8" id="X1i-i2-tod"/>
                 <outlet property="dateLabel" destination="2NQ-K5-bcx" id="1lw-Sh-Ao1"/>
+                <outlet property="likesButton" destination="nPt-Ad-tlt" id="DmV-i6-mza"/>
                 <outlet property="likesLabel" destination="zLt-77-ZSf" id="Wp0-Ea-NUr"/>
                 <outlet property="profileImage" destination="OT6-I4-eN7" id="LUX-lo-G7q"/>
                 <outlet property="replyButton" destination="jdI-4v-T7Y" id="OpZ-sR-Yq6"/>

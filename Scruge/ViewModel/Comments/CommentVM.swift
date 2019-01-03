@@ -40,6 +40,10 @@ final class CommentVM: ViewModel<Comment> {
 		return model?.repliesCount != nil
 	}
 
+	var isLiking:Bool {
+		return model?.isLiking == true
+	}
+
 	var repliesText:String {
 		return model?.repliesCount.flatMap { number in
 			guard number > 0 else { return "" }
