@@ -53,28 +53,11 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		currentMilestoneVM = model?.currentMilestone.flatMap { MilestoneVM($0) }
 		faqVM = model?.faq.flatMap { FaqAVM($0) }
 		economiesVM = model.flatMap { EconomiesVM($0.economics) }
+		topCommentsVM = model.flatMap { CommentAVM($0.topComments, source: .campaign($0)) }
+		documentsVM = model?.documents.flatMap { DocumentAVM($0) }
 
 		milestonesVM = model.flatMap { MilestoneAVM($0) }
 		milestonesVM?.reloadData()
-
-		topCommentsVM = model.flatMap { m in
-			return m.topComments.flatMap { CommentAVM($0, source:.campaign(m)) }}
-
-
-		documentsVM = model.flatMap { model in
-			var documents:[Document] = []
-			if let pitch = model.pitchUrl {
-				documents.append(Document(name: "Pitch", url: pitch))
-			}
-			else {
-				let url = Service.api.service.baseUrl + "campaign/\(model.id)/content"
-				documents.append(Document(name: "Pitch", url: url))
-			}
-			if let otherDocs = model.documents {
-				documents.append(contentsOf: otherDocs)
-			}
-			return DocumentAVM(documents)
-		}
 	}
 
 	// MARK: - Methods
