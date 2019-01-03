@@ -172,6 +172,12 @@ extension CommentsViewController: UITableViewDataSource {
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell,
 											 for: indexPath)!
 			.setup(with: vm.item(at: indexPath.row, shouldLoadMore: true))
+			.like { [unowned self] item in
+//				item.like()
+			}
+			.seeAll { [unowned self] item in
+//				Service.presenter.presentCommentsViewController(in: self, for: item)
+			}
 	}
 }
 

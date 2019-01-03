@@ -35,4 +35,16 @@ final class CommentVM: ViewModel<Comment> {
 	}
 
 	var id:String { return model?.id ?? "" }
+
+	var canReply:Bool {
+		return model?.repliesCount != nil
+	}
+
+	var repliesText:String {
+		return model?.repliesCount.flatMap { number in
+			guard number > 0 else { return "" }
+			let replies = number == 1 ? "reply" : "replies"
+			return "See \(number) \(replies)"
+		} ?? ""
+	}
 }

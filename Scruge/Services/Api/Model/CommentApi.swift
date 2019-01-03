@@ -26,7 +26,9 @@ struct CommentLikeRequest:Codable {
 
 struct CommentRequest: Codable {
 
-	let comment:String
+	let text:String
+
+	let parentCommentId:String?
 
 	let token:String
 }
