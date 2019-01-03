@@ -29,10 +29,10 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	}
 
 	private let id:Int
-	private(set) var isSubscribed = false { didSet { notifyUpdated() }}
-	private(set) var canVote = false { didSet { notifyUpdated() }}
-	private(set) var isBacker = false { didSet { notifyUpdated() }}
-	private(set) var state:ViewState = .loading  { didSet { notifyUpdated() }}
+	private(set) var isSubscribed = false
+	private(set) var canVote = false
+	private(set) var isBacker = false
+	private(set) var state:ViewState = .loading
 
 	// MARK: - Setup
 
@@ -110,12 +110,14 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 				self.model = response.campaign
 				self.reloadSubscribtionStatus()
 				self.reloadCanVote()
+				self.resetViewModels()
 				self.state = .ready
 			case .failure(let error):
 				self.model = nil
+				self.resetViewModels()
+				self.notifyUpdated()
 				self.state = .error(ErrorHandler.message(for: error))
 			}
-			self.resetViewModels()
 		}
 	}
 
@@ -254,6 +256,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 				}
 
 				self.canVote = !voteResponse.value
+				self.notifyUpdated()
 			}
 		}
 	}

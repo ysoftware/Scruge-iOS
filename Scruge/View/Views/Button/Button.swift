@@ -51,7 +51,10 @@ final class Button: UIView {
 	@IBInspectable
 	public var text:String = "" {
 		didSet {
-			button.setTitle(text, for: .normal)
+			UIView.performWithoutAnimation {
+				self.button.setTitle(self.text, for: .normal)
+				self.button.layoutIfNeeded()
+			}
 		}
 	}
 
