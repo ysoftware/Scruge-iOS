@@ -37,7 +37,7 @@ final class CommentVM: ViewModel<Comment> {
 	var id:String { return model?.id ?? "" }
 
 	var canReply:Bool {
-		return true
+		return model?.repliesCount != nil
 	}
 
 	var isLiking:Bool {
