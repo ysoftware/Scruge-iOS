@@ -228,6 +228,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			case .failure:
 				self.isSubscribed = false
 			}
+			self.notifyUpdated()
 		}
 	}
 
@@ -252,6 +253,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			Service.api.getDidVote(campaignId: model.id) { didVoteResult in
 				guard case let .success(voteResponse) = didVoteResult else {
 					self.canVote = false
+					self.notifyUpdated()
 					return
 				}
 

@@ -44,7 +44,7 @@ final class RegisterViewController: UIViewController {
 	}
 
 	@objc func signUp(_ sender: Any) {
-		guard isWorking, validate() else { return }
+		guard !isWorking, validate() else { return }
 
 		let email = self.email
 		let password = self.password

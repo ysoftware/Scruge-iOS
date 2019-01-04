@@ -275,14 +275,14 @@ final class Api {
 
 	// MARK: - Comments
 
-	func likeComment(_ comment:CommentVM,
+	func likeComment(_ comment:Comment,
 					 value:Bool,
 					 _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
 		let request = CommentLikeRequest(token: token, value: value)
-		service.post("comment\(comment.id)/like", request.toDictionary(), completion)
+		service.post("comment/\(comment.id)/like", request.toDictionary(), completion)
 	}
 
 	func postComment(_ text:String,
@@ -291,35 +291,14 @@ final class Api {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
-		let method = getCommentPath(for: source)
-		var parentId:String? = nil
-		if case .comment(_, let comment) = source {
-			parentId = comment.id
-		}
-		let request = CommentRequest(text: text, parentCommentId: parentId, token: token)
-		service.post(method, request.toDictionary(), completion)
+		let request = CommentRequest(from: source, token: token, text: text)
+		service.post("comments", request.toDictionary(), completion)
 	}
 
 	func getComments(for query:CommentQuery,
 					 _ completion: @escaping (Result<CommentListResponse, AnyError>)->Void) {
 		let token = Service.tokenManager.getToken()
-		let method = getCommentPath(for: query.source)
-		var parentId:String? = nil
-		if case .comment(_, let comment) = query.source {
-			parentId = comment.id
-		}
-		let request = CommentListRequest.init(page: query.page, parentId: parentId, token: token)
-		service.get(method, request.toDictionary(), completion)
-	}
-
-	private func getCommentPath(for source:CommentSource) -> String {
-		switch source {
-		case .campaign(let campaign):
-			return "campaign/\(campaign.id)/comments"
-		case .update(let update):
-			return "update/\(update.id)/comments"
-		case .comment(let innerSource, _):
-			return getCommentPath(for: innerSource)
-		}
+		let request = CommentListRequest(from: query, token:token)
+		service.get("comments", request.toDictionary(), completion)
 	}
 }

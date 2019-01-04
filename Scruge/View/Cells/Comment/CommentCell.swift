@@ -46,7 +46,7 @@ final class CommentCell: UITableViewCell {
 			seeAllView.isHidden = true
 		}
 
-		replyButton.isHidden = !vm.canReply
+		replyButton.isHidden = !(vm.canReply && Service.tokenManager.hasToken)
 		likesImage.image = vm.isLiking ? R.image.like_active()! : R.image.like()!
 		likeTapView.gestureRecognizers = [UITapGestureRecognizer(target: self,
 																 action: #selector(likeClicked))]

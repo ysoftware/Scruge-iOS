@@ -20,9 +20,9 @@ struct Comment:Equatable, Codable {
 
 	let authorAvatar:String?
 
-	let likeCount:Int?
-
+	var likeCount:Int
+	
 	let repliesCount:Int?
 
-	let isLiking:Bool?
+	var isLiking:Bool?
 }

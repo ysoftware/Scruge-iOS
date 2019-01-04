@@ -124,7 +124,7 @@ final class CommentsViewController: UIViewController {
 		tableView.refreshControl = UIRefreshControl()
 		tableView.refreshControl!.addTarget(self, action: #selector(reloadData), for: .valueChanged)
 
-		tableView.estimatedRowHeight = 80
+		tableView.estimatedRowHeight = 120
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.register(UINib(resource: R.nib.commentCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.commentCell.identifier)

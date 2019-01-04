@@ -31,7 +31,7 @@ final class CommentVM: ViewModel<Comment> {
 	}
 
 	var likes:String {
-		return model?.likeCount.flatMap { "\($0)" } ?? ""
+		return model.flatMap { "\($0.likeCount)" } ?? ""
 	}
 
 	var id:String { return model?.id ?? "" }
@@ -46,16 +46,22 @@ final class CommentVM: ViewModel<Comment> {
 
 	var repliesText:String? {
 		return model?.repliesCount.flatMap { number in
-			guard number > 0 else { return "" }
+			guard number > 0 else { return nil }
 			let replies = number == 1 ? "reply" : "replies"
 			return "See \(number) \(replies)"
 		}
 	}
 
 	func like() {
-		Service.api.likeComment(self, value: !isLiking) { result in
-			if case .success = result {
-				self.notifyUpdated()
+		let newValue = !isLiking
+		guard let model = model else { return }
+		Service.api.likeComment(model, value: newValue) { result in
+			if case .success(let response) = result {
+				if ErrorHandler.error(from: response.result) == nil {
+					self.model?.likeCount = model.likeCount + (newValue ? 1 : -1)
+					self.model?.isLiking = newValue
+					self.notifyUpdated()
+				}
 			}
 		}
 	}
