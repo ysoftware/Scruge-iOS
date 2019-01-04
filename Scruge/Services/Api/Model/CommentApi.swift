@@ -37,30 +37,14 @@ struct CommentRequest: Codable {
 	let text:String
 
 	init(from source:CommentSource, token:String, text:String) {
-		var parentCommentId:String?
-		var campaignId:Int?
-		var updateId:String?
-
-		func setup(with source:CommentSource) {
-			switch source {
-			case .campaign(let campaign):
-				campaignId = campaign.id
-			case .update(let update):
-				updateId = update.id
-			case .comment(let innerSource, _):
-				setup(with: innerSource)
-			}
-		}
-
-		setup(with: source)
-		if case .comment(_, let comment) = source {
-			parentCommentId = comment.id
-		}
+		if case .campaign(let campaign) = source { campaignId = campaign.id }
+		else { campaignId = nil }
+		if case .update(let update) = source { updateId = update.id }
+		else { updateId = nil }
+		if case .comment(_, let comment) = source { parentCommentId = comment.id }
+		else { parentCommentId = nil }
 
 		self.token = token
-		self.parentCommentId = parentCommentId
-		self.campaignId = campaignId
-		self.updateId = updateId
 		self.text = text
 	}
 }
@@ -78,31 +62,14 @@ struct CommentListRequest: Codable {
 	let token:String?
 
 	init(from query:CommentQuery, token:String?) {
-		var campaignId:Int?
-		var updateId:String?
-
-		func setup(with source:CommentSource) {
-			switch source {
-			case .campaign(let campaign):
-				campaignId = campaign.id
-			case .update(let update):
-				updateId = update.id
-			case .comment(let innerSource, _):
-				setup(with: innerSource)
-			}
-		}
-
-		setup(with: query.source)
-		if case .comment(_, let comment) = query.source {
-			self.parentCommentId = comment.id
-		}
-		else {
-			self.parentCommentId = nil
-		}
+		if case .campaign(let campaign) = query.source { campaignId = campaign.id }
+		else { campaignId = nil }
+		if case .update(let update) = query.source { updateId = update.id }
+		else { updateId = nil }
+		if case .comment(_, let comment) = query.source { parentCommentId = comment.id }
+		else { parentCommentId = nil }
 
 		self.token = token
-		self.campaignId = campaignId
-		self.updateId = updateId
 		self.page = query.page
 	}
 }
