@@ -157,6 +157,19 @@ struct Presenter {
 		vc.show(new, sender: self)
 	}
 
+	func presentCommentsViewController(in vc:UIViewController,
+									   source avm: CommentAVM,
+									   repliesTo commentVM:CommentVM,
+									   presentKeyboard:Bool = false) {
+		guard let model = commentVM.model,
+			let source = avm.query?.source
+			else { return }
+		let new = R.storyboard.details.commentsVC()!
+		new.vm = CommentAVM(source: .comment(source, model))
+		new.shouldOpenTyping = presentKeyboard
+		vc.show(new, sender: self)
+	}
+
 	// MARK: - Other
 
 	func presentSettingsViewController(in vc:UIViewController,

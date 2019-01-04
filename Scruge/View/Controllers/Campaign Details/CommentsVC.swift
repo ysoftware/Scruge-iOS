@@ -56,6 +56,7 @@ final class CommentsViewController: UIViewController {
 	// MARK: - Properties
 
 	public var vm:CommentAVM!
+	public var shouldOpenTyping = false
 
 	private var comment:String? {
 		let string = (commentField.text ?? "").trimmingCharacters(in: .whitespaces)
@@ -82,9 +83,12 @@ final class CommentsViewController: UIViewController {
 
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
+
+		view.endEditing(true)
+		setKeyboard(height: 0)
 		NotificationCenter.default.removeObserver(self)
 	}
-
+	
 	private func setupInputBar() {
 		commentActivity.isHidden = true
 		sendButton.isHidden = false
@@ -108,6 +112,11 @@ final class CommentsViewController: UIViewController {
 											   object: nil,
 											   queue: .main) { [weak self] notification in
 												self?.setKeyboard(with: notification)
+		}
+
+		if shouldOpenTyping {
+			commentField.becomeFirstResponder()
+			shouldOpenTyping = false
 		}
 	}
 
@@ -172,15 +181,19 @@ extension CommentsViewController: UITableViewDataSource {
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.commentCell,
 											 for: indexPath)!
 			.setup(with: vm.item(at: indexPath.row, shouldLoadMore: true))
-			.like { [unowned self] item in
+			.like { item in
 				item.like()
 			}
 			.seeAll { [unowned self] item in
-//				Service.presenter.presentCommentsViewController(in: self, for: item)
+				Service.presenter.presentCommentsViewController(in: self,
+																source: self.vm,
+																repliesTo: item)
 			}
 			.reply { [unowned self] item in
-					// and open keyboard
-//				Service.presenter.presentCommentsViewController(in: self, for: item)
+				Service.presenter.presentCommentsViewController(in: self,
+																source: self.vm,
+																repliesTo: item,
+																presentKeyboard: true)
 			}
 	}
 }

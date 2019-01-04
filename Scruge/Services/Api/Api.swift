@@ -285,36 +285,41 @@ final class Api {
 		service.post("comment\(comment.id)/like", request.toDictionary(), completion)
 	}
 
-	func postComment(_ comment:String,
+	func postComment(_ text:String,
 					 source: CommentSource,
-					 replyingTo parentId: String? = nil,
 					 _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
-		let method:String
-		switch source {
-		case .campaign(let campaign):
-			method = "campaign/\(campaign.id)/comments"
-		case .update(let update):
-			method = "update/\(update.id)/comments"
+		let method = getCommentPath(for: source)
+		var parentId:String? = nil
+		if case .comment(_, let comment) = source {
+			parentId = comment.id
 		}
-		let request = CommentRequest(text: comment, parentCommentId: parentId, token: token)
+		let request = CommentRequest(text: text, parentCommentId: parentId, token: token)
 		service.post(method, request.toDictionary(), completion)
 	}
 
 	func getComments(for query:CommentQuery,
-					 parent parentId:String? = nil,
 					 _ completion: @escaping (Result<CommentListResponse, AnyError>)->Void) {
 		let token = Service.tokenManager.getToken()
-		let method:String
-		switch query.source {
-		case .campaign(let campaign):
-			method = "campaign/\(campaign.id)/comments"
-		case .update(let update):
-			method = "update/\(update.id)/comments"
+		let method = getCommentPath(for: query.source)
+		var parentId:String? = nil
+		if case .comment(_, let comment) = query.source {
+			parentId = comment.id
 		}
 		let request = CommentListRequest.init(page: query.page, parentId: parentId, token: token)
 		service.get(method, request.toDictionary(), completion)
+	}
+
+	private func getCommentPath(for source:CommentSource) -> String {
+		switch source {
+		case .campaign(let campaign):
+			return "campaign/\(campaign.id)/comments"
+		case .update(let update):
+			return "update/\(update.id)/comments"
+		case .comment(let innerSource, _):
+			return getCommentPath(for: innerSource)
+		}
 	}
 }

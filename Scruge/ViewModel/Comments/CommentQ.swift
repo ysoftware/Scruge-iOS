@@ -8,11 +8,13 @@
 
 import MVVM
 
-enum CommentSource {
+indirect enum CommentSource {
 
 	case update(Update)
 
 	case campaign(Campaign)
+
+	case comment(CommentSource, Comment)
 }
 
 struct CommentQuery: Query {

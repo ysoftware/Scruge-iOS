@@ -38,10 +38,15 @@ final class CommentCell: UITableViewCell {
 			profileImage.image = nil
 		}
 
-		seeAllButton.setTitle(vm.repliesText, for: .normal)
-		seeAllView.isHidden = !vm.canReply
-		replyButton.isHidden = !vm.canReply
+		if let text = vm.repliesText {
+			seeAllButton.setTitle(text, for: .normal)
+			seeAllView.isHidden = false
+		}
+		else {
+			seeAllView.isHidden = true
+		}
 
+		replyButton.isHidden = !vm.canReply
 		likesImage.image = vm.isLiking ? R.image.like_active()! : R.image.like()!
 		likeTapView.gestureRecognizers = [UITapGestureRecognizer(target: self,
 																 action: #selector(likeClicked))]
