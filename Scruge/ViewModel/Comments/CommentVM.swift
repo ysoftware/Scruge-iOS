@@ -53,8 +53,8 @@ final class CommentVM: ViewModel<Comment> {
 	}
 
 	func like() {
-		let newValue = !isLiking
 		guard let model = model else { return }
+		let newValue = !isLiking
 		Service.api.likeComment(model, value: newValue) { result in
 			if case .success(let response) = result {
 				if ErrorHandler.error(from: response.result) == nil {
