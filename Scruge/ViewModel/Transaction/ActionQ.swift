@@ -11,6 +11,8 @@ import MVVM
 /// trying to match the weird pagination system used in get_actions rpc call
 final class ActionsQuery:MVVM.Query {
 
+	private let batchSize = 10
+
 	var position:Int = -1
 
 	var offset:Int = -1
@@ -18,7 +20,7 @@ final class ActionsQuery:MVVM.Query {
 	var size: UInt = 1
 
 	func set(limit: Int) {
-		position = limit + 49
+		position = limit
 	}
 
 	func resetPosition() {
@@ -29,9 +31,9 @@ final class ActionsQuery:MVVM.Query {
 
 	func advance() {
 		if position != -1 {
-			size = 50
-			offset = -50
-			position = max(0, position - Int(size))
+			position -= Int(size)
+			offset = -Int(batchSize)
+			size = UInt(batchSize)
 		}
 	}
 }

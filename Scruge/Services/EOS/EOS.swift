@@ -50,6 +50,8 @@ struct EOS {
 			if !actions.isEmpty, query?.position == -1 {
 				query?.set(limit: actions[0].accountActionSeq)
 			}
+
+			print("\(query!.position), \(query!.offset): \(actions.first!.accountActionSeq) - \(actions.last!.accountActionSeq)")
 			completion(.success(actions))
 		}
 	}
