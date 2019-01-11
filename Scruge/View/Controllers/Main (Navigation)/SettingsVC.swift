@@ -10,7 +10,7 @@ import UIKit
 
 final class SettingsViewController: UIViewController {
 
-	var profileVM:ProfileVM!
+	var profileVM:ProfileVM?
 
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
@@ -26,6 +26,6 @@ final class SettingsViewController: UIViewController {
 	}
 
 	@IBAction func editProfile(_ sender:Any) {
-		Service.presenter.presentProfileEditViewController(in: self, with: profileVM)
+		profileVM.flatMap { Service.presenter.presentProfileEditViewController(in: self, with: $0) }
 	}
 }
