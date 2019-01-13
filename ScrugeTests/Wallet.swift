@@ -16,7 +16,7 @@ final class WalletTests: XCTestCase {
 
 	// MARK: - Import
 
-	func importKeyBlock(_ expectation:XCTestExpectation) -> (SELocalAccount?)->Void {
+	func keyBlock(_ expectation:XCTestExpectation) -> (SELocalAccount?)->Void {
 		return { account in
 			if account != nil {
 				expectation.fulfill()
@@ -24,13 +24,20 @@ final class WalletTests: XCTestCase {
 		}
 	}
 
+	func testGenerate() {
+		let expectation = XCTestExpectation()
+		expectation.expectationDescription = "key should be generated"
+
+		Service.wallet.createKey(passcode: PASSCODE, keyBlock(expectation))
+	}
+
 	func testSuccessImport() {
 		let expectation = XCTestExpectation()
 		expectation.expectationDescription = "this key should be imported correctly"
 		// correct private key created by keosd
 		Service.wallet.importKey(PRIVATE_KEY,
-								 passcode: PASSCODE, importKeyBlock(expectation))
-		wait(for: [expectation], timeout: 0.1)
+								 passcode: PASSCODE, keyBlock(expectation))
+		wait(for: [expectation], timeout: 0.5)
 	}
 
 	func testFailImport() {
@@ -40,14 +47,14 @@ final class WalletTests: XCTestCase {
 
 		// public key instead of private key
 		Service.wallet.importKey("EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-								 passcode: PASSCODE, importKeyBlock(expectation))
+								 passcode: PASSCODE, keyBlock(expectation))
 		// modified private key
 		Service.wallet.importKey("5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD2",
-								 passcode: PASSCODE, importKeyBlock(expectation))
+								 passcode: PASSCODE, keyBlock(expectation))
 		// some random string
 		Service.wallet.importKey("fail",
-								 passcode: PASSCODE, importKeyBlock(expectation))
-		wait(for: [expectation], timeout: 0.3)
+								 passcode: PASSCODE, keyBlock(expectation))
+		wait(for: [expectation], timeout: 0.5)
 	}
 
 	// MARK: - Lock
@@ -65,7 +72,7 @@ final class WalletTests: XCTestCase {
 										expectation.fulfill()
 									}
 		}
-		wait(for: [expectation], timeout: 0.2)
+		wait(for: [expectation], timeout: 0.5)
 	}
 
 	func testUnlockFailure() {
@@ -81,6 +88,6 @@ final class WalletTests: XCTestCase {
 										expectation.fulfill()
 									}
 		}
-		wait(for: [expectation], timeout: 0.2)
+		wait(for: [expectation], timeout: 0.5)
 	}
 }
