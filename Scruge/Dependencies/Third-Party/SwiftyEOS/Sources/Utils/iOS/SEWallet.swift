@@ -304,7 +304,7 @@ struct RawKeystore: Codable {
     public var mnemonic: String?
     
     //FIXME: Fill with your own iv.
-    static let aesIv = "ReplaceWithYourIv"
+    static let aesIv = String.random(length: 16)
     
     var publicKey: String?
     var rawPublicKey: String? {
