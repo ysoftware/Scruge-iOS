@@ -31,7 +31,7 @@ func AESCrypt(inData:Data, keyData:Data, ivData:Data, operation:Int) -> Data {
     let cryptLength  = size_t(data.count + kCCBlockSizeAES128)
     var cryptData = Data(count:cryptLength)
     
-    let keyLength = size_t(kCCKeySizeAES128)
+    let keyLength = size_t(kCCKeySizeAES256)
     let options   = CCOptions(kCCOptionPKCS7Padding)
     
     
