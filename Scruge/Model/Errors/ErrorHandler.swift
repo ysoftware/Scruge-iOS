@@ -25,7 +25,7 @@ struct ErrorHandler {
 			case .incorrectPasswordLength:
 				return "Password should be longer than 5 and shorter than 50 symbols."
 			case .noToken, .invalidToken, .userNotFound:
-				return "Authentication failed. Please try signing in again."
+				return "This action requires authentication. Please, sign in with your Scruge account."
 			case .invalidEmail:
 				return "Incorrectly formatted email"
 			case .accountBlocked:
