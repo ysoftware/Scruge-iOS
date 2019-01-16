@@ -13,13 +13,13 @@ final class WalletDataView: UIView {
 
 	@IBOutlet var contentView: UIView!
 	@IBOutlet weak var publicKeyLabel: UILabel!
+	@IBOutlet weak var privateKeyLabel: UILabel!
 
 	// MARK: - Properties
 
-	var copyPublicKeyTap:((SELocalAccount?)->Void)?
-	var exportPrivateKeyTap:((SELocalAccount?)->Void)?
-
+	public weak var presentingViewController:UIViewController?
 	private var wallet:SELocalAccount?
+	private var unlocked = false
 
 	// MARK: - Setup
 
@@ -42,18 +42,53 @@ final class WalletDataView: UIView {
 		self.backgroundColor = .clear
 	}
 
+	func lock() {
+		makeSecure(false)
+		updateViews()
+	}
+
 	func updateViews() {
+		makeSecure(false)
+		privateKeyLabel.text = "5••••••••••••••••••••••••••••••••••••••••••••••••••"
+
 		wallet = Service.wallet.getWallet()
 		publicKeyLabel.text = wallet?.rawPublicKey
+	}
+
+	private func makeSecure(_ value: Bool) {
+		unlocked = value
+		// TO-DO: make secure
 	}
 
 	// MARK: - Actions
 
 	@IBAction func copyPublicKey(_ sender: Any) {
-		copyPublicKeyTap?(wallet)
+		UIPasteboard.general.string = wallet?.rawPublicKey
+		presentingViewController?.alert("Copied to clipboard")
 	}
 
 	@IBAction func exportPrivateKey(_ sender: Any) {
-		exportPrivateKeyTap?(wallet)
+		if unlocked {
+			UIPasteboard.general.string = privateKeyLabel.text
+			self.presentingViewController?.alert("Copied to clipboard")
+		}
+
+		guard let wallet = Service.wallet.getWallet() else { return }
+		let warning = "Be careful not to share your private key with anyone!"
+
+		presentingViewController?.askForInput("Export private key",
+						 question: "Enter your wallet password",
+						 placeholder: "Wallet password…",
+						 keyboardType: .default,
+						 isSecure: true,
+						 actionTitle: "Unlock") { input in
+							guard let input = input else { return }
+							guard let privateKey = try? wallet.decrypt(passcode: input) else {
+								self.presentingViewController?.alert("Incorrect password")
+								return
+							}
+							self.privateKeyLabel.text = privateKey.rawPrivateKey()
+							self.presentingViewController?.alert(warning)
+		}
 	}
 }

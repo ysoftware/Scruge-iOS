@@ -76,28 +76,7 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func setupActions() {
-		walletDataView.exportPrivateKeyTap = { [unowned self] wallet in
-			guard let wallet = Service.wallet.getWallet() else {
-				return
-			}
-			self.askForInput("Export private key",
-							 question: "Enter your wallet password",
-							 placeholder: "Wallet password…",
-							 keyboardType: .default,
-							 isSecure: true,
-							 actionTitle: "Unlock") { input in
-								guard let input = input else { return }
-								guard let privateKey = try? wallet.decrypt(passcode: input) else {
-									return self.alert("Incorrect password")
-								}
-								UIPasteboard.general.string = privateKey.rawPrivateKey()
-								self.alert("Copied to clipboard")
-			}
-		}
-		walletDataView.copyPublicKeyTap = { wallet in
-			UIPasteboard.general.string = wallet?.rawPublicKey
-			self.alert("Copied to clipboard")
-		}
+		walletDataView.presentingViewController = self
 	}
 
 	private func verifyWallet() {
