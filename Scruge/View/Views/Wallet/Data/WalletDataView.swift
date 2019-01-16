@@ -43,21 +43,16 @@ final class WalletDataView: UIView {
 	}
 
 	func lock() {
-		makeSecure(false)
+		unlocked = false
 		updateViews()
 	}
 
 	func updateViews() {
-		makeSecure(false)
+		unlocked = false
 		privateKeyLabel.text = "5••••••••••••••••••••••••••••••••••••••••••••••••••"
 
 		wallet = Service.wallet.getWallet()
 		publicKeyLabel.text = wallet?.rawPublicKey
-	}
-
-	private func makeSecure(_ value: Bool) {
-		unlocked = value
-		// TO-DO: make secure
 	}
 
 	// MARK: - Actions
@@ -70,7 +65,8 @@ final class WalletDataView: UIView {
 	@IBAction func exportPrivateKey(_ sender: Any) {
 		if unlocked {
 			UIPasteboard.general.string = privateKeyLabel.text
-			self.presentingViewController?.alert("Copied to clipboard")
+			presentingViewController?.alert("Copied to clipboard")
+			return
 		}
 
 		guard let wallet = Service.wallet.getWallet() else { return }
@@ -87,6 +83,7 @@ final class WalletDataView: UIView {
 								self.presentingViewController?.alert("Incorrect password")
 								return
 							}
+							self.unlocked = true
 							self.privateKeyLabel.text = privateKey.rawPrivateKey()
 							self.presentingViewController?.alert(warning)
 		}
