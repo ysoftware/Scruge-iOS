@@ -14,8 +14,6 @@ final class UpdateAVM: SimpleArrayViewModel<Update, UpdateVM> {
 	enum Source {
 
 		case campaign(Campaign)
-
-		case activity
 	}
 
 	private let source:Source
@@ -37,20 +35,6 @@ final class UpdateAVM: SimpleArrayViewModel<Update, UpdateVM> {
 				switch result {
 				case .success(let response):
 					block(.success(response.updates))
-				case .failure(let error):
-					block(.failure(AnyError(error)))
-				}
-			}
-		case .activity:
-			Service.api.getActivity { result in
-				switch result {
-				case .success(let response):
-					let updates = response.updates.map { activity -> Update in
-						var update = activity.update
-						update.campaignInfo = activity.campaign
-						return update
-					}
-					block(.success(updates))
 				case .failure(let error):
 					block(.failure(AnyError(error)))
 				}

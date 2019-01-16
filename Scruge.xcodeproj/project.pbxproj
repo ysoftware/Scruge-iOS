@@ -21,6 +21,11 @@
 		71163A472167517E00C5B633 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A462167517E00C5B633 /* Wallet.swift */; };
 		71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A49216754BC00C5B633 /* LoadingView.swift */; };
 		71163A4C216754C400C5B633 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71163A4B216754C400C5B633 /* LoadingView.xib */; };
+		712044FC21EF80640030F96A /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712044FB21EF80640030F96A /* Activity.swift */; };
+		712044FF21EF825D0030F96A /* ActivityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712044FE21EF825D0030F96A /* ActivityVM.swift */; };
+		7120450121EF82680030F96A /* ActivityQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120450021EF82680030F96A /* ActivityQ.swift */; };
+		7120450321EF833A0030F96A /* ActivityAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120450221EF833A0030F96A /* ActivityAVM.swift */; };
+		7120450421EF87DF0030F96A /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9582215F7945001CF853 /* Mock.swift */; };
 		712508B821AECC33008E3A5C /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712508B721AECC33008E3A5C /* CommentCell.swift */; };
 		712508BA21AECC3C008E3A5C /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712508B921AECC3C008E3A5C /* CommentCell.xib */; };
 		712B3A7021A813E8003BB43A /* EconomiesCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 712B3A6F21A813E8003BB43A /* EconomiesCell.xib */; };
@@ -81,7 +86,6 @@
 		71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CBE2158E8AA004D28E7 /* Presenter.swift */; };
 		71971CC12158F076004D28E7 /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71971CC02158F076004D28E7 /* RoundedView.swift */; };
 		7198C820218AFB2C009682E7 /* ErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7198C81F218AFB2C009682E7 /* ErrorTypes.swift */; };
-		7198C821218C68FE009682E7 /* Mock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71BE9582215F7945001CF853 /* Mock.swift */; };
 		71A0C1A7216F939900C2ACF3 /* AboutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1A6216F939900C2ACF3 /* AboutCell.swift */; };
 		71A0C1A9216F93A500C2ACF3 /* AboutCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71A0C1A8216F93A500C2ACF3 /* AboutCell.xib */; };
 		71A0C1AE216F9B9200C2ACF3 /* Social.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A0C1AD216F9B9200C2ACF3 /* Social.swift */; };
@@ -277,6 +281,10 @@
 		71163A462167517E00C5B633 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		71163A49216754BC00C5B633 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		71163A4B216754C400C5B633 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		712044FB21EF80640030F96A /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
+		712044FE21EF825D0030F96A /* ActivityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVM.swift; sourceTree = "<group>"; };
+		7120450021EF82680030F96A /* ActivityQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityQ.swift; sourceTree = "<group>"; };
+		7120450221EF833A0030F96A /* ActivityAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityAVM.swift; sourceTree = "<group>"; };
 		712508B721AECC33008E3A5C /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 		712508B921AECC3C008E3A5C /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		712B3A6F21A813E8003BB43A /* EconomiesCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EconomiesCell.xib; sourceTree = "<group>"; };
@@ -599,6 +607,16 @@
 			path = "Loading View";
 			sourceTree = "<group>";
 		};
+		712044FD21EF82540030F96A /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				712044FE21EF825D0030F96A /* ActivityVM.swift */,
+				7120450021EF82680030F96A /* ActivityQ.swift */,
+				7120450221EF833A0030F96A /* ActivityAVM.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 		712508B621AECC23008E3A5C /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -865,6 +883,7 @@
 		71971CB32158E3F6004D28E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				712044FD21EF82540030F96A /* Activity */,
 				71C2438D21D4C31C00E86F64 /* Transaction */,
 				71C368982181F7F100729C00 /* Economies */,
 				71345C192179C93600F28AF1 /* Account-Wallet */,
@@ -1119,6 +1138,7 @@
 		71B38D17215B9AD000929CC3 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				712044FB21EF80640030F96A /* Activity.swift */,
 				710FE991217F94F8009E51E5 /* Balance.swift */,
 				71A0C1B921708AD000C2ACF3 /* Category.swift */,
 				71C8E8EB2159101B0078BD36 /* Campaign.swift */,
@@ -1974,6 +1994,7 @@
 				71F68A4A21709D8A00F7E728 /* FaqVC.swift in Sources */,
 				71AB79032165FC260077D904 /* ProfileVC.swift in Sources */,
 				71D84CC821995AD000E8DB88 /* bip32.c in Sources */,
+				712044FF21EF825D0030F96A /* ActivityVM.swift in Sources */,
 				71A0C1B821708A2B00C2ACF3 /* FaqAVM.swift in Sources */,
 				71BE95B421635A30001CF853 /* ViewState.swift in Sources */,
 				71D84CDB21995AD000E8DB88 /* KeyPair.swift in Sources */,
@@ -1983,6 +2004,7 @@
 				71D84CCE21995AD000E8DB88 /* TransactionUtil.swift in Sources */,
 				71DC1A9921AFDACB001D5575 /* WalletStartVC.swift in Sources */,
 				71345C142177413700F28AF1 /* WalletVC.swift in Sources */,
+				7120450421EF87DF0030F96A /* Mock.swift in Sources */,
 				71345C242179D25D00F28AF1 /* AccountCell.swift in Sources */,
 				71B38D1D215BBBAA00929CC3 /* Reward.swift in Sources */,
 				71BE95C32163ABF5001CF853 /* CampaignProto.swift in Sources */,
@@ -2009,6 +2031,7 @@
 				71D84CDE21995AD000E8DB88 /* ChainModels.swift in Sources */,
 				71B8462321B5508400F6D708 /* CountdownCell.swift in Sources */,
 				71C243A121D4E3D600E86F64 /* TransactionCell.swift in Sources */,
+				712044FC21EF80640030F96A /* Activity.swift in Sources */,
 				71BE9591216233E3001CF853 /* CampFooter.swift in Sources */,
 				712B3A7521A81869003BB43A /* CardView.swift in Sources */,
 				716F060121D219D900561162 /* UIButton+AddTargetClosure.swift in Sources */,
@@ -2103,7 +2126,6 @@
 				71BE95AE2163520D001CF853 /* ErrorView.swift in Sources */,
 				7105C35721AD554D008AAB1E /* RegisterVC.swift in Sources */,
 				716F060721D2561400561162 /* ExchangeModel.swift in Sources */,
-				7198C821218C68FE009682E7 /* Mock.swift in Sources */,
 				71C2439521D4C37900E86F64 /* ActionQ.swift in Sources */,
 				71387A95216B73B700B24C67 /* ActivityIndicator.swift in Sources */,
 				71C2439D21D4E04900E86F64 /* ActionModels.swift in Sources */,
@@ -2115,6 +2137,7 @@
 				71387A90216B6C6C00B24C67 /* CoreGraphicsTools.swift in Sources */,
 				7105C35B21AD6580008AAB1E /* TransparentNavBar.swift in Sources */,
 				71163A40216642F400C5B633 /* EmailValidation.swift in Sources */,
+				7120450321EF833A0030F96A /* ActivityAVM.swift in Sources */,
 				71D84CBB21995ACF00E8DB88 /* curve-specific.inc in Sources */,
 				71345C0F21773D2800F28AF1 /* AnyEncodable.swift in Sources */,
 				71D84CD521995AD000E8DB88 /* ChainRouter.swift in Sources */,
@@ -2156,6 +2179,7 @@
 				71BE1046215A2020004753EC /* Network.swift in Sources */,
 				71BE957A215EA75B001CF853 /* FeaturedVC.swift in Sources */,
 				71C2C5B821AC0CCC0040C85A /* Button.swift in Sources */,
+				7120450121EF82680030F96A /* ActivityQ.swift in Sources */,
 				71D84CBF21995ACF00E8DB88 /* bip39.c in Sources */,
 				71B38D00215ABE3400929CC3 /* UpdateVM.swift in Sources */,
 				71BE95C92163E879001CF853 /* ProgressView.swift in Sources */,

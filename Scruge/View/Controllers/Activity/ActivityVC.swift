@@ -19,7 +19,7 @@ final class ActivityViewController: UIViewController {
 	// MARK: - Properties
 
 	private var activeVoting:[Voting] = []
-	private let vm = UpdateAVM(.activity)
+	private let vm = ActivityAVM()
 	private var tableUpdateHandler:ArrayViewModelUpdateHandler!
 
 	// MARK: - Setup
@@ -109,12 +109,12 @@ extension ActivityViewController: UITableViewDataSource {
 		let vm = self.vm.item(at: indexPath.row, shouldLoadMore: true)
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.activityUpdateCell,
 											 for: indexPath)!
-			.setup(with: vm)
+//			.setup(with: vm)
 			.campaignTap { [unowned self] update in
 				Service.presenter.presentCampaignViewController(in: self, id: update.campaignId)
 			}
 			.updateTap { [unowned self] update in
-				Service.presenter.presentContentViewController(in: self, for: vm)
+//				Service.presenter.presentContentViewController(in: self, for: vm)
 			}
 	}
 }

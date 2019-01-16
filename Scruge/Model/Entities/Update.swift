@@ -22,10 +22,3 @@ struct Update: Equatable, Codable {
 
 	var campaignInfo:CampaignInfo?
 }
-
-struct Activity: Equatable, Codable {
-
-	let update:Update
-
-	let campaign:CampaignInfo
-}

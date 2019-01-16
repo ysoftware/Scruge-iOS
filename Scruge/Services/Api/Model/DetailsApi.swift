@@ -18,7 +18,16 @@ struct UpdateListResponse: Codable {
 	let updates:[Update]
 }
 
-struct ActivityListResponse: Codable {
+struct ActivityListResponse:Codable {
 
-	let updates:[Activity]
+	let updates:[ActivityModel]
+
+	init(from decoder: Decoder) throws {
+		updates = []
+		// TO-DO: parse object
+	}
+
+	func encode(to encoder: Encoder) throws {
+
+	}
 }

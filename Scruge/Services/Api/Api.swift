@@ -174,7 +174,7 @@ final class Api {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
-		service.get("user/\(token)/campaign_updates", nil, completion)
+		service.get("user/\(token)/activity", nil, completion)
 	}
 
 	func getVoteNotifications(_ completion: @escaping (Result<ActiveVotesResponse, AnyError>)->Void) {
