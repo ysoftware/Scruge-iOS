@@ -261,6 +261,10 @@ struct RawKeystore: Codable {
     var publicKey: String
     
     func decrypt(passcode: String) throws -> PrivateKey {
+		guard passcode.count > 0 else {
+			throw NSError(domain: "", code: 0, userInfo: nil)
+		}
+		
         let decryptedData = AESCrypt(inData:self.data.data(using: .utf8)!,
                                      keyData:passcode.data(using:String.Encoding.utf8)!,
                                      ivData:self.iv.data(using:String.Encoding.utf8)!,
