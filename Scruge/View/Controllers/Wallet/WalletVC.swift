@@ -40,6 +40,10 @@ final class WalletViewController: UIViewController {
 		return .lightContent
 	}
 
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -47,6 +51,11 @@ final class WalletViewController: UIViewController {
 		setupActions()
 		setupExpandableViews()
 		setupScrollView()
+
+		NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification,
+											   object: nil, queue: nil) { _ in
+												self.walletDataView.lock()
+		}
 	}
 
 	override func viewDidAppear(_ animated: Bool) {
@@ -58,6 +67,11 @@ final class WalletViewController: UIViewController {
 		super.viewWillAppear(animated)
 
 		verifyWallet()
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		walletDataView.lock()
 	}
 
 	private func setupScrollView() {
