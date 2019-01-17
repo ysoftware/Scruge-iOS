@@ -35,6 +35,15 @@ struct EOS {
 		}
 	}
 
+	func getResources(of account:String, completion: @escaping (Result<Resources, AnyError>)->Void) {
+		chain.getAccount(account: account) { account, error in
+			guard let account = account else {
+				return completion(.failure(AnyError(error ?? EOSError.unknown)))
+			}
+			completion(.success(Resources(data: account)))
+		}
+	}
+
 	func getActions(for account:String,
 					query:ActionsQuery?,
 					completion: @escaping (Result<[ActionReceipt], AnyError>)->Void) {
@@ -50,8 +59,6 @@ struct EOS {
 			if !actions.isEmpty, query?.position == -1 {
 				query?.set(limit: actions[0].accountActionSeq)
 			}
-
-			print("\(query!.position), \(query!.offset): \(actions.first!.accountActionSeq) - \(actions.last!.accountActionSeq)")
 			completion(.success(actions))
 		}
 	}

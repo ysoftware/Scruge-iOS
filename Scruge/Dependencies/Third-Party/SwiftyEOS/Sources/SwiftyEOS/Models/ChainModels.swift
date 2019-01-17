@@ -83,6 +83,7 @@ struct ChainInfo: Codable {
             return ResourceLimit(used: ramUsage, available: ramQuota-ramUsage, max: ramQuota)
         }
     }
+	var totalResources:TotalResources
     var refundRequest: RefundRequest?
     var selfDelegatedBandwidth: DelegatedBandwidth?
     var coreLiquidBalance: String? = ""
@@ -97,6 +98,7 @@ struct ChainInfo: Codable {
         case refundRequest
         case selfDelegatedBandwidth
         case coreLiquidBalance
+		case totalResources
     }
     
     required init(from decoder: Decoder) throws {
@@ -106,6 +108,7 @@ struct ChainInfo: Codable {
         self.permissions = try container.decodeIfPresent([AccountPermission].self, forKey: .permissions)
         self.netLimit = try container.decodeIfPresent(ResourceLimit.self, forKey: .netLimit)
         self.cpuLimit = try container.decodeIfPresent(ResourceLimit.self, forKey: .cpuLimit)
+		self.totalResources = try container.decode(TotalResources.self, forKey: .totalResources)
         
         if let ramQuota = try? container.decodeIfPresent(UInt64.self, forKey: .ramQuota) {
             self.ramQuota = ramQuota!
@@ -123,6 +126,13 @@ struct ChainInfo: Codable {
         self.selfDelegatedBandwidth = try container.decodeIfPresent(DelegatedBandwidth.self, forKey: .selfDelegatedBandwidth)
         self.coreLiquidBalance = try container.decodeIfPresent(String.self, forKey: .coreLiquidBalance)
     }
+}
+
+@objcMembers class TotalResources: NSObject, Codable {
+	var owner:String
+	var netWeight:String
+	var cpuWeight:String
+	var ramBytes:Int
 }
 
 @objcMembers class ResourceLimit: NSObject, Codable {

@@ -55,6 +55,10 @@
 		713EF3B221A98E6F009BA9D5 /* PagingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713EF3B121A98E6F009BA9D5 /* PagingCell.swift */; };
 		715DB15B2174716E0005B69D /* VoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB15A2174716E0005B69D /* VoteVC.swift */; };
 		715DB15D217471980005B69D /* ContributeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB15C217471980005B69D /* ContributeVC.swift */; };
+		7166528521F0A4CD005A50F7 /* ResourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528421F0A4CD005A50F7 /* ResourcesView.swift */; };
+		7166528721F0A6F9005A50F7 /* ResourcesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7166528621F0A6F9005A50F7 /* ResourcesView.xib */; };
+		7166528A21F0B143005A50F7 /* ResourcesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528921F0B143005A50F7 /* ResourcesVM.swift */; };
+		7166528C21F0B167005A50F7 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528B21F0B167005A50F7 /* Resources.swift */; };
 		716AE1CC215977470098882F /* CampaignAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE1CB215977470098882F /* CampaignAVM.swift */; };
 		716AE1E621D39C09005EF68B /* WalletDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE1E521D39C09005EF68B /* WalletDataView.swift */; };
 		716AE1E821D39C13005EF68B /* WalletDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716AE1E721D39C13005EF68B /* WalletDataView.xib */; };
@@ -314,6 +318,10 @@
 		713EF3B121A98E6F009BA9D5 /* PagingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PagingCell.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/View/Cells/Campaign Details/Paging Cell/PagingCell.swift"; sourceTree = "<absolute>"; };
 		715DB15A2174716E0005B69D /* VoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteVC.swift; sourceTree = "<group>"; };
 		715DB15C217471980005B69D /* ContributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributeVC.swift; sourceTree = "<group>"; };
+		7166528421F0A4CD005A50F7 /* ResourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesView.swift; sourceTree = "<group>"; };
+		7166528621F0A6F9005A50F7 /* ResourcesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesView.xib; sourceTree = "<group>"; };
+		7166528921F0B143005A50F7 /* ResourcesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesVM.swift; sourceTree = "<group>"; };
+		7166528B21F0B167005A50F7 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		716AE1CB215977470098882F /* CampaignAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignAVM.swift; sourceTree = "<group>"; };
 		716AE1E521D39C09005EF68B /* WalletDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDataView.swift; sourceTree = "<group>"; };
 		716AE1E721D39C13005EF68B /* WalletDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletDataView.xib; sourceTree = "<group>"; };
@@ -784,6 +792,23 @@
 			path = "Paging Cell";
 			sourceTree = "<group>";
 		};
+		7166528321F0A48A005A50F7 /* Staking */ = {
+			isa = PBXGroup;
+			children = (
+				7166528621F0A6F9005A50F7 /* ResourcesView.xib */,
+				7166528421F0A4CD005A50F7 /* ResourcesView.swift */,
+			);
+			path = Staking;
+			sourceTree = "<group>";
+		};
+		7166528821F0B130005A50F7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7166528921F0B143005A50F7 /* ResourcesVM.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		716AE1E421D39BFB005EF68B /* Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -896,6 +921,7 @@
 				71B38D09215B879100929CC3 /* Comments */,
 				71A0C1B42170899C00C2ACF3 /* Faq */,
 				71AD0E2421708B1E00077446 /* Document */,
+				7166528821F0B130005A50F7 /* Resources */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1156,6 +1182,7 @@
 				716E62552189939D002AC5DA /* Contribution.swift */,
 				716E625C2189D94A002AC5DA /* Member.swift */,
 				71D9C1E121B16EA00043B15E /* Vote.swift */,
+				7166528B21F0B167005A50F7 /* Resources.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -1362,6 +1389,7 @@
 		71C2438A21D4BD7100E86F64 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				7166528321F0A48A005A50F7 /* Staking */,
 				71C2438921D4BD6600E86F64 /* Transactions */,
 				716AE1E421D39BFB005EF68B /* Data */,
 			);
@@ -1838,6 +1866,7 @@
 				71BE959921625582001CF853 /* MilestoneCell.xib in Resources */,
 				71345C212179D24C00F28AF1 /* AccountCell.xib in Resources */,
 				71C243A321D4E3DE00E86F64 /* TransactionCell.xib in Resources */,
+				7166528721F0A6F9005A50F7 /* ResourcesView.xib in Resources */,
 				71B8461C21B54ED900F6D708 /* VoteInfoCell.xib in Resources */,
 				71BE95B821636245001CF853 /* ErrorView.xib in Resources */,
 				71BE95A0216258E7001CF853 /* LastUpdateCell.xib in Resources */,
@@ -1990,6 +2019,7 @@
 				71D84CC621995AD000E8DB88 /* ripemd160.c in Sources */,
 				71B38CF9215AA16400929CC3 /* CampaignApi.swift in Sources */,
 				71F68A4C21709E2700F7E728 /* DocumentsVC.swift in Sources */,
+				7166528521F0A4CD005A50F7 /* ResourcesView.swift in Sources */,
 				71B38D08215B875900929CC3 /* CommentApi.swift in Sources */,
 				71F68A4A21709D8A00F7E728 /* FaqVC.swift in Sources */,
 				71AB79032165FC260077D904 /* ProfileVC.swift in Sources */,
@@ -2064,6 +2094,7 @@
 				71BE957F215F5D3C001CF853 /* CategoryCell.swift in Sources */,
 				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,
 				71BE95BD2163768A001CF853 /* CategoryVM.swift in Sources */,
+				7166528A21F0B143005A50F7 /* ResourcesVM.swift in Sources */,
 				71D84CD721995AD000E8DB88 /* EOSRPC+History.swift in Sources */,
 				71B38D02215ABE6E00929CC3 /* UpdateAVM.swift in Sources */,
 				71D84CCB21995AD000E8DB88 /* ecdsa.c in Sources */,
@@ -2155,6 +2186,7 @@
 				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,
 				71D84CDA21995AD000E8DB88 /* BaseRouter.swift in Sources */,
 				71B38D0B215B879D00929CC3 /* CommentVM.swift in Sources */,
+				7166528C21F0B167005A50F7 /* Resources.swift in Sources */,
 				71D84CC521995AD000E8DB88 /* bignum.c in Sources */,
 				71B38D20215BBE8200929CC3 /* RewardVM.swift in Sources */,
 				71B38D16215B9A9B00929CC3 /* DetailsApi.swift in Sources */,

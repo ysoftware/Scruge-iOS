@@ -126,7 +126,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="625.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvH-iY-h5K" customClass="GradientView" customModule="Scruge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="501.33333333333331"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="424.33333333333331"/>
                                                 <color key="backgroundColor" red="0.89411764709999997" green="0.2666666667" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -316,8 +316,8 @@
                                                                     <constraint firstAttribute="trailing" secondItem="vXy-3G-YZL" secondAttribute="trailing" id="qc3-xF-6Je"/>
                                                                 </constraints>
                                                             </view>
-                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qzr-dk-olg" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="77" width="345" height="62"/>
+                                                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Qzr-dk-olg" customClass="CardView" customModule="Scruge" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="69.666666666666686" width="345" height="62"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ANU-F7-xcy" customClass="ExpandableView" customModule="Scruge" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="62"/>
@@ -404,7 +404,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jen-zA-2j8" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="154" width="345" height="62"/>
+                                                                <rect key="frame" x="0.0" y="77" width="345" height="62"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GXx-eh-xCK" customClass="ExpandableView" customModule="Scruge" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="62"/>
@@ -459,7 +459,7 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="adE-9n-Cnc">
-                                                                                <rect key="frame" x="0.0" y="62.000000000000057" width="345" height="0.0"/>
+                                                                                <rect key="frame" x="0.0" y="62" width="345" height="0.0"/>
                                                                                 <subviews>
                                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nof-Dl-hXT" customClass="WalletDataView" customModule="Scruge" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="0.0"/>
@@ -503,7 +503,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2bb-TG-nT3" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                                                <rect key="frame" x="0.0" y="231.00000000000006" width="345" height="62"/>
+                                                                <rect key="frame" x="0.0" y="154" width="345" height="62"/>
                                                                 <subviews>
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xNq-6q-u8D" customClass="ExpandableView" customModule="Scruge" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="345" height="62"/>
@@ -558,7 +558,7 @@
                                                                                 </constraints>
                                                                             </view>
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ODz-eA-8TK">
-                                                                                <rect key="frame" x="0.0" y="62" width="345" height="0.0"/>
+                                                                                <rect key="frame" x="0.0" y="62.000000000000057" width="345" height="0.0"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" placeholder="YES" id="Avk-e2-UxK"/>
@@ -587,6 +587,105 @@
                                                                     <constraint firstAttribute="trailing" secondItem="xNq-6q-u8D" secondAttribute="trailing" id="IRd-ev-xSm"/>
                                                                     <constraint firstItem="xNq-6q-u8D" firstAttribute="leading" secondItem="2bb-TG-nT3" secondAttribute="leading" id="LUM-he-1dz"/>
                                                                     <constraint firstAttribute="bottom" secondItem="xNq-6q-u8D" secondAttribute="bottom" id="T7G-oD-nZi"/>
+                                                                </constraints>
+                                                            </view>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ovl-x3-Zqy" customClass="CardView" customModule="Scruge" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="231.00000000000006" width="345" height="62"/>
+                                                                <subviews>
+                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kbv-yN-UPS" customClass="ExpandableView" customModule="Scruge" customModuleProvider="target">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="62"/>
+                                                                        <subviews>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="34e-1C-v0b">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="345" height="62"/>
+                                                                                <subviews>
+                                                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Voe-dc-ZEX">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="62"/>
+                                                                                        <subviews>
+                                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7CY-X3-Y5S" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
+                                                                                                <rect key="frame" x="15" y="15" width="32" height="32"/>
+                                                                                                <subviews>
+                                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar" translatesAutoresizingMaskIntoConstraints="NO" id="zqd-Kc-v85">
+                                                                                                        <rect key="frame" x="6" y="6" width="20" height="20"/>
+                                                                                                        <constraints>
+                                                                                                            <constraint firstAttribute="height" constant="20" id="lUs-Ps-yyi"/>
+                                                                                                            <constraint firstAttribute="width" secondItem="zqd-Kc-v85" secondAttribute="height" id="tB0-Uq-2ce"/>
+                                                                                                        </constraints>
+                                                                                                    </imageView>
+                                                                                                </subviews>
+                                                                                                <color key="backgroundColor" red="0.42745098040000001" green="0.16078431369999999" blue="0.75686274509999996" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
+                                                                                                <constraints>
+                                                                                                    <constraint firstAttribute="width" secondItem="7CY-X3-Y5S" secondAttribute="height" id="9it-qA-Pcq"/>
+                                                                                                    <constraint firstAttribute="height" constant="32" id="MHC-mr-KbD"/>
+                                                                                                    <constraint firstItem="zqd-Kc-v85" firstAttribute="centerY" secondItem="7CY-X3-Y5S" secondAttribute="centerY" id="f4F-d6-ce2"/>
+                                                                                                    <constraint firstItem="zqd-Kc-v85" firstAttribute="centerX" secondItem="7CY-X3-Y5S" secondAttribute="centerX" id="vYn-fn-HCg"/>
+                                                                                                </constraints>
+                                                                                                <userDefinedRuntimeAttributes>
+                                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="YES"/>
+                                                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                                                        <real key="value" value="0.5"/>
+                                                                                                    </userDefinedRuntimeAttribute>
+                                                                                                </userDefinedRuntimeAttributes>
+                                                                                            </view>
+                                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Resources" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rki-5T-yQj">
+                                                                                                <rect key="frame" x="62" y="15" width="268" height="32"/>
+                                                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                                                <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                                <nil key="highlightedColor"/>
+                                                                                            </label>
+                                                                                        </subviews>
+                                                                                        <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
+                                                                                    </stackView>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstItem="Voe-dc-ZEX" firstAttribute="leading" secondItem="34e-1C-v0b" secondAttribute="leading" id="7zq-Bq-CFR"/>
+                                                                                    <constraint firstItem="Voe-dc-ZEX" firstAttribute="top" secondItem="34e-1C-v0b" secondAttribute="top" id="FKK-eB-r59"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="Voe-dc-ZEX" secondAttribute="bottom" id="MdS-hn-ncm"/>
+                                                                                    <constraint firstAttribute="trailing" secondItem="Voe-dc-ZEX" secondAttribute="trailing" id="vdK-MD-aN2"/>
+                                                                                </constraints>
+                                                                            </view>
+                                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R7I-LT-RhO">
+                                                                                <rect key="frame" x="0.0" y="62" width="345" height="0.0"/>
+                                                                                <subviews>
+                                                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yff-WW-TuJ" customClass="ResourcesView" customModule="Scruge" customModuleProvider="target">
+                                                                                        <rect key="frame" x="0.0" y="0.0" width="345" height="0.0"/>
+                                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                        <constraints>
+                                                                                            <constraint firstAttribute="height" placeholder="YES" id="GkT-LU-kLw"/>
+                                                                                        </constraints>
+                                                                                    </view>
+                                                                                </subviews>
+                                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="trailing" secondItem="yff-WW-TuJ" secondAttribute="trailing" id="B1L-do-Gqg"/>
+                                                                                    <constraint firstItem="yff-WW-TuJ" firstAttribute="top" secondItem="R7I-LT-RhO" secondAttribute="top" id="B8B-VC-RiE"/>
+                                                                                    <constraint firstItem="yff-WW-TuJ" firstAttribute="leading" secondItem="R7I-LT-RhO" secondAttribute="leading" id="ZWb-oO-0Yz"/>
+                                                                                    <constraint firstAttribute="bottom" secondItem="yff-WW-TuJ" secondAttribute="bottom" id="hUU-gV-yxV"/>
+                                                                                </constraints>
+                                                                            </view>
+                                                                        </subviews>
+                                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstItem="34e-1C-v0b" firstAttribute="top" secondItem="kbv-yN-UPS" secondAttribute="top" placeholder="YES" id="4Vl-we-EOs"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="R7I-LT-RhO" secondAttribute="trailing" placeholder="YES" id="EW7-qO-D3K"/>
+                                                                            <constraint firstAttribute="bottom" secondItem="R7I-LT-RhO" secondAttribute="bottom" placeholder="YES" id="GG4-oa-sxi"/>
+                                                                            <constraint firstItem="34e-1C-v0b" firstAttribute="leading" secondItem="kbv-yN-UPS" secondAttribute="leading" placeholder="YES" id="PCv-Bi-Gsb"/>
+                                                                            <constraint firstAttribute="trailing" secondItem="34e-1C-v0b" secondAttribute="trailing" placeholder="YES" id="REk-6h-HrT"/>
+                                                                            <constraint firstItem="R7I-LT-RhO" firstAttribute="top" secondItem="34e-1C-v0b" secondAttribute="bottom" placeholder="YES" id="W8f-1I-cYV"/>
+                                                                            <constraint firstItem="R7I-LT-RhO" firstAttribute="leading" secondItem="kbv-yN-UPS" secondAttribute="leading" placeholder="YES" id="nI3-cI-g8g"/>
+                                                                        </constraints>
+                                                                        <connections>
+                                                                            <outlet property="firstView" destination="34e-1C-v0b" id="wbp-5p-1JU"/>
+                                                                            <outlet property="secondView" destination="R7I-LT-RhO" id="kuQ-Sr-aXH"/>
+                                                                        </connections>
+                                                                    </view>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="kbv-yN-UPS" secondAttribute="trailing" id="RLJ-WA-bNr"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="kbv-yN-UPS" secondAttribute="bottom" id="bYq-3W-BWa"/>
+                                                                    <constraint firstItem="kbv-yN-UPS" firstAttribute="leading" secondItem="ovl-x3-Zqy" secondAttribute="leading" id="php-3B-7cK"/>
+                                                                    <constraint firstItem="kbv-yN-UPS" firstAttribute="top" secondItem="ovl-x3-Zqy" secondAttribute="top" id="sqz-yJ-8Sg"/>
                                                                 </constraints>
                                                             </view>
                                                         </subviews>
@@ -634,7 +733,9 @@
                         <outlet property="exchangeExpandable" destination="xNq-6q-u8D" id="0Lm-PE-h5B"/>
                         <outlet property="investmentsExpandable" destination="ANU-F7-xcy" id="N7p-Il-lDk"/>
                         <outlet property="loadingView" destination="ZyX-Gt-tbs" id="3xP-Pm-ltZ"/>
+                        <outlet property="resourcesView" destination="yff-WW-TuJ" id="3lT-5g-Od5"/>
                         <outlet property="scrollView" destination="qg9-vN-7HK" id="pia-5M-OBC"/>
+                        <outlet property="stakingExpandable" destination="kbv-yN-UPS" id="s2D-cD-XyR"/>
                         <outlet property="walletActionsView" destination="S7N-NN-qpg" id="t7K-IK-UOT"/>
                         <outlet property="walletDataView" destination="nof-Dl-hXT" id="q9y-cs-EbK"/>
                     </connections>

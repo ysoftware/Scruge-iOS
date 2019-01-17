@@ -20,6 +20,8 @@ final class ProgressView: UIView {
 	@IBOutlet weak var currentLabelRight: UILabel!
 	@IBOutlet weak var currentLabel:UILabel!
 
+	enum Mode { case funding, progress(tintColor:UIColor, backColor:UIColor, showLabels:Bool) }
+	
 	// MARK: - Setup
 
 	override init(frame: CGRect) {
@@ -48,32 +50,44 @@ final class ProgressView: UIView {
 	@IBInspectable var firstGoal:Double = 8 { didSet { updateLayout() }}
 	@IBInspectable var prefix = "$" { didSet { updateLayout() }}
 	@IBInspectable var suffix = "" { didSet { updateLayout() }}
+	var mode = Mode.funding { didSet { updateLayout() }}
 
 	private var reachedGoal:Bool { return value >= firstGoal }
 
 	func updateLayout() {
 		let progress = max(0, min(1, value / firstGoal))
-		let showLeftLabel = progress > 0.5
 		trailingConstraint.constant = bounds.width * CGFloat(progress)
+		indicatorView.isHidden = reachedGoal
 
-		totalLabel.text = "\(prefix)\(total.formatDecimal(separateWith: " "))\(suffix)"
 		currentLabel.text = "\(prefix)\(value.formatDecimal(separateWith: " "))\(suffix)"
 		currentLabelRight.text = "\(prefix)\(value.formatDecimal(separateWith: " "))\(suffix)"
 
-		if reachedGoal {
-			totalLabel.textColor = Service.constants.color.greenLight
-			barView.backgroundColor = Service.constants.color.greenLight
-		}
-		else {
-			totalLabel.textColor = Service.constants.color.gray
-			barView.backgroundColor = Service.constants.color.purpleLight
+		switch mode {
+		case .funding:
+			let showLeftLabel = progress > 0.5
+			if reachedGoal {
+				totalLabel.textColor = Service.constants.color.greenLight
+				barView.backgroundColor = Service.constants.color.greenLight
+			}
+			else {
+				totalLabel.textColor = Service.constants.color.gray
+				barView.backgroundColor = Service.constants.color.purpleLight
+			}
+
+			totalLabel.text = "\(prefix)\(total.formatDecimal(separateWith: " "))\(suffix)"
+			currentLabel.isHidden = !showLeftLabel
+			currentLabelRight.isHidden = showLeftLabel
+
+		case .progress(let tintColor, let backColor, let showLabels):
+			totalLabel.isHidden = true
+			indicatorView.backgroundColor = backColor
+			barView.backgroundColor = tintColor
+			currentLabel.isHidden = !showLabels
+			currentLabelRight.isHidden = !showLabels
+			break
 		}
 
-		indicatorView.isHidden = reachedGoal
-		currentLabel.isHidden = !showLeftLabel
-		currentLabelRight.isHidden = showLeftLabel
-
-		updateConstraintsIfNeeded()
-		layoutIfNeeded()
+		setNeedsUpdateConstraints()
+		setNeedsLayout()
 	}
 }

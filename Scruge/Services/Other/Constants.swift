@@ -29,5 +29,19 @@ struct Constants {
 		let greenLight = #colorLiteral(red: 0.7098039216, green: 0.8901960784, blue: 0.3215686275, alpha: 1)
 
 		let green = #colorLiteral(red: 0.5827227723, green: 0.79, blue: 0.1290594059, alpha: 1)
+
+		// resources
+
+		let cpu = #colorLiteral(red: 0.9215686275, green: 0.6745098039, blue: 0.05490196078, alpha: 1)
+
+		let net = #colorLiteral(red: 0.07058823529, green: 0.4980392157, blue: 0.9058823529, alpha: 1)
+
+		let ram = #colorLiteral(red: 0.3137254902, green: 0.5137254902, blue: 0.01176470588, alpha: 1)
+
+		let cpuBackground = #colorLiteral(red: 0.5019607843, green: 0.4117647059, blue: 0.1764705882, alpha: 1)
+
+		let netBackground = #colorLiteral(red: 0.1333333333, green: 0.3568627451, blue: 0.5803921569, alpha: 1)
+
+		let ramBackground = #colorLiteral(red: 0.2980392157, green: 0.4392156863, blue: 0.1960784314, alpha: 1)
 	}
 }

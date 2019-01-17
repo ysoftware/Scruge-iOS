@@ -20,6 +20,7 @@ final class WalletViewController: UIViewController {
 	@IBOutlet weak var balanceLabel: UILabel!
 
 	// expandable views
+	@IBOutlet weak var stakingExpandable: ExpandableView!
 	@IBOutlet weak var exchangeExpandable: ExpandableView!
 	@IBOutlet weak var dataExpandable: ExpandableView!
 	@IBOutlet weak var investmentsExpandable: ExpandableView!
@@ -28,6 +29,7 @@ final class WalletViewController: UIViewController {
 	// contents
 	@IBOutlet weak var walletActionsView: WalletTransactionsView!
 	@IBOutlet weak var walletDataView: WalletDataView!
+	@IBOutlet weak var resourcesView: ResourcesView!
 
 	// MARK: - Property
 
@@ -83,6 +85,7 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func setupExpandableViews() {
+		stakingExpandable.delegate = self
 		exchangeExpandable.delegate = self
 		dataExpandable.delegate = self
 		investmentsExpandable.delegate = self
@@ -172,6 +175,7 @@ final class WalletViewController: UIViewController {
 		accountVM = account
 		accountVM?.delegate = self
 		accountVM?.updateBalance()
+		collapseAll()
 	}
 
 	private func presentWalletPicker() {
@@ -217,6 +221,11 @@ You will not be able to change it after you make first investment.
 	private func openImportKey() {
 		Service.presenter.presentImporKeyViewController(in: self)
 	}
+
+	private func collapseAll(_ view:ExpandableView? = nil) {
+		[dataExpandable, actionsExpandable, stakingExpandable]
+			.forEach { if view != $0 { $0?.collapse() }}
+	}
 }
 
 extension WalletViewController: ArrayViewModelDelegate {
@@ -240,7 +249,8 @@ extension WalletViewController: ExpandableViewDelegate {
 
 	func expandableView(_ sender: ExpandableView, didChangeTo state: ExpandableViewState) {
 		guard state == .expanded else { return }
-		
+		collapseAll(sender)
+
 		switch sender {
 		case exchangeExpandable:
 			break
@@ -250,7 +260,14 @@ extension WalletViewController: ExpandableViewDelegate {
 			break
 		case actionsExpandable:
 			walletActionsView.accountName = accountVM?.name
+		case stakingExpandable:
+			resourcesView.accountName = vm.selectedAccount?.name
 		default: break
+		}
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
+			let bottomOffset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.height)
+			self.scrollView.setContentOffset(bottomOffset, animated: true)
 		}
 	}
 }
