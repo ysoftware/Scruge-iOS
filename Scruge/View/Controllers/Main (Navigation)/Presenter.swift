@@ -283,6 +283,13 @@ struct Presenter {
 
 	// MARK: - Wallet
 
+	func presentStakingViewController(in vc:UIViewController,
+									  with vm:AccountVM) {
+		let new = R.storyboard.wallet.stakingVC()!
+		new.accountVM = vm
+		vc.show(new, sender: self)
+	}
+
 	func presentImporKeyViewController(in vc:UIViewController) {
 		let new = R.storyboard.wallet.importKeyVC()!
 		vc.show(new, sender: self)

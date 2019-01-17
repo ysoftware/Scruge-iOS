@@ -71,7 +71,7 @@ final class ResourcesView: UIView {
 	}
 
 	private func setupActions() {
-		button.addClick(self, action: #selector(getter: stakeBlock))
+		button.addClick(self, action: #selector(stakeClick))
 	}
 
 	// MARK: - Methods
@@ -115,7 +115,11 @@ final class ResourcesView: UIView {
 
 	// MARK: - Actions
 
-	@objc var stakeBlock:(()->Void)? = nil
+	var stakeBlock:(()->Void)? = nil
+
+	@objc func stakeClick(_ sender:Any) {
+		stakeBlock?()
+	}
 }
 
 extension ResourcesView: ViewModelDelegate {

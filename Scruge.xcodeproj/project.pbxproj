@@ -59,6 +59,8 @@
 		7166528721F0A6F9005A50F7 /* ResourcesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7166528621F0A6F9005A50F7 /* ResourcesView.xib */; };
 		7166528A21F0B143005A50F7 /* ResourcesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528921F0B143005A50F7 /* ResourcesVM.swift */; };
 		7166528C21F0B167005A50F7 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528B21F0B167005A50F7 /* Resources.swift */; };
+		7166528E21F0CA14005A50F7 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528D21F0CA14005A50F7 /* FormTextField.swift */; };
+		7166529021F0CB04005A50F7 /* StakingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528F21F0CB04005A50F7 /* StakingVC.swift */; };
 		716AE1CC215977470098882F /* CampaignAVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE1CB215977470098882F /* CampaignAVM.swift */; };
 		716AE1E621D39C09005EF68B /* WalletDataView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716AE1E521D39C09005EF68B /* WalletDataView.swift */; };
 		716AE1E821D39C13005EF68B /* WalletDataView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 716AE1E721D39C13005EF68B /* WalletDataView.xib */; };
@@ -322,6 +324,8 @@
 		7166528621F0A6F9005A50F7 /* ResourcesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesView.xib; sourceTree = "<group>"; };
 		7166528921F0B143005A50F7 /* ResourcesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesVM.swift; sourceTree = "<group>"; };
 		7166528B21F0B167005A50F7 /* Resources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		7166528D21F0CA14005A50F7 /* FormTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTextField.swift; sourceTree = "<group>"; };
+		7166528F21F0CB04005A50F7 /* StakingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StakingVC.swift; sourceTree = "<group>"; };
 		716AE1CB215977470098882F /* CampaignAVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignAVM.swift; sourceTree = "<group>"; };
 		716AE1E521D39C09005EF68B /* WalletDataView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDataView.swift; sourceTree = "<group>"; };
 		716AE1E721D39C13005EF68B /* WalletDataView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletDataView.xib; sourceTree = "<group>"; };
@@ -688,6 +692,7 @@
 				71DC1A9821AFDACB001D5575 /* WalletStartVC.swift */,
 				71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */,
 				71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */,
+				7166528F21F0CB04005A50F7 /* StakingVC.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -733,6 +738,7 @@
 				716E62622189E13E002AC5DA /* DownloadImage.swift */,
 				7105C35A21AD6580008AAB1E /* TransparentNavBar.swift */,
 				7105C35C21AD6D59008AAB1E /* StatusBar.swift */,
+				7166528D21F0CA14005A50F7 /* FormTextField.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2107,6 +2113,7 @@
 				71FF085B21AE766800D9F3A3 /* ActivityCell.swift in Sources */,
 				716E62632189E13E002AC5DA /* DownloadImage.swift in Sources */,
 				71D84CDF21995AD000E8DB88 /* Error.swift in Sources */,
+				7166528E21F0CA14005A50F7 /* FormTextField.swift in Sources */,
 				71C2439321D4C36000E86F64 /* ActionsAVM.swift in Sources */,
 				71387A9F216CD17300B24C67 /* Networking.swift in Sources */,
 				71B38D12215B998F00929CC3 /* MilestoneVM.swift in Sources */,
@@ -2138,6 +2145,7 @@
 				71D84CC121995AD000E8DB88 /* sha2.c in Sources */,
 				710BDE7C21AE90DA0021B498 /* CreateAccountVC.swift in Sources */,
 				71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */,
+				7166529021F0CB04005A50F7 /* StakingVC.swift in Sources */,
 				71163A472167517E00C5B633 /* Wallet.swift in Sources */,
 				71BE958921621AF9001CF853 /* ContentVC.swift in Sources */,
 				71A0C1B1216FA6A300C2ACF3 /* SocialCell.swift in Sources */,

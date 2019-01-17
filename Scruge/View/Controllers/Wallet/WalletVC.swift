@@ -94,6 +94,11 @@ final class WalletViewController: UIViewController {
 
 	private func setupActions() {
 		walletDataView.presentingViewController = self
+		resourcesView.stakeBlock = { [unowned self] in
+			self.accountVM.flatMap {
+				Service.presenter.presentStakingViewController(in: self, with: $0)
+			}
+		}
 	}
 
 	private func verifyWallet() {
