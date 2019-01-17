@@ -265,9 +265,11 @@ extension WalletViewController: ExpandableViewDelegate {
 		default: break
 		}
 
-		DispatchQueue.main.asyncAfter(deadline: .now() + 0.15) {
-			let bottomOffset = CGPoint(x: 0, y: self.scrollView.contentSize.height - self.scrollView.bounds.height)
-			self.scrollView.setContentOffset(bottomOffset, animated: true)
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+			let offset = max(self.scrollView.contentSize.height - self.scrollView.bounds.height
+				+ self.scrollView.contentInset.bottom, 0)
+			let point = CGPoint(x: 0, y: offset)
+			self.scrollView.setContentOffset(point, animated: true)
 		}
 	}
 }
