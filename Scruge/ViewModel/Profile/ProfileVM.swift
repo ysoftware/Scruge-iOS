@@ -31,8 +31,11 @@ final class ProfileVM: ViewModel<Profile> {
 		return model?.description ?? ""
 	}
 
-	var name:String? {
-		return model?.name
+	var name:String {
+		if let name = model?.name {
+			if !name.isEmpty { return name }
+		}
+		return "Anonymous"
 	}
 
 	var country:String {

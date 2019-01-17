@@ -60,8 +60,8 @@ final class ActivityViewController: UIViewController {
 		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableView.automaticDimension
 		
-		tableView.register(UINib(resource: R.nib.activityUpdateCell),
-						   forCellReuseIdentifier: R.reuseIdentifier.activityUpdateCell.identifier)
+		tableView.register(UINib(resource: R.nib.activityCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.activityCell.identifier)
 		tableView.register(UINib(resource: R.nib.voteNotificationCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.voteNotificationCell.identifier)
 	}
@@ -107,11 +107,11 @@ extension ActivityViewController: UITableViewDataSource {
 		}
 
 		let vm = self.vm.item(at: indexPath.row, shouldLoadMore: true)
-		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.activityUpdateCell,
+		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.activityCell,
 											 for: indexPath)!
-//			.setup(with: vm)
+			.setup(with: vm)
 			.campaignTap { [unowned self] update in
-				Service.presenter.presentCampaignViewController(in: self, id: update.campaignId)
+//				Service.presenter.presentCampaignViewController(in: self, id: update.campaignId)
 			}
 			.updateTap { [unowned self] update in
 //				Service.presenter.presentContentViewController(in: self, for: vm)

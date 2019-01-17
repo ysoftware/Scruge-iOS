@@ -11,7 +11,10 @@ import MVVM
 final class CommentVM: ViewModel<Comment> {
 
 	var authorName:String {
-		return model?.authorName ?? "Anonymous"
+		if let name = model?.authorName {
+			if !name.isEmpty { return name }
+		}
+		return "Anonymous"
 	}
 
 	var authorPhoto:URL? {
