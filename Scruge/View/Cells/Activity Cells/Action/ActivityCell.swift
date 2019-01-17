@@ -11,6 +11,8 @@ import appendAttributedString
 
 final class ActivityCell: UITableViewCell {
 
+	@IBOutlet weak var bottomDecorView: UIView!
+	@IBOutlet weak var topDecorView: UIView!
 	@IBOutlet weak var iconImage: UIImageView!
 	@IBOutlet weak var iconBackground: RoundedView!
 	@IBOutlet var dateLabel: UILabel!
@@ -53,6 +55,12 @@ final class ActivityCell: UITableViewCell {
 			// TO-DO: other cases
 		default: break
 		}
+		return self
+	}
+
+	func showDecor(_ isFirst: Bool, isLast:Bool) -> Self {
+		bottomDecorView.isHidden = isLast
+		topDecorView.isHidden = isFirst
 		return self
 	}
 

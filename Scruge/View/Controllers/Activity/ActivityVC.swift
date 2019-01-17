@@ -106,13 +106,15 @@ extension ActivityViewController: UITableViewDataSource {
 												 for: indexPath)!.setup(with: activeVoting[indexPath.row])
 		}
 
-		let vm = self.vm.item(at: indexPath.row, shouldLoadMore: true)
+		let index = indexPath.row
+		let vm = self.vm.item(at: index, shouldLoadMore: true)
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.activityCell,
 											 for: indexPath)!
 			.setup(with: vm)
 			.campaignTap { [unowned self] update in
 //				Service.presenter.presentCampaignViewController(in: self, id: update.campaignId)
 			}
+			.showDecor(index == 0, isLast: index == self.vm.numberOfItems - 1)
 			.updateTap { [unowned self] update in
 //				Service.presenter.presentContentViewController(in: self, for: vm)
 			}
