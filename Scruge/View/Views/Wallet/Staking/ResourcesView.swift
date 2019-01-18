@@ -78,7 +78,7 @@ final class ResourcesView: UIView {
 
 	private let vm = ResourcesVM()
 
-	var accountName:String? {
+	var accountName:EosName? {
 		didSet {
 			vm.accountName = accountName
 			vm.load()

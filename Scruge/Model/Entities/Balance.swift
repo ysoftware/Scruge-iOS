@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct Balance {
+struct Balance:CustomStringConvertible {
+
+	var description: String { return string }
 
 	let token:Token
 
@@ -29,7 +31,8 @@ struct Balance {
 	}
 
 	var string:String {
-		return "\(amount.formatRounding(to: 4, min: 4)) \(token.symbol)"
+		let amount = self.amount.formatRounding(to: 4, min: 4).replacingOccurrences(of: ",", with: ".")
+		return "\(amount) \(token.symbol)"
 	}
 }
 

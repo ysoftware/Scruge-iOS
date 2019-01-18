@@ -37,7 +37,7 @@ final class AccountAVM:SimpleArrayViewModel<AccountModel, AccountVM> {
 	var selectedAccount:AccountVM? {
 		guard let selectedAccount:String = Service.settings.get(.selectedAccount)
 			else { return nil }
-		return array.first(where: { $0.name == selectedAccount })
+		return array.first(where: { $0.displayName == selectedAccount })
 	}
 
 	func deleteWallet() {

@@ -10,10 +10,10 @@ import MVVM
 
 final class ResourcesVM: ViewModel<Resources> {
 
-	var accountName:String?
+	var accountName:EosName?
 
 	func load() {
-		guard let accountName = accountName?.eosName else {
+		guard let accountName = accountName else {
 			model = nil
 			return notifyUpdated()
 		}

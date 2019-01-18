@@ -18,6 +18,7 @@ extension Double {
 		formatter.maximumFractionDigits = decimalPlaces
 		formatter.groupingSeparator = separator
 		formatter.minimumIntegerDigits = 1
+		formatter.decimalSeparator = "."
 		return formatter.string(for: self)!
 	}
 
@@ -27,6 +28,7 @@ extension Double {
 		formatter.groupingSeparator = separator
 		formatter.maximumFractionDigits = 4
 		formatter.minimumFractionDigits = 0
+		formatter.decimalSeparator = "."
 		return formatter.string(for: self)!
 	}
 }

@@ -15,8 +15,12 @@ final class AccountVM:ViewModel<AccountModel> {
 
 	// MARK: - View Properties
 
-	var name:String {
-		return model?.name ?? ""
+	var name:EosName? {
+		return model?.name.eosName
+	}
+
+	var displayName:String {
+		return name?.string ?? ""
 	}
 
 	func balanceString(_ separator:String = "\n") -> NSAttributedString {
@@ -55,6 +59,7 @@ final class AccountVM:ViewModel<AccountModel> {
 	// MARK: - Methods
 
 	func updateBalance() {
+		guard let name = name else { return }
 		Service.eos.getBalance(for: name, tokens: Token.default) { balances in
 			self.balances = balances.sorted()
 			self.notifyUpdated()

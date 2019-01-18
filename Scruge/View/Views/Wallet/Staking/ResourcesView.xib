@@ -34,8 +34,8 @@
                 <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="L32-9J-hqD">
                     <rect key="frame" x="0.0" y="0.0" width="265" height="436"/>
                     <subviews>
-                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="oea-SJ-XH7">
-                            <rect key="frame" x="15" y="15" width="235" height="104"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oea-SJ-XH7">
+                            <rect key="frame" x="15" y="15" width="235" height="94"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rmo-ub-rf5">
                                     <rect key="frame" x="0.0" y="0.0" width="235" height="39"/>
@@ -66,7 +66,7 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="nds-0f-HL9" customClass="ProgressView" customModule="Scruge" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="54" width="235" height="50"/>
+                                    <rect key="frame" x="0.0" y="44" width="235" height="50"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" placeholder="YES" id="8WE-EO-3DV"/>
@@ -74,8 +74,8 @@
                                 </view>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="RB5-iw-htu">
-                            <rect key="frame" x="15" y="134" width="235" height="104"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="RB5-iw-htu">
+                            <rect key="frame" x="15" y="124" width="235" height="94"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="gkq-QM-s6T">
                                     <rect key="frame" x="0.0" y="0.0" width="235" height="39"/>
@@ -106,7 +106,7 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="Gvv-hB-Dto" customClass="ProgressView" customModule="Scruge" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="54" width="235" height="50"/>
+                                    <rect key="frame" x="0.0" y="44" width="235" height="50"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" placeholder="YES" id="Vh1-nB-Cor"/>
@@ -114,17 +114,17 @@
                                 </view>
                             </subviews>
                         </stackView>
-                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="daf-ci-DUk">
-                            <rect key="frame" x="15" y="253" width="235" height="103"/>
+                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="daf-ci-DUk">
+                            <rect key="frame" x="15" y="233" width="235" height="123"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="TsH-Bn-d4j">
-                                    <rect key="frame" x="0.0" y="0.0" width="235" height="38"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="235" height="68"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="yQ9-KU-Ial">
-                                            <rect key="frame" x="0.0" y="0.0" width="235" height="16"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="235" height="46"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="RAM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="e8y-zY-x4k">
-                                                    <rect key="frame" x="0.0" y="0.0" width="235" height="16"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="235" height="17"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                                                     <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -132,7 +132,7 @@
                                             </subviews>
                                         </stackView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n1a-wu-Q61">
-                                            <rect key="frame" x="0.0" y="21" width="235" height="17"/>
+                                            <rect key="frame" x="0.0" y="51" width="235" height="17"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
@@ -140,7 +140,7 @@
                                     </subviews>
                                 </stackView>
                                 <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="xWk-6c-xQ2" customClass="ProgressView" customModule="Scruge" customModuleProvider="target">
-                                    <rect key="frame" x="0.0" y="53" width="235" height="50"/>
+                                    <rect key="frame" x="0.0" y="73" width="235" height="50"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="50" placeholder="YES" id="jNj-Sf-fXT"/>

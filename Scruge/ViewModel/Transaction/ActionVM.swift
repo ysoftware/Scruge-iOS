@@ -18,7 +18,7 @@ final class ActionVM: ViewModel<ActionReceipt> {
 	private let gray = Service.constants.color.gray
 
 	// hax, there should be a method to set up vm inside avm
-	var accountName:String? { return (arrayDelegate as? ActionsAVM)?.accountName }
+	var accountName:String? { return (arrayDelegate as? ActionsAVM)?.accountName.string }
 
 	var time:String {
 		guard let model = model, let date = Date.init(model.blockTime) else { return "" }

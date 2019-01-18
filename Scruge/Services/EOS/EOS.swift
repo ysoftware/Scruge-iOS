@@ -71,7 +71,7 @@ class EOS {
 		}
 	}
 
-	func getBalance(for account:String,
+	func getBalance(for account:EosName,
 					tokens:[Token],
 					_ completion: @escaping ([Balance])->Void) {
 
@@ -79,7 +79,7 @@ class EOS {
 		var balances:[Balance] = []
 
 		for token in tokens.distinct {
-			chain.getCurrencyBalance(account: account,
+			chain.getCurrencyBalance(account: account.string,
 									 symbol: token.symbol,
 									 code: token.contract.string) { number, error in
 
@@ -116,7 +116,8 @@ class EOS {
 							  transfer: transfer).jsonString
 
 		let name = EosName.create("delegatebw")
-		sendAction(name, from: account, data: data, passcode: passcode, completion)
+		let contract = EosName.create("eosio")
+		sendAction(name, contract: contract, from: account, data: data, passcode: passcode, completion)
 	}
 
 	func unstakeResources(account:AccountModel,
@@ -137,7 +138,8 @@ class EOS {
 							  unstake_net_quantity: net.string).jsonString
 
 		let name = EosName.create("undelegatebw")
-		sendAction(name, from: account, data: data, passcode: passcode, completion)
+		let contract = EosName.create("eosio")
+		sendAction(name, contract: contract, from: account, data: data, passcode: passcode, completion)
 	}
 
 	/// send money from this account

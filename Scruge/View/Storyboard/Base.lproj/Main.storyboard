@@ -149,12 +149,38 @@
                                                             </button>
                                                         </subviews>
                                                     </stackView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Vote on campaign ended" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jc-L7-ABb">
+                                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lb8-na-Dns">
                                                         <rect key="frame" x="15" y="39.333333333333314" width="265" height="21.666666666666671"/>
-                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
-                                                        <color key="textColor" red="0.37254901959999998" green="0.36470588240000001" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXj-P5-cTg">
+                                                                <rect key="frame" x="0.0" y="0.0" width="265" height="21.666666666666668"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Vote on campaign ended" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jc-L7-ABb">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="255" height="21.666666666666668"/>
+                                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
+                                                                        <color key="textColor" red="0.37254901959999998" green="0.36470588240000001" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="trailing" secondItem="2Jc-L7-ABb" secondAttribute="trailing" constant="10" id="FH6-kz-fQ2"/>
+                                                                    <constraint firstItem="2Jc-L7-ABb" firstAttribute="leading" secondItem="wXj-P5-cTg" secondAttribute="leading" id="Ht1-Z4-qfh"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="2Jc-L7-ABb" secondAttribute="bottom" id="Tk9-k1-ZQg"/>
+                                                                    <constraint firstItem="2Jc-L7-ABb" firstAttribute="top" secondItem="wXj-P5-cTg" secondAttribute="top" id="VdY-9j-g9y"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="300" id="Br6-Qt-YM6"/>
+                                                            <constraint firstItem="wXj-P5-cTg" firstAttribute="leading" secondItem="lb8-na-Dns" secondAttribute="leading" id="GKs-DJ-3Xg"/>
+                                                            <constraint firstAttribute="trailing" secondItem="wXj-P5-cTg" secondAttribute="trailing" id="KYh-QD-BvD"/>
+                                                            <constraint firstAttribute="bottom" secondItem="wXj-P5-cTg" secondAttribute="bottom" id="NBl-1N-Rs2"/>
+                                                            <constraint firstItem="wXj-P5-cTg" firstAttribute="centerX" secondItem="lb8-na-Dns" secondAttribute="centerX" id="X4F-TL-MZG"/>
+                                                            <constraint firstItem="wXj-P5-cTg" firstAttribute="top" secondItem="lb8-na-Dns" secondAttribute="top" id="qdT-l0-HCm"/>
+                                                            <constraint firstAttribute="height" secondItem="2Jc-L7-ABb" secondAttribute="height" priority="999" id="usi-I6-7O2"/>
+                                                        </constraints>
+                                                    </scrollView>
                                                 </subviews>
                                                 <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
                                             </stackView>

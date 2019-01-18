@@ -35,7 +35,7 @@ extension AccountCell: ViewModelDelegate {
 	func didUpdateData<M>(_ viewModel: ViewModel<M>) where M : Equatable {
 		guard let vm = viewModel as? AccountVM else { return }
 
-		nameLabel.text = vm.name
+		nameLabel.text = vm.displayName
 		balanceLabel.text = "" // vm.balanceString(", ")
 	}
 }

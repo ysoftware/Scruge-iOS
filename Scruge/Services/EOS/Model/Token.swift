@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct Token:Equatable, Hashable {
+struct Token:Equatable, Hashable, CustomStringConvertible {
+
+	var description: String { return "Token \(symbol) (\(contract))" }
 
 	let contract:EosName
 

@@ -49,7 +49,6 @@ final class WalletViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		setupNavigationBar()
 		setupActions()
 		setupExpandableViews()
 		setupScrollView()
@@ -69,6 +68,7 @@ final class WalletViewController: UIViewController {
 		super.viewWillAppear(animated)
 
 		verifyWallet()
+		setupNavigationBar()
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
@@ -119,7 +119,7 @@ final class WalletViewController: UIViewController {
 	}
 
 	private func updateView() {
-		accountNameLabel.text = accountVM?.name ?? ""
+		accountNameLabel.text = accountVM?.displayName ?? ""
 	}
 
 	private func updateBalance() {

@@ -11,15 +11,14 @@ import Result
 
 final class ActionsAVM: ArrayViewModel<ActionReceipt, ActionVM, ActionsQuery> {
 
-	let accountName:String
+	let accountName:EosName
 
-	init(accountName:String) {
+	init(accountName:EosName) {
 		self.accountName = accountName
 	}
 
 	override func fetchData(_ query: ActionsQuery?,
 							_ block: @escaping (Result<[ActionReceipt], AnyError>) -> Void) {
-		guard let name = accountName.eosName else { return block(.failure(AnyError(EOSError.incorrectName))) }
-		Service.eos.getActions(for: name, query: query, completion: block)
+		Service.eos.getActions(for: accountName, query: query, completion: block)
 	}
 }

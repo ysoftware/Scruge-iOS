@@ -14,7 +14,7 @@ final class WalletTransactionsView: UIView {
 	private let tableView = UITableView(frame: .zero)
 	private var vm:ActionsAVM?
 
-	var accountName:String? {
+	var accountName:EosName? {
 		didSet {
 			guard let name = accountName else {
 				vm = nil
