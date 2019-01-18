@@ -1343,6 +1343,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Ulr-0o-Kbr"/>
                     </view>
+                    <connections>
+                        <outlet property="availableLabel" destination="f1M-nu-6PH" id="29N-aY-HKs"/>
+                        <outlet property="button" destination="Kie-Mj-aDj" id="Bk1-pn-4Kd"/>
+                        <outlet property="passcodeField" destination="NhW-jJ-WV7" id="Uf6-dl-jK7"/>
+                        <outlet property="resourcesView" destination="aYS-jH-4mb" id="w4T-bU-aVs"/>
+                        <outlet property="stakeCpuField" destination="Ew0-pU-XET" id="VDN-Gp-LFH"/>
+                        <outlet property="stakeNetField" destination="Sub-9O-6hi" id="krY-a2-tUH"/>
+                        <outletCollection property="stakeCurrencyLabels" destination="G3C-9z-cXj" collectionClass="NSMutableArray" id="5qw-rs-0HO"/>
+                        <outletCollection property="stakeCurrencyLabels" destination="INg-wV-fme" collectionClass="NSMutableArray" id="b13-9y-tgc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JR5-Mh-AON" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

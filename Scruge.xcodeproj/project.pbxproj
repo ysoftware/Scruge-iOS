@@ -257,7 +257,7 @@
 		71DC1A9921AFDACB001D5575 /* WalletStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC1A9821AFDACB001D5575 /* WalletStartVC.swift */; };
 		71DC1A9B21AFE3A9001D5575 /* WalletNoAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */; };
 		71DC1A9D21B00ACF001D5575 /* WalletPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */; };
-		71E09472219EE42C00281643 /* VoteModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E09471219EE42C00281643 /* VoteModel.swift */; };
+		71E09472219EE42C00281643 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E09471219EE42C00281643 /* Model.swift */; };
 		71F68A4A21709D8A00F7E728 /* FaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4921709D8A00F7E728 /* FaqVC.swift */; };
 		71F68A4C21709E2700F7E728 /* DocumentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4B21709E2700F7E728 /* DocumentsVC.swift */; };
 		71FF085B21AE766800D9F3A3 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF085A21AE766800D9F3A3 /* ActivityCell.swift */; };
@@ -552,7 +552,7 @@
 		71DC1A9821AFDACB001D5575 /* WalletStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletStartVC.swift; sourceTree = "<group>"; };
 		71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNoAccountVC.swift; sourceTree = "<group>"; };
 		71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPickerVC.swift; sourceTree = "<group>"; };
-		71E09471219EE42C00281643 /* VoteModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteModel.swift; sourceTree = "<group>"; };
+		71E09471219EE42C00281643 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		71F68A4921709D8A00F7E728 /* FaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqVC.swift; sourceTree = "<group>"; };
 		71F68A4B21709E2700F7E728 /* DocumentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsVC.swift; sourceTree = "<group>"; };
 		71FF085A21AE766800D9F3A3 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
@@ -628,7 +628,7 @@
 		711EF6FB21F1D5B5008F2FD5 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				71E09471219EE42C00281643 /* VoteModel.swift */,
+				71E09471219EE42C00281643 /* Model.swift */,
 				711EF6F721F1D382008F2FD5 /* Token.swift */,
 				711EF6F921F1D5B0008F2FD5 /* Name.swift */,
 			);
@@ -2113,7 +2113,7 @@
 				71C2C5BF21AC210D0040C85A /* DocumentsCell.swift in Sources */,
 				71BE95B0216352F2001CF853 /* TableHeaderTap.swift in Sources */,
 				71894B8C21C3B5B00050F705 /* AccountModel.swift in Sources */,
-				71E09472219EE42C00281643 /* VoteModel.swift in Sources */,
+				71E09472219EE42C00281643 /* Model.swift in Sources */,
 				71BE959E216258DE001CF853 /* LastUpdateCell.swift in Sources */,
 				71BE957F215F5D3C001CF853 /* CategoryCell.swift in Sources */,
 				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,

@@ -8,15 +8,15 @@
 
 import Result
 
-private let testNodeUrl = "http://35.242.241.205:7777"
-
-struct EOS {
+class EOS {
 
 	let contractAccount = EosName.create("testaccount1")
 
 	var isMainNet:Bool { return nodeUrl != testNodeUrl }
 
-	var nodeUrl:String = testNodeUrl {
+	let testNodeUrl = "http://35.242.241.205:7777"
+
+	var nodeUrl:String = "" {
 		didSet {
 			if let _ = URL(string: nodeUrl) {
 				EOSRPC.endpoint = nodeUrl
@@ -95,6 +95,49 @@ struct EOS {
 										}
 			}
 		}
+	}
+
+	func stakeResources(account:AccountModel,
+						receiver:EosName? = nil,
+						cpu:Balance,
+						net:Balance,
+						passcode:String,
+						transfer:Bool = false,
+						_ completion: @escaping (Result<String, AnyError>)->Void) {
+
+		guard cpu.token == net.token else {
+			return completion(.failure(AnyError(EOSError.incorrectToken)))
+		}
+
+		let data = DelegateBW(from: account.name,
+							  receiver: receiver?.string ?? account.name,
+							  stake_cpu_quantity: cpu.string,
+							  stake_net_quantity: net.string,
+							  transfer: transfer).jsonString
+
+		let name = EosName.create("delegatebw")
+		sendAction(name, from: account, data: data, passcode: passcode, completion)
+	}
+
+	func unstakeResources(account:AccountModel,
+						receiver:EosName? = nil,
+						cpu:Balance,
+						net:Balance,
+						passcode:String,
+						transfer:Bool = false,
+						_ completion: @escaping (Result<String, AnyError>)->Void) {
+
+		guard cpu.token == net.token else {
+			return completion(.failure(AnyError(EOSError.incorrectToken)))
+		}
+
+		let data = UndelegateBW(from: account.name,
+							  receiver: receiver?.string ?? account.name,
+							  unstake_cpu_quantity: cpu.string,
+							  unstake_net_quantity: net.string).jsonString
+
+		let name = EosName.create("undelegatebw")
+		sendAction(name, from: account, data: data, passcode: passcode, completion)
 	}
 
 	/// send money from this account

@@ -27,6 +27,10 @@ struct Balance {
 		}
 		return nil
 	}
+
+	var string:String {
+		return "\(amount.formatRounding(to: 4, min: 4)) \(token.symbol)"
+	}
 }
 
 extension Balance: Comparable {

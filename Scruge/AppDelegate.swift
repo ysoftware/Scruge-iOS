@@ -16,6 +16,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions
 		launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
+		// init with node url from settings
+		let url:String? = Service.settings.get(.nodeUrl)
+		Service.eos.nodeUrl = url ?? Service.eos.testNodeUrl
+
 		#if DEBUG
 		Service.api.setEnvironment(.prod)
 		Test.run()

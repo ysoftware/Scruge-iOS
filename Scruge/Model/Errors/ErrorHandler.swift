@@ -86,6 +86,8 @@ struct ErrorHandler {
 				return "Incorrect transaction format"
 			case .incorrectName:
 				return "Incorrect name: it can only contain letters, numbers from 1 to 5 and a dot"
+			case .incorrectToken:
+				return "Incorrect token input"
 			}
 		}
 		else if (error as NSError).domain == "SwiftyEOSErrorDomain" {

@@ -108,7 +108,7 @@ final class VoteResultsViewController: UIViewController {
 		}
 
 		guard passcode.count > 0 else {
-			return alert("Enter your wallet passcode")
+			return alert("Enter your wallet password")
 		}
 
 		self.vm.vote(value, account: account, passcode: passcode) { error in
