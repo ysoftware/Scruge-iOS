@@ -19,6 +19,7 @@ final class ActionsAVM: ArrayViewModel<ActionReceipt, ActionVM, ActionsQuery> {
 
 	override func fetchData(_ query: ActionsQuery?,
 							_ block: @escaping (Result<[ActionReceipt], AnyError>) -> Void) {
-		Service.eos.getActions(for: accountName, query: query, completion: block)
+		guard let name = accountName.eosName else { return block(.failure(AnyError(EOSError.incorrectName))) }
+		Service.eos.getActions(for: name, query: query, completion: block)
 	}
 }

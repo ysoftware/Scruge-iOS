@@ -13,7 +13,7 @@ final class ResourcesVM: ViewModel<Resources> {
 	var accountName:String?
 
 	func load() {
-		guard let accountName = accountName else {
+		guard let accountName = accountName?.eosName else {
 			model = nil
 			return notifyUpdated()
 		}

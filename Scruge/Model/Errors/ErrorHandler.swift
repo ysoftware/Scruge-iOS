@@ -84,6 +84,8 @@ struct ErrorHandler {
 				return "Unknown blockchain error"
 			case .abiError:
 				return "Incorrect transaction format"
+			case .incorrectName:
+				return "Incorrect name: it can only contain letters, numbers from 1 to 5 and a dot"
 			}
 		}
 		else if (error as NSError).domain == "SwiftyEOSErrorDomain" {

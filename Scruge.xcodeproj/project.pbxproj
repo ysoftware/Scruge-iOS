@@ -21,6 +21,9 @@
 		71163A472167517E00C5B633 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A462167517E00C5B633 /* Wallet.swift */; };
 		71163A4A216754BC00C5B633 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A49216754BC00C5B633 /* LoadingView.swift */; };
 		71163A4C216754C400C5B633 /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71163A4B216754C400C5B633 /* LoadingView.xib */; };
+		711EF6F821F1D382008F2FD5 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711EF6F721F1D382008F2FD5 /* Token.swift */; };
+		711EF6FA21F1D5B0008F2FD5 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711EF6F921F1D5B0008F2FD5 /* Name.swift */; };
+		711EF6FD21F1DCDC008F2FD5 /* Distinct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711EF6FC21F1DCDC008F2FD5 /* Distinct.swift */; };
 		712044FC21EF80640030F96A /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712044FB21EF80640030F96A /* Activity.swift */; };
 		712044FF21EF825D0030F96A /* ActivityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712044FE21EF825D0030F96A /* ActivityVM.swift */; };
 		7120450121EF82680030F96A /* ActivityQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120450021EF82680030F96A /* ActivityQ.swift */; };
@@ -287,6 +290,9 @@
 		71163A462167517E00C5B633 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		71163A49216754BC00C5B633 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		71163A4B216754C400C5B633 /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		711EF6F721F1D382008F2FD5 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
+		711EF6F921F1D5B0008F2FD5 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
+		711EF6FC21F1DCDC008F2FD5 /* Distinct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distinct.swift; sourceTree = "<group>"; };
 		712044FB21EF80640030F96A /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		712044FE21EF825D0030F96A /* ActivityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVM.swift; sourceTree = "<group>"; };
 		7120450021EF82680030F96A /* ActivityQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityQ.swift; sourceTree = "<group>"; };
@@ -619,6 +625,16 @@
 			path = "Loading View";
 			sourceTree = "<group>";
 		};
+		711EF6FB21F1D5B5008F2FD5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				71E09471219EE42C00281643 /* VoteModel.swift */,
+				711EF6F721F1D382008F2FD5 /* Token.swift */,
+				711EF6F921F1D5B0008F2FD5 /* Name.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		712044FD21EF82540030F96A /* Activity */ = {
 			isa = PBXGroup;
 			children = (
@@ -751,6 +767,7 @@
 				71345C152178714C00F28AF1 /* DatePresent.swift */,
 				71163A3F216642F400C5B633 /* EmailValidation.swift */,
 				71345AF82177336F00F28AF1 /* StringTruncate.swift */,
+				711EF6FC21F1DCDC008F2FD5 /* Distinct.swift */,
 			);
 			path = "Data formatting";
 			sourceTree = "<group>";
@@ -935,9 +952,9 @@
 		71971CB42158E3FE004D28E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				71BE95B321635A2F001CF853 /* ViewState.swift */,
 				71B38D17215B9AD000929CC3 /* Entities */,
 				7198C81E218AFB0B009682E7 /* Errors */,
-				71BE95B321635A2F001CF853 /* ViewState.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1283,8 +1300,8 @@
 		71BE956E215E5D11001CF853 /* Api */ = {
 			isa = PBXGroup;
 			children = (
-				71B38CF7215AA0FB00929CC3 /* Model */,
 				71C8E8F0215912690078BD36 /* Api.swift */,
+				71B38CF7215AA0FB00929CC3 /* Model */,
 			);
 			path = Api;
 			sourceTree = "<group>";
@@ -1468,7 +1485,7 @@
 			isa = PBXGroup;
 			children = (
 				71C8E8E721590F2A0078BD36 /* EOS.swift */,
-				71E09471219EE42C00281643 /* VoteModel.swift */,
+				711EF6FB21F1D5B5008F2FD5 /* Model */,
 			);
 			path = EOS;
 			sourceTree = "<group>";
@@ -2055,6 +2072,7 @@
 				71BE958721620BE3001CF853 /* CampaignVC.swift in Sources */,
 				71AB7906216609420077D904 /* ProfileVM.swift in Sources */,
 				71AD0E302170919A00077446 /* DocumentCell.swift in Sources */,
+				711EF6FA21F1D5B0008F2FD5 /* Name.swift in Sources */,
 				71345AF92177336F00F28AF1 /* StringTruncate.swift in Sources */,
 				71A0C1BC21708AEC00C2ACF3 /* Document.swift in Sources */,
 				716AE1CC215977470098882F /* CampaignAVM.swift in Sources */,
@@ -2101,6 +2119,7 @@
 				71971CBF2158E8AA004D28E7 /* Presenter.swift in Sources */,
 				71BE95BD2163768A001CF853 /* CategoryVM.swift in Sources */,
 				7166528A21F0B143005A50F7 /* ResourcesVM.swift in Sources */,
+				711EF6FD21F1DCDC008F2FD5 /* Distinct.swift in Sources */,
 				71D84CD721995AD000E8DB88 /* EOSRPC+History.swift in Sources */,
 				71B38D02215ABE6E00929CC3 /* UpdateAVM.swift in Sources */,
 				71D84CCB21995AD000E8DB88 /* ecdsa.c in Sources */,
@@ -2185,6 +2204,7 @@
 				71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */,
 				71BE95BB2163744E001CF853 /* Faq.swift in Sources */,
 				71D84CD221995AD000E8DB88 /* ResourceUtil.swift in Sources */,
+				711EF6F821F1D382008F2FD5 /* Token.swift in Sources */,
 				71BE95A521625E64001CF853 /* TopCommentCell.swift in Sources */,
 				71D84CBC21995ACF00E8DB88 /* asm_arm.inc in Sources */,
 				715DB15B2174716E0005B69D /* VoteVC.swift in Sources */,

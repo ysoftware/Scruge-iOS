@@ -130,7 +130,7 @@ final class RegisterViewController: UIViewController {
 			return false
 		}
 
-		guard email.isValidEmail() else {
+		guard email.isValidEmail else {
 			alert("Email is not valid")
 			return false
 		}

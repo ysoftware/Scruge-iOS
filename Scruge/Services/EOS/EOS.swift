@@ -8,17 +8,25 @@
 
 import Result
 
+private let testNodeUrl = "http://35.242.241.205:7777"
+
 struct EOS {
 
-	let contractAccount = "testaccount1"
+	let contractAccount = EosName.create("testaccount1")
 
-	fileprivate let chain = EOSRPC.sharedInstance
+	var isMainNet:Bool { return nodeUrl != testNodeUrl }
 
-	init() {
-		EOSRPC.endpoint = "http://35.242.241.205:7777"
+	var nodeUrl:String = testNodeUrl {
+		didSet {
+			if let _ = URL(string: nodeUrl) {
+				EOSRPC.endpoint = nodeUrl
+			}
+		}
 	}
 
 	// MARK: - Methods
+
+	fileprivate let chain = EOSRPC.sharedInstance
 
 	func getAccounts(for wallet:SELocalAccount,
 					 completion: @escaping (Result<[String], AnyError>)->Void) {
@@ -35,8 +43,8 @@ struct EOS {
 		}
 	}
 
-	func getResources(of account:String, completion: @escaping (Result<Resources, AnyError>)->Void) {
-		chain.getAccount(account: account) { account, error in
+	func getResources(of account:EosName, completion: @escaping (Result<Resources, AnyError>)->Void) {
+		chain.getAccount(account: account.string) { account, error in
 			guard let account = account else {
 				return completion(.failure(AnyError(error ?? EOSError.unknown)))
 			}
@@ -44,10 +52,10 @@ struct EOS {
 		}
 	}
 
-	func getActions(for account:String,
+	func getActions(for account:EosName,
 					query:ActionsQuery?,
 					completion: @escaping (Result<[ActionReceipt], AnyError>)->Void) {
-		chain.getActions(accountName: account,
+		chain.getActions(accountName: account.string,
 						 position: query?.position ?? -1,
 						 offset: query?.offset ?? -100) { result, error in
 			guard let actions = result?.actions
@@ -63,33 +71,35 @@ struct EOS {
 		}
 	}
 
-	func sendAction(_ action:String,
-					contract:String? = nil,
-					from account: AccountModel,
-					data: String,
-					passcode: String,
-					_ completion: @escaping (Result<String, AnyError>)->Void) {
+	func getBalance(for account:String,
+					tokens:[Token],
+					_ completion: @escaping ([Balance])->Void) {
 
-		guard let params = try? AbiJson(code: contract ?? contractAccount,
-										action: action,
-										json: data) else {
-			return completion(.failure(AnyError(EOSError.abiError)))
-		}
+		var i = 0
+		var balances:[Balance] = []
 
-		account.wallet
-			.pushTransaction(abi: params,
-							 account: account.name,
-							 unlockOncePasscode: passcode) { result, error in
-								guard let transactionId = result?.transactionId else {
-									return completion(.failure(AnyError(error ?? EOSError.unknown)))
-								}
-								return completion(.success(transactionId))
+		for token in tokens.distinct {
+			chain.getCurrencyBalance(account: account,
+									 symbol: token.symbol,
+									 code: token.contract.string) { number, error in
+
+										i += 1
+
+										if let number = number {
+											balances.append(Balance(token: token,
+																	amount: Double(truncating: number)))
+										}
+
+										if i == tokens.count {
+											completion(balances)
+										}
+			}
 		}
 	}
 
 	/// send money from this account
 	func sendMoney(from account:AccountModel,
-				   to recipient:String,
+				   to recipient:EosName,
 				   amount:Double,
 				   symbol:String,
 				   memo:String = "",
@@ -100,7 +110,7 @@ struct EOS {
 			.replacingOccurrences(of: ",", with: ".")
 		let transfer = Transfer()
 		transfer.from = account.name
-		transfer.to = recipient
+		transfer.to = recipient.string
 		transfer.quantity = quantity
 		transfer.memo = memo
 
@@ -115,29 +125,28 @@ struct EOS {
 		}
 	}
 
-	func getBalance(for account:String,
-					currencies:[String],
-					_ completion: @escaping ([Balance])->Void) {
+	func sendAction(_ action:EosName,
+					contract:EosName? = nil,
+					from account: AccountModel,
+					data: String,
+					passcode: String,
+					_ completion: @escaping (Result<String, AnyError>)->Void) {
 
-		var i = 0
-		var balances:[Balance] = []
+		guard let params = try? AbiJson(code: contract?.string ?? contractAccount.string,
+										action: action.string,
+										json: data) else {
+											return completion(.failure(AnyError(EOSError.abiError)))
+		}
 
-		for currency in currencies {
-			chain.getCurrencyBalance(account: account,
-									 symbol: currency,
-									 code: "eosio.token") { number, error in
-
-										i += 1
-
-										if let number = number {
-											balances.append(Balance(symbol: currency,
-																	amount: Double(truncating: number)))
-										}
-
-										if i == currencies.count {
-											completion(balances)
-										}
-			}
+		account.wallet
+			.pushTransaction(abi: params,
+							 account: account.name,
+							 unlockOncePasscode: passcode) { result, error in
+								guard let transactionId = result?.transactionId else {
+									return completion(.failure(AnyError(error ?? EOSError.unknown)))
+								}
+								return completion(.success(transactionId))
 		}
 	}
+
 }

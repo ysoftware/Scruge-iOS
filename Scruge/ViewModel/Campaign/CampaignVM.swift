@@ -185,7 +185,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 								vote: value)
 
 				Service.eos
-					.sendAction("vote",
+					.sendAction(EosName.create("vote"),
 								from: account,
 								data: vote.jsonString,
 								passcode: passcode) { transactionResult in

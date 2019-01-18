@@ -53,7 +53,7 @@ final class DataFormattingTests: XCTestCase {
 
 		var failedValid = 0
 		validEmails.forEach {
-			if !$0.isValidEmail() {
+			if !$0.isValidEmail {
 				print("Should be valid: \($0)")
 				failedValid += 1
 			}
@@ -82,7 +82,7 @@ final class DataFormattingTests: XCTestCase {
 
 		var failedInvalid = 0
 		invalidEmails.forEach {
-			if $0.isValidEmail() {
+			if $0.isValidEmail {
 				print("Should be invalid: \($0)")
 				failedInvalid += 1
 			}

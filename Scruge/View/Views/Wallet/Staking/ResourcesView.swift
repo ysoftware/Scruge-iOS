@@ -85,14 +85,18 @@ final class ResourcesView: UIView {
 		}
 	}
 
-	func hideRam(_ value:Bool) {
-		ramView.isHidden = value
-		superview?.setNeedsLayout()
+	@IBInspectable var hideRam:Bool = false {
+		didSet {
+			ramView.isHidden = hideRam
+			superview?.setNeedsLayout()
+		}
 	}
 
-	func hideControls(_ value:Bool) {
-		controlsView.isHidden = value
-		superview?.setNeedsLayout()
+	@IBInspectable var hideControls:Bool = false {
+		didSet {
+			controlsView.isHidden = hideControls
+			superview?.setNeedsLayout()
+		}
 	}
 
 	private func updateViews() {

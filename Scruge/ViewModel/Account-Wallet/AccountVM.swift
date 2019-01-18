@@ -37,11 +37,11 @@ final class AccountVM:ViewModel<AccountModel> {
 			let amount = balance.amount.formatRounding(to: 4, min: 4)
 
 			if att.length > 0 { att.append(separator) }
-			att.append(balance.symbol, withAttributes: currencyAtt)
+			att.append(balance.token.symbol, withAttributes: currencyAtt)
 				.append("  ")
 				.append(amount, withAttributes: balanceAtt)
 
-			if let symbol = Asset(rawValue: balance.symbol),
+			if let symbol = Asset(rawValue: balance.token.symbol),
 				let usd = Service.exchangeRates.convert(Quantity(balance.amount, symbol),
 														to: .usd) {
 				let usdString = usd.amount.formatRounding(to: 2)
@@ -55,7 +55,7 @@ final class AccountVM:ViewModel<AccountModel> {
 	// MARK: - Methods
 
 	func updateBalance() {
-		Service.eos.getBalance(for: name, currencies: ["EOS", "SCR"]) { balances in
+		Service.eos.getBalance(for: name, tokens: Token.default) { balances in
 			self.balances = balances.sorted()
 			self.notifyUpdated()
 		}

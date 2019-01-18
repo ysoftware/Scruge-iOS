@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
 
-	func isValidEmail() -> Bool {
+	var isValidEmail:Bool {
 		guard (5...254).contains(count) else { return false } // for our app needs
 
 		let emailRegex = "(?:[a-zA-Z0-9!#$%\\&‘*+/=?\\^_`{|}~-]+(?:\\.[a-zA-Z0-9!#$%\\&'*+/=?\\^_`{|}" +

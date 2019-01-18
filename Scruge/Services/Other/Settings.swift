@@ -23,6 +23,10 @@ struct Settings {
 	enum Setting:String {
 
 		case selectedAccount = "selectedAccount"
+
+		case userTokens = "userTokens"
+
+		case nodeUrl = "nodeUrl"
 	}
 
 	func get<T>(_ setting:Setting) -> T? {

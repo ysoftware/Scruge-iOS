@@ -11,4 +11,6 @@ import UIKit
 final class StakingViewController:UIViewController {
 	
 	var accountVM:AccountVM!
+
+	
 }

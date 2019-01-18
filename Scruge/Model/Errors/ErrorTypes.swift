@@ -44,6 +44,8 @@ enum EOSError: Error, Equatable {
 	case unknown
 
 	case abiError
+
+	case incorrectName
 }
 
 enum BackendError: Error, Equatable {

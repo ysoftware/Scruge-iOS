@@ -10,14 +10,28 @@ import Foundation
 
 struct Balance {
 
-	let symbol:String
+	let token:Token
 
 	let amount:Double
+
+	init(token:Token, amount:Double) {
+		self.token = token
+		self.amount = amount
+	}
+
+	init?(balance:String, contract:EosName) {
+		let array = balance.components(separatedBy: " ")
+		if array.count == 2, let amount = Double(array[0]) {
+			self.token = Token(contract: contract, symbol: array[1])
+			self.amount = amount
+		}
+		return nil
+	}
 }
 
 extension Balance: Comparable {
 
 	static func < (lhs: Balance, rhs: Balance) -> Bool {
-		return lhs.symbol < rhs.symbol
+		return lhs.amount < rhs.amount
 	}
 }
