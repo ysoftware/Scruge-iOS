@@ -4,10 +4,10 @@ PODS:
   - Kingfisher (4.10.1)
   - MVVM (0.1):
     - Result
-  - R.swift (5.0.0):
+  - R.swift (5.0.1):
     - R.swift.Library (~> 5.0.0)
   - R.swift.Library (5.0.0)
-  - Result (4.0.0)
+  - Result (4.1.0)
   - SwiftDate (5.0.13)
   - SwiftHTTP (3.0.1)
   - SwiftyRSA (1.5.0):
@@ -42,7 +42,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MVVM:
-    :commit: 45ed7cd390a6fa3fe021e068a12f52ca76c2b0f4
+    :commit: cd5f257259d4d5ac8bd124d6c2fc0bc0c796360a
     :git: https://github.com/ysoftware/MVVM-iOS.git
 
 SPEC CHECKSUMS:
@@ -50,9 +50,9 @@ SPEC CHECKSUMS:
   KeychainSwift: 23d6c16cbc33f20fafa30c3d783241b4b87d998c
   Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
   MVVM: 586bab0227d6fa43271f656535373e539a886575
-  R.swift: f88c7d7d48a2be4dffa132dde1b3d389620310eb
+  R.swift: a8e1a7e7f38441282fbcb7a3c266076eb38b77ba
   R.swift.Library: 0bf390e729bc10bb2c9e4fb78bd043164a7be4ff
-  Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
+  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
   SwiftDate: f4aea5fa9dee812485f34041121a4cbde01b0dee
   SwiftHTTP: e94f1aa8cde58637dcc0100f6349de31a3337fde
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf

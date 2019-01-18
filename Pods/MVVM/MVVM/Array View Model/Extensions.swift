@@ -10,8 +10,7 @@ import Foundation
 extension ArrayViewModel: ViewModelDelegate {
 
 	public func didUpdateData<M>(_ viewModel: ViewModel<M>) {
-		guard let vm = viewModel as? VM, let index = array.firstIndex(of: vm) else { return }
-		delegate?.didUpdateData(self, .update(indexes: [index]))
+		(viewModel as? VM)?.notifyUpdated()
 	}
 }
 
