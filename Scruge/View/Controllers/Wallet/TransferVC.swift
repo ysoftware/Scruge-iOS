@@ -56,6 +56,12 @@ final class TransferViewController: UIViewController {
 			Service.eos.getBalance(for: eosName, tokens: list) { response in
 				self.balances = response.filter { $0.amount != 0 }.distinct
 
+				guard !self.balances.isEmpty else {
+					return self.alert("You don't seem to have any transferable tokens") {
+						self.navigationController?.popViewController(animated: true)
+					}
+				}
+
 				DispatchQueue.main.async {
 					let i = self.balances.firstIndex(where: { $0.token == Service.eos.systemToken }) ?? 0
 					self.tokenField.placeholder = self.balances[i].token.symbol

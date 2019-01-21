@@ -88,7 +88,7 @@ final class ContributeViewController: UIViewController {
 	private func setupInformation() {
 		vm.loadAmountContributed { value in
 			guard let value = value else {
-				return self.alert("Could not load information")
+				return self.alert("You don't seem to have any transferable tokens")
 			}
 
 			let usd = (Service.exchangeRates.convert(Quantity(value, .scr), to: .usd)?.amount ?? 0)
