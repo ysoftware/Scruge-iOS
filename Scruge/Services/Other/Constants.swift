@@ -28,7 +28,7 @@ struct Constants {
 
 		let greenLight = #colorLiteral(red: 0.7098039216, green: 0.8901960784, blue: 0.3215686275, alpha: 1)
 
-		let green = #colorLiteral(red: 0.5827227723, green: 0.79, blue: 0.1290594059, alpha: 1)
+		let green = #colorLiteral(red: 0.5843137255, green: 0.7882352941, blue: 0.1294117647, alpha: 1)
 
 		// resources
 
