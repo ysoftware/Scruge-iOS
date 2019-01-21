@@ -59,6 +59,9 @@ final class ActionVM: ViewModel<ActionReceipt> {
 		switch type {
 		case .sent(let transfer):
 			str.append("\(transfer.quantity) to \(transfer.to)", color: grayText, font: font)
+			if (!transfer.memo.isEmpty) {
+				str.append("\n\(transfer.memo)", color: gray, font: .systemFont(ofSize: 12))
+			}
 		case .invested(let campaignTitle, let amount):
 			str.append("\(amount) in \(campaignTitle)", color: grayText, font: font)
 		case .received(let transfer):
