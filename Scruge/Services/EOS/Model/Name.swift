@@ -8,7 +8,9 @@
 
 import Foundation
 
-struct EosName:Equatable, Hashable {
+struct EosName:Equatable, Hashable, CustomDebugStringConvertible {
+
+	var debugDescription: String { return string }
 
 	let string:String
 
