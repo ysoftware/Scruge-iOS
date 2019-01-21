@@ -24,7 +24,6 @@ final class StakingViewController:UIViewController {
 	// MARK: - Properties
 	
 	var accountVM:AccountVM!
-	var systemToken:Token { return Service.eos.isMainNet ? .EOS : .SYS }
 
 	// MARK: - Setup
 
@@ -81,6 +80,7 @@ final class StakingViewController:UIViewController {
 			return alert("Incorrect staking amount")
 		}
 
+		let systemToken = Service.eos.systemToken
 		let cpu = Balance(token: systemToken, amount: cpuValue)
 		let net = Balance(token: systemToken, amount: netValue)
 
@@ -102,6 +102,7 @@ final class StakingViewController:UIViewController {
 	}
 
 	private func updateViews() {
+		let systemToken = Service.eos.systemToken
 		stakeCurrencyLabels.forEach { $0.text = systemToken.symbol }
 		resourcesView.accountName = accountVM?.name
 
@@ -111,7 +112,7 @@ final class StakingViewController:UIViewController {
 				self.availableLabel.text = "\(response[0]) available"
 			}
 			else {
-				self.availableLabel.text = "\(Balance(token: self.systemToken, amount: 0.0)) available"
+				self.availableLabel.text = "\(Balance(token: systemToken, amount: 0.0)) available"
 			}
 		}
 	}

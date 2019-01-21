@@ -10,6 +10,8 @@ import Result
 
 class EOS {
 
+	var systemToken:Token { return Service.eos.isMainNet ? .EOS : .SYS }
+
 	let contractAccount = EosName.create("testaccount1")
 
 	var isMainNet:Bool { return nodeUrl != testNodeUrl }
