@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Balance:CustomStringConvertible {
+struct Balance:Equatable, CustomStringConvertible {
 
 	var description: String { return string }
 
@@ -33,6 +33,10 @@ struct Balance:CustomStringConvertible {
 	var string:String {
 		let amount = self.amount.formatRounding(to: 4, min: 4).replacingOccurrences(of: ",", with: ".")
 		return "\(amount) \(token.symbol)"
+	}
+
+	static func ==(lhs:Balance, rhs:Balance) -> Bool {
+		return lhs.token == rhs.token
 	}
 }
 

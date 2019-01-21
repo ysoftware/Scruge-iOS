@@ -79,8 +79,9 @@ class EOS {
 
 		var i = 0
 		var balances:[Balance] = []
+		let requestTokens = tokens.distinct
 
-		for token in tokens.distinct {
+		for token in requestTokens {
 			chain.getCurrencyBalance(account: account.string,
 									 symbol: token.symbol,
 									 code: token.contract.string) { number, error in
@@ -92,7 +93,7 @@ class EOS {
 																	amount: Double(truncating: number)))
 										}
 
-										if i == tokens.count {
+										if i == requestTokens.count {
 											completion(balances)
 										}
 			}
