@@ -213,7 +213,7 @@ You will not be able to change it after you make first investment.
 				return self.presentWalletPicker()
 			}
 
-			Service.settings.set(.selectedAccount, value: account.name)
+			Service.settings.set(.selectedAccount, value: account.displayName)
 			self.vm.reloadData()
 		}
 	}

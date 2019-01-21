@@ -14,6 +14,7 @@
 		7105C35B21AD6580008AAB1E /* TransparentNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105C35A21AD6580008AAB1E /* TransparentNavBar.swift */; };
 		7105C35D21AD6D59008AAB1E /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105C35C21AD6D59008AAB1E /* StatusBar.swift */; };
 		710BDE7C21AE90DA0021B498 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710BDE7B21AE90DA0021B498 /* CreateAccountVC.swift */; };
+		710E9F4F21F5EF4D00BEC235 /* PickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E9F4E21F5EF4D00BEC235 /* PickerVC.swift */; };
 		710FE992217F94F8009E51E5 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710FE991217F94F8009E51E5 /* Balance.swift */; };
 		71163A3E21663B8900C5B633 /* ProfileEditVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3D21663B8900C5B633 /* ProfileEditVC.swift */; };
 		71163A40216642F400C5B633 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71163A3F216642F400C5B633 /* EmailValidation.swift */; };
@@ -284,6 +285,7 @@
 		7105C35A21AD6580008AAB1E /* TransparentNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentNavBar.swift; sourceTree = "<group>"; };
 		7105C35C21AD6D59008AAB1E /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		710BDE7B21AE90DA0021B498 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
+		710E9F4E21F5EF4D00BEC235 /* PickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerVC.swift; sourceTree = "<group>"; };
 		710FE991217F94F8009E51E5 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
 		71163A3D21663B8900C5B633 /* ProfileEditVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileEditVC.swift; sourceTree = "<group>"; };
 		71163A3F216642F400C5B633 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
@@ -1382,6 +1384,7 @@
 				71971CBE2158E8AA004D28E7 /* Presenter.swift */,
 				71387A9C216CCC4800B24C67 /* SettingsVC.swift */,
 				716F05FE21D2170900561162 /* AlertVC.swift */,
+				710E9F4E21F5EF4D00BEC235 /* PickerVC.swift */,
 			);
 			path = "Main (Navigation)";
 			sourceTree = "<group>";
@@ -2162,6 +2165,7 @@
 				71345AF32176000000F28AF1 /* Range.swift in Sources */,
 				71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */,
 				71387A99216CA73D00B24C67 /* TagCell.swift in Sources */,
+				710E9F4F21F5EF4D00BEC235 /* PickerVC.swift in Sources */,
 				712508B821AECC33008E3A5C /* CommentCell.swift in Sources */,
 				713EF3B221A98E6F009BA9D5 /* PagingCell.swift in Sources */,
 				71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */,

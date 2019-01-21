@@ -17,7 +17,8 @@ struct EosName:Equatable, Hashable {
 		return EosName(from: name)!
 	}
 
-	init?(from string:String) {
+	init?(from name:String) {
+		let string = name.trimmingCharacters(in: .whitespacesAndNewlines)
 		if (string.isValidEosName) {
 			self.string = string
 		}

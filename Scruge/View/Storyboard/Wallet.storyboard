@@ -126,7 +126,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="625.33333333333337"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvH-iY-h5K" customClass="GradientView" customModule="Scruge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="501.33333333333331"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="347.33333333333331"/>
                                                 <color key="backgroundColor" red="0.89411764709999997" green="0.2666666667" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -751,7 +751,7 @@
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Eo3-b9-PYR" secondAttribute="trailing" id="1Le-ZC-zGo"/>
                                             <constraint firstItem="bvH-iY-h5K" firstAttribute="leading" secondItem="who-1H-QDH" secondAttribute="leading" id="3Zu-k1-s5W"/>
-                                            <constraint firstItem="bvH-iY-h5K" firstAttribute="bottom" secondItem="jen-zA-2j8" secondAttribute="top" constant="30" id="5n1-Ok-mv1"/>
+                                            <constraint firstItem="8Wi-Uk-38T" firstAttribute="top" secondItem="bvH-iY-h5K" secondAttribute="bottom" constant="-30" id="Ogj-UP-q9X"/>
                                             <constraint firstAttribute="bottom" secondItem="Eo3-b9-PYR" secondAttribute="bottom" constant="15" id="TRY-dn-mQn"/>
                                             <constraint firstItem="Eo3-b9-PYR" firstAttribute="top" secondItem="who-1H-QDH" secondAttribute="top" id="fdw-gm-Enn"/>
                                             <constraint firstItem="Eo3-b9-PYR" firstAttribute="leading" secondItem="who-1H-QDH" secondAttribute="leading" id="gPZ-Ke-jla"/>
@@ -1740,14 +1740,16 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZVl-rW-LY8" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                                 <rect key="frame" x="150" y="0.0" width="145" height="60"/>
                                                                                 <subviews>
-                                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="SCR" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2B-cz-ttN">
+                                                                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h2B-cz-ttN">
                                                                                         <rect key="frame" x="15" y="0.0" width="115" height="60"/>
+                                                                                        <gestureRecognizers/>
                                                                                         <nil key="textColor"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                                                                     </textField>
                                                                                 </subviews>
                                                                                 <color key="backgroundColor" red="0.98431372549999996" green="0.98039215690000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                                                <gestureRecognizers/>
                                                                                 <constraints>
                                                                                     <constraint firstAttribute="height" constant="60" id="FvU-UJ-DeB"/>
                                                                                     <constraint firstItem="h2B-cz-ttN" firstAttribute="height" secondItem="ZVl-rW-LY8" secondAttribute="height" id="VXd-dG-9k6"/>
@@ -1761,6 +1763,9 @@
                                                                                     </userDefinedRuntimeAttribute>
                                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isRelativeRadius" value="NO"/>
                                                                                 </userDefinedRuntimeAttributes>
+                                                                                <connections>
+                                                                                    <outletCollection property="gestureRecognizers" destination="ymS-Y2-hvw" appends="YES" id="Noy-ym-Gsv"/>
+                                                                                </connections>
                                                                             </view>
                                                                         </subviews>
                                                                     </stackView>
@@ -1892,6 +1897,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tEX-oK-KZ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ymS-Y2-hvw" userLabel="token tap">
+                    <connections>
+                        <action selector="tokenTapped:" destination="qH8-9k-tUc" id="Fbc-fz-cgW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-2090" y="850"/>
         </scene>

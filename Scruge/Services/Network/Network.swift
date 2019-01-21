@@ -14,8 +14,8 @@ struct Network:Networking {
 	private let activity = ActivityIndicatorController()
 	var baseUrl:String
 
-	var isLoggingEnabled = true
-	var logLimit = 300
+	var isLoggingEnabled = false
+	var logLimit = 2000
 
 	init(baseUrl:String) {
 		self.baseUrl = baseUrl

@@ -82,16 +82,16 @@ class EOS {
 		let requestTokens = tokens.distinct
 
 		for token in requestTokens {
-			chain.getCurrencyBalance(account: account.string,
-									 symbol: token.symbol,
-									 code: token.contract.string) { number, error in
+			chain
+				.getCurrencyBalance(account: account.string,
+									symbol: token.symbol,
+									code: token.contract.string) { number, error in
 
 										i += 1
 
-										if let number = number {
-											balances.append(Balance(token: token,
-																	amount: Double(truncating: number)))
-										}
+										let value = Double(truncating: number ?? 0.0)
+										let balance = Balance(token: token, amount: value)
+										balances.append(balance)
 
 										if i == requestTokens.count {
 											completion(balances)

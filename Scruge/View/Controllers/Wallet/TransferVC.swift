@@ -58,7 +58,7 @@ final class TransferViewController: UIViewController {
 
 				DispatchQueue.main.async {
 					let i = self.balances.firstIndex(where: { $0.token == Service.eos.systemToken }) ?? 0
-					self.tokenField.text = self.balances[i].token.symbol
+					self.tokenField.placeholder = self.balances[i].token.symbol
 					self.totalLabel.text = self.balances[i].string
 					self.selectedIndex = i
 				}
@@ -70,6 +70,18 @@ final class TransferViewController: UIViewController {
 		navigationController?.navigationBar.isHidden = false
 		makeNavbarNormal(with: "Transfer Tokens")
 		preferSmallNavbar()
+	}
+
+	@IBAction func tokenTapped(_ sender: Any) {
+		Service.presenter
+			.presentPickerController(in: self,
+									 with: balances.map { $0.token.symbol },
+									 andTitle: "Select token") { i in
+										guard let i = i else { return }
+										self.selectedIndex = i
+										self.totalLabel.text = self.balances[i].string
+										self.tokenField.placeholder = self.balances[i].token.symbol
+		}
 	}
 
 	private func setupActions() {
@@ -92,7 +104,7 @@ final class TransferViewController: UIViewController {
 				if (!self.balances.isEmpty) {
 					self.selectedIndex = 0
 					self.totalLabel.text = self.balances[0].string
-					self.tokenField.text = self.balances[0].token.symbol
+					self.tokenField.placeholder = self.balances[0].token.symbol
 				}
 				else {
 					self.navigationController?.popViewController(animated: true)

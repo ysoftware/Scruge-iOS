@@ -181,6 +181,18 @@ struct Presenter {
 
 	// MARK: - General
 
+	func presentPickerController(in vc:UIViewController,
+										 with items:[String],
+										 andTitle title:String? = nil,
+										 _ block: @escaping (Int?)->Void) {
+		let new = R.storyboard.main.pickerVC()!
+		setupPopover(new)
+		new.titleText = title
+		new.items = items
+		new.block = block
+		vc.present(new, animated: true)
+	}
+
 	private func setupPopover(_ new:UIViewController) {
 		new.providesPresentationContextTransitionStyle = true
 		new.definesPresentationContext = true
