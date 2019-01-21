@@ -148,23 +148,20 @@ class EOS {
 	/// send money from this account
 	func sendMoney(from account:AccountModel,
 				   to recipient:EosName,
-				   amount:Double,
-				   symbol:String,
+				   balance:Balance,
 				   memo:String = "",
 				   passcode:String,
 				   _ completion: @escaping (Result<String, AnyError>)->Void) {
 
-		let quantity = "\(amount.formatRounding(to: 4, min: 4)) \(symbol)"
-			.replacingOccurrences(of: ",", with: ".")
 		let transfer = Transfer()
 		transfer.from = account.name
 		transfer.to = recipient.string
-		transfer.quantity = quantity
+		transfer.quantity = balance.string
 		transfer.memo = memo
 
 		account.wallet
 			.transferToken(transfer: transfer,
-						   code: "eosio.token",
+						   code: balance.token.contract.string,
 						   unlockOncePasscode: passcode) { result, error in
 							guard let transactionId = result?.transactionId else {
 								return completion(.failure(AnyError(error ?? EOSError.unknown)))

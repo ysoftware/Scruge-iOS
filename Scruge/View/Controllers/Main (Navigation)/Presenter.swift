@@ -339,7 +339,9 @@ struct Presenter {
 	}
 
 	func presentTransferFragment(in vc:UIViewController, vm:AccountVM) {
-		
+		let new = R.storyboard.wallet.transferVC()!
+		new.accountVM = vm
+		vc.show(new, sender: self)
 	}
 }
 

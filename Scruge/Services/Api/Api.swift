@@ -40,6 +40,19 @@ final class Api {
 		service.post("user/\(token)/create_eos_account", request.toDictionary(), completion)
 	}
 
+	func getDefaultTokens(_ completion: @escaping (Result<[Token], AnyError>)->Void) {
+		return completion(.success(["diatokencore DIA",       // arbitrary list of "top" tokens
+			"eosblackteam BLACK",
+			"taketooktook TOOK",
+			"publytoken11 PUB",
+			"everipediaiq IQ",
+			"betdicetoken DICE",
+			"zkstokensr4u ZKS",
+			"hirevibeshvt HVT",
+			"goldioioioio FGIO",
+			"ethsidechain EETH"].compactMap { Token(string: $0) }))
+	}
+
 	// MARK: - Auth
 
 	func logIn(email:String,

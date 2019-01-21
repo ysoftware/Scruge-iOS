@@ -137,11 +137,11 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 					return completion(userResult.error!)
 				}
 
+				let balance = Balance(token: Token.Scruge, amount: amount)
 				Service.eos
 					.sendMoney(from: account,
 							   to: Service.eos.contractAccount,
-							   amount: amount,
-							   symbol: "SCR",
+							   balance: balance,
 							   memo: "\(response.userId)-\(model.id)",
 					passcode: passcode) { transactionResult in
 

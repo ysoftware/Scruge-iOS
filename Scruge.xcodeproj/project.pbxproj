@@ -24,6 +24,7 @@
 		711EF6F821F1D382008F2FD5 /* Token.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711EF6F721F1D382008F2FD5 /* Token.swift */; };
 		711EF6FA21F1D5B0008F2FD5 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711EF6F921F1D5B0008F2FD5 /* Name.swift */; };
 		711EF6FD21F1DCDC008F2FD5 /* Distinct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711EF6FC21F1DCDC008F2FD5 /* Distinct.swift */; };
+		711EF6FF21F5C46C008F2FD5 /* TransferVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 711EF6FE21F5C46C008F2FD5 /* TransferVC.swift */; };
 		712044FC21EF80640030F96A /* Activity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712044FB21EF80640030F96A /* Activity.swift */; };
 		712044FF21EF825D0030F96A /* ActivityVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 712044FE21EF825D0030F96A /* ActivityVM.swift */; };
 		7120450121EF82680030F96A /* ActivityQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7120450021EF82680030F96A /* ActivityQ.swift */; };
@@ -293,6 +294,7 @@
 		711EF6F721F1D382008F2FD5 /* Token.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Token.swift; sourceTree = "<group>"; };
 		711EF6F921F1D5B0008F2FD5 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
 		711EF6FC21F1DCDC008F2FD5 /* Distinct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Distinct.swift; sourceTree = "<group>"; };
+		711EF6FE21F5C46C008F2FD5 /* TransferVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferVC.swift; sourceTree = "<group>"; };
 		712044FB21EF80640030F96A /* Activity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Activity.swift; sourceTree = "<group>"; };
 		712044FE21EF825D0030F96A /* ActivityVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVM.swift; sourceTree = "<group>"; };
 		7120450021EF82680030F96A /* ActivityQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityQ.swift; sourceTree = "<group>"; };
@@ -709,6 +711,7 @@
 				71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */,
 				71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */,
 				7166528F21F0CB04005A50F7 /* StakingVC.swift */,
+				711EF6FE21F5C46C008F2FD5 /* TransferVC.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -2099,6 +2102,7 @@
 				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,
 				71724CC321B7EB6C005C520D /* MemberProfileVC.swift in Sources */,
 				71345C162178714C00F28AF1 /* DatePresent.swift in Sources */,
+				711EF6FF21F5C46C008F2FD5 /* TransferVC.swift in Sources */,
 				71D84CC921995AD000E8DB88 /* sha3.c in Sources */,
 				71BE95C1216376F1001CF853 /* OtherApi.swift in Sources */,
 				71D84CCD21995AD000E8DB88 /* Crypto.swift in Sources */,

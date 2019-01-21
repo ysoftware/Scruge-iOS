@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Balance:Equatable, CustomStringConvertible {
+struct Balance:Equatable, Hashable, CustomStringConvertible {
 
 	var description: String { return string }
 
