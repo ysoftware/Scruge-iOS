@@ -35,7 +35,7 @@ final class CreateAccountViewController: UIViewController {
 	}
 
 	@IBAction func importKey(_ sender: Any) {
-		Service.presenter.replaceWithImporKeyViewController(with: self)
+		Service.presenter.replaceWithImporKeyViewController(viewController: self)
 	}
 
 	private func setupKeyboard() {
@@ -83,7 +83,7 @@ final class CreateAccountViewController: UIViewController {
 						self.alert(error)
 					}
 					else {
-						Service.presenter.replaceWithWalletViewController(with: self)
+						Service.presenter.replaceWithWalletViewController(viewController: self)
 					}
 				case .failure(let error):
 					self.alert(ErrorHandler.message(for: error))

@@ -28,7 +28,7 @@ final class WalletStartViewController: UIViewController {
 		navigationController?.navigationBar.isHidden = true
 		navigationController?.preferLargeNavbar()
 		if Service.wallet.getWallet() != nil {
-			Service.presenter.replaceWithWalletViewController(with: self)
+			Service.presenter.replaceWithWalletViewController(viewController: self)
 		}
 	}
 

@@ -40,7 +40,8 @@ final class RegisterViewController: UIViewController {
 	}
 
 	@IBAction func login(_ sender: Any) {
-		Service.presenter.replaceWithLoginViewController(in: self, completion: authCompletionBlock)
+		Service.presenter.replaceWithLoginViewController(viewController: self,
+														 completion: authCompletionBlock)
 	}
 
 	@objc func signUp(_ sender: Any) {

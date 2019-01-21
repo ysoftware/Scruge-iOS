@@ -36,14 +36,14 @@ struct Presenter {
 		vc.present(new.inNavigationController, animated: true)
 	}
 
-	func replaceWithLoginViewController(in vc:UIViewController,
+	func replaceWithLoginViewController(viewController vc:UIViewController,
 										completion: @escaping (Bool)->Void) {
 		let new = R.storyboard.authProfile.loginVC()!
 		new.authCompletionBlock = completion
 		vc.navigationController?.setViewControllers([new], animated: true)
 	}
 
-	func replaceWithRegisterViewController(in vc:UIViewController,
+	func replaceWithRegisterViewController(viewController vc:UIViewController,
 										   completion: @escaping (Bool)->Void) {
 		let new = R.storyboard.authProfile.registerVC()!
 		new.authCompletionBlock = completion
@@ -300,14 +300,14 @@ struct Presenter {
 		vc.show(new, sender: self)
 	}
 
-	func replaceWithImporKeyViewController(with vc:UIViewController) {
+	func replaceWithImporKeyViewController(viewController vc:UIViewController) {
 		let new = R.storyboard.wallet.importKeyVC()!
 		var vcs = Array(vc.navigationController?.viewControllers.dropLast() ?? [])
 		vcs.append(new)
 		vc.navigationController?.setViewControllers(vcs, animated: true)
 	}
 
-	func replaceWithCreateAccountViewController(with vc:UIViewController) {
+	func replaceWithCreateAccountViewController(viewController vc:UIViewController) {
 		let new = R.storyboard.wallet.createAccountVC()!
 		var vcs = Array(vc.navigationController?.viewControllers.dropLast() ?? [])
 		vcs.append(new)
@@ -323,19 +323,23 @@ struct Presenter {
 		vc.present(new.inNavigationController, animated: true)
 	}
 
-	func replaceWithWalletViewController(with vc:UIViewController) {
+	func replaceWithWalletViewController(viewController vc:UIViewController) {
 		let new = R.storyboard.wallet.walletVC()!
 		vc.navigationController?.setViewControllers([new], animated: false)
 	}
 
-	func replaceWithWalletStartViewController(with vc:UIViewController) {
+	func replaceWithWalletStartViewController(viewController vc:UIViewController) {
 		let new = R.storyboard.wallet.walletStartVC()!
 		vc.navigationController?.setViewControllers([new], animated: false)
 	}
 
-	func replaceWithWalletNoAccountController(with vc:UIViewController) {
+	func replaceWithWalletNoAccountController(viewController vc:UIViewController) {
 		let new = R.storyboard.wallet.walletNoAccountVC()!
 		vc.navigationController?.setViewControllers([new], animated: false)
+	}
+
+	func presentTransferFragment(in vc:UIViewController, vm:AccountVM) {
+		
 	}
 }
 

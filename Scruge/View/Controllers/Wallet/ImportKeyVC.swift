@@ -48,7 +48,7 @@ final class ImportKeyViewController: UIViewController {
 	}
 
 	@IBAction func createAccount(_ sender:Any) {
-		Service.presenter.replaceWithCreateAccountViewController(with: self)
+		Service.presenter.replaceWithCreateAccountViewController(viewController: self)
 	}
 
 	@IBAction func save(_ sender:Any) {
@@ -73,7 +73,7 @@ final class ImportKeyViewController: UIViewController {
 		Service.wallet.importKey(key, passcode: passcode) { account in
 			if account != nil {
 				DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-					Service.presenter.replaceWithWalletViewController(with: self)
+					Service.presenter.replaceWithWalletViewController(viewController: self)
 				}
 			}
 			else {

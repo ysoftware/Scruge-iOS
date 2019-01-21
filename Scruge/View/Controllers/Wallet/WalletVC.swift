@@ -103,7 +103,7 @@ final class WalletViewController: UIViewController {
 
 	private func verifyWallet() {
 		if Service.wallet.getWallet() == nil {
-			Service.presenter.replaceWithWalletStartViewController(with: self)
+			Service.presenter.replaceWithWalletStartViewController(viewController: self)
 		}
 	}
 
@@ -136,9 +136,9 @@ final class WalletViewController: UIViewController {
 	private func updateStatus() {
 		switch vm.state {
 		case .error(WalletError.noKey):
-			Service.presenter.replaceWithWalletStartViewController(with: self)
+			Service.presenter.replaceWithWalletStartViewController(viewController: self)
 		case .error(WalletError.noAccounts):
-			Service.presenter.replaceWithWalletNoAccountController(with: self)
+			Service.presenter.replaceWithWalletNoAccountController(viewController: self)
 		case .error(let error):
 			loadingView.set(state: .error(ErrorHandler.message(for: error)))
 
@@ -147,6 +147,12 @@ final class WalletViewController: UIViewController {
 		case .ready:
 			loadingView.set(state: .ready)
 		default: break
+		}
+	}
+
+	@IBAction func transferTapped(_ sender: Any) {
+		if let accountVM = accountVM {
+			Service.presenter.presentTransferFragment(in: self, vm: accountVM)
 		}
 	}
 
@@ -218,7 +224,7 @@ You will not be able to change it after you make first investment.
 		self.ask(title: t, question: q) { response in
 			if response {
 				self.vm.deleteWallet()
-				Service.presenter.replaceWithWalletStartViewController(with: self)
+				Service.presenter.replaceWithWalletStartViewController(viewController: self)
 			}
 		}
 	}
