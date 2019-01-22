@@ -58,6 +58,8 @@ struct ErrorHandler {
 				return "Unexpected server response"
 			case .unknown:
 				return "Unexpected server error"
+			case .emailSendError:
+				return "Unable to send email"
 			}
 		}
 		else if let walletError = error as? WalletError {
@@ -88,6 +90,10 @@ struct ErrorHandler {
 				return "Incorrect name: it can only contain letters, numbers from 1 to 5 and a dot"
 			case .incorrectToken:
 				return "Incorrect token input"
+			case .actionError:
+				return "Server was unable to complete blockchain transaction"
+			case .notSupported:
+				return "EOS: Not supported"
 			}
 		}
 		else if (error as NSError).domain == "SwiftyEOSErrorDomain" {
@@ -125,6 +131,12 @@ struct ErrorHandler {
 		case 105: return AuthError.accountExists
 		case 106: return AuthError.incorrectCredentials
 		case 107: return AuthError.accountBlocked
+		case 108: return BackendError.emailSendError
+
+		// eos
+		case 505: return EOSError.actionError
+		case 599: return EOSError.notSupported
+		case 501, 503: return nil
 
 		// special
 		case 999: return BackendError.notImplemented

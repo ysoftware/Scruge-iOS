@@ -197,7 +197,7 @@ final class WalletViewController: UIViewController {
 
 		// auto select the 1st account
 		if vm.numberOfItems == 1 {
-			Service.settings.set(.selectedAccount, value: vm.item(at: 0).name)
+			Service.settings.set(.selectedAccount, value: vm.item(at: 0).displayName)
 			vm.reloadData()
 			return
 		}

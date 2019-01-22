@@ -48,6 +48,10 @@ enum EOSError: Error, Equatable {
 	case incorrectName
 
 	case incorrectToken
+
+	case actionError
+	
+	case notSupported
 }
 
 enum BackendError: Error, Equatable {
@@ -61,6 +65,8 @@ enum BackendError: Error, Equatable {
 	case notImplemented
 
 	case unknown
+
+	case emailSendError
 }
 
 enum NetworkingError: Error, Equatable {
