@@ -11,6 +11,7 @@ target 'Scruge' do
   pod 'appendAttributedString'
   pod 'KeychainSwift', '~> 13'
   pod 'SwiftyRSA', '~> 1'
+  pod 'Firebase/Core'
 
   pod 'MVVM', :git=>'https://github.com/ysoftware/MVVM-iOS.git'
 

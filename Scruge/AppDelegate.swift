@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseCore
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -20,13 +21,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		let url:String? = Service.settings.get(.nodeUrl)
 		Service.eos.nodeUrl = url ?? Service.eos.testNodeUrl
 
-		#if DEBUG
+		FirebaseApp.configure()
 		Service.api.setEnvironment(.prod)
-		Test.run()
-		#else
-		Service.api.setEnvironment(.prod)
-		#endif
-
 
 		return true
 	}

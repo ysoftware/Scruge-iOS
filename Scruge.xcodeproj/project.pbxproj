@@ -13,6 +13,8 @@
 		7105C35921AD63F8008AAB1E /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105C35821AD63F8008AAB1E /* GradientView.swift */; };
 		7105C35B21AD6580008AAB1E /* TransparentNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105C35A21AD6580008AAB1E /* TransparentNavBar.swift */; };
 		7105C35D21AD6D59008AAB1E /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105C35C21AD6D59008AAB1E /* StatusBar.swift */; };
+		71077BD221F72B1100C61F81 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71077BD121F72B1000C61F81 /* AdSupport.framework */; };
+		71077BD321F72B4300C61F81 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060821D3628D00561162 /* Testing.swift */; };
 		710BDE7C21AE90DA0021B498 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710BDE7B21AE90DA0021B498 /* CreateAccountVC.swift */; };
 		710E9F4F21F5EF4D00BEC235 /* PickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E9F4E21F5EF4D00BEC235 /* PickerVC.swift */; };
 		710FE992217F94F8009E51E5 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710FE991217F94F8009E51E5 /* Balance.swift */; };
@@ -79,7 +81,6 @@
 		716F060121D219D900561162 /* UIButton+AddTargetClosure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060021D219D800561162 /* UIButton+AddTargetClosure.swift */; };
 		716F060421D255FB00561162 /* ExchangeRates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060221D2535600561162 /* ExchangeRates.swift */; };
 		716F060721D2561400561162 /* ExchangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060621D2561400561162 /* ExchangeModel.swift */; };
-		716F060921D3628D00561162 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060821D3628D00561162 /* Testing.swift */; };
 		716F060B21D3942500561162 /* ExpandableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060A21D3942400561162 /* ExpandableView.swift */; };
 		71724CC321B7EB6C005C520D /* MemberProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71724CC221B7EB6C005C520D /* MemberProfileVC.swift */; };
 		71724CC521B81495005C520D /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71724CC421B81495005C520D /* DetailVC.swift */; };
@@ -284,6 +285,7 @@
 		7105C35821AD63F8008AAB1E /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		7105C35A21AD6580008AAB1E /* TransparentNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentNavBar.swift; sourceTree = "<group>"; };
 		7105C35C21AD6D59008AAB1E /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
+		71077BD121F72B1000C61F81 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		710BDE7B21AE90DA0021B498 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		710E9F4E21F5EF4D00BEC235 /* PickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerVC.swift; sourceTree = "<group>"; };
 		710FE991217F94F8009E51E5 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
@@ -574,6 +576,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71077BD221F72B1100C61F81 /* AdSupport.framework in Frameworks */,
 				512EE954BDA3136818C75BF7 /* Pods_Scruge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1782,6 +1785,7 @@
 		9E01F0AF29DD0E979EC82684 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				71077BD121F72B1000C61F81 /* AdSupport.framework */,
 				825D0EFAEE947D618D260A39 /* Pods_Scruge.framework */,
 				5FE2E9760CDBB11D620612C7 /* Pods_ScrugeTests.framework */,
 				9F72C8E9414CF0808510DF3D /* Pods_ScrugeUITests.framework */,
@@ -1981,6 +1985,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Scruge/Pods-Scruge-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MVVM/MVVM.framework",
@@ -1990,9 +1995,11 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftHTTP/SwiftHTTP.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyRSA/SwiftyRSA.framework",
 				"${BUILT_PRODUCTS_DIR}/appendAttributedString/appendAttributedString.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MVVM.framework",
@@ -2002,6 +2009,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftHTTP.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyRSA.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/appendAttributedString.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2018,7 +2026,7 @@
 			);
 			name = R.Swift;
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2161,7 +2169,6 @@
 				71BE95CB21649C67001CF853 /* DateMilliseconds.swift in Sources */,
 				71BE95AA2162603C001CF853 /* RewardCell.swift in Sources */,
 				71A0C1BA21708AD000C2ACF3 /* Category.swift in Sources */,
-				716F060921D3628D00561162 /* Testing.swift in Sources */,
 				71345AF32176000000F28AF1 /* Range.swift in Sources */,
 				71BE1043215A1EBD004753EC /* CampaignQ.swift in Sources */,
 				71387A99216CA73D00B24C67 /* TagCell.swift in Sources */,
@@ -2208,6 +2215,7 @@
 				71345C0F21773D2800F28AF1 /* AnyEncodable.swift in Sources */,
 				71D84CD521995AD000E8DB88 /* ChainRouter.swift in Sources */,
 				716E625A2189D8D3002AC5DA /* MemberCell.swift in Sources */,
+				71077BD321F72B4300C61F81 /* Testing.swift in Sources */,
 				71BE956A215E3A7B001CF853 /* Profile.swift in Sources */,
 				71DA7E942164AB420052EB8F /* UpdatesVC.swift in Sources */,
 				71BE95BB2163744E001CF853 /* Faq.swift in Sources */,
