@@ -67,7 +67,7 @@ final class RegisterViewController: UIViewController {
 	}
 
 	@IBAction func openPrivacyPolicy(_ sender: Any) {
-		#warning("open privacy url")
+		Service.presenter.presentPrivacyPolicy(in: self)
 	}
 
 	@IBAction func hideKeyboard(_ sender: Any) {

@@ -179,6 +179,11 @@ struct Presenter {
 		vc.show(new, sender: self)
 	}
 
+	func presentPrivacyPolicy(in vc:UIViewController) {
+		let url = URL(string: "https://scruge.world/privacy")!
+		presentSafariViewController(in: vc, url: url)
+	}
+
 	// MARK: - General
 
 	func presentPickerController(in vc:UIViewController,
