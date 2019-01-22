@@ -8,6 +8,8 @@
 
 import UIKit
 import FirebaseCore
+import UserNotifications
+import FirebaseMessaging
 
 @UIApplicationMain
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -17,13 +19,39 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions
 		launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-		// init with node url from settings
+		// eos
 		let url:String? = Service.settings.get(.nodeUrl)
 		Service.eos.nodeUrl = url ?? Service.eos.testNodeUrl
 
-		FirebaseApp.configure()
+		// api
 		Service.api.setEnvironment(.prod)
 
+		// push notifications
+		UNUserNotificationCenter.current().delegate = self
+		let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+		UNUserNotificationCenter.current().requestAuthorization(options: authOptions) {_, _ in }
+		application.registerForRemoteNotifications()
+
+		// firebase
+		FirebaseApp.configure()
+
 		return true
+	}
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate, MessagingDelegate {
+
+	func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+		print(remoteMessage.appData)
+	}
+
+	func application(_ application: UIApplication,
+					 didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+		print("didRegisterForRemoteNotificationsWithDeviceToken")
+	}
+
+	func application(_ application: UIApplication,
+					 didFailToRegisterForRemoteNotificationsWithError error: Error) {
+		print("didFailToRegisterForRemoteNotificationsWithError")
 	}
 }

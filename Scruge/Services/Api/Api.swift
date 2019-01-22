@@ -8,6 +8,9 @@
 
 import Result
 import SwiftHTTP
+import FirebaseMessaging
+import FirebaseCore
+import FirebaseInstanceID
 
 final class Api {
 
@@ -63,14 +66,17 @@ final class Api {
 	func logIn(email:String,
 			   password:String,
 			   _ completion: @escaping (Result<LoginResponse, AnyError>)->Void) {
-		let request = AuthRequest(login: email, password: password)
-		service.post("auth/login", request.toDictionary(), completion)
+		InstanceID.instanceID().instanceID { result, _ in
+			let token = result?.token
+			let request = AuthRequest(login: email, password: password, token: token)
+			self.service.post("auth/login", request.toDictionary(), completion)
+		}
 	}
 
 	func signUp(email:String,
 				password:String,
 				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
-		let request = AuthRequest(login: email, password: password)
+		let request = RegisterRequest(login: email, password: password)
 		service.post("auth/register", request.toDictionary(), completion)
 	}
 
