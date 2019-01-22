@@ -91,7 +91,7 @@ struct ErrorHandler {
 			case .incorrectToken:
 				return "Incorrect token input"
 			case .actionError:
-				return "Server was unable to complete blockchain transaction"
+				return "Server was unable to complete blockchain transaction, please try again"
 			case .notSupported:
 				return "EOS: Not supported"
 			}
