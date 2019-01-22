@@ -98,6 +98,10 @@ final class CreateAccountViewController: UIViewController {
 	}
 
 	@IBAction func save(_ sender:Any) {
+		guard Service.tokenManager.hasToken else {
+			return alert("Please sign in with your Scruge account first")
+		}
+
 		let passcode = passcodeField.text!
 		let confirm = passcodeConfirmField.text!
 		let name = accountNameField.text!

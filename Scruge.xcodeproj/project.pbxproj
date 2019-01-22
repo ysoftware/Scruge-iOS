@@ -257,7 +257,7 @@
 		71DA7E982164AB6E0052EB8F /* ActivityVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E972164AB6E0052EB8F /* ActivityVC.swift */; };
 		71DA7E9A2164ABBC0052EB8F /* SearchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DA7E992164ABBC0052EB8F /* SearchVC.swift */; };
 		71DC1A9921AFDACB001D5575 /* WalletStartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC1A9821AFDACB001D5575 /* WalletStartVC.swift */; };
-		71DC1A9B21AFE3A9001D5575 /* WalletNoAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */; };
+		71DC1A9B21AFE3A9001D5575 /* NoAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC1A9A21AFE3A9001D5575 /* NoAccountVC.swift */; };
 		71DC1A9D21B00ACF001D5575 /* WalletPickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */; };
 		71E09472219EE42C00281643 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E09471219EE42C00281643 /* Model.swift */; };
 		71F68A4A21709D8A00F7E728 /* FaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4921709D8A00F7E728 /* FaqVC.swift */; };
@@ -554,7 +554,7 @@
 		71DA7E972164AB6E0052EB8F /* ActivityVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityVC.swift; sourceTree = "<group>"; };
 		71DA7E992164ABBC0052EB8F /* SearchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchVC.swift; sourceTree = "<group>"; };
 		71DC1A9821AFDACB001D5575 /* WalletStartVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletStartVC.swift; sourceTree = "<group>"; };
-		71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletNoAccountVC.swift; sourceTree = "<group>"; };
+		71DC1A9A21AFE3A9001D5575 /* NoAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAccountVC.swift; sourceTree = "<group>"; };
 		71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPickerVC.swift; sourceTree = "<group>"; };
 		71E09471219EE42C00281643 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		71F68A4921709D8A00F7E728 /* FaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqVC.swift; sourceTree = "<group>"; };
@@ -710,7 +710,7 @@
 				71345C172178AB5100F28AF1 /* ImportKeyVC.swift */,
 				710BDE7B21AE90DA0021B498 /* CreateAccountVC.swift */,
 				71DC1A9821AFDACB001D5575 /* WalletStartVC.swift */,
-				71DC1A9A21AFE3A9001D5575 /* WalletNoAccountVC.swift */,
+				71DC1A9A21AFE3A9001D5575 /* NoAccountVC.swift */,
 				71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */,
 				7166528F21F0CB04005A50F7 /* StakingVC.swift */,
 				711EF6FE21F5C46C008F2FD5 /* TransferVC.swift */,
@@ -2242,7 +2242,7 @@
 				71DC1A9D21B00ACF001D5575 /* WalletPickerVC.swift in Sources */,
 				71B8461F21B54F1100F6D708 /* VoteInfoCell.swift in Sources */,
 				71D84CD821995AD000E8DB88 /* HistoryRouter.swift in Sources */,
-				71DC1A9B21AFE3A9001D5575 /* WalletNoAccountVC.swift in Sources */,
+				71DC1A9B21AFE3A9001D5575 /* NoAccountVC.swift in Sources */,
 				71C8E8E821590F2A0078BD36 /* EOS.swift in Sources */,
 				71BE1046215A2020004753EC /* Network.swift in Sources */,
 				71BE957A215EA75B001CF853 /* FeaturedVC.swift in Sources */,
