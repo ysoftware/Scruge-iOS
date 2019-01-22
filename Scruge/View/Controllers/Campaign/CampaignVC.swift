@@ -195,6 +195,9 @@ final class CampaignViewController: UIViewController {
 			else {
 				contributeButton.text = "Sign in to contribute".uppercased()
 			}
+		case .preparing:
+			contributeButton.color = Service.constants.color.gray
+			contributeButton.text = "Starts on \(vm.startDate)".uppercased()
 		default:
 			showContributeButton(false)
 		}

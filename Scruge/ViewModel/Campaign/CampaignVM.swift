@@ -26,6 +26,9 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 		/// campaign done
 		case closed = 4
+
+		/// not started yet
+		case preparing = 100
 	}
 
 	private let id:Int
@@ -280,6 +283,10 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	private(set) var faqVM:FaqAVM?
 
 	// MARK: - Properties
+
+	var startDate:String {
+		return model.flatMap { Date.present($0.startTimestamp, as: "MMMM d") } ?? ""
+	}
 
 	var team:[Member] {
 		return model?.team ?? []
