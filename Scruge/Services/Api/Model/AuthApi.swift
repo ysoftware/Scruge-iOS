@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseMessaging
 
 // MARK: - Response
 
@@ -49,6 +50,8 @@ struct AuthRequest: Codable {
 	let password:String
 
 	let device = "iOS \(UIDevice.current.systemVersion)"
+
+	let pushNotificationToken = Messaging.messaging().fcmToken
 }
 
 struct ProfileRequest: Codable {

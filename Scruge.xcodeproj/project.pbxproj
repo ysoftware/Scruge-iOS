@@ -15,6 +15,7 @@
 		7105C35D21AD6D59008AAB1E /* StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7105C35C21AD6D59008AAB1E /* StatusBar.swift */; };
 		71077BD221F72B1100C61F81 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71077BD121F72B1000C61F81 /* AdSupport.framework */; };
 		71077BD321F72B4300C61F81 /* Testing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716F060821D3628D00561162 /* Testing.swift */; };
+		71077BD521F72E7D00C61F81 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 71077BD421F72E7D00C61F81 /* GoogleService-Info.plist */; };
 		710BDE7C21AE90DA0021B498 /* CreateAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710BDE7B21AE90DA0021B498 /* CreateAccountVC.swift */; };
 		710E9F4F21F5EF4D00BEC235 /* PickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710E9F4E21F5EF4D00BEC235 /* PickerVC.swift */; };
 		710FE992217F94F8009E51E5 /* Balance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 710FE991217F94F8009E51E5 /* Balance.swift */; };
@@ -286,6 +287,7 @@
 		7105C35A21AD6580008AAB1E /* TransparentNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransparentNavBar.swift; sourceTree = "<group>"; };
 		7105C35C21AD6D59008AAB1E /* StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusBar.swift; sourceTree = "<group>"; };
 		71077BD121F72B1000C61F81 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		71077BD421F72E7D00C61F81 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		710BDE7B21AE90DA0021B498 /* CreateAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountVC.swift; sourceTree = "<group>"; };
 		710E9F4E21F5EF4D00BEC235 /* PickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickerVC.swift; sourceTree = "<group>"; };
 		710FE991217F94F8009E51E5 /* Balance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Balance.swift; sourceTree = "<group>"; };
@@ -982,6 +984,7 @@
 		71971CB72158E427004D28E7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				71077BD421F72E7D00C61F81 /* GoogleService-Info.plist */,
 				71BE9568215E2D85001CF853 /* Scruge.entitlements */,
 				71971C802158E056004D28E7 /* AppDelegate.swift */,
 				71971CB82158E445004D28E7 /* R.generated.swift */,
@@ -1897,6 +1900,7 @@
 				71A0C1B3216FA6CD00C2ACF3 /* SocialCell.xib in Resources */,
 				71DA7E912164AAF90052EB8F /* Details.storyboard in Resources */,
 				71BE959921625582001CF853 /* MilestoneCell.xib in Resources */,
+				71077BD521F72E7D00C61F81 /* GoogleService-Info.plist in Resources */,
 				71345C212179D24C00F28AF1 /* AccountCell.xib in Resources */,
 				71C243A321D4E3DE00E86F64 /* TransactionCell.xib in Resources */,
 				7166528721F0A6F9005A50F7 /* ResourcesView.xib in Resources */,
@@ -1989,6 +1993,7 @@
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/MVVM/MVVM.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/R.swift.Library/Rswift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftDate/SwiftDate.framework",
@@ -2003,6 +2008,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MVVM.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Rswift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftDate.framework",
@@ -2026,7 +2032,7 @@
 			);
 			name = R.Swift;
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
