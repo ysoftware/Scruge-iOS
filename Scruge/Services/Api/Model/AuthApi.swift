@@ -32,6 +32,11 @@ struct EmailRequest: Codable {
 	let email:String
 }
 
+struct LoginRequest: Codable {
+
+	let login:String 
+}
+
 struct AuthRequest: Codable {
 
 	init(login:String, password:String) {

@@ -55,6 +55,11 @@ final class Api {
 
 	// MARK: - Auth
 
+	func resetPassword(login:String, _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+		let request = LoginRequest(login: login)
+		service.post("auth/reset_password", request.toDictionary(), completion)
+	}
+
 	func logIn(email:String,
 			   password:String,
 			   _ completion: @escaping (Result<LoginResponse, AnyError>)->Void) {

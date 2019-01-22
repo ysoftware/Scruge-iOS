@@ -68,6 +68,36 @@ final class LoginViewController: UIViewController {
 		Service.presenter.presentPrivacyPolicy(in: self)
 	}
 
+	@IBAction func resetPassword(_ sender: Any) {
+		askForInput("Reset password",
+					question: "Enter your email",
+					placeholder: "Email…",
+					keyboardType: .emailAddress,
+					initialInput: emailField.text,
+					isSecure: false,
+					actionTitle: "Send") { input in
+						guard let login = input else { return }
+
+						guard login.isValidEmail else {
+							return self.alert(AuthError.invalidEmail)
+						}
+
+						Service.api.resetPassword(login: login) { result in
+							switch result {
+							case .success(let response):
+								if let error = ErrorHandler.error(from: response.result) {
+									self.alert(error)
+								}
+								else {
+									self.alert("Check your email address for the letter with password recovery instructions")
+								}
+							case .failure(let error):
+								self.alert(error)
+							}
+						}
+		}
+	}
+
 	@IBAction func hideKeyboard(_ sender: Any) {
 		view.endEditing(true)
 	}

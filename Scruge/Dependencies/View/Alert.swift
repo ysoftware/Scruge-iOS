@@ -32,6 +32,7 @@ extension UIViewController {
 					 question:String,
 					 placeholder:String = "",
 					 keyboardType:UIKeyboardType = .default,
+					 initialInput:String? = nil,
 					 isSecure:Bool = false,
 					 actionTitle:String = "Send",
 					 waitFor completion: @escaping (String?) -> Void) {
@@ -41,6 +42,7 @@ extension UIViewController {
 		let alertController = UIAlertController(title: title, message: question, preferredStyle: .alert)
 		alertController.addTextField { textField in
 			textField.placeholder = placeholder
+			textField.text = initialInput
 			textField.keyboardType = keyboardType
 			textField.isSecureTextEntry = isSecure
 		}
