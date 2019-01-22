@@ -10,16 +10,32 @@ import UIKit
 
 final class WalletNoAccountViewController: UIViewController {
 
+	@IBOutlet weak var walletDataView: WalletDataView!
 	@IBOutlet var createButton:Button!
 	@IBOutlet var privacyLabel:UILabel!
 
+	deinit {
+		NotificationCenter.default.removeObserver(self)
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
 		setupButton()
+		NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification,
+											   object: nil, queue: nil) { _ in
+												self.walletDataView.lock()
+		}
+		walletDataView.presentingViewController = self
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+		walletDataView.lock()
 	}
 
 	private func setupButton() {
-		createButton.addClick(self, action: #selector(importKey))
+		createButton.addClick(self, action: #selector(createAccount))
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -34,8 +50,19 @@ final class WalletNoAccountViewController: UIViewController {
 	}
 
 	@IBAction func importKey(_ sender:Any) {
-		Service.wallet.deleteWallet()
-		Service.presenter.replaceWithImporKeyViewController(viewController: self)
+		let t = "Are you sure to delete your wallet?"
+		let q = "Make sure to export your private key because there is no way it can be retrieved later."
+		self.ask(title: t, question: q) { response in
+			if response {
+				Service.wallet.deleteWallet()
+				Service.presenter.replaceWithWalletStartViewController(viewController: self)
+			}
+		}
+	}
+
+	@IBAction func showWalletData(_ sender: Any) {
+		walletDataView.lock()
+		walletDataView.isHidden.toggle()
 	}
 
 	@IBAction func openPrivacy(_ sender:Any) {

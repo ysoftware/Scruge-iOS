@@ -12,6 +12,7 @@ final class CreateAccountViewController: UIViewController {
 
 	// MARK: - Outlets
 
+	@IBOutlet weak var confirmView: UIStackView!
 	@IBOutlet weak var scrollView:UIScrollView!
 	@IBOutlet weak var passcodeField:UITextField!
 	@IBOutlet weak var passcodeConfirmField:UITextField!
@@ -35,6 +36,15 @@ final class CreateAccountViewController: UIViewController {
 		setupButton()
 		setupKeyboard()
 		setupNavigationBar()
+		setupViews()
+	}
+
+	private func setupViews() {
+		let generate = "Generate a new keypair and we will use it to create a new EOS account for you"
+		let imported = "Use the imported key to create a new EOS account"
+
+		descriptionLabel.text = Service.wallet.hasAccount ? imported : generate
+		confirmView.isHidden = Service.wallet.hasAccount
 	}
 
 	private func setupKey() {
@@ -57,7 +67,19 @@ final class CreateAccountViewController: UIViewController {
 	}
 
 	@IBAction func importKey(_ sender: Any) {
-		Service.presenter.replaceWithImporKeyViewController(viewController: self)
+		if Service.wallet.hasAccount {
+			let t = "Are you sure to delete your wallet?"
+			let q = "Make sure to export your private key because there is no way it can be retrieved later."
+			self.ask(title: t, question: q) { response in
+				if response {
+					Service.wallet.deleteWallet()
+					Service.presenter.replaceWithWalletStartViewController(viewController: self)
+				}
+			}
+		}
+		else {
+			Service.presenter.replaceWithImporKeyViewController(viewController: self)
+		}
 	}
 
 	private func setupKeyboard() {

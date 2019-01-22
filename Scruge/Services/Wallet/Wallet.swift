@@ -10,6 +10,8 @@ import Foundation
 
 struct Wallet {
 
+	var hasAccount:Bool { return getWallet() != nil }
+
 	fileprivate let service = SEKeystoreService.sharedInstance
 
 	func getWallet() -> SELocalAccount? {
