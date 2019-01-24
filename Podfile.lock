@@ -1,5 +1,8 @@
 PODS:
   - appendAttributedString (0.2)
+  - Crashlytics (3.12.0):
+    - Fabric (~> 1.9.0)
+  - Fabric (1.9.0)
   - Firebase/Core (5.15.0):
     - Firebase/CoreOnly
     - FirebaseAnalytics (= 5.4.0)
@@ -77,6 +80,8 @@ PODS:
 
 DEPENDENCIES:
   - appendAttributedString
+  - Crashlytics (~> 3.12.0)
+  - Fabric (~> 1.9.0)
   - Firebase/Core
   - Firebase/Messaging
   - KeychainSwift (~> 13)
@@ -90,6 +95,8 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - appendAttributedString
+    - Crashlytics
+    - Fabric
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -120,6 +127,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   appendAttributedString: 2e0ba3b3871fde5e9869c21bf7e5357ebb748fc5
+  Crashlytics: 07fb167b1694128c1c9a5a5cc319b0e9c3ca0933
+  Fabric: f988e33c97f08930a413e08123064d2e5f68d655
   Firebase: 8bb9268bff82374f2cbaaabb143e725743c316ae
   FirebaseAnalytics: c06f9d70577d79074214700a71fd5d39de5550fb
   FirebaseAnalyticsInterop: e5f21be9af6548372e2f0815834ff909bff395a2
@@ -140,6 +149,6 @@ SPEC CHECKSUMS:
   SwiftHTTP: e94f1aa8cde58637dcc0100f6349de31a3337fde
   SwiftyRSA: 6e528fb1b1a87d5111c48081083b141d6d65f1cf
 
-PODFILE CHECKSUM: c495741f1f8bd8526addf8c4ac40670cfbd15d1f
+PODFILE CHECKSUM: 31a0651e89c15870e5fc18301836e5a145ed0e2b
 
 COCOAPODS: 1.5.2
