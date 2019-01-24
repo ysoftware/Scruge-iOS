@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
-import Foundation
+import KeychainSwift
 
 /// Набор статических методов для работы с UserDefaults.
 struct Settings {
@@ -39,5 +39,26 @@ struct Settings {
 
 	func remove(_ setting:Setting) {
 		defaults.removeObject(forKey: setting.rawValue)
+	}
+}
+
+// MARK: - special eos account creation check
+
+fileprivate let DidCreateEosAccount = "didCreateEosAccount"
+
+extension Settings {
+
+	private var keychain:KeychainSwift {
+		let keychain = KeychainSwift()
+		keychain.synchronizable = true
+		return keychain
+	}
+
+	var didCreateEosAccount:Bool {
+		return keychain.getBool(DidCreateEosAccount) ?? false
+	}
+
+	func setDidCreateEosAccount() {
+		keychain.set(true, forKey: DidCreateEosAccount, withAccess: .accessibleAlways)
 	}
 }

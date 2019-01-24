@@ -163,6 +163,7 @@ final class CreateAccountViewController: UIViewController {
 				}
 				else {
 					Service.presenter.replaceWithWalletViewController(viewController: self)
+					Service.settings.setDidCreateEosAccount()
 				}
 			case .failure(let error):
 				self.alert(ErrorHandler.message(for: error))
