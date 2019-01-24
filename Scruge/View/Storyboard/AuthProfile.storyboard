@@ -553,7 +553,7 @@
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ipy-N3-VNL" customClass="RoundedImageView" customModule="Scruge" customModuleProvider="target">
                                                                 <rect key="frame" x="117.66666666666666" y="0.0" width="100" height="100"/>
-                                                                <color key="backgroundColor" red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="0.0" colorSpace="calibratedRGB"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <gestureRecognizers/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="100" id="YRg-gl-HmM"/>
@@ -793,6 +793,7 @@
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bY6-Uh-eq9" customClass="RoundedImageView" customModule="Scruge" customModuleProvider="target">
                                                         <rect key="frame" x="112.66666666666669" y="0.0" width="120" height="120"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="bY6-Uh-eq9" secondAttribute="height" id="Hvk-nj-xCt"/>
                                                             <constraint firstAttribute="height" constant="120" id="rvE-Bs-Z87"/>
@@ -939,6 +940,7 @@
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Cpt-0E-7GO" customClass="RoundedImageView" customModule="Scruge" customModuleProvider="target">
                                                         <rect key="frame" x="112.66666666666669" y="0.0" width="120" height="120"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Cpt-0E-7GO" secondAttribute="height" id="Ast-xH-7xu"/>
                                                             <constraint firstAttribute="height" constant="120" id="IxX-9i-GD2"/>
