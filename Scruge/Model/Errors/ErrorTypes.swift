@@ -8,9 +8,11 @@
 
 import Foundation
 
-enum GeneralError: Error, Equatable {
+enum GeneralError: Error {
 
-	case unknown
+	case unknown(Int)
+
+	case implementationError
 }
 
 enum AuthError: Error, Equatable {
@@ -52,6 +54,8 @@ enum EOSError: Error, Equatable {
 	case actionError
 	
 	case notSupported
+
+	case eosAccountExists
 }
 
 enum BackendError: Error, Equatable {
@@ -67,6 +71,10 @@ enum BackendError: Error, Equatable {
 	case unknown
 
 	case emailSendError
+
+	case paramsConflict
+
+	case replyNotSupported
 }
 
 enum NetworkingError: Error, Equatable {

@@ -60,6 +60,10 @@ struct ErrorHandler {
 				return "Unexpected server error"
 			case .emailSendError:
 				return "Unable to send email"
+			case .paramsConflict:
+				return "Parameters conflict with each other"
+			case .replyNotSupported:
+				return "Replying to this is not allowed"
 			}
 		}
 		else if let walletError = error as? WalletError {
@@ -94,6 +98,8 @@ struct ErrorHandler {
 				return "Server was unable to complete blockchain transaction, please try again"
 			case .notSupported:
 				return "EOS: Not supported"
+			case .eosAccountExists:
+				return "EOS account with this name already exists"
 			}
 		}
 		else if (error as NSError).domain == "SwiftyEOSErrorDomain" {
@@ -106,7 +112,10 @@ struct ErrorHandler {
 		}
 		else if let generalError = error as? GeneralError {
 			switch generalError {
-			case .unknown: return "Unexpected error"
+			case .unknown(let code):
+				return "Error \(code)"
+			case .implementationError:
+				return "Unexpected error"
 			}
 		}
 		return error.localizedDescription
@@ -122,6 +131,8 @@ struct ErrorHandler {
 		case 12: return BackendError.resourceNotFound
 		case 13: return AuthError.userNotFound
 		case 14: return AuthError.denied
+		case 15: return BackendError.paramsConflict
+		case 16: return BackendError.replyNotSupported
 
 		// auth
 		case 101: return AuthError.incorrectEmailLength
@@ -134,14 +145,15 @@ struct ErrorHandler {
 		case 108: return BackendError.emailSendError
 
 		// eos
+		case 501: return EOSError.incorrectName
+		case 502: return EOSError.eosAccountExists
 		case 505: return EOSError.actionError
 		case 599: return EOSError.notSupported
-		case 501, 503: return nil
 
 		// special
 		case 999: return BackendError.notImplemented
 
-		default: return GeneralError.unknown
+		default: return GeneralError.unknown(result)
 		}
 	}
 }
