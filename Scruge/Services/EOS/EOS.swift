@@ -61,13 +61,13 @@ class EOS {
 						 position: query?.position ?? -1,
 						 offset: query?.offset ?? -100) { result, error in
 			guard let actions = result?.actions
-				.sorted(by: { $0.globalActionSeq > $1.globalActionSeq })
+				.sorted(by: { $0.globalActionSeq.intValue > $1.globalActionSeq.intValue })
 			else {
 				return completion(.failure(AnyError(error ?? EOSError.unknown)))
 			}
 			
 			if !actions.isEmpty, query?.position == -1 {
-				query?.set(limit: actions[0].accountActionSeq)
+				query?.set(limit: actions[0].accountActionSeq.intValue)
 			}
 			completion(.success(actions))
 		}

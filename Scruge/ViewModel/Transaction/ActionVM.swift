@@ -50,6 +50,7 @@ final class ActionVM: ViewModel<ActionReceipt> {
 		return str
 	}
 
+	// description + details
 	var actionDetails:NSAttributedString {
 		guard let model = model else { return NSAttributedString() }
 		let font = UIFont.systemFont(ofSize: 14)
@@ -66,15 +67,21 @@ final class ActionVM: ViewModel<ActionReceipt> {
 			str.append("\(amount) in \(campaignTitle)", color: grayText, font: font)
 		case .received(let transfer):
 			str.append("\(transfer.quantity) from \(transfer.from)", color: grayText, font: font)
+			if (!transfer.memo.isEmpty) {
+				str.append("\n\(transfer.memo)", color: gray, font: .systemFont(ofSize: 12))
+			}
 		case .voted(let campaignTitle, let voteKind):
 			let kind = voteKind == .extend ? "extend deadline" : "release funds"
 			str.append("Participated in voting to \(kind) for campaign \(campaignTitle)",
 				color: grayText, font: font)
 		case .transfer(let transfer):
-			str.append("\(transfer.to)", color: grayText, font: font)
+			str.append("\(transfer.from)", color: grayText, font: font)
 				.append(" -> ", color: gray, font: font)
-				.append("\(transfer.from): ", color: grayText, font: font)
+				.append("\(transfer.to): ", color: grayText, font: font)
 				.append("\(transfer.quantity)", color: grayText, font: font)
+			if (!transfer.memo.isEmpty) {
+				str.append("\n\(transfer.memo)", color: gray, font: .systemFont(ofSize: 12))
+			}
 		case .other(let action):
 			str.append("\(action.data)", color: gray, font: .systemFont(ofSize: 12))
 		}
@@ -124,7 +131,7 @@ enum ActionType {
 			return .transfer(data)
 		}
 		else if action.name == "vote", action.account == Service.eos.contractAccount.string {
-			return .voted(campaignTitle: "-campaign-", voteKind: .extend) // todoo
+			return .voted(campaignTitle: "-campaign-", voteKind: .extend) // todo
 		}
 		return .other(action)
 	}
