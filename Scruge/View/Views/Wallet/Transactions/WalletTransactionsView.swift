@@ -81,13 +81,47 @@ extension WalletTransactionsView: UITableViewDelegate {
 
 extension WalletTransactionsView: UITableViewDataSource {
 
+	// filter out 'repeating' actions, show transactions
+	var array:[ActionVM] {
+		return (vm?.array ?? []).reduce([], { result, item in
+			var newResult = result
+			let prevs = result.filter({
+				$0.model!.actionTrace.trxId == item.model!.actionTrace.trxId
+					&& $0.model!.actionTrace.act.name == item.model!.actionTrace.act.name
+			})
+			if prevs.count > 0 {
+				var min = Int.max
+				result.forEach {
+					if min >= $0.model!.globalActionSeq.intValue {
+						min = $0.model!.globalActionSeq.intValue }
+				}
+
+				if item.model!.globalActionSeq.intValue <= min {
+					newResult.removeAll(where: {
+						$0.model!.actionTrace.trxId == item.model!.actionTrace.trxId
+					})
+				}
+			}
+
+			newResult.append(item)
+			return newResult
+		})
+	}
+
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return vm?.numberOfItems ?? 0
+		return array.count
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		guard let vm = vm else { return UITableViewCell() }
-		let item = vm.item(at: indexPath.row, shouldLoadMore: true)
+
+		guard indexPath.row < array.count else { return UITableViewCell() }
+
+		if indexPath.row == array.count-1 {
+			vm.loadMore()
+		}
+
+		let item = array[indexPath.row]
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.transactionCell,
 											 for: indexPath)!.setup(item)
 	}

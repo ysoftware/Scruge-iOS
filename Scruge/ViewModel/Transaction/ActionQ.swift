@@ -11,7 +11,7 @@ import MVVM
 /// trying to match the weird pagination system used in get_actions rpc call
 final class ActionsQuery:MVVM.Query {
 
-	private let batchSize = 10
+	private let batchSize = 30
 
 	var position:Int = -1
 
