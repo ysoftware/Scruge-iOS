@@ -314,8 +314,8 @@ struct Presenter {
 
 	func presentCreateAccountViewController(in vc:UIViewController) {
 		guard !Service.settings.didCreateEosAccount else {
-			let msg = "You have previously created an eos account. Please, import your private key."
-			return presentAlert(in: vc, msg)
+			let msg = "You have previously created an eos account. Please, import the private key."
+			return vc.alert(msg)
 		}
 		let new = R.storyboard.wallet.createAccountVC()!
 		vc.show(new, sender: self)

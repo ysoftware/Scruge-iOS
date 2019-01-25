@@ -122,7 +122,7 @@ final class CampaignViewController: UIViewController {
 		tableView.refreshControl!.addTarget(self, action: #selector(reloadData), for: .valueChanged)
 
 		tableView.delaysContentTouches = false
-		tableView.estimatedRowHeight = 400
+		tableView.estimatedRowHeight = 200
 		tableView.rowHeight = UITableView.automaticDimension
 
 		// make table view go under the navigation bar

@@ -74,7 +74,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="$450" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MMv-1X-3xC">
-                    <rect key="frame" x="107" y="29" width="292" height="13.5"/>
+                    <rect key="frame" x="107" y="29" width="30" height="13.5"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="11"/>
                     <color key="textColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -82,12 +82,10 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="MMv-1X-3xC" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="0cs-uV-MWI" secondAttribute="trailing" id="01P-dm-qOJ"/>
                 <constraint firstItem="Cf3-OH-x2y" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="0Rw-fx-4UD"/>
                 <constraint firstItem="b71-ct-4jU" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="93L-Cm-XQK"/>
                 <constraint firstItem="MMv-1X-3xC" firstAttribute="centerY" secondItem="bxn-jn-ClJ" secondAttribute="centerY" id="9B3-Dd-um8"/>
                 <constraint firstAttribute="trailing" secondItem="0cs-uV-MWI" secondAttribute="trailing" id="9TV-a5-gRI"/>
-                <constraint firstItem="bxn-jn-ClJ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="0cs-uV-MWI" secondAttribute="leading" id="DHR-0a-z4U"/>
                 <constraint firstItem="Cf3-OH-x2y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OkC-N4-NRS"/>
                 <constraint firstItem="0cs-uV-MWI" firstAttribute="bottom" secondItem="Cf3-OH-x2y" secondAttribute="bottom" id="UDf-rV-B2Z"/>
                 <constraint firstItem="S2Q-ja-eoK" firstAttribute="trailing" secondItem="Cf3-OH-x2y" secondAttribute="trailing" constant="2" id="Uar-Ny-0ZX"/>
