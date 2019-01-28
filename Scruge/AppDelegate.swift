@@ -21,7 +21,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
 		// eos
 		let url:String? = Service.settings.get(.nodeUrl)
-		Service.eos.nodeUrl = url ?? "https://node.eosflare.io"
+		Service.eos.nodeUrl = url ?? "https://eos.greymass.com"
 
 		// api
 		Service.api.setEnvironment(.prod)
