@@ -203,8 +203,10 @@ final class CampaignViewController: UIViewController {
 		}
 	}
 
-	private func block(for row:Int) -> Block {
-		return Block.allCases.filter { shouldDisplay($0) }[row]
+	private func block(for row:Int) -> Block? {
+		let blocks = Block.allCases.filter { shouldDisplay($0) }
+		guard blocks.count > row else { return nil }
+		return blocks[row]
 	}
 
 	private func shouldDisplay(_ block:Block) -> Bool {
@@ -262,62 +264,66 @@ extension CampaignViewController: UITableViewDataSource {
 	func tableView(_ tableView: UITableView,
 				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		var cell:UITableViewCell!
-		switch block(for: indexPath.row) {
-		case .about:
-			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.aboutCell,
-												 for: indexPath)!
-				.setup(with: vm)
-				.socialTap { [unowned self] social in
-					self.openSocialPage(social) }
-				.memberTap { [unowned self] member in
-					Service.presenter.presentMemberProfileViewController(in: self, with: member) }
-		case .info:
-			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
-												 for: indexPath)!.setup(with: vm)
-		case .economies:
-			guard let vm = vm.economiesVM else { break }
-			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.economiesCell,
-												 for: indexPath)!.setup(with: vm)
-		case .faq:
-			guard let vm = vm.faqVM else { break }
-			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
-												 for: indexPath)!.setup(with: vm)
-				.tap { [unowned self] index in
-					Service.presenter.presentDetailViewController(in: self, faq: vm.item(at: index)) }
-		case .milestone:
-			guard let vm = vm.milestonesVM, let cvm = self.vm.currentMilestoneVM else { break }
-			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
-												 for: indexPath)!.setup(with: vm, cvm)
-				.tap { [unowned self] index in
-					Service.presenter.presentDetailViewController(in: self, milestone: vm.item(at: index)) }
-		case .update:
-			guard let vm = vm.lastUpdateVM else { break }
-			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.lastUpdateCell,
-												 for: indexPath)!.setup(with: vm)
-				.updateTap { [unowned self] in
-					Service.presenter.presentContentViewController(in: self, for: vm) }
-				.allUpdatesTap { [unowned self] in
-					Service.presenter.presentUpdatesViewController(in: self, for: self.vm) }
-		case .comments:
-			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.topCommentCell,
-												 for: indexPath)!
-				.setup(with: vm.topCommentsVM, allCommentsCount: vm.commentsCount)
-				.allComments { [unowned self] in
-					Service.presenter.presentCommentsViewController(in: self, for: self.vm) }
-		case .documents:
-			guard let vm = vm.documentsVM else { break }
-			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.documentsCell,
-												 for: indexPath)!.setup(with: vm)
-				.tap { doc in
-					guard let url = doc.documentUrl else { return }
-					#warning("check this")
-					if url.absoluteString.contains("/content") {
-						Service.presenter.presentContentViewController(in: self, for: self.vm)
+		if let block = block(for: indexPath.row) {
+			switch block {
+			case .about:
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.aboutCell,
+													 for: indexPath)!
+					.setup(with: vm)
+					.socialTap { [unowned self] social in
+						self.openSocialPage(social) }
+					.memberTap { [unowned self] member in
+						Service.presenter.presentMemberProfileViewController(in: self, with: member) }
+			case .info:
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.campaignCell,
+													 for: indexPath)!.setup(with: vm)
+			case .economies:
+				guard let vm = vm.economiesVM else { break }
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.economiesCell,
+													 for: indexPath)!.setup(with: vm)
+			case .faq:
+				guard let vm = vm.faqVM else { break }
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
+													 for: indexPath)!.setup(with: vm)
+					.tap { [unowned self] index in
+						Service.presenter.presentDetailViewController(in: self, faq: vm.item(at: index))
 					}
-					else {
-						Service.presenter.presentSafariViewController(in: self, url: url)
+			case .milestone:
+				guard let vm = vm.milestonesVM, let cvm = self.vm.currentMilestoneVM else { break }
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.pagingCell,
+													 for: indexPath)!.setup(with: vm, cvm)
+					.tap { [unowned self] index in
+						Service.presenter.presentDetailViewController(in: self, milestone: vm.item(at: index))
 					}
+			case .update:
+				guard let vm = vm.lastUpdateVM else { break }
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.lastUpdateCell,
+													 for: indexPath)!.setup(with: vm)
+					.updateTap { [unowned self] in
+						Service.presenter.presentContentViewController(in: self, for: vm) }
+					.allUpdatesTap { [unowned self] in
+						Service.presenter.presentUpdatesViewController(in: self, for: self.vm) }
+			case .comments:
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.topCommentCell,
+													 for: indexPath)!
+					.setup(with: vm.topCommentsVM, allCommentsCount: vm.commentsCount)
+					.allComments { [unowned self] in
+						Service.presenter.presentCommentsViewController(in: self, for: self.vm) }
+			case .documents:
+				guard let vm = vm.documentsVM else { break }
+				cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.documentsCell,
+													 for: indexPath)!.setup(with: vm)
+					.tap { doc in
+						guard let url = doc.documentUrl else { return }
+						#warning("check this")
+						if url.absoluteString.contains("/content") {
+							Service.presenter.presentContentViewController(in: self, for: self.vm)
+						}
+						else {
+							Service.presenter.presentSafariViewController(in: self, url: url)
+						}
 				}
+			}
 		}
 		if cell == nil {
 			cell = UITableViewCell()
