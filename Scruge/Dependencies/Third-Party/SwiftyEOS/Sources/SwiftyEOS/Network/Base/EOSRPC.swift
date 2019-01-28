@@ -72,11 +72,10 @@ func customDateFormatter(_ decoder: Decoder) throws -> Date {
             
             DispatchQueue.main.async {
                 guard let data = data, error == nil else {
-                    completion(nil, NSError(domain: errorDomain,
+                    return completion(nil, NSError(domain: errorDomain,
 											code: 1,
                                             userInfo: [NSLocalizedDescriptionKey:
-												"Networking error \(String(describing: error)) \(String(describing: response))"]))
-                    return
+												"Unable to connect to the server"]))
                 }
 
                 let decoder = self.decoder

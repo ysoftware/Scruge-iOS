@@ -34,5 +34,5 @@ struct Token:Equatable, Hashable, CustomStringConvertible {
 
 	static let Scruge = Token(contract: EosName.create("eosio.token"), symbol: "SCR")
 
-	static let `default` = [EOS, Scruge]
+	static let `default` = [EOS]//, Scruge]
 }
