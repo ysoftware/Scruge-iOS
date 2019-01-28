@@ -36,6 +36,7 @@ extension Social {
 		case .linkedIn: return #imageLiteral(resourceName: "linkedIn")
 		case .telegram: return #imageLiteral(resourceName: "telegram")
 		case .slack: return #imageLiteral(resourceName: "slack")
+		case .medium: return #imageLiteral(resourceName: "medium")
 		}
 	}
 }

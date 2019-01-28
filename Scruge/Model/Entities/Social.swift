@@ -27,6 +27,8 @@ enum SocialNetwork:String, Codable {
 	case slack = "slack"
 
 	case linkedIn = "linkedIn"
+
+	case medium = "medium"
 }
 
 struct Social:Codable, Equatable {
