@@ -119,30 +119,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvH-iY-h5K" customClass="GradientView" customModule="Scruge" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="347.33333333333331"/>
+                                <color key="backgroundColor" red="0.89411764709999997" green="0.2666666667" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.89411764709999997" green="0.2666666667" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.31764705879999999" green="0.1333333333" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
+                                        <point key="value" x="0.0" y="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
+                                        <point key="value" x="1" y="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qg9-vN-7HK">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="who-1H-QDH">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="625.33333333333337"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bvH-iY-h5K" customClass="GradientView" customModule="Scruge" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="347.33333333333331"/>
-                                                <color key="backgroundColor" red="0.89411764709999997" green="0.2666666667" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
-                                                        <color key="value" red="0.89411764709999997" green="0.2666666667" blue="0.86274509799999999" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
-                                                        <color key="value" red="0.31764705879999999" green="0.1333333333" blue="0.51764705879999995" alpha="1" colorSpace="calibratedRGB"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="point" keyPath="startPoint">
-                                                        <point key="value" x="0.0" y="0.0"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                    <userDefinedRuntimeAttribute type="point" keyPath="endPoint">
-                                                        <point key="value" x="1" y="1"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Eo3-b9-PYR">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="610.33333333333337"/>
                                                 <subviews>
@@ -750,12 +750,9 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="Eo3-b9-PYR" secondAttribute="trailing" id="1Le-ZC-zGo"/>
-                                            <constraint firstItem="bvH-iY-h5K" firstAttribute="leading" secondItem="who-1H-QDH" secondAttribute="leading" id="3Zu-k1-s5W"/>
-                                            <constraint firstItem="8Wi-Uk-38T" firstAttribute="top" secondItem="bvH-iY-h5K" secondAttribute="bottom" constant="-30" id="Ogj-UP-q9X"/>
                                             <constraint firstAttribute="bottom" secondItem="Eo3-b9-PYR" secondAttribute="bottom" constant="15" id="TRY-dn-mQn"/>
                                             <constraint firstItem="Eo3-b9-PYR" firstAttribute="top" secondItem="who-1H-QDH" secondAttribute="top" id="fdw-gm-Enn"/>
                                             <constraint firstItem="Eo3-b9-PYR" firstAttribute="leading" secondItem="who-1H-QDH" secondAttribute="leading" id="gPZ-Ke-jla"/>
-                                            <constraint firstAttribute="trailing" secondItem="bvH-iY-h5K" secondAttribute="trailing" id="w52-9Q-llU"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -773,8 +770,11 @@
                             <constraint firstItem="qg9-vN-7HK" firstAttribute="top" secondItem="V77-NM-mBp" secondAttribute="top" id="9iC-Nk-3gu"/>
                             <constraint firstItem="qg9-vN-7HK" firstAttribute="trailing" secondItem="T7C-8n-2x5" secondAttribute="trailing" id="RZD-pJ-jmY"/>
                             <constraint firstItem="qg9-vN-7HK" firstAttribute="leading" secondItem="T7C-8n-2x5" secondAttribute="leading" id="XOS-DY-dVI"/>
+                            <constraint firstItem="bvH-iY-h5K" firstAttribute="top" secondItem="Eo3-b9-PYR" secondAttribute="top" id="cnh-15-cTp"/>
                             <constraint firstItem="qg9-vN-7HK" firstAttribute="bottom" secondItem="V77-NM-mBp" secondAttribute="bottom" id="czt-2j-Zhn"/>
-                            <constraint firstItem="bvH-iY-h5K" firstAttribute="top" secondItem="V77-NM-mBp" secondAttribute="top" id="uvN-1l-JYg"/>
+                            <constraint firstItem="bvH-iY-h5K" firstAttribute="leading" secondItem="T7C-8n-2x5" secondAttribute="leading" id="g9z-Mz-7oO"/>
+                            <constraint firstItem="bvH-iY-h5K" firstAttribute="trailing" secondItem="T7C-8n-2x5" secondAttribute="trailing" id="hGe-1y-weV"/>
+                            <constraint firstItem="bvH-iY-h5K" firstAttribute="bottom" secondItem="8Wi-Uk-38T" secondAttribute="top" constant="30" id="v6M-ue-NYP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="T7C-8n-2x5"/>
                     </view>
