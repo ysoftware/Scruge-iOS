@@ -58,13 +58,15 @@ struct ChainInfo: Codable {
     var weight: Int = 0
 }
 
-// An account can either be of type String or Permission [ weight, permission: [ actor, permission ] ]
-typealias AccountAuth = AnyCodable
+@objcMembers class Permission: NSObject, Codable {
+	var permission:Authorization
+	var weight:Int
+}
 
 @objcMembers class RequiredAuth: NSObject, Codable {
     var keys: [AuthKey]?
     var threshold: UInt64 = 0
-    var accounts: [AccountAuth] = []
+    var accounts: [Permission] = []
     var waits: [String] = []
 }
 
