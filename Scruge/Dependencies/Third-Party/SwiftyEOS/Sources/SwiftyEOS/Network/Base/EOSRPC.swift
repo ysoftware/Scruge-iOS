@@ -91,8 +91,11 @@ func customDateFormatter(_ decoder: Decoder) throws -> Date {
 						return completion(nil, errorObj)
 					}
 
+					String(data: data, encoding: .utf8).flatMap { print($0) }
 					let errorObj = NSError(domain: errorDomain, code: 1,
 										   userInfo: [NSLocalizedDescriptionKey: "Decoding error \(decodingError)"])
+					String(data: data, encoding: .utf8).flatMap { print($0) }
+					print(decodingError)
 					completion(nil, errorObj)
 				}
             }
