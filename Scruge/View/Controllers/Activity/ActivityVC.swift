@@ -111,12 +111,15 @@ extension ActivityViewController: UITableViewDataSource {
 		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.activityCell,
 											 for: indexPath)!
 			.setup(with: vm)
-			.campaignTap { [unowned self] update in
-//				Service.presenter.presentCampaignViewController(in: self, id: update.campaignId)
-			}
 			.showDecor(index == 0, isLast: index == self.vm.numberOfItems - 1)
-			.updateTap { [unowned self] update in
-//				Service.presenter.presentContentViewController(in: self, for: vm)
+			.campaignTap { [unowned self] campaignId in
+				Service.presenter.presentCampaignViewController(in: self, id: campaignId)
+			}
+			.updateTap { [unowned self] vm in
+				Service.presenter.presentContentViewController(in: self, for: vm)
+			}
+			.replyTap { [unowned self] replyId in
+//				Service.presenter.presentCommentsViewController(in: self, source: <#T##CommentAVM#>, repliesTo: <#T##CommentVM#>)
 			}
 	}
 }

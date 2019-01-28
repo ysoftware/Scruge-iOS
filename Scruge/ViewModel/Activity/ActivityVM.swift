@@ -14,9 +14,9 @@ enum ActivityType:String {
 
 	case update = "Update"
 
-	case voting = "Vooting"
+	case voting = "Voting"
 
-	case fundingInfo = "Funding" // TO-DO: change
+	case fundingInfo = "CampFundingEnd" // TO-DO: change
 }
 
 final class ActivityVM: ViewModel<ActivityHolder> {
@@ -45,24 +45,11 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 		}
 	}
 
-	// voting
-
-	var votingDate:String {
-		return "some date"
-	}
-
-	var votingTitle:String {
-		return "Campaign's milestone deadline is coming up!"
-	}
-
-	var votingDescription:String {
-		return "Voting on milestone starts in 3 days on Feb 7th 2019."
-	}
-
 	// reply
 
 	var replyDate:String {
-		return "some date"
+		return (model?.activity as? ActivityReply).flatMap {
+			Date.present($0.timestamp, as: "d MMMM HH:mm") } ?? ""
 	}
 
 	var replyText:String {
@@ -70,31 +57,118 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	}
 
 	var replyAuthorName:String {
-		if let name = (model?.activity as? ActivityReply)?.replyUserName {
-			if !name.isEmpty { return name }
-		}
-		return "Anonymous"
+		return (model?.activity as? ActivityReply)
+			.flatMap { !$0.replyUserName.isEmpty ? $0.replyUserName : nil } ?? "Anonymous"
+				+ " replied to your comment"
 	}
 
 	// update
-
-	var updateCampaignTitle:String {
-		return (model?.activity as? ActivityUpdate)?.campaign.title ?? ""
-			+ " posted an update"
-	}
-
-	var updateDescription:String {
-		return (model?.activity as? ActivityUpdate)?.update.description ?? ""
-	}
 
 	var updateTitle:String {
 		return (model?.activity as? ActivityUpdate)?.update.title ?? ""
 	}
 
 	var updateDate:String {
-		if let time = (model?.activity as? ActivityUpdate)?.update.timestamp {
-			return Date.present(time, as: "d MMMM yyyy")
+		return (model?.activity as? ActivityUpdate).flatMap {
+			Date.present($0.update.timestamp, as: "d MMMM HH:mm") } ?? ""
+	}
+
+	var updateDescription:String {
+		return (model?.activity as? ActivityUpdate)?.update.description ?? ""
+	}
+
+	var updateImage:String {
+		return (model?.activity as? ActivityUpdate)?.update.imageUrl ?? ""
+	}
+
+	var updateActivity:NSAttributedString? {
+		let font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+		return (model?.activity as? ActivityUpdate).flatMap {
+			NSMutableAttributedString()
+				.append($0.campaign.title, color: Service.constants.color.purple, font: font)
+				.append(" posted an update", color: Service.constants.color.grayTitle, font: font)
 		}
-		return ""
+	}
+
+	// funding result
+
+	var fundingDate:String { // TO-DO:
+		return "some date"
+	}
+
+	var fundingTitle:String { // TO-DO:
+		return (model?.activity as? ActivityFunding).flatMap {
+			"\($0.campaign.title) has finished its funding campaign" } ?? ""
+	}
+
+	var fundingDescription:String { // TO-DO:
+		return (model?.activity as? ActivityFunding).flatMap {
+			let cap = $0.softCap.formatDecimal(separateWith: " ")
+			let s = "\($0.campaign.title) has successfully reached the goal of $\(cap)."
+			let f = "Campaign did not reach the minimum goal of $\(cap) and is now closed."
+			return $0.raised >= $0.softCap ? s : f
+		} ?? ""
+	}
+
+	// voting
+
+	/// date of the notification
+	var votingDate:String { // TO-DO:
+		return (model?.activity as? ActivityVoting).flatMap { // TO-DO
+			Date.present($0.startTimestamp - $0.noticePeriodSec, as: "")
+		} ?? ""
+	}
+
+	var votingTitle:String { // TO-DO:
+		return (model?.activity as? ActivityVoting)
+			.flatMap { a in
+				let type = VoteKind(rawValue:a.kind) == .extend ? "extend deadline" : "release funds"
+				return "Voting on \(type) for \(a.campaign.title) starts soon" } ?? ""
+	}
+
+	var votingDescription:String { // TO-DO:
+		return (model?.activity as? ActivityVoting)
+			.flatMap { a in
+				let date = Date.present(a.startTimestamp, as: "d MMMM")
+				let time = Date.present(a.startTimestamp, as: "HH:mm")
+				let period = a.noticePeriodSec / (24*60*60)
+				let type = VoteKind(rawValue:a.kind) == .extend ? "extend deadline" : "release funds"
+				return "Voting to \(type) of milestone \(a.milestoneTitle) for campaign \(a.campaign.title) starts in \(period) days on \(date) at \(time)"
+			} ?? ""
+	}
+
+	// voting result
+
+	/// date of the notification
+	var votingResultDate:String { // TO-DO:
+		return "some date"
+	}
+
+	var votingResultTitle:String { // TO-DO:
+		return (model?.activity as? ActivityVoting)
+			.flatMap { a in
+				let type = VoteKind(rawValue:a.kind) == .extend ? "extend deadline" : "releas funds"
+				return "Vote for \(a.campaign.title) on \(type) has finished" } ?? ""
+	}
+
+	var votingResultDescription:String { // TO-DO:
+		return "Voting on milestone starts in 3 days on Feb 7th 2019."
+	}
+
+	// other
+
+	var updateVM:UpdateVM? {
+		return (model?.activity as? ActivityUpdate).flatMap { UpdateVM($0.update) }
+	}
+
+	var replyId:String? {
+		return nil // (model as? ActivityReply)?.reply
+	}
+
+	var campaignId:Int? {
+		let m = model?.activity
+		return (m as? ActivityUpdate)?.campaign.id ?? (m as? ActivityVoting)?.campaign.id
+			?? (m as? ActivityFunding)?.campaign.id ?? (m as? ActivityVotingResult)?.campaign.id
 	}
 }
+

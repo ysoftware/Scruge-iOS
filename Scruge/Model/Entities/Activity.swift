@@ -15,6 +15,10 @@ protocol ActivityModel:Codable {
 
 struct ActivityHolder:Equatable, Codable {
 
+	init(activity:ActivityModel) { // debug purposes only
+		self.activity = activity
+	}
+
 	let activity:ActivityModel
 
 	// TO-DO: if needed, this should be changed
@@ -48,7 +52,7 @@ struct ActivityHolder:Equatable, Codable {
 
 struct ActivityUpdate: ActivityModel, Equatable, Codable {
 
-	let type:String
+	let type:String // Update
 
 	let update:Update
 
@@ -57,7 +61,7 @@ struct ActivityUpdate: ActivityModel, Equatable, Codable {
 
 struct ActivityReply: ActivityModel, Equatable, Codable {
 
-	let type:String
+	let type:String // Reply
 
 	let replyCommentText:String
 
@@ -68,20 +72,41 @@ struct ActivityReply: ActivityModel, Equatable, Codable {
 
 struct ActivityVoting: ActivityModel, Equatable, Codable {
 
-	let type:String
+	let type:String // Voting
 
 	let campaign:CampaignInfo
 
 	let milestoneTitle:String
 
-//	let timestamp:Int
+	let startTimestamp:Int
 
 	let kind:Int
+
+	let noticePeriodSec:Int // TO-DO: Это значения в секундах 7 дней (7*24*60*60), 3 дня или 0
+}
+
+struct ActivityVotingResult: ActivityModel, Equatable, Codable {
+
+	let type:String // Voting
+
+	let campaign:CampaignInfo
+
+	let milestoneTitle:String
+
+	let startTimestamp:Int
+
+	let endTimestamp:Int
+
+//	let kind:Int
 }
 
 struct ActivityFunding: ActivityModel, Equatable, Codable {
 
-	let type:String
+	let type:String // CampFundingEnd
 
+	let campaign:CampaignInfo
 
+	let softCap:Double
+
+	let raised:Double
 }

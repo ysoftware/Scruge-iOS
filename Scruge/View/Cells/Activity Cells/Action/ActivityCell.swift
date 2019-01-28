@@ -11,6 +11,9 @@ import appendAttributedString
 
 final class ActivityCell: UITableViewCell {
 
+	@IBOutlet weak var descriptionStackView: UIStackView!
+	@IBOutlet weak var titleStackView: UIStackView!
+
 	@IBOutlet weak var bottomDecorView: UIView!
 	@IBOutlet weak var topDecorView: UIView!
 	@IBOutlet weak var iconImage: UIImageView!
@@ -30,8 +33,8 @@ final class ActivityCell: UITableViewCell {
 		self.vm = vm
 
 		selectionStyle = .none
-		let font = UIFont.systemFont(ofSize: 14, weight: .semibold)
 
+		activityLabel.isHidden = false
 		iconImage.image = vm.icon
 		iconBackground.backgroundColor = vm.color
 		// TO-DO: image?
@@ -41,20 +44,31 @@ final class ActivityCell: UITableViewCell {
 			dateLabel.text = vm.updateDate
 			updateTitleLabel.text = vm.updateTitle
 			updateDescriptionLabel.text = vm.updateDescription
-
-			activityLabel.isHidden = false
-			activityLabel.attributedText = NSMutableAttributedString()
-				.append(vm.updateCampaignTitle, color: Service.constants.color.purple, font: font)
-				.append(" posted an update", color: Service.constants.color.grayTitle, font: font)
+			updateImage.setImage(string: vm.updateImage)
+			activityLabel.attributedText = vm.updateActivity
 		case .reply:
+			updateImage.image = nil
 			dateLabel.text = vm.replyDate
-			updateTitleLabel.text = "\(vm.replyAuthorName) replied to your comment"
-			activityLabel.isHidden = true
+			updateTitleLabel.text = vm.replyAuthorName
 			updateDescriptionLabel.text = vm.replyText
-
-			// TO-DO: other cases
-		default: break
+			activityLabel.isHidden = true
+		case .voting:
+			updateImage.image = nil
+			dateLabel.text = vm.votingDate
+			updateTitleLabel.text = vm.votingTitle
+			updateDescriptionLabel.text = vm.votingDescription
+			activityLabel.isHidden = true
+		case .fundingInfo:
+			updateImage.image = nil
+			dateLabel.text = vm.fundingDate
+			updateTitleLabel.text = vm.fundingTitle
+			updateDescriptionLabel.text = vm.fundingDescription
+			activityLabel.isHidden = true
 		}
+
+		titleStackView.gestureRecognizers = []
+		descriptionStackView.gestureRecognizers = []
+
 		return self
 	}
 
@@ -66,33 +80,58 @@ final class ActivityCell: UITableViewCell {
 
 	// MARK: - Tap
 
-	private var campaignBlock:((ActivityVM)->Void)?
-	private var updateBlock:((ActivityVM)->Void)?
+	private var campaignBlock:((Int)->Void)?
+	private var updateBlock:((UpdateVM)->Void)?
+	private var replyBlock:((String)->Void)?
 
 	@discardableResult
-	func updateTap(block: @escaping (ActivityVM)->Void) -> Self {
-		updateBlock = block
-		updateDescriptionLabel.gestureRecognizers = [
-			UITapGestureRecognizer(target: self,
-								   action: #selector(updateTapped))]
+	func updateTap(block: @escaping (UpdateVM)->Void) -> Self {
+		switch vm.type {
+		case .update:
+			updateBlock = block
+			titleStackView.gestureRecognizers = [
+				UITapGestureRecognizer(target: self,
+									   action: #selector(campaignTapped))]
+		default: break
+		}
 		return self
 	}
 
 	@discardableResult
-	func campaignTap(block: @escaping (ActivityVM)->Void) -> Self {
-		campaignBlock = block
-		activityLabel.gestureRecognizers = [
-			UITapGestureRecognizer(target: self,
-								   action: #selector(campaignTapped))]
+	func campaignTap(block: @escaping (Int)->Void) -> Self {
+		switch vm.type {
+		case .fundingInfo, .update, .voting:
+			campaignBlock = block
+			descriptionStackView.gestureRecognizers = [
+				UITapGestureRecognizer(target: self,
+									   action: #selector(updateTapped))]
+		default: break
+		}
+		return self
+	}
 
+	@discardableResult
+	func replyTap(block: @escaping (String)->Void) -> Self {
+		switch vm.type {
+		case .reply:
+			replyBlock = block
+			descriptionStackView.gestureRecognizers = [
+				UITapGestureRecognizer(target: self,
+									   action: #selector(replyTapped))]
+		default: break
+		}
 		return self
 	}
 
 	@objc func updateTapped() {
-		updateBlock?(vm)
+		vm.updateVM.flatMap { updateBlock?($0) }
 	}
 
-	@IBAction func campaignTapped() {
-		campaignBlock?(vm)
+	@objc func campaignTapped() {
+		vm.campaignId.flatMap { campaignBlock?($0) }
+	}
+
+	@objc func replyTapped() {
+		vm.replyId.flatMap { replyBlock?($0) }
 	}
 }
