@@ -150,6 +150,10 @@ struct ErrorHandler {
 		case 505: return EOSError.actionError
 		case 599: return EOSError.notSupported
 
+		// html
+		case 400: return BackendError.paramsConflict
+		case 404: return BackendError.resourceNotFound
+
 		// special
 		case 999: return BackendError.notImplemented
 

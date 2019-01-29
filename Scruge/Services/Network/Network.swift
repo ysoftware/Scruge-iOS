@@ -91,6 +91,12 @@ struct Network:Networking {
 				return completion(.failure(AnyError(NetworkingError.connectionProblem)))
 			}
 
+			if let code = response.statusCode, code != 200 {
+				let e = ErrorHandler.error(from: code) ?? BackendError.unknown
+				completion(.failure(AnyError(e)))
+				return
+			}
+
 			if let error = response.error {
 				self.log(response, "Error: status code \(response.statusCode ?? -1)")
 				return completion(.failure(AnyError(error)))
