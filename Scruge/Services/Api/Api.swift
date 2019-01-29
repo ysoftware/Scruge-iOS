@@ -194,11 +194,13 @@ final class Api {
 		service.get("campaign/\(campaign.id)/updates", nil, completion)
 	}
 
-	func getActivity(_ completion: @escaping (Result<ActivityListResponse, AnyError>)->Void) {
+	func getActivity(query:ActivityQ?,
+					 _ completion: @escaping (Result<ActivityListResponse, AnyError>)->Void) {
+		let params = ActivityListRequest(page: query?.page ?? 0)
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return service.get("activity", params.toDictionary(), completion)
 		}
-		service.get("user/\(token)/activity", nil, completion)
+		service.get("user/\(token)/activity", params.toDictionary(), completion)
 	}
 
 	func getVoteNotifications(_ completion: @escaping (Result<ActiveVotesResponse, AnyError>)->Void) {

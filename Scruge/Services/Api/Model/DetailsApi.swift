@@ -22,3 +22,8 @@ struct ActivityListResponse:Codable {
 
 	let activity:[ActivityHolder]
 }
+
+struct ActivityListRequest:Codable {
+
+	let page:Int 
+}
