@@ -41,6 +41,7 @@ struct ActivityHolder:Equatable, Codable {
 		case "Update": activity = try ActivityUpdate(from: decoder)
 		case "CampFundingEnd": activity = try ActivityFunding(from: decoder)
 		case "Voting": activity = try ActivityVoting(from: decoder)
+		case "VotingResult": activity = try ActivityVotingResult(from: decoder)
 		default: throw BackendError.parsingError
 		}
 	}
