@@ -65,6 +65,8 @@ struct ActivityReply: ActivityModel, Equatable, Codable {
 
 	let replyCommentText:String
 
+	let parentCommentId:String
+
 	let replyUserName:String
 
 	let timestamp:Int
@@ -82,6 +84,8 @@ struct ActivityVoting: ActivityModel, Equatable, Codable {
 
 	let kind:Int
 
+	let timestamp:Int
+
 	let noticePeriodSec:Int // TO-DO: Это значения в секундах 7 дней (7*24*60*60), 3 дня или 0
 }
 
@@ -97,7 +101,9 @@ struct ActivityVotingResult: ActivityModel, Equatable, Codable {
 
 	let endTimestamp:Int
 
-//	let kind:Int
+	let kind:Int
+
+	let timestamp:Int
 }
 
 struct ActivityFunding: ActivityModel, Equatable, Codable {
@@ -109,4 +115,6 @@ struct ActivityFunding: ActivityModel, Equatable, Codable {
 	let softCap:Double
 
 	let raised:Double
+
+	let timestamp:Int
 }

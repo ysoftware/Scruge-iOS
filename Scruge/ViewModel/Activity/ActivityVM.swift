@@ -16,7 +16,9 @@ enum ActivityType:String {
 
 	case voting = "Voting"
 
-	case fundingInfo = "CampFundingEnd" // TO-DO: change
+	case fundingInfo = "CampFundingEnd"
+
+	case votingResults = "VotingResult"
 }
 
 final class ActivityVM: ViewModel<ActivityHolder> {
@@ -32,6 +34,7 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 		case .update: return R.image.checkmark()!
 		case .reply: return R.image.comment()!
 		case .voting: return R.image.star()!
+		case .votingResults: return R.image.star()!
 		case .fundingInfo: return R.image.checkmark()!
 		}
 	}
@@ -41,6 +44,7 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 		case .update: return Service.constants.color.green
 		case .reply: return Service.constants.color.purple
 		case .voting: return Service.constants.color.green
+		case .votingResults: return Service.constants.color.purple
 		case .fundingInfo: return Service.constants.color.purple
 		}
 	}
@@ -92,8 +96,9 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 
 	// funding result
 
-	var fundingDate:String { // TO-DO:
-		return "some date"
+	var fundingDate:String {
+		return (model?.activity as? ActivityFunding).flatMap {
+			Date.present($0.timestamp, as: "d MMMM HH:mm") } ?? ""
 	}
 
 	var fundingTitle:String { // TO-DO:
@@ -105,7 +110,7 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 		return (model?.activity as? ActivityFunding).flatMap {
 			let cap = $0.softCap.formatDecimal(separateWith: " ")
 			let s = "\($0.campaign.title) has successfully reached the goal of $\(cap)."
-			let f = "Campaign did not reach the minimum goal of $\(cap) and is now closed."
+			let f = "\($0.campaign.title) did not reach the minimum goal of $\(cap) and is now closed."
 			return $0.raised >= $0.softCap ? s : f
 		} ?? ""
 	}
@@ -113,17 +118,16 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	// voting
 
 	/// date of the notification
-	var votingDate:String { // TO-DO:
-		return (model?.activity as? ActivityVoting).flatMap { // TO-DO
-			Date.present($0.startTimestamp - $0.noticePeriodSec, as: "")
-		} ?? ""
+	var votingDate:String {
+		return (model?.activity as? ActivityVoting).flatMap {
+			Date.present($0.timestamp, as: "d MMMM HH:mm") } ?? ""
 	}
 
 	var votingTitle:String { // TO-DO:
 		return (model?.activity as? ActivityVoting)
 			.flatMap { a in
 				let type = VoteKind(rawValue:a.kind) == .extend ? "extend deadline" : "release funds"
-				return "Voting on \(type) for \(a.campaign.title) starts soon" } ?? ""
+				return "Voting to \(type) for \(a.campaign.title) starts soon" } ?? ""
 	}
 
 	var votingDescription:String { // TO-DO:
@@ -140,19 +144,20 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	// voting result
 
 	/// date of the notification
-	var votingResultDate:String { // TO-DO:
-		return "some date"
+	var votingResultDate:String {
+		return (model?.activity as? ActivityVotingResult).flatMap {
+			Date.present($0.timestamp, as: "d MMMM HH:mm") } ?? ""
 	}
 
 	var votingResultTitle:String { // TO-DO:
-		return (model?.activity as? ActivityVoting)
+		return (model?.activity as? ActivityVotingResult)
 			.flatMap { a in
 				let type = VoteKind(rawValue:a.kind) == .extend ? "extend deadline" : "releas funds"
 				return "Vote for \(a.campaign.title) on \(type) has finished" } ?? ""
 	}
 
 	var votingResultDescription:String { // TO-DO:
-		return "Voting on milestone starts in 3 days on Feb 7th 2019."
+		return "Voting finished with result..."
 	}
 
 	// other
@@ -162,7 +167,7 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	}
 
 	var replyId:String? {
-		return nil // (model as? ActivityReply)?.reply
+		return (model?.activity as? ActivityReply)?.parentCommentId
 	}
 
 	var campaignId:Int? {

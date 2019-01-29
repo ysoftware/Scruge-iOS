@@ -64,6 +64,12 @@ final class ActivityCell: UITableViewCell {
 			updateTitleLabel.text = vm.fundingTitle
 			updateDescriptionLabel.text = vm.fundingDescription
 			activityLabel.isHidden = true
+		case .votingResults:
+			updateImage.image = nil
+			dateLabel.text = vm.votingResultDate
+			updateTitleLabel.text = vm.votingResultTitle
+			updateDescriptionLabel.text = vm.votingResultDescription
+			activityLabel.isHidden = true
 		}
 
 		titleStackView.gestureRecognizers = []
@@ -91,7 +97,7 @@ final class ActivityCell: UITableViewCell {
 			updateBlock = block
 			titleStackView.gestureRecognizers = [
 				UITapGestureRecognizer(target: self,
-									   action: #selector(campaignTapped))]
+									   action: #selector(updateTapped))]
 		default: break
 		}
 		return self
@@ -100,11 +106,11 @@ final class ActivityCell: UITableViewCell {
 	@discardableResult
 	func campaignTap(block: @escaping (Int)->Void) -> Self {
 		switch vm.type {
-		case .fundingInfo, .update, .voting:
+		case .fundingInfo, .update, .voting, .votingResults:
 			campaignBlock = block
 			descriptionStackView.gestureRecognizers = [
 				UITapGestureRecognizer(target: self,
-									   action: #selector(updateTapped))]
+									   action: #selector(campaignTapped))]
 		default: break
 		}
 		return self

@@ -197,7 +197,7 @@ extension CommentsViewController: UITableViewDataSource {
 			}
 	}
 }
-
+ 
 extension CommentsViewController: ArrayViewModelDelegate {
 
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>, _ update: MVVM.Update)
