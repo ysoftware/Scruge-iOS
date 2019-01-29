@@ -20,10 +20,11 @@ final class UpdateCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm: UpdateVM) -> Self {
+		selectionStyle = .none
+
 		titleLabel.text = vm.title
 		descriptionLabel.text = vm.descsription
 		dateLabel.text = vm.date
-
 		updateImage.setImage(string: vm.imageUrl)
 		return self
 	}

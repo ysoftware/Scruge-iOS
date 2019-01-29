@@ -33,48 +33,36 @@ final class ActivityCell: UITableViewCell {
 		self.vm = vm
 
 		selectionStyle = .none
-
-		activityLabel.isHidden = false
 		iconImage.image = vm.icon
 		iconBackground.backgroundColor = vm.color
-		// TO-DO: image?
+		updateImage.image = nil
+		updateTitleLabel.isHidden = true
 
 		switch vm.type {
 		case .update:
+			updateTitleLabel.isHidden = false
 			dateLabel.text = vm.updateDate
 			updateTitleLabel.text = vm.updateTitle
 			updateDescriptionLabel.text = vm.updateDescription
 			updateImage.setImage(string: vm.updateImage)
 			activityLabel.attributedText = vm.updateActivity
 		case .reply:
-			updateImage.image = nil
 			dateLabel.text = vm.replyDate
-			updateTitleLabel.text = vm.replyAuthorName
+			activityLabel.text = vm.replyAuthorName
 			updateDescriptionLabel.text = vm.replyText
-			activityLabel.isHidden = true
 		case .voting:
-			updateImage.image = nil
 			dateLabel.text = vm.votingDate
-			updateTitleLabel.text = vm.votingTitle
+			activityLabel.text = vm.votingTitle
 			updateDescriptionLabel.text = vm.votingDescription
-			activityLabel.isHidden = true
 		case .fundingInfo:
-			updateImage.image = nil
 			dateLabel.text = vm.fundingDate
-			updateTitleLabel.text = vm.fundingTitle
+			activityLabel.text = vm.fundingTitle
 			updateDescriptionLabel.text = vm.fundingDescription
-			activityLabel.isHidden = true
 		case .votingResults:
-			updateImage.image = nil
 			dateLabel.text = vm.votingResultDate
-			updateTitleLabel.text = vm.votingResultTitle
+			activityLabel.text = vm.votingResultTitle
 			updateDescriptionLabel.text = vm.votingResultDescription
-			activityLabel.isHidden = true
 		}
-
-		titleStackView.gestureRecognizers = []
-		descriptionStackView.gestureRecognizers = []
-
 		return self
 	}
 
@@ -95,7 +83,7 @@ final class ActivityCell: UITableViewCell {
 		switch vm.type {
 		case .update:
 			updateBlock = block
-			titleStackView.gestureRecognizers = [
+			descriptionStackView.gestureRecognizers = [
 				UITapGestureRecognizer(target: self,
 									   action: #selector(updateTapped))]
 		default: break
@@ -108,7 +96,7 @@ final class ActivityCell: UITableViewCell {
 		switch vm.type {
 		case .fundingInfo, .update, .voting, .votingResults:
 			campaignBlock = block
-			descriptionStackView.gestureRecognizers = [
+			titleStackView.gestureRecognizers = [
 				UITapGestureRecognizer(target: self,
 									   action: #selector(campaignTapped))]
 		default: break

@@ -119,7 +119,7 @@ extension ActivityViewController: UITableViewDataSource {
 				Service.presenter.presentContentViewController(in: self, for: vm)
 			}
 			.replyTap { [unowned self] replyId in
-//				Service.presenter.presentCommentsViewController(in: self, source: <#T##CommentAVM#>, repliesTo: <#T##CommentVM#>)
+//				Service.presenter.presentCommentsViewController(in: self, source: , repliesTo: )
 			}
 	}
 }

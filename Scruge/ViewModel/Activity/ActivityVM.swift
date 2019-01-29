@@ -61,9 +61,7 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	}
 
 	var replyAuthorName:String {
-		return (model?.activity as? ActivityReply)
-			.flatMap { !$0.replyUserName.isEmpty ? $0.replyUserName : nil } ?? "Anonymous"
-				+ " replied to your comment"
+		return "\((model?.activity as? ActivityReply).flatMap { !$0.replyUserName.isEmpty ? $0.replyUserName : nil } ?? "Anonymous") replied to your comment"
 	}
 
 	// update
@@ -101,16 +99,16 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 			Date.present($0.timestamp, as: "d MMMM HH:mm") } ?? ""
 	}
 
-	var fundingTitle:String { // TO-DO:
+	var fundingTitle:String {
 		return (model?.activity as? ActivityFunding).flatMap {
 			"\($0.campaign.title) has finished its funding campaign" } ?? ""
 	}
 
-	var fundingDescription:String { // TO-DO:
+	var fundingDescription:String {
 		return (model?.activity as? ActivityFunding).flatMap {
 			let cap = $0.softCap.formatDecimal(separateWith: " ")
 			let s = "\($0.campaign.title) has successfully reached the goal of $\(cap)."
-			let f = "\($0.campaign.title) did not reach the minimum goal of $\(cap) and is now closed."
+			let f = "\($0.campaign.title) did not reach the minimum goal of $\(cap)."
 			return $0.raised >= $0.softCap ? s : f
 		} ?? ""
 	}
@@ -123,21 +121,18 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 			Date.present($0.timestamp, as: "d MMMM HH:mm") } ?? ""
 	}
 
-	var votingTitle:String { // TO-DO:
-		return (model?.activity as? ActivityVoting)
-			.flatMap { a in
-				let type = VoteKind(rawValue:a.kind) == .extend ? "extend deadline" : "release funds"
-				return "Voting to \(type) for \(a.campaign.title) starts soon" } ?? ""
+	var votingTitle:String {
+		return (model?.activity as? ActivityVoting).flatMap { "Voting in \($0.campaign.title) starts soon" } ?? ""
 	}
 
-	var votingDescription:String { // TO-DO:
+	var votingDescription:String {
 		return (model?.activity as? ActivityVoting)
 			.flatMap { a in
 				let date = Date.present(a.startTimestamp, as: "d MMMM")
 				let time = Date.present(a.startTimestamp, as: "HH:mm")
 				let period = a.noticePeriodSec / (24*60*60)
 				let type = VoteKind(rawValue:a.kind) == .extend ? "extend deadline" : "release funds"
-				return "Voting to \(type) of milestone \(a.milestoneTitle) for campaign \(a.campaign.title) starts in \(period) days on \(date) at \(time)"
+				return "Voting to \(type) of milestone \(a.milestoneTitle) for campaign \(a.campaign.title) starts in \(period) days on \(date) at \(time)."
 			} ?? ""
 	}
 
@@ -149,15 +144,16 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 			Date.present($0.timestamp, as: "d MMMM HH:mm") } ?? ""
 	}
 
-	var votingResultTitle:String { // TO-DO:
-		return (model?.activity as? ActivityVotingResult)
-			.flatMap { a in
-				let type = VoteKind(rawValue:a.kind) == .extend ? "extend deadline" : "releas funds"
-				return "Vote for \(a.campaign.title) on \(type) has finished" } ?? ""
+	var votingResultTitle:String {
+		return (model?.activity as? ActivityVotingResult).flatMap { "Voting in \($0.campaign.title) has finished" } ?? ""
 	}
 
-	var votingResultDescription:String { // TO-DO:
-		return "Voting finished with result..."
+	var votingResultDescription:String {
+		return (model?.activity as? ActivityVotingResult)
+			.flatMap { a in
+				let type = VoteKind(rawValue:a.kind) == .extend ? "extend deadline" : "release funds"
+				return "Voting to \(type) of milestone \(a.milestoneTitle) for campaign \(a.campaign.title) has finished.\nCheck out the results now."
+			} ?? ""
 	}
 
 	// other
