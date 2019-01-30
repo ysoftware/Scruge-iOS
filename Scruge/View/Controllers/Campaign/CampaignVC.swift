@@ -242,7 +242,7 @@ final class CampaignViewController: UIViewController {
 	}
 
 	private func showContributeButton(_ visible:Bool = true) {
-		let inset = contributeButton.frame.height + 20
+		let inset = contributeButtonBackgroundView.frame.height + 20
 		let value = visible ? inset : 0
 
 		if #available(iOS 11.0, *) {
