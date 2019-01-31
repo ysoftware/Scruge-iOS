@@ -64,6 +64,8 @@
 		715DB15B2174716E0005B69D /* VoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB15A2174716E0005B69D /* VoteVC.swift */; };
 		715DB15D217471980005B69D /* ContributeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB15C217471980005B69D /* ContributeVC.swift */; };
 		716200692203144500DC1A10 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7162006B2203144500DC1A10 /* Localizable.strings */; };
+		7162006E22031C9700DC1A10 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162006D22031C9700DC1A10 /* Localizable.swift */; };
+		7162007122031D3800DC1A10 /* LocalizableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162007022031D3800DC1A10 /* LocalizableViews.swift */; };
 		7166528521F0A4CD005A50F7 /* ResourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528421F0A4CD005A50F7 /* ResourcesView.swift */; };
 		7166528721F0A6F9005A50F7 /* ResourcesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7166528621F0A6F9005A50F7 /* ResourcesView.xib */; };
 		7166528A21F0B143005A50F7 /* ResourcesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528921F0B143005A50F7 /* ResourcesVM.swift */; };
@@ -337,6 +339,8 @@
 		715DB15C217471980005B69D /* ContributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributeVC.swift; sourceTree = "<group>"; };
 		7162006A2203144500DC1A10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7162006C2203144F00DC1A10 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		7162006D22031C9700DC1A10 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
+		7162007022031D3800DC1A10 /* LocalizableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableViews.swift; sourceTree = "<group>"; };
 		7166528421F0A4CD005A50F7 /* ResourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesView.swift; sourceTree = "<group>"; };
 		7166528621F0A6F9005A50F7 /* ResourcesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesView.xib; sourceTree = "<group>"; };
 		7166528921F0B143005A50F7 /* ResourcesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesVM.swift; sourceTree = "<group>"; };
@@ -756,6 +760,7 @@
 		71387A92216B6C8400B24C67 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7162006F22031D1B00DC1A10 /* Localizable */,
 				716F060A21D3942400561162 /* ExpandableView.swift */,
 				716F060021D219D800561162 /* UIButton+AddTargetClosure.swift */,
 				7105C35821AD63F8008AAB1E /* GradientView.swift */,
@@ -826,6 +831,15 @@
 				713EF3B121A98E6F009BA9D5 /* PagingCell.swift */,
 			);
 			path = "Paging Cell";
+			sourceTree = "<group>";
+		};
+		7162006F22031D1B00DC1A10 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				7162006D22031C9700DC1A10 /* Localizable.swift */,
+				7162007022031D3800DC1A10 /* LocalizableViews.swift */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		7166528321F0A48A005A50F7 /* Staking */ = {
@@ -2113,6 +2127,7 @@
 				71B38D14215B999400929CC3 /* Milestone.swift in Sources */,
 				71D84CC321995AD000E8DB88 /* curves.c in Sources */,
 				716E625821899455002AC5DA /* ContribApi.swift in Sources */,
+				7162007122031D3800DC1A10 /* LocalizableViews.swift in Sources */,
 				71C3689A2181F80500729C00 /* EconomiesVM.swift in Sources */,
 				71C2438F21D4C33200E86F64 /* ActionVM.swift in Sources */,
 				715DB15D217471980005B69D /* ContributeVC.swift in Sources */,
@@ -2143,6 +2158,7 @@
 				71387A8E216B6C2200B24C67 /* ImageTools.swift in Sources */,
 				71DA7E982164AB6E0052EB8F /* ActivityVC.swift in Sources */,
 				71BE95AC21626610001CF853 /* NumberString.swift in Sources */,
+				7162006E22031C9700DC1A10 /* Localizable.swift in Sources */,
 				71D84CE221995AD000E8DB88 /* SEWallet.swift in Sources */,
 				71971C832158E056004D28E7 /* LoginVC.swift in Sources */,
 				71971C812158E056004D28E7 /* AppDelegate.swift in Sources */,

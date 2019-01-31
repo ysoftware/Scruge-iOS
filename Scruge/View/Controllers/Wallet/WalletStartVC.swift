@@ -15,6 +15,8 @@ final class WalletStartViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		localize()
 		setupButton()
 	}
 

@@ -32,6 +32,7 @@ final class CreateAccountViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupKey()
 		setupButton()
 		setupKeyboard()

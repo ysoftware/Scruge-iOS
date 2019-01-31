@@ -49,6 +49,7 @@ final class WalletViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupActions()
 		setupExpandableViews()
 		setupScrollView()

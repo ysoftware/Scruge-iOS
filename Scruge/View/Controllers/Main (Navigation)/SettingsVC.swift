@@ -12,6 +12,12 @@ final class SettingsViewController: UIViewController {
 
 	var profileVM:ProfileVM?
 
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		localize()
+	}
+
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		

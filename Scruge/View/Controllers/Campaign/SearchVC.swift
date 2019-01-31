@@ -31,6 +31,7 @@ final class SearchViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupSearchBar()
 		setupCollection()
 		setupTable()

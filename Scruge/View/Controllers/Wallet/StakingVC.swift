@@ -30,6 +30,7 @@ final class StakingViewController:UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setup()
 		setupKeyboard()
 		updateViews()

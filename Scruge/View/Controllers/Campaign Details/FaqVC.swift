@@ -24,6 +24,7 @@ final class FaqViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupTableView()
 		setupVM()
 	}

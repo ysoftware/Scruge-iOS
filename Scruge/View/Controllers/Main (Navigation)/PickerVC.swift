@@ -27,6 +27,7 @@ final class PickerViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupViews()
 		setupActions()
 	}

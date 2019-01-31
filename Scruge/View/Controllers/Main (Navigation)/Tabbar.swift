@@ -14,6 +14,7 @@ final class TabbarViewController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		Service.presenter.setupMainTabs(in: self)
 		tabBar.tintColor = Service.constants.color.purple
 		delegate = self

@@ -24,6 +24,7 @@ final class WalletPickerViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		tableView.register(UINib(resource: R.nib.accountCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.accountCell.identifier)
 		setupVM()

@@ -23,6 +23,7 @@ final class RegisterViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		navigationController?.navigationBar.isHidden = true
 		registerButton.addClick(self, action: #selector(signUp))
 	}

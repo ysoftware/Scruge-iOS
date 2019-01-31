@@ -33,6 +33,7 @@ final class TransferViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupViews()
 		setupKeyboard()
 		setupActions()

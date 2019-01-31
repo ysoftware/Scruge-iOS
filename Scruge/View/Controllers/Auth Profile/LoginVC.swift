@@ -22,6 +22,7 @@ final class LoginViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		navigationController?.navigationBar.isHidden = true
 		loginButton.addClick(self, action: #selector(login))
 	}

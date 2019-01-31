@@ -47,6 +47,7 @@ final class VoteResultsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		loadResult()
 		setupVM()
 		setupTable()

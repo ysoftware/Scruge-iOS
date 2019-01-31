@@ -28,6 +28,7 @@ final class LoadingView: UIView {
 		contentView.frame = self.bounds
 		contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		set(state: .loading)
+		localize()
 	}
 
 	// MARK: - Outlets

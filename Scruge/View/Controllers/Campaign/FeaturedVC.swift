@@ -36,6 +36,7 @@ final class FeaturedViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupVM()
 		setupNavigationBar()
 		setupTableView()

@@ -83,6 +83,7 @@ final class CampaignViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupVM()
 		setupTableView()
 		setupNavigationBar()

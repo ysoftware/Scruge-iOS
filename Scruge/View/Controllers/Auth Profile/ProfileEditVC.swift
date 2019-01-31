@@ -80,6 +80,7 @@ final class ProfileEditViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupNavigationBar()
 		setupEditing()
 		setupButton()

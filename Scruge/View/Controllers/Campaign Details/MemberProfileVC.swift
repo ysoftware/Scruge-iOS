@@ -27,6 +27,7 @@ final class MemberProfileViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupTableView()
 		refreshProfile()
 	}

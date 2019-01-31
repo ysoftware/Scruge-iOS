@@ -40,6 +40,7 @@ final class WalletDataView: UIView {
 		contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		contentView.backgroundColor = .clear
 		self.backgroundColor = .clear
+		localize()
 	}
 
 	func lock() {

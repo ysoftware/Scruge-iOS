@@ -55,6 +55,7 @@ final class ResourcesView: UIView {
 		contentView.backgroundColor = .clear
 		self.backgroundColor = .clear
 
+		localize()
 		setupViews()
 		setupActions()
 	}

@@ -20,6 +20,7 @@ final class ImportKeyViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupButton()
 		setupKeyboard()
 		setupNavigationBar()

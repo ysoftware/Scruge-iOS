@@ -17,6 +17,8 @@ final class ContentViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		localize()
 		preferSmallNavbar()
 
 		if let vm = campaignVM?.lastUpdateVM {

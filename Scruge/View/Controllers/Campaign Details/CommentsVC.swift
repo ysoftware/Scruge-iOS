@@ -71,6 +71,7 @@ final class CommentsViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupTableView()
 		setupVM()
 		setupInputBar()

@@ -41,6 +41,7 @@ final class ProgressView: UIView {
 		contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		contentView.backgroundColor = .clear
 		self.backgroundColor = .clear
+		localize()
 	}
 
 	// MARK: - Properties

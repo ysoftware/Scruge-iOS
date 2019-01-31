@@ -53,6 +53,7 @@ final class ContributeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupInformation()
 		setupField()
 		setupVM()

@@ -34,6 +34,7 @@ final class Button: UIView {
 		contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
 		contentView.backgroundColor = .clear
 		self.backgroundColor = .clear
+		localize()
 	}
 
 	override func layoutSubviews() {

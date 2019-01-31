@@ -28,6 +28,7 @@ final class AlertViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupBlock?()
 		setupBlock = nil
 

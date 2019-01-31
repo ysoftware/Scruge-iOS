@@ -20,7 +20,8 @@ final class WalletNoAccountViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+
+		localize()
 		setupButton()
 		NotificationCenter.default.addObserver(forName: UIApplication.willResignActiveNotification,
 											   object: nil, queue: nil) { _ in

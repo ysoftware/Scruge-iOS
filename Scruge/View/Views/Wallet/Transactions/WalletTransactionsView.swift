@@ -39,6 +39,7 @@ final class WalletTransactionsView: UIView {
 	}
 
 	private func setup() {
+		localize()
 		addSubview(tableView)
 		tableView.translatesAutoresizingMaskIntoConstraints = false
 		tableView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true

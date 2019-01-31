@@ -25,6 +25,7 @@ final class UpdatesViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
+		localize()
 		setupTableView()
 		setupVM()
 	}

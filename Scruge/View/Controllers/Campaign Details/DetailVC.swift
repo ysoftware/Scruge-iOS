@@ -18,6 +18,8 @@ final class DetailViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
+
+		localize()
 		setup()
 	}
 
