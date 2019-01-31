@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--FAQ-->
+        <!--@title_faq_single-->
         <scene sceneID="4AJ-Mg-yHB">
             <objects>
-                <viewController storyboardIdentifier="FaqVC" title="FAQ" id="HAl-44-WnL" customClass="FaqViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FaqVC" title="@title_faq_single" id="HAl-44-WnL" customClass="FaqViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nsS-OL-pbj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -44,10 +44,10 @@
             </objects>
             <point key="canvasLocation" x="-945" y="40"/>
         </scene>
-        <!--Vote results-->
+        <!--@title_voting_progress-->
         <scene sceneID="Dae-Vy-fRD">
             <objects>
-                <viewController storyboardIdentifier="VoteResultsVC" title="Vote results" id="f2F-bl-Kz9" customClass="VoteResultsViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VoteResultsVC" title="@title_voting_progress" id="f2F-bl-Kz9" customClass="VoteResultsViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bSo-dL-qeJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -78,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="-1714.4927536231885" y="743.97321428571422"/>
         </scene>
-        <!--Vote-->
+        <!--@title_vote-->
         <scene sceneID="5f0-Cf-lGJ">
             <objects>
-                <viewController storyboardIdentifier="VoteVC" title="Vote" hidesBottomBarWhenPushed="YES" id="ayX-0W-Zr1" customClass="VoteViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VoteVC" title="@title_vote" hidesBottomBarWhenPushed="YES" id="ayX-0W-Zr1" customClass="VoteViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Haa-zm-Khs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,10 +121,10 @@
             </objects>
             <point key="canvasLocation" x="-946.37681159420299" y="743.97321428571422"/>
         </scene>
-        <!--FAQ-->
+        <!--Documents View Controller-->
         <scene sceneID="zlY-Hf-pkj">
             <objects>
-                <viewController storyboardIdentifier="DocumentsVC" title="FAQ" id="JsB-Se-PaD" customClass="DocumentsViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DocumentsVC" id="JsB-Se-PaD" customClass="DocumentsViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RuO-mD-wKc">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,10 +155,10 @@
             </objects>
             <point key="canvasLocation" x="-1683" y="38"/>
         </scene>
-        <!--Updates-->
+        <!--@title_updates-->
         <scene sceneID="RGB-i8-fHn">
             <objects>
-                <viewController storyboardIdentifier="UpdatesVC" title="Updates" id="lJj-ci-nMk" customClass="UpdatesViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="UpdatesVC" title="@title_updates" id="lJj-ci-nMk" customClass="UpdatesViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eC0-Gi-faS">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -198,10 +198,10 @@
             </objects>
             <point key="canvasLocation" x="-81.159420289855078" y="39.508928571428569"/>
         </scene>
-        <!--Milestones-->
+        <!--@title_milestones-->
         <scene sceneID="tsf-me-jOb">
             <objects>
-                <viewController storyboardIdentifier="MilestonesVC" title="Milestones" id="r7o-AA-FzE" customClass="MilestonesViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MilestonesVC" title="@title_milestones" id="r7o-AA-FzE" customClass="MilestonesViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="lQG-Uu-xQT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -241,10 +241,10 @@
             </objects>
             <point key="canvasLocation" x="733.33333333333337" y="37.5"/>
         </scene>
-        <!--Payment-->
+        <!--@title_invest_in-->
         <scene sceneID="s80-av-TwC">
             <objects>
-                <viewController storyboardIdentifier="ContributeVC" title="Payment" id="OIg-ue-IrF" customClass="ContributeViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ContributeVC" title="@title_invest_in" id="OIg-ue-IrF" customClass="ContributeViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3dg-ta-LvQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -253,13 +253,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Wy-4w-gaR">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="435.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="428"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="vm0-Zw-VWf">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="435.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="428"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="38j-pZ-cWj">
-                                                        <rect key="frame" x="10" y="54" width="394" height="371.5"/>
+                                                        <rect key="frame" x="10" y="54" width="394" height="364"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GXd-RZ-2PS">
                                                                 <rect key="frame" x="30" y="30" width="334" height="5"/>
@@ -291,7 +291,7 @@
                                                                                     <constraint firstAttribute="height" constant="15" id="ztK-C0-iHK"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wallet password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ta-FE-TMh">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@hint_wallet_password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Ta-FE-TMh">
                                                                                 <rect key="frame" x="45" y="0.0" width="274" height="60"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -373,10 +373,10 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="RCO-Pn-rTE">
-                                                                <rect key="frame" x="30" y="220" width="334" height="31.5"/>
+                                                                <rect key="frame" x="30" y="220" width="334" height="24"/>
                                                                 <subviews>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="14w-Ct-xRs">
-                                                                        <rect key="frame" x="7.5" y="0.0" width="319" height="31.5"/>
+                                                                        <rect key="frame" x="87.5" y="0.0" width="159" height="24"/>
                                                                         <subviews>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="1000" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="OUd-Qv-0ge">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="20" height="24"/>
@@ -415,10 +415,10 @@
                                                                                 <edgeInsets key="layoutMargins" top="4" left="0.0" bottom="0.0" right="0.0"/>
                                                                             </stackView>
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="huO-Xh-My3">
-                                                                                <rect key="frame" x="24" y="0.0" width="295" height="31.5"/>
+                                                                                <rect key="frame" x="24" y="0.0" width="135" height="16"/>
                                                                                 <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="I agree to the terms of the offer and take all the risks on myself" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAP-Gu-0mH">
-                                                                                        <rect key="frame" x="5" y="0.0" width="290" height="31.5"/>
+                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="@label_i_agree_terms" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TAP-Gu-0mH">
+                                                                                        <rect key="frame" x="5" y="0.0" width="130" height="16"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                                                         <color key="textColor" red="0.60784313725490191" green="0.59999999999999998" blue="0.66274509803921566" alpha="1" colorSpace="calibratedRGB"/>
                                                                                         <nil key="highlightedColor"/>
@@ -435,13 +435,13 @@
                                                                 </connections>
                                                             </stackView>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QGr-To-Qgl" customClass="Button" customModule="Scruge" customModuleProvider="target">
-                                                                <rect key="frame" x="30" y="281.5" width="334" height="60"/>
+                                                                <rect key="frame" x="30" y="274" width="334" height="60"/>
                                                                 <color key="backgroundColor" red="0.85490196080000003" green="0.85098039219999999" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="60" id="thU-Qs-G4z"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="PAY"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="@do_pay_cap"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                         </subviews>
@@ -516,10 +516,10 @@
             </objects>
             <point key="canvasLocation" x="-81.159420289855078" y="743.97321428571422"/>
         </scene>
-        <!--Comments-->
+        <!--@title_comments-->
         <scene sceneID="Z7e-8A-wcQ">
             <objects>
-                <viewController storyboardIdentifier="CommentsVC" title="Comments" id="8Ms-fC-wEl" customClass="CommentsViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="CommentsVC" title="@title_comments" id="8Ms-fC-wEl" customClass="CommentsViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="auQ-eU-KvA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -545,8 +545,8 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="0qA-Ly-8fN">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="89"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Write a comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uvO-bd-R6Y">
-                                                            <rect key="frame" x="15" y="10" width="170.5" height="35"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="@hint_write_a_comment" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uvO-bd-R6Y">
+                                                            <rect key="frame" x="15" y="10" width="175" height="35"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="35" id="eiy-iC-iTe"/>
                                                             </constraints>
@@ -555,18 +555,18 @@
                                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="yes" spellCheckingType="yes" returnKeyType="done"/>
                                                         </textField>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g7v-Je-yXj">
-                                                            <rect key="frame" x="195.5" y="10" width="203.5" height="35"/>
+                                                            <rect key="frame" x="200" y="10" width="199" height="35"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" horizontalCompressionResistancePriority="1000" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9AZ-85-lzY">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="203.5" height="35"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="199" height="35"/>
                                                                     <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
-                                                                    <state key="normal" title="Send"/>
+                                                                    <state key="normal" title="@do_send"/>
                                                                     <connections>
                                                                         <action selector="sendComment:" destination="8Ms-fC-wEl" eventType="touchUpInside" id="1x9-lI-Cv7"/>
                                                                     </connections>
                                                                 </button>
                                                                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="H3J-l1-rIE">
-                                                                    <rect key="frame" x="92" y="7.5" width="20" height="20"/>
+                                                                    <rect key="frame" x="89.5" y="7.5" width="20" height="20"/>
                                                                 </activityIndicatorView>
                                                             </subviews>
                                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -645,19 +645,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="y5k-Zy-2xC" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                <rect key="frame" x="15" y="74" width="384" height="124.5"/>
+                                <rect key="frame" x="15" y="74" width="384" height="45"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="5W3-rB-o9U">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="124.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="45"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What happens if ICO didn’t reach its minimum CAP?" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGe-72-smA">
-                                                <rect key="frame" x="15" y="15" width="354" height="38.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DGe-72-smA">
+                                                <rect key="frame" x="15" y="15" width="354" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                                 <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In most cases the money is refunded into the investor’s account." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vk-E7-qxQ">
-                                                <rect key="frame" x="15" y="68.5" width="354" height="41"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Vk-E7-qxQ">
+                                                <rect key="frame" x="15" y="30" width="354" height="0.0"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -692,10 +692,10 @@
             </objects>
             <point key="canvasLocation" x="-1022" y="-762"/>
         </scene>
-        <!--Activity-->
+        <!--@title_activity-->
         <scene sceneID="f94-LG-TQz">
             <objects>
-                <viewController storyboardIdentifier="ActivityVC" title="Activity" id="pIz-sy-rpm" customClass="ActivityViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ActivityVC" title="@title_activity" id="pIz-sy-rpm" customClass="ActivityViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="enO-pM-uZK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

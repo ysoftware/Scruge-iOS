@@ -24,10 +24,10 @@
             </objects>
             <point key="canvasLocation" x="-2388" y="-260"/>
         </scene>
-        <!--Settings-->
+        <!--@title_settings-->
         <scene sceneID="0dA-Ez-em5">
             <objects>
-                <viewController storyboardIdentifier="SettingsVC" title="Settings" id="x5R-sF-vTp" customClass="SettingsViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsVC" title="@title_settings" id="x5R-sF-vTp" customClass="SettingsViewController" customModule="Scruge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gU1-iA-OMs">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -51,7 +51,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5e-iN-8ty">
                                                         <rect key="frame" x="31" y="0.0" width="314" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <state key="normal" title="Edit Profile">
+                                                        <state key="normal" title="@do_edit_profile">
                                                             <color key="titleColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -85,7 +85,7 @@
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VrN-RX-ljO">
                                                         <rect key="frame" x="31" y="0.0" width="314" height="30"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                                        <state key="normal" title="Sign Out">
+                                                        <state key="normal" title="@do_sign_out">
                                                             <color key="titleColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
@@ -122,25 +122,25 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QMX-Cm-Gki" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                <rect key="frame" x="30" y="225.5" width="315" height="236"/>
+                                <rect key="frame" x="30" y="243.5" width="315" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="WtI-tb-8be">
-                                        <rect key="frame" x="0.0" y="0.0" width="315" height="236"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="200"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="W5w-1t-Mr9">
-                                                <rect key="frame" x="10" y="10" width="295" height="71"/>
+                                                <rect key="frame" x="10" y="10" width="295" height="35"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="m5D-ZB-3Nc">
-                                                        <rect key="frame" x="15" y="10" width="265" height="14.5"/>
+                                                        <rect key="frame" x="15" y="10" width="265" height="0.0"/>
                                                         <subviews>
-                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ARE YOU SURE TO DELETE YOUR WALLET?" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0I-fi-Xb2">
-                                                                <rect key="frame" x="0.0" y="0.0" width="265" height="14.5"/>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0I-fi-Xb2">
+                                                                <rect key="frame" x="0.0" y="0.0" width="265" height="0.0"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="12"/>
                                                                 <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <button hidden="YES" opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VPq-Ao-H0Q">
-                                                                <rect key="frame" x="0.0" y="-3.5" width="22" height="22"/>
+                                                                <rect key="frame" x="0.0" y="-11" width="22" height="22"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" constant="22" id="0M6-TW-hEq"/>
                                                                     <constraint firstAttribute="width" secondItem="VPq-Ao-H0Q" secondAttribute="height" id="rWf-pD-75g"/>
@@ -150,13 +150,13 @@
                                                         </subviews>
                                                     </stackView>
                                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lb8-na-Dns">
-                                                        <rect key="frame" x="15" y="39.5" width="265" height="21.5"/>
+                                                        <rect key="frame" x="15" y="25" width="265" height="0.0"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wXj-P5-cTg">
-                                                                <rect key="frame" x="0.0" y="0.0" width="265" height="21.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="265" height="0.0"/>
                                                                 <subviews>
-                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Vote on campaign ended" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jc-L7-ABb">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="255" height="21.5"/>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Jc-L7-ABb">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="255" height="0.0"/>
                                                                         <fontDescription key="fontDescription" type="system" weight="medium" pointSize="18"/>
                                                                         <color key="textColor" red="0.37254901959999998" green="0.36470588240000001" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                                         <nil key="highlightedColor"/>
@@ -185,7 +185,7 @@
                                                 <edgeInsets key="layoutMargins" top="10" left="15" bottom="10" right="15"/>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7yI-Mm-KXq">
-                                                <rect key="frame" x="10" y="96" width="295" height="125"/>
+                                                <rect key="frame" x="10" y="60" width="295" height="125"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vKq-aq-eWk" customClass="Button" customModule="Scruge" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="0.0" width="295" height="60"/>
@@ -203,9 +203,6 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="60" id="5jP-TO-jWg"/>
                                                         </constraints>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="string" keyPath="text" value="YES"/>
-                                                        </userDefinedRuntimeAttributes>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
@@ -283,7 +280,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="Izl-DC-Gdr"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="OK"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="@label_ok"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>
