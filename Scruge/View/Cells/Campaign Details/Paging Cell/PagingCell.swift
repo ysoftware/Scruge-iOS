@@ -25,7 +25,7 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 		localize()
 		
 		faqVM = vm
-		titleLabel.text = "Frequently asked questions"
+		titleLabel.text = R.string.localizable.title_faq()
 		collectionView.register(UINib(resource: R.nib.faqCell),
 								forCellWithReuseIdentifier: R.nib.faqCell.identifier)
 		pageControl.numberOfPages = vm.numberOfItems
@@ -44,7 +44,7 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 			   _ currentMilestone:MilestoneVM) -> PagingCell {
 		milestoneVM = vm
 		self.currentMilestone = currentMilestone
-		titleLabel.text = "Current milestone"
+		titleLabel.text = R.string.localizable.title_current_milestone()
 		collectionView.register(UINib(resource: R.nib.milestoneCell),
 								forCellWithReuseIdentifier: R.nib.milestoneCell.identifier)
 		pageControl.numberOfPages = vm.numberOfItems
@@ -124,13 +124,13 @@ extension PagingCell: UIScrollViewDelegate {
 			if milestoneVM != nil {
 				switch index {
 				case 0..<currentIndex:
-					titleLabel.text = "Previous milestone"
+					titleLabel.text = R.string.localizable.title_previous_milestone()
 				case currentIndex:
-					titleLabel.text = "Current milestone"
+					titleLabel.text = R.string.localizable.title_current_milestone()
 				case currentIndex + 1:
-					titleLabel.text = "Next milestone"
+					titleLabel.text = R.string.localizable.title_next_milestone()
 				default:
-					titleLabel.text = "Future milestone"
+					titleLabel.text = R.string.localizable.title_future_milestone()
 				}
 			}
 		}

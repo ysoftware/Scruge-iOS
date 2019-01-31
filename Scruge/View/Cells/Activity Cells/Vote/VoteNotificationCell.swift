@@ -21,11 +21,14 @@ final class VoteNotificationCell: UITableViewCell {
 		selectionStyle = .none
 		#warning("refactor to view model")
 
-		let voteKindText = vote.voting.kind == .extend ? "extend deadline" : "continue campaign"
-		titleLabel.text = "Voting to \(voteKindText) for \(vote.campaign.title)"
+		let voteKindText = vote.voting.kind == .extend
+			? R.string.localizable.label_voting_to_extend()
+			: R.string.localizable.label_voting_to_release_funds()
+
+		titleLabel.text = R.string.localizable.label_voting_to_for(voteKindText, vote.campaign.title)
 		dateLabel.text = Date.presentRelative(vote.voting.endTimestamp,
-											  future: "ends",
-											  past: "ended")
+											  future: R.string.localizable.label_campaign_ends(),
+											  past: R.string.localizable.label_campaign_ended())
 		return self
 	}
 }

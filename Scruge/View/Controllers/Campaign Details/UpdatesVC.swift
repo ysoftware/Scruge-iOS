@@ -87,7 +87,7 @@ extension UpdatesViewController: ArrayViewModelDelegate {
 			loadingView.set(state: .error(message))
 		case .ready:
 			if vm.isEmpty {
-				loadingView.set(state: .error("No comments"))
+				loadingView.set(state: .error(R.string.localizable.label_no_comments_yet()))
 			}
 			else {
 				loadingView.set(state: .ready)

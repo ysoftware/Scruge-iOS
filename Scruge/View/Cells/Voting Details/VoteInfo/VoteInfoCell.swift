@@ -34,10 +34,10 @@ final class VoteInfoCell: UITableViewCell {
 		rightLabel?.text = vm.daysLeft
 
 		if kind == .extend {
-			descriptionLabel?.text = "Voting whether to extend deadlines of the milestone."
+			descriptionLabel?.text = R.string.localizable.label_vote_extend_description()
 		}
 		else {
-			descriptionLabel?.text = "Voting to accept milestone results and release next portions of funds to the founders of the campaign or to return remaining funds to backers and close the campaign."
+			descriptionLabel?.text = R.string.localizable.label_vote_release_description()
 		}
 
 		if let vm = vm as? CampaignVM, let videoUrl = vm.videoUrl {

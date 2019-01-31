@@ -17,7 +17,7 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 	func setup(with vm:UpdateVM) -> Self {
 		localize()
 
-		titleLabel.text = "Last update"
+		titleLabel.text = R.string.localizable.title_last_update()
 		rightLabel.text = vm.date
 		return self
 	}
@@ -26,7 +26,7 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 	func setup(with vm:MilestoneVM) -> Self {
 		localize()
 
-		titleLabel.text = "Current milestone"
+		titleLabel.text = R.string.localizable.title_current_milestone()
 		rightLabel.text = ""
 		return self
 	}
@@ -35,7 +35,7 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 	func setup(with vm:CommentAVM, for campaignVM:CampaignVM) -> Self {
 		localize()
 
-		titleLabel.text = "Comments"
+		titleLabel.text = R.string.localizable.title_comments()
 		rightLabel.text = "\(campaignVM.commentsCount)"
 		return self
 	}
@@ -44,7 +44,7 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 	func setup(with vm:RewardAVM) -> Self {
 		localize()
 
-		titleLabel.text = "Rewards"
+		titleLabel.text = "" // R.string.localizable.title_rewards()
 		rightLabel.text = ""
 		return self
 	}
@@ -53,7 +53,7 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 	func setup(with vm:DocumentAVM) -> Self {
 		localize()
 
-		titleLabel.text = "Documents"
+		titleLabel.text = R.string.localizable.title_documents()
 		rightLabel.text = "\(vm.numberOfItems)"
 		return self
 	}
@@ -62,7 +62,7 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 	func setup(with vm:FaqAVM) -> Self {
 		localize()
 
-		titleLabel.text = "Frequently asked questions"
+		titleLabel.text = R.string.localizable.title_faq()
 		rightLabel.text = "\(vm.numberOfItems)"
 		return self
 	}

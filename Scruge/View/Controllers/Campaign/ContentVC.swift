@@ -31,7 +31,7 @@ final class ContentViewController: UIViewController {
 				self.webView.loadHTMLString(body, baseURL: nil)
 			}
 
-			let button = UIBarButtonItem(title: "Comments",
+			let button = UIBarButtonItem(title: R.string.localizable.title_comments(),
 										 style: .plain,
 										 target: self,
 										 action: #selector(openComments))

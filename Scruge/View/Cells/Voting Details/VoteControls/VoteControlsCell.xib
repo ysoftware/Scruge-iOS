@@ -24,7 +24,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="k7I-rF-mwg">
                                 <rect key="frame" x="0.0" y="0.0" width="506" height="213.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="Place your vote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLi-Im-jr5">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" insetsLayoutMarginsFromSafeArea="NO" text="@title_place_your_vote" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MLi-Im-jr5">
                                         <rect key="frame" x="15" y="15" width="476" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
                                         <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -40,7 +40,7 @@
                                                     <constraint firstAttribute="width" secondItem="QL4-xu-8Mz" secondAttribute="height" id="VzK-Oa-D9v"/>
                                                 </constraints>
                                             </imageView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wallet password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmM-GY-7dj">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@hint_wallet_password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mmM-GY-7dj">
                                                 <rect key="frame" x="45" y="0.0" width="416" height="60"/>
                                                 <color key="textColor" red="0.37254901959999998" green="0.36470588240000001" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -74,7 +74,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="LIa-Dx-8a9"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="VOTE AGAINST"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="@do_vote_against"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8Bg-Ea-sn9" customClass="Button" customModule="Scruge" customModuleProvider="target">
@@ -84,7 +84,7 @@
                                                     <constraint firstAttribute="height" constant="60" id="4ju-zz-AVp"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="VOTE FOR"/>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="@do_vote_for"/>
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                         </subviews>

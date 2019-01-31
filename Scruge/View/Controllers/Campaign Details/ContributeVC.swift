@@ -76,8 +76,10 @@ final class ContributeViewController: UIViewController {
 	}
 
 	private func setupKeyboard() {
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
+											   name:UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+											   name:UIResponder.keyboardWillHideNotification, object: nil)
 	}
 
 	private func setupField() {
@@ -89,16 +91,16 @@ final class ContributeViewController: UIViewController {
 	private func setupInformation() {
 		vm.loadAmountContributed { value in
 			guard let value = value else {
-				return self.alert("You don't seem to have any transferable tokens")
+				return self.alert(R.string.localizable.error_wallet_no_transferable_tokens())
 			}
 
 			let usd = (Service.exchangeRates.convert(Quantity(value, .scr), to: .usd)?.amount ?? 0)
 				.formatDecimal(separateWith: " ")
 
-			self.contributedLabel.text = "You have already contributed $\(usd) in this project"
+			self.contributedLabel.text = R.string.localizable.label_you_have_contributed_usd(usd)
 			self.contributedLabel.isHidden = value == 0
 		}
-		titleLabel.text = "Investing in \(vm.title)"
+		titleLabel.text = R.string.localizable.title_invest_in(vm.title)
 	}
 
 	// MARK: - Methods
@@ -107,13 +109,15 @@ final class ContributeViewController: UIViewController {
 		guard isChecked else { return }
 
 		guard let account = accountVM.selectedAccount else {
-			return alert("You don't have your blockchain account set up")
+			return alert(R.string.localizable.error_wallet_not_setup())
 		}
 
-		guard let amountSCR = amountSCR else { return alert("Enter valid contribution amount") }
+		guard let amountSCR = amountSCR else {
+			return alert(R.string.localizable.error_wallet_invalid_amount())
+		}
 
 		guard let passcode = passcodeField.text, passcode.count > 0 else {
-			return alert("Enter your wallet password")
+			return alert(R.string.localizable.error_wallet_enter_wallet_password())
 		}
 
 		self.vm.contribute(amountSCR, account: account, passcode: passcode) { error in
@@ -121,7 +125,7 @@ final class ContributeViewController: UIViewController {
 				self.alert(error)
 			}
 			else {
-				self.alert("Transaction was successful") {
+				self.alert(R.string.localizable.alert_transaction_success()) {
 					self.navigationController?.popViewController(animated: true)
 				}
 			}

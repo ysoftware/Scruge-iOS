@@ -147,7 +147,7 @@ extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigati
 		guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
 
 		guard image.size.width > 50, image.size.height > 50 else {
-			return self.alert(R.string.localizable.error_image_too_small)
+			return self.alert(R.string.localizable.error_image_too_small())
 		}
 
 		self.selectedImage = image.downscaled(to: 400)

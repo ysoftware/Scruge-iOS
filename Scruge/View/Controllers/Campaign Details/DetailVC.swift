@@ -25,12 +25,12 @@ final class DetailViewController: UIViewController {
 
 	func setup() {
 		if let faq = faq {
-			title = "Frequently answered question"
+			title = R.string.localizable.title_faq_single()
 			titleLabel.text = faq.question
 			contentLabel.text = faq.answer
 		}
 		else if let milestone = milestone {
-			title = "Milestone"
+			title = R.string.localizable.title_milestone_single()
 			titleLabel.text = "\(milestone.date)\n\(milestone.fundsRelease)"
 			contentLabel.text = milestone.description
 		}

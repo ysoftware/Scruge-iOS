@@ -41,7 +41,7 @@ final class TopCommentCell: UITableViewCell {
 			}
 
 			if allCommentsCount == 1 {
-				allCommentsLabel.text = "Add your comment"
+				allCommentsLabel.text = R.string.localizable.do_add_your_comment()
 			}
 			else {
 				allCommentsLabel.text = "See all \(allCommentsCount) comments"
@@ -50,7 +50,7 @@ final class TopCommentCell: UITableViewCell {
 			topCommentStack.isHidden = false
 		}
 		else {
-			allCommentsLabel.text = "Add your comment"
+			allCommentsLabel.text = R.string.localizable.do_add_your_comment()
 			noCommentsStack.isHidden = false
 			topCommentStack.isHidden = true
 		}

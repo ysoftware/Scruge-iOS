@@ -83,7 +83,7 @@ extension MilestonesViewController: ArrayViewModelDelegate {
 			loadingView.set(state: .error(message))
 		case .ready:
 			if vm.isEmpty {
-				loadingView.set(state: .error("No comments"))
+				loadingView.set(state: .error(R.string.localizable.error_no_comments()))
 			}
 			else {
 				loadingView.set(state: .ready)

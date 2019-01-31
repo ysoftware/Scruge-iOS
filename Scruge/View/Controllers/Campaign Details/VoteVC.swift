@@ -123,11 +123,11 @@ final class VoteViewController: UIViewController {
 	private func vote(_ value:Bool, _ passcode:String) {
 		guard let account = accountVM.selectedAccount else {
 			#warning("check if maybe should open wallet picker right there?")
-			return alert("You don't have your blockchain account setup")
+			return alert(R.string.localizable.error_wallet_not_setup())
 		}
 
 		guard passcode.count > 0 else {
-			return alert("Enter your wallet password")
+			return alert(R.string.localizable.error_wallet_enter_wallet_password())
 		}
 
 		self.vm.vote(value, account: account, passcode: passcode) { error in
@@ -135,7 +135,7 @@ final class VoteViewController: UIViewController {
 				self.alert(error)
 			}
 			else {
-				self.alert("Transaction was successful") {
+				self.alert(R.string.localizable.alert_transaction_success()) {
 					self.navigationController?.popViewController(animated: true)
 				}
 			}
@@ -154,7 +154,8 @@ extension VoteViewController: UITableViewDataSource {
 		switch Block(rawValue: indexPath.row)! {
 		case .update:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.lastUpdateCell,
-												 for: indexPath)!.setup(with: updateVM, title: "Rationale: ")
+												 for: indexPath)!
+				.setup(with: updateVM, title: R.string.localizable.title_rationale())
 				.updateTap { [unowned self] in
 					Service.presenter.presentContentViewController(in: self, for: self.updateVM)
 				}
@@ -166,7 +167,7 @@ extension VoteViewController: UITableViewDataSource {
 			guard let voting = self.voting else { break }
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.countdownCell,
 												 for: indexPath)!
-				.setup(title: "This vote ends in:", timestamp: voting.endTimestamp)
+				.setup(title: R.string.localizable.title_vote_ends_in(), timestamp: voting.endTimestamp)
 		case .controls:
 			cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.voteControlsCell,
 												 for: indexPath)!

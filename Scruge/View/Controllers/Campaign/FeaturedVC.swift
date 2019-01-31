@@ -57,7 +57,7 @@ final class FeaturedViewController: UIViewController {
 	}
 
 	func setupNavigationBar() {
-		makeNavbarNormal(with: "Featured")
+		makeNavbarNormal(with: R.string.localizable.title_featured())
 		preferLargeNavbar()
 	}
 
@@ -122,7 +122,7 @@ final class FeaturedViewController: UIViewController {
 		campaignVM.query?.category = vm
 		campaignVM.reloadData()
 
-		titleButton.setTitle(vm?.name ?? "Featured", for: .normal)
+		titleButton.setTitle(vm?.name ?? R.string.localizable.title_featured(), for: .normal)
 		titleButton.sizeToFit()
 	}
 }
@@ -155,7 +155,7 @@ extension FeaturedViewController: ArrayViewModelDelegate {
 		case .ready:
 			campaignTableView.refreshControl?.endRefreshing()
 			if campaignVM.isEmpty {
-				loadingView.set(state: .error("No campaigns were found for your request"))
+				loadingView.set(state: .error(R.string.localizable.error_no_campaigns_found()))
 			}
 			else {
 				loadingView.set(state: .ready)

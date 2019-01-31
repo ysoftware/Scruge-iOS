@@ -180,25 +180,25 @@ final class CampaignViewController: UIViewController {
 			}
 
 			if vm.canVote {
-				contributeButton.text = "Vote".uppercased()
+				contributeButton.text = R.string.localizable.do_vote().uppercased()
 			}
 			else {
-				contributeButton.text = "View Voting Progress".uppercased()
+				contributeButton.text = R.string.localizable.do_view_voting_progress().uppercased()
 			}
 		case .closed:
 			contributeButton.color = Service.constants.color.gray
-			contributeButton.text = "Campaign over".uppercased()
+			contributeButton.text = R.string.localizable.button_campaign_over().uppercased()
 		case .funding:
 
 			if Service.tokenManager.hasToken {
-				contributeButton.text = "Contribute".uppercased()
+				contributeButton.text = R.string.localizable.do_contribute().uppercased()
 			}
 			else {
-				contributeButton.text = "Sign in to contribute".uppercased()
+				contributeButton.text = R.string.localizable.do_sign_in_to_contribute().uppercased()
 			}
 		case .preparing:
 			contributeButton.color = Service.constants.color.gray
-			contributeButton.text = "Starts on \(vm.startDate)".uppercased()
+			contributeButton.text =  R.string.localizable.button_campaign_starts_on(vm.startDate).uppercased()
 		default:
 			showContributeButton(false)
 		}

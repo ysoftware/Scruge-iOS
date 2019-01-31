@@ -25,7 +25,7 @@ final class CommentsViewController: UIViewController {
 
 	@IBAction func sendComment(_ sender: Any) {
 		if Service.tokenManager.hasToken {
-			guard let comment = comment else { return alert("Message is too short") }
+			guard let comment = comment else { return alert(R.string.localizable.error_comment_too_short()) }
 
 			commentActivity.isHidden = false
 			sendButton.isHidden = true
@@ -160,14 +160,14 @@ final class CommentsViewController: UIViewController {
 
 	private func checkAuthentication() {
 		if Service.tokenManager.hasToken {
-			commentField.placeholder = "Add your comment…"
+			commentField.placeholder = R.string.localizable.hint_add_comment()
 			commentField.isEnabled = true
-			sendButton.setTitle("Send", for: .normal)
+			sendButton.setTitle(R.string.localizable.do_send(), for: .normal)
 		}
 		else {
-			commentField.placeholder = "Sign in to add comments"
+			commentField.placeholder = R.string.localizable.hint_sign_in_to_comment()
 			commentField.isEnabled = false
-			sendButton.setTitle("Sign In", for: .normal)
+			sendButton.setTitle(R.string.localizable.do_sign_in(), for: .normal)
 		}
 	}
 }
@@ -219,7 +219,7 @@ extension CommentsViewController: ArrayViewModelDelegate {
 			tableView.refreshControl?.endRefreshing()
 		case .ready:
 			if vm.isEmpty {
-				loadingView.set(state: .error("No comments"))
+				loadingView.set(state: .error(R.string.localizable.label_no_comments_yet()))
 			}
 			else {
 				loadingView.set(state: .ready)
