@@ -1778,7 +1778,7 @@
                                                                                     <constraint firstAttribute="height" constant="15" id="ilq-CY-NKE"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Receiver" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CKs-DU-ZNM">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@hint_transfer_receiver" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CKs-DU-ZNM">
                                                                                 <rect key="frame" x="45" y="0.0" width="235" height="60"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1808,7 +1808,7 @@
                                                                             <view contentMode="scaleToFill" horizontalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="xpc-WY-jEu" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="145" height="60"/>
                                                                                 <subviews>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G4R-Yh-YgT" customClass="FormTextField" customModule="Scruge" customModuleProvider="target">
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@hint_transfer_amount" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="G4R-Yh-YgT" customClass="FormTextField" customModule="Scruge" customModuleProvider="target">
                                                                                         <rect key="frame" x="15" y="0.0" width="115" height="60"/>
                                                                                         <nil key="textColor"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1877,7 +1877,7 @@
                                                                                     <constraint firstAttribute="width" secondItem="Ryp-Yd-un2" secondAttribute="height" id="Is5-tY-Vbe"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Memo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jos-p5-8UP">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@hint_transfer_memo" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jos-p5-8UP">
                                                                                 <rect key="frame" x="45" y="0.0" width="235" height="60"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1911,7 +1911,7 @@
                                                                                     <constraint firstAttribute="width" secondItem="e3S-S1-9jl" secondAttribute="height" id="vGs-qj-CE7"/>
                                                                                 </constraints>
                                                                             </imageView>
-                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wallet password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHA-Kq-aA8">
+                                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@hint_wallet_password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rHA-Kq-aA8">
                                                                                 <rect key="frame" x="45" y="0.0" width="235" height="60"/>
                                                                                 <nil key="textColor"/>
                                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -1944,7 +1944,7 @@
                                                                     <constraint firstAttribute="height" constant="60" id="lMK-eo-Ji8"/>
                                                                 </constraints>
                                                                 <userDefinedRuntimeAttributes>
-                                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="TRANSFER TOKENS"/>
+                                                                    <userDefinedRuntimeAttribute type="string" keyPath="text" value="@do_transfer_tokens"/>
                                                                 </userDefinedRuntimeAttributes>
                                                             </view>
                                                         </subviews>

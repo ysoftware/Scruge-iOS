@@ -81,7 +81,7 @@ final class TransferViewController: UIViewController {
 
 	@IBAction func tokenTapped(_ sender: Any) {
 		Service.presenter
-			.presentPickerController(in: self,
+			.presentPickerController(in: navigationController?.tabBarController ?? self,
 									 with: balances.map { $0.token.symbol },
 									 andTitle: R.string.localizable.label_select_currency_cap()) { i in
 										guard let i = i else { return }
