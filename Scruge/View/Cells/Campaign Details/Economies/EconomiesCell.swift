@@ -16,6 +16,8 @@ final class EconomiesCell: UITableViewCell {
 	@IBOutlet weak var inflationLabel: UILabel!
 
 	func setup(with vm:EconomiesVM) -> EconomiesCell {
+		localize()
+		
 		tokenSupplyLabel.text = vm.tokenSupply
 		publicPercentLabel.text = vm.publicPercent
 		initialReleaseLabel.text = vm.initialRelease

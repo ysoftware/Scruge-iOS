@@ -17,6 +17,8 @@ final class RewardCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm: RewardVM) -> Self {
+		localize()
+		
 		fundingLabel.text = vm.amount
 		titleLabel.text = vm.title
 		descriptionLabel.text = vm.description

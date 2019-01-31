@@ -14,6 +14,8 @@ final class SocialCell: UICollectionViewCell {
 
 	@discardableResult
 	func setup(with element:Social) -> Self {
+		localize()
+		
 		imageView.image = element.image
 		return self
 	}

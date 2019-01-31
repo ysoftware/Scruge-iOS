@@ -30,6 +30,8 @@ final class ActivityCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm: ActivityVM) -> Self {
+		localize()
+		
 		self.vm = vm
 
 		selectionStyle = .none

@@ -36,6 +36,8 @@ final class AboutCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm:CampaignVM) -> Self {
+		localize()
+		
 		social = vm.social
 		members = vm.team
 

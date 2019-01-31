@@ -23,6 +23,7 @@ final class TopCommentCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm:CommentAVM? = nil, allCommentsCount:Int) -> Self {
+		localize()
 		
 		if let vm = vm, !vm.isEmpty {
 			let comment = vm.item(at: 0)

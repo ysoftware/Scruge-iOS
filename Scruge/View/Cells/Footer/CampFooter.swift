@@ -14,6 +14,8 @@ final class CampaignFooter: UITableViewHeaderFooterView {
 
 	@discardableResult
 	func setup(with string:String) -> Self {
+		localize()
+		
 		label.text = string
 		return self
 	}

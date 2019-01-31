@@ -19,6 +19,8 @@ final class AccountCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm:AccountVM) -> Self {
+		localize()
+		
 		vm.delegate = self
 		vm.updateBalance()
 		return self

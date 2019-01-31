@@ -25,6 +25,8 @@ final class VoteInfoCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm:PartialCampaignViewModel, kind:VoteKind) -> Self {
+		localize()
+		
 		self.imageUrl = vm.imageUrl
 
 		selectionStyle = .none

@@ -22,6 +22,8 @@ final class PagingCell: UITableViewCell, UICollectionViewDelegateFlowLayout {
 
 	@discardableResult
 	func setup(with vm:FaqAVM) -> PagingCell {
+		localize()
+		
 		faqVM = vm
 		titleLabel.text = "Frequently asked questions"
 		collectionView.register(UINib(resource: R.nib.faqCell),

@@ -15,6 +15,8 @@ final class TagCell: UICollectionViewCell {
 
 	@discardableResult
 	func setup(with tag:String) -> Self {
+		localize()
+		
 		tagLabel.text = "#\(tag)"
 		return self
 	}

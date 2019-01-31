@@ -14,6 +14,8 @@ final class MemberCell:UICollectionViewCell {
 
 	@discardableResult
 	func setup(with member:Member) -> Self {
+		localize()
+		
 		avatarImage.setImage(string: member.imageUrl)
 		return self
 	}

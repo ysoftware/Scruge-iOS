@@ -21,6 +21,8 @@ final class LastUpdateCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm: UpdateVM, title:String = "Last update: ") -> Self {
+		localize()
+		
 		titleLabel.text = vm.title
 		descriptionLabel.text = vm.descsription
 		sectionTitleLabel.text = "\(title)\(vm.date)"

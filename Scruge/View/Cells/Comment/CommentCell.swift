@@ -25,6 +25,8 @@ final class CommentCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm:CommentVM) -> Self {
+		localize()
+		
 		self.vm = vm
 		usernameLabel.text = vm.authorName
 		commentLabel.text = vm.comment

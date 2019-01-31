@@ -14,6 +14,8 @@ final class FaqCell: UICollectionViewCell {
 
 	@discardableResult
 	func setup(with vm:FaqVM) -> Self {
+		localize()
+		
 		questionLabel.text = vm.question
 		answerLabel.text = vm.answer
 		return self

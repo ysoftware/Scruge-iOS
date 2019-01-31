@@ -20,6 +20,7 @@ final class UpdateCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm: UpdateVM) -> Self {
+		localize()
 		selectionStyle = .none
 
 		titleLabel.text = vm.title

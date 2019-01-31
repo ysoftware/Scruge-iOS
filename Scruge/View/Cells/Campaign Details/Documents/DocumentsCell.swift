@@ -18,6 +18,8 @@ final class DocumentsCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm:DocumentAVM) -> DocumentsCell {
+		localize()
+		
 		self.vm = vm
 		tableView.register(UINib(resource: R.nib.documentCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.documentCell.identifier)

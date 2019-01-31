@@ -15,6 +15,8 @@ final class MilestoneCell: UICollectionViewCell {
 
 	@discardableResult
 	func setup(with vm:MilestoneVM) -> Self {
+		localize()
+		
 		descriptionLabel.text = vm.description
 		dateLabel.text = "\(vm.date)\n\(vm.fundsRelease)"
 		return self

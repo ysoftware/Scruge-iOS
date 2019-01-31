@@ -28,9 +28,9 @@ final class CampaignCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm:PartialCampaignViewModel) -> CampaignCell {
-		self.imageUrl = vm.imageUrl
-
+		localize()
 		selectionStyle = .none
+		self.imageUrl = vm.imageUrl
 
 		titleLabel!.text = vm.title
 		descriptionLabel?.text = vm.description

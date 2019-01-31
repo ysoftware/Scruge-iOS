@@ -18,6 +18,8 @@ final class VoteControlsCell: UITableViewCell {
 
 	@discardableResult
 	func vote(_ block: @escaping (String, Bool)->Void) -> Self {
+		localize()
+		
 		self.block = block
 		yesButton.addClick(self, action: #selector(click))
 		noButton.addClick(self, action: #selector(click))

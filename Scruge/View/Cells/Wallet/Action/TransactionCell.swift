@@ -16,6 +16,8 @@ final class TransactionCell: UITableViewCell {
 
 	@discardableResult
 	func setup(_ vm:ActionVM) -> Self {
+		localize()
+		
 		actionNameLabel.attributedText = vm.actionName
 		actionDetailsLabel?.attributedText = vm.actionDetails
 		dateLabel.text = vm.time

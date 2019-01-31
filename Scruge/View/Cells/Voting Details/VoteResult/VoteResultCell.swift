@@ -19,6 +19,8 @@ final class VoteResultCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with result:VoteResult?) -> Self {
+		localize()
+		
 		self.result = result
 
 		guard let result = self.result else {

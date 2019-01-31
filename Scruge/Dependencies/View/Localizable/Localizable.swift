@@ -15,7 +15,7 @@ public protocol Localizable {
 
 public extension Localizable {
 
-	public func localize(_ string: String?) -> String? {
+	private func localize(_ string: String?) -> String? {
 		guard let term = string, term.hasPrefix("@") else {
 			return string
 		}

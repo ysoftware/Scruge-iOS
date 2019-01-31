@@ -16,6 +16,7 @@ final class VoteNotificationCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vote:Voting) -> Self {
+		localize()
 
 		selectionStyle = .none
 		#warning("refactor to view model")

@@ -14,6 +14,7 @@ final class CategoryCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm:CategoryVM) -> CategoryCell {
+		localize()
 
 		titleLabel.text = vm.name
 		return self

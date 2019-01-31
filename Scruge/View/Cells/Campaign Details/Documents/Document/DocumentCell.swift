@@ -14,6 +14,8 @@ final class DocumentCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm:DocumentVM) -> Self {
+		localize()
+		
 		nameLabel.text = vm.name
 		selectionStyle = .none
 		return self

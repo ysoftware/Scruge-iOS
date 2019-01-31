@@ -21,6 +21,8 @@ final class CountdownCell: UITableViewCell {
 
 	@discardableResult
 	func setup(title:String, timestamp:Int) -> Self {
+		localize()
+		
 		selectionStyle = .none
 		titleLabel.text = title
 		self.timestamp = timestamp

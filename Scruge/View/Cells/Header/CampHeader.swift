@@ -15,6 +15,8 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 
 	@discardableResult
 	func setup(with vm:UpdateVM) -> Self {
+		localize()
+
 		titleLabel.text = "Last update"
 		rightLabel.text = vm.date
 		return self
@@ -22,6 +24,8 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 
 	@discardableResult
 	func setup(with vm:MilestoneVM) -> Self {
+		localize()
+
 		titleLabel.text = "Current milestone"
 		rightLabel.text = ""
 		return self
@@ -29,6 +33,8 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 
 	@discardableResult
 	func setup(with vm:CommentAVM, for campaignVM:CampaignVM) -> Self {
+		localize()
+
 		titleLabel.text = "Comments"
 		rightLabel.text = "\(campaignVM.commentsCount)"
 		return self
@@ -36,6 +42,8 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 
 	@discardableResult
 	func setup(with vm:RewardAVM) -> Self {
+		localize()
+
 		titleLabel.text = "Rewards"
 		rightLabel.text = ""
 		return self
@@ -43,6 +51,8 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 
 	@discardableResult
 	func setup(with vm:DocumentAVM) -> Self {
+		localize()
+
 		titleLabel.text = "Documents"
 		rightLabel.text = "\(vm.numberOfItems)"
 		return self
@@ -50,6 +60,8 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 
 	@discardableResult
 	func setup(with vm:FaqAVM) -> Self {
+		localize()
+
 		titleLabel.text = "Frequently asked questions"
 		rightLabel.text = "\(vm.numberOfItems)"
 		return self
@@ -57,6 +69,8 @@ final class CampaignHeader: UITableViewHeaderFooterView {
 
 	@discardableResult
 	func setup(as title:String, _ description:String? = nil) -> Self {
+		localize()
+		
 		titleLabel.text = title
 		rightLabel.text = description
 		return self
