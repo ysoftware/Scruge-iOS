@@ -158,24 +158,24 @@ final class WalletViewController: UIViewController {
 	}
 
 	@IBAction func showSettings() {
-		let delete = UIAlertAction(title: "Delete wallet",
+		let delete = UIAlertAction(title: R.string.localizable.do_delete_wallet(),
 								   style: .destructive) { _ in
 									self.deleteWallet()
 		}
 
-		let change = UIAlertAction(title: "Switch account",
+		let change = UIAlertAction(title: R.string.localizable.do_switch_eos_account(),
 								   style: .default) { _ in
 									self.presentWalletPicker()
 		}
 
-		let cancel = UIAlertAction(title: "Cancel",
+		let cancel = UIAlertAction(title: R.string.localizable.do_cancel(),
 								   style: .cancel) { _ in
 		}
 
 		let actions = vm.numberOfItems == 1 ? [delete, cancel] : [change, delete, cancel]
 
 		Service.presenter.presentActions(in: self,
-										 title: "Select action",
+										 title: R.string.localizable.title_select_action(),
 										 message: "", actions: actions)
 	}
 

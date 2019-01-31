@@ -58,7 +58,7 @@ final class TransferViewController: UIViewController {
 				self.balances = response.filter { $0.amount != 0 }.distinct
 
 				guard !self.balances.isEmpty else {
-					return self.alert("You don't seem to have any transferable tokens") {
+					return self.alert(R.string.localizable.error_wallet_no_transferable_tokens()) {
 						self.navigationController?.popViewController(animated: true)
 					}
 				}
@@ -75,7 +75,7 @@ final class TransferViewController: UIViewController {
 
 	private func setupNavigationBar() {
 		navigationController?.navigationBar.isHidden = false
-		makeNavbarNormal(with: "Transfer Tokens")
+		makeNavbarNormal(with: R.string.localizable.title_transfer())
 		preferSmallNavbar()
 	}
 
@@ -83,7 +83,7 @@ final class TransferViewController: UIViewController {
 		Service.presenter
 			.presentPickerController(in: self,
 									 with: balances.map { $0.token.symbol },
-									 andTitle: "Select token") { i in
+									 andTitle: R.string.localizable.label_select_currency_cap()) { i in
 										guard let i = i else { return }
 										self.selectedIndex = i
 										self.totalLabel.text = self.balances[i].string
@@ -101,13 +101,13 @@ final class TransferViewController: UIViewController {
 		view.endEditing(true)
 
 		guard let model = accountVM.model else {
-			return alert("An error occured") {
+			return alert(GeneralError.implementationError) {
 				self.navigationController?.popViewController(animated: true)
 			}
 		}
 
 		guard (balances.count > selectedIndex) else {
-			return alert("An error occured. Select correct token to transfer") {
+			return alert(R.string.localizable.alert_select_correct_token()) {
 				if (!self.balances.isEmpty) {
 					self.selectedIndex = 0
 					self.totalLabel.text = self.balances[0].string
@@ -125,11 +125,11 @@ final class TransferViewController: UIViewController {
 		let passcode = passcodeField.text ?? ""
 
 		guard passcode.count > 0 else {
-			return alert("Enter your wallet password")
+			return alert(R.string.localizable.error_wallet_enter_wallet_password())
 		}
 
 		guard let amount = Double(amountField.text ?? ""), amount >= 0.0001 else {
-			return alert("Incorrect amount value")
+			return alert(R.string.localizable.error_wallet_invalid_amount())
 		}
 
 		guard let recipient = name.eosName else {
@@ -145,7 +145,7 @@ final class TransferViewController: UIViewController {
 							  passcode: passcode) { result in
 								switch result {
 								case .success:
-									self.alert("Transaction was successful") {
+									self.alert(R.string.localizable.alert_transaction_success()) {
 										self.navigationController?.popViewController(animated: true)
 									}
 								case .failure(let error):
@@ -158,8 +158,10 @@ final class TransferViewController: UIViewController {
 extension TransferViewController {
 
 	private func setupKeyboard() {
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
+											   name:UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+											   name:UIResponder.keyboardWillHideNotification, object: nil)
 	}
 
 	@objc func keyboardWillShow(notification:NSNotification) {

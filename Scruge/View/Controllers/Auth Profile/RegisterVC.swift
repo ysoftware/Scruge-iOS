@@ -117,28 +117,28 @@ final class RegisterViewController: UIViewController {
 
 	private func validate() -> Bool {
 
-		guard email.count > 0 else {
-			alert("Enter your email")
+		guard email.isNotBlank else {
+			alert(R.string.localizable.error_login_enter_email())
 			return false
 		}
 
-		guard password.count > 0 else {
-			alert("Enter your password")
+		guard password.isNotEmpty else {
+			alert(R.string.localizable.error_login_enter_password())
 			return false
 		}
 
 		guard password == confirmPassword else {
-			alert("Passwords do not match")
+			alert(R.string.localizable.error_register_passwords_do_not_match())
 			return false
 		}
 
 		guard email.isValidEmail else {
-			alert("Email is not valid")
+			alert(AuthError.invalidEmail)
 			return false
 		}
 
 		guard password.count > 6 else {
-			alert("Password is too short")
+			alert(AuthError.incorrectPasswordLength)
 			return false
 		}
 

@@ -53,7 +53,7 @@ final class AlertViewController: UIViewController {
 	@discardableResult
 	func makeAlert(title:String = "",
 				   message:String,
-				   buttonTitle:String = "OK",
+				   buttonTitle:String = R.string.localizable.label_ok(),
 				   showCloseButton:Bool = false,
 				   block: @escaping ()->Void) -> Self {
 		setupBlock = {
@@ -93,8 +93,8 @@ final class AlertViewController: UIViewController {
 		setupBlock = {
 			self.textLabel.text = message
 			self.closeButton.isHidden = true
-			self.noButton.text = "NO"
-			self.yesButton.text = "YES"
+			self.noButton.text = R.string.localizable.label_no().uppercased()
+			self.yesButton.text = R.string.localizable.label_yes().uppercased()
 
 			if title.isEmpty {
 				self.titleLabel.isHidden = true

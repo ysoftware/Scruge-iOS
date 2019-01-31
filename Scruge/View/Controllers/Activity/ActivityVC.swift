@@ -46,7 +46,7 @@ final class ActivityViewController: UIViewController {
 	}
 
 	func setupNavigationBar() {
-		makeNavbarNormal(with: "Activity")
+		makeNavbarNormal(with: R.string.localizable.title_activity())
 		preferLargeNavbar()
 	}
 
@@ -159,7 +159,7 @@ extension ActivityViewController: ArrayViewModelDelegate {
 			case .ready:
 				tableView.refreshControl?.endRefreshing()
 				if vm.isEmpty {
-					loadingView.set(state: .error("No updates"))
+					loadingView.set(state: .error(R.string.localizable.error_activity_noActions()))
 				}
 				else {
 					loadingView.set(state: .ready)

@@ -31,13 +31,15 @@ final class ImportKeyViewController: UIViewController {
 	}
 
 	private func setupKeyboard() {
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
+											   name:UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+											   name:UIResponder.keyboardWillHideNotification, object: nil)
 	}
 
 	private func setupNavigationBar() {
-		title = "Import key"
-		makeNavbarNormal(with: "Import key")
+		title = R.string.localizable.title_import_private_key()
+		makeNavbarNormal(with: R.string.localizable.title_import_private_key())
 		preferSmallNavbar()
 		navigationController?.navigationBar.isHidden = false
 	}
@@ -50,7 +52,7 @@ final class ImportKeyViewController: UIViewController {
 
 	@IBAction func createAccount(_ sender:Any) {
 		guard Service.tokenManager.hasToken else {
-			return alert("Please sign in with your Scruge account first")
+			return alert(R.string.localizable.alert_sign_in_first())
 		}
 		Service.presenter.replaceWithCreateAccountViewController(viewController: self)
 	}
@@ -59,16 +61,16 @@ final class ImportKeyViewController: UIViewController {
 		let key = keyField.text ?? ""
 		let passcode = passcodeField.text ?? ""
 
-		guard key.count > 0 else {
-			return alert("Enter your private key")
+		guard key.isNotBlank else {
+			return alert(R.string.localizable.error_enter_private_key())
 		}
 
 		guard key.count == 51, key.starts(with: "5") else {
-			return alert("Incorrect format of private key")
+			return alert(R.string.localizable.error_incorrect_key_format())
 		}
 
-		guard passcode.count > 0 else {
-			return alert("Enter your new passcode")
+		guard passcode.isNotEmpty else {
+			return alert(R.string.localizable.error_enter_new_password())
 		}
 
 		// if existed
@@ -81,7 +83,7 @@ final class ImportKeyViewController: UIViewController {
 				}
 			}
 			else {
-				self.alert("Could not import this key")
+				self.alert(R.string.localizable.error_couldnt_import_private_key())
 			}
 		}
 	}

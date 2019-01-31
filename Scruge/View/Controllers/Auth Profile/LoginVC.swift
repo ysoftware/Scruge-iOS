@@ -70,13 +70,13 @@ final class LoginViewController: UIViewController {
 	}
 
 	@IBAction func resetPassword(_ sender: Any) {
-		askForInput("Reset password",
-					question: "Enter your email",
-					placeholder: "Email…",
+		askForInput(R.string.localizable.title_reset_password(),
+					question: R.string.localizable.label_enter_your_email(),
+					placeholder: R.string.localizable.hint_email_address(),
 					keyboardType: .emailAddress,
 					initialInput: emailField.text,
 					isSecure: false,
-					actionTitle: "Send") { input in
+					actionTitle: R.string.localizable.do_send()) { input in
 						guard let login = input else { return }
 
 						guard login.isValidEmail else {
@@ -90,7 +90,7 @@ final class LoginViewController: UIViewController {
 									self.alert(error)
 								}
 								else {
-									self.alert("Check your email address for the letter with password recovery instructions")
+									self.alert(R.string.localizable.label_reset_password_message())
 								}
 							case .failure(let error):
 								self.alert(error)
@@ -125,23 +125,23 @@ final class LoginViewController: UIViewController {
 
 	private func validate() -> Bool {
 
-		guard email.count > 0 else {
-			alert("Enter your email")
+		guard email.isNotBlank else {
+			alert(R.string.localizable.error_login_enter_email())
 			return false
 		}
 
-		guard password.count > 0 else {
-			alert("Enter your password")
+		guard password.isNotEmpty else {
+			alert(R.string.localizable.error_login_enter_password())
 			return false
 		}
 
 		guard email.isValidEmail else {
-			alert("Email is not valid")
+			alert(AuthError.invalidEmail)
 			return false
 		}
 
 		guard password.count > 6 else {
-			alert("Password is too short")
+			alert(AuthError.incorrectPasswordLength)
 			return false
 		}
 

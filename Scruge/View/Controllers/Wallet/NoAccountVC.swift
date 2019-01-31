@@ -48,14 +48,14 @@ final class WalletNoAccountViewController: UIViewController {
 
 	@objc func createAccount(_ sender:Any) {
 		guard Service.tokenManager.hasToken else {
-			return alert("Please sign in with your Scruge account first")
+			return alert(R.string.localizable.alert_sign_in_first())
 		}
 		Service.presenter.presentCreateAccountViewController(in: self)
 	}
 
 	@IBAction func importKey(_ sender:Any) {
-		let t = "Are you sure to delete your wallet?"
-		let q = "Make sure to export your private key because there is no way it can be retrieved later."
+		let t = R.string.localizable.title_sure_to_delete_wallet()
+		let q = R.string.localizable.label_sure_to_delete_wallet()
 		self.ask(title: t, question: q) { response in
 			if response {
 				Service.wallet.deleteWallet()

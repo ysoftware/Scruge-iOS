@@ -36,7 +36,7 @@ final class WalletStartViewController: UIViewController {
 
 	@IBAction func createAccount(_ sender:Any) {
 		guard Service.tokenManager.hasToken else {
-			return alert("Please sign in with your Scruge account first")
+			return alert(R.string.localizable.alert_sign_in_first())
 		}
 		Service.presenter.presentCreateAccountViewController(in: self)
 	}

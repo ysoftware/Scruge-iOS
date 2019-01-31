@@ -50,7 +50,7 @@ final class StakingViewController:UIViewController {
 
 	private func setupNavigationBar() {
 		navigationController?.navigationBar.isHidden = false
-		makeNavbarNormal(with: "Stake Resources")
+		makeNavbarNormal(with: R.string.localizable.title_manage_resources())
 		preferSmallNavbar()
 	}
 
@@ -65,20 +65,24 @@ final class StakingViewController:UIViewController {
 
 		let cpuStr = stakeCpuField.text ?? ""
 		let cpuString = cpuStr.isEmpty ? "0" : cpuStr
-		guard let cpuValue = Double(cpuString) else { return alert("Incorrect CPU amount") }
+		guard let cpuValue = Double(cpuString) else {
+			return alert(R.string.localizable.error_wallet_invalid_amount())
+		}
 		if (cpuValue < 0.0001 && cpuValue != 0.0) {
-			return alert("CPU staking amount is too low")
+			return alert(R.string.localizable.error_wallet_invalid_amount())
 		}
 
 		let netStr = stakeNetField.text ?? ""
 		let netString = netStr.isEmpty ? "0" : netStr
-		guard let netValue = Double(netString) else { return alert("Incorrect NET amount") }
+		guard let netValue = Double(netString) else {
+			return alert(R.string.localizable.error_wallet_invalid_amount())
+		}
 		if (netValue < 0.0001 && netValue != 0.0) {
-			return alert("NET staking amount is too low")
+			return alert(R.string.localizable.error_wallet_invalid_amount())
 		}
 
 		if netValue == 0 && cpuValue == 0 {
-			return alert("Incorrect staking amount")
+			return alert(R.string.localizable.error_wallet_invalid_amount())
 		}
 
 		let systemToken = Service.eos.systemToken
@@ -86,14 +90,14 @@ final class StakingViewController:UIViewController {
 		let net = Balance(token: systemToken, amount: netValue)
 
 		guard let passcode = passcodeField.text, passcode.count > 0 else {
-			return alert("Enter your wallet password")
+			return alert(R.string.localizable.error_wallet_enter_wallet_password())
 		}
 
 		view.endEditing(true)
 		Service.eos.stakeResources(account: model, cpu: cpu, net: net, passcode: passcode) { result in
 			switch result {
 			case .success:
-				self.alert("Transaction was successful!") {
+				self.alert(R.string.localizable.alert_transaction_success()) {
 					self.navigationController?.popViewController(animated: true)
 				}
 			case .failure(let error):
@@ -109,12 +113,8 @@ final class StakingViewController:UIViewController {
 
 		guard let name = accountVM?.name else { return }
 		Service.eos.getBalance(for: name, tokens: [systemToken]) { response in
-			if !response.isEmpty {
-				self.availableLabel.text = "\(response[0]) available"
-			}
-			else {
-				self.availableLabel.text = "\(Balance(token: systemToken, amount: 0.0)) available"
-			}
+			let balance = response.first ?? Balance(token: systemToken, amount: 0.0)
+			self.availableLabel.text = R.string.localizable.tokens_available(balance.string)
 		}
 	}
 }

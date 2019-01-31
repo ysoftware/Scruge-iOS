@@ -128,12 +128,12 @@ final class ProfileEditViewController: UIViewController {
 
 	private func setupNavigationBar() {
 		let isEditing = editingProfile != nil
-		title = isEditing ? "Update Profile" : "Create Profile"
+		title = isEditing ? R.string.localizable.do_update_profile() : R.string.localizable.do_create_profile()
 
 		guard !isEditing else { return }
 
 		navigationItem.setHidesBackButton(true, animated: false)
-		navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Cancel",
+		navigationItem.rightBarButtonItem = UIBarButtonItem(title: R.string.localizable.do_cancel(),
 															style: .plain,
 															target: self,
 															action: #selector(cancel))
@@ -147,7 +147,7 @@ extension ProfileEditViewController: UIImagePickerControllerDelegate, UINavigati
 		guard let image = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else { return }
 
 		guard image.size.width > 50, image.size.height > 50 else {
-			return self.alert("Selected image is too small")
+			return self.alert(R.string.localizable.error_image_too_small)
 		}
 
 		self.selectedImage = image.downscaled(to: 400)

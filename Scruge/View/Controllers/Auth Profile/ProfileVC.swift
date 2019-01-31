@@ -110,7 +110,7 @@ final class ProfileViewController: UIViewController {
 			descriptionLabel.text = profileVM.description
 		}
 		else {
-			descriptionLabel.text = "No information provided"
+			descriptionLabel.text = R.string.localizable.label_profile_no_information()
 		}
 	}
 }

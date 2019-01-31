@@ -66,6 +66,7 @@
 		716200692203144500DC1A10 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7162006B2203144500DC1A10 /* Localizable.strings */; };
 		7162006E22031C9700DC1A10 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162006D22031C9700DC1A10 /* Localizable.swift */; };
 		7162007122031D3800DC1A10 /* LocalizableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162007022031D3800DC1A10 /* LocalizableViews.swift */; };
+		7162007322032DE000DC1A10 /* BlankString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162007222032DE000DC1A10 /* BlankString.swift */; };
 		7166528521F0A4CD005A50F7 /* ResourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528421F0A4CD005A50F7 /* ResourcesView.swift */; };
 		7166528721F0A6F9005A50F7 /* ResourcesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7166528621F0A6F9005A50F7 /* ResourcesView.xib */; };
 		7166528A21F0B143005A50F7 /* ResourcesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528921F0B143005A50F7 /* ResourcesVM.swift */; };
@@ -341,6 +342,7 @@
 		7162006C2203144F00DC1A10 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		7162006D22031C9700DC1A10 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		7162007022031D3800DC1A10 /* LocalizableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableViews.swift; sourceTree = "<group>"; };
+		7162007222032DE000DC1A10 /* BlankString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankString.swift; sourceTree = "<group>"; };
 		7166528421F0A4CD005A50F7 /* ResourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesView.swift; sourceTree = "<group>"; };
 		7166528621F0A6F9005A50F7 /* ResourcesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesView.xib; sourceTree = "<group>"; };
 		7166528921F0B143005A50F7 /* ResourcesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesVM.swift; sourceTree = "<group>"; };
@@ -786,6 +788,7 @@
 				71163A3F216642F400C5B633 /* EmailValidation.swift */,
 				71345AF82177336F00F28AF1 /* StringTruncate.swift */,
 				711EF6FC21F1DCDC008F2FD5 /* Distinct.swift */,
+				7162007222032DE000DC1A10 /* BlankString.swift */,
 			);
 			path = "Data formatting";
 			sourceTree = "<group>";
@@ -2281,6 +2284,7 @@
 				71C8E8EE215910500078BD36 /* CampaignVM.swift in Sources */,
 				71D84CDA21995AD000E8DB88 /* BaseRouter.swift in Sources */,
 				71B38D0B215B879D00929CC3 /* CommentVM.swift in Sources */,
+				7162007322032DE000DC1A10 /* BlankString.swift in Sources */,
 				7166528C21F0B167005A50F7 /* Resources.swift in Sources */,
 				71D84CC521995AD000E8DB88 /* bignum.c in Sources */,
 				71B38D20215BBE8200929CC3 /* RewardVM.swift in Sources */,

@@ -13,16 +13,16 @@ struct Presenter {
 
 	func setupMainTabs(in vc:TabbarViewController) {
 		let featured = R.storyboard.campaign.featuredVC()!.inNavigationController
-		featured.tabBarItem = UITabBarItem(title: "Featured", image: #imageLiteral(resourceName: "featured"), tag: 0)
+		featured.tabBarItem = UITabBarItem(title: R.string.localizable.title_featured(), image: #imageLiteral(resourceName: "featured"), tag: 0)
 
 		let activity = R.storyboard.details.activityVC()!.inNavigationController
-		activity.tabBarItem = UITabBarItem(title: "Activity", image: #imageLiteral(resourceName: "bell"), tag: 1)
+		activity.tabBarItem = UITabBarItem(title: R.string.localizable.title_featured(), image: #imageLiteral(resourceName: "bell"), tag: 1)
 
 		let wallet = R.storyboard.wallet.walletVC()!.inNavigationController
-		wallet.tabBarItem = UITabBarItem(title: "Wallet", image: #imageLiteral(resourceName: "wallet"), tag: 2)
+		wallet.tabBarItem = UITabBarItem(title: R.string.localizable.title_wallet(), image: #imageLiteral(resourceName: "wallet"), tag: 2)
 
 		let profile = R.storyboard.authProfile.profileVC()!.inNavigationController
-		profile.tabBarItem = UITabBarItem(title: "Profile", image: #imageLiteral(resourceName: "tabprofile"), tag: 3)
+		profile.tabBarItem = UITabBarItem(title: R.string.localizable.title_profile(), image: #imageLiteral(resourceName: "tabprofile"), tag: 3)
 
 		vc.viewControllers = [featured, activity, wallet, profile]
 	}
@@ -314,7 +314,7 @@ struct Presenter {
 
 	func presentCreateAccountViewController(in vc:UIViewController) {
 		guard !Service.settings.didCreateEosAccount else {
-			let msg = "You have previously created an eos account. Please, import the private key."
+			let msg = R.string.localizable.alert_previously_created_eos()
 			return vc.alert(msg)
 		}
 		let new = R.storyboard.wallet.createAccountVC()!

@@ -41,8 +41,8 @@ final class CreateAccountViewController: UIViewController {
 	}
 
 	private func setupViews() {
-		let generate = "Generate a new keypair and we will use it to create a new EOS account for you"
-		let imported = "Use the imported key to create a new EOS account"
+		let generate =  R.string.localizable.label_create_account_generate_text()
+		let imported = R.string.localizable.label_create_account_use_imported_text()
 
 		descriptionLabel.text = Service.wallet.hasAccount ? imported : generate
 		confirmView.isHidden = Service.wallet.hasAccount
@@ -69,8 +69,8 @@ final class CreateAccountViewController: UIViewController {
 
 	@IBAction func importKey(_ sender: Any) {
 		if Service.wallet.hasAccount {
-			let t = "Are you sure to delete your wallet?"
-			let q = "Make sure to export your private key because there is no way it can be retrieved later."
+			let t = R.string.localizable.title_sure_to_delete_wallet()
+			let q = R.string.localizable.label_sure_to_delete_wallet()
 			self.ask(title: t, question: q) { response in
 				if response {
 					Service.wallet.deleteWallet()
@@ -84,12 +84,14 @@ final class CreateAccountViewController: UIViewController {
 	}
 
 	private func setupKeyboard() {
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name:UIResponder.keyboardWillShowNotification, object: nil)
-		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name:UIResponder.keyboardWillHideNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
+											   name:UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+											   name:UIResponder.keyboardWillHideNotification, object: nil)
 	}
 
 	private func setupNavigationBar() {
-		makeNavbarNormal(with: "Create account")
+		makeNavbarNormal(with: R.string.localizable.title_create_eos_account())
 		preferSmallNavbar()
 		navigationController?.navigationBar.isHidden = false
 	}
@@ -100,7 +102,7 @@ final class CreateAccountViewController: UIViewController {
 
 	@IBAction func save(_ sender:Any) {
 		guard Service.tokenManager.hasToken else {
-			return alert("Please sign in with your Scruge account first")
+			return alert(R.string.localizable.alert_sign_in_first())
 		}
 
 		let passcode = passcodeField.text!
@@ -112,17 +114,17 @@ final class CreateAccountViewController: UIViewController {
 		}
 
 		guard name.count == 12 else {
-			return alert("New account name has to be exactly 12 symbols long")
+			return alert(R.string.localizable.error_eos_account_length())
 		}
 
 		if let privateKey = privateKey {
 
 			guard passcode.count > 0 else {
-				return alert("Enter your new passcode")
+				return alert(R.string.localizable.error_enter_new_password())
 			}
 
 			guard passcode == confirm else {
-				return alert("Passwords do not match")
+				return alert(R.string.localizable.error_register_passwords_do_not_match())
 			}
 
 			Service.wallet.importKey(privateKey.rawPrivateKey(), passcode: passcode) { account in
@@ -130,7 +132,7 @@ final class CreateAccountViewController: UIViewController {
 					self.createAccount(name: eosName, publicKey: self.publicKey)
 				}
 				else {
-					self.alert("An error occured. Please try again")
+					self.alert(WalletError.unknown)
 				}
 			}
 		}
@@ -143,7 +145,7 @@ final class CreateAccountViewController: UIViewController {
 
 	@IBAction func newKeypair() {
 		guard let key = PrivateKey.randomPrivateKey() else {
-			return alert("An error occured. Please, try again") {
+			return alert(WalletError.unknown) {
 				self.navigationController?.popViewController(animated: true)
 			}
 		}
@@ -163,8 +165,10 @@ final class CreateAccountViewController: UIViewController {
 					self.alert(error)
 				}
 				else {
-					Service.presenter.replaceWithWalletViewController(viewController: self)
-					Service.settings.setDidCreateEosAccount()
+					self.alert(R.string.localizable.alert_eos_account_created()) {
+						Service.presenter.replaceWithWalletViewController(viewController: self)
+						Service.settings.setDidCreateEosAccount()
+					}
 				}
 			case .failure(let error):
 				self.alert(ErrorHandler.message(for: error))
@@ -173,7 +177,7 @@ final class CreateAccountViewController: UIViewController {
 	}
 
 	private func showKey() {
-		keyLabel.text = "Public key:\n\(publicKey!)"
+		keyLabel.text =  R.string.localizable.public_key_display(publicKey)
 	}
 }
 
