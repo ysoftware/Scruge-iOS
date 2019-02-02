@@ -61,7 +61,9 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	}
 
 	var replyAuthorName:String {
-		return "\((model?.activity as? ActivityReply).flatMap { !$0.replyUserName.isEmpty ? $0.replyUserName : nil } ?? "Anonymous") replied to your comment"
+		let name = (model?.activity as? ActivityReply).flatMap {
+			!$0.replyUserName.isEmpty ? $0.replyUserName : nil } ?? R.string.localizable.label_anonymous()
+		return R.string.localizable.label_replied_to_your_comment(name)
 	}
 
 	// update
@@ -83,13 +85,9 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 		return (model?.activity as? ActivityUpdate)?.update.imageUrl ?? ""
 	}
 
-	var updateActivity:NSAttributedString? {
-		let font = UIFont.systemFont(ofSize: 14, weight: .semibold)
+	var updateActivity:String? {
 		return (model?.activity as? ActivityUpdate).flatMap {
-			NSMutableAttributedString()
-				.append($0.campaign.title, color: Service.constants.color.purple, font: font)
-				.append(" posted an update", color: Service.constants.color.grayTitle, font: font)
-		}
+			R.string.localizable.label_posted_update($0.campaign.title) } ?? ""
 	}
 
 	// funding result
@@ -101,14 +99,14 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 
 	var fundingTitle:String {
 		return (model?.activity as? ActivityFunding).flatMap {
-			"\($0.campaign.title) has finished its funding campaign" } ?? ""
+			R.string.localizable.label_finished_funding_campaign($0.campaign.title) } ?? ""
 	}
 
 	var fundingDescription:String {
 		return (model?.activity as? ActivityFunding).flatMap {
 			let cap = $0.softCap.formatDecimal(separateWith: " ")
-			let s = "\($0.campaign.title) has successfully reached the goal of $\(cap)."
-			let f = "\($0.campaign.title) did not reach the minimum goal of $\(cap)."
+			let s = R.string.localizable.label_reached_goal_of($0.campaign.title, cap)
+			let f = R.string.localizable.label_did_not_reach_goal_of($0.campaign.title, cap)
 			return $0.raised >= $0.softCap ? s : f
 		} ?? ""
 	}
@@ -122,7 +120,8 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	}
 
 	var votingTitle:String {
-		return (model?.activity as? ActivityVoting).flatMap { "Voting in \($0.campaign.title) starts soon" } ?? ""
+		return (model?.activity as? ActivityVoting).flatMap {
+			R.string.localizable.label_voting_in_starts_soon($0.campaign.title) } ?? ""
 	}
 
 	var votingDescription:String {
@@ -130,9 +129,15 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 			.flatMap { a in
 				let date = Date.present(a.startTimestamp, as: "d MMMM")
 				let time = Date.present(a.startTimestamp, as: "HH:mm")
-				let period = a.noticePeriodSec / (24*60*60)
-				let type = VoteKind(rawValue:a.kind) == .extend ? "extend deadline" : "release funds"
-				return "Voting to \(type) of milestone \(a.milestoneTitle) for campaign \(a.campaign.title) starts in \(period) days on \(date) at \(time)."
+				let period = "\(a.noticePeriodSec / (24*60*60))"
+
+				let type = VoteKind(rawValue:a.kind) == .extend
+					? R.string.localizable.label_voting_to_extend()
+					: R.string.localizable.label_voting_to_release_funds()
+
+				return R.string.localizable
+					.label_voting_to_of_for_starts_in_on_at(type, a.milestoneTitle, a.campaign.title,
+															period, date, time)
 			} ?? ""
 	}
 
@@ -145,14 +150,20 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	}
 
 	var votingResultTitle:String {
-		return (model?.activity as? ActivityVotingResult).flatMap { "Voting in \($0.campaign.title) has finished" } ?? ""
+		return (model?.activity as? ActivityVotingResult).flatMap {
+			R.string.localizable.label_voting_in_has_finished($0.campaign.title) } ?? ""
 	}
 
 	var votingResultDescription:String {
 		return (model?.activity as? ActivityVotingResult)
 			.flatMap { a in
-				let type = VoteKind(rawValue:a.kind) == .extend ? "extend deadline" : "release funds"
-				return "Voting to \(type) of milestone \(a.milestoneTitle) for campaign \(a.campaign.title) has finished.\nCheck out the results now."
+
+				let type = VoteKind(rawValue:a.kind) == .extend
+					? R.string.localizable.label_voting_to_extend()
+					: R.string.localizable.label_voting_to_release_funds()
+
+				return R.string.localizable.label_voting_to_of_for_has_finished(type,
+																				a.milestoneTitle, a.campaign.title)
 			} ?? ""
 	}
 

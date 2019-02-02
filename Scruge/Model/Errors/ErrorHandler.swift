@@ -21,101 +21,105 @@ struct ErrorHandler {
 		if let authError = error as? AuthError {
 			switch authError {
 			case .incorrectEmailLength:
-				return "Email should be longer than 5 and shorter than 254 symbols."
+				return R.string.localizable.error_auth_incorrectEmailLength()
 			case .incorrectPasswordLength:
-				return "Password should be longer than 5 and shorter than 50 symbols."
+				return R.string.localizable.error_auth_incorrectPasswordLength()
 			case .noToken, .invalidToken, .userNotFound:
-				return "This action requires authentication. Please, sign in with your Scruge account."
+				return R.string.localizable.error_auth_notAuthorized()
 			case .invalidEmail:
-				return "Incorrectly formatted email"
+				return R.string.localizable.error_auth_invalidEmail()
 			case .accountBlocked:
-				return "This account was blocked"
+				return R.string.localizable.error_auth_accountBlocked()
 			case .accountExists:
-				return "User already exists"
+				return R.string.localizable.error_auth_accountExists()
 			case .incorrectCredentials:
-				return "Incorrect credentials"
+				return R.string.localizable.error_auth_incorrectCredentials()
 			case .denied:
-				return "Access is restricted"
+				return R.string.localizable.error_auth_denied()
+			case .emailNotConfirmed:
+				return R.string.localizable.error_auth_email_not_confirmed()
 			}
 		}
 		else if let networkError = error as? NetworkingError {
 			switch networkError {
 			case .connectionProblem:
-				return "Unable to connect to the server"
+				return R.string.localizable.error_network_connectionProblem()
 			case .unknown:
-				return "Unknown network error"
+				return R.string.localizable.error_network_unknown()
 			}
 		}
 		else if let backendError = error as? BackendError {
 			switch backendError {
 			case .notImplemented:
-				return "Not implemented"
+				return R.string.localizable.error_backend_notImplemented()
 			case .invalidResourceId:
-				return "Malformed request"
+				return R.string.localizable.error_backend_invalidResourceId()
 			case .resourceNotFound:
-				return "Nothing was found for this request"
+				return R.string.localizable.error_backend_resourceNotFound()
 			case .parsingError:
-				return "Unexpected server response"
+				return R.string.localizable.error_backend_parsingError()
 			case .unknown:
-				return "Unexpected server error"
+				return R.string.localizable.error_backend_unknown()
 			case .emailSendError:
-				return "Unable to send email"
+				return R.string.localizable.error_backend_emailSendError()
 			case .paramsConflict:
-				return "Parameters conflict with each other"
+				return R.string.localizable.error_backend_paramsConflict()
 			case .replyNotSupported:
-				return "Replying to this is not allowed"
+				return R.string.localizable.error_backend_replyNotSupported()
 			}
 		}
 		else if let walletError = error as? WalletError {
 			switch walletError {
 			case .incorrectPasscode:
-				return "Incorrect passcode"
+				return R.string.localizable.error_wallet_incorrectPasscode()
 			case .noAccounts:
-				return "No accounts are associated with imported public key"
+				return R.string.localizable.error_wallet_noAccounts()
 			case .noKey:
-				return "You have no keys in your wallet"
+				return R.string.localizable.error_wallet_noKey()
 			case .noSelectedAccount:
-				return "You did not verify any EOS accounts"
+				return R.string.localizable.error_wallet_noSelectedAccount()
 			case .selectedAccountMissing:
-				return "Your verified account is not accessible with imported EOS key"
+				return R.string.localizable.error_wallet_selectedAccountMissing()
 			case .unknown:
-				return "Unknown wallet error"
+				return R.string.localizable.error_wallet_unknown()
 			}
 		}
 		else if let eosError = error as? EOSError {
 			switch eosError {
 			case .overdrawnBalance:
-				return "Overdrawn balance"
+				return R.string.localizable.error_eos_overdrawnBalance()
 			case .unknown:
-				return "Unknown blockchain error"
+				return R.string.localizable.error_eos_unknown()
 			case .abiError:
-				return "Incorrect transaction format"
+				return R.string.localizable.error_eos_abiError()
 			case .incorrectName:
-				return "Incorrect name: it can only contain letters, numbers from 1 to 5 and a dot"
+				return R.string.localizable.error_eos_incorrectName()
 			case .incorrectToken:
-				return "Incorrect token input"
+				return R.string.localizable.error_eos_incorrectToken()
 			case .actionError:
-				return "Server was unable to complete blockchain transaction, please try again"
+				return R.string.localizable.error_eos_actionError()
 			case .notSupported:
-				return "EOS: Not supported"
+				return R.string.localizable.error_eos_notSupported()
 			case .eosAccountExists:
-				return "EOS account with this name already exists"
+				return R.string.localizable.error_eos_eosAccountExists()
 			}
 		}
 		else if (error as NSError).domain == "SwiftyEOSErrorDomain" {
 			if let response = (error as NSError).userInfo["RPCErrorResponse"] as? RPCErrorResponse {
-				return response.error.details.reduce("") { $0 + "\n" + $1.message }
+				let msg = response.error.details.reduce("") { $0 + "\n" + $1.message }
 					.replacingOccurrences(of: "assertion failure with message:", with: "")
 					.replacingOccurrences(of: "pending console output:", with: "")
 					.trimmingCharacters(in: .whitespacesAndNewlines)
+				let message = msg.isBlank ? ErrorHandler.message(for: EOSError.unknown) : msg
+				return R.string.localizable.error_eos_transaction_failed(message)
 			}
 		}
 		else if let generalError = error as? GeneralError {
 			switch generalError {
 			case .unknown(let code):
-				return "Error \(code)"
+				return R.string.localizable.error_general_code("\(code)")
 			case .implementationError:
-				return "Unexpected error"
+				return R.string.localizable.error_general_unexpected()
 			}
 		}
 		return error.localizedDescription
