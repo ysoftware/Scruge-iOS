@@ -310,7 +310,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 
 	var videoUrl:URL? {
 		return model.flatMap {
-			URL(string: $0.videoUrl.replacingOccurrences(of: "controls=0", with: ""))
+			URL(string: $0.videoUrl)
 		}
 	}
 }
