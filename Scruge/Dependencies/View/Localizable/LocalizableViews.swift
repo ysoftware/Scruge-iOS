@@ -28,6 +28,7 @@ extension UIView: Localizable {
 		else {
 			subviews.forEach { $0.localize() }
 		}
+		layoutIfNeeded()
 	}
 }
 
