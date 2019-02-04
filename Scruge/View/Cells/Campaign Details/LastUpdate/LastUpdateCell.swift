@@ -20,7 +20,7 @@ final class LastUpdateCell: UITableViewCell {
 	// MARK: - Setup
 
 	@discardableResult
-	func setup(with vm: UpdateVM, title:String = R.string.localizable.title_last_update()) -> Self {
+	func setup(with vm: UpdateVM, title:String = R.string.localizable.title_last_update() + ": ") -> Self {
 		localize()
 		
 		titleLabel.text = vm.title

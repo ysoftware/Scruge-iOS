@@ -1029,9 +1029,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="AAB-Zh-Epc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Your Profile" id="myg-Zc-Acr">
-                        <barButtonItem key="rightBarButtonItem" image="gear" id="7B8-g1-IMl"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Your Profile" id="myg-Zc-Acr"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="PvZ-SR-xVs" id="6TV-cm-tKE"/>
                         <outlet property="nameLabel" destination="6Cz-OY-9fy" id="h6c-PK-ZkC"/>

@@ -18,7 +18,7 @@ extension Date {
 
 	static func presentRelative(_ millsedonds:Int, future:String = "", past:String = "") -> String {
 		let string = Date().milliseconds > millsedonds ? past : future
-		let date = Date(milliseconds: millsedonds).toRelative(locale: Locales.english)
+		let date = Date(milliseconds: millsedonds).toRelative(locale: Locale.current)
 		return "\(string) \(date)".trimmingCharacters(in: .whitespaces)
 	}
 }
