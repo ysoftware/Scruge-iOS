@@ -102,6 +102,10 @@ struct ErrorHandler {
 				return R.string.localizable.error_eos_notSupported()
 			case .eosAccountExists:
 				return R.string.localizable.error_eos_eosAccountExists()
+			case .createAccountIpLimitReached:
+				return R.string.localizable.error_eos_createAccountIpLimitReached()
+			case .createAccountDailyLimitReached:
+				return R.string.localizable.error_eos_createAccountDailyLimitReached()
 			}
 		}
 		else if (error as NSError).domain == "SwiftyEOSErrorDomain" {
@@ -152,6 +156,9 @@ struct ErrorHandler {
 		case 501: return EOSError.incorrectName
 		case 502: return EOSError.eosAccountExists
 		case 505: return EOSError.actionError
+		case 506: return EOSError.createAccountIpLimitReached
+		case 507: return EOSError.createAccountDailyLimitReached
+
 		case 599: return EOSError.notSupported
 
 		// html

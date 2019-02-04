@@ -58,6 +58,10 @@ enum EOSError: Error, Equatable {
 	case notSupported
 
 	case eosAccountExists
+
+	case createAccountIpLimitReached
+
+	case createAccountDailyLimitReached
 }
 
 enum BackendError: Error, Equatable {
