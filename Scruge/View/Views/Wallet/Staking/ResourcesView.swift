@@ -114,8 +114,6 @@ final class ResourcesView: UIView {
 		cpuLabel.text = vm.cpu
 		netLabel.text = vm.net
 		ramLabel.text = vm.ram
-
-		superview?.setNeedsLayout()
 	}
 
 	// MARK: - Actions

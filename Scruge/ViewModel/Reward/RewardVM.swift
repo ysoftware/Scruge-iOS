@@ -8,6 +8,8 @@
 
 import MVVM
 
+// UNUSED
+
 final class RewardVM: ViewModel<Reward> {
 
 	var title:String {

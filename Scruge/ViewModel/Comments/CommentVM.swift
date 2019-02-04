@@ -14,7 +14,7 @@ final class CommentVM: ViewModel<Comment> {
 		if let name = model?.authorName {
 			if !name.isEmpty { return name }
 		}
-		return "Anonymous"
+		return R.string.localizable.label_anonymous()
 	}
 
 	var authorPhoto:URL? {
@@ -46,6 +46,8 @@ final class CommentVM: ViewModel<Comment> {
 	var isLiking:Bool {
 		return model?.isLiking == true
 	}
+
+	// TO-DO: plurals
 
 	var repliesText:String? {
 		return model?.repliesCount.flatMap { number in

@@ -47,7 +47,7 @@ final class ActivityCell: UITableViewCell {
 			updateTitleLabel.text = vm.updateTitle
 			updateDescriptionLabel.text = vm.updateDescription
 			updateImage.setImage(string: vm.updateImage)
-			activityLabel.attributedText = vm.updateActivity
+			activityLabel.text = vm.updateActivity
 		case .reply:
 			dateLabel.text = vm.replyDate
 			activityLabel.text = vm.replyAuthorName

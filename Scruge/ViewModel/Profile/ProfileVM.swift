@@ -35,7 +35,7 @@ final class ProfileVM: ViewModel<Profile> {
 		if let name = model?.name {
 			if !name.isEmpty { return name }
 		}
-		return "Anonymous"
+		return R.string.localizable.label_anonymous()
 	}
 
 	var country:String {

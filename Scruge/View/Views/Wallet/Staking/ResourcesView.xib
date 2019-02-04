@@ -155,7 +155,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="235" height="0.0"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="STAKE RESOURCES"/>
+                                        <userDefinedRuntimeAttribute type="string" keyPath="text" value="@do_stake_resources"/>
                                     </userDefinedRuntimeAttributes>
                                 </view>
                             </subviews>

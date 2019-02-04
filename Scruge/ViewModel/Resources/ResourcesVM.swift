@@ -32,11 +32,19 @@ final class ResourcesVM: ViewModel<Resources> {
 
 	var netWeight:String { return data?.totalResources.netWeight ?? "" }
 
-	var cpu:String { return "\(cpuUsedValue.formatRounding(separateWith: "."))ms / \(cpuLimitValue.formatRounding(separateWith: "."))ms" }
+	var cpu:String {
+		return R.string.localizable.label_ms_current(cpuUsedValue.formatRounding(separateWith: "."),
+													 cpuLimitValue.formatRounding(separateWith: "."))
+	}
 
-	var net:String { return "\(netUsedValue.formatRounding(separateWith: "."))KB / \(netLimitValue.formatRounding(separateWith: "."))KB" }
+	var net:String {
+		return R.string.localizable.label_kb_current(netUsedValue.formatRounding(separateWith: "."),
+													 netLimitValue.formatRounding(separateWith: "."))
+	}
 
-	var ram:String { return "\(ramUsedValue)KB / \(ramLimitValue)KB" }
+	var ram:String {
+		return R.string.localizable.label_kb_current("\(ramUsedValue)", "\(ramLimitValue)")
+	}
 
 	// values
 
