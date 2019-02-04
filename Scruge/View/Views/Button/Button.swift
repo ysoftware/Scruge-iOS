@@ -53,7 +53,7 @@ final class Button: UIView {
 	public var text:String = "" {
 		didSet {
 			UIView.performWithoutAnimation {
-				self.button.setTitle(self.text, for: .normal)
+				self.button.setTitle(self.text.uppercased(), for: .normal)
 				self.button.layoutIfNeeded()
 			}
 		}

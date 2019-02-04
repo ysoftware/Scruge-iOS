@@ -1265,7 +1265,7 @@
                                                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="inset">
-                                                                                                <real key="value" value="80"/>
+                                                                                                <real key="value" value="100"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </textField>
@@ -1276,7 +1276,7 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G3C-9z-cXj">
-                                                                                        <rect key="frame" x="180" y="21.666666666666657" width="27.666666666666657" height="17"/>
+                                                                                        <rect key="frame" x="200" y="21.666666666666657" width="27.666666666666657" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1288,7 +1288,7 @@
                                                                                     <constraint firstItem="Ew0-pU-XET" firstAttribute="height" secondItem="eSF-g9-Gy7" secondAttribute="height" id="68Q-Ca-KZH"/>
                                                                                     <constraint firstItem="Ew0-pU-XET" firstAttribute="top" secondItem="eSF-g9-Gy7" secondAttribute="top" id="Tcs-z2-pQU"/>
                                                                                     <constraint firstItem="XXY-Al-a4i" firstAttribute="leading" secondItem="eSF-g9-Gy7" secondAttribute="leading" constant="15" id="Vtl-sb-qiS"/>
-                                                                                    <constraint firstItem="G3C-9z-cXj" firstAttribute="leading" secondItem="eSF-g9-Gy7" secondAttribute="leading" constant="180" id="YHt-CY-Ld6"/>
+                                                                                    <constraint firstItem="G3C-9z-cXj" firstAttribute="leading" secondItem="eSF-g9-Gy7" secondAttribute="leading" constant="200" id="YHt-CY-Ld6"/>
                                                                                     <constraint firstAttribute="height" constant="60" id="fza-Wb-xx0"/>
                                                                                     <constraint firstItem="XXY-Al-a4i" firstAttribute="centerY" secondItem="Ew0-pU-XET" secondAttribute="centerY" id="he1-Pp-YoS"/>
                                                                                     <constraint firstItem="G3C-9z-cXj" firstAttribute="centerY" secondItem="Ew0-pU-XET" secondAttribute="centerY" id="sE1-Zm-wdN"/>
@@ -1311,7 +1311,7 @@
                                                                                         <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                                                         <userDefinedRuntimeAttributes>
                                                                                             <userDefinedRuntimeAttribute type="number" keyPath="inset">
-                                                                                                <real key="value" value="80"/>
+                                                                                                <real key="value" value="100"/>
                                                                                             </userDefinedRuntimeAttribute>
                                                                                         </userDefinedRuntimeAttributes>
                                                                                     </textField>
@@ -1322,7 +1322,7 @@
                                                                                         <nil key="highlightedColor"/>
                                                                                     </label>
                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="INg-wV-fme">
-                                                                                        <rect key="frame" x="180" y="21.666666666666686" width="27.666666666666657" height="17"/>
+                                                                                        <rect key="frame" x="200" y="21.666666666666686" width="27.666666666666657" height="17"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                                         <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <nil key="highlightedColor"/>
@@ -1332,7 +1332,7 @@
                                                                                 <constraints>
                                                                                     <constraint firstItem="BN4-6o-6Az" firstAttribute="centerY" secondItem="Sub-9O-6hi" secondAttribute="centerY" id="9E8-8S-sRF"/>
                                                                                     <constraint firstAttribute="height" constant="60" id="K64-kT-BaP"/>
-                                                                                    <constraint firstItem="INg-wV-fme" firstAttribute="leading" secondItem="ogu-Ay-HGC" secondAttribute="leading" constant="180" id="QQP-ze-t3A"/>
+                                                                                    <constraint firstItem="INg-wV-fme" firstAttribute="leading" secondItem="ogu-Ay-HGC" secondAttribute="leading" constant="200" id="QQP-ze-t3A"/>
                                                                                     <constraint firstItem="Sub-9O-6hi" firstAttribute="height" secondItem="ogu-Ay-HGC" secondAttribute="height" id="V4r-QB-wIO"/>
                                                                                     <constraint firstItem="Sub-9O-6hi" firstAttribute="top" secondItem="ogu-Ay-HGC" secondAttribute="top" id="iy2-rR-JMQ"/>
                                                                                     <constraint firstItem="Sub-9O-6hi" firstAttribute="leading" secondItem="ogu-Ay-HGC" secondAttribute="leading" constant="15" id="oB8-q1-0XD"/>
@@ -1350,7 +1350,7 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1JU-Pw-RMR" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                                 <rect key="frame" x="15" y="200" width="315" height="60"/>
                                                                                 <subviews>
-                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Wallet password…" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NhW-jJ-WV7">
+                                                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="@hint_wallet_password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NhW-jJ-WV7">
                                                                                         <rect key="frame" x="15" y="0.0" width="285" height="60"/>
                                                                                         <nil key="textColor"/>
                                                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
