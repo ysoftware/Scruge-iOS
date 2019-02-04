@@ -28,6 +28,10 @@ extension UIView: Localizable {
 		else {
 			subviews.forEach { $0.localize() }
 		}
+		DispatchQueue.main.async {
+			self.sizeToFit()
+			self.setNeedsLayout()
+		}
 	}
 }
 

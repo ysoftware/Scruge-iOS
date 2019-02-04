@@ -10,6 +10,7 @@ import UIKit
 
 final class WalletNoAccountViewController: UIViewController {
 
+	@IBOutlet weak var walletDataButton: UIButton!
 	@IBOutlet weak var walletDataView: WalletDataView!
 	@IBOutlet var createButton:Button!
 	@IBOutlet var privacyLabel:UILabel!
@@ -67,6 +68,11 @@ final class WalletNoAccountViewController: UIViewController {
 	@IBAction func showWalletData(_ sender: Any) {
 		walletDataView.lock()
 		walletDataView.isHidden.toggle()
+
+		let title = walletDataView.isHidden
+			? R.string.localizable.do_see_wallet_data()
+			: R.string.localizable.do_hide_wallet_data()
+		walletDataButton.setTitle(title, for: .normal)
 	}
 
 	@IBAction func openPrivacy(_ sender:Any) {

@@ -60,28 +60,30 @@ final class WalletDataView: UIView {
 
 	@IBAction func copyPublicKey(_ sender: Any) {
 		UIPasteboard.general.string = wallet?.rawPublicKey
-		presentingViewController?.alert("Copied to clipboard")
+		presentingViewController?.alert(R.string.localizable.alert_copied_to_clipboard())
 	}
 
 	@IBAction func exportPrivateKey(_ sender: Any) {
 		if unlocked {
 			UIPasteboard.general.string = privateKeyLabel.text
-			presentingViewController?.alert("Copied to clipboard")
+			presentingViewController?.alert(R.string.localizable.alert_copied_to_clipboard())
 			return
 		}
 
 		guard let wallet = Service.wallet.getWallet() else { return }
-		let warning = "Be careful not to share your private key with anyone!"
+		let warning =  R.string.localizable.alert_private_key_warning()
 
-		presentingViewController?.askForInput("Export private key",
-						 question: "Enter your wallet password",
-						 placeholder: "Wallet password…",
+		presentingViewController?.askForInput(R.string.localizable.title_export_private_key(),
+						 question: R.string.localizable.label_export_private_key(),
+						 placeholder: R.string.localizable.hint_wallet_password(),
 						 keyboardType: .default,
 						 isSecure: true,
-						 actionTitle: "Unlock") { input in
+						 actionTitle: R.string.localizable.do_unlock_wallet()) { input in
 							guard let input = input else { return }
 							guard let privateKey = try? wallet.decrypt(passcode: input) else {
-								self.presentingViewController?.alert("Incorrect password")
+
+								self.presentingViewController?.alert(
+									R.string.localizable.error_incorrectPassword())
 								return
 							}
 							self.unlocked = true
