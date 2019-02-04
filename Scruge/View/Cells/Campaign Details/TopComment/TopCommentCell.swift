@@ -40,11 +40,11 @@ final class TopCommentCell: UITableViewCell {
 				profileImage.image = nil
 			}
 
-			if allCommentsCount == 1 {
+			if allCommentsCount == 0 {
 				allCommentsLabel.text = R.string.localizable.do_add_your_comment()
 			}
 			else {
-				allCommentsLabel.text = "See all \(allCommentsCount) comments"
+				allCommentsLabel.text = R.string.localizable.see_all_comments(count: allCommentsCount)
 			}
 			noCommentsStack.isHidden = true
 			topCommentStack.isHidden = false

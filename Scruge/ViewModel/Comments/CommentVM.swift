@@ -47,13 +47,10 @@ final class CommentVM: ViewModel<Comment> {
 		return model?.isLiking == true
 	}
 
-	// TO-DO: plurals
-
 	var repliesText:String? {
 		return model?.repliesCount.flatMap { number in
 			guard number > 0 else { return nil }
-			let replies = number == 1 ? "reply" : "replies"
-			return "See \(number) \(replies)"
+			return R.string.localizable.see_all_comments(count: number)
 		}
 	}
 

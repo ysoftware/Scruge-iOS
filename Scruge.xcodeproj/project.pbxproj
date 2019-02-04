@@ -67,6 +67,7 @@
 		7162006E22031C9700DC1A10 /* Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162006D22031C9700DC1A10 /* Localizable.swift */; };
 		7162007122031D3800DC1A10 /* LocalizableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162007022031D3800DC1A10 /* LocalizableViews.swift */; };
 		7162007322032DE000DC1A10 /* BlankString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162007222032DE000DC1A10 /* BlankString.swift */; };
+		7162007622085C8000DC1A10 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 7162007822085C8000DC1A10 /* Localizable.stringsdict */; };
 		7166528521F0A4CD005A50F7 /* ResourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528421F0A4CD005A50F7 /* ResourcesView.swift */; };
 		7166528721F0A6F9005A50F7 /* ResourcesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7166528621F0A6F9005A50F7 /* ResourcesView.xib */; };
 		7166528A21F0B143005A50F7 /* ResourcesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528921F0B143005A50F7 /* ResourcesVM.swift */; };
@@ -343,6 +344,8 @@
 		7162006D22031C9700DC1A10 /* Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Localizable.swift; sourceTree = "<group>"; };
 		7162007022031D3800DC1A10 /* LocalizableViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableViews.swift; sourceTree = "<group>"; };
 		7162007222032DE000DC1A10 /* BlankString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankString.swift; sourceTree = "<group>"; };
+		7162007722085C8000DC1A10 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		7162007922085C8A00DC1A10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		7166528421F0A4CD005A50F7 /* ResourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesView.swift; sourceTree = "<group>"; };
 		7166528621F0A6F9005A50F7 /* ResourcesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesView.xib; sourceTree = "<group>"; };
 		7166528921F0B143005A50F7 /* ResourcesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesVM.swift; sourceTree = "<group>"; };
@@ -1004,6 +1007,7 @@
 		71971CB72158E427004D28E7 /* Support */ = {
 			isa = PBXGroup;
 			children = (
+				7162007822085C8000DC1A10 /* Localizable.stringsdict */,
 				7162006B2203144500DC1A10 /* Localizable.strings */,
 				71077BD421F72E7D00C61F81 /* GoogleService-Info.plist */,
 				71BE9568215E2D85001CF853 /* Scruge.entitlements */,
@@ -1954,6 +1958,7 @@
 				713EF3B021A98DF4009BA9D5 /* PagingCell.xib in Resources */,
 				71DA7E8F2164A6CB0052EB8F /* AuthProfile.storyboard in Resources */,
 				71B8462921B5613F00F6D708 /* VoteControlsCell.xib in Resources */,
+				7162007622085C8000DC1A10 /* Localizable.stringsdict in Resources */,
 				71D84CBE21995ACF00E8DB88 /* secp256k1.table in Resources */,
 				71A0C1A9216F93A500C2ACF3 /* AboutCell.xib in Resources */,
 				71BE95932162343F001CF853 /* CampHeader.xib in Resources */,
@@ -2349,6 +2354,15 @@
 				7162006C2203144F00DC1A10 /* ru */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		7162007822085C8000DC1A10 /* Localizable.stringsdict */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7162007722085C8000DC1A10 /* ru */,
+				7162007922085C8A00DC1A10 /* en */,
+			);
+			name = Localizable.stringsdict;
 			sourceTree = "<group>";
 		};
 		71971C842158E056004D28E7 /* Main.storyboard */ = {
