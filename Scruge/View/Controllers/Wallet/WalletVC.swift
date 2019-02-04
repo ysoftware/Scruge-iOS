@@ -220,8 +220,8 @@ You will not be able to change it after you make first investment.
 	}
 
 	private func deleteWallet() {
-		let t = "Are you sure to delete your wallet?"
-		let q = "Make sure to export your private key because there is no way it can be retrieved later."
+		let t = R.string.localizable.title_sure_to_delete_wallet()
+		let q = R.string.localizable.label_sure_to_delete_wallet()
 		self.ask(title: t, question: q) { response in
 			if response {
 				self.vm.deleteWallet()

@@ -48,7 +48,7 @@ final class ProfileEditViewController: UIViewController {
 	}
 
 	@objc func cancel(_ sender: Any) {
-		ask(question: "Are you sure that you want to quit?") { reply in
+		ask(question: R.string.localizable.label_sure_to_quit()) { reply in
 			if reply {
 				Service.tokenManager.removeToken()
 				self.navigationController?.popViewController(animated: true)
@@ -95,6 +95,10 @@ final class ProfileEditViewController: UIViewController {
 	}
 
 	private func setupButton() {
+		saveButton.text = editingProfile == nil
+			? R.string.localizable.do_create_profile()
+			: R.string.localizable.do_edit_profile()
+
 		saveButton.addClick(self, action: #selector(save))
 	}
 
