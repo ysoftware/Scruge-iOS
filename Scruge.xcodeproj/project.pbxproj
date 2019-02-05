@@ -348,7 +348,7 @@
 		71387A9C216CCC4800B24C67 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		71387A9E216CD17300B24C67 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
 		713EF3AF21A98DF4009BA9D5 /* PagingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagingCell.xib; sourceTree = "<group>"; };
-		713EF3B121A98E6F009BA9D5 /* PagingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PagingCell.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/View/Cells/Campaign Details/Paging Cell/PagingCell.swift"; sourceTree = "<absolute>"; };
+		713EF3B121A98E6F009BA9D5 /* PagingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCell.swift; sourceTree = "<group>"; };
 		715DB15A2174716E0005B69D /* VoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteVC.swift; sourceTree = "<group>"; };
 		715DB15C217471980005B69D /* ContributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributeVC.swift; sourceTree = "<group>"; };
 		7162006A2203144500DC1A10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -381,12 +381,12 @@
 		716F05FE21D2170900561162 /* AlertVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertVC.swift; sourceTree = "<group>"; };
 		716F060021D219D800561162 /* UIButton+AddTargetClosure.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+AddTargetClosure.swift"; sourceTree = "<group>"; };
 		716F060221D2535600561162 /* ExchangeRates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeRates.swift; sourceTree = "<group>"; };
-		716F060621D2561400561162 /* ExchangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ExchangeModel.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/Services/Exchange/ExchangeModel.swift"; sourceTree = "<absolute>"; };
+		716F060621D2561400561162 /* ExchangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeModel.swift; sourceTree = "<group>"; };
 		716F060821D3628D00561162 /* Testing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Testing.swift; sourceTree = "<group>"; };
 		716F060A21D3942400561162 /* ExpandableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExpandableView.swift; sourceTree = "<group>"; };
 		71724CC221B7EB6C005C520D /* MemberProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberProfileVC.swift; sourceTree = "<group>"; };
 		71724CC421B81495005C520D /* DetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
-		71894B8B21C3B5B00050F705 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AccountModel.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/Scruge/Services/Wallet/AccountModel.swift"; sourceTree = "<absolute>"; };
+		71894B8B21C3B5B00050F705 /* AccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountModel.swift; sourceTree = "<group>"; };
 		718B2F28217BAD3C00831B34 /* DataFormatting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataFormatting.swift; sourceTree = "<group>"; };
 		718B2F2A217CA0EC00831B34 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		71925E1F21ABE079006A6889 /* FaqCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaqCell.swift; sourceTree = "<group>"; };
