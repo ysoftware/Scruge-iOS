@@ -590,7 +590,7 @@
 		71DC1A9A21AFE3A9001D5575 /* NoAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoAccountVC.swift; sourceTree = "<group>"; };
 		71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletPickerVC.swift; sourceTree = "<group>"; };
 		71E09471219EE42C00281643 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
-		71F4A7F62209B90300580E85 /* WalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WalletTests.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/ScrugeUITests/WalletTests.swift"; sourceTree = "<absolute>"; };
+		71F4A7F62209B90300580E85 /* WalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTests.swift; sourceTree = "<group>"; };
 		71F68A4921709D8A00F7E728 /* FaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqVC.swift; sourceTree = "<group>"; };
 		71F68A4B21709E2700F7E728 /* DocumentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsVC.swift; sourceTree = "<group>"; };
 		71FF085A21AE766800D9F3A3 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
