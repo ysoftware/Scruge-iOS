@@ -37,7 +37,7 @@ final class WalletTests: XCTestCase {
 		// correct private key created by keosd
 		Service.wallet.importKey(PRIVATE_KEY,
 								 passcode: PASSCODE, keyBlock(expectation))
-		wait(for: [expectation], timeout: 0.5)
+		wait(for: [expectation], timeout: 3)
 	}
 
 	func testFailImport() {
@@ -54,7 +54,7 @@ final class WalletTests: XCTestCase {
 		// some random string
 		Service.wallet.importKey("fail",
 								 passcode: PASSCODE, keyBlock(expectation))
-		wait(for: [expectation], timeout: 0.5)
+		wait(for: [expectation], timeout: 3)
 	}
 
 	// MARK: - Lock
@@ -72,7 +72,7 @@ final class WalletTests: XCTestCase {
 										expectation.fulfill()
 									}
 		}
-		wait(for: [expectation], timeout: 0.5)
+		wait(for: [expectation], timeout: 3)
 	}
 
 	func testUnlockFailure() {
@@ -88,6 +88,6 @@ final class WalletTests: XCTestCase {
 										expectation.fulfill()
 									}
 		}
-		wait(for: [expectation], timeout: 0.5)
+		wait(for: [expectation], timeout: 3)
 	}
 }
