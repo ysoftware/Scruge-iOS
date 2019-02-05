@@ -11,6 +11,7 @@ import XCTest
 class WalletTests: XCTestCase {
 
 	let app = XCUIApplication()
+	let elementsQuery = XCUIApplication().scrollViews.otherElements
 
 	let key = "5KdYZnaKk9KmQkdfENASqeGrwiPqsjANGPTdT2f2An8XUy58YZR"
 	let account = "testaccountp"
@@ -43,14 +44,37 @@ class WalletTests: XCTestCase {
 
 		importKey()
 
+		// open transfers
+		elementsQuery.staticTexts["Transfer"].tap()
 
+		let receiverField = elementsQuery.textFields["Receiver"]
+		receiverField.tap()
+		receiverField.typeText(otherAccount)
+
+		let amountField = elementsQuery.textFields["Amount"]
+		amountField.tap()
+		amountField.typeText("0.0001")
+
+		let memoField = elementsQuery.textFields["Memo"]
+		memoField.tap()
+		memoField.typeText("This is a test")
+
+		let pwdField = elementsQuery.secureTextFields["Wallet password"]
+		pwdField.tap()
+		pwdField.typeText(password)
+
+		// send transaction
+		elementsQuery.buttons["TRANSFER"].tap()
+
+		// check if transaction was successful
+		XCTAssert(elementsQuery.staticTexts["Transaction was successful"].waitForExistence(timeout: 3))
 	}
 
 	// MARK: - Methods
 
 	func importKey() {
-		let elementsQuery = app.scrollViews.otherElements
 
+		// only import if doesn't exist already
 		let importButton = app.buttons["IMPORT KEY"]
 		guard importButton.waitForExistence(timeout: 3) else { return }
 
@@ -72,7 +96,6 @@ class WalletTests: XCTestCase {
 	}
 
 	func removeKey() {
-		let elementsQuery = app.scrollViews.otherElements
 
 		// remove key if no account page
 		let removeKey = elementsQuery.buttons["Remove key and start over"]
