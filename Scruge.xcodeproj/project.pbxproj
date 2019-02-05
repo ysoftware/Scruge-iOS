@@ -68,8 +68,11 @@
 		7162007122031D3800DC1A10 /* LocalizableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162007022031D3800DC1A10 /* LocalizableViews.swift */; };
 		7162007322032DE000DC1A10 /* BlankString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162007222032DE000DC1A10 /* BlankString.swift */; };
 		7162007622085C8000DC1A10 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 7162007822085C8000DC1A10 /* Localizable.stringsdict */; };
-		71620082220980B500DC1A10 /* ScrugeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71620081220980B500DC1A10 /* ScrugeUITests.swift */; };
+		71620082220980B500DC1A10 /* ProfileTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71620081220980B500DC1A10 /* ProfileTests.swift */; };
 		7162008A2209884C00DC1A10 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716200892209884C00DC1A10 /* UIExtensions.swift */; };
+		7162008C22098C1B00DC1A10 /* WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162008B22098C1B00DC1A10 /* WalletTests.swift */; };
+		7162008F220990CA00DC1A10 /* LaunchArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162008E220990CA00DC1A10 /* LaunchArgs.swift */; };
+		716200902209910D00DC1A10 /* LaunchArgs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162008E220990CA00DC1A10 /* LaunchArgs.swift */; };
 		7166528521F0A4CD005A50F7 /* ResourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528421F0A4CD005A50F7 /* ResourcesView.swift */; };
 		7166528721F0A6F9005A50F7 /* ResourcesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7166528621F0A6F9005A50F7 /* ResourcesView.xib */; };
 		7166528A21F0B143005A50F7 /* ResourcesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528921F0B143005A50F7 /* ResourcesVM.swift */; };
@@ -356,9 +359,11 @@
 		7162007722085C8000DC1A10 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		7162007922085C8A00DC1A10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		7162007F220980B500DC1A10 /* ScrugeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrugeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		71620081220980B500DC1A10 /* ScrugeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrugeUITests.swift; sourceTree = "<group>"; };
+		71620081220980B500DC1A10 /* ProfileTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTests.swift; sourceTree = "<group>"; };
 		71620083220980B500DC1A10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		716200892209884C00DC1A10 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
+		7162008B22098C1B00DC1A10 /* WalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WalletTests.swift; path = "/Users/ysoftware/Documents/Work/Scruge-iOS/ScrugeUITests/WalletTests.swift"; sourceTree = "<absolute>"; };
+		7162008E220990CA00DC1A10 /* LaunchArgs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchArgs.swift; sourceTree = "<group>"; };
 		7166528421F0A4CD005A50F7 /* ResourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesView.swift; sourceTree = "<group>"; };
 		7166528621F0A6F9005A50F7 /* ResourcesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesView.xib; sourceTree = "<group>"; };
 		7166528921F0B143005A50F7 /* ResourcesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesVM.swift; sourceTree = "<group>"; };
@@ -871,7 +876,8 @@
 		71620080220980B500DC1A10 /* ScrugeUITests */ = {
 			isa = PBXGroup;
 			children = (
-				71620081220980B500DC1A10 /* ScrugeUITests.swift */,
+				7162008B22098C1B00DC1A10 /* WalletTests.swift */,
+				71620081220980B500DC1A10 /* ProfileTests.swift */,
 				71620083220980B500DC1A10 /* Info.plist */,
 				716200892209884C00DC1A10 /* UIExtensions.swift */,
 			);
@@ -1043,6 +1049,7 @@
 				7162006B2203144500DC1A10 /* Localizable.strings */,
 				71077BD421F72E7D00C61F81 /* GoogleService-Info.plist */,
 				71BE9568215E2D85001CF853 /* Scruge.entitlements */,
+				7162008E220990CA00DC1A10 /* LaunchArgs.swift */,
 				71971C802158E056004D28E7 /* AppDelegate.swift */,
 				71971CB82158E445004D28E7 /* R.generated.swift */,
 				71971C872158E058004D28E7 /* Assets.xcassets */,
@@ -2172,8 +2179,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				71620082220980B500DC1A10 /* ScrugeUITests.swift in Sources */,
+				71620082220980B500DC1A10 /* ProfileTests.swift in Sources */,
+				7162008C22098C1B00DC1A10 /* WalletTests.swift in Sources */,
 				7162008A2209884C00DC1A10 /* UIExtensions.swift in Sources */,
+				716200902209910D00DC1A10 /* LaunchArgs.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2388,6 +2397,7 @@
 				71C2C5B821AC0CCC0040C85A /* Button.swift in Sources */,
 				7120450121EF82680030F96A /* ActivityQ.swift in Sources */,
 				71D84CBF21995ACF00E8DB88 /* bip39.c in Sources */,
+				7162008F220990CA00DC1A10 /* LaunchArgs.swift in Sources */,
 				71B38D00215ABE3400929CC3 /* UpdateVM.swift in Sources */,
 				71BE95C92163E879001CF853 /* ProgressView.swift in Sources */,
 				71A0C1A7216F939900C2ACF3 /* AboutCell.swift in Sources */,

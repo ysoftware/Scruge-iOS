@@ -7,12 +7,11 @@
 //
 
 import XCTest
-import Foundation
-@testable import Scruge
 
-class ScrugeUITests: XCTestCase {
+class ProfileTests: XCTestCase {
 
 	let app = XCUIApplication()
+	let username = "UI Tester"
 
     override func setUp() {
         continueAfterFailure = false
@@ -27,37 +26,47 @@ class ScrugeUITests: XCTestCase {
 		login()
 
 		// check name
-		XCTAssert(app.staticTexts["UI Tester"].waitForExistence(timeout: 3))
+		XCTAssert(app.staticTexts[username].waitForExistence(timeout: 3))
     }
  
 	func testProfileEdit() {
 		let randomString = "\(arc4random())"
+		let elementsQuery = app.scrollViews.otherElements
 
 		// open login/profile
 		app.tabBars.buttons["Profile"].tap()
 
 		// if not logged in
-		if !app.staticTexts["UI Tester"].waitForExistence(timeout: 3) {
+		if !app.staticTexts[username].waitForExistence(timeout: 3) {
 			login()
 		}
 
+		// go to settings
 		app.navigationBars["Scruge.ProfileView"].children(matching: .button).element.tap()
+
+		// edit profile
 		app.buttons["Edit Profile"].tap()
 
-		let elementsQuery = app.scrollViews.otherElements
-
+		// click through these fields just to make sure they exist
 		elementsQuery.textFields["Full Name"].tap()
 		elementsQuery.textFields["Location"].tap()
 
+		// change about text
 		let aboutField = elementsQuery.textFields["About you"]
 		aboutField.tap()
 		aboutField.clearAndEnterText(text: randomString)
 
+		// save
 		elementsQuery.buttons["EDIT PROFILE"].tap()
+
+		// go back
 		app.navigationBars["Settings"].buttons["Back"].tap()
 
+		// check new about text
 		XCTAssert(app.staticTexts[randomString].waitForExistence(timeout: 3))
 	}
+
+	// MARK: - Methods
 
 	func login() {
 		let elementsQuery = app.scrollViews.otherElements

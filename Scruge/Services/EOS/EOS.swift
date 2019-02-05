@@ -16,7 +16,7 @@ class EOS {
 
 	var isMainNet:Bool { return nodeUrl != testNodeUrl }
 
-	let testNodeUrl = "http://35.242.241.205:7777"
+	let testNodeUrl = "https://api-kylin.eosasia.one"
 
 	var nodeUrl:String = "" {
 		didSet {

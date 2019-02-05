@@ -35,6 +35,14 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		// firebase
 		FirebaseApp.configure()
 
+
+		// launch arguments
+		let args = ProcessInfo.processInfo.arguments
+
+		if args.contains(LaunchArgs.EosTestNodeArgument) {
+			Service.eos.nodeUrl = Service.eos.testNodeUrl
+		}
+
 		return true
 	}
 }
