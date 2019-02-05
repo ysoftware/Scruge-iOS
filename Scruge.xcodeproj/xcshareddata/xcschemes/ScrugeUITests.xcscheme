@@ -27,9 +27,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "71971C902158E059004D28E7"
-               BuildableName = "ScrugeTests.xctest"
-               BlueprintName = "ScrugeTests"
+               BlueprintIdentifier = "7162007E220980B500DC1A10"
+               BuildableName = "ScrugeUITests.xctest"
+               BlueprintName = "ScrugeUITests"
                ReferencedContainer = "container:Scruge.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -41,7 +41,6 @@
       buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      language = "ru"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"

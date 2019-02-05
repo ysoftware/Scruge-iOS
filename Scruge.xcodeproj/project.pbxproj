@@ -68,6 +68,8 @@
 		7162007122031D3800DC1A10 /* LocalizableViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162007022031D3800DC1A10 /* LocalizableViews.swift */; };
 		7162007322032DE000DC1A10 /* BlankString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7162007222032DE000DC1A10 /* BlankString.swift */; };
 		7162007622085C8000DC1A10 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 7162007822085C8000DC1A10 /* Localizable.stringsdict */; };
+		71620082220980B500DC1A10 /* ScrugeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71620081220980B500DC1A10 /* ScrugeUITests.swift */; };
+		7162008A2209884C00DC1A10 /* UIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 716200892209884C00DC1A10 /* UIExtensions.swift */; };
 		7166528521F0A4CD005A50F7 /* ResourcesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528421F0A4CD005A50F7 /* ResourcesView.swift */; };
 		7166528721F0A6F9005A50F7 /* ResourcesView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7166528621F0A6F9005A50F7 /* ResourcesView.xib */; };
 		7166528A21F0B143005A50F7 /* ResourcesVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7166528921F0B143005A50F7 /* ResourcesVM.swift */; };
@@ -274,6 +276,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		71620084220980B500DC1A10 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 71971C752158E056004D28E7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 71971C7C2158E056004D28E7;
+			remoteInfo = Scruge;
+		};
 		71971C922158E059004D28E7 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 71971C752158E056004D28E7 /* Project object */;
@@ -346,6 +355,10 @@
 		7162007222032DE000DC1A10 /* BlankString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlankString.swift; sourceTree = "<group>"; };
 		7162007722085C8000DC1A10 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = ru; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		7162007922085C8A00DC1A10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		7162007F220980B500DC1A10 /* ScrugeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScrugeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		71620081220980B500DC1A10 /* ScrugeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrugeUITests.swift; sourceTree = "<group>"; };
+		71620083220980B500DC1A10 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		716200892209884C00DC1A10 /* UIExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExtensions.swift; sourceTree = "<group>"; };
 		7166528421F0A4CD005A50F7 /* ResourcesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesView.swift; sourceTree = "<group>"; };
 		7166528621F0A6F9005A50F7 /* ResourcesView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResourcesView.xib; sourceTree = "<group>"; };
 		7166528921F0B143005A50F7 /* ResourcesVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourcesVM.swift; sourceTree = "<group>"; };
@@ -586,6 +599,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		7162007C220980B500DC1A10 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		71971C7A2158E056004D28E7 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -848,6 +868,16 @@
 			path = Localizable;
 			sourceTree = "<group>";
 		};
+		71620080220980B500DC1A10 /* ScrugeUITests */ = {
+			isa = PBXGroup;
+			children = (
+				71620081220980B500DC1A10 /* ScrugeUITests.swift */,
+				71620083220980B500DC1A10 /* Info.plist */,
+				716200892209884C00DC1A10 /* UIExtensions.swift */,
+			);
+			path = ScrugeUITests;
+			sourceTree = "<group>";
+		};
 		7166528321F0A48A005A50F7 /* Staking */ = {
 			isa = PBXGroup;
 			children = (
@@ -897,6 +927,7 @@
 			children = (
 				71971C7F2158E056004D28E7 /* Scruge */,
 				71971C942158E059004D28E7 /* ScrugeTests */,
+				71620080220980B500DC1A10 /* ScrugeUITests */,
 				71971C7E2158E056004D28E7 /* Products */,
 				5ED3CA62F48657A058B07B71 /* Pods */,
 				9E01F0AF29DD0E979EC82684 /* Frameworks */,
@@ -908,6 +939,7 @@
 			children = (
 				71971C7D2158E056004D28E7 /* Scruge.app */,
 				71971C912158E059004D28E7 /* ScrugeTests.xctest */,
+				7162007F220980B500DC1A10 /* ScrugeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1824,6 +1856,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		7162007E220980B500DC1A10 /* ScrugeUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 71620088220980B500DC1A10 /* Build configuration list for PBXNativeTarget "ScrugeUITests" */;
+			buildPhases = (
+				7162007B220980B500DC1A10 /* Sources */,
+				7162007C220980B500DC1A10 /* Frameworks */,
+				7162007D220980B500DC1A10 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				71620085220980B500DC1A10 /* PBXTargetDependency */,
+			);
+			name = ScrugeUITests;
+			productName = ScrugeUITests;
+			productReference = 7162007F220980B500DC1A10 /* ScrugeUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 		71971C7C2158E056004D28E7 /* Scruge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 71971CA52158E059004D28E7 /* Build configuration list for PBXNativeTarget "Scruge" */;
@@ -1871,10 +1921,14 @@
 		71971C752158E056004D28E7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = Ysoftware;
 				TargetAttributes = {
+					7162007E220980B500DC1A10 = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = 71971C7C2158E056004D28E7;
+					};
 					71971C7C2158E056004D28E7 = {
 						CreatedOnToolsVersion = 10.0;
 						SystemCapabilities = {
@@ -1911,11 +1965,19 @@
 			targets = (
 				71971C7C2158E056004D28E7 /* Scruge */,
 				71971C902158E059004D28E7 /* ScrugeTests */,
+				7162007E220980B500DC1A10 /* ScrugeUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		7162007D220980B500DC1A10 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		71971C7B2158E056004D28E7 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2106,6 +2168,15 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		7162007B220980B500DC1A10 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				71620082220980B500DC1A10 /* ScrugeUITests.swift in Sources */,
+				7162008A2209884C00DC1A10 /* UIExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		71971C792158E056004D28E7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -2339,6 +2410,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		71620085220980B500DC1A10 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 71971C7C2158E056004D28E7 /* Scruge */;
+			targetProxy = 71620084220980B500DC1A10 /* PBXContainerItemProxy */;
+		};
 		71971C932158E059004D28E7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 71971C7C2158E056004D28E7 /* Scruge */;
@@ -2384,6 +2460,46 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		71620086220980B500DC1A10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S422Q897FZ;
+				INFOPLIST_FILE = ScrugeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.ScrugeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Scruge;
+			};
+			name = Debug;
+		};
+		71620087220980B500DC1A10 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S422Q897FZ;
+				INFOPLIST_FILE = ScrugeUITests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.scruge.ScrugeUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Scruge;
+			};
+			name = Release;
+		};
 		71971CA32158E059004D28E7 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2597,6 +2713,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		71620088220980B500DC1A10 /* Build configuration list for PBXNativeTarget "ScrugeUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				71620086220980B500DC1A10 /* Debug */,
+				71620087220980B500DC1A10 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		71971C782158E056004D28E7 /* Build configuration list for PBXProject "Scruge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
