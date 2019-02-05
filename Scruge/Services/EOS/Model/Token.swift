@@ -30,8 +30,6 @@ struct Token:Equatable, Hashable, CustomStringConvertible {
 
 	static let EOS = Token(contract: EosName.create("eosio.token"), symbol: "EOS")
 
-	static let SYS = Token(contract: EosName.create("eosio.token"), symbol: "SYS")
-
 	static let Scruge = Token(contract: EosName.create("eosio.token"), symbol: "SCR")
 
 	static let `default` = [EOS]//, Scruge]

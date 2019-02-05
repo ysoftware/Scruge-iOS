@@ -10,7 +10,7 @@ import Result
 
 class EOS {
 
-	var systemToken:Token { return Service.eos.isMainNet ? .EOS : .SYS }
+	var systemToken:Token = .EOS
 
 	let contractAccount = EosName.create("testaccount1")
 
