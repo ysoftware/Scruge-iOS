@@ -37,7 +37,7 @@ class WalletTests: XCTestCase {
 		XCTAssert(app.staticTexts[account].waitForExistence(timeout: 3))
 	}
 
-	func testTransaction() {
+	func testTransfer() {
 
 		// open wallet
 		app.tabBars.buttons["Wallet"].tap()
