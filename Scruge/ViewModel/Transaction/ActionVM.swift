@@ -59,14 +59,19 @@ final class ActionVM: ViewModel<ActionReceipt> {
 		let type = ActionType.from(model.actionTrace.act, accountName: accountName)
 		switch type {
 		case .sent(let transfer):
-			str.append("\(transfer.quantity) to \(transfer.to)", color: grayText, font: font)
+			let text = R.string.localizable.transaction_sent_to_description(transfer.quantity,
+																			transfer.from)
+			str.append(text, color: grayText, font: font)
 			if (!transfer.memo.isEmpty) {
 				str.append("\n\(transfer.memo)", color: gray, font: .systemFont(ofSize: 12))
 			}
 		case .invested(let campaignTitle, let amount):
-			str.append("\(amount) in \(campaignTitle)", color: grayText, font: font)
+			let text = R.string.localizable.transaction_invested_in_description(amount, campaignTitle)
+			str.append(text, color: grayText, font: font)
 		case .received(let transfer):
-			str.append("\(transfer.quantity) from \(transfer.from)", color: grayText, font: font)
+			let text = R.string.localizable.transaction_received_from_description(transfer.quantity,
+																				  transfer.from)
+			str.append(text, color: grayText, font: font)
 			if (!transfer.memo.isEmpty) {
 				str.append("\n\(transfer.memo)", color: gray, font: .systemFont(ofSize: 12))
 			}
@@ -74,7 +79,6 @@ final class ActionVM: ViewModel<ActionReceipt> {
 			let kind = voteKind == .extend
 				? R.string.localizable.label_voting_to_extend()
 				: R.string.localizable.label_voting_to_release_funds()
-
 			str.append(R.string.localizable.label_voting_participated(kind, campaignTitle),
 				color: grayText, font: font)
 		case .transfer(let transfer):
