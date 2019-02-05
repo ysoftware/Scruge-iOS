@@ -70,6 +70,55 @@ class WalletTests: XCTestCase {
 		XCTAssert(elementsQuery.staticTexts["Transaction was successful"].waitForExistence(timeout: 3))
 	}
 
+	func testExport() {
+
+		// open wallet
+		app.tabBars.buttons["Wallet"].tap()
+
+		importKey()
+
+		// open wallet data
+		let walletData = elementsQuery.staticTexts["Wallet Data"]
+		walletData.tap()
+
+		// press export key
+		app.scrollViews
+			.children(matching: .other).element
+			.children(matching: .other).element
+			.children(matching: .other).element(boundBy: 2)
+			.children(matching: .other).element(boundBy: 2)
+			.children(matching: .other).element
+			.children(matching: .other).element(boundBy: 1)
+			.children(matching: .other).element
+			.children(matching: .other).element
+			.children(matching: .other).element
+			.children(matching: .other).element(boundBy: 3)
+			.buttons["copy"].tap()
+
+		// enter password in alert and press ok
+		let alert = app.alerts["Export private key"]
+		let pwdField = alert.secureTextFields["Wallet password"]
+		pwdField.tap()
+		pwdField.typeText(password)
+		alert.buttons["Unlock"].tap()
+
+		// dismiss alert with security warning
+		app.buttons["OK"].tap()
+
+		// check if key is showing
+		let keyText = elementsQuery.staticTexts[key]
+		XCTAssert(keyText.waitForExistence(timeout: 3))
+
+		// close wallet data
+		walletData.tap()
+
+		// open wallet data again
+		walletData.tap()
+
+		// check if key not showing anymore
+		XCTAssertFalse(keyText.waitForExistence(timeout: 3))
+	}
+
 	// MARK: - Methods
 
 	func importKey() {

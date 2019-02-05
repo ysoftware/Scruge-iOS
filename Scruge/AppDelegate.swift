@@ -20,8 +20,13 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
 		// eos
-		let url:String? = Service.settings.get(.nodeUrl)
-		Service.eos.nodeUrl = url ?? "https://eos.greymass.com"
+
+		if let url:String = Service.settings.get(.nodeUrl), let _ = URL(string: url) {
+			Service.eos.nodeUrl = url
+		}
+		else {
+			Service.eos.nodeUrl = "https://eos.greymass.com"
+		}
 
 		// api
 		Service.api.setEnvironment(.prod)
@@ -40,6 +45,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		let args = ProcessInfo.processInfo.arguments
 
 		if args.contains(LaunchArgs.EosTestNodeArgument) {
+//			Service.settings.set(.nodeUrl, value: Service.eos.testNodeUrl)
 			Service.eos.nodeUrl = Service.eos.testNodeUrl
 		}
 
