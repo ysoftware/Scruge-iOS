@@ -20,7 +20,10 @@ final class MilestoneVM: ViewModel<Milestone> {
 	}
 
 	var fundsRelease:String {
-		let value = (model?.fundsReleasePercent ?? 0).formatRounding()
+		let percent  = model?.fundsReleasePercent ?? 0
+		guard percent != 0 else { return "" }
+
+		let value = (model?.fundsReleasePercent ?? 0).formatRounding() + "%"
 		return R.string.localizable.label_milestone_funds_release(value)
 	}
 }
