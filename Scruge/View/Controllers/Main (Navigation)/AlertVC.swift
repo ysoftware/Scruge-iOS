@@ -68,14 +68,12 @@ final class AlertViewController: UIViewController {
 				self.titleLabel.text = title.uppercased()
 			}
 
-			self.noButton.addTargetClosure { [unowned self] _ in
+			let closure:(Any)->Void = { [unowned self] _ in
 				block()
 				self.dismiss(animated: true)
 			}
-			
-			let closure:(Any)->Void = { [unowned self] _ in
-				self.dismiss(animated: true)
-			}
+
+			self.noButton.addTargetClosure(closure: closure)
 			self.viewTap.addTargetClosure(closure: closure)
 
 			if showCloseButton {
@@ -106,6 +104,7 @@ final class AlertViewController: UIViewController {
 			let closure:(Button)->Void = { [unowned self] button in
 				self.dismiss(animated: true) { block(self.yesButton == button) }
 			}
+
 			self.yesButton.addTargetClosure(closure: closure)
 			self.noButton.addTargetClosure(closure: closure)
 		}
