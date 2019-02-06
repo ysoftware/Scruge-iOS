@@ -168,16 +168,10 @@ final class WalletViewController: UIViewController {
 									self.presentWalletPicker()
 		}
 
-		#warning("localize")
-		let node = UIAlertAction(title: "", //R.string.localizable.do_change_node(),
-								 style: .default) { _ in
-									self.presentNodeSelector()
-		}
-
 		let cancel = UIAlertAction(title: R.string.localizable.do_cancel(),
 								   style: .cancel) { _ in }
 
-		let actions = vm.numberOfItems == 1 ? [node, delete, cancel] : [change, node, delete, cancel]
+		let actions = vm.numberOfItems == 1 ? [delete, cancel] : [change, delete, cancel]
 
 		Service.presenter.presentActions(in: self,
 										 title: R.string.localizable.title_select_action(),
@@ -194,35 +188,48 @@ final class WalletViewController: UIViewController {
 		accountVM?.updateBalance()
 		collapseAll()
 	}
-
-	private func presentNodeSelector() {
-		#warning("localize")
-		askForInput("Change EOS node url", //R.string.localizable.title_change_node(),
-					question: "", //R.string.localizable.label_change_node(),
-					placeholder: "", //R.string.localizable.hint_change_node(),
-					actionTitle: R.string.localizable.label_ok()) { text in
-						guard let url = text?.trimmingCharacters(in: .whitespacesAndNewlines),
-							let _ = URL(string: url) else {
-							return self.alert("incorrect url")
-						}
-						
-						Service.eos.getChainInfo(forNode: url) { result in
-							switch result {
-							case .success(let info):
-								let chainId = info.chainId ?? "-"
-								self.ask(title: "Are you sure you want to change EOS node url?",
-										 question: "Chain ID: \(chainId)") { sure in
-									if sure {
-										Service.settings.set(.nodeUrl, value: url)
-										Service.eos.nodeUrl = url
-									}
-								}
-							case .failure(let error):
-								self.alert(error)
-							}
-						}
-		}
-	}
+//
+//	private func presentNodeSelector() {
+//		#warning("localize")
+//		askForInput("Change EOS node url", //R.string.localizable.title_change_node(),
+//					question: "", //R.string.localizable.label_change_node(),
+//					placeholder: "", //R.string.localizable.hint_change_node(),
+//					actionTitle: R.string.localizable.label_ok()) { text in
+//						guard var url = text?.trimmingCharacters(in: .whitespacesAndNewlines),
+//							let url_ = URL(string: url) else {
+//							return self.alert("incorrect url")
+//						}
+//
+//						if url.hasSuffix("/") {
+//							url = String(url.dropLast())
+//						}
+//
+//						guard url_.absoluteString.hasPrefix("https://") else {
+//							return self.alert("Url has to be https://")
+//						}
+//
+//						Service.eos.getChainInfo(forNode: url) { result in
+//							switch result {
+//							case .success(let info):
+//
+//								let chainId = info.chainId ?? "-"
+//								let chain = EosChainId(rawValue: chainId)
+//								let name = chain?.name ?? "Unknown Chain"
+//								let message = "Detected: \(name)\nID: \(chainId)"
+//
+//								self.ask(title: "Are you sure you want to change EOS node url?",
+//										 question: message) { sure in
+//									if sure {
+//										Service.settings.set(.nodeUrl, value: url)
+//										Service.eos.nodeUrl = url
+//									}
+//								}
+//							case .failure(let error):
+//								self.alert(error)
+//							}
+//						}
+//		}
+//	}
 
 	private func presentWalletPicker() {
 
