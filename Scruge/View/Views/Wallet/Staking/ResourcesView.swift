@@ -18,6 +18,9 @@ final class ResourcesView: UIView {
 	@IBOutlet weak var controlsView: UIStackView!
 	@IBOutlet weak var button: Button!
 
+	@IBOutlet weak var resourcesView: UIStackView!
+	@IBOutlet weak var ramView: UIStackView!
+
 	// cpu
 	@IBOutlet weak var cpuStakedLabel: UILabel!
 	@IBOutlet weak var cpuLabel: UILabel!
@@ -29,7 +32,6 @@ final class ResourcesView: UIView {
 	@IBOutlet weak var netProgress: ProgressView!
 
 	// ram
-	@IBOutlet weak var ramView: UIStackView!
 	@IBOutlet weak var ramLabel: UILabel!
 	@IBOutlet weak var ramProgress: ProgressView!
 
@@ -89,6 +91,13 @@ final class ResourcesView: UIView {
 	@IBInspectable var hideRam:Bool = false {
 		didSet {
 			ramView.isHidden = hideRam
+			superview?.setNeedsLayout()
+		}
+	}
+
+	@IBInspectable var hideResources:Bool = false {
+		didSet {
+			resourcesView.isHidden = hideResources
 			superview?.setNeedsLayout()
 		}
 	}

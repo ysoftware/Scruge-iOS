@@ -168,11 +168,16 @@ final class WalletViewController: UIViewController {
 									self.presentWalletPicker()
 		}
 
-		let cancel = UIAlertAction(title: R.string.localizable.do_cancel(),
-								   style: .cancel) { _ in
+		#warning("localize")
+		let node = UIAlertAction(title: "", //R.string.localizable.do_change_node(),
+								 style: .default) { _ in
+									self.presentNodeSelector()
 		}
 
-		let actions = vm.numberOfItems == 1 ? [delete, cancel] : [change, delete, cancel]
+		let cancel = UIAlertAction(title: R.string.localizable.do_cancel(),
+								   style: .cancel) { _ in }
+
+		let actions = vm.numberOfItems == 1 ? [node, delete, cancel] : [change, node, delete, cancel]
 
 		Service.presenter.presentActions(in: self,
 										 title: R.string.localizable.title_select_action(),
@@ -188,6 +193,35 @@ final class WalletViewController: UIViewController {
 		accountVM?.delegate = self
 		accountVM?.updateBalance()
 		collapseAll()
+	}
+
+	private func presentNodeSelector() {
+		#warning("localize")
+		askForInput("Change EOS node url", //R.string.localizable.title_change_node(),
+					question: "", //R.string.localizable.label_change_node(),
+					placeholder: "", //R.string.localizable.hint_change_node(),
+					actionTitle: R.string.localizable.label_ok()) { text in
+						guard let url = text?.trimmingCharacters(in: .whitespacesAndNewlines),
+							let _ = URL(string: url) else {
+							return self.alert("incorrect url")
+						}
+						
+						Service.eos.getChainInfo(forNode: url) { result in
+							switch result {
+							case .success(let info):
+								let chainId = info.chainId ?? "-"
+								self.ask(title: "Are you sure you want to change EOS node url?",
+										 question: "Chain ID: \(chainId)") { sure in
+									if sure {
+										Service.settings.set(.nodeUrl, value: url)
+										Service.eos.nodeUrl = url
+									}
+								}
+							case .failure(let error):
+								self.alert(error)
+							}
+						}
+		}
 	}
 
 	private func presentWalletPicker() {

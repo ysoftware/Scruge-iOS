@@ -45,7 +45,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		let args = ProcessInfo.processInfo.arguments
 
 		if args.contains(LaunchArgs.EosTestNodeArgument) {
-//			Service.settings.set(.nodeUrl, value: Service.eos.testNodeUrl)
 			Service.eos.nodeUrl = Service.eos.testNodeUrl
 		}
 

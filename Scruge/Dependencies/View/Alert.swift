@@ -34,7 +34,7 @@ extension UIViewController {
 					 keyboardType:UIKeyboardType = .default,
 					 initialInput:String? = nil,
 					 isSecure:Bool = false,
-					 actionTitle:String = "Send",
+					 actionTitle:String = R.string.localizable.do_send(),
 					 waitFor completion: @escaping (String?) -> Void) {
 
 		let vc = (tabBarController ?? navigationController ?? self)
@@ -46,7 +46,7 @@ extension UIViewController {
 			textField.keyboardType = keyboardType
 			textField.isSecureTextEntry = isSecure
 		}
-		alertController.addAction(UIAlertAction(title: "Cancel", style: .default) { action in
+		alertController.addAction(UIAlertAction(title: R.string.localizable.do_cancel(), style: .default) { action in
 			completion(nil)
 		})
 		alertController.addAction(UIAlertAction(title: actionTitle, style: .default) { alert in

@@ -30,6 +30,18 @@ class EOS {
 
 	fileprivate let chain = EOSRPC.sharedInstance
 
+	func getChainInfo(forNode url:String, completion: @escaping (Result<ChainInfo, AnyError>)->Void) {
+		let prevEndpoint = EOSRPC.endpoint
+		EOSRPC.endpoint = url
+		chain.chainInfo { chainInfo, error in
+			guard let info = chainInfo else {
+				return completion(.failure(AnyError(error ?? EOSError.unknown)))
+			}
+			completion(.success(info))
+		}
+		EOSRPC.endpoint = prevEndpoint
+	}
+
 	func getAccounts(for wallet:SELocalAccount,
 					 completion: @escaping (Result<[String], AnyError>)->Void) {
 
