@@ -14,7 +14,7 @@ struct Milestone: Equatable, Codable {
 
 	let title:String
 
-	let endTimestamp:Int
+	let endTimestamp:Int64
 
 	let description:String
 

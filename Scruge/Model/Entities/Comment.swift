@@ -14,7 +14,7 @@ struct Comment:Equatable, Codable {
 
 	let text:String
 
-	let timestamp:Int
+	let timestamp:Int64
 
 	let authorName:String?
 

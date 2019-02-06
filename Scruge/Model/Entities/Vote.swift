@@ -22,7 +22,7 @@ struct VoteResult: Codable {
 
 	let kind:VoteKind
 
-	let endTimestamp:Int
+	let endTimestamp:Int64
 }
 
 struct Voting: Codable {
@@ -38,7 +38,7 @@ struct VoteInfo: Codable {
 
 	let voteId:Int
 
-	let endTimestamp:Int
+	let endTimestamp:Int64
 }
 
 enum VoteKind:Int, Codable {

@@ -22,14 +22,6 @@ final class DataFormattingTests: XCTestCase {
 		XCTAssertEqual("1.01", 1.0100.formatDecimal())
 	}
 
-	func testDateMilliseconds() {
-		let date = Date()
-		let milliseconds = date.milliseconds
-		XCTAssertEqual(Date(milliseconds: milliseconds).timeIntervalSince1970,
-					   date.timeIntervalSince1970,
-					   accuracy: 0.001)
-	}
-
 	func testEmailValidation() {
 		// this is not a perfect list, but it's good enough
 

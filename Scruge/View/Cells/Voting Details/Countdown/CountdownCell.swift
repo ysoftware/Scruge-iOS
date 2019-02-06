@@ -15,12 +15,12 @@ final class CountdownCell: UITableViewCell {
 	@IBOutlet var minutesLabel:UILabel!
 	@IBOutlet var daysLabel:UILabel!
 
-	private var timestamp:Int = 0
+	private var timestamp:Int64 = 0
 
 	#warning("refactor to view model")
 
 	@discardableResult
-	func setup(title:String, timestamp:Int) -> Self {
+	func setup(title:String, timestamp:Int64) -> Self {
 		localize()
 		
 		selectionStyle = .none
@@ -31,7 +31,7 @@ final class CountdownCell: UITableViewCell {
 	}
 
 	private func refresh() {
-		let MINUTE = 1000 * 60
+		let MINUTE:Int64 = 1000 * 60
 		let HOUR = 60 * MINUTE
 		let DAY = 24 * HOUR
 

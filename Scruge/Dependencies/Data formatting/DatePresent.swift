@@ -10,15 +10,15 @@ import SwiftDate
 
 extension Date {
 
-	static func present(_ milliseconds:Int, as format:String) -> String {
-		return Date(milliseconds: milliseconds)
+	static func present(_ milliseconds:Int64, as format:String) -> String {
+		return Date(seconds: TimeInterval(milliseconds / 1000))
 			.convertTo(region: .current)
 			.toFormat(format)
 	}
 
-	static func presentRelative(_ millsedonds:Int, future:String = "", past:String = "") -> String {
-		let string = Date().milliseconds > millsedonds ? past : future
-		let date = Date(milliseconds: millsedonds).toRelative(locale: Locale.current)
+	static func presentRelative(_ milliseconds:Int64, future:String = "", past:String = "") -> String {
+		let string = Date().milliseconds > milliseconds ? past : future
+		let date = Date(seconds: TimeInterval(milliseconds / 1000)).toRelative(locale: Locale.current)
 		return "\(string) \(date)".trimmingCharacters(in: .whitespaces)
 	}
 }

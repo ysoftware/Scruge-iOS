@@ -27,9 +27,9 @@ struct PartialCampaign: Equatable, Codable, PartialCampaignModel {
 
 	let imageUrl:String
 
-	let startTimestamp:Int
+	let startTimestamp:Int64
 
-	let endTimestamp:Int
+	let endTimestamp:Int64
 
 	let economics: Economics
 }
@@ -44,9 +44,9 @@ struct Campaign: Equatable, Codable, PartialCampaignModel {
 
 	let imageUrl:String
 
-	let startTimestamp:Int
+	let startTimestamp:Int64
 
-	let endTimestamp:Int
+	let endTimestamp:Int64
 
 	let economics: Economics
 
@@ -85,9 +85,9 @@ protocol PartialCampaignModel {
 
 	var imageUrl:String { get }
 
-	var startTimestamp:Int { get }
+	var startTimestamp:Int64 { get }
 
-	var endTimestamp:Int { get }
+	var endTimestamp:Int64 { get }
 
 	var economics:Economics { get }
 }

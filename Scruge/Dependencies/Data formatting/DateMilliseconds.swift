@@ -10,7 +10,7 @@ import Foundation
 
 extension Date {
 
-	var milliseconds:Int {
-		return Int(timeIntervalSince1970 * 1000)
+	var milliseconds:Int64 {
+		return Int64(timeIntervalSince1970 * 1000)
 	}
 }

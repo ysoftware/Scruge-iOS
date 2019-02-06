@@ -70,7 +70,7 @@ struct ActivityReply: ActivityModel, Equatable, Codable {
 
 	let replyUserName:String
 
-	let timestamp:Int
+	let timestamp:Int64
 }
 
 struct ActivityVoting: ActivityModel, Equatable, Codable {
@@ -81,11 +81,11 @@ struct ActivityVoting: ActivityModel, Equatable, Codable {
 
 	let milestoneTitle:String
 
-	let startTimestamp:Int
+	let startTimestamp:Int64
 
 	let kind:Int
 
-	let timestamp:Int
+	let timestamp:Int64
 
 	let noticePeriodSec:Int // TO-DO: Это значения в секундах 7 дней (7*24*60*60), 3 дня или 0
 }
@@ -98,13 +98,13 @@ struct ActivityVotingResult: ActivityModel, Equatable, Codable {
 
 	let milestoneTitle:String
 
-	let startTimestamp:Int
+	let startTimestamp:Int64
 
-	let endTimestamp:Int
+	let endTimestamp:Int64
 
 	let kind:Int
 
-	let timestamp:Int
+	let timestamp:Int64
 }
 
 struct ActivityFunding: ActivityModel, Equatable, Codable {
@@ -117,5 +117,5 @@ struct ActivityFunding: ActivityModel, Equatable, Codable {
 
 	let raised:Double
 
-	let timestamp:Int
+	let timestamp:Int64
 }
