@@ -590,7 +590,7 @@
 "alert_sign_in_first" = "Пожалуйста, сначала войдите в ваш аккаунт Scruge";
 
 /*  */
-"title_transfer_tokens" = "Переводести токены";
+"title_transfer_tokens" = "Перевод токенов";
 
 /*  */
 "alert_select_correct_token" = "Произошла ошибка. Выберите правильный токен для перевода";
