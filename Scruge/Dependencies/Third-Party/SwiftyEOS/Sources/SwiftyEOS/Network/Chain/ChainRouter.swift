@@ -17,6 +17,7 @@ enum ChainEndpoint {
     case GetAccount(account: String)
     case GetTableRows(param: TableRowRequestParam)
     case GetAbi(accountName: String)
+	case GetProducers(lowerBound:String, limit:Int)
 }
 
 class ChainRouter: BaseRouter {
@@ -39,6 +40,7 @@ class ChainRouter: BaseRouter {
         case .GetAccount: return "/chain/get_account"
         case .GetTableRows: return "/chain/get_table_rows"
         case .GetAbi: return "/chain/get_abi"
+		case .GetProducers: return "/chain/get_producers"
         }
     }
     
@@ -51,6 +53,12 @@ class ChainRouter: BaseRouter {
     override var body: Data? {
         switch endpoint {
         case .GetInfo(): return nil
+		case .GetProducers(let lowerBound, let limit):
+			let encoder = JSONEncoder()
+			encoder.keyEncodingStrategy = .convertToSnakeCase
+			return try! encoder.encode(["lower_bound": AnyEncodable(lowerBound),
+										"limit": AnyEncodable(limit),
+										"json":AnyEncodable(true)])
         case .GetBlock(let blockNumberOrId):
             let encoder = JSONEncoder()
             encoder.keyEncodingStrategy = .convertToSnakeCase

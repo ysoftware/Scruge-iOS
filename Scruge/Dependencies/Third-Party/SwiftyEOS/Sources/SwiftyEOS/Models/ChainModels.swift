@@ -8,6 +8,23 @@
 
 import Foundation
 
+struct ProducersInfo: Codable {
+	var totalProducerVoteWeight:String
+	var rows:[Producer]
+	var more:String?
+}
+
+struct Producer:Codable {
+	var owner:String
+	var totalVotes:String
+	var producerKey:String
+	var isActive:Int
+	var url:String
+	var unpaidBlocks:Int
+	var lastClaimTime:String
+	var location:Int
+}
+
 struct ChainInfo: Codable {
     var serverVersion: String?
     var chainId: String?

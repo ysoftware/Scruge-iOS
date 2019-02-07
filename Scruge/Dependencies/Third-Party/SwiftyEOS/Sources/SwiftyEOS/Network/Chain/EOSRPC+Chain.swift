@@ -13,6 +13,12 @@ extension EOSRPC {
         let router = ChainRouter(endpoint: .GetInfo())
         internalRequest(router: router, completion: completion)
     }
+
+	func getProducers(lowerBound:String, limit:Int,
+					  completion: @escaping (_ result:ProducersInfo?, _ error: Error?) -> Void) {
+		let router = ChainRouter(endpoint: .GetProducers(lowerBound: lowerBound, limit: limit))
+		internalRequest(router: router, completion: completion)
+	}
     
     func getBlock(blockNumOrId: AnyObject, completion: @escaping (_ result: BlockInfo?, _ error: Error?) -> ()) {
         let router = ChainRouter(endpoint: .GetBlock(blockNumberOrId: blockNumOrId))
