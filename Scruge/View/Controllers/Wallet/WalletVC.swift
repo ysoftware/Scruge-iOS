@@ -251,11 +251,7 @@ final class WalletViewController: UIViewController {
 			return
 		}
 
-		let title = """
-Select an account that you want to make investments with and receive ICO tokens on.
-
-You will not be able to change it after you make first investment.
-"""
+		let title = R.string.localizable.label_wallet_picker_info()
 
 		Service.presenter.presentWalletPicker(in: self, title: title) { [unowned self] account in
 			guard let account = account else {
