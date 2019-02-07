@@ -300,6 +300,10 @@ struct Presenter {
 
 	// MARK: - Wallet
 
+	func presentVoteBPViewController(in vc:UIViewController) {
+		vc.show(R.storyboard.wallet.voteBPVC()!, sender: self)
+	}
+
 	func presentStakingViewController(in vc:UIViewController,
 									  with vm:AccountVM) {
 		let new = R.storyboard.wallet.stakingVC()!

@@ -157,7 +157,12 @@ final class WalletViewController: UIViewController {
 		}
 	}
 
+	@IBAction func voteBPTapped(_ sender: Any) {
+		Service.presenter.presentVoteBPViewController(in: self)
+	}
+
 	@IBAction func showSettings() {
+
 		let delete = UIAlertAction(title: R.string.localizable.do_delete_wallet(),
 								   style: .destructive) { _ in
 									self.deleteWallet()

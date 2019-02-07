@@ -14,7 +14,7 @@ struct ProducersInfo: Codable {
 	var more:String?
 }
 
-struct Producer:Codable {
+struct Producer:Codable, Equatable {
 	var owner:String
 	var totalVotes:String
 	var producerKey:String

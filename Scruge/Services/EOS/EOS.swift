@@ -42,6 +42,15 @@ class EOS {
 		EOSRPC.endpoint = prevEndpoint
 	}
 
+	func getProducers(_ completion: @escaping (Result<ProducersInfo, AnyError>)->Void) {
+		chain.getProducers(lowerBound: "", limit: -1) { info, error in
+			guard let info = info else {
+				return completion(.failure(AnyError(error ?? EOSError.unknown)))
+			}
+			completion(.success(info))
+		}
+	}
+
 	func getAccounts(for wallet:SELocalAccount,
 					 completion: @escaping (Result<[String], AnyError>)->Void) {
 

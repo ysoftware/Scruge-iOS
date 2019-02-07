@@ -273,6 +273,10 @@
 		71E09472219EE42C00281643 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71E09471219EE42C00281643 /* Model.swift */; };
 		71F4A7F72209B90300580E85 /* WalletTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F4A7F62209B90300580E85 /* WalletTests.swift */; };
 		71F4A7F9220B108D00580E85 /* ChainId.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F4A7F8220B108D00580E85 /* ChainId.swift */; };
+		71F4A7FB220C23FE00580E85 /* BPVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F4A7FA220C23FE00580E85 /* BPVC.swift */; };
+		71F4A7FE220C316700580E85 /* BpCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71F4A7FD220C316700580E85 /* BpCell.xib */; };
+		71F4A800220C318700580E85 /* BpCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F4A7FF220C318700580E85 /* BpCell.swift */; };
+		71F4A803220C35BD00580E85 /* ProducerVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F4A802220C35BD00580E85 /* ProducerVM.swift */; };
 		71F68A4A21709D8A00F7E728 /* FaqVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4921709D8A00F7E728 /* FaqVC.swift */; };
 		71F68A4C21709E2700F7E728 /* DocumentsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71F68A4B21709E2700F7E728 /* DocumentsVC.swift */; };
 		71FF085B21AE766800D9F3A3 /* ActivityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71FF085A21AE766800D9F3A3 /* ActivityCell.swift */; };
@@ -593,6 +597,10 @@
 		71E09471219EE42C00281643 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		71F4A7F62209B90300580E85 /* WalletTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTests.swift; sourceTree = "<group>"; };
 		71F4A7F8220B108D00580E85 /* ChainId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainId.swift; sourceTree = "<group>"; };
+		71F4A7FA220C23FE00580E85 /* BPVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPVC.swift; sourceTree = "<group>"; };
+		71F4A7FD220C316700580E85 /* BpCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BpCell.xib; sourceTree = "<group>"; };
+		71F4A7FF220C318700580E85 /* BpCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpCell.swift; sourceTree = "<group>"; };
+		71F4A802220C35BD00580E85 /* ProducerVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProducerVM.swift; sourceTree = "<group>"; };
 		71F68A4921709D8A00F7E728 /* FaqVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaqVC.swift; sourceTree = "<group>"; };
 		71F68A4B21709E2700F7E728 /* DocumentsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsVC.swift; sourceTree = "<group>"; };
 		71FF085A21AE766800D9F3A3 /* ActivityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityCell.swift; sourceTree = "<group>"; };
@@ -758,6 +766,7 @@
 				71DC1A9C21B00ACF001D5575 /* WalletPickerVC.swift */,
 				7166528F21F0CB04005A50F7 /* StakingVC.swift */,
 				711EF6FE21F5C46C008F2FD5 /* TransferVC.swift */,
+				71F4A7FA220C23FE00580E85 /* BPVC.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -1004,6 +1013,7 @@
 		71971CB32158E3F6004D28E7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				71F4A801220C35B200580E85 /* Producer */,
 				712044FD21EF82540030F96A /* Activity */,
 				71C2438D21D4C31C00E86F64 /* Transaction */,
 				71C368982181F7F100729C00 /* Economies */,
@@ -1091,7 +1101,6 @@
 				716E625B2189D8D6002AC5DA /* Member */,
 				71A0C1AF216FA69300C2ACF3 /* Social */,
 				71387A97216CA73000B24C67 /* Tag */,
-				71345C222179D25000F28AF1 /* Account */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -1510,6 +1519,8 @@
 		71C2439E21D4E3C700E86F64 /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				71345C222179D25000F28AF1 /* Account */,
+				71F4A7FC220C315700580E85 /* BP */,
 				71C2439F21D4E3CC00E86F64 /* Action */,
 			);
 			path = Wallet;
@@ -1563,8 +1574,8 @@
 			isa = PBXGroup;
 			children = (
 				71C8E8E721590F2A0078BD36 /* EOS.swift */,
-				711EF6FB21F1D5B5008F2FD5 /* Model */,
 				71F4A7F8220B108D00580E85 /* ChainId.swift */,
+				711EF6FB21F1D5B5008F2FD5 /* Model */,
 			);
 			path = EOS;
 			sourceTree = "<group>";
@@ -1834,6 +1845,23 @@
 			path = "Campaign Details";
 			sourceTree = "<group>";
 		};
+		71F4A7FC220C315700580E85 /* BP */ = {
+			isa = PBXGroup;
+			children = (
+				71F4A7FD220C316700580E85 /* BpCell.xib */,
+				71F4A7FF220C318700580E85 /* BpCell.swift */,
+			);
+			path = BP;
+			sourceTree = "<group>";
+		};
+		71F4A801220C35B200580E85 /* Producer */ = {
+			isa = PBXGroup;
+			children = (
+				71F4A802220C35BD00580E85 /* ProducerVM.swift */,
+			);
+			path = Producer;
+			sourceTree = "<group>";
+		};
 		71FF085821AE763500D9F3A3 /* Activity Cells */ = {
 			isa = PBXGroup;
 			children = (
@@ -2013,6 +2041,7 @@
 				71BE9572215E777A001CF853 /* CampaignCell.xib in Resources */,
 				71BE95A821626034001CF853 /* RewardCell.xib in Resources */,
 				712B3A7021A813E8003BB43A /* EconomiesCell.xib in Resources */,
+				71F4A7FE220C316700580E85 /* BpCell.xib in Resources */,
 				71BE95A321625E5B001CF853 /* TopCommentCell.xib in Resources */,
 				71971C882158E058004D28E7 /* Assets.xcassets in Resources */,
 				71B8463021B6866000F6D708 /* ActivityCell.xib in Resources */,
@@ -2257,10 +2286,12 @@
 				71345C162178714C00F28AF1 /* DatePresent.swift in Sources */,
 				711EF6FF21F5C46C008F2FD5 /* TransferVC.swift in Sources */,
 				71D84CC921995AD000E8DB88 /* sha3.c in Sources */,
+				71F4A803220C35BD00580E85 /* ProducerVM.swift in Sources */,
 				71BE95C1216376F1001CF853 /* OtherApi.swift in Sources */,
 				71D84CCD21995AD000E8DB88 /* Crypto.swift in Sources */,
 				71D9C1E421B177310043B15E /* VoteResultVC.swift in Sources */,
 				71AD0E2821708BD000077446 /* DocumentAVM.swift in Sources */,
+				71F4A800220C318700580E85 /* BpCell.swift in Sources */,
 				71D84CD021995AD000E8DB88 /* Contract.swift in Sources */,
 				71925E2021ABE079006A6889 /* FaqCell.swift in Sources */,
 				71D84CC421995AD000E8DB88 /* secp256k1.c in Sources */,
@@ -2355,6 +2386,7 @@
 				71163A40216642F400C5B633 /* EmailValidation.swift in Sources */,
 				7120450321EF833A0030F96A /* ActivityAVM.swift in Sources */,
 				71D84CBB21995ACF00E8DB88 /* curve-specific.inc in Sources */,
+				71F4A7FB220C23FE00580E85 /* BPVC.swift in Sources */,
 				71345C0F21773D2800F28AF1 /* AnyEncodable.swift in Sources */,
 				71D84CD521995AD000E8DB88 /* ChainRouter.swift in Sources */,
 				716E625A2189D8D3002AC5DA /* MemberCell.swift in Sources */,

@@ -25,8 +25,7 @@ final class WalletPickerViewController: UIViewController {
 		super.viewDidLoad()
 
 		localize()
-		tableView.register(UINib(resource: R.nib.accountCell),
-						   forCellReuseIdentifier: R.reuseIdentifier.accountCell.identifier)
+
 		setupVM()
 		setupButton()
 		setupView()
@@ -34,6 +33,11 @@ final class WalletPickerViewController: UIViewController {
 
 	private func setupView() {
 		titleLabel.text = string
+
+		tableView.register(UINib(resource: R.nib.accountCell),
+						   forCellReuseIdentifier: R.reuseIdentifier.accountCell.identifier)
+		tableView.estimatedRowHeight = 44
+		tableView.rowHeight = UITableView.automaticDimension
 	}
 
 	private func setupButton() {
