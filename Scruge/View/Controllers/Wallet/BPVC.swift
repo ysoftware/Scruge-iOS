@@ -117,7 +117,7 @@ final class VoteBPViewController: UIViewController {
 			switch result {
 			case .success(let info):
 				self.all = info.rows.map { ProducerVM($0, info.totalProducerVoteWeight) }
-				self.updateViews()
+				self.filtered = self.all
 
 			case .failure(let error):
 				self.alert(error) {
@@ -129,11 +129,6 @@ final class VoteBPViewController: UIViewController {
 
 	private func updateSelectedCount() {
 		selectedLabel.text = R.string.localizable.label_selected_bps("\(selected.count)")
-	}
-
-	private func updateViews() {
-		filterField.text = ""
-		filtered = all
 	}
 }
 
