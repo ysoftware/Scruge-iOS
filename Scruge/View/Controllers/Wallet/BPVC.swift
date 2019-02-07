@@ -82,6 +82,7 @@ final class VoteBPViewController: UIViewController {
 	}
 
 	@objc func send(_ sender:Any) {
+		view.endEditing(true)
 
 		guard let model = accountVM.model else {
 			return alert(GeneralError.implementationError) {
