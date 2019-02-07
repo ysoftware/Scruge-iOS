@@ -61,3 +61,27 @@ struct UndelegateBW:Codable {
 
 	let unstake_net_quantity:String
 }
+
+//	voteproducer
+//		account_name voter_name
+//		account_name proxy
+//		vector<account_name> producers
+
+struct VoteProducers:Codable {
+
+	let voter_name:String
+
+	let proxy:String?
+
+	let producers:[String]?
+
+	init(name:String, proxy:String) {
+		self.voter_name = name
+		self.proxy = proxy
+	}
+
+	init(name:String, producers:[String]) {
+		self.voter_name = name
+		self.producers = producers
+	}
+}

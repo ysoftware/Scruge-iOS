@@ -191,6 +191,17 @@ class EOS {
 		}
 	}
 
+	func voteProducers(from account:AccountModel,
+					   names:[EosName],
+					   passcode:String,
+					   _ completion: @escaping (Result<String, AnyError>)->Void) {
+
+		let data = VoteProducers(name: account.name, producers: names.map { $0.string }).jsonString
+		let name = EosName.create("voteproducer")
+		let contract = EosName.create("eosio")
+		sendAction(name, contract: contract, from: account, data: data, passcode: passcode, completion)
+	}
+
 	func sendAction(_ action:EosName,
 					contract:EosName? = nil,
 					from account: AccountModel,
