@@ -69,19 +69,21 @@ struct UndelegateBW:Codable {
 
 struct VoteProducers:Codable {
 
-	let voter_name:String
+	let voter:String
 
-	let proxy:String?
+	let proxy:String
 
-	let producers:[String]?
+	let producers:[String]
 
-	init(name:String, proxy:String) {
-		self.voter_name = name
+	init(voter:String, proxy:String) {
+		self.voter = voter
 		self.proxy = proxy
+		self.producers = []
 	}
 
-	init(name:String, producers:[String]) {
-		self.voter_name = name
+	init(voter:String, producers:[String]) {
+		self.voter = voter
 		self.producers = producers
+		self.proxy = ""
 	}
 }

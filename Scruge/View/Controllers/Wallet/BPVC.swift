@@ -20,8 +20,9 @@ final class VoteBPViewController: UIViewController {
 
 	// MARK: - Properties
 
-	private var all:[ProducerVM] = []
+	var accountVM:AccountVM!
 
+	private var all:[ProducerVM] = []
 	private var selected:Set<ProducerVM> = [] {
 		didSet {
 			updateSelectedCount()
@@ -82,6 +83,30 @@ final class VoteBPViewController: UIViewController {
 
 	@objc func send(_ sender:Any) {
 
+		guard let model = accountVM.model else {
+			return alert(GeneralError.implementationError) {
+				self.navigationController?.popViewController(animated: true)
+			}
+		}
+
+		let passcode = passwordField.text ?? ""
+
+		guard passcode.count > 0 else {
+			return alert(R.string.localizable.error_wallet_enter_wallet_password())
+		}
+
+		Service.eos.voteProducers(from: model,
+								  names: Set(selected.compactMap { EosName(from: $0.name) }),
+								  passcode: passcode) { result in
+			switch result {
+			case .success:
+				self.alert(R.string.localizable.alert_transaction_success()) {
+					self.navigationController?.popViewController(animated: true)
+				}
+			case .failure(let error):
+				self.alert(error)
+			}
+		}
 	}
 
 	// MARK: - Methods

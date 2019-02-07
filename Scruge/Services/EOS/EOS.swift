@@ -192,11 +192,12 @@ class EOS {
 	}
 
 	func voteProducers(from account:AccountModel,
-					   names:[EosName],
+					   names:Set<EosName>,
 					   passcode:String,
 					   _ completion: @escaping (Result<String, AnyError>)->Void) {
 
-		let data = VoteProducers(name: account.name, producers: names.map { $0.string }).jsonString
+		let bps = names.map { $0.string }.sorted() // has to be unique and sorted
+		let data = VoteProducers(voter: account.name, producers: bps).jsonString
 		let name = EosName.create("voteproducer")
 		let contract = EosName.create("eosio")
 		sendAction(name, contract: contract, from: account, data: data, passcode: passcode, completion)

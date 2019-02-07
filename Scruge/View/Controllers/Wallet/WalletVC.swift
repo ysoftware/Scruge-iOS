@@ -158,7 +158,9 @@ final class WalletViewController: UIViewController {
 	}
 
 	@IBAction func voteBPTapped(_ sender: Any) {
-		Service.presenter.presentVoteBPViewController(in: self)
+		if let accountVM = accountVM {
+			Service.presenter.presentVoteBPViewController(in: self, vm: accountVM)
+		}
 	}
 
 	@IBAction func showSettings() {
