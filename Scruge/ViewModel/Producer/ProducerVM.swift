@@ -8,7 +8,7 @@
 
 import MVVM
 
-final class ProducerVM: ViewModel<Producer> {
+final class ProducerVM: ViewModel<Producer>, Hashable {
 
 	convenience init(_ model:Producer, _ totalWeight:String) {
 		self.init(model)
@@ -26,5 +26,9 @@ final class ProducerVM: ViewModel<Producer> {
 		let weight = Double(weightString), let total = Double(totalString) else { return "" }
 		let percent = (weight / (total / 100)).formatRounding()
 		return percent + "%"
+	}
+
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(model?.owner.hashValue ?? 0)
 	}
 }
