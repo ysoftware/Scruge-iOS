@@ -180,4 +180,9 @@ extension VoteBPViewController: UITextFieldDelegate {
 		}
 		return true
 	}
+
+	func textFieldShouldClear(_ textField: UITextField) -> Bool {
+		filtered = all
+		return true
+	}
 }
