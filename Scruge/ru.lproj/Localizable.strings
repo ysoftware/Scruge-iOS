@@ -53,7 +53,7 @@
 "label_token_percent_for_public_sale" = "Процент для публичной продажи";
 
 /*  */
-"label_initial_release_after_funding" = "Изначальная выдача после сбора средств";
+"label_initial_release_after_funding" = "Изначальная выдача";
 
 /*  */
 "label_annual_inflation_rate" = "Годовая инфляция";
