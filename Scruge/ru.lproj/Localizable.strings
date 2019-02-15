@@ -772,4 +772,16 @@
 "title_earn" = "Баунти";
 
 /*  */
+"do_earn" = "Смотреть баунти";
+
+/*  */
 "error_no_projects" = "Нет проектов";
+
+/*  */
+"label_listed_on_exchange" = "Участвует в торгах на %@";
+
+/*  */
+"label_not_listed" = "Нет инфо о торговле этого токена";
+
+/*  */
+"label_listing_date" = "Торги начнутся";
