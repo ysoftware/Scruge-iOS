@@ -769,7 +769,7 @@
 /* Bounties */
 
 /*  */
-"title_bounties" = "Баунти";
+"title_earn" = "Баунти";
 
 /*  */
 "error_no_projects" = "Нет проектов";

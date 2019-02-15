@@ -13,4 +13,16 @@ final class ProjectVM: ViewModel<Project> {
 	var providerName:String {
 		return model?.providerName ?? ""
 	}
+
+	var name:String {
+		return model?.projectName ?? ""
+	}
+
+	var imageUrl:String? {
+		return model?.imageUrl
+	}
+
+	var description:String {
+		return model?.projectDescription ?? ""
+	}
 }

@@ -9,7 +9,7 @@
 import UIKit
 import MVVM
 
-final class BountiesViewController: UIViewController {
+final class EarnViewController: UIViewController {
 
 	// MARK: - Outlets
 
@@ -27,24 +27,22 @@ final class BountiesViewController: UIViewController {
 		super.viewDidLoad()
 
 		localize()
-		setupViews()
-		setupActions()
 		setupNavigationBar()
 		setupTableView()
 		setupVM()
 	}
 
-	private func setupViews() {
-
-	}
-
-	private func setupActions() {
-
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+		setupNavigationBar()
 	}
 
 	private func setupTableView() {
 		tableView.refreshControl = UIRefreshControl()
 		tableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
+
+		tableView.contentInset.top = 15
+		tableView.contentInset.bottom = 15
 
 		tableView.estimatedRowHeight = 80
 		tableView.rowHeight = UITableView.automaticDimension
@@ -59,7 +57,7 @@ final class BountiesViewController: UIViewController {
 	}
 
 	private func setupNavigationBar() {
-		makeNavbarNormal(with: R.string.localizable.title_bounties())
+		makeNavbarNormal(with: R.string.localizable.title_earn())
 		preferLargeNavbar()
 	}
 
@@ -74,7 +72,7 @@ final class BountiesViewController: UIViewController {
 
 }
 
-extension BountiesViewController: ArrayViewModelDelegate {
+extension EarnViewController: ArrayViewModelDelegate {
 
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>,
 								 _ update: MVVM.Update)
@@ -107,14 +105,14 @@ extension BountiesViewController: ArrayViewModelDelegate {
 	}
 }
 
-extension BountiesViewController: UITableViewDelegate {
+extension EarnViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+		Service.presenter.presentProject(in: self, projectVM: projectsVM[indexPath.row])
 	}
 }
 
-extension BountiesViewController: UITableViewDataSource {
+extension EarnViewController: UITableViewDataSource {
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return projectsVM.numberOfItems

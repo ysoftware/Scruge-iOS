@@ -36,6 +36,8 @@ struct Project: Codable, Equatable {
 
 	let videoUrl:String
 
+	let imageUrl:String
+
 	let social:[Social]
 
 	let documents:[Document]

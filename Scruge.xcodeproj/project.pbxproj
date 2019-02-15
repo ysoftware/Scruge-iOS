@@ -71,6 +71,7 @@
 		7142AED02216911E007002A4 /* ProjectVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142AECF2216911E007002A4 /* ProjectVM.swift */; };
 		7142AED2221699A7007002A4 /* Bounty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142AED1221699A7007002A4 /* Bounty.swift */; };
 		7142AED422169A63007002A4 /* BountyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142AED322169A63007002A4 /* BountyApi.swift */; };
+		7142AED62216AC73007002A4 /* ProjectVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142AED52216AC72007002A4 /* ProjectVC.swift */; };
 		715DB15B2174716E0005B69D /* VoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB15A2174716E0005B69D /* VoteVC.swift */; };
 		715DB15D217471980005B69D /* ContributeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB15C217471980005B69D /* ContributeVC.swift */; };
 		716200692203144500DC1A10 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7162006B2203144500DC1A10 /* Localizable.strings */; };
@@ -374,6 +375,7 @@
 		7142AECF2216911E007002A4 /* ProjectVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectVM.swift; sourceTree = "<group>"; };
 		7142AED1221699A7007002A4 /* Bounty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bounty.swift; sourceTree = "<group>"; };
 		7142AED322169A63007002A4 /* BountyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BountyApi.swift; sourceTree = "<group>"; };
+		7142AED52216AC72007002A4 /* ProjectVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectVC.swift; sourceTree = "<group>"; };
 		715DB15A2174716E0005B69D /* VoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteVC.swift; sourceTree = "<group>"; };
 		715DB15C217471980005B69D /* ContributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributeVC.swift; sourceTree = "<group>"; };
 		7162006A2203144500DC1A10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -899,6 +901,7 @@
 			isa = PBXGroup;
 			children = (
 				7142AEBD221688E5007002A4 /* BountiesVC.swift */,
+				7142AED52216AC72007002A4 /* ProjectVC.swift */,
 			);
 			path = Bounty;
 			sourceTree = "<group>";
@@ -914,8 +917,8 @@
 		7142AEC022168DD5007002A4 /* Project */ = {
 			isa = PBXGroup;
 			children = (
-				7142AEC122168DE2007002A4 /* ProjectCell.swift */,
 				7142AEC322168DEA007002A4 /* ProjectCell.xib */,
+				7142AEC122168DE2007002A4 /* ProjectCell.swift */,
 			);
 			path = Project;
 			sourceTree = "<group>";
@@ -2315,6 +2318,7 @@
 				71B38CF9215AA16400929CC3 /* CampaignApi.swift in Sources */,
 				7142AEBE221688E6007002A4 /* BountiesVC.swift in Sources */,
 				71F68A4C21709E2700F7E728 /* DocumentsVC.swift in Sources */,
+				7142AED62216AC73007002A4 /* ProjectVC.swift in Sources */,
 				7166528521F0A4CD005A50F7 /* ResourcesView.swift in Sources */,
 				71B38D08215B875900929CC3 /* CommentApi.swift in Sources */,
 				71F68A4A21709D8A00F7E728 /* FaqVC.swift in Sources */,

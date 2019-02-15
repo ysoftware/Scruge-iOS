@@ -36,13 +36,14 @@ final class Api {
 	// MARK: - Bounty
 
 	func getProjects(_ completion: @escaping (Result<ProjectsResponse, AnyError>)->Void) {
-		service.get("projects", nil, completion)
+		completion(.success(Mock.getProjects()))
+//		service.get("projects", nil, completion)
 	}
 
 	func getBounties(for projectVM:ProjectVM,
 					 _ completion: @escaping (Result<BountiesResponse, AnyError>)->Void) {
 		let request = BountiesRequest(providerName: projectVM.providerName)
-		service.get("bounties", nil, completion)
+		service.get("bounties", request.toDictionary(), completion)
 	}
 
 	func postSubmission(bountyId:String, proof:String, hunterName:String,
