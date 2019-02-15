@@ -275,6 +275,10 @@
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="155.5" id="8ha-c7-ewK"/>
                                                                         </constraints>
+                                                                        <connections>
+                                                                            <outlet property="dataSource" destination="w0G-nZ-cpg" id="42b-r4-2ii"/>
+                                                                            <outlet property="delegate" destination="w0G-nZ-cpg" id="Y0I-KU-xaK"/>
+                                                                        </connections>
                                                                     </tableView>
                                                                 </subviews>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

@@ -17,7 +17,8 @@ struct Mock {
 
 		let economics = ProjectEconomics(tokenSupply: 250000000,
 										 annualInflationPercent: Range(start: 0, end: 4),
-										 listingTimestamp: nil, exchange: nil)
+										 listingTimestamp: nil,
+										 exchange: Exchange(name: "Binance", url: ""))
 
 		projects.append(Project(providerName: "provider",
 								projectName: "Scruge",
@@ -25,7 +26,8 @@ struct Mock {
 								videoUrl: "scruge.world",
 								imageUrl: "http://api.scruge.world/resources/5c517cdfd93807029c58d895",
 								social: [Social(url: "", name: "medium")],
-								documents: [], economics: economics))
+								documents: [Document(name: "Whitepaper", url: "")],
+								economics: economics))
 
 		return ProjectsResponse(projects: projects)
 	}
