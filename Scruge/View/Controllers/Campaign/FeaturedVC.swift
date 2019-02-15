@@ -56,17 +56,17 @@ final class FeaturedViewController: UIViewController {
 		}
 	}
 
-	func setupNavigationBar() {
+	private func setupNavigationBar() {
 		makeNavbarNormal(with: R.string.localizable.title_featured())
 		preferLargeNavbar()
 	}
 
-	func setInitial() {
+	private func setInitial() {
 		selectCategory(nil)
 		categoriesTableView.isHidden = true
 	}
 
-	func setupVM() {
+	private func setupVM() {
 		tableUpdateHandler = ArrayViewModelUpdateHandler(with: campaignTableView)
 		campaignVM.delegate = self
 		// campaignVM.reloadData() in setInitial() -> selectCategory(nil)
@@ -75,7 +75,7 @@ final class FeaturedViewController: UIViewController {
 //		categoriesVM.reloadData()
 	}
 
-	func setupTableView() {
+	private func setupTableView() {
 		campaignTableView.refreshControl = UIRefreshControl()
 		campaignTableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
 
@@ -103,7 +103,7 @@ final class FeaturedViewController: UIViewController {
 //		}
 	}
 
-	func showCategories(_ value:Bool) {
+	private func showCategories(_ value:Bool) {
 		guard isShowingCategories != value else { return }
 		
 		isShowingCategories = value
@@ -118,7 +118,7 @@ final class FeaturedViewController: UIViewController {
 		}
 	}
 
-	func selectCategory(_ vm:CategoryVM?) {
+	private func selectCategory(_ vm:CategoryVM?) {
 		campaignVM.query?.category = vm
 		campaignVM.reloadData()
 

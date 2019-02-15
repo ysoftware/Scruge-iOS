@@ -765,3 +765,11 @@
 
 /*  */
 "error_bp_selected_over_limit" = "Вы можете проголосовать максимум за 30 блок продюсеров.";
+
+/* Bounties */
+
+/*  */
+"title_bounties" = "Баунти";
+
+/*  */
+"error_no_projects" = "Нет проектов";

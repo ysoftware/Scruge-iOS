@@ -18,13 +18,16 @@ struct Presenter {
 		let activity = R.storyboard.details.activityVC()!.inNavigationController
 		activity.tabBarItem = UITabBarItem(title: R.string.localizable.title_featured(), image: #imageLiteral(resourceName: "bell"), tag: 1)
 
+		let earn = R.storyboard.bounty.bountiesVC()!.inNavigationController
+		earn.tabBarItem = UITabBarItem(title: R.string.localizable.title_bounties(), image: #imageLiteral(resourceName: "pie-chart"), tag: 3)
+
 		let wallet = R.storyboard.wallet.walletVC()!.inNavigationController
-		wallet.tabBarItem = UITabBarItem(title: R.string.localizable.title_wallet(), image: #imageLiteral(resourceName: "wallet"), tag: 2)
+		wallet.tabBarItem = UITabBarItem(title: R.string.localizable.title_wallet(), image: #imageLiteral(resourceName: "wallet"), tag: 3)
 
 		let profile = R.storyboard.authProfile.profileVC()!.inNavigationController
-		profile.tabBarItem = UITabBarItem(title: R.string.localizable.title_profile(), image: #imageLiteral(resourceName: "tabprofile"), tag: 3)
+		profile.tabBarItem = UITabBarItem(title: R.string.localizable.title_profile(), image: #imageLiteral(resourceName: "tabprofile"), tag: 4)
 
-		vc.viewControllers = [featured, activity, wallet, profile]
+		vc.viewControllers = [featured, activity, earn, wallet, profile]
 	}
 
 	// MARK: - Auth

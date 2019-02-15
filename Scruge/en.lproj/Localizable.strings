@@ -765,3 +765,11 @@
 
 /*  */
 "error_bp_selected_over_limit" = "You can only vote for up to 30 block producers";
+
+/* Bounties */
+
+/*  */
+"title_bounties" = "Earn";
+
+/*  */
+"error_no_projects" = "No projects";
