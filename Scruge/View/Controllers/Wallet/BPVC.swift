@@ -96,6 +96,10 @@ final class VoteBPViewController: UIViewController {
 			return alert(R.string.localizable.error_wallet_enter_wallet_password())
 		}
 
+		guard selected.count <= 30 else {
+			return alert(R.string.localizable.error_bp_selected_over_limit())
+		}
+
 		Service.eos.voteProducers(from: model,
 								  names: Set(selected.compactMap { EosName(from: $0.name) }),
 								  passcode: passcode) { result in
