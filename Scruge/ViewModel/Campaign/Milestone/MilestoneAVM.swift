@@ -25,13 +25,6 @@ final class MilestoneAVM: SimpleArrayViewModel<Milestone, MilestoneVM> {
 
 	override func fetchData(_ block: @escaping (Result<[Milestone], AnyError>) -> Void) {
 		guard let campaign = campaign else { return }
-		Service.api.getMilestones(for: campaign) { result in
-			switch result {
-			case .success(let response):
-				block(.success(response.milestones))
-			case .failure(let error):
-				block(.failure(AnyError(error)))
-			}
-		}
+		Service.api.getMilestones(for: campaign) { block($0.map { $0.milestones }) }
 	}
 }

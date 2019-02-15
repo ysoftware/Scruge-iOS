@@ -12,13 +12,6 @@ import Result
 final class CategoryAVM: SimpleArrayViewModel<Category, CategoryVM> {
 
 	override func fetchData(_ block: @escaping (Result<[Category], AnyError>) -> Void) {
-		Service.api.getCategories { result in
-			switch result {
-			case .success(let response):
-				block(.success(response.data))
-			case .failure(let error):
-				block(.failure(error))
-			}
-		}
+		Service.api.getCategories { block($0.map { $0.data }) }
 	}
 }

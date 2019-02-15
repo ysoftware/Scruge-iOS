@@ -25,7 +25,7 @@ final class CommentAVM: ArrayViewModel<Comment, CommentVM, CommentQuery> {
 	override func fetchData(_ query: CommentQuery?,
 							_ block: @escaping (Result<[Comment], AnyError>)->Void) {
 		guard let query = query else { return block(.success([])) }
-		Service.api.getComments(for: query) { block($0.map { $0.comments })}
+		Service.api.getComments(for: query) { block($0.map { $0.comments }) }
 	}
 
 	// MARK: - Methods
