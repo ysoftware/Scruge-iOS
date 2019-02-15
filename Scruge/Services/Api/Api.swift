@@ -14,6 +14,8 @@ import FirebaseInstanceID
 
 final class Api {
 
+	private static let version = 2
+
 	enum Environment:String {
 
 		case test = "http://testapi.scruge.world/"
@@ -25,11 +27,21 @@ final class Api {
 
 	// MARK: - Initialization
 
-	private(set) var service:Networking = Network(baseUrl: Environment.prod.rawValue)
+	private(set) var service:Networking = Network(baseUrl: Environment.prod.rawValue, apiVersion: version)
 
 	func setEnvironment(_ environment:Environment) {
-		service = Network(baseUrl: environment.rawValue)
+		service = Network(baseUrl: environment.rawValue, apiVersion: Api.version)
 	}
+
+	// MARK: - Bounty
+
+	func getProjects(_ completion: @escaping (Result<[Project], AnyError>)->Void) {
+		service.get("projects", nil, completion)
+	}
+
+//	func getBounties(for projectVM:ProjectVM, _ completion: @escaping (Result<[Bounty], AnyError>)->Void) {
+//		
+//	}
 
 	// MARK: - Wallet
 

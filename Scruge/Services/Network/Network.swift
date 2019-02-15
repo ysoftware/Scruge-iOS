@@ -13,12 +13,20 @@ struct Network:Networking {
 
 	private let activity = ActivityIndicatorController()
 	var baseUrl:String
+	var apiVersion:Int
 
 	var isLoggingEnabled = false
 	var logLimit = 2000
 
-	init(baseUrl:String) {
+	init(baseUrl:String, apiVersion:Int) {
 		self.baseUrl = baseUrl
+		self.apiVersion = apiVersion
+	}
+
+	// MARK: - Methods
+
+	private var versionString:String {
+		return "" // v\(apiVersion)/"
 	}
 
 	func upload(_ request:String,
@@ -46,7 +54,7 @@ struct Network:Networking {
 		log("GET", request, params)
 		activity.beginAnimating()
 
-		HTTP.GET(baseUrl + request,
+		HTTP.GET(baseUrl + versionString + request,
 				 parameters: params,
 				 requestSerializer: JSONParameterSerializer()) { response in
 					self.handleResponse(response, completion)
@@ -60,7 +68,7 @@ struct Network:Networking {
 		log("POST", request, params)
 		activity.beginAnimating()
 
-		HTTP.POST(baseUrl + request,
+		HTTP.POST(baseUrl + versionString + request,
 				  parameters: params,
 				  requestSerializer: JSONParameterSerializer()) { response in
 					self.handleResponse(response, completion)
@@ -74,7 +82,7 @@ struct Network:Networking {
 		log("PUT", request, params)
 		activity.beginAnimating()
 
-		HTTP.PUT(baseUrl + request,
+		HTTP.PUT(baseUrl + versionString + request,
 				 parameters: params,
 				 requestSerializer: JSONParameterSerializer()) { response in
 					self.handleResponse(response, completion)
