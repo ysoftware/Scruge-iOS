@@ -69,6 +69,8 @@
 		7142AECC22168F8D007002A4 /* Project.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142AECB22168F8D007002A4 /* Project.swift */; };
 		7142AECE221690E4007002A4 /* ProjectQ.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142AECD221690E4007002A4 /* ProjectQ.swift */; };
 		7142AED02216911E007002A4 /* ProjectVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142AECF2216911E007002A4 /* ProjectVM.swift */; };
+		7142AED2221699A7007002A4 /* Bounty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142AED1221699A7007002A4 /* Bounty.swift */; };
+		7142AED422169A63007002A4 /* BountyApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7142AED322169A63007002A4 /* BountyApi.swift */; };
 		715DB15B2174716E0005B69D /* VoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB15A2174716E0005B69D /* VoteVC.swift */; };
 		715DB15D217471980005B69D /* ContributeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB15C217471980005B69D /* ContributeVC.swift */; };
 		716200692203144500DC1A10 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7162006B2203144500DC1A10 /* Localizable.strings */; };
@@ -370,6 +372,8 @@
 		7142AECB22168F8D007002A4 /* Project.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Project.swift; sourceTree = "<group>"; };
 		7142AECD221690E4007002A4 /* ProjectQ.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectQ.swift; sourceTree = "<group>"; };
 		7142AECF2216911E007002A4 /* ProjectVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectVM.swift; sourceTree = "<group>"; };
+		7142AED1221699A7007002A4 /* Bounty.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bounty.swift; sourceTree = "<group>"; };
+		7142AED322169A63007002A4 /* BountyApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BountyApi.swift; sourceTree = "<group>"; };
 		715DB15A2174716E0005B69D /* VoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteVC.swift; sourceTree = "<group>"; };
 		715DB15C217471980005B69D /* ContributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributeVC.swift; sourceTree = "<group>"; };
 		7162006A2203144500DC1A10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -1317,6 +1321,7 @@
 				71B38D07215B875900929CC3 /* CommentApi.swift */,
 				71BE95C0216376F1001CF853 /* OtherApi.swift */,
 				716E625721899455002AC5DA /* ContribApi.swift */,
+				7142AED322169A63007002A4 /* BountyApi.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1372,6 +1377,7 @@
 				71D9C1E121B16EA00043B15E /* Vote.swift */,
 				7166528B21F0B167005A50F7 /* Resources.swift */,
 				7142AECB22168F8D007002A4 /* Project.swift */,
+				7142AED1221699A7007002A4 /* Bounty.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -2471,6 +2477,7 @@
 				71387A90216B6C6C00B24C67 /* CoreGraphicsTools.swift in Sources */,
 				7105C35B21AD6580008AAB1E /* TransparentNavBar.swift in Sources */,
 				71163A40216642F400C5B633 /* EmailValidation.swift in Sources */,
+				7142AED2221699A7007002A4 /* Bounty.swift in Sources */,
 				7120450321EF833A0030F96A /* ActivityAVM.swift in Sources */,
 				71D84CBB21995ACF00E8DB88 /* curve-specific.inc in Sources */,
 				71F4A7FB220C23FE00580E85 /* BPVC.swift in Sources */,
@@ -2502,6 +2509,7 @@
 				7105C35D21AD6D59008AAB1E /* StatusBar.swift in Sources */,
 				7142AED02216911E007002A4 /* ProjectVM.swift in Sources */,
 				71B38D22215BBEC400929CC3 /* RewardAVM.swift in Sources */,
+				7142AED422169A63007002A4 /* BountyApi.swift in Sources */,
 				710FE992217F94F8009E51E5 /* Balance.swift in Sources */,
 				712B3A7221A814AC003BB43A /* EconomiesCell.swift in Sources */,
 				71A0C1B6217089A700C2ACF3 /* FaqVM.swift in Sources */,

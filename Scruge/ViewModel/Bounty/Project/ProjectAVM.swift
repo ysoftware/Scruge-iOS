@@ -12,6 +12,8 @@ import Result
 final class ProjectsAVM: ArrayViewModel<Project, ProjectVM, ProjectQ> {
 
 	override func fetchData(_ query: ProjectQ?, _ block: @escaping (Result<[Project], AnyError>) -> Void) {
-
+		Service.api.getProjects { result in
+			block(result.map { $0.projects })
+		}
 	}
 }

@@ -23,7 +23,7 @@ struct Economics: Equatable, Codable {
 	let publicTokenPercent:Double
 
 	/// полный объем токенов
-	let tokenSupply:Int
+	let tokenSupply:Int64
 
 	/// вариация годовой инфляции (0% - 4%)
 	let annualInflationPercent:Range

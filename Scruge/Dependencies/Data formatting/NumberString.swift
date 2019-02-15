@@ -33,9 +33,16 @@ extension Double {
 	}
 }
 
-extension Int {
+extension Int64 {
 
 	func formatDecimal(separateWith separator:String? = "") -> String {
 		return Double(self).formatDecimal(separateWith: separator)
+	}
+}
+
+extension Int {
+
+	func formatDecimal(separateWith separator:String? = "") -> String {
+		return Int64(self).formatDecimal(separateWith: separator)
 	}
 }

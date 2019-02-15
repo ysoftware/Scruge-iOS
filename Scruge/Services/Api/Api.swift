@@ -35,13 +35,24 @@ final class Api {
 
 	// MARK: - Bounty
 
-	func getProjects(_ completion: @escaping (Result<[Project], AnyError>)->Void) {
+	func getProjects(_ completion: @escaping (Result<ProjectsResponse, AnyError>)->Void) {
 		service.get("projects", nil, completion)
 	}
 
-//	func getBounties(for projectVM:ProjectVM, _ completion: @escaping (Result<[Bounty], AnyError>)->Void) {
-//		
-//	}
+	func getBounties(for projectVM:ProjectVM,
+					 _ completion: @escaping (Result<BountiesResponse, AnyError>)->Void) {
+		let request = BountiesRequest(providerName: projectVM.providerName)
+		service.get("bounties", nil, completion)
+	}
+
+	func postSubmission(bountyId:String, proof:String, hunterName:String,
+						_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+		guard let token = Service.tokenManager.getToken() else {
+			return completion(.failure(AnyError(AuthError.noToken)))
+		}
+		let request = SubmissionRequest(token: token, bountyId: bountyId, proof: proof, hunterName: hunterName)
+		service.post("submissions", request.toDictionary(), completion)
+	}
 
 	// MARK: - Wallet
 

@@ -9,5 +9,8 @@
 import MVVM
 
 final class ProjectVM: ViewModel<Project> {
-	
+
+	var providerName:String {
+		return model?.providerName ?? ""
+	}
 }

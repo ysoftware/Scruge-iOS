@@ -15,7 +15,7 @@ struct Network:Networking {
 	var baseUrl:String
 	var apiVersion:Int
 
-	var isLoggingEnabled = false
+	var isLoggingEnabled = true
 	var logLimit = 2000
 
 	init(baseUrl:String, apiVersion:Int) {

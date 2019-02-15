@@ -17,7 +17,7 @@ struct Exchange: Codable, Equatable {
 
 struct ProjectEconomics: Codable, Equatable {
 
-	let tokenSupply:Int
+	let tokenSupply:Int64
 
 	let annualInflationPercent:Range
 
