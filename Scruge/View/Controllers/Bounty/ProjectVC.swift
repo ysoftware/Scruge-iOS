@@ -16,6 +16,8 @@ final class ProjectViewController: UIViewController {
 	@IBOutlet weak var buttonView: UIView!
 	@IBOutlet weak var scrollView: UIScrollView!
 
+	@IBOutlet weak var topImage: UIImageView?
+	@IBOutlet weak var topWebView: UIWebView?
 	@IBOutlet weak var topNameLabel: UILabel!
 	@IBOutlet weak var topDescriptionLabel: UILabel!
 	@IBOutlet weak var socialCollectionView: UICollectionView!
@@ -32,6 +34,8 @@ final class ProjectViewController: UIViewController {
 	// MARK: - Properties
 
 	var vm:ProjectVM!
+	private var didLoadMedia = false
+	private var imageUrl:URL?
 
 	private let NAVBAR_LIMIT:CGFloat = 240
 
@@ -128,6 +132,10 @@ final class ProjectViewController: UIViewController {
 			tokenOtherTitleLabel.text = R.string.localizable.label_not_listed()
 			tokenOtherValueLabel.isHidden = true
 		}
+
+		if let str = vm.videoUrl, let url = URL(string: str) {
+			setupWebView(with: url)
+		}
 	}
 
 	private func setupActions() {
@@ -156,6 +164,38 @@ final class ProjectViewController: UIViewController {
 	}
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return offset > NAVBAR_LIMIT ? .default : .lightContent
+	}
+	
+	private func setupWebView(with url:URL) {
+		guard !didLoadMedia, let topWebView = topWebView else {
+			return
+		}
+		topWebView.isHidden = true
+		topImage?.isHidden = true
+		topWebView.delegate = self
+		topWebView.isHidden = false
+		topWebView.scrollView.isScrollEnabled = false
+		topWebView.allowsInlineMediaPlayback = false
+		topWebView.mediaPlaybackRequiresUserAction = true
+
+		if #available(iOS 11.0, *) {
+			topWebView.scrollView.contentInsetAdjustmentBehavior = .never
+		}
+		topWebView.loadRequest(URLRequest(url: url))
+		didLoadMedia = true
+	}
+
+	private func setupImageView() {
+		topWebView?.isHidden = true
+		topImage?.isHidden = false
+		topImage?.setImage(url: imageUrl, hideOnFail: false)
+	}
+}
+
+extension ProjectViewController: UIWebViewDelegate {
+
+	func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {
+		setupImageView()
 	}
 }
 

@@ -22,6 +22,10 @@ final class ProjectVM: ViewModel<Project> {
 		return model?.imageUrl
 	}
 
+	var videoUrl:String? {
+		return model?.videoUrl
+	}
+
 	var description:String {
 		return model?.projectDescription ?? ""
 	}
