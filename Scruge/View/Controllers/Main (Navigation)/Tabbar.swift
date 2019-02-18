@@ -19,6 +19,18 @@ final class TabbarViewController: UITabBarController {
 		tabBar.tintColor = Service.constants.color.purple
 		delegate = self
 	}
+
+	override func viewDidAppear(_ animated: Bool) {
+		super.viewDidAppear(animated)
+
+		DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+			Service.api.getLastSupportedVersion { result in
+				if let response = result.value, let v = response.lastSupportedVersion, v > Api.version {
+					self.alert(R.string.localizable.alert_update_required())
+				}
+			}
+		}
+	}
 }
 
 extension TabbarViewController: UITabBarControllerDelegate {
@@ -33,7 +45,7 @@ extension TabbarViewController: UITabBarControllerDelegate {
 
 			Service.presenter.presentLoginViewController(in: self) { didLogIn in
 				if didLogIn {
-					tabBarController.selectedIndex = 3
+					tabBarController.selectedIndex = 4
 				}
 			}
 			return false

@@ -19,6 +19,13 @@ struct AccountRequest: Codable {
 
 // MARK: - Response
 
+struct GeneralInfoResponse: Codable {
+
+	let lastSupportedVersion:Int?
+
+	let apiVersion:Int
+}
+
 struct BoolResponse: Codable {
 
 	let value:Bool

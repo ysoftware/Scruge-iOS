@@ -14,7 +14,7 @@ import FirebaseInstanceID
 
 final class Api {
 
-	private static let version = 2
+	public static let version = 2
 
 	enum Environment:String {
 
@@ -31,6 +31,10 @@ final class Api {
 
 	func setEnvironment(_ environment:Environment) {
 		service = Network(baseUrl: environment.rawValue, apiVersion: Api.version)
+	}
+
+	func getLastSupportedVersion(_ completion: @escaping (Result<GeneralInfoResponse, AnyError>)->Void) {
+		service.get("", nil, completion)
 	}
 
 	// MARK: - Bounty

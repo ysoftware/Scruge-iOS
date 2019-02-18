@@ -785,3 +785,6 @@
 
 /*  */
 "label_listing_date" = "Trading starts";
+
+/*  */
+"alert_update_required" = "You are using an older version of the app. Some features might not work as expected. Please, update to the latest version.";
