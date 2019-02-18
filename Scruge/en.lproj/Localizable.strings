@@ -827,3 +827,6 @@
 
 /*  */
 "label_bounty_percent_of_total_supply" = "%@ of total supply";
+
+/*  */
+"label_days_short_no_plural" = "d.";

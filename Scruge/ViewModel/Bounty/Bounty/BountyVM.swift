@@ -80,7 +80,8 @@ final class BountyVM: ViewModel<Bounty> {
 
 			.append(R.string.localizable.label_bounty_resubmission_period())
 			.append(": ")
-			.append("\(timeLimitDays) d.", withAttributes: purple)
+			.append("\(timeLimitDays) ", withAttributes: purple)
+			.append(R.string.localizable.label_days_short_no_plural(), withAttributes: purple)
 
 		getMaxReward().flatMap { str.lineBreak().append($0) }
 
