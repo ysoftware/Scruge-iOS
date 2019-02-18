@@ -143,7 +143,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 				let balance = Balance(token: Token.Scruge, amount: amount)
 				Service.eos
 					.sendMoney(from: account,
-							   to: Service.eos.contractAccount,
+							   to: ContractAccounts.BIDLMain,
 							   balance: balance,
 							   memo: "\(response.userId)-\(model.id)",
 					passcode: passcode) { transactionResult in

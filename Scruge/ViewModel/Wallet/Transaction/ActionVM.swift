@@ -124,10 +124,12 @@ enum ActionType {
 
 	other(ActionDetails)
 
+//	submit(Submission)
+
 	static func from(_ action:ActionDetails, accountName:String?) -> ActionType {
 		if action.name == "transfer", let data = action.transferData {
 			if accountName == data.from {
-				if data.to == Service.eos.contractAccount.string {
+				if data.to == ContractAccounts.BIDLMain.string {
 					return .invested(campaignTitle: "-campaign-", amount: data.quantity) // todo
 				}
 				return .sent(data)
@@ -137,7 +139,7 @@ enum ActionType {
 			}
 			return .transfer(data)
 		}
-		else if action.name == "vote", action.account == Service.eos.contractAccount.string {
+		else if action.name == "vote", action.account == ContractAccounts.BIDLMain.string {
 			return .voted(campaignTitle: "-campaign-", voteKind: .extend) // todo
 		}
 		return .other(action)

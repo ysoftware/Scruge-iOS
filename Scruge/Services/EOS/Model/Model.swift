@@ -8,6 +8,23 @@
 
 import Foundation
 
+// submit
+//		name hunterName
+//		name providerName
+//		string proof
+//		uint64_t bountyId
+
+struct Submission:Codable {
+
+	let hunterName:String
+
+	let providerName:String
+
+	let proof:String
+
+	let bountyId:Int64
+}
+
 //	vote
 //		name eosAccount
 //		uint64_t userId

@@ -42,6 +42,8 @@ struct ActivityHolder:Equatable, Codable {
 		case "CampFundingEnd": activity = try ActivityFunding(from: decoder)
 		case "Voting": activity = try ActivityVoting(from: decoder)
 		case "VotingResult": activity = try ActivityVotingResult(from: decoder)
+		case "Submission": activity = try ActivitySubmission(from: decoder)
+		case "SubmissionPaid": activity = try ActivitySubmissionPaid(from: decoder)
 		default: throw BackendError.parsingError
 		}
 	}
@@ -118,4 +120,22 @@ struct ActivityFunding: ActivityModel, Equatable, Codable {
 	let raised:Double
 
 	let timestamp:Int64
+}
+
+struct ActivitySubmission: ActivityModel, Equatable, Codable {
+
+	let type: String
+
+	let timestamp:Int64
+
+//	let bountyName:String
+}
+
+struct ActivitySubmissionPaid: ActivityModel, Equatable, Codable {
+
+	let type: String
+
+	let timestamp:Int64
+
+//	let bountyName:String
 }

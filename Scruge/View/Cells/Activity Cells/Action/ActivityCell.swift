@@ -64,6 +64,14 @@ final class ActivityCell: UITableViewCell {
 			dateLabel.text = vm.votingResultDate
 			activityLabel.text = vm.votingResultTitle
 			updateDescriptionLabel.text = vm.votingResultDescription
+		case .submission:
+			dateLabel.text = vm.submissionDate
+			activityLabel.text = vm.submissionTitle
+			updateDescriptionLabel.text = vm.submissionDetails
+		case .submissionPaid:
+			dateLabel.text = vm.submissionPaidDate
+			activityLabel.text = vm.submissionPaidTitle
+			updateDescriptionLabel.text = vm.submissionPaidDetails
 		}
 		return self
 	}

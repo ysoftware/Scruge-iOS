@@ -56,9 +56,11 @@ struct Presenter {
 	}
 
 	func presentSubmitViewController(in vc:UIViewController,
-									 bountyVM:BountyVM) {
+									 bountyVM:BountyVM,
+									 projectVM:ProjectVM) {
 		let new = R.storyboard.bounty.submitVC()!
-		new.vm = bountyVM
+		new.bountyVM = bountyVM
+		new.projectVM = projectVM
 		vc.show(new, sender: self)
 	}
 

@@ -49,12 +49,16 @@ final class Api {
 		service.get("bounties", request.toDictionary(), completion)
 	}
 
-	func postSubmission(bountyId:String, proof:String, hunterName:String,
+	func postSubmission(bountyId:Int64, proof:String, hunterName:String, providerName:String,
 						_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
 			return completion(.failure(AnyError(AuthError.noToken)))
 		}
-		let request = SubmissionRequest(token: token, bountyId: bountyId, proof: proof, hunterName: hunterName)
+		let request = SubmissionRequest(token: token,
+										bountyId: bountyId,
+										proof: proof,
+										hunterName: hunterName,
+										providerName: providerName)
 		service.post("submissions", request.toDictionary(), completion)
 	}
 

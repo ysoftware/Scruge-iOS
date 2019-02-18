@@ -59,6 +59,7 @@
 		71387A9B216CA74400B24C67 /* TagCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71387A9A216CA74400B24C67 /* TagCell.xib */; };
 		71387A9D216CCC4800B24C67 /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A9C216CCC4800B24C67 /* SettingsVC.swift */; };
 		71387A9F216CD17300B24C67 /* Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71387A9E216CD17300B24C67 /* Networking.swift */; };
+		713A8FAA221ADB1C00737B6F /* AttributedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713A8FA9221ADB1C00737B6F /* AttributedString.swift */; };
 		713EF3B021A98DF4009BA9D5 /* PagingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 713EF3AF21A98DF4009BA9D5 /* PagingCell.xib */; };
 		713EF3B221A98E6F009BA9D5 /* PagingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 713EF3B121A98E6F009BA9D5 /* PagingCell.swift */; };
 		7142AEBB221683CD007002A4 /* Bounty.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7142AEBA221683CD007002A4 /* Bounty.storyboard */; };
@@ -370,6 +371,7 @@
 		71387A9A216CA74400B24C67 /* TagCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TagCell.xib; sourceTree = "<group>"; };
 		71387A9C216CCC4800B24C67 /* SettingsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		71387A9E216CD17300B24C67 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
+		713A8FA9221ADB1C00737B6F /* AttributedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedString.swift; sourceTree = "<group>"; };
 		713EF3AF21A98DF4009BA9D5 /* PagingCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PagingCell.xib; sourceTree = "<group>"; };
 		713EF3B121A98E6F009BA9D5 /* PagingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagingCell.swift; sourceTree = "<group>"; };
 		7142AEBA221683CD007002A4 /* Bounty.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Bounty.storyboard; sourceTree = "<group>"; };
@@ -864,6 +866,7 @@
 				71345AF82177336F00F28AF1 /* StringTruncate.swift */,
 				711EF6FC21F1DCDC008F2FD5 /* Distinct.swift */,
 				7162007222032DE000DC1A10 /* BlankString.swift */,
+				713A8FA9221ADB1C00737B6F /* AttributedString.swift */,
 			);
 			path = "Data formatting";
 			sourceTree = "<group>";
@@ -2536,6 +2539,7 @@
 				71BE95BB2163744E001CF853 /* Faq.swift in Sources */,
 				71D84CD221995AD000E8DB88 /* ResourceUtil.swift in Sources */,
 				711EF6F821F1D382008F2FD5 /* Token.swift in Sources */,
+				713A8FAA221ADB1C00737B6F /* AttributedString.swift in Sources */,
 				71BE95A521625E64001CF853 /* TopCommentCell.swift in Sources */,
 				71D84CBC21995ACF00E8DB88 /* asm_arm.inc in Sources */,
 				715DB15B2174716E0005B69D /* VoteVC.swift in Sources */,

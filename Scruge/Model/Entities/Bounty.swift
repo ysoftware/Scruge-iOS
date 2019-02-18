@@ -41,4 +41,8 @@ struct Bounty: Codable, Equatable {
 	let participantsPaid: Int
 
 	let timestamp: Int64
+
+	let totalSupply:Int64? = 250000000
+
+	let maxReward:String? = ["5000 SCR", "10000 SCR", "1000 SCR", "500 SCR", "2500 SCR"].randomElement()
 }

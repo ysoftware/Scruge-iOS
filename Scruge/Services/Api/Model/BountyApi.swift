@@ -24,11 +24,13 @@ struct SubmissionRequest:Codable {
 
 	let token:String
 
-	let bountyId:String
+	let bountyId:Int64
 
 	let proof:String
 
 	let hunterName:String
+
+	let providerName:String
 }
 
 // MARK: - Response

@@ -31,15 +31,11 @@ final class CountdownCell: UITableViewCell {
 	}
 
 	private func refresh() {
-		let MINUTE:Int64 = 1000 * 60
-		let HOUR = 60 * MINUTE
-		let DAY = 24 * HOUR
-
 		let diff = max(0, timestamp - Date().milliseconds)
 
-		let days = diff / DAY
-		let hours = (diff - days * DAY) / HOUR
-		let minutes = (diff - days * DAY - hours * HOUR) / MINUTE
+		let days = diff /  Time.day
+		let hours = (diff - days *  Time.day) / Time.hour
+		let minutes = (diff - days *  Time.day - hours * Time.hour) / Time.minute
 
 		daysLabel.text = "\(days)"
 		hoursLabel.text = "\(hours)"

@@ -17,7 +17,9 @@ final class BountyCell: UITableViewCell {
 	@discardableResult
 	func setup(with vm:BountyVM) -> Self {
 		selectionStyle = .none
-		
+
+		descriptionLabel.attributedText = vm.shortDescription
+		dateLabel.text = vm.dates
 		titleLabel.text = vm.name
 		return self
 	}

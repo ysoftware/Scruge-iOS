@@ -19,6 +19,10 @@ enum ActivityType:String {
 	case fundingInfo = "CampFundingEnd"
 
 	case votingResults = "VotingResult"
+
+	case submission = "Submission"
+
+	case submissionPaid = "SubmissionPaid"
 }
 
 final class ActivityVM: ViewModel<ActivityHolder> {
@@ -36,6 +40,9 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 		case .voting: return R.image.star()!
 		case .votingResults: return R.image.star()!
 		case .fundingInfo: return R.image.checkmark()!
+
+		case .submission: return R.image.checkmark()!
+		case .submissionPaid: return R.image.star()!
 		}
 	}
 
@@ -46,6 +53,9 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 		case .voting: return Service.constants.color.green
 		case .votingResults: return Service.constants.color.purple
 		case .fundingInfo: return Service.constants.color.purple
+
+		case .submission: return Service.constants.color.purple
+		case .submissionPaid: return Service.constants.color.green
 		}
 	}
 
@@ -109,6 +119,40 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 			let f = R.string.localizable.label_did_not_reach_goal_of($0.campaign.title, cap)
 			return $0.raised >= $0.softCap ? s : f
 		} ?? ""
+	}
+
+	// submission
+
+	// todo change and localize
+
+	var submissionDate:String {
+		return (model?.activity as? ActivitySubmission).flatMap {
+			Date.present($0.timestamp, as: "d MMMM HH:mm") } ?? ""
+	}
+
+	var submissionTitle:String {
+		return "You have submitted for a bounty"
+	}
+
+	var submissionDetails:String {
+		return model.flatMap { "\($0)" } ?? "no model"
+	}
+
+	// submission paid
+
+	// todo change and localize
+
+	var submissionPaidDate:String {
+		return (model?.activity as? ActivitySubmissionPaid).flatMap {
+			Date.present($0.timestamp, as: "d MMMM HH:mm") } ?? ""
+	}
+
+	var submissionPaidTitle:String {
+		return "You were paid for your bounty submission"
+	}
+
+	var submissionPaidDetails:String {
+		return model.flatMap { "\($0)" } ?? "no model"
 	}
 
 	// voting

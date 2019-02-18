@@ -8,6 +8,15 @@
 
 import UIKit
 
+struct Time {
+
+	static let minute:Int64 = 1000 * 60
+
+	static let hour = 60 * minute
+
+	static let day = 24 * hour
+}
+
 struct Constants {
 
 	let color = Color()
@@ -32,16 +41,16 @@ struct Constants {
 
 		// resources
 
-		let cpu = #colorLiteral(red: 0.9215686275, green: 0.6745098039, blue: 0.05490196078, alpha: 1)
+		let cpu = #colorLiteral(red: 0.9882352941, green: 0.8156862745, blue: 0.3294117647, alpha: 1)
 
-		let net = #colorLiteral(red: 0.07058823529, green: 0.4980392157, blue: 0.9058823529, alpha: 1)
+		let net = #colorLiteral(red: 0.2235294118, green: 0.5843137255, blue: 0.8431372549, alpha: 1)
 
-		let ram = #colorLiteral(red: 0.3137254902, green: 0.5137254902, blue: 0.01176470588, alpha: 1)
+		let ram = #colorLiteral(red: 0.5058823529, green: 0.7882352941, blue: 0.1921568627, alpha: 1)
 
-		let cpuBackground = #colorLiteral(red: 0.5019607843, green: 0.4117647059, blue: 0.1764705882, alpha: 1)
+		let cpuBackground = #colorLiteral(red: 0.79, green: 0.6495555556, blue: 0.2633333333, alpha: 1)
 
-		let netBackground = #colorLiteral(red: 0.1333333333, green: 0.3568627451, blue: 0.5803921569, alpha: 1)
+		let netBackground = #colorLiteral(red: 0.1696744186, green: 0.4435348837, blue: 0.64, alpha: 1)
 
-		let ramBackground = #colorLiteral(red: 0.2980392157, green: 0.4392156863, blue: 0.1960784314, alpha: 1)
+		let ramBackground = #colorLiteral(red: 0.3786567164, green: 0.59, blue: 0.1438308457, alpha: 1)
 	}
 }

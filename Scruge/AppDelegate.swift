@@ -48,6 +48,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 			Service.eos.nodeUrl = Service.eos.testNodeUrl
 		}
 
+		#if DEBUG
+		Service.eos.nodeUrl = Service.eos.testNodeUrl
+		#endif
+
 		return true
 	}
 }

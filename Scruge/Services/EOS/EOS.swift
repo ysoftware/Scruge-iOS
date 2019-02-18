@@ -8,11 +8,16 @@
 
 import Result
 
+struct ContractAccounts {
+
+	static let BIDLMain = EosName.create("testaccount1")
+
+	static let bounty = EosName.create("scrugebounty")
+}
+
 class EOS {
 
 	var systemToken:Token = .EOS
-
-	let contractAccount = EosName.create("testaccount1")
 
 	var isMainNet:Bool { return nodeUrl != testNodeUrl }
 
@@ -203,6 +208,20 @@ class EOS {
 		sendAction(name, contract: contract, from: account, data: data, passcode: passcode, completion)
 	}
 
+	func bountySubmit(from account:AccountModel,
+					  proof:String,
+					  providerName: String,
+					  bountyId: Int64,
+					  passcode:String,
+					  completion: @escaping (Result<String, AnyError>)->Void) {
+
+		let data = Submission(hunterName: account.name, providerName: providerName,
+							  proof: proof, bountyId: bountyId).jsonString
+		let name = EosName.create("submit")
+		let contract = ContractAccounts.bounty
+		sendAction(name, contract: contract, from: account, data: data, passcode: passcode, completion)
+	}
+
 	func sendAction(_ action:EosName,
 					contract:EosName? = nil,
 					from account: AccountModel,
@@ -210,7 +229,7 @@ class EOS {
 					passcode: String,
 					_ completion: @escaping (Result<String, AnyError>)->Void) {
 
-		guard let params = try? AbiJson(code: contract?.string ?? contractAccount.string,
+		guard let params = try? AbiJson(code: contract?.string ?? ContractAccounts.BIDLMain.string,
 										action: action.string,
 										json: data) else {
 											return completion(.failure(AnyError(EOSError.abiError)))

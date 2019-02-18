@@ -19,6 +19,7 @@ final class AccountCell: UITableViewCell {
 
 	@discardableResult
 	func setup(with vm:AccountVM) -> Self {
+		selectionStyle = .none
 		localize()
 		
 		vm.delegate = self

@@ -31,6 +31,26 @@ final class BountyViewController: UIViewController {
 
 	// MARK: - Setup
 
+	private let NAVBAR_LIMIT:CGFloat = 240
+
+	var offset:CGFloat = 0 {
+		didSet {
+			setNeedsStatusBarAppearanceUpdate()
+			if offset > NAVBAR_LIMIT {
+				preferSmallNavbar()
+				makeNavbarNormal(with: "\(projectVM.name): \(vm.name)")
+			}
+			else {
+				preferSmallNavbar()
+				makeNavbarTransparent()
+			}
+		}
+	}
+
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -39,20 +59,31 @@ final class BountyViewController: UIViewController {
 		setupActions()
 	}
 
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+
+		makeNavbarTransparent()
+		preferLargeNavbar()
+		navBarTitleColor(.white)
+	}
+
+	override func viewWillDisappear(_ animated: Bool) {
+		super.viewWillDisappear(animated)
+
+		makeNavbarNormal()
+		navBarTitleColor()
+	}
+
 	private func setupViews() {
 		showContributeButton(true)
 
-		// make table view go under the navigation bar
-		if #available(iOS 11.0, *) {
-			scrollView.contentInsetAdjustmentBehavior = .never
-		}
-		automaticallyAdjustsScrollViewInsets = false
-
 		projectNameLabel.text = projectVM.name.uppercased()
-		dateLabel.text = vm.date
+		nameLabel.text = vm.name
+		dateLabel.text = vm.dates
 		rewardsLabel.text = vm.rewards
 		descriptionLabel.text = vm.description
 		rulesLabel.text = vm.rules
+		detailsLabel.attributedText = vm.longerDescription
 	}
 
 	private func showContributeButton(_ visible:Bool = true) {
@@ -68,7 +99,6 @@ final class BountyViewController: UIViewController {
 		buttonView.isHidden = !visible
 	}
 
-
 	private func setupActions() {
 		submitButton.addClick(self, action: #selector(submit))
 	}
@@ -76,11 +106,13 @@ final class BountyViewController: UIViewController {
 	// MARK: - Actions
 
 	@objc func submit(_ sender:Any) {
-		Service.presenter.presentSubmitViewController(in: self, bountyVM: vm)
+		Service.presenter.presentSubmitViewController(in: self, bountyVM: vm, projectVM: projectVM)
 	}
-
-	// MARK: - Methods
-
-
 }
 
+extension BountyViewController: UIScrollViewDelegate {
+
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		offset = scrollView.contentOffset.y
+	}
+}
