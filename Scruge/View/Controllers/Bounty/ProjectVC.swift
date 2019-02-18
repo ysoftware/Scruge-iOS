@@ -37,7 +37,7 @@ final class ProjectViewController: UIViewController {
 	private var didLoadMedia = false
 	private var imageUrl:URL?
 
-	private let NAVBAR_LIMIT:CGFloat = 240
+	private let NAVBAR_LIMIT:CGFloat = 220
 
 	var offset:CGFloat = 0 {
 		didSet {

@@ -465,13 +465,13 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdz-wr-R0c">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="643.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="673.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Jxa-Qv-w3L">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="643.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="673.5"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MMg-CM-2Oe" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="-15" width="345" height="214.5"/>
+                                                        <rect key="frame" x="15" y="15" width="345" height="214.5"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="C0x-bv-RJn">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="214.5"/>
@@ -513,7 +513,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="f2u-hv-OXk" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="214.5" width="345" height="128"/>
+                                                        <rect key="frame" x="15" y="244.5" width="345" height="128"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ESu-7d-pxX">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="128"/>
@@ -543,7 +543,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eMg-Hk-Sao" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="357.5" width="345" height="128"/>
+                                                        <rect key="frame" x="15" y="387.5" width="345" height="128"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4T9-Ac-IZc">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="128"/>
@@ -573,7 +573,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ud1-su-h0i" customClass="CardView" customModule="Scruge" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="500.5" width="345" height="128"/>
+                                                        <rect key="frame" x="15" y="530.5" width="345" height="128"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="tfT-Qj-vbB">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="128"/>
@@ -603,7 +603,7 @@
                                                         </constraints>
                                                     </view>
                                                 </subviews>
-                                                <edgeInsets key="layoutMargins" top="-15" left="15" bottom="15" right="15"/>
+                                                <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
                                             </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

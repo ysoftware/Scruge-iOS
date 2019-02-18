@@ -31,7 +31,7 @@ final class BountyViewController: UIViewController {
 
 	// MARK: - Setup
 
-	private let NAVBAR_LIMIT:CGFloat = 240
+	private let NAVBAR_LIMIT:CGFloat = 30
 
 	var offset:CGFloat = 0 {
 		didSet {
@@ -48,7 +48,7 @@ final class BountyViewController: UIViewController {
 	}
 
 	override var preferredStatusBarStyle: UIStatusBarStyle {
-		return .lightContent
+		return offset > NAVBAR_LIMIT ? .default : .lightContent
 	}
 
 	override func viewDidLoad() {
@@ -63,8 +63,7 @@ final class BountyViewController: UIViewController {
 		super.viewWillAppear(animated)
 
 		makeNavbarTransparent()
-		preferLargeNavbar()
-		navBarTitleColor(.white)
+		preferSmallNavbar()
 	}
 
 	override func viewWillDisappear(_ animated: Bool) {
