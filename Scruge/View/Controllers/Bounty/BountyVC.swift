@@ -31,7 +31,7 @@ final class BountyViewController: UIViewController {
 
 	// MARK: - Setup
 
-	private let NAVBAR_LIMIT:CGFloat = 30
+	private let NAVBAR_LIMIT:CGFloat = 20
 
 	var offset:CGFloat = 0 {
 		didSet {

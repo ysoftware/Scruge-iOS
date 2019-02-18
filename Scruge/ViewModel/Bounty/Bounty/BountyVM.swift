@@ -21,7 +21,7 @@ final class BountyVM: ViewModel<Bounty> {
 	}
 
 	var name:String {
-		return model?.bountyName ?? "Medium Article"
+		return model?.bountyName ?? ""
 	}
 
 	var description:String {
