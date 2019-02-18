@@ -206,14 +206,18 @@ extension ProjectViewController: UIWebViewDelegate {
 extension ProjectViewController: UICollectionViewDelegate {
 
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		// social
+		if let url = URL(string: vm.social[indexPath.row].url) {
+			Service.presenter.presentSafariViewController(in: self, url: url)
+		}
 	}
 }
 
 extension ProjectViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		// document
+		if let url = URL(string: vm.documents[indexPath.row].url) {
+			Service.presenter.presentSafariViewController(in: self, url: url)
+		}
 	}
 }
 
