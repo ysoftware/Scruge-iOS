@@ -46,38 +46,40 @@ final class BountyVM: ViewModel<Bounty> {
 	var shortDescription:NSAttributedString {
 		guard let model = model else { return NSAttributedString() }
 
-		// todo localize
-
 		if let maxReward = getMaxReward() {
 			return maxReward
 		}
 
-		return NSMutableAttributedString().append("Submissions: ")
+		return NSMutableAttributedString()
+			.append(R.string.localizable.label_bounty_submissions())
+			.append(": ")
 			.append("\(model.submissions)/\(model.userLimit)", withAttributes: purple)
 			.lineBreak()
 
-			.append("Limit per user: ")
+			.append(R.string.localizable.label_bounty_limit_per_user())
+			.append(": ")
 			.append("\(model.limitPerUser)", withAttributes: purple)
 	}
 
 	var longerDescription:NSAttributedString {
 		guard let model = model else { return NSAttributedString() }
 
-		// todo localize
-
 		let timeLimitDays = model.timeLimit /  Time.day
 
 		let str = NSMutableAttributedString()
 
-			.append("Submissions: ")
+			.append(R.string.localizable.label_bounty_submissions())
+			.append(": ")
 			.append("\(model.submissions)/\(model.userLimit)", withAttributes: purple)
 			.lineBreak()
 
-			.append("Limit per user: ")
+			.append(R.string.localizable.label_bounty_limit_per_user())
+			.append(": ")
 			.append("\(model.limitPerUser)", withAttributes: purple)
 			.lineBreak()
 
-			.append("Resubmission period: ")
+			.append(R.string.localizable.label_bounty_resubmission_period())
+			.append(": ")
 			.append("\(timeLimitDays) d.", withAttributes: purple)
 
 		getMaxReward().flatMap { str.lineBreak().append($0) }
@@ -98,12 +100,14 @@ final class BountyVM: ViewModel<Bounty> {
 			let array = maxReward.components(separatedBy: " ")
 
 			if array.count == 2,  let amount = Double(array[0]) {
-				let supplyPercent = amount / (Double(totalSupply) / 100)
+				let percent = (amount / (Double(totalSupply) / 100)).formatDecimal()
 				return str
-					.append("Max reward: ")
+					.append(R.string.localizable.label_bounty_max_reward())
+					.append(": ")
 					.append(maxReward, withAttributes: purple)
 					.whitespace()
-					.append("(\(supplyPercent)% of total supply)", withAttributes: gray)
+					.append(R.string.localizable.label_bounty_percent_of_total_supply(percent),
+							withAttributes: gray)
 			}
 		}
 		return nil

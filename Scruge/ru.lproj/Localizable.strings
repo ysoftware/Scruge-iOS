@@ -812,3 +812,18 @@
 
 /*  */
 "error_enter_proof" = "Введите подтверждение вашей работы";
+
+/*  */
+"label_bounty_submissions" = "Участники";
+
+/*  */
+"label_bounty_limit_per_user" = "Лимит на участника";
+
+/*  */
+"label_bounty_resubmission_period" = "Период повторного участия";
+
+/*  */
+"label_bounty_max_reward" = "Макс. награда";
+
+/*  */
+"label_bounty_percent_of_total_supply" = "%@ от общего кол-ва";

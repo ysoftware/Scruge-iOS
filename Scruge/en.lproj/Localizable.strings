@@ -814,13 +814,16 @@
 "error_enter_proof" = "Enter your proof of work";
 
 /*  */
-"label_bounty_submissions" = "Submissions: ";
+"label_bounty_submissions" = "Submissions";
 
 /*  */
-"label_bounty_limit_per_user" = "Limit per user: ";
+"label_bounty_limit_per_user" = "Limit per user";
 
 /*  */
-"label_bounty_resubmission_period" = "Resubmission period: ";
+"label_bounty_resubmission_period" = "Resubmission period";
 
 /*  */
-"label_bounty_max_reward" = "Max reward: ";
+"label_bounty_max_reward" = "Max reward";
+
+/*  */
+"label_bounty_percent_of_total_supply" = "%@ of total supply";
