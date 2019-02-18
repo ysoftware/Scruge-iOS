@@ -16,7 +16,7 @@ struct Presenter {
 		featured.tabBarItem = UITabBarItem(title: R.string.localizable.title_featured(), image: #imageLiteral(resourceName: "featured"), tag: 0)
 
 		let activity = R.storyboard.details.activityVC()!.inNavigationController
-		activity.tabBarItem = UITabBarItem(title: R.string.localizable.title_featured(), image: #imageLiteral(resourceName: "bell"), tag: 1)
+		activity.tabBarItem = UITabBarItem(title: R.string.localizable.title_activity(), image: #imageLiteral(resourceName: "bell"), tag: 1)
 
 		let earn = R.storyboard.bounty.earnVC()!.inNavigationController
 		earn.tabBarItem = UITabBarItem(title: R.string.localizable.title_earn(), image: #imageLiteral(resourceName: "pie-chart"), tag: 3)
