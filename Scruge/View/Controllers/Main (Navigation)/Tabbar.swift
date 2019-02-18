@@ -18,13 +18,13 @@ final class TabbarViewController: UITabBarController {
 		Service.presenter.setupMainTabs(in: self)
 		tabBar.tintColor = Service.constants.color.purple
 		delegate = self
+
+		checkApiVersion()
 	}
 
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
-
+	private func checkApiVersion() {
 		DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-			Service.api.getLastSupportedVersion { result in
+			Service.api.getInfo { result in
 				if let response = result.value, let v = response.lastSupportedVersion, v > Api.version {
 					self.alert(R.string.localizable.alert_update_required())
 				}

@@ -33,7 +33,7 @@ final class Api {
 		service = Network(baseUrl: environment.rawValue, apiVersion: Api.version)
 	}
 
-	func getLastSupportedVersion(_ completion: @escaping (Result<GeneralInfoResponse, AnyError>)->Void) {
+	func getInfo(_ completion: @escaping (Result<GeneralInfoResponse, AnyError>)->Void) {
 		service.get("", nil, completion)
 	}
 
