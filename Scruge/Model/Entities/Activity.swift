@@ -128,7 +128,9 @@ struct ActivitySubmission: ActivityModel, Equatable, Codable {
 
 	let timestamp:Int64
 
-//	let bountyName:String
+	let bountyName:String
+
+	let projectName:String
 }
 
 struct ActivitySubmissionPaid: ActivityModel, Equatable, Codable {
@@ -137,5 +139,11 @@ struct ActivitySubmissionPaid: ActivityModel, Equatable, Codable {
 
 	let timestamp:Int64
 
-//	let bountyName:String
+	let bountyName:String
+
+	let paidEOS:String?
+
+	let paid:String?
+
+	let projectName:String
 }

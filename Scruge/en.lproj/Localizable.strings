@@ -830,3 +830,9 @@
 
 /*  */
 "label_days_short_no_plural" = "d.";
+
+/*  */
+"label_you_have_submitted_for_bounty" = "You have submitted your work for a bounty";
+
+/*  */
+"label_you_were_paid_x_for_bounty" = "You were paid %@ for your bounty submission";

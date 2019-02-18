@@ -131,11 +131,12 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	}
 
 	var submissionTitle:String {
-		return "You have submitted for a bounty"
+		return (model?.activity as? ActivitySubmission).flatMap {
+			"\($0.projectName): \($0.bountyName)" } ?? ""
 	}
 
 	var submissionDetails:String {
-		return model.flatMap { "\($0)" } ?? "no model"
+		return R.string.localizable.label_you_have_submitted_for_bounty()
 	}
 
 	// submission paid
@@ -148,11 +149,14 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	}
 
 	var submissionPaidTitle:String {
-		return "You were paid for your bounty submission"
+		return (model?.activity as? ActivitySubmission).flatMap {
+			"\($0.projectName): \($0.bountyName)" } ?? ""
 	}
 
 	var submissionPaidDetails:String {
-		return model.flatMap { "\($0)" } ?? "no model"
+		guard let m = model?.activity as? ActivitySubmissionPaid,
+			let paid = m.paid ?? m.paidEOS else { return "" }
+		return R.string.localizable.label_you_were_paid_x_for_bounty(paid)
 	}
 
 	// voting
