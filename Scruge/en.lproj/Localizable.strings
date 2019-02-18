@@ -788,3 +788,21 @@
 
 /*  */
 "alert_update_required" = "You are using an older version of the app. Some features might not work as expected. Please, update to the latest version.";
+
+/*  */
+"do_submit" = "Submit";
+
+/*  */
+"do_label_submit" = "Provide a link or any other way to review your completed work.";
+
+/*  */
+"hint_proof" = "Your proof of work";
+
+/*  */
+"title_bounty_description" = "Bounty Description";
+
+/*  */
+"title_bounty_rewards" = "Bounty Rewards";
+
+/*  */
+"title_bounty_rules" = "Bounty Rules";

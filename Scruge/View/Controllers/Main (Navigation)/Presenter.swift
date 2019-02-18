@@ -32,10 +32,33 @@ struct Presenter {
 
 	// MARK: - Bounties
 
-	func presentProject(in vc:UIViewController,
-						projectVM:ProjectVM) {
+	func presentProjectViewController(in vc:UIViewController,
+									  projectVM:ProjectVM) {
 		let new = R.storyboard.bounty.projectVC()!
 		new.vm = projectVM
+		vc.show(new, sender: self)
+	}
+
+	func presentBountiesViewController(in vc:UIViewController,
+									   projectVM:ProjectVM) {
+		let new = R.storyboard.bounty.bountiesVC()!
+		new.projectVM = projectVM
+		vc.show(new, sender: self)
+	}
+
+	func presentBountyViewController(in vc:UIViewController,
+									 bountyVM:BountyVM,
+									 projectVM:ProjectVM) {
+		let new = R.storyboard.bounty.bountyVC()!
+		new.vm = bountyVM
+		new.projectVM = projectVM
+		vc.show(new, sender: self)
+	}
+
+	func presentSubmitViewController(in vc:UIViewController,
+									 bountyVM:BountyVM) {
+		let new = R.storyboard.bounty.submitVC()!
+		new.vm = bountyVM
 		vc.show(new, sender: self)
 	}
 

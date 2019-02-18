@@ -40,8 +40,7 @@ final class Api {
 	// MARK: - Bounty
 
 	func getProjects(_ completion: @escaping (Result<ProjectsResponse, AnyError>)->Void) {
-		completion(.success(Mock.getProjects()))
-//		service.get("projects", nil, completion)
+		service.get("projects", nil, completion)
 	}
 
 	func getBounties(for projectVM:ProjectVM,

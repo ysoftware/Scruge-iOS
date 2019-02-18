@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="BountyCell" rowHeight="116" id="ae8-OQ-efT" customClass="BountyCell" customModule="Scruge" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="435" height="115"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ae8-OQ-efT" id="szo-l7-4T8">
+                <rect key="frame" x="0.0" y="0.0" width="435" height="114.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jdA-I7-TMf">
+                        <rect key="frame" x="0.0" y="0.0" width="435" height="114.5"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qBV-tp-kUE" customClass="CardView" customModule="Scruge" customModuleProvider="target">
+                                <rect key="frame" x="15" y="5" width="405" height="99.5"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rQI-eR-F4b">
+                                        <rect key="frame" x="0.0" y="0.0" width="405" height="99.5"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qwC-Zp-hYO">
+                                                <rect key="frame" x="15" y="15" width="375" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                                <color key="textColor" red="0.27058823529999998" green="0.31764705879999999" blue="0.3294117647" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QU0-4R-CEc">
+                                                <rect key="frame" x="15" y="70" width="375" height="0.0"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.37254901959999998" green="0.36470588240000001" blue="0.43921568630000002" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="249" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6U-Wz-bnB">
+                                                <rect key="frame" x="15" y="75" width="375" height="9.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
+                                                <color key="textColor" red="0.58823529409999997" green="0.62352941179999999" blue="0.63529411759999999" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <edgeInsets key="layoutMargins" top="15" left="15" bottom="15" right="15"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rQI-eR-F4b" secondAttribute="trailing" id="3cy-EO-kiE"/>
+                                    <constraint firstItem="rQI-eR-F4b" firstAttribute="top" secondItem="qBV-tp-kUE" secondAttribute="top" id="Urq-AZ-jpO"/>
+                                    <constraint firstAttribute="bottom" secondItem="rQI-eR-F4b" secondAttribute="bottom" id="mPq-Tk-bSk"/>
+                                    <constraint firstItem="rQI-eR-F4b" firstAttribute="leading" secondItem="qBV-tp-kUE" secondAttribute="leading" id="vlS-pU-Dlm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="qBV-tp-kUE" firstAttribute="trailing" secondItem="jdA-I7-TMf" secondAttribute="trailingMargin" id="9E2-rX-nOA"/>
+                            <constraint firstItem="qBV-tp-kUE" firstAttribute="bottom" secondItem="jdA-I7-TMf" secondAttribute="bottomMargin" id="D0M-kh-cXb"/>
+                            <constraint firstItem="qBV-tp-kUE" firstAttribute="leading" secondItem="jdA-I7-TMf" secondAttribute="leadingMargin" id="aaU-7m-Xud"/>
+                            <constraint firstItem="qBV-tp-kUE" firstAttribute="top" secondItem="jdA-I7-TMf" secondAttribute="topMargin" id="jj8-74-3m1"/>
+                        </constraints>
+                        <edgeInsets key="layoutMargins" top="5" left="15" bottom="10" right="15"/>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottom" secondItem="jdA-I7-TMf" secondAttribute="bottom" id="Bwm-vx-Dcv"/>
+                    <constraint firstItem="jdA-I7-TMf" firstAttribute="leading" secondItem="szo-l7-4T8" secondAttribute="leading" id="L0R-dg-45T"/>
+                    <constraint firstAttribute="trailing" secondItem="jdA-I7-TMf" secondAttribute="trailing" id="faA-98-Uyd"/>
+                    <constraint firstItem="jdA-I7-TMf" firstAttribute="top" secondItem="szo-l7-4T8" secondAttribute="top" id="oYR-TE-jMO"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="dateLabel" destination="w6U-Wz-bnB" id="9Ch-B9-dCF"/>
+                <outlet property="descriptionLabel" destination="QU0-4R-CEc" id="PLV-13-ybQ"/>
+                <outlet property="titleLabel" destination="qwC-Zp-hYO" id="QHa-Mo-aNw"/>
+            </connections>
+            <point key="canvasLocation" x="-28" y="10.344827586206897"/>
+        </tableViewCell>
+    </objects>
+</document>

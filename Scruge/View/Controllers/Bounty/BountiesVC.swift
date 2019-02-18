@@ -2,24 +2,23 @@
 //  BountiesVC.swift
 //  Scruge
 //
-//  Created by ysoftware on 15/02/2019.
+//  Created by ysoftware on 18/02/2019.
 //  Copyright © 2019 Ysoftware. All rights reserved.
 //
 
 import UIKit
 import MVVM
 
-final class EarnViewController: UIViewController {
+final class BountiesViewController: UIViewController {
 
 	// MARK: - Outlets
 
-	@IBOutlet weak var tableView: UITableView!
-	@IBOutlet weak var loadingView: LoadingView!
+	@IBOutlet weak var tableView:UITableView!
 
 	// MARK: - Properties
 
-	private let projectsVM = ProjectsAVM()
-	private var tableUpdateHandler:ArrayViewModelUpdateHandler!
+	var projectVM:ProjectVM!
+	var vm = BountyAVM()
 
 	// MARK: - Setup
 
@@ -27,101 +26,74 @@ final class EarnViewController: UIViewController {
 		super.viewDidLoad()
 
 		localize()
-		setupNavigationBar()
-		setupTableView()
+		setupViews()
 		setupVM()
 	}
 
-	override func viewDidAppear(_ animated: Bool) {
-		super.viewDidAppear(animated)
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
 		setupNavigationBar()
 	}
 
-	private func setupTableView() {
-		tableView.refreshControl = UIRefreshControl()
-		tableView.refreshControl?.addTarget(self, action: #selector(reloadData), for: .valueChanged)
-
+	private func setupViews() {
 		tableView.contentInset.top = 15
 		tableView.contentInset.bottom = 15
 
-		tableView.estimatedRowHeight = 80
+		tableView.estimatedRowHeight = 100
 		tableView.rowHeight = UITableView.automaticDimension
-		tableView.register(UINib(resource: R.nib.projectCell),
-									 forCellReuseIdentifier: R.reuseIdentifier.projectCell.identifier)
+
+		tableView.register(UINib(resource: R.nib.bountyCell),
+									forCellReuseIdentifier: R.reuseIdentifier.bountyCell.identifier)
 	}
 
 	private func setupVM() {
-		tableUpdateHandler = ArrayViewModelUpdateHandler(with: tableView)
-		projectsVM.delegate = self
-		projectsVM.reloadData()
+		vm.projectVM = projectVM
+		vm.delegate = self
+		vm.reloadData()
 	}
 
 	private func setupNavigationBar() {
-		makeNavbarNormal(with: R.string.localizable.title_earn())
-		preferLargeNavbar()
+		navigationController?.navigationBar.isHidden = false
+		makeNavbarNormal(with: projectVM.name)
+		preferSmallNavbar()
 	}
 
 	// MARK: - Actions
 
-	@objc func reloadData() {
-		projectsVM.reloadData()
-	}
 
 	// MARK: - Methods
 
 
 }
 
-extension EarnViewController: ArrayViewModelDelegate {
+extension BountiesViewController: ArrayViewModelDelegate {
 
 	func didUpdateData<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>,
-								 _ update: MVVM.Update)
-		where M : Equatable, VM : ViewModel<M>, Q : Query {
-
-			tableUpdateHandler.handle(update)
-	}
-
-	func didChangeState<M, VM, Q>(_ arrayViewModel: ArrayViewModel<M, VM, Q>,
-								  to state: ArrayViewModelState)
-		where M : Equatable, VM : ViewModel<M>, Q : Query {
-
-			switch projectsVM.state {
-			case .error(let error):
-				let message = ErrorHandler.message(for: error)
-				loadingView.set(state: .error(message))
-				tableView.refreshControl?.endRefreshing()
-			case .loading, .initial:
-				loadingView.set(state: .loading)
-			case .ready:
-				tableView.refreshControl?.endRefreshing()
-				if projectsVM.isEmpty {
-					loadingView.set(state: .error(R.string.localizable.error_no_projects()))
-				}
-				else {
-					loadingView.set(state: .ready)
-				}
-			default: break
-			}
+								 _ update: MVVM.Update) where M : Equatable, VM : ViewModel<M>, Q : Query {
+		tableView.reloadData()
 	}
 }
 
-extension EarnViewController: UITableViewDelegate {
+extension BountiesViewController: UITableViewDelegate {
 
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		Service.presenter.presentProject(in: self, projectVM: projectsVM[indexPath.row])
+		Service.presenter.presentBountyViewController(in: self,
+													  bountyVM: vm[indexPath.row],
+													  projectVM: projectVM)
 	}
 }
 
-extension EarnViewController: UITableViewDataSource {
+extension BountiesViewController: UITableViewDataSource {
 
-	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return projectsVM.numberOfItems
+	func tableView(_ tableView: UITableView,
+				   numberOfRowsInSection section: Int) -> Int {
+		return vm.numberOfItems
 	}
 
 	func tableView(_ tableView: UITableView,
 				   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.projectCell,
+		return tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.bountyCell,
 											 for: indexPath)!
-			.setup(with: projectsVM[indexPath.row])
+			.setup(with: vm[indexPath.row])
 	}
 }

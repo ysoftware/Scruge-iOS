@@ -52,7 +52,7 @@ final class ProjectVM: ViewModel<Project> {
 	}
 
 	var tokenListingDate:String? {
-		return model?.economics.listingTimestamp.flatMap { Date.present($0, as: "MMMM yyyy") }
+		return model?.economics.listingTimestamp.flatMap { Date.present($0, as: "MMM yyyy") }
 	}
 
 	var tokenExchange:String? {

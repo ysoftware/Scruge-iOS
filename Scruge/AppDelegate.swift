@@ -29,7 +29,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 
 		// api
-		Service.api.setEnvironment(.prod)
+		Service.api.setEnvironment(.test)
 
 		// push notifications
 		UNUserNotificationCenter.current().delegate = self

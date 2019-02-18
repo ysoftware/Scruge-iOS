@@ -102,6 +102,9 @@ final class ProjectViewController: UIViewController {
 		}
 		automaticallyAdjustsScrollViewInsets = false
 
+		documentsTableView.estimatedRowHeight = 50
+		documentsTableView.rowHeight = UITableView.automaticDimension
+
 		documentsTableView.register(UINib(resource: R.nib.documentCell),
 						   forCellReuseIdentifier: R.reuseIdentifier.documentCell.identifier)
 		documentsTableView.reloadData()
@@ -145,7 +148,7 @@ final class ProjectViewController: UIViewController {
 	// MARK: - Actions
 
 	@objc func seeBounties(_ sender:Any) {
-
+		Service.presenter.presentBountiesViewController(in: self, projectVM: vm)
 	}
 
 	// MARK: - Methods
@@ -162,6 +165,7 @@ final class ProjectViewController: UIViewController {
 		buttonView.isHidden = !visible
 		buttonView.isHidden = !visible
 	}
+	
 	override var preferredStatusBarStyle: UIStatusBarStyle {
 		return offset > NAVBAR_LIMIT ? .default : .lightContent
 	}

@@ -10,6 +10,8 @@ import Foundation
 
 struct Bounty: Codable, Equatable {
 
+	let bountyName:String?
+
 	let bountyId: Int64
 
 	let providerName: String
