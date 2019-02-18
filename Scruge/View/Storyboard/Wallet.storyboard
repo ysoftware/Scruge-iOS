@@ -306,11 +306,11 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SYN-T0-4dn" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                                 <rect key="frame" x="15" y="15" width="32" height="32"/>
                                                                                 <subviews>
-                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exchange" translatesAutoresizingMaskIntoConstraints="NO" id="Dqn-ap-iaV">
-                                                                                        <rect key="frame" x="6" y="6" width="20" height="20"/>
+                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exchange" translatesAutoresizingMaskIntoConstraints="NO" id="Dqn-ap-iaV">
+                                                                                        <rect key="frame" x="8.6666666666666643" y="8.6666666666666288" width="15" height="15"/>
                                                                                         <constraints>
                                                                                             <constraint firstAttribute="width" secondItem="Dqn-ap-iaV" secondAttribute="height" id="rYw-Ey-wgZ"/>
-                                                                                            <constraint firstAttribute="height" constant="20" id="sQc-j8-S0R"/>
+                                                                                            <constraint firstAttribute="height" constant="15" id="sQc-j8-S0R"/>
                                                                                         </constraints>
                                                                                     </imageView>
                                                                                 </subviews>
@@ -359,10 +359,10 @@
                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="04y-gU-oGC" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                                 <rect key="frame" x="15" y="15" width="32" height="32"/>
                                                                                 <subviews>
-                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar" translatesAutoresizingMaskIntoConstraints="NO" id="emH-Pa-7oB">
-                                                                                        <rect key="frame" x="6" y="6" width="20" height="20"/>
+                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="server" translatesAutoresizingMaskIntoConstraints="NO" id="emH-Pa-7oB">
+                                                                                        <rect key="frame" x="8.6666666666666643" y="8.6666666666666288" width="15" height="15"/>
                                                                                         <constraints>
-                                                                                            <constraint firstAttribute="height" constant="20" id="CFB-rj-cVy"/>
+                                                                                            <constraint firstAttribute="height" constant="15" id="CFB-rj-cVy"/>
                                                                                             <constraint firstAttribute="width" secondItem="emH-Pa-7oB" secondAttribute="height" id="t3E-Ak-Ybh"/>
                                                                                         </constraints>
                                                                                     </imageView>
@@ -418,11 +418,11 @@
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Tql-U8-ZU6" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                                                 <rect key="frame" x="15" y="15" width="32" height="32"/>
                                                                                                 <subviews>
-                                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exchange" translatesAutoresizingMaskIntoConstraints="NO" id="gcg-E7-Kbm">
-                                                                                                        <rect key="frame" x="6" y="6" width="20" height="20"/>
+                                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="exchange" translatesAutoresizingMaskIntoConstraints="NO" id="gcg-E7-Kbm">
+                                                                                                        <rect key="frame" x="8.6666666666666643" y="8.3333333333333712" width="15" height="15"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="gcg-E7-Kbm" secondAttribute="height" id="G3V-o4-Vou"/>
-                                                                                                            <constraint firstAttribute="height" constant="20" id="yE6-fu-lWr"/>
+                                                                                                            <constraint firstAttribute="height" constant="15" id="yE6-fu-lWr"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                 </subviews>
@@ -505,11 +505,11 @@
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P2i-Da-HE7" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                                                 <rect key="frame" x="15" y="15" width="32" height="32"/>
                                                                                                 <subviews>
-                                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crosshair" translatesAutoresizingMaskIntoConstraints="NO" id="f8y-Y2-IF7">
-                                                                                                        <rect key="frame" x="6" y="5.9999999999999432" width="20" height="20"/>
+                                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="crosshair" translatesAutoresizingMaskIntoConstraints="NO" id="f8y-Y2-IF7">
+                                                                                                        <rect key="frame" x="8.6666666666666643" y="8.6666666666666856" width="15" height="15"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="f8y-Y2-IF7" secondAttribute="height" id="3vE-7j-6O4"/>
-                                                                                                            <constraint firstAttribute="height" constant="20" id="jXh-iJ-wJd"/>
+                                                                                                            <constraint firstAttribute="height" constant="15" id="jXh-iJ-wJd"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                 </subviews>
@@ -604,10 +604,10 @@
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7CY-X3-Y5S" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                                                 <rect key="frame" x="15" y="15" width="32" height="32"/>
                                                                                                 <subviews>
-                                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dollar" translatesAutoresizingMaskIntoConstraints="NO" id="zqd-Kc-v85">
-                                                                                                        <rect key="frame" x="6" y="6" width="20" height="20"/>
+                                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="res" translatesAutoresizingMaskIntoConstraints="NO" id="zqd-Kc-v85">
+                                                                                                        <rect key="frame" x="8.6666666666666643" y="8.6666666666667425" width="15" height="15"/>
                                                                                                         <constraints>
-                                                                                                            <constraint firstAttribute="height" constant="20" id="lUs-Ps-yyi"/>
+                                                                                                            <constraint firstAttribute="height" constant="15" id="lUs-Ps-yyi"/>
                                                                                                             <constraint firstAttribute="width" secondItem="zqd-Kc-v85" secondAttribute="height" id="tB0-Uq-2ce"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
@@ -703,11 +703,11 @@
                                                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eG8-kt-CS2" customClass="RoundedView" customModule="Scruge" customModuleProvider="target">
                                                                                                 <rect key="frame" x="15" y="15" width="32" height="32"/>
                                                                                                 <subviews>
-                                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet_small" translatesAutoresizingMaskIntoConstraints="NO" id="gIt-58-j2L">
-                                                                                                        <rect key="frame" x="6" y="6" width="20" height="20"/>
+                                                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallet_small" translatesAutoresizingMaskIntoConstraints="NO" id="gIt-58-j2L">
+                                                                                                        <rect key="frame" x="8.6666666666666643" y="8.6666666666667425" width="15" height="15"/>
                                                                                                         <constraints>
                                                                                                             <constraint firstAttribute="width" secondItem="gIt-58-j2L" secondAttribute="height" id="JkL-Iv-nqI"/>
-                                                                                                            <constraint firstAttribute="height" constant="20" id="XWr-eo-DJy"/>
+                                                                                                            <constraint firstAttribute="height" constant="15" id="XWr-eo-DJy"/>
                                                                                                         </constraints>
                                                                                                     </imageView>
                                                                                                 </subviews>
@@ -2310,6 +2310,8 @@
         <image name="gear" width="20" height="20"/>
         <image name="lock" width="11" height="14"/>
         <image name="profile" width="14" height="16"/>
+        <image name="res" width="18" height="18"/>
+        <image name="server" width="15" height="18"/>
         <image name="wallet_small" width="18" height="14"/>
     </resources>
     <color key="tintColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>

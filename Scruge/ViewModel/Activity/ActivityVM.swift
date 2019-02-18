@@ -37,12 +37,12 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 		switch type {
 		case .update: return R.image.checkmark()!
 		case .reply: return R.image.comment()!
-		case .voting: return R.image.star()!
-		case .votingResults: return R.image.star()!
-		case .fundingInfo: return R.image.checkmark()!
+		case .voting: return R.image.voting_soon()!
+		case .votingResults: return R.image.voting_result()!
+		case .fundingInfo: return R.image.piggy()!
 
 		case .submission: return R.image.checkmark()!
-		case .submissionPaid: return R.image.star()!
+		case .submissionPaid: return R.image.piggy()!
 		}
 	}
 
@@ -54,8 +54,8 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 		case .votingResults: return Service.constants.color.purple
 		case .fundingInfo: return Service.constants.color.purple
 
-		case .submission: return Service.constants.color.purple
-		case .submissionPaid: return Service.constants.color.green
+		case .submission: return Service.constants.color.green
+		case .submissionPaid: return Service.constants.color.purple
 		}
 	}
 
@@ -149,7 +149,7 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	}
 
 	var submissionPaidTitle:String {
-		return (model?.activity as? ActivitySubmission).flatMap {
+		return (model?.activity as? ActivitySubmissionPaid).flatMap {
 			"\($0.projectName): \($0.bountyName)" } ?? ""
 	}
 
