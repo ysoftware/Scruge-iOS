@@ -21,7 +21,7 @@ struct ProjectEconomics: Codable, Equatable {
 
 	let annualInflationPercent:Range
 
-	let listingTimestamp:Int64?
+	let listingDate:String?
 
 	let exchange:Exchange?
 }
