@@ -29,7 +29,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 
 		// api
-		Service.api.setEnvironment(.test)
+		Service.api.setEnvironment(.prod)
 
 		// push notifications
 		UNUserNotificationCenter.current().delegate = self
@@ -49,6 +49,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 
 		#if DEBUG
+		Service.api.setEnvironment(.test)
 		Service.eos.nodeUrl = Service.eos.testNodeUrl
 		#endif
 

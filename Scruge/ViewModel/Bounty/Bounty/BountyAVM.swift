@@ -11,7 +11,11 @@ import Result
 
 final class BountyAVM: SimpleArrayViewModel<Bounty, BountyVM> {
 
-	var projectVM:ProjectVM!
+	init(_ projectVM:ProjectVM) {
+		self.projectVM = projectVM
+	}
+
+	let projectVM:ProjectVM
 
 	override func fetchData(_ block: @escaping (Result<[Bounty], AnyError>) -> Void) {
 		Service.api.getBounties(for: projectVM) { result in

@@ -18,7 +18,7 @@ final class BountiesViewController: UIViewController {
 	// MARK: - Properties
 
 	var projectVM:ProjectVM!
-	var vm = BountyAVM()
+	private var vm:BountyAVM!
 
 	// MARK: - Setup
 
@@ -26,8 +26,8 @@ final class BountiesViewController: UIViewController {
 		super.viewDidLoad()
 
 		localize()
-		setupViews()
 		setupVM()
+		setupViews()
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
@@ -47,7 +47,7 @@ final class BountiesViewController: UIViewController {
 	}
 
 	private func setupVM() {
-		vm.projectVM = projectVM
+		vm = BountyAVM(projectVM)
 		vm.delegate = self
 		vm.reloadData()
 	}

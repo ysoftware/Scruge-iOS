@@ -60,7 +60,6 @@ final class ProjectViewController: UIViewController {
 
 		localize()
 		setupViews()
-		setupVM()
 		setupActions()
 	}
 
@@ -87,10 +86,6 @@ final class ProjectViewController: UIViewController {
 	override func viewWillDisappear(_ animated: Bool) {
 		super.viewWillDisappear(animated)
 		makeNavbarNormal()
-	}
-
-	private func setupVM() {
-//		vm.delegate = self
 	}
 
 	private func setupViews() {

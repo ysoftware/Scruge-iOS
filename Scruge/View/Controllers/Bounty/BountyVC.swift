@@ -13,7 +13,6 @@ final class BountyViewController: UIViewController {
 	// MARK: - Outlets
 
 	@IBOutlet weak var scrollView: UIScrollView!
-	@IBOutlet weak var projectNameLabel: UILabel!
 	@IBOutlet weak var nameLabel: UILabel!
 	@IBOutlet weak var detailsLabel: UILabel!
 	@IBOutlet weak var dateLabel: UILabel!
@@ -38,7 +37,7 @@ final class BountyViewController: UIViewController {
 			setNeedsStatusBarAppearanceUpdate()
 			if offset > NAVBAR_LIMIT {
 				preferSmallNavbar()
-				makeNavbarNormal(with: "\(projectVM.name): \(vm.name)")
+				makeNavbarNormal(with: vm.name)
 			}
 			else {
 				preferSmallNavbar()
@@ -76,9 +75,8 @@ final class BountyViewController: UIViewController {
 	private func setupViews() {
 		showContributeButton(true)
 
-		projectNameLabel.text = projectVM.name.uppercased()
 		nameLabel.text = vm.name
-		dateLabel.text = vm.dates
+		dateLabel.text = vm.dates.uppercased()
 		rewardsLabel.text = vm.rewards
 		descriptionLabel.text = vm.description
 		rulesLabel.text = vm.rules

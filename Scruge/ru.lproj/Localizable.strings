@@ -781,7 +781,7 @@
 "label_listed_on_exchange" = "Участвует в торгах на %@";
 
 /*  */
-"label_not_listed" = "Нет инфо о торговле этого токена";
+"label_not_listed" = "Нет инфо о торгах этого токена";
 
 /*  */
 "label_listing_date" = "Торги начнутся";
@@ -832,7 +832,7 @@
 "label_days_short_no_plural" = "дн.";
 
 /*  */
-"label_you_have_submitted_for_bounty" = "Вы отправили вашу работу в баунти.";
+"label_you_have_submitted_for_bounty" = "Вы отправили вашу работу в баунти";
 
 /*  */
-"label_you_were_paid_x_for_bounty" = "Вам перечислили %@ за выполненную вами работу для баунти.";
+"label_you_were_paid_x_for_bounty" = "Вам перечислили %@ за выполненную вами работу для баунти";
