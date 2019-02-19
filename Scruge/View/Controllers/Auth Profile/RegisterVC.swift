@@ -60,7 +60,10 @@ final class RegisterViewController: UIViewController {
 				if let error = ErrorHandler.error(from: response.result) {
 					return self.alert(error)
 				}
-				self.finishLogin(email: email, password: password)
+				self.alert(R.string.localizable.alert_register_confirm_email()) {
+					Service.presenter.replaceWithLoginViewController(viewController: self,
+																	 completion: self.authCompletionBlock)
+				}
 			case .failure(let error):
 				self.alert(error)
 			}
@@ -73,22 +76,6 @@ final class RegisterViewController: UIViewController {
 
 	@IBAction func hideKeyboard(_ sender: Any) {
 		view.endEditing(true)
-	}
-
-	private func finishLogin(email:String, password:String) {
-		isWorking = true
-		Service.api.logIn(email: email, password: password) { result in
-			self.isWorking = false
-
-			switch result {
-			case .success(let response):
-				Service.tokenManager.save(response.token)
-				Service.presenter.presentProfileSetupViewController(in: self,
-																	completion: self.authCompletionBlock)
-			case .failure(let error):
-				self.alert(error)
-			}
-		}
 	}
 
 	// MARK: - Properties

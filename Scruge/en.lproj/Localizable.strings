@@ -836,3 +836,6 @@
 
 /*  */
 "label_you_were_paid_x_for_bounty" = "You were paid %@ for your bounty submission";
+
+/*  */
+"alert_register_confirm_email" = "Please, confirm your email with the link we've sent you";
