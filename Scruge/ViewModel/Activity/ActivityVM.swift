@@ -123,8 +123,6 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 
 	// submission
 
-	// todo change and localize
-
 	var submissionDate:String {
 		return (model?.activity as? ActivitySubmission).flatMap {
 			Date.present($0.timestamp, as: "d MMMM HH:mm") } ?? ""
@@ -140,8 +138,6 @@ final class ActivityVM: ViewModel<ActivityHolder> {
 	}
 
 	// submission paid
-
-	// todo change and localize
 
 	var submissionPaidDate:String {
 		return (model?.activity as? ActivitySubmissionPaid).flatMap {
