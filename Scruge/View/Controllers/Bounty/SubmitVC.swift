@@ -60,7 +60,9 @@ final class SubmitViewController: UIViewController {
 			return alert(R.string.localizable.error_enter_proof())
 		}
 
-		guard let vm = accountAVM.selectedAccount, let model = vm.model else { return }
+		guard let vm = accountAVM.selectedAccount, let model = vm.model else {
+			return alert(R.string.localizable.error_wallet_not_setup())
+		}
 
 		Service.eos
 			.bountySubmit(from: model,
