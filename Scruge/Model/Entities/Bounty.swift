@@ -42,7 +42,8 @@ struct Bounty: Codable, Equatable {
 
 	let timestamp: Int64
 
-	let totalSupply:Int64?
-
 	let maxReward:String?
+
+	// filled in view model
+	var tokenSupply:Int64?
 }

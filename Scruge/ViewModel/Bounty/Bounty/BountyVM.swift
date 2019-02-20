@@ -96,7 +96,7 @@ final class BountyVM: ViewModel<Bounty> {
 
 		guard let model = model else { return nil }
 
-		if let maxReward = model.maxReward, let totalSupply = model.totalSupply {
+		if let maxReward = model.maxReward, let totalSupply = model.tokenSupply {
 			let str = NSMutableAttributedString()
 			let array = maxReward.components(separatedBy: " ")
 

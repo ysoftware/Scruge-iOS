@@ -19,7 +19,13 @@ final class BountyAVM: SimpleArrayViewModel<Bounty, BountyVM> {
 
 	override func fetchData(_ block: @escaping (Result<[Bounty], AnyError>) -> Void) {
 		Service.api.getBounties(for: projectVM) { result in
-			block(result.map { $0.bounties })
+			block(result.map {
+				$0.bounties.map {
+					var bounty = $0
+					bounty.tokenSupply = self.projectVM.model?.economics.tokenSupply
+					return bounty
+				}
+			})
 		}
 	}
 }
