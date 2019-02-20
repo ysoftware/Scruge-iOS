@@ -53,7 +53,7 @@ final class BountyVM: ViewModel<Bounty> {
 		return NSMutableAttributedString()
 			.append(R.string.localizable.label_bounty_submissions())
 			.append(": ")
-			.append("\(model.submissions)/\(model.userLimit)", withAttributes: purple)
+			.append("\(model.submissions)/\(model.submissionLimit)", withAttributes: purple)
 			.lineBreak()
 
 			.append(R.string.localizable.label_bounty_limit_per_user())
@@ -64,13 +64,13 @@ final class BountyVM: ViewModel<Bounty> {
 	var longerDescription:NSAttributedString {
 		guard let model = model else { return NSAttributedString() }
 
-		let timeLimitDays = model.timeLimit /  Time.day
+		let timeLimitDays = model.resubmissionPeriodMilliseconds /  Time.day
 
 		let str = NSMutableAttributedString()
 
 			.append(R.string.localizable.label_bounty_submissions())
 			.append(": ")
-			.append("\(model.submissions)/\(model.userLimit)", withAttributes: purple)
+			.append("\(model.submissions)/\(model.submissionLimit)", withAttributes: purple)
 			.lineBreak()
 
 			.append(R.string.localizable.label_bounty_limit_per_user())

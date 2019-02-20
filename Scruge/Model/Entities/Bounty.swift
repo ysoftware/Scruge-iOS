@@ -24,9 +24,9 @@ struct Bounty: Codable, Equatable {
 
 	let limitPerUser: Int
 
-	let timeLimit: Int64
+	let resubmissionPeriodMilliseconds: Int64
 
-	let userLimit: Int
+	let submissionLimit: Int
 
 	let budget: String
 
