@@ -51,6 +51,7 @@ final class RAMViewController: UIViewController {
 		setupActions()
 		setupNavigationBar()
 		setupKeyboard()
+		updateViews()
 	}
 
 	private func setupNavigationBar() {
@@ -70,7 +71,7 @@ final class RAMViewController: UIViewController {
 				self.price = value
 				self.priceLabel.text = R.string.localizable.current_ram_price(price)
 			case .failure(let error):
-				self.priceLabel.text = ErrorHandler.message(for: error)
+				self.alert(error)
 			}
 			self.updateViews()
 		}
@@ -90,9 +91,8 @@ final class RAMViewController: UIViewController {
 		view.endEditing(true)
 		Service.presenter.presentPickerController(in: self, with: actions, andTitle: title) { position in
 			guard let position = position else { return }
-			let act = Action.allCases[position]
-			self.pickerField.placeholder = act.label
-			self.action = act
+			self.action = Action.allCases[position]
+			self.pickerField.placeholder = self.action.label
 			self.updateViews()
 		}
 	}

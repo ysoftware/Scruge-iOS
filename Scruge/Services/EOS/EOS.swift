@@ -70,7 +70,7 @@ class EOS {
 								let quote = Double(quoteS), let base = Double(baseS) else {
 									return  completion(.failure(AnyError(EOSError.unknown)))
 							}
-							return completion(.success(quote / base))
+							completion(.success(quote / base))
 		}
 	}
 
