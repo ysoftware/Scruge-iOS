@@ -396,8 +396,14 @@ struct Presenter {
 		vc.navigationController?.setViewControllers([new], animated: false)
 	}
 
-	func presentTransferFragment(in vc:UIViewController, vm:AccountVM) {
+	func presentTransferViewController(in vc:UIViewController, vm:AccountVM) {
 		let new = R.storyboard.wallet.transferVC()!
+		new.accountVM = vm
+		vc.show(new, sender: self)
+	}
+
+	func presentRAMViewController(in vc:UIViewController, vm:AccountVM) {
+		let new = R.storyboard.wallet.ramvC()!
 		new.accountVM = vm
 		vc.show(new, sender: self)
 	}

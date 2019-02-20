@@ -100,6 +100,11 @@ final class WalletViewController: UIViewController {
 				Service.presenter.presentStakingViewController(in: self, with: $0)
 			}
 		}
+		resourcesView.ramBlock = { [unowned self] in
+			self.accountVM.flatMap {
+				Service.presenter.presentRAMViewController(in: self, vm: $0)
+			}
+		}
 	}
 
 	private func verifyWallet() {
@@ -153,7 +158,7 @@ final class WalletViewController: UIViewController {
 
 	@IBAction func transferTapped(_ sender: Any) {
 		if let accountVM = accountVM {
-			Service.presenter.presentTransferFragment(in: self, vm: accountVM)
+			Service.presenter.presentTransferViewController(in: self, vm: accountVM)
 		}
 	}
 

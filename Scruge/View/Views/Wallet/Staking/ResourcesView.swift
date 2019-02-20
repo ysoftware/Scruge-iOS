@@ -17,6 +17,7 @@ final class ResourcesView: UIView {
 	// controls
 	@IBOutlet weak var controlsView: UIStackView!
 	@IBOutlet weak var button: Button!
+	@IBOutlet weak var ramButton: Button!
 
 	@IBOutlet weak var resourcesView: UIStackView!
 	@IBOutlet weak var ramView: UIStackView!
@@ -75,6 +76,7 @@ final class ResourcesView: UIView {
 
 	private func setupActions() {
 		button.addClick(self, action: #selector(stakeClick))
+		ramButton.addClick(self, action: #selector(ramClick))
 	}
 
 	// MARK: - Methods
@@ -131,6 +133,12 @@ final class ResourcesView: UIView {
 
 	@objc func stakeClick(_ sender:Any) {
 		stakeBlock?()
+	}
+
+	var ramBlock:(()->Void)? = nil
+
+	@objc func ramClick(_ sender:Any) {
+		ramBlock?()
 	}
 }
 

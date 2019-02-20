@@ -107,8 +107,10 @@ final class BountyVM: ViewModel<Bounty> {
 					.append(": ")
 					.append(maxReward, withAttributes: purple)
 					.whitespace()
+					.append("(", withAttributes: gray)
 					.append(R.string.localizable.label_bounty_percent_of_total_supply(percent),
 							withAttributes: gray)
+					.append(")", withAttributes: gray)
 			}
 		}
 		return nil

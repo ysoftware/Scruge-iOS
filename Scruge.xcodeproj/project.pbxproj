@@ -80,6 +80,7 @@
 		71432860221A9C9800C6D6FC /* BountyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7143285F221A9C9800C6D6FC /* BountyCell.xib */; };
 		71432862221A9F0100C6D6FC /* BountyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71432861221A9F0100C6D6FC /* BountyVC.swift */; };
 		71432864221A9F0C00C6D6FC /* SubmitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71432863221A9F0C00C6D6FC /* SubmitVC.swift */; };
+		7151D376221D454C004942A4 /* RAMVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7151D375221D454C004942A4 /* RAMVC.swift */; };
 		715DB15B2174716E0005B69D /* VoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB15A2174716E0005B69D /* VoteVC.swift */; };
 		715DB15D217471980005B69D /* ContributeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 715DB15C217471980005B69D /* ContributeVC.swift */; };
 		716200692203144500DC1A10 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7162006B2203144500DC1A10 /* Localizable.strings */; };
@@ -392,6 +393,7 @@
 		7143285F221A9C9800C6D6FC /* BountyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BountyCell.xib; sourceTree = "<group>"; };
 		71432861221A9F0100C6D6FC /* BountyVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BountyVC.swift; sourceTree = "<group>"; };
 		71432863221A9F0C00C6D6FC /* SubmitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmitVC.swift; sourceTree = "<group>"; };
+		7151D375221D454C004942A4 /* RAMVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RAMVC.swift; sourceTree = "<group>"; };
 		715DB15A2174716E0005B69D /* VoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteVC.swift; sourceTree = "<group>"; };
 		715DB15C217471980005B69D /* ContributeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContributeVC.swift; sourceTree = "<group>"; };
 		7162006A2203144500DC1A10 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -805,6 +807,7 @@
 				7166528F21F0CB04005A50F7 /* StakingVC.swift */,
 				711EF6FE21F5C46C008F2FD5 /* TransferVC.swift */,
 				71F4A7FA220C23FE00580E85 /* BPVC.swift */,
+				7151D375221D454C004942A4 /* RAMVC.swift */,
 			);
 			path = Wallet;
 			sourceTree = "<group>";
@@ -2587,6 +2590,7 @@
 				71A0C1A7216F939900C2ACF3 /* AboutCell.swift in Sources */,
 				71D84CD921995AD000E8DB88 /* EOSRPC.swift in Sources */,
 				71DA7E962164AB510052EB8F /* MilestonesVC.swift in Sources */,
+				7151D376221D454C004942A4 /* RAMVC.swift in Sources */,
 				71345C0D21773D2800F28AF1 /* AnyDecodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

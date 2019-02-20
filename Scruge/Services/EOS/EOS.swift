@@ -56,6 +56,24 @@ class EOS {
 		}
 	}
 
+	func getRAMPrice(_ completion: @escaping (Result<Double, AnyError>)->Void) {
+		chain.getTableRows(scope: "eosio",
+						   code: "eosio",
+						   table: "rammarket") { (response:TableRowResponse<RamMarket>?, error:Error?) in
+
+							guard let rows = response?.rows else {
+								return completion(.failure(AnyError(error ?? EOSError.unknown)))
+							}
+
+							guard let quoteS = rows.first?.quote.balance.components(separatedBy: " ").first,
+								let baseS = rows.first?.base.balance.components(separatedBy: " ").first,
+								let quote = Double(quoteS), let base = Double(baseS) else {
+									return  completion(.failure(AnyError(EOSError.unknown)))
+							}
+							return completion(.success(quote / base))
+		}
+	}
+
 	func getAccounts(for wallet:SELocalAccount,
 					 completion: @escaping (Result<[String], AnyError>)->Void) {
 
@@ -222,14 +240,16 @@ class EOS {
 		sendAction(name, contract: contract, from: account, data: data, passcode: passcode, completion)
 	}
 
+	// GENERAL
+
 	func sendAction(_ action:EosName,
-					contract:EosName? = nil,
+					contract:EosName,
 					from account: AccountModel,
 					data: String,
 					passcode: String,
 					_ completion: @escaping (Result<String, AnyError>)->Void) {
 
-		guard let params = try? AbiJson(code: contract?.string ?? ContractAccounts.BIDLMain.string,
+		guard let params = try? AbiJson(code: contract.string,
 										action: action.string,
 										json: data) else {
 											return completion(.failure(AnyError(EOSError.abiError)))

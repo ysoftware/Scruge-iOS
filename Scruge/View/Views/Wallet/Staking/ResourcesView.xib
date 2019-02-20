@@ -21,6 +21,7 @@
                 <outlet property="netLabel" destination="mjs-Lx-eNO" id="aYy-tc-7V4"/>
                 <outlet property="netProgress" destination="Gvv-hB-Dto" id="cwf-sr-Tl6"/>
                 <outlet property="netStakedLabel" destination="fxo-3p-Lx6" id="K6h-D0-Bko"/>
+                <outlet property="ramButton" destination="Pmw-IV-DYN" id="VYl-Vv-0Dy"/>
                 <outlet property="ramLabel" destination="n1a-wu-Q61" id="wA7-EN-6Qa"/>
                 <outlet property="ramProgress" destination="xWk-6c-xQ2" id="03k-Wk-BPT"/>
                 <outlet property="ramView" destination="daf-ci-DUk" id="aY7-eG-RRq"/>

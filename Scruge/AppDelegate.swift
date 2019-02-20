@@ -40,6 +40,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		// firebase
 		FirebaseApp.configure()
 
+		#if DEBUG
 
 		// launch arguments
 		let args = ProcessInfo.processInfo.arguments
@@ -48,9 +49,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 			Service.eos.nodeUrl = Service.eos.testNodeUrl
 		}
 
-		#if DEBUG
 		Service.api.setEnvironment(.test)
-		Service.eos.nodeUrl = Service.eos.testNodeUrl
+		Service.eos.nodeUrl = "https://eos.greymass.com"
 		#endif
 
 		return true

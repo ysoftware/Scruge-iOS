@@ -187,8 +187,11 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 								campaignId: model.id,
 								vote: value)
 
+				#warning("Refactor to EOS")
+
 				Service.eos
 					.sendAction(EosName.create("vote"),
+								contract: ContractAccounts.BIDLMain,
 								from: account,
 								data: vote.jsonString,
 								passcode: passcode) { transactionResult in

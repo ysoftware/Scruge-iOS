@@ -8,6 +8,23 @@
 
 import Foundation
 
+// rammarket table
+struct RamMarket: Codable {
+
+	struct Value: Codable {
+		
+		let balance:String
+
+		let weight:ActionSeq
+	}
+
+	let supply:String
+
+	let base:Value
+
+	let quote:Value
+}
+
 // submit
 //		name hunterName
 //		name providerName
