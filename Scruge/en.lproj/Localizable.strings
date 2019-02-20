@@ -236,10 +236,10 @@
 "title_eos_ram" = "RAM";
 
 /*  */
-"do_buy_eos_ram" = "Buy %@ bytes of RAM";
+"do_buy_eos_ram" = "Buy %@ bytes";
 
 /*  */
-"do_buy_bytes_ram" = "Buy RAM for %@";
+"do_buy_bytes_ram" = "Buy for %@ EOS";
 
 /* button title */
 "do_stake_resources" = "MANAGE RESOURCES";
@@ -764,10 +764,10 @@
 "label_buy_ram_eos" = "Buy RAM (EOS)";
 
 /*  */
-"label_sell_ram" = "Sell RAM";
+"label_sell_ram" = "Sell RAM (bytes)";
 
 /*  */
-"current_ram_price" = "Current price: %@ EOS/KB";
+"current_ram_price" = "Current price: %@ EOS / KB";
 
 /* bp voting */
 "title_vote_bp" = "Block producers";
@@ -860,3 +860,6 @@
 
 /*  */
 "alert_register_confirm_email" = "Please, confirm your email with the link we've sent you";
+
+/*  */
+"error_incorrect_input" = "Incorrect input value";

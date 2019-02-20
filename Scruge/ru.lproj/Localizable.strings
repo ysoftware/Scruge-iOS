@@ -236,13 +236,13 @@
 "title_eos_ram" = "RAM";
 
 /*  */
-"do_buy_eos_ram" = "Купить %@ байт RAM";
+"do_buy_eos_ram" = "Купить %@ байт";
 
 /*  */
-"do_buy_bytes_ram" = "Купить RAM за %@";
+"do_buy_bytes_ram" = "Купить за %@ EOS";
 
 /*  */
-"current_ram_price" = "Текущая цена: %@ EOS/КБ";
+"current_ram_price" = "Текущая цена: %@ EOS / КБ";
 
 /*  */
 "do_stake_resources" = "Управлять ресурсами";
@@ -761,7 +761,7 @@
 "label_buy_ram_eos" = "Купить RAM (EOS)";
 
 /*  */
-"label_sell_ram" = "Продать RAM";
+"label_sell_ram" = "Продать RAM (байт)";
 
 /*  */
 "do_manage_ram" = "Управлять RAM";
@@ -860,3 +860,6 @@
 
 /*  */
 "alert_register_confirm_email" = "Пожалуйста, подтвердите ваш email по ссылке, которую мы вам отправили";
+
+/*  */
+"error_incorrect_input" = "Неверный ввод";

@@ -50,7 +50,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 		}
 
 		Service.api.setEnvironment(.test)
-		Service.eos.nodeUrl = "https://eos.greymass.com"
+		Service.eos.nodeUrl = Service.eos.testNodeUrl
 		#endif
 
 		return true

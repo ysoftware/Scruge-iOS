@@ -189,6 +189,36 @@ class EOS {
 		sendAction(name, contract: contract, from: account, data: data, passcode: passcode, completion)
 	}
 
+	func buyRam(account:AccountModel,
+				amount:Balance,
+				passcode:String,
+				_ completion: @escaping (Result<String, AnyError>)->Void) {
+		let data = BuyRam(payer: account.name, receiver: account.name, quant: amount.string).jsonString
+		let name = EosName.create("buyram")
+		let contract = EosName.create("eosio")
+		sendAction(name, contract: contract, from: account, data: data, passcode: passcode, completion)
+	}
+
+	func buyRam(account:AccountModel,
+				bytes:Int64,
+				passcode:String,
+				_ completion: @escaping (Result<String, AnyError>)->Void) {
+		let data = BuyRamBytes(payer: account.name, receiver: account.name, bytes: bytes).jsonString
+		let name = EosName.create("buyrambytes")
+		let contract = EosName.create("eosio")
+		sendAction(name, contract: contract, from: account, data: data, passcode: passcode, completion)
+	}
+
+	func sellRam(account:AccountModel,
+				 bytes:Int64,
+				 passcode:String,
+				 _ completion: @escaping (Result<String, AnyError>)->Void) {
+		let data = SellRam(account: account.name, bytes: bytes).jsonString
+		let name = EosName.create("sellram")
+		let contract = EosName.create("eosio")
+		sendAction(name, contract: contract, from: account, data: data, passcode: passcode, completion)
+	}
+
 	/// send money from this account
 	func sendMoney(from account:AccountModel,
 				   to recipient:EosName,

@@ -25,6 +25,46 @@ struct RamMarket: Codable {
 	let quote:Value
 }
 
+// buyrambytes
+//		name payer
+//		name receiver
+//		uint32_t bytes
+
+struct BuyRamBytes:Codable {
+
+	let payer:String
+
+	let receiver:String
+
+	let bytes:Int64
+}
+
+// buyram
+//		name payer
+//		name receiver
+//		asset quant
+
+struct BuyRam:Codable {
+
+	let payer:String
+
+	let receiver:String
+
+	let quant:String
+}
+
+
+// sellram
+//		name account
+//		int64_t bytes
+
+struct SellRam:Codable {
+
+	let account:String
+
+	let bytes:Int64
+}
+
 // submit
 //		name hunterName
 //		name providerName

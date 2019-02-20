@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Result
 import MVVM
 
 final class RAMViewController: UIViewController {
@@ -26,6 +27,7 @@ final class RAMViewController: UIViewController {
 
 	// MARK: - Outlets
 
+	@IBOutlet weak var scrollView:UIScrollView!
 	@IBOutlet weak var pickerField: UITextField!
 	@IBOutlet weak var resourcesView: ResourcesView!
 	@IBOutlet weak var priceLabel: UILabel!
@@ -36,6 +38,8 @@ final class RAMViewController: UIViewController {
 	// MARK: - Properties
 
 	var accountVM:AccountVM!
+	private var action = Action.buyBytes
+	private var price:Double = 0.0
 
 	// MARK: - Setup
 
@@ -46,6 +50,7 @@ final class RAMViewController: UIViewController {
 		setupViews()
 		setupActions()
 		setupNavigationBar()
+		setupKeyboard()
 	}
 
 	private func setupNavigationBar() {
@@ -62,6 +67,7 @@ final class RAMViewController: UIViewController {
 			switch result {
 			case .success(let value):
 				let price = (value * 1024).formatRounding(to: 4, min: 4)
+				self.price = value
 				self.priceLabel.text = R.string.localizable.current_ram_price(price)
 			case .failure(let error):
 				self.priceLabel.text = ErrorHandler.message(for: error)
@@ -71,7 +77,8 @@ final class RAMViewController: UIViewController {
 	}
 
 	private func setupActions() {
-
+		button.addClick(self, action: #selector(send))
+		amountField.delegate = self
 	}
 
 	// MARK: - Actions
@@ -80,14 +87,105 @@ final class RAMViewController: UIViewController {
 		let title = R.string.localizable.title_select_action()
 		let actions = Action.allCases.map { $0.label }
 
+		view.endEditing(true)
 		Service.presenter.presentPickerController(in: self, with: actions, andTitle: title) { position in
-
+			guard let position = position else { return }
+			let act = Action.allCases[position]
+			self.pickerField.placeholder = act.label
+			self.action = act
+			self.updateViews()
 		}
 	}
 	
 	// MARK: - Methods
 
-	private func updateViews() {
+	private func updateViews(_ text:String = "") {
+		let input = Double(text) ?? 0
 
+		switch action {
+		case .sell:
+			let value = (price * input.rounded()).formatRounding(to: 4, min: 4)
+			button.text = R.string.localizable.do_sell_eos_ram(value)
+		case .buyBytes:
+			let value = (price * input.rounded()).formatRounding(to: 4, min: 4)
+			button.text = R.string.localizable.do_buy_bytes_ram(value)
+		case .buyEOS:
+			let value = (input / price).formatRounding(to: 0, min: 0)
+			button.text = R.string.localizable.do_buy_eos_ram(value)
+		}
+	}
+
+	@objc func send(_ sender:Any) {
+		guard let model = accountVM?.model else {
+			return alert(GeneralError.implementationError)
+		}
+
+		guard let input = Double(amountField.text!) else {
+			return alert(R.string.localizable.error_incorrect_input())
+		}
+
+		let passcode = passwordField.text ?? ""
+		guard passcode.count > 0 else {
+			return alert(R.string.localizable.error_wallet_enter_wallet_password())
+		}
+
+		switch action {
+		case .sell:
+			Service.eos.sellRam(account: model, bytes: Int64(input), passcode: passcode, block)
+		case .buyBytes:
+			Service.eos.buyRam(account: model, bytes: Int64(input), passcode: passcode, block)
+		case .buyEOS:
+			let amount = Balance(token: .EOS, amount: input)
+			Service.eos.buyRam(account: model, amount: amount, passcode: passcode, block)
+		}
+	}
+
+	func block(_ result:Result<String, AnyError>) {
+		switch result {
+		case .success:
+			self.alert(R.string.localizable.alert_transaction_success()) {
+				self.navigationController?.popViewController(animated: true)
+			}
+		case .failure(let error):
+			self.alert(error)
+		}
+	}
+}
+
+extension RAMViewController: UITextFieldDelegate {
+
+	func textField(_ textField: UITextField,
+				   shouldChangeCharactersIn range: NSRange,
+				   replacementString string: String) -> Bool {
+
+		let text = textField.text ?? ""
+		let textRange = Swift.Range(range, in: text)!
+		let updatedText = text.replacingCharacters(in: textRange,
+												   with: string.replacingOccurrences(of: ",", with: "."))
+
+		updateViews(updatedText)
+		return true
+	}
+}
+
+extension RAMViewController {
+
+	private func setupKeyboard() {
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow),
+											   name:UIResponder.keyboardWillShowNotification, object: nil)
+		NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide),
+											   name:UIResponder.keyboardWillHideNotification, object: nil)
+	}
+
+	@objc func keyboardWillShow(notification:NSNotification) {
+		guard let userInfo = notification.userInfo else { return }
+		let keyboardFrame = (userInfo[UIResponder.keyboardFrameBeginUserInfoKey] as! NSValue).cgRectValue
+		let convertedFrame = view.convert(keyboardFrame, from: nil)
+		scrollView.contentInset.bottom = convertedFrame.size.height
+		scrollView.scrollIndicatorInsets.bottom = convertedFrame.size.height
+	}
+
+	@objc func keyboardWillHide(notification:NSNotification) {
+		scrollView.contentInset.bottom = 0
 	}
 }
