@@ -746,7 +746,7 @@
 "error_eos_createAccountDailyLimitReached" = "Daily limit for free EOS accounts is reached. Please, try again later or contact us at support@scruge.world";
 
 /*  */
-"do_sell_eos_ram" = "Sell Ram for %@";
+"do_sell_eos_ram" = "Sell Ram for %@ EOS";
 
 /*  */
 "do_manage_ram" = "Manage RAM";

@@ -749,7 +749,7 @@
 "error_eos_createAccountDailyLimitReached" = "Достигнут суточный лимит по созданию бесплатных аккаунтов. Пожалуйста, попробуйте ещё раз позже или свяжитесь с нами на support@scruge.world";
 
 /*  */
-"do_sell_eos_ram" = "Продать RAM на %@";
+"do_sell_eos_ram" = "Продать RAM на %@ EOS";
 
 /*  */
 "hint_amount" = "Количество";
