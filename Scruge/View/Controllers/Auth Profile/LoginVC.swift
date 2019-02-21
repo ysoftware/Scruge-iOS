@@ -15,7 +15,6 @@ final class LoginViewController: UIViewController {
 	@IBOutlet weak var loginButton: Button!
 	@IBOutlet weak var emailField: UITextField!
 	@IBOutlet weak var passwordField: UITextField!
-	@IBOutlet weak var activityIndicator: UIActivityIndicatorView!
 
 	// MARK: - Setup
 
@@ -109,7 +108,6 @@ final class LoginViewController: UIViewController {
 
 	private var isWorking:Bool = false {
 		didSet {
-			activityIndicator.alpha = isWorking ? 1 : 0
 			loginButton.isBusy = isWorking
 		}
 	}

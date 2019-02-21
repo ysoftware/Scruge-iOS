@@ -24,11 +24,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FjU-oO-T6S">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="405"/>
                                         <subviews>
-                                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ph8-r9-p3K">
-                                                <rect key="frame" x="277.66666666666669" y="50" width="20" height="20"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="color" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </activityIndicatorView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="7nb-TI-vQJ">
                                                 <rect key="frame" x="0.0" y="20" width="375" height="385"/>
                                                 <subviews>
@@ -181,8 +176,6 @@
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="ph8-r9-p3K" firstAttribute="leading" secondItem="gCy-yO-4jV" secondAttribute="trailing" constant="50.000000000000028" id="EmE-V5-7gv"/>
-                                            <constraint firstItem="ph8-r9-p3K" firstAttribute="centerY" secondItem="gCy-yO-4jV" secondAttribute="centerY" id="Q8o-o8-iwR"/>
                                             <constraint firstItem="7nb-TI-vQJ" firstAttribute="leading" secondItem="FjU-oO-T6S" secondAttribute="leading" id="Roh-X6-ORI"/>
                                             <constraint firstItem="7nb-TI-vQJ" firstAttribute="top" secondItem="FjU-oO-T6S" secondAttribute="top" constant="20" id="SHo-cG-lkR"/>
                                             <constraint firstAttribute="bottom" secondItem="7nb-TI-vQJ" secondAttribute="bottom" id="idc-U1-tF1"/>
@@ -260,7 +253,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="vhU-rI-yek"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="ph8-r9-p3K" id="J6b-KU-ICz"/>
                         <outlet property="confirmPasswordField" destination="hZA-w0-GFd" id="a6a-dO-FQW"/>
                         <outlet property="emailField" destination="e4W-dC-Pw9" id="En1-Zg-sNz"/>
                         <outlet property="passwordField" destination="o2X-9B-OSc" id="tHj-Ap-bvG"/>
@@ -290,11 +282,6 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N7O-d7-jKK">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="377"/>
                                         <subviews>
-                                            <activityIndicatorView opaque="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="jbN-Mg-pZG">
-                                                <rect key="frame" x="277.66666666666669" y="50" width="20" height="20"/>
-                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </activityIndicatorView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="IZE-1H-qTV">
                                                 <rect key="frame" x="0.0" y="20" width="375" height="357"/>
                                                 <subviews>
@@ -419,10 +406,8 @@
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstItem="IZE-1H-qTV" firstAttribute="top" secondItem="N7O-d7-jKK" secondAttribute="top" constant="20" id="15N-np-dUp"/>
-                                            <constraint firstItem="jbN-Mg-pZG" firstAttribute="centerY" secondItem="Ebv-gc-Ehq" secondAttribute="centerY" id="PaV-JO-WVq"/>
                                             <constraint firstItem="IZE-1H-qTV" firstAttribute="leading" secondItem="N7O-d7-jKK" secondAttribute="leading" id="YMw-cE-5xm"/>
                                             <constraint firstAttribute="trailing" secondItem="IZE-1H-qTV" secondAttribute="trailing" id="ZeG-ug-RD1"/>
-                                            <constraint firstItem="jbN-Mg-pZG" firstAttribute="leading" secondItem="Ebv-gc-Ehq" secondAttribute="trailing" constant="50.000000000000028" id="j3z-Xu-q2y"/>
                                             <constraint firstAttribute="bottom" secondItem="IZE-1H-qTV" secondAttribute="bottom" id="vF4-3N-UmV"/>
                                         </constraints>
                                     </view>
@@ -498,7 +483,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="WUu-fF-ywr"/>
                     <connections>
-                        <outlet property="activityIndicator" destination="jbN-Mg-pZG" id="yaX-Do-zsa"/>
                         <outlet property="emailField" destination="eua-RY-s7b" id="TDU-YQ-gUz"/>
                         <outlet property="loginButton" destination="Qtm-DF-wHs" id="ntr-sn-AnV"/>
                         <outlet property="passwordField" destination="FZa-da-eWJ" id="4NA-X4-2yL"/>

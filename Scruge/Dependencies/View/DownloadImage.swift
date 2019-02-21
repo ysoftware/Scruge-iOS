@@ -19,6 +19,7 @@ extension UIImageView {
 					DispatchQueue.main.async {
 						self.isHidden = image == nil
 					}
+					self.image = image
 				}
 			}
 		}
@@ -26,6 +27,7 @@ extension UIImageView {
 			if hideOnFail {
 				self.isHidden = true
 			}
+			self.image = nil
 		}
 	}
 
