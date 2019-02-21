@@ -46,6 +46,8 @@ extension PartialCampaignModelHolder {
 	}
 
 	var daysLeft: String {
-		return model.flatMap { Date.presentRelative($0.endTimestamp) } ?? ""
+		return model.flatMap {
+			Date.presentRelative(Date().milliseconds < $0.startTimestamp
+				? $0.startTimestamp : $0.endTimestamp) } ?? ""
 	}
 }
