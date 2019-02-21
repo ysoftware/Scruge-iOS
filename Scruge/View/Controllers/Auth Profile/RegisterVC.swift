@@ -85,6 +85,7 @@ final class RegisterViewController: UIViewController {
 	private var isWorking:Bool = false {
 		didSet {
 			activityIndicator.alpha = isWorking ? 1 : 0
+			registerButton.isBusy = isWorking
 		}
 	}
 

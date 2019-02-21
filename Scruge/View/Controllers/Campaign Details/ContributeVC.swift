@@ -120,7 +120,11 @@ final class ContributeViewController: UIViewController {
 			return alert(R.string.localizable.error_wallet_enter_wallet_password())
 		}
 
+		self.button.isBusy = true
+		
 		self.vm.contribute(amountSCR, account: account, passcode: passcode) { error in
+			self.button.isBusy = false
+
 			if let error = error {
 				self.alert(error)
 			}

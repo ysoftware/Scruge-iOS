@@ -26,10 +26,13 @@ final class ProfileEditViewController: UIViewController {
 		let country = countryField.text?.trimmingCharacters(in: .whitespacesAndNewlines)
 		let description = descriptionField.text?.trimmingCharacters(in: .whitespaces)
 
+		self.saveButton.isBusy = true
+
 		ProfileVM.updateProfile(name: name,
 								country: country,
 								description: description,
 								image: selectedImage) { error in
+									self.saveButton.isBusy = false
 
 									if let error = error {
 										return self.alert(error)

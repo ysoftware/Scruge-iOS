@@ -158,7 +158,11 @@ final class CreateAccountViewController: UIViewController {
 	// MARK: - Methods
 
 	private func createAccount(name:EosName, publicKey:String) {
+		self.button.isBusy = true
+
 		Service.api.createAccount(withName: name.string, publicKey: publicKey) { result in
+			self.button.isBusy = false
+
 			switch result {
 			case .success(let response):
 				if let error = ErrorHandler.error(from: response.result) {

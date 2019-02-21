@@ -106,6 +106,9 @@ final class StakingViewController:UIViewController {
 	}
 
 	private func block(result:Result<String, AnyError>) {
+		self.button.isBusy = false
+		self.unstakeButton.isBusy = false
+		
 		switch result {
 		case .success:
 			self.alert(R.string.localizable.alert_transaction_success()) {
@@ -120,6 +123,7 @@ final class StakingViewController:UIViewController {
 		guard let (model, cpu, net, passcode) = verifyInput() else { return }
 
 		view.endEditing(true)
+		self.unstakeButton.isBusy = true
 		Service.eos.unstakeResources(account: model, cpu: cpu, net: net, passcode: passcode, block)
 	}
 
@@ -127,6 +131,7 @@ final class StakingViewController:UIViewController {
 		guard let (model, cpu, net, passcode) = verifyInput() else { return }
 
 		view.endEditing(true)
+		self.button.isBusy = true
 		Service.eos.stakeResources(account: model, cpu: cpu, net: net, passcode: passcode, block)
 	}
 

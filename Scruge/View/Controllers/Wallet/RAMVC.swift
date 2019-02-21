@@ -129,6 +129,7 @@ final class RAMViewController: UIViewController {
 			return alert(R.string.localizable.error_wallet_enter_wallet_password())
 		}
 
+		self.button.isBusy = true
 		switch action {
 		case .sell:
 			Service.eos.sellRam(account: model, bytes: Int64(input), passcode: passcode, block)
@@ -141,6 +142,8 @@ final class RAMViewController: UIViewController {
 	}
 
 	func block(_ result:Result<String, AnyError>) {
+		self.button.isBusy = false
+		
 		switch result {
 		case .success:
 			self.alert(R.string.localizable.alert_transaction_success()) {

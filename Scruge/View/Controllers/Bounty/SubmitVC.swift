@@ -64,12 +64,17 @@ final class SubmitViewController: UIViewController {
 			return alert(R.string.localizable.error_wallet_not_setup())
 		}
 
+		self.button.isBusy = true
+		
 		Service.eos
 			.bountySubmit(from: model,
 						  proof: proof,
 						  providerName: providerName,
 						  bountyId: id,
 						  passcode: passcode) { result in
+
+							self.button.isBusy = false
+
 				switch result {
 				case .success(_):
 					Service.api

@@ -138,11 +138,15 @@ final class TransferViewController: UIViewController {
 
 
 		let balance = Balance(token: token, amount: amount)
+
+		button.isBusy = true
 		Service.eos.sendMoney(from: model,
 							  to: recipient,
 							  balance: balance,
 							  memo: memo,
 							  passcode: passcode) { result in
+								self.button.isBusy = false
+
 								switch result {
 								case .success:
 									self.alert(R.string.localizable.alert_transaction_success()) {

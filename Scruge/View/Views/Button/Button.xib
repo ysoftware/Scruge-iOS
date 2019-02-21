@@ -15,6 +15,7 @@
                 <outlet property="backgroundView" destination="yeH-kd-umf" id="IQE-iS-COh"/>
                 <outlet property="button" destination="moA-H6-iqD" id="yrD-V6-6g2"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Ivp-IH-Kfb"/>
+                <outlet property="progressView" destination="o1a-D2-NRW" id="ohi-40-iAk"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -35,12 +36,17 @@
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
                                 </button>
+                                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="o1a-D2-NRW">
+                                    <rect key="frame" x="135" y="15" width="20" height="20"/>
+                                </activityIndicatorView>
                             </subviews>
                             <color key="backgroundColor" red="0.47450980390000003" green="0.2470588235" blue="0.75686274509999996" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
+                                <constraint firstItem="o1a-D2-NRW" firstAttribute="centerX" secondItem="yeH-kd-umf" secondAttribute="centerX" id="RMh-OR-nNq"/>
                                 <constraint firstItem="moA-H6-iqD" firstAttribute="leading" secondItem="yeH-kd-umf" secondAttribute="leading" id="hKY-n4-S91"/>
                                 <constraint firstAttribute="bottom" secondItem="moA-H6-iqD" secondAttribute="bottom" id="jsP-78-a80"/>
                                 <constraint firstItem="moA-H6-iqD" firstAttribute="top" secondItem="yeH-kd-umf" secondAttribute="top" id="lFa-XL-WBy"/>
+                                <constraint firstItem="o1a-D2-NRW" firstAttribute="centerY" secondItem="yeH-kd-umf" secondAttribute="centerY" id="pfX-Zr-G4e"/>
                                 <constraint firstAttribute="trailing" secondItem="moA-H6-iqD" secondAttribute="trailing" id="qXn-Gp-zWV"/>
                             </constraints>
                             <userDefinedRuntimeAttributes>

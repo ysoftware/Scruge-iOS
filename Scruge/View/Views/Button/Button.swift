@@ -14,6 +14,7 @@ final class Button: UIView {
 	@IBOutlet var contentView: UIView!
 	@IBOutlet weak var button: UIButton!
 	@IBOutlet weak var backgroundView: RoundedView!
+	@IBOutlet weak var progressView: UIActivityIndicatorView!
 
 	// MARK: - Init
 
@@ -59,6 +60,7 @@ final class Button: UIView {
 		}
 	}
 
+	@IBInspectable
 	public var color:UIColor = .black {
 		didSet {
 			backgroundView.backgroundColor = color
@@ -67,5 +69,12 @@ final class Button: UIView {
 
 	public func addClick(_ target:Any?, action: Selector) {
 		button.addTarget(target, action: action, for: .touchUpInside)
+	}
+
+	var isBusy = true {
+		didSet {
+			progressView.isHidden = !isBusy
+			button.isHidden = isBusy
+		}
 	}
 }

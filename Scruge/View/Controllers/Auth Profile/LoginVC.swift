@@ -110,6 +110,7 @@ final class LoginViewController: UIViewController {
 	private var isWorking:Bool = false {
 		didSet {
 			activityIndicator.alpha = isWorking ? 1 : 0
+			loginButton.isBusy = isWorking
 		}
 	}
 

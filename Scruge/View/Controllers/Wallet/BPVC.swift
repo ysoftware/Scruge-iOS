@@ -100,9 +100,13 @@ final class VoteBPViewController: UIViewController {
 			return alert(R.string.localizable.error_bp_selected_over_limit())
 		}
 
+		self.voteButton.isBusy = true
 		Service.eos.voteProducers(from: model,
 								  names: Set(selected.compactMap { EosName(from: $0.name) }),
 								  passcode: passcode) { result in
+
+			self.voteButton.isBusy = false
+
 			switch result {
 			case .success:
 				self.alert(R.string.localizable.alert_transaction_success()) {
