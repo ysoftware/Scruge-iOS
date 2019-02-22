@@ -151,6 +151,7 @@ struct ErrorHandler {
 		case 106: return AuthError.incorrectCredentials
 		case 107: return AuthError.accountBlocked
 		case 108: return BackendError.emailSendError
+		case 109: return AuthError.emailNotConfirmed
 
 		// eos
 		case 501: return EOSError.incorrectName
