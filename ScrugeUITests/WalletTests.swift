@@ -77,8 +77,12 @@ class WalletTests: XCTestCase {
 
 		importKey()
 
+		// scroll down
+		app.scrollViews.firstMatch.swipeUp()
+
 		// open wallet data
-		let walletData = elementsQuery.staticTexts["Wallet Data"]
+		let walletData = elementsQuery.staticTexts["Wallet data"]
+		walletData.waitForExistence(timeout: 2)
 		walletData.tap()
 
 		// press export key

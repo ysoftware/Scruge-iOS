@@ -49,8 +49,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 			Service.eos.nodeUrl = Service.eos.testNodeUrl
 		}
 
-		Service.api.setEnvironment(.test)
-		Service.eos.nodeUrl = Service.eos.testNodeUrl
+//		Service.api.setEnvironment(.test)
+//		Service.eos.nodeUrl = Service.eos.testNodeUrl
 		#endif
 
 		return true
