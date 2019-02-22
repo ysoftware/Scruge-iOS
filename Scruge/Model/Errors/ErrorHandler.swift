@@ -165,6 +165,7 @@ struct ErrorHandler {
 		// html
 		case 400: return BackendError.paramsConflict
 		case 404: return BackendError.resourceNotFound
+		case 500: return BackendError.unknown
 
 		// special
 		case 999: return BackendError.notImplemented
