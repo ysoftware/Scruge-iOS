@@ -131,19 +131,23 @@ struct Network:Networking {
 	// MARK: - Logging
 
 	private func log(_ response:Response?, _ string:String) {
+		#if DEBUG
 		if isLoggingEnabled {
 			let message = "\nRESPONSE: \(response?.URL?.path ?? "")\n\(string)"
 				.truncate(to: logLimit) + "\n"
 			print(message)
 		}
+		#endif
 	}
 
 	private func log(_ request:String, _ method:String, _ params:HTTPParameterProtocol?) {
+		#if DEBUG
 		if isLoggingEnabled {
 			let message = "\n/\(request): /v\(apiVersion)/\(method)\n\(params ?? [:])"
 				.truncate(to: logLimit) + "\n"
 			print(message)
 		}
+		#endif
 	}
 
 	private func handleResultError(_ data:Data) -> Error? {
