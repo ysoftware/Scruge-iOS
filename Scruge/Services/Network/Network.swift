@@ -26,7 +26,7 @@ struct Network:Networking {
 	// MARK: - Methods
 
 	private var versionString:String {
-		return ""//v\(apiVersion)/"
+		return "v\(apiVersion)/"
 	}
 
 	func upload(_ request:String,
@@ -140,7 +140,7 @@ struct Network:Networking {
 
 	private func log(_ request:String, _ method:String, _ params:HTTPParameterProtocol?) {
 		if isLoggingEnabled {
-			let message = "\n\(request): /\(method)\n\(params ?? [:])"
+			let message = "\n/\(request): /v\(apiVersion)/\(method)\n\(params ?? [:])"
 				.truncate(to: logLimit) + "\n"
 			print(message)
 		}

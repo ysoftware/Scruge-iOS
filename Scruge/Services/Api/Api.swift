@@ -14,7 +14,7 @@ import FirebaseInstanceID
 
 final class Api {
 
-	public static let version = 2
+	public static let version = 1
 
 	enum Environment:String {
 
