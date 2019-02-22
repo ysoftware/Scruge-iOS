@@ -316,4 +316,28 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 			URL(string: $0.videoUrl)
 		}
 	}
+
+	var videoFrame:String? {
+		guard let url = videoUrl else { return nil }
+		return makeYoutubeFrame(url.absoluteString)
+	}
+}
+
+func makeYoutubeFrame(_ url:String) -> String {
+	let urlString = url.replacingOccurrences(of: "controls=0", with: "")
+		.replacingOccurrences(of: "&&", with: "&")
+
+	let style = """
+	style="overflow: hidden; overflow-x: hidden; overflow-y: hidden;
+	height: 0; max-height: 100%; max-width: 100%; min-height: 100%; min-width: 100%; width: 0;
+	scrolling:no; position:absolute; top:0px; left:0px; right:0px; bottom:0px"
+	"""
+	let frame = """
+	<iframe src="\(urlString)"
+	\(style)
+	frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+	allowfullscreen></iframe>
+	"""
+	let html = "<body style=\"margin:0px;padding:0px;overflow:hidden\">\(frame)</body>"
+	return html
 }

@@ -26,6 +26,11 @@ final class ProjectVM: ViewModel<Project> {
 		return model?.videoUrl
 	}
 
+	var videoFrame:String? {
+		guard let url = videoUrl else { return nil }
+		return makeYoutubeFrame(url)
+	}
+
 	var description:String {
 		return model?.projectDescription ?? ""
 	}

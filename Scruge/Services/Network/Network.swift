@@ -26,7 +26,7 @@ struct Network:Networking {
 	// MARK: - Methods
 
 	private var versionString:String {
-		return "" // v\(apiVersion)/"
+		return ""//v\(apiVersion)/"
 	}
 
 	func upload(_ request:String,
@@ -41,7 +41,7 @@ struct Network:Networking {
 		log("POST", request, parameters)
 		activity.beginAnimating()
 
-		HTTP.POST(baseUrl + request,
+		HTTP.POST(makeUrl(request),
 				  parameters: parameters) { response in
 					self.handleResponse(response, completion)
 		}
@@ -54,7 +54,7 @@ struct Network:Networking {
 		log("GET", request, params)
 		activity.beginAnimating()
 
-		HTTP.GET(baseUrl + versionString + request,
+		HTTP.GET(makeUrl(request),
 				 parameters: params,
 				 requestSerializer: JSONParameterSerializer()) { response in
 					self.handleResponse(response, completion)
@@ -68,7 +68,7 @@ struct Network:Networking {
 		log("POST", request, params)
 		activity.beginAnimating()
 
-		HTTP.POST(baseUrl + versionString + request,
+		HTTP.POST(makeUrl(request),
 				  parameters: params,
 				  requestSerializer: JSONParameterSerializer()) { response in
 					self.handleResponse(response, completion)
@@ -82,11 +82,15 @@ struct Network:Networking {
 		log("PUT", request, params)
 		activity.beginAnimating()
 
-		HTTP.PUT(baseUrl + versionString + request,
+		HTTP.PUT(makeUrl(request),
 				 parameters: params,
 				 requestSerializer: JSONParameterSerializer()) { response in
 					self.handleResponse(response, completion)
 		}
+	}
+
+	private func makeUrl(_ request:String) -> String {
+		return baseUrl + versionString + request
 	}
 
 	private func handleResponse<T:Codable>(_ response: (Response?),

@@ -131,8 +131,8 @@ final class ProjectViewController: UIViewController {
 			tokenOtherValueLabel.isHidden = true
 		}
 
-		if let str = vm.videoUrl, let url = URL(string: str) {
-			setupWebView(with: url)
+		if let html = vm.videoFrame {
+			setupWebView(with: html, vm?.videoUrl.flatMap { URL(string: $0) })
 		}
 	}
 
@@ -165,7 +165,7 @@ final class ProjectViewController: UIViewController {
 		return offset > NAVBAR_LIMIT ? .default : .lightContent
 	}
 	
-	private func setupWebView(with url:URL) {
+	private func setupWebView(with html:String, _ url:URL?) {
 		guard !didLoadMedia, let topWebView = topWebView else {
 			return
 		}
@@ -174,13 +174,16 @@ final class ProjectViewController: UIViewController {
 		topWebView.delegate = self
 		topWebView.isHidden = false
 		topWebView.scrollView.isScrollEnabled = false
+		topWebView.scrollView.maximumZoomScale = 1
+		topWebView.scrollView.minimumZoomScale = 1
 		topWebView.allowsInlineMediaPlayback = false
 		topWebView.mediaPlaybackRequiresUserAction = true
 
 		if #available(iOS 11.0, *) {
 			topWebView.scrollView.contentInsetAdjustmentBehavior = .never
 		}
-		topWebView.loadRequest(URLRequest(url: url))
+
+		topWebView.loadHTMLString(html, baseURL: url)
 		didLoadMedia = true
 	}
 

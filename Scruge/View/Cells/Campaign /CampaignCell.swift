@@ -26,6 +26,11 @@ final class CampaignCell: UITableViewCell {
 
 	// MARK: - Setup
 
+	deinit {
+		topWebView?.delegate = nil
+		topWebView?.stopLoading()
+	}
+
 	@discardableResult
 	func setup(with vm:PartialCampaignViewModel) -> CampaignCell {
 		localize()
@@ -40,8 +45,8 @@ final class CampaignCell: UITableViewCell {
 		progressView.total = Double(vm.hardCap)
 		progressView.firstGoal = Double(vm.softCap)
 
-		if let vm = vm as? CampaignVM, let videoUrl = vm.videoUrl {
-			setupWebView(with: videoUrl)
+		if let vm = vm as? CampaignVM, let html = vm.videoFrame {
+			setupWebView(with: html, vm.videoUrl)
 		}
 		else {
 			setupImageView()
@@ -49,7 +54,7 @@ final class CampaignCell: UITableViewCell {
 		return self
 	}
 
-	private func setupWebView(with url:URL) {
+	private func setupWebView(with html:String, _ url:URL?) {
 		guard !didLoadMedia, let topWebView = topWebView else {
 			return
 		}
@@ -58,13 +63,16 @@ final class CampaignCell: UITableViewCell {
 		topWebView.delegate = self
 		topWebView.isHidden = false
 		topWebView.scrollView.isScrollEnabled = false
+		topWebView.scrollView.maximumZoomScale = 1
+		topWebView.scrollView.minimumZoomScale = 1
 		topWebView.allowsInlineMediaPlayback = false
 		topWebView.mediaPlaybackRequiresUserAction = true
 
 		if #available(iOS 11.0, *) {
 			topWebView.scrollView.contentInsetAdjustmentBehavior = .never
 		}
-		topWebView.loadRequest(URLRequest(url: url))
+
+		topWebView.loadHTMLString(html, baseURL: url)
 		didLoadMedia = true
 	}
 
