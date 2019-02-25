@@ -25,7 +25,7 @@ final class TabbarViewController: UITabBarController {
 	private func checkApiVersion() {
 		DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
 			Service.api.getInfo { result in
-				if let response = result.value, let v = response.minSupportedVersion, v > Api.version {
+				if let response = result.value, let v = response.apiMinSupportVersion, v > Api.version {
 					self.alert(R.string.localizable.alert_update_required())
 				}
 			}

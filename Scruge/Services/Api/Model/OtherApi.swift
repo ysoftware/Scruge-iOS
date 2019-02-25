@@ -21,7 +21,7 @@ struct AccountRequest: Codable {
 
 struct GeneralInfoResponse: Codable {
 
-	let minSupportedVersion:Int?
+	let apiMinSupportVersion:Int?
 
 	let apiVersion:Int
 }
