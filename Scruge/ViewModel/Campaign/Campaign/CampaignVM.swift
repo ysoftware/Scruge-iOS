@@ -59,7 +59,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		topCommentsVM = model.flatMap { CommentAVM($0.topComments, source: .campaign($0)) }
 		documentsVM = model?.documents.flatMap { DocumentAVM($0) }
 
-		milestonesVM = model.flatMap { MilestoneAVM($0) }
+		milestonesVM = model.flatMap(MilestoneAVM.init)
 		milestonesVM?.reloadData()
 	}
 
