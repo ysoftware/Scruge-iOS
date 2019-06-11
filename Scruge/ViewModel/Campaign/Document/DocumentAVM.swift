@@ -7,7 +7,7 @@
 //
 
 import MVVM
-import Result
+
 
 final class DocumentAVM: SimpleArrayViewModel<Document, DocumentVM> {
 
@@ -16,7 +16,7 @@ final class DocumentAVM: SimpleArrayViewModel<Document, DocumentVM> {
 		setData(list.map { DocumentVM($0) })
 	}
 
-	override func fetchData(_ block: @escaping (Result<[Document], AnyError>) -> Void) {
+	override func fetchData(_ block: @escaping (Result<[Document], Error>) -> Void) {
 		// no-op
 	}
 }

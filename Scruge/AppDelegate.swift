@@ -53,6 +53,14 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 //		Service.eos.nodeUrl = Service.eos.testNodeUrl
 		#endif
 
+
+
+		SEKeystoreService.sharedInstance.newAccountAndMnemonic(passcode: "123", succeed: { (account, string) in
+			print(account, string)
+		}) { (error) in
+			print(error)
+		}
+
 		return true
 	}
 }

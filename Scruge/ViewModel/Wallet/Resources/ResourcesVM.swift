@@ -19,7 +19,7 @@ final class ResourcesVM: ViewModel<Resources> {
 		}
 
 		Service.eos.getResources(of: accountName) { result in
-			self.model = result.value
+			self.model = try? result.get()
 			self.notifyUpdated()
 		}
 	}

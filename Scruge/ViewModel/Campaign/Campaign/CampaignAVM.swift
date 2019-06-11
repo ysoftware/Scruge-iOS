@@ -7,7 +7,7 @@
 //
 
 import MVVM
-import Result
+
 
 final class CampaignAVM: ArrayViewModel<PartialCampaign, PartialCampaignVM, CampaignQuery> {
 
@@ -17,14 +17,9 @@ final class CampaignAVM: ArrayViewModel<PartialCampaign, PartialCampaignVM, Camp
 	}
 
 	override func fetchData(_ query: CampaignQuery?,
-							_ block: @escaping (Result<[PartialCampaign], AnyError>) -> Void) {
+							_ block: @escaping (Result<[PartialCampaign], Error>) -> Void) {
 		Service.api.getCampaignList(for: query) { result in
-			switch result {
-			case .success(let response):
-				block(.success(response.campaigns))
-			case .failure(let error):
-				block(.failure(AnyError(error)))
-			}
+			block(result.map { $0.campaigns })
 		}
 	}
 }

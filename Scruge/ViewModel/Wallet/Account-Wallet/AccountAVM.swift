@@ -7,28 +7,25 @@
 //
 
 import MVVM
-import Result
+
 
 final class AccountAVM:SimpleArrayViewModel<AccountModel, AccountVM> {
 
-	override func fetchData(_ block: @escaping (Result<[AccountModel], AnyError>) -> Void) {
+	override func fetchData(_ block: @escaping (Result<[AccountModel], Error>) -> Void) {
 		guard let wallet = Service.wallet.getWallet() else {
-			return block(.failure(AnyError(WalletError.noKey)))
+			return block(.failure(WalletError.noKey))
 		}
 
 		Service.eos.getAccounts(for: wallet) { result in
-			switch result {
-			case .failure(let error):
-				return block(.failure(AnyError(error)))
-			case .success(let accounts):
+			block(result.flatMap { accounts in
 				if !accounts.isEmpty {
-					let accounts = accounts.map { AccountModel(name: $0, wallet: wallet) }.sorted()
-					block(.success(accounts))
+					let models = accounts.map { AccountModel(name: $0, wallet: wallet) }.sorted()
+					return .success(models)
 				}
 				else {
-					block(.failure(AnyError(WalletError.noAccounts)))
+					return .failure(WalletError.noAccounts)
 				}
-			}
+			})
 		}
 	}
 

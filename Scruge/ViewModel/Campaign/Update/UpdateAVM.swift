@@ -7,7 +7,7 @@
 //
 
 import MVVM
-import Result
+
 
 final class UpdateAVM: SimpleArrayViewModel<Update, UpdateVM> {
 
@@ -28,7 +28,7 @@ final class UpdateAVM: SimpleArrayViewModel<Update, UpdateVM> {
 		setData(updates.map { UpdateVM($0) })
 	}
 
-	override func fetchData(_ block: @escaping (Result<[Update], AnyError>) -> Void) {
+	override func fetchData(_ block: @escaping (Result<[Update], Error>) -> Void) {
 		switch source {
 		case .campaign(let campaign):
 			Service.api.getUpdateList(for: campaign) { block($0.map { $0.updates }) }

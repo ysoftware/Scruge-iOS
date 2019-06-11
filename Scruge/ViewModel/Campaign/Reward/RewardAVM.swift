@@ -7,7 +7,7 @@
 //
 
 import MVVM
-import Result
+
 
 final class RewardAVM: SimpleArrayViewModel<Reward, RewardVM> {
 
@@ -16,7 +16,7 @@ final class RewardAVM: SimpleArrayViewModel<Reward, RewardVM> {
 		setData(rewards.map { RewardVM($0) })
 	}
 
-	override func fetchData(_ block: @escaping (Result<[Reward], AnyError>) -> Void) {
+	override func fetchData(_ block: @escaping (Result<[Reward], Error>) -> Void) {
 		// no op?
 	}
 }

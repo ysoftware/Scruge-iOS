@@ -7,7 +7,6 @@
 //
 
 import SwiftHTTP
-import Result
 
 struct Mock {
 	

@@ -7,7 +7,6 @@
 //
 
 import MVVM
-import Result
 
 final class MilestoneAVM: SimpleArrayViewModel<Milestone, MilestoneVM> {
 
@@ -23,7 +22,7 @@ final class MilestoneAVM: SimpleArrayViewModel<Milestone, MilestoneVM> {
 		setData(milestones.map { MilestoneVM($0) })
 	}
 
-	override func fetchData(_ block: @escaping (Result<[Milestone], AnyError>) -> Void) {
+	override func fetchData(_ block: @escaping (Result<[Milestone], Error>) -> Void) {
 		guard let campaign = campaign else { return }
 		Service.api.getMilestones(for: campaign) { block($0.map { $0.milestones }) }
 	}

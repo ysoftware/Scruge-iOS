@@ -68,21 +68,21 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 	func loadDescription(_ completion: @escaping (String)->Void) {
 		guard let model = model else { return completion("") }
 		Service.api.getCampaignContent(for: model) { result in
-			completion(result.value?.content ?? "")
+			completion((try? result.get())?.content ?? "")
 		}
 	}
 
 	func loadVoteInfo(_ completion: @escaping (VoteInfo?)->Void) {
 		guard let model = model else { return completion(nil) }
 		Service.api.getVoteInfo(campaignId: model.id) { result in
-			completion(result.value?.voting)
+			completion((try? result.get())?.voting)
 		}
 	}
 
 	func loadVoteResults(_ completion: @escaping (VoteResult?)->Void) {
 		guard let model = model else { return completion(nil) }
 		Service.api.getVoteResult(campaignId: model.id) { result in
-			completion(result.value?.votings.first(where: { $0.active }))
+			completion((try? result.get())?.votings.first(where: { $0.active }))
 		}
 	}
 
@@ -90,7 +90,7 @@ final class CampaignVM: ViewModel<Campaign>, PartialCampaignViewModel, PartialCa
 		guard let model = model else { return completion(nil) }
 
 		Service.api.getContributionHistory { result in
-			let contribution = result.value?.contributions.first(where: { $0.campaignId == model.id })
+			let contribution = (try? result.get())?.contributions.first(where: { $0.campaignId == model.id })
 			completion(contribution?.amount ?? 0)
 		}
 	}

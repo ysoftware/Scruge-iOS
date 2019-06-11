@@ -7,13 +7,12 @@
 //
 
 import MVVM
-import Result
 
 final class ProfileVM: ViewModel<Profile> {
 
 	func load() {
 		Service.api.getProfile { result in
-			self.model = result.value?.profile
+			self.model = try? result.get().profile
 			self.notifyUpdated()
 		}
 	}
@@ -72,7 +71,7 @@ final class ProfileVM: ViewModel<Profile> {
 		}
 	}
 
-	private static func handleResponse(_ result: Result<ResultResponse, AnyError>) -> Error? {
+	private static func handleResponse(_ result: Result<ResultResponse, Error>) -> Error? {
 		switch result {
 		case .success(let response):
 			return ErrorHandler.error(from: response.result) 

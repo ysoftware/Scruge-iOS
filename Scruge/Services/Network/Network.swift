@@ -7,7 +7,6 @@
 //
 
 import SwiftHTTP
-import Result
 
 struct Network:Networking {
 
@@ -34,7 +33,7 @@ struct Network:Networking {
 				data:Data,
 				fileName:String,
 				mimeType:String,
-				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+				_ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 
 		var parameters = params ?? [:]
 		parameters["image"] = Upload(data: data, fileName: fileName, mimeType: mimeType)
@@ -49,7 +48,7 @@ struct Network:Networking {
 
 	func get<T:Codable>(_ request:String,
 						_ params:HTTPParameterProtocol?,
-						_ completion: @escaping (Result<T, AnyError>)->Void) {
+						_ completion: @escaping (Result<T, Error>)->Void) {
 
 		log("GET", request, params)
 		activity.beginAnimating()
@@ -63,7 +62,7 @@ struct Network:Networking {
 
 	func post<T:Codable>(_ request:String,
 						 _ params:HTTPParameterProtocol?,
-						 _ completion: @escaping (Result<T, AnyError>)->Void) {
+						 _ completion: @escaping (Result<T, Error>)->Void) {
 
 		log("POST", request, params)
 		activity.beginAnimating()
@@ -77,7 +76,7 @@ struct Network:Networking {
 
 	func put<T:Codable>(_ request:String,
 						_ params:HTTPParameterProtocol?,
-						_ completion: @escaping (Result<T, AnyError>)->Void) {
+						_ completion: @escaping (Result<T, Error>)->Void) {
 
 		log("PUT", request, params)
 		activity.beginAnimating()
@@ -94,24 +93,24 @@ struct Network:Networking {
 	}
 
 	private func handleResponse<T:Codable>(_ response: (Response?),
-										   _ completion: @escaping (Result<T, AnyError>)->Void) {
+										   _ completion: @escaping (Result<T, Error>)->Void) {
 		DispatchQueue.main.async {
 			self.activity.endAnimating()
 			
 			guard let response = response else {
 				self.log(nil, "No response.")
-				return completion(.failure(AnyError(NetworkingError.connectionProblem)))
+				return completion(.failure(NetworkingError.connectionProblem))
 			}
 
 			if let code = response.statusCode, code != 200 {
 				let e = ErrorHandler.error(from: code) ?? BackendError.unknown
-				completion(.failure(AnyError(e)))
+				completion(.failure(e))
 				return
 			}
 
 			if let error = response.error {
 				self.log(response, "Error: status code \(response.statusCode ?? -1)")
-				return completion(.failure(AnyError(error)))
+				return completion(.failure(error))
 			}
 
 			guard let object = T.init(from: response.data) else {
@@ -120,7 +119,7 @@ struct Network:Networking {
 
 				let error = self.handleResultError(response.data) ?? BackendError.parsingError
 
-				return completion(.failure(AnyError(error)))
+				return completion(.failure(error))
 			}
 			
 			self.log(response, "\(object.toDictionary())")

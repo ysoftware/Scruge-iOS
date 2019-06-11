@@ -7,17 +7,11 @@
 //
 
 import Foundation
-import Result
+
 
 struct ErrorHandler {
 
-	// extract Error from Result's AnyError
-	private static func extractError(_ error:Error) -> Error {
-		return (error as? AnyError)?.error ?? error
-	}
-
 	static func message(for error:Error) -> String {
-		let error = extractError(error)
 		if let authError = error as? AuthError {
 			switch authError {
 			case .incorrectEmailLength:

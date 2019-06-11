@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Result
+
 import appendAttributedString
 
 final class ProfileEditViewController: UIViewController {

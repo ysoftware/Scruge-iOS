@@ -7,12 +7,12 @@
 //
 
 import MVVM
-import Result
+
 
 final class ActivityAVM: ArrayViewModel<ActivityHolder, ActivityVM, ActivityQ> {
 
 	override func fetchData(_ query: ActivityQ?,
-							_ block: @escaping (Result<[ActivityHolder], AnyError>) -> Void) {
+							_ block: @escaping (Result<[ActivityHolder], Error>) -> Void) {
 		Service.api.getActivity(query: query) { block($0.map { $0.activity }) }
 	}
 }

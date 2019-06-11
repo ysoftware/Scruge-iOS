@@ -7,7 +7,6 @@
 //
 
 import SwiftHTTP
-import Result
 
 protocol Networking {
 
@@ -15,20 +14,20 @@ protocol Networking {
 
 	func get<T:Codable>(_ request:String,
 						_ params:HTTPParameterProtocol?,
-						_ completion: @escaping (Result<T, AnyError>)->Void)
+						_ completion: @escaping (Result<T, Error>)->Void)
 
 	func post<T:Codable>(_ request:String,
 						 _ params:HTTPParameterProtocol?,
-						 _ completion: @escaping (Result<T, AnyError>)->Void)
+						 _ completion: @escaping (Result<T, Error>)->Void)
 
 	func put<T:Codable>(_ request:String,
 						_ params:HTTPParameterProtocol?,
-						_ completion: @escaping (Result<T, AnyError>)->Void)
+						_ completion: @escaping (Result<T, Error>)->Void)
 
 	func upload(_ request:String,
 				_ params:[String:Any]?,
 				data:Data,
 				fileName:String,
 				mimeType:String,
-				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void)
+				_ completion: @escaping (Result<ResultResponse, Error>)->Void)
 }

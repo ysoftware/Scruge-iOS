@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Result
+
 import MVVM
 
 final class RAMViewController: UIViewController {
@@ -141,7 +141,7 @@ final class RAMViewController: UIViewController {
 		}
 	}
 
-	func block(_ result:Result<String, AnyError>) {
+	func block(_ result:Result<String, Error>) {
 		self.button.isBusy = false
 		
 		switch result {

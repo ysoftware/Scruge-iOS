@@ -7,7 +7,6 @@
 //
 
 import MVVM
-import Result
 
 final class FaqAVM: SimpleArrayViewModel<Faq, FaqVM> {
 
@@ -16,7 +15,7 @@ final class FaqAVM: SimpleArrayViewModel<Faq, FaqVM> {
 		setData(list.map { FaqVM($0) })
 	}
 
-	override func fetchData(_ block: @escaping (Result<[Faq], AnyError>) -> Void) {
+	override func fetchData(_ block: @escaping (Result<[Faq], Error>) -> Void) {
 		// no-op
 	}
 }

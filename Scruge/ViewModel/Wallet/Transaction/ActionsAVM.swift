@@ -7,7 +7,7 @@
 //
 
 import MVVM
-import Result
+
 
 final class ActionsAVM: ArrayViewModel<ActionReceipt, ActionVM, ActionsQuery> {
 
@@ -18,7 +18,7 @@ final class ActionsAVM: ArrayViewModel<ActionReceipt, ActionVM, ActionsQuery> {
 	}
 
 	override func fetchData(_ query: ActionsQuery?,
-							_ block: @escaping (Result<[ActionReceipt], AnyError>) -> Void) {
+							_ block: @escaping (Result<[ActionReceipt], Error>) -> Void) {
 		Service.eos.getActions(for: accountName, query: query, completion: block)
 	}
 }

@@ -8,7 +8,6 @@
 
 import UIKit
 import MVVM
-import Result
 
 final class WalletViewController: UIViewController {
 

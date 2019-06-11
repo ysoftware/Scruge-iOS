@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Result
+
 
 final class StakingViewController:UIViewController {
 
@@ -105,7 +105,7 @@ final class StakingViewController:UIViewController {
 		return (model, cpu, net, passcode)
 	}
 
-	private func block(result:Result<String, AnyError>) {
+	private func block(result:Result<String, Error>) {
 		self.button.isBusy = false
 		self.unstakeButton.isBusy = false
 		

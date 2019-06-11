@@ -6,7 +6,7 @@
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
-import Result
+
 import SwiftHTTP
 import FirebaseMessaging
 import FirebaseCore
@@ -33,26 +33,26 @@ final class Api {
 		service = Network(baseUrl: environment.rawValue, apiVersion: Api.version)
 	}
 
-	func getInfo(_ completion: @escaping (Result<GeneralInfoResponse, AnyError>)->Void) {
+	func getInfo(_ completion: @escaping (Result<GeneralInfoResponse, Error>)->Void) {
 		service.get("", nil, completion)
 	}
 
 	// MARK: - Bounty
 
-	func getProjects(_ completion: @escaping (Result<ProjectsResponse, AnyError>)->Void) {
+	func getProjects(_ completion: @escaping (Result<ProjectsResponse, Error>)->Void) {
 		service.get("projects", nil, completion)
 	}
 
 	func getBounties(for projectVM:ProjectVM,
-					 _ completion: @escaping (Result<BountiesResponse, AnyError>)->Void) {
+					 _ completion: @escaping (Result<BountiesResponse, Error>)->Void) {
 		let request = BountiesRequest(providerName: projectVM.providerName)
 		service.get("bounties", request.toDictionary(), completion)
 	}
 
 	func postSubmission(bountyId:Int64, proof:String, hunterName:String, providerName:String,
-						_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+						_ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		let request = SubmissionRequest(token: token,
 										bountyId: bountyId,
@@ -66,15 +66,15 @@ final class Api {
 
 	func createAccount(withName accountName: String,
 					   publicKey: String,
-					   _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+					   _ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		let request = AccountRequest(name: accountName, publicKey: publicKey)
 		service.post("user/\(token)/create_eos_account", request.toDictionary(), completion)
 	}
 
-	func getDefaultTokens(_ completion: @escaping (Result<[Token], AnyError>)->Void) {
+	func getDefaultTokens(_ completion: @escaping (Result<[Token], Error>)->Void) {
 		return completion(.success(["diatokencore DIA",       // arbitrary list of "top" tokens
 			"eosblackteam BLACK",
 			"taketooktook TOOK",
@@ -89,14 +89,14 @@ final class Api {
 
 	// MARK: - Auth
 
-	func resetPassword(login:String, _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+	func resetPassword(login:String, _ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		let request = LoginRequest(login: login)
 		service.post("auth/reset_password", request.toDictionary(), completion)
 	}
 
 	func logIn(email:String,
 			   password:String,
-			   _ completion: @escaping (Result<LoginResponse, AnyError>)->Void) {
+			   _ completion: @escaping (Result<LoginResponse, Error>)->Void) {
 		InstanceID.instanceID().instanceID { result, _ in
 			let token = result?.token
 			let request = AuthRequest(login: email, password: password, token: token)
@@ -106,33 +106,33 @@ final class Api {
 
 	func signUp(email:String,
 				password:String,
-				_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+				_ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		let request = RegisterRequest(login: email, password: password)
 		service.post("auth/register", request.toDictionary(), completion)
 	}
 
 	func checkEmail(_ email:String,
-					_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+					_ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		let request = EmailRequest(email: email)
 		service.post("auth/check_email", request.toDictionary(), completion)
 	}
 
 	// MARK: - Profile
 
-	func getUserId(_ completion: @escaping (Result<UserIdResponse, AnyError>)->Void) {
+	func getUserId(_ completion: @escaping (Result<UserIdResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		service.get("user/\(token)/id", nil, completion)
 	}
 
 	func updateProfileImage(_ image:UIImage,
-							_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+							_ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		guard let data = image.jpegData(compressionQuality: 0.8) else {
-			return completion(.failure(AnyError(BackendError.parsingError)))
+			return completion(.failure(BackendError.parsingError))
 		}
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		service.upload("avatar/\(token)",
 					   nil,
@@ -144,43 +144,43 @@ final class Api {
 	func updateProfile(name:String,
 					   country:String,
 					   description:String,
-					   _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+					   _ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		let request = ProfileRequest(name: name, country: country, description: description)
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		service.put("profile/\(token)", request.toDictionary(), completion)
 	}
 
-	func getProfile(_ completion: @escaping (Result<ProfileResponse, AnyError>)->Void) {
+	func getProfile(_ completion: @escaping (Result<ProfileResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		service.get("profile/\(token)", nil, completion)
 	}
 
 	// MARK: - Categories & Tags
 
-	func getCategories(_ completion: @escaping (Result<CategoriesResponse, AnyError>)->Void) {
+	func getCategories(_ completion: @escaping (Result<CategoriesResponse, Error>)->Void) {
 		service.get("categories", nil, completion)
 	}
 
-	func getTags(_ completion: @escaping (Result<TagsResponse, AnyError>)->Void) {
+	func getTags(_ completion: @escaping (Result<TagsResponse, Error>)->Void) {
 		service.get("tags", nil, completion)
 	}
 
 	// MARK: - Campaigns
 
 	func getCampaign(with id:Int,
-					 _ completion: @escaping (Result<CampaignResponse, AnyError>)->Void) {
+					 _ completion: @escaping (Result<CampaignResponse, Error>)->Void) {
 		service.get("campaign/\(id)", nil, completion)
 	}
 
 	func getCampaignList(for query:CampaignQuery?,
-						 _ completion: @escaping (Result<CampaignListResponse, AnyError>)->Void) {
+						 _ completion: @escaping (Result<CampaignListResponse, Error>)->Void) {
 		if let query = query, query.requestType != .regular {
 			guard let token = Service.tokenManager.getToken() else {
-				return completion(.failure(AnyError(AuthError.noToken)))
+				return completion(.failure(AuthError.noToken))
 			}
 			switch query.requestType {
 			case .backed:
@@ -197,9 +197,9 @@ final class Api {
 	// MARK: - Subscriptions
 
 	func getSubscriptionStatus(for campaign:Campaign,
-							   _ completion: @escaping (Result<BoolResponse, AnyError>)->Void) {
+							   _ completion: @escaping (Result<BoolResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 
 		let request = CampaignRequest(campaignId: campaign.id)
@@ -208,9 +208,9 @@ final class Api {
 
 	func setSubscribing(_ subscribing:Bool,
 						to campaign:Campaign,
-						_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+						_ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 
 		let request = CampaignRequest(campaignId: campaign.id)
@@ -221,12 +221,12 @@ final class Api {
 	// MARK: - Updates
 
 	func getUpdateList(for campaign:Campaign,
-					   _ completion: @escaping (Result<UpdateListResponse, AnyError>)->Void) {
+					   _ completion: @escaping (Result<UpdateListResponse, Error>)->Void) {
 		service.get("campaign/\(campaign.id)/updates", nil, completion)
 	}
 
 	func getActivity(query:ActivityQ?,
-					 _ completion: @escaping (Result<ActivityListResponse, AnyError>)->Void) {
+					 _ completion: @escaping (Result<ActivityListResponse, Error>)->Void) {
 		let params = ActivityListRequest(page: query?.page ?? 0)
 		guard let token = Service.tokenManager.getToken() else {
 			return service.get("activity", params.toDictionary(), completion)
@@ -234,9 +234,9 @@ final class Api {
 		service.get("user/\(token)/activity", params.toDictionary(), completion)
 	}
 
-	func getVoteNotifications(_ completion: @escaping (Result<ActiveVotesResponse, AnyError>)->Void) {
+	func getVoteNotifications(_ completion: @escaping (Result<ActiveVotesResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		service.get("user/\(token)/votes", nil, completion)
 	}
@@ -245,42 +245,42 @@ final class Api {
 
 	func getUpdateDescription(for update:Update,
 							  in campaign:Campaign,
-							  _ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
+							  _ completion: @escaping (Result<HTMLResponse, Error>)->Void) {
 		service.get("campaign/\(campaign.id)/update/\(update.id)/description", nil, completion)
 	}
 
 	func getCampaignContent(for campaign:Campaign,
-							_ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
+							_ completion: @escaping (Result<HTMLResponse, Error>)->Void) {
 		service.get("campaign/\(campaign.id)/content", nil, completion)
 	}
 
 	func getUpdateContent(for update:Update,
-						  _ completion: @escaping (Result<HTMLResponse, AnyError>)->Void) {
+						  _ completion: @escaping (Result<HTMLResponse, Error>)->Void) {
 		service.get("update/\(update.id)/content", nil, completion)
 	}
 
 	// MARK: - Milestones
 
 	func getMilestones(for campaign:Campaign,
-					   _ completion: @escaping (Result<MilestoneListResponse, AnyError>)->Void) {
+					   _ completion: @escaping (Result<MilestoneListResponse, Error>)->Void) {
 		service.get("campaign/\(campaign.id)/milestones", nil, completion)
 	}
 
 	// MARK: - Contributions
 
 	func getDidContribute(campaignId:Int,
-						  _ completion: @escaping (Result<BoolResponse, AnyError>)->Void) {
+						  _ completion: @escaping (Result<BoolResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		let request = CampaignRequest(campaignId: campaignId)
 		service.get("user/\(token)/did_contribute", request.toDictionary(), completion)
 	}
 
 	func getDidVote(campaignId:Int,
-						  _ completion: @escaping (Result<BoolResponse, AnyError>)->Void) {
+						  _ completion: @escaping (Result<BoolResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		let request = CampaignRequest(campaignId: campaignId)
 		service.get("user/\(token)/did_vote", request.toDictionary(), completion)
@@ -289,9 +289,9 @@ final class Api {
 	func notifyVote(campaignId:Int,
 					value:Bool,
 					transactionId:String,
-					_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+					_ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		let request = VoteNotificationRequest(vote: value,
 											  campaignId: campaignId,
@@ -302,9 +302,9 @@ final class Api {
 	func notifyContribution(campaignId:Int,
 							amount:Double,
 							transactionId:String,
-							_ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+							_ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		let request = ContributionNotificationRequest(amount: amount,
 													  campaignId: campaignId,
@@ -313,20 +313,20 @@ final class Api {
 	}
 
 	func getContributionHistory(
-		_ completion: @escaping (Result<ContributionHistoryResponse, AnyError>)->Void) {
+		_ completion: @escaping (Result<ContributionHistoryResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		service.get("user/\(token)/contributions", nil, completion)
 	}
 
 	func getVoteResult(campaignId:Int,
-					   _ completion: @escaping (Result<VotesResultsResponse, AnyError>)->Void) {
+					   _ completion: @escaping (Result<VotesResultsResponse, Error>)->Void) {
 		service.get("campaign/\(campaignId)/vote_results", nil, completion)
 	}
 
 	func getVoteInfo(campaignId:Int,
-					   _ completion: @escaping (Result<VoteInfoResponse, AnyError>)->Void) {
+					   _ completion: @escaping (Result<VoteInfoResponse, Error>)->Void) {
 		service.get("campaign/\(campaignId)/votes", nil, completion)
 	}
 
@@ -334,9 +334,9 @@ final class Api {
 
 	func likeComment(_ comment:Comment,
 					 value:Bool,
-					 _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+					 _ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		let request = CommentLikeRequest(token: token, value: value)
 		service.post("comment/\(comment.id)/like", request.toDictionary(), completion)
@@ -344,16 +344,16 @@ final class Api {
 
 	func postComment(_ text:String,
 					 source: CommentSource,
-					 _ completion: @escaping (Result<ResultResponse, AnyError>)->Void) {
+					 _ completion: @escaping (Result<ResultResponse, Error>)->Void) {
 		guard let token = Service.tokenManager.getToken() else {
-			return completion(.failure(AnyError(AuthError.noToken)))
+			return completion(.failure(AuthError.noToken))
 		}
 		let request = CommentRequest(from: source, token: token, text: text)
 		service.post("comments", request.toDictionary(), completion)
 	}
 
 	func getComments(for query:CommentQuery,
-					 _ completion: @escaping (Result<CommentListResponse, AnyError>)->Void) {
+					 _ completion: @escaping (Result<CommentListResponse, Error>)->Void) {
 		let token = Service.tokenManager.getToken()
 		let request = CommentListRequest(from: query, token:token)
 		service.get("comments", request.toDictionary(), completion)

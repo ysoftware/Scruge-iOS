@@ -7,11 +7,11 @@
 //
 
 import MVVM
-import Result
+
 
 final class CategoryAVM: SimpleArrayViewModel<Category, CategoryVM> {
 
-	override func fetchData(_ block: @escaping (Result<[Category], AnyError>) -> Void) {
+	override func fetchData(_ block: @escaping (Result<[Category], Error>) -> Void) {
 		Service.api.getCategories { block($0.map { $0.data }) }
 	}
 }

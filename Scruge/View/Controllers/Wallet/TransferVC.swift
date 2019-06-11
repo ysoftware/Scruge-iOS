@@ -49,7 +49,7 @@ final class TransferViewController: UIViewController {
 		guard let eosName = accountVM.name else { return }
 
 		Service.api.getDefaultTokens { result in
-			let otherTokens = result.value ?? []
+			let otherTokens = (try? result.get()) ?? []
 			let savedTokens:[String] = Service.settings.get(.userTokens) ?? []
 			let userTokens = savedTokens.compactMap { Token(string: $0) }
 			let list = Token.default + userTokens + otherTokens

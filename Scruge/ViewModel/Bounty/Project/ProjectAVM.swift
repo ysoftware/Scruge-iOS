@@ -7,11 +7,10 @@
 //
 
 import MVVM
-import Result
 
 final class ProjectsAVM: ArrayViewModel<Project, ProjectVM, ProjectQ> {
 
-	override func fetchData(_ query: ProjectQ?, _ block: @escaping (Result<[Project], AnyError>) -> Void) {
+	override func fetchData(_ query: ProjectQ?, _ block: @escaping (Result<[Project], Error>) -> Void) {
 		Service.api.getProjects  { block($0.map { $0.projects }) }
 	}
 }

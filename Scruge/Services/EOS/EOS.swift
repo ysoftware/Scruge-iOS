@@ -6,7 +6,6 @@
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
-import Result
 
 struct ContractAccounts {
 
@@ -35,64 +34,64 @@ class EOS {
 
 	fileprivate let chain = EOSRPC.sharedInstance
 
-	func getChainInfo(forNode url:String, completion: @escaping (Result<ChainInfo, AnyError>)->Void) {
+	func getChainInfo(forNode url:String, completion: @escaping (Result<ChainInfo, Error>)->Void) {
 		let prevEndpoint = EOSRPC.endpoint
 		EOSRPC.endpoint = url
 		chain.chainInfo { chainInfo, error in
 			guard let info = chainInfo else {
-				return completion(.failure(AnyError(error ?? EOSError.unknown)))
+				return completion(.failure(error ?? EOSError.unknown))
 			}
 			completion(.success(info))
 		}
 		EOSRPC.endpoint = prevEndpoint
 	}
 
-	func getProducers(_ completion: @escaping (Result<ProducersInfo, AnyError>)->Void) {
+	func getProducers(_ completion: @escaping (Result<ProducersInfo, Error>)->Void) {
 		chain.getProducers(lowerBound: "", limit: -1) { info, error in
 			guard let info = info else {
-				return completion(.failure(AnyError(error ?? EOSError.unknown)))
+				return completion(.failure(error ?? EOSError.unknown))
 			}
 			completion(.success(info))
 		}
 	}
 
-	func getRAMPrice(_ completion: @escaping (Result<Double, AnyError>)->Void) {
+	func getRAMPrice(_ completion: @escaping (Result<Double, Error>)->Void) {
 		chain.getTableRows(scope: "eosio",
 						   code: "eosio",
 						   table: "rammarket") { (response:TableRowResponse<RamMarket>?, error:Error?) in
 
 							guard let rows = response?.rows else {
-								return completion(.failure(AnyError(error ?? EOSError.unknown)))
+								return completion(.failure(error ?? EOSError.unknown))
 							}
 
 							guard let quoteS = rows.first?.quote.balance.components(separatedBy: " ").first,
 								let baseS = rows.first?.base.balance.components(separatedBy: " ").first,
 								let quote = Double(quoteS), let base = Double(baseS) else {
-									return  completion(.failure(AnyError(EOSError.unknown)))
+									return  completion(.failure(EOSError.unknown))
 							}
 							completion(.success(quote / base))
 		}
 	}
 
 	func getAccounts(for wallet:SELocalAccount,
-					 completion: @escaping (Result<[String], AnyError>)->Void) {
+					 completion: @escaping (Result<[String], Error>)->Void) {
 
 		guard let key = wallet.rawPublicKey else {
-			return completion(.failure(AnyError(WalletError.noKey)))
+			return completion(.failure(WalletError.noKey))
 		}
 
 		chain.getKeyAccounts(pub: key) { result, error in
 			guard let accountNames = result?.accountNames else {
-				return completion(.failure(AnyError(error ?? EOSError.unknown)))
+				return completion(.failure(error ?? EOSError.unknown))
 			}
 			completion(.success(accountNames))
 		}
 	}
 
-	func getResources(of account:EosName, completion: @escaping (Result<Resources, AnyError>)->Void) {
+	func getResources(of account:EosName, completion: @escaping (Result<Resources, Error>)->Void) {
 		chain.getAccount(account: account.string) { account, error in
 			guard let account = account else {
-				return completion(.failure(AnyError(error ?? EOSError.unknown)))
+				return completion(.failure(error ?? EOSError.unknown))
 			}
 			completion(.success(Resources(data: account)))
 		}
@@ -100,14 +99,14 @@ class EOS {
 
 	func getActions(for account:EosName,
 					query:ActionsQuery?,
-					completion: @escaping (Result<[ActionReceipt], AnyError>)->Void) {
+					completion: @escaping (Result<[ActionReceipt], Error>)->Void) {
 		chain.getActions(accountName: account.string,
 						 position: query?.position ?? -1,
 						 offset: query?.offset ?? -100) { result, error in
 			guard let actions = result?.actions
 				.sorted(by: { $0.globalActionSeq.intValue > $1.globalActionSeq.intValue })
 			else {
-				return completion(.failure(AnyError(error ?? EOSError.unknown)))
+				return completion(.failure(error ?? EOSError.unknown))
 			}
 			
 			if !actions.isEmpty, query?.position == -1 {
@@ -150,10 +149,10 @@ class EOS {
 						net:Balance,
 						passcode:String,
 						transfer:Bool = false,
-						_ completion: @escaping (Result<String, AnyError>)->Void) {
+						_ completion: @escaping (Result<String, Error>)->Void) {
 
 		guard cpu.token == net.token else {
-			return completion(.failure(AnyError(EOSError.incorrectToken)))
+			return completion(.failure(EOSError.incorrectToken))
 		}
 
 		let data = DelegateBW(from: account.name,
@@ -173,10 +172,10 @@ class EOS {
 						net:Balance,
 						passcode:String,
 						transfer:Bool = false,
-						_ completion: @escaping (Result<String, AnyError>)->Void) {
+						_ completion: @escaping (Result<String, Error>)->Void) {
 
 		guard cpu.token == net.token else {
-			return completion(.failure(AnyError(EOSError.incorrectToken)))
+			return completion(.failure(EOSError.incorrectToken))
 		}
 
 		let data = UndelegateBW(from: account.name,
@@ -192,7 +191,7 @@ class EOS {
 	func buyRam(account:AccountModel,
 				amount:Balance,
 				passcode:String,
-				_ completion: @escaping (Result<String, AnyError>)->Void) {
+				_ completion: @escaping (Result<String, Error>)->Void) {
 		let data = BuyRam(payer: account.name, receiver: account.name, quant: amount.string).jsonString
 		let name = EosName.create("buyram")
 		let contract = EosName.create("eosio")
@@ -202,7 +201,7 @@ class EOS {
 	func buyRam(account:AccountModel,
 				bytes:Int64,
 				passcode:String,
-				_ completion: @escaping (Result<String, AnyError>)->Void) {
+				_ completion: @escaping (Result<String, Error>)->Void) {
 		let data = BuyRamBytes(payer: account.name, receiver: account.name, bytes: bytes).jsonString
 		let name = EosName.create("buyrambytes")
 		let contract = EosName.create("eosio")
@@ -212,7 +211,7 @@ class EOS {
 	func sellRam(account:AccountModel,
 				 bytes:Int64,
 				 passcode:String,
-				 _ completion: @escaping (Result<String, AnyError>)->Void) {
+				 _ completion: @escaping (Result<String, Error>)->Void) {
 		let data = SellRam(account: account.name, bytes: bytes).jsonString
 		let name = EosName.create("sellram")
 		let contract = EosName.create("eosio")
@@ -225,7 +224,7 @@ class EOS {
 				   balance:Balance,
 				   memo:String = "",
 				   passcode:String,
-				   _ completion: @escaping (Result<String, AnyError>)->Void) {
+				   _ completion: @escaping (Result<String, Error>)->Void) {
 
 		let transfer = Transfer()
 		transfer.from = account.name
@@ -238,7 +237,7 @@ class EOS {
 						   code: balance.token.contract.string,
 						   unlockOncePasscode: passcode) { result, error in
 							guard let transactionId = result?.transactionId else {
-								return completion(.failure(AnyError(error ?? EOSError.unknown)))
+								return completion(.failure(error ?? EOSError.unknown))
 							}
 							return completion(.success(transactionId))
 		}
@@ -247,7 +246,7 @@ class EOS {
 	func voteProducers(from account:AccountModel,
 					   names:Set<EosName>,
 					   passcode:String,
-					   _ completion: @escaping (Result<String, AnyError>)->Void) {
+					   _ completion: @escaping (Result<String, Error>)->Void) {
 
 		let bps = names.map { $0.string }.sorted() // has to be unique and sorted
 		let data = VoteProducers(voter: account.name, producers: bps).jsonString
@@ -261,7 +260,7 @@ class EOS {
 					  providerName: String,
 					  bountyId: Int64,
 					  passcode:String,
-					  completion: @escaping (Result<String, AnyError>)->Void) {
+					  completion: @escaping (Result<String, Error>)->Void) {
 
 		let data = Submission(hunterName: account.name, providerName: providerName,
 							  proof: proof, bountyId: bountyId).jsonString
@@ -277,12 +276,12 @@ class EOS {
 					from account: AccountModel,
 					data: String,
 					passcode: String,
-					_ completion: @escaping (Result<String, AnyError>)->Void) {
+					_ completion: @escaping (Result<String, Error>)->Void) {
 
 		guard let params = try? AbiJson(code: contract.string,
 										action: action.string,
 										json: data) else {
-											return completion(.failure(AnyError(EOSError.abiError)))
+											return completion(.failure(EOSError.abiError))
 		}
 
 		account.wallet
@@ -290,7 +289,7 @@ class EOS {
 							 account: account.name,
 							 unlockOncePasscode: passcode) { result, error in
 								guard let transactionId = result?.transactionId else {
-									return completion(.failure(AnyError(error ?? EOSError.unknown)))
+									return completion(.failure(error ?? EOSError.unknown))
 								}
 								return completion(.success(transactionId))
 		}
