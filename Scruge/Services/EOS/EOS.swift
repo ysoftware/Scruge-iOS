@@ -6,6 +6,7 @@
 //  Copyright © 2018 Ysoftware. All rights reserved.
 //
 
+import Foundation
 
 struct ContractAccounts {
 

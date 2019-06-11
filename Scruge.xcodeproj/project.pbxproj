@@ -145,6 +145,7 @@
 		71AD0E2B21708DD800077446 /* FaqCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71AD0E2A21708DD800077446 /* FaqCell.xib */; };
 		71AD0E302170919A00077446 /* DocumentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71AD0E2F2170919A00077446 /* DocumentCell.swift */; };
 		71AD0E32217091BD00077446 /* DocumentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 71AD0E31217091BD00077446 /* DocumentCell.xib */; };
+		71ADAF0A22AF756100122AD7 /* ResultHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71ADAF0922AF756100122AD7 /* ResultHelper.swift */; };
 		71B38CF3215A9DF700929CC3 /* Codable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF2215A9DF700929CC3 /* Codable.swift */; };
 		71B38CF5215A9E1000929CC3 /* JSONAny.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF4215A9E1000929CC3 /* JSONAny.swift */; };
 		71B38CF9215AA16400929CC3 /* CampaignApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71B38CF8215AA10900929CC3 /* CampaignApi.swift */; };
@@ -466,6 +467,7 @@
 		71AD0E2A21708DD800077446 /* FaqCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FaqCell.xib; sourceTree = "<group>"; };
 		71AD0E2F2170919A00077446 /* DocumentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentCell.swift; sourceTree = "<group>"; };
 		71AD0E31217091BD00077446 /* DocumentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DocumentCell.xib; sourceTree = "<group>"; };
+		71ADAF0922AF756100122AD7 /* ResultHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultHelper.swift; sourceTree = "<group>"; };
 		71B38CF2215A9DF700929CC3 /* Codable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Codable.swift; sourceTree = "<group>"; };
 		71B38CF4215A9E1000929CC3 /* JSONAny.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONAny.swift; sourceTree = "<group>"; };
 		71B38CF8215AA10900929CC3 /* CampaignApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CampaignApi.swift; sourceTree = "<group>"; };
@@ -870,6 +872,7 @@
 				711EF6FC21F1DCDC008F2FD5 /* Distinct.swift */,
 				7162007222032DE000DC1A10 /* BlankString.swift */,
 				713A8FA9221ADB1C00737B6F /* AttributedString.swift */,
+				71ADAF0922AF756100122AD7 /* ResultHelper.swift */,
 			);
 			path = "Data formatting";
 			sourceTree = "<group>";
@@ -2298,7 +2301,7 @@
 			);
 			name = R.Swift;
 			outputPaths = (
-				"$SRCROOT/R.generated.swift",
+				$SRCROOT/R.generated.swift,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -2451,6 +2454,7 @@
 				71AD0E2721708BD000077446 /* DocumentVM.swift in Sources */,
 				716F060B21D3942500561162 /* ExpandableView.swift in Sources */,
 				71B38D04215AC1E800929CC3 /* Alert.swift in Sources */,
+				71ADAF0A22AF756100122AD7 /* ResultHelper.swift in Sources */,
 				71F4A7F9220B108D00580E85 /* ChainId.swift in Sources */,
 				71BE9574215E7835001CF853 /* CampaignCell.swift in Sources */,
 				71BE9576215E7C8A001CF853 /* ConstraintMultiplier.swift in Sources */,
