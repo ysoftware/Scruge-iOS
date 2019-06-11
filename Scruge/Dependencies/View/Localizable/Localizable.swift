@@ -25,19 +25,19 @@ public extension Localizable {
 		return NSLocalizedString(String(term.dropFirst()), comment: "")
 	}
 
-	public func localize(_ field:ReferenceWritableKeyPath<Self, String>) {
+	func localize(_ field:ReferenceWritableKeyPath<Self, String>) {
 		self[keyPath: field] = localize(self[keyPath: field]) ?? ""
 	}
 
-	public func localize(_ field:ReferenceWritableKeyPath<Self, String?>) {
+	func localize(_ field:ReferenceWritableKeyPath<Self, String?>) {
 		self[keyPath: field] = localize(self[keyPath: field])
 	}
 
-	public func localize(_ string: String?, _ setter: (String?) -> Void) {
+	func localize(_ string: String?, _ setter: (String?) -> Void) {
 		setter(localize(string))
 	}
 
-	public func localize(_ getter: (UIControl.State) -> String?,
+	func localize(_ getter: (UIControl.State) -> String?,
 						 _ setter: (String?, UIControl.State) -> Void) {
 		setter(localize(getter(.normal)), .normal)
 		setter(localize(getter(.selected)), .selected)

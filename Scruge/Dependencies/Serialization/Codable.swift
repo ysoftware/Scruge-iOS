@@ -10,7 +10,7 @@ import Foundation
 
 public extension Decodable {
 
-	public init?(from data:Data) {
+	init?(from data:Data) {
 		do {
 			self = try JSONDecoder().decode(Self.self, from: data)
 		}
@@ -21,7 +21,7 @@ public extension Decodable {
 	}
 
 	/// Инициализовать объект Decodable с помощью Dictionary.
-	public init?(_ dict:[String:Any]?) {
+	init?(_ dict:[String:Any]?) {
 		guard let dict = dict else { return nil }
 
 		do {
@@ -49,7 +49,7 @@ public extension Encodable {
 	}
 
 	/// Преобразовать объект Encodable в Dictionary.
-	public func toDictionary() -> [String:Any] {
+	func toDictionary() -> [String:Any] {
 		do {
 			let data = try JSONEncoder().encode(self)
 			let value = try JSONDecoder().decode(JSONAny.self, from: data)
